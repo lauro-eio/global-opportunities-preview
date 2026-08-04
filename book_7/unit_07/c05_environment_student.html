@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Speaking Formally About Sustainability</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Speaking Formally About Sustainability</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>7</dd>
+      <dt>Class</dt><dd>5</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-eco-build-challenges">
+<header class="stage-header"><h2>Eco-Build Challenges</h2></header>
+<section class="handout">
+<p>Your construction company has just announced an aggressive new target: significantly reducing waste sent to landfills for all future projects. This requires a major shift in how materials are handled on-site.</p>
+<p>Discuss with a partner:<br>
+1. What immediate practical actions would your crew take on a construction site to segregate and recycle materials more effectively?<br>
+2. What types of waste do you anticipate would be most challenging to divert from landfills?<br>
+3. How might communicating this new, strict target impact your team&#x27;s daily routines and overall approach to site management?</p>
+</section>
+</article>
+<article class="stage" id="stage-site-update-professional-communication-c">
+<header class="stage-header"><h2>Site Update: Professional Communication Check</h2></header>
+<section class="handout">
+<p>Read the internal memo below from a Project Manager to a Site Supervisor. The Project Manager needs to convey the seriousness of new environmental targets. Some of the language used is too informal for a professional context. </p>
+<p>Choose the most appropriate and professional option to replace each bolded phrase in the memo.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Internal Memo: Project Horizon Waste Management Review</h5>
+<p>Subject: Urgent Review: Site Waste Management - Project Horizon</p>
+<p>Hi Mark,</p>
+<p>Following the recent <strong class="lexis">site waste audit</strong> for Project Horizon, I need to bring your attention to some pressing concerns. Our current approach to <strong class="lexis">waste segregation is a bit sloppy</strong>, and we&#x27;re seeing too many materials getting mixed up. This is having a serious <strong class="lexis">negative effect</strong> on our targets for waste diversion from landfills.</p>
+<p>It&#x27;s absolutely essential that we tighten things up. As you know, our organisation is committed to <strong class="lexis">sustainable operational practices</strong>, and we must ensure our site performance reflects this. We&#x27;re falling behind on our efforts towards <strong class="lexis">cutting down carbon emissions</strong>, and there are some significant gaps in <strong class="lexis">making sure we follow all environmental rules</strong>. Clients are increasingly scrutinising our <strong class="lexis">resource efficiency initiatives</strong>, so our reputation is at stake.</p>
+<p>Could you please schedule a mandatory briefing for your team by the end of the week? We need to clearly communicate the importance of these standards. Also, we must improve our <strong class="lexis">thinking about the environmental cost</strong> of new materials, in line with our green building codes. Let&#x27;s ensure everyone understands the urgency.</p>
+<p>Best,<br>
+Sarah Chen<br>
+Project Manager</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Replace &#x27;waste segregation is a bit sloppy&#x27; with the most appropriate professional alternative.</p>
+<p>Our current approach to &#x27;waste segregation is a bit sloppy&#x27;.</p>
+<ul><li>waste segregation is somewhat untidy</li><li>waste segregation lacks precision</li><li>waste segregation is a little messy</li><li>waste segregation needs tidying up</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Replace &#x27;negative effect&#x27; with the most appropriate professional alternative.</p>
+<p>This is having a serious &#x27;negative effect&#x27; on our targets.</p>
+<ul><li>damaging impact</li><li>bad outcome</li><li>detrimental impact</li><li>unfavourable consequence</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Replace &#x27;cutting down carbon emissions&#x27; with the most appropriate professional alternative.</p>
+<p>We&#x27;re falling behind on our efforts towards &#x27;cutting down carbon emissions&#x27;.</p>
+<ul><li>reducing carbon output</li><li>carbon footprint mitigation</li><li>lessening carbon release</li><li>making carbon emissions smaller</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Replace &#x27;making sure we follow all environmental rules&#x27; with the most appropriate professional alternative.</p>
+<p>There are some significant gaps in &#x27;making sure we follow all environmental rules&#x27;.</p>
+<ul><li>conforming to green guidelines</li><li>being compliant with eco-standards</li><li>adhering to environmental regulations</li><li>obeying ecological laws</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Replace &#x27;thinking about the environmental cost&#x27; with the most appropriate professional alternative.</p>
+<p>We must improve our &#x27;thinking about the environmental cost&#x27; of new materials.</p>
+<ul><li>environmental spending analysis</li><li>green accounting considerations</li><li>ecological impact assessment</li><li>environmental expense evaluation</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-polishing-our-green-talk">
+<header class="stage-header"><h2>Polishing Our Green Talk</h2></header>
+<section class="handout">
+<p>Now let&#x27;s look closely at the formal language used to discuss corporate environmental responsibility. We&#x27;ll clarify the meaning, context, and pronunciation of these key phrases. </p>
+<p>Below you will find a table contrasting formal and informal ways of expressing similar ideas. Pay attention to how the professional terms are more precise and appropriate for high-level communication. </p>
+<p>Then, complete the tasks to check your understanding.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Formal Professional Terms</th><th>Informal / General Equivalents</th></tr><tr><td>sustainable operational practices</td><td>doing things in a green way</td></tr><tr><td>carbon footprint mitigation</td><td>cutting down carbon emissions</td></tr><tr><td>adhering to environmental regulations</td><td>following environmental rules</td></tr><tr><td>resource efficiency initiatives</td><td>projects to save materials</td></tr><tr><td>ecological impact assessment</td><td>checking the environmental cost</td></tr></table></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Complete the sentence with the most suitable formal phrase.</p>
+<p>If a company is working to reduce the negative effects of its operations on the planet, it is committed to implementing _______________.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence with the most suitable formal phrase.</p>
+<p>When a company takes steps to lessen the amount of greenhouse gases it produces, it is engaging in _______________.</p>
+</div>
+<div class="task"><p class="task-instruction">Which phrase is most appropriate when discussing legally required environmental standards?</p>
+<p>Choosing the right phrase:</p>
+<ul><li>respecting green guidelines</li><li>adhering to environmental regulations</li><li>following ecological rules</li><li>abiding by nature&#x27;s laws</li></ul>
+</div>
+<div class="task"><p class="task-instruction">What is the primary goal of &#x27;resource efficiency initiatives&#x27;?</p>
+<p>The primary goal of &#x27;resource efficiency initiatives&#x27; is to:</p>
+<ul><li>increase material consumption</li><li>manage resources effectively to reduce waste and optimize usage</li><li>find new natural resources</li><li>sell off unused materials</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence with the most suitable formal phrase.</p>
+<p>Before selecting new building materials, our team conducts a thorough _______________ to understand their environmental consequences.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-project-update-sustainability-report">
+<header class="stage-header"><h2>Project Update: Sustainability Report</h2></header>
+<section class="handout">
+<p>Your project has made significant strides in improving its environmental performance, particularly in waste management. Your task is to prepare a brief verbal update (2-3 minutes) for a visiting client or a senior manager on how your team is successfully implementing sustainable practices.</p>
+<p>In your update, make sure to refer to:<br>
+- Specific <strong class="lexis">sustainable operational practices</strong> you&#x27;ve adopted on-site.<br>
+- How your work contributes to <strong class="lexis">carbon footprint mitigation</strong>.<br>
+- Your success in <strong class="lexis">adhering to environmental regulations</strong>.<br>
+- The impact of recent <strong class="lexis">resource efficiency initiatives</strong>.<br>
+- Any recent <strong class="lexis">ecological impact assessments</strong> that guided your material choices.</p>
+<p>Be prepared to present this update to your partner, who will act as the client/manager and ask follow-up questions.</p>
+</section>
+</article>
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Writing Memos: Announcing Operational Changes</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Writing Memos: Announcing Operational Changes</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>2</dd>
+      <dt>Class</dt><dd>6</dd>
+      <dt>Theme</dt><dd>T02_WORK</dd>
+      <dt>Framework</dt><dd>SK-PROD</dd>
+      <dt>Role</dt><dd>SK_PROD_WRITING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Communicating Operational Changes</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Introduce the concept of operational changes in the workplace and the need for clear communication. Guide learners to think about a small, practical change they&#x27;ve experienced or could imagine. Emphasize the audience (team members) and purpose (inform, reassure, instruct) of such a communication, steering away from abstract strategic discussions.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">New Procedures: Announcing Change</h4>
+<p>Imagine a small change is happening in your workplace – perhaps a new safety step, an updated checklist, or a revised shift handoff process. <br>
+1. What kind of small operational change could impact your team? Think of something practical and everyday.<br>
+2. Why is it important to communicate this change clearly to your team?<br>
+3. Who is the audience for this message, and what do they need to know or feel?<br>
+4. What might be some challenges in communicating this change effectively?</p>
+</section>
+</article>
+<article class="stage" id="stage-MOD">
+<header class="stage-header"><span class="stage-code">MOD</span><h2>Model Analysis: Understanding an Operations Memo</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Learners will read a model memo announcing an operational change. Guide them to identify the key structural components, the tone, and how the memo ensures clarity and reassurance for the team. Discuss the professional register and how it addresses potential concerns without being overly formal or dismissive. Use the MCQ to check comprehension of these elements.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Memo Breakdown: Clarity and Reassurance</h4>
+<p>Read the following memo that announces an operational change to a team. Pay attention to how the information is presented and the tone used.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Memo: New Shift Handoff Procedure</h5>
+<p>To: All Operations Team Members<br>
+From: [Manager&#x27;s Name]<br>
+Date: October 26, 2024<br>
+Subject: Important Update: Streamlined Shift Handoff Procedure Implementation</p>
+<p>Dear Team,</p>
+<p>This memo outlines an important update to our <strong class="lexis">shift handoff procedure</strong>, designed to enhance <strong class="lexis">clarity</strong> and efficiency across all shifts, starting <strong class="lexis">November 4, 2024</strong>. Over the past few weeks, we&#x27;ve observed areas where our current handoff process could be improved, particularly regarding information transfer and resource allocation. Your feedback during recent team meetings has been invaluable in identifying these points.</p>
+<p>The new procedure introduces a standardized digital checklist for each outgoing shift. This checklist will prompt you to cover all critical operational points, ensuring seamless continuity for the incoming team. Key changes include:</p>
+<p>*   <strong class="lexis">Mandatory Digital Checklist:</strong> Available on tablets at each station. Completion is required before concluding your shift.<br>
+*   <strong class="lexis">Dedicated 5-Minute Overlap:</strong> This will be built into your schedule, allowing direct verbal communication regarding urgent updates or exceptions not captured by the checklist.<br>
+*   <strong class="lexis">Updated Logbook System:</strong> The physical logbook will now be used primarily for equipment maintenance reports and unusual incidents, simplifying its previous multi-purpose role.</p>
+<p>We understand that any change to established routines requires adjustment. This new process is designed to minimize disruption while significantly improving our overall operational flow and reducing potential errors. Our aim is to provide a more organized and less stressful handoff experience for everyone.</p>
+<p>Training sessions for the new digital checklist will be held on October 29th and 30th during regular shift hours. Attendance is mandatory for all operations team members. Please sign up for a session with your shift lead by October 28th.</p>
+<p>Your commitment to adapting to this new procedure is crucial for its success. We are confident that these adjustments will benefit us all by creating a more efficient and <strong class="lexis">reassuring</strong> work environment. If you have any questions or require further clarification, please speak with your shift lead or myself directly.</p>
+<p>Thank you for your continued hard work and dedication.</p>
+<p>Best regards,<br>
+[Manager&#x27;s Name]<br>
+Operations Manager</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Read the memo and choose the best answer for each question.</p>
+<p>What is the primary purpose of this memo?</p>
+<ul><li>To announce a new company policy for all employees.</li><li>To inform the operations team about a new shift handoff procedure and its benefits.</li><li>To solicit feedback on existing operational challenges.</li><li>To introduce new management staff to the team.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">According to the memo, what specific phrase is used to reassure the team about the change? (Provide two possible answers)</p>
+<p>What specific phrase is used to reassure the team about the change? (Provide two possible answers)</p>
+</div>
+<div class="task"><p class="task-instruction">Which of the following is NOT a key change mentioned in the new procedure?</p>
+<ul><li>Mandatory Digital Checklist.</li><li>Dedicated 5-minute overlap for verbal communication.</li><li>Elimination of the physical logbook.</li><li>Updated logbook system for specific reports.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-PREP">
+<header class="stage-header"><span class="stage-code">PREP</span><h2>Preparation: Structuring Your Operations Memo</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Guide learners in outlining their own memo. First, they should decide on a specific operational change. Then, brainstorm key information for each section. Provide useful phrases for different parts of the memo. Emphasize incorporating elements of clarity and reassurance based on the model. Learners should use the column banks to select appropriate language.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Planning Your Message</h4>
+<p>Now, let&#x27;s prepare to write your own operations change memo. Think back to the small operational change you considered in the Lead-In, or choose a new one. This memo will inform your team about it.</p>
+<p><strong class="lexis">Part 1: Your Memo&#x27;s Core</strong><br>
+1. What specific operational change will you announce?<br>
+2. What are the main reasons for this change?<br>
+3. What are the key actions or steps your team needs to take due to this change?<br>
+4. What benefits will this change bring to the team or operation?<br>
+5. What potential concerns might your team have, and how can you address them?</p>
+<p><strong class="lexis">Part 2: Essential Phrases for Your Memo</strong><br>
+Use the phrases below to help structure your memo and ensure it is clear and reassuring. Which phrases would you use for each section?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Opening the Memo</th><th>Announcing Key Changes</th><th>Providing Reassurance</th><th>Next Steps &amp; Support</th></tr><tr><td>This memo outlines an important update to...</td><td>Key changes include...</td><td>We understand that any change requires adjustment.</td><td>Training sessions for this will be held on...</td></tr><tr><td>I am writing to inform you about a new procedure...</td><td>The new procedure introduces...</td><td>This is designed to minimize disruption while...</td><td>Please sign up for a session with...</td></tr><tr><td>Effective [Date], we will be implementing...</td><td>Please note the following updates:</td><td>Our aim is to provide a more organized and less stressful experience.</td><td>Attendance is mandatory for all team members.</td></tr><tr><td>We are introducing a streamlined process for...</td><td>This involves a mandatory shift to...</td><td>We are confident these adjustments will benefit us all.</td><td>If you have any questions or require clarification...</td></tr><tr><td></td><td>A dedicated [time/resource] will now be...</td><td>Your feedback has been invaluable in identifying these points.</td><td>Speak with your shift lead or myself directly.</td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Free Practice: Writing Your Operations Change Memo</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Learners will draft their operations change memo. Remind them to apply the structure, tone, and phrases discussed in the previous stages. Emphasize clarity, professional register, and reassurance. The model answer in teacher_notes is a guide, not for direct student use, ensuring students generate their own content. Advise students to write approximately 150-200 words.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Your Memo: Announcing New Operations</h4>
+<p>Now it&#x27;s time to write your own operations change memo. Using your plan from the previous stage, draft a memo to your team. </p>
+<p><strong class="lexis">Your Task:</strong> Write an operations change memo of approximately <strong class="lexis">150-200 words</strong>.</p>
+<p><strong class="lexis">Audience:</strong> Your operations team.<br>
+<strong class="lexis">Purpose:</strong> To clearly inform them about a new operational procedure, explain why it&#x27;s happening, outline the changes, and reassure them while providing next steps.<br>
+<strong class="lexis">Key points to include:</strong><br>
+*   A clear subject line.<br>
+*   A concise introduction stating the change and its effective date.<br>
+*   Bullet points for the key changes/steps.<br>
+*   Language that addresses potential concerns and offers reassurance.<br>
+*   Information about training or where to get more support.<br>
+*   A professional closing.</p>
+<p>Focus on being clear, direct, and supportive.</p>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback and Correction: Refining Your Memo</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Organize learners into pairs or small groups for peer feedback. Provide clear criteria for feedback, first focusing on content (clarity, completeness, reassurance) and then on language (professional register, accuracy). Facilitate a whole-class discussion on common strengths and areas for improvement. Collect memos for final teacher feedback.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reviewing Your Message</h4>
+<p>Now that you&#x27;ve drafted your memo, it&#x27;s time to get feedback and make improvements.</p>
+<p><strong class="lexis">Part 1: Peer Feedback (Pairs/Small Groups)</strong><br>
+Exchange your memo with a partner. Read their memo and consider the following questions:<br>
+1. Is the purpose of the memo clear? Do you understand the operational change being announced?<br>
+2. Is the memo easy to follow? Are the key changes clearly identified?<br>
+3. Does the memo sound professional and appropriate for the workplace?<br>
+4. Does it offer any reassurance or address potential team concerns?<br>
+5. Are there any parts that are unclear or could be expressed more simply?</p>
+<p><strong class="lexis">Part 2: Self-Correction</strong><br>
+Based on your partner&#x27;s feedback and your own review, make revisions to your memo. Pay attention to:<br>
+*   <strong class="lexis">Clarity:</strong> Is your message direct and easy to understand?<br>
+*   <strong class="lexis">Completeness:</strong> Have you included all necessary information (what, why, how, when, who to contact)?<br>
+*   <strong class="lexis">Tone:</strong> Does it sound professional and supportive?<br>
+*   <strong class="lexis">Accuracy:</strong> Check for any spelling, grammar, or punctuation errors.</p>
+</section>
+</article>
+</body>
+</html>

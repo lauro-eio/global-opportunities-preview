@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Analyzing &amp; Drafting Official Announcements</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Analyzing &amp; Drafting Official Announcements</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>1</dd>
+      <dt>Class</dt><dd>2</dd>
+      <dt>Theme</dt><dd>T01_IDENTITY</dd>
+      <dt>Framework</dt><dd>TBLF</dd>
+      <dt>Role</dt><dd>TBLF_DISCOURSE_ANALYSIS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Institutional Communication Challenges</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by asking learners to consider difficult news they&#x27;ve heard from an official source.<br>
+2. Guide the discussion to compare how different institutions (e.g., a company, a trade union, a city council) communicate bad news.<br>
+3. Prompt learners to think about the tone, specific words used, and what might be deliberately left unsaid in such statements.<br>
+4. Emphasize that the focus is on the institution&#x27;s voice, not personal opinions or branding.<br>
+5. Encourage learners to share examples from their professional experience without dwelling on negative aspects.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Speaking of Challenges</h4>
+<p>Think about a time you heard difficult news from an official source—perhaps your workplace, a union, or a local council. </p>
+<p>1. How did they deliver the message? What was the <strong class="lexis">tone</strong>?<br>
+2. What specific words or phrases were used to soften the impact or maintain a professional image?<br>
+3. What do you think was deliberately <strong class="lexis">not</strong> said? Why might an institution choose to withhold certain details or speak indirectly?<br>
+4. How does the choice of language reflect the institution&#x27;s <strong class="lexis">integrity</strong> or <strong class="lexis">legacy</strong>?</p>
+</section>
+</article>
+<article class="stage" id="stage-GIST">
+<header class="stage-header"><span class="stage-code">GIST</span><h2>Gist Reading: Navigating Public Statements</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Instruct learners to read the &#x27;CityWorks Transit Authority&#x27; statement quickly to grasp the main idea.<br>
+2. Ask them to choose the option that best summarizes the purpose of the statement.<br>
+3. Do not address specific vocabulary or grammar at this stage.<br>
+4. Encourage learners to rely on context for understanding.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">First Impressions: The City&#x27;s Announcement</h4>
+<p>Read the following official statement from the CityWorks Transit Authority. Don&#x27;t worry about every detail. Just focus on understanding the main point and overall message.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>CityWorks Transit Authority: Project Alpha Update</h5>
+<p>FOR IMMEDIATE RELEASE</p>
+<p><strong class="lexis">CityWorks Transit Authority</strong> today issued an update regarding the <strong class="lexis">Project Alpha</strong> infrastructure initiative. While significant progress has been made, the Authority regretfully announces an unavoidable delay in the project&#x27;s completion timeline.</p>
+<p>This decision, though challenging, was reached after a thorough review of unforeseen geological complexities encountered during tunnelling operations. Our primary commitment, <strong class="lexis">under no circumstances</strong> to be compromised, remains the <strong class="lexis">institutional integrity</strong> of this vital public service and the safety of our workforce and the public. <strong class="lexis">Seldom have circumstances</strong> of such intricate geological nature presented themselves in our city&#x27;s development history, necessitating a complete recalibration of certain construction phases.</p>
+<p><strong class="lexis">With due respect</strong> for public anticipation and the dedication of our teams, <strong class="lexis">we acknowledge</strong> the inconvenience this postponement may cause. The revised completion date is now projected for Q4 2026. This extension allows our engineers and partners to implement advanced remediation techniques that ensure the long-term stability and <strong class="lexis">professional legacy</strong> of <strong class="lexis">Project Alpha</strong>.</p>
+<p>We understand that transparency is paramount, and further details regarding the revised schedule and mitigation efforts will be made available next month. <strong class="lexis">At no point</strong> has the Authority considered compromising the rigorous safety standards that define our <strong class="lexis">soft power</strong> in urban development. Our unwavering commitment is to deliver a world-class transit system that stands as a testament to diligent planning and execution, even in the face of unexpected challenges.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the primary purpose of the &#x27;CityWorks Transit Authority&#x27; statement?</p>
+<ul><li>To announce a new, ambitious infrastructure project.</li><li>To detail the successful completion of Project Alpha.</li><li>To inform the public about a delay in a major project and explain the reasons while maintaining institutional credibility.</li><li>To recruit new engineers for upcoming geological challenges.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-DET">
+<header class="stage-header"><span class="stage-code">DET</span><h2>Detailed Reading: Stance and Inference</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Instruct learners to reread the statement more carefully, focusing on specific details.<br>
+2. For Task 1 (short_text), ask learners to locate the specific reason for the delay mentioned.<br>
+3. For Task 2 (mcq_single), guide learners to infer the Authority&#x27;s attitude towards safety standards based on the language used.<br>
+4. For the open inference question in student_content, encourage a brief discussion about the implications of the Authority&#x27;s choice of words. (Teacher Key: The Authority uses high-register language and emphasis on integrity/legacy to reassure the public and stakeholders that the delay is due to unavoidable, complex factors, not mismanagement, thereby protecting its reputation and maintaining trust.)</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reading Between the Lines</h4>
+<p>Read the statement again, paying close attention to specific details and the overall tone. Then answer the questions below. </p>
+<p>Consider: What message is the Authority trying to convey about its leadership and decision-making, even when delivering bad news?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>CityWorks Transit Authority: Project Alpha Update</h5>
+<p>FOR IMMEDIATE RELEASE</p>
+<p><strong class="lexis">CityWorks Transit Authority</strong> today issued an update regarding the <strong class="lexis">Project Alpha</strong> infrastructure initiative. While significant progress has been made, the Authority regretfully announces an unavoidable delay in the project&#x27;s completion timeline.</p>
+<p>This decision, though challenging, was reached after a thorough review of unforeseen geological complexities encountered during tunnelling operations. Our primary commitment, <strong class="lexis">under no circumstances</strong> to be compromised, remains the <strong class="lexis">institutional integrity</strong> of this vital public service and the safety of our workforce and the public. <strong class="lexis">Seldom have circumstances</strong> of such intricate geological nature presented themselves in our city&#x27;s development history, necessitating a complete recalibration of certain construction phases.</p>
+<p><strong class="lexis">With due respect</strong> for public anticipation and the dedication of our teams, <strong class="lexis">we acknowledge</strong> the inconvenience this postponement may cause. The revised completion date is now projected for Q4 2026. This extension allows our engineers and partners to implement advanced remediation techniques that ensure the long-term stability and <strong class="lexis">professional legacy</strong> of <strong class="lexis">Project Alpha</strong>.</p>
+<p>We understand that transparency is paramount, and further details regarding the revised schedule and mitigation efforts will be made available next month. <strong class="lexis">At no point</strong> has the Authority considered compromising the rigorous safety standards that define our <strong class="lexis">soft power</strong> in urban development. Our unwavering commitment is to deliver a world-class transit system that stands as a testament to diligent planning and execution, even in the face of unexpected challenges.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the specific, unavoidable reason given for the delay in Project Alpha?</p>
+</div>
+<div class="task"><p class="task-instruction">What does the phrase &#x27;under no circumstances to be compromised&#x27; imply about the Authority&#x27;s commitment to safety?</p>
+<ul><li>Safety is a secondary concern that can be adjusted if needed.</li><li>The Authority is legally bound to prioritize safety, but it&#x27;s not their top internal value.</li><li>Safety is an absolute, non-negotiable priority that guides all decisions.</li><li>The Authority is open to negotiating safety standards under extreme pressure.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-GD">
+<header class="stage-header"><span class="stage-code">GD</span><h2>Guided Discovery: High-Register Discourse Patterns</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Direct learners back to the reading passage, focusing on the highlighted phrases.<br>
+2. For Task 1 (match_pairs), ask learners to match diplomatic exponents to their pragmatic functions.<br>
+3. For Task 2 (short_text), guide them to identify sentences using inversion, noting the negative adverbial, auxiliary, subject, and main verb.<br>
+4. Facilitate a discussion around the concept check questions for inversion: &#x27;Is the structural order of the subject and auxiliary standard or flipped?&#x27; (Flipped) and &#x27;Does this change of structure emphasize the rarity or absolute gravity of the diplomatic constraint?&#x27; (Yes).<br>
+5. Explain that this inversion adds a formal, emphatic, and diplomatic tone, crucial for C2 institutional discourse.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Unpacking Formal Language</h4>
+<p>Let&#x27;s look more closely at the language used in the &#x27;CityWorks Transit Authority&#x27; statement. Pay attention to how the choice of words and sentence structures affects the message.</p>
+<p>After completing the tasks, discuss these questions:<br>
+*   In the sentences using inversion, is the subject-auxiliary order standard or is it flipped?<br>
+*   How does this flipped order change the emphasis of the sentence? Does it make the statement sound more formal or more impactful?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>CityWorks Transit Authority: Project Alpha Update</h5>
+<p>FOR IMMEDIATE RELEASE</p>
+<p><strong class="lexis">CityWorks Transit Authority</strong> today issued an update regarding the <strong class="lexis">Project Alpha</strong> infrastructure initiative. While significant progress has been made, the Authority regretfully announces an unavoidable delay in the project&#x27;s completion timeline.</p>
+<p>This decision, though challenging, was reached after a thorough review of unforeseen geological complexities encountered during tunnelling operations. Our primary commitment, <strong class="lexis">under no circumstances</strong> to be compromised, remains the <strong class="lexis">institutional integrity</strong> of this vital public service and the safety of our workforce and the public. <strong class="lexis">Seldom have circumstances</strong> of such intricate geological nature presented themselves in our city&#x27;s development history, necessitating a complete recalibration of certain construction phases.</p>
+<p><strong class="lexis">With due respect</strong> for public anticipation and the dedication of our teams, <strong class="lexis">we acknowledge</strong> the inconvenience this postponement may cause. The revised completion date is now projected for Q4 2026. This extension allows our engineers and partners to implement advanced remediation techniques that ensure the long-term stability and <strong class="lexis">professional legacy</strong> of <strong class="lexis">Project Alpha</strong>.</p>
+<p>We understand that transparency is paramount, and further details regarding the revised schedule and mitigation efforts will be made available next month. <strong class="lexis">At no point</strong> has the Authority considered compromising the rigorous safety standards that define our <strong class="lexis">soft power</strong> in urban development. Our unwavering commitment is to deliver a world-class transit system that stands as a testament to diligent planning and execution, even in the face of unexpected challenges.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match the diplomatic exponents from the text to their pragmatic functions.</p>
+<ul><li><strong>with due respect</strong> — Acknowledging a potential negative impact on the audience or other parties.</li><li><strong>we acknowledge</strong> — Formally recognizing a reality, often an inconvenience or difficulty, without assigning blame.</li><li><strong>institutional integrity</strong> — Referring to the moral and ethical principles that guide an organization&#x27;s actions and reputation.</li><li><strong>professional legacy</strong> — The long-term impact and respected reputation resulting from an organization&#x27;s work.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Identify two sentences from the text that use inversion (negative adverbial + auxiliary + subject + main verb). Write them out.</p>
+<p>Identify two sentences from the text that use inversion (negative adverbial + auxiliary + subject + main verb). Write them out, focusing on the inverted structure.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-CP">
+<header class="stage-header"><span class="stage-code">CP</span><h2>Controlled Practice: Crafting Diplomatic Statements</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that learners will now practice applying the discovered structures and vocabulary.<br>
+2. For Task 1, instruct learners to rewrite the sentences using the provided negative adverbials to create an inverted, formal structure.<br>
+3. For Task 2, ask learners to replace informal or direct phrases with more diplomatic, high-register exponents.<br>
+4. Ensure learners understand the nuances of the target language for C2 level institutional communication.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Polishing Your Professional Voice</h4>
+<p>Now, let&#x27;s practice using the diplomatic language and inverted structures you&#x27;ve just studied to make statements more formal and impactful.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Rewrite the following sentences using the negative adverbial provided to create an inverted, formal structure, as seen in the text. Start your sentence with the negative adverbial.</p>
+<p>1. The board has seldom observed such a high level of dedication from its workforce.
+(Seldom...)
+
+2. We will not compromise our quality standards under any circumstances.
+(Under no circumstances...)</p>
+</div>
+<div class="task"><p class="task-instruction">Replace the underlined informal or direct phrases with appropriate diplomatic exponents or high-register vocabulary from the list below, or similar C2-level alternatives. (List: institutional integrity, with due respect, professional legacy, we acknowledge, soft power)</p>
+<p>1. We know this change might cause problems for you, but it&#x27;s important for our good name.
+2. Everyone agrees that the union&#x27;s long history of helping workers is very important.
+3. We understand your concerns about the delay.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Freer Practice: Applying Diplomatic Discourse</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Present the scenario to the learners: drafting a short statement for a union or company.<br>
+2. Emphasize the application of both inverted structures and diplomatic exponents.<br>
+3. Encourage learners to think about the &#x27;bad news&#x27; and how to deliver it with gravitas and face-saving language.<br>
+4. Monitor and provide feedback on the use of target language.<br>
+5. Discuss sample answers with the class, highlighting effective diplomatic phrasing.<br>
+(Sample Answer for Teacher: &#x27;FOR IMMEDIATE RELEASE: Our Union Executive today addresses concerns regarding recent changes to local industrial policy. <strong class="lexis">Seldom have conditions</strong> necessitated such a rigorous review of worker protections. <strong class="lexis">With due respect</strong> for the challenges faced by our members, <strong class="lexis">we acknowledge</strong> that these policy shifts present unforeseen complexities. <strong class="lexis">Under no circumstances</strong> will the Executive compromise the <strong class="lexis">professional legacy</strong> of advocacy and <strong class="lexis">institutional integrity</strong> that defines our mandate. Further negotiations are ongoing.&#x27;)</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Drafting an Official Response</h4>
+<p>Imagine you are drafting a short official statement (3-4 sentences) for either a local trade union or a small manufacturing company. Your task is to announce some difficult or challenging news (e.g., job restructuring, changes to benefits, a delay in a community project, or a new policy that might be unpopular).</p>
+<p>Your statement should:<br>
+1.  Deliver the news diplomatically.<br>
+2.  Use at least one instance of <strong class="lexis">inversion post a negative adverbial</strong> (e.g., <strong class="lexis">Under no circumstances, Seldom, At no point</strong>).<br>
+3.  Include at least two <strong class="lexis">diplomatic exponents</strong> or high-register phrases from the lesson (e.g., <strong class="lexis">with due respect, we acknowledge, institutional integrity, professional legacy</strong>).</p>
+<p>Think about what you need to say, what you need to <strong class="lexis">imply</strong>, and how to maintain the institution&#x27;s standing.</p>
+</section>
+</article>
+</body>
+</html>

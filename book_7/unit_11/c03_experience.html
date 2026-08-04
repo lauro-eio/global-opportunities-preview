@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Developing Proactive Maintenance Plans</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Developing Proactive Maintenance Plans</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>11</dd>
+      <dt>Class</dt><dd>3</dd>
+      <dt>Theme</dt><dd>T11_EXPERIENCE</dd>
+      <dt>Framework</dt><dd>SK-PROD</dd>
+      <dt>Role</dt><dd>SK_PROD_SPEAKING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Reflecting on Equipment Failures</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Divide students into pairs or small groups.<br>
+2. Read the prompt aloud and ask students to discuss their experiences.<br>
+3. Encourage them to share specific examples of machinery or systems.<br>
+4. Facilitate a brief whole-class share-out on common themes or lessons learned.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Learning from Unexpected Breakdowns</h4>
+<p>Think about a time when a crucial piece of machinery or equipment broke down suddenly, causing a halt in production or service at your workplace. </p>
+<p>Discuss the following questions with your partner:</p>
+<p>1.  What was the immediate impact of the breakdown?<br>
+2.  What data points or warning signs might have been present but overlooked at the time?<br>
+3.  In hindsight, what <strong class="lexis">predictive approaches</strong> or <strong class="lexis">proactive measures</strong> could have potentially prevented this crisis?<br>
+4.  How might the implementation of <strong class="lexis">proactive maintenance schedules</strong> based on historical data change such outcomes?</p>
+</section>
+</article>
+<article class="stage" id="stage-MOD">
+<header class="stage-header"><span class="stage-code">MOD</span><h2>Model Dialogue: Advocating for Proactive Maintenance</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Ask students to read the dialogue to understand the main points.<br>
+2. Students can read the dialogue silently or in pairs (one as Liam, one as Anya).<br>
+3. After reading, instruct students to complete the multiple-choice question to check gist comprehension.<br>
+4. Review the answer together and clarify any unknown vocabulary, focusing on the target lexis.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">A Discussion on Strategic Foresight</h4>
+<p>Read the following conversation between Liam, a Production Manager, and Anya, a Lead Technician, discussing a recent incident and a path forward.</p>
+<p><strong class="lexis">Liam:</strong> Anya, that unplanned downtime last week on Line 3 really hit us hard. We lost a full shift of <strong class="lexis">operational uptime</strong>. What’s the post-mortem looking like?</p>
+<p><strong class="lexis">Anya:</strong> It was an unexpected bearing failure, Liam. While we conduct regular checks, it wasn&#x27;t due for a <strong class="lexis">preventative overhaul</strong> until next quarter. We missed some subtle <strong class="lexis">wear indicators</strong> that a <strong class="lexis">diagnostic testing</strong> routine could have flagged earlier.</p>
+<p><strong class="lexis">Liam:</strong> So, it was a blind spot. We rely heavily on the manufacturer&#x27;s recommended <strong class="lexis">asset lifecycle</strong> estimates, but perhaps that&#x27;s not robust enough for our usage patterns. We need to avoid another costly surprise.</p>
+<p><strong class="lexis">Anya:</strong> Exactly. My proposal is to implement a more dynamic <strong class="lexis">proactive maintenance schedule</strong>. We can integrate sensor data for real-time monitoring and historical failure rates to predict potential issues. It&#x27;s about moving from reactive fixes to <strong class="lexis">strategic foresight</strong>.</p>
+<p><strong class="lexis">Liam:</strong> That sounds like a significant shift. What would be the immediate steps? Do we have the resources for increased <strong class="lexis">diagnostic testing</strong>?</p>
+<p><strong class="lexis">Anya:</strong> We can start with the critical path equipment. We&#x27;d invest in specialized sensors and training for advanced analysis. The long-term savings from averting <strong class="lexis">unplanned downtime</strong> would far outweigh the initial costs. It ensures continuous <strong class="lexis">operational uptime</strong>.</p>
+<p><strong class="lexis">Liam:</strong> I see the value in that. Let&#x27;s draft a proposal to outline the new schedule, focusing on data-driven triggers rather than just fixed intervals. We need to demonstrate how this elevates our <strong class="lexis">asset lifecycle</strong> management.</p>
+<p><strong class="lexis">Anya:</strong> Agreed. This is about building resilience and ensuring we&#x27;re ahead of the curve.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Liam and Anya agree that the best way to prevent future unplanned downtime is to:</p>
+<ul><li>Stick strictly to the manufacturer&#x27;s recommended maintenance intervals.</li><li>Increase the frequency of reactive repairs as problems occur.</li><li>Implement a more dynamic, data-driven proactive maintenance schedule.</li><li>Only conduct diagnostic testing when equipment visibly breaks down.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-PREP">
+<header class="stage-header"><span class="stage-code">PREP</span><h2>Preparation: Structuring a Proposal for Change</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will prepare for a discussion or role-play about implementing proactive maintenance.<br>
+2. Draw attention to the &#x27;Useful Phrases&#x27; and &#x27;Key Vocabulary&#x27; columns.<br>
+3. Instruct students to take notes, organizing their ideas using the provided prompts.<br>
+4. Circulate and assist with vocabulary or idea generation.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Preparing Your Argument for Proactive Maintenance</h4>
+<p>Prepare for a discussion where you will propose or discuss implementing a new proactive maintenance schedule for a critical piece of equipment in your workplace. Think about a specific machine or process you know well.</p>
+<p>Consider the following points in your preparation:</p>
+<p>*   Identify a specific piece of equipment where proactive maintenance would be beneficial.<br>
+*   Recall specific past issues or risks associated with this equipment.<br>
+*   Suggest specific proactive measures (e.g., sensor monitoring, new diagnostic tests).<br>
+*   Outline the benefits (e.g., reduced downtime, extended <strong class="lexis">asset lifecycle</strong>).<br>
+*   Address potential challenges (e.g., cost, training).</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Describing Past Issues</th><th>Proposing Proactive Solutions</th><th>Key Vocabulary for Discussion</th><th>Discussing Benefits &amp; Challenges</th></tr><tr><td>We&#x27;ve experienced recurrent...</td><td>I propose we implement a **proactive maintenance schedule**.</td><td>**operational uptime** (time equipment is working)</td><td>The key benefit would be...</td></tr><tr><td>The last breakdown led to...</td><td>We could introduce more frequent **diagnostic testing**.</td><td>**preventative overhaul** (planned major maintenance)</td><td>This would significantly extend our **asset lifecycle**.</td></tr><tr><td>There were subtle **wear indicators** we missed.</td><td>Integrating real-time data would allow us to...</td><td>**diagnostic testing** (tests to identify issues)</td><td>The initial investment would be offset by...</td></tr><tr><td>Our current schedule doesn&#x27;t account for...</td><td>This would lead to improved **operational uptime**.</td><td>**asset lifecycle** (total lifespan of equipment)</td><td>We need to consider the cost of...</td></tr><tr><td>The **unplanned downtime** was costly.</td><td>It&#x27;s about a **preventative overhaul** before failure.</td><td>**wear indicators** (signs of degradation)</td><td>Training staff will be essential.</td></tr><tr><td></td><td></td><td>**unplanned downtime** (unexpected halt in operations)</td><td></td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Fluency Practice: Implementing Proactive Maintenance</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain the role-play scenario and assign roles (e.g., Manager and Lead Technician).<br>
+2. Remind students to use the ideas and vocabulary from the PREP stage.<br>
+3. Monitor students&#x27; discussions, noting down good language use and errors (for FBDC).<br>
+4. Do not interrupt fluency; let them complete the task.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Putting Strategic Foresight into Practice</h4>
+<p>You will now work in pairs to discuss implementing a new proactive maintenance schedule. One of you will be a <strong class="lexis">Manager</strong> (e.g., Production Manager, Operations Lead) and the other will be a <strong class="lexis">Lead Technician</strong> or <strong class="lexis">Maintenance Supervisor</strong>.</p>
+<p><strong class="lexis">Scenario:</strong><br>
+Your company has recently experienced several costly <strong class="lexis">unplanned downtime</strong> incidents due to unexpected equipment failures. You need to agree on a strategy to move towards a more proactive approach.</p>
+<p><strong class="lexis">Your Task:</strong></p>
+<p><strong class="lexis">Manager:</strong> You are concerned about costs and disruption but are open to new ideas if a strong case can be made. You need to understand the practicalities and benefits.</p>
+<p><strong class="lexis">Lead Technician/Supervisor:</strong> You believe firmly in the benefits of <strong class="lexis">proactive maintenance schedules</strong>. You must persuade the Manager by explaining how to implement such a schedule, referencing <strong class="lexis">equipment lifespan</strong>, <strong class="lexis">usage patterns</strong>, and <strong class="lexis">historical data</strong>, and clearly outlining the benefits (e.g., increased <strong class="lexis">operational uptime</strong>, extended <strong class="lexis">asset lifecycle</strong>) while addressing potential challenges.</p>
+<p>Aim to agree on a set of concrete steps for moving forward with a proactive maintenance strategy.</p>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback: Content and Language</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin with open class feedback on the content of their discussions: What solutions did they propose? What were the main agreements/disagreements? (Content feedback first).<br>
+2. Then, provide delayed error correction based on notes taken during FP.<br>
+3. Focus on common errors related to the target lexis (<strong class="lexis">operational uptime</strong>, <strong class="lexis">preventative overhaul</strong>, etc.) and general fluency issues.<br>
+4. Write example corrections on the board if appropriate, or repeat incorrect sentences correctly for students to self-correct.<br>
+5. Praise effective use of the target language and productive communication strategies.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reflecting on Our Strategies</h4>
+<p>Reflect on your discussion about implementing <strong class="lexis">proactive maintenance schedules</strong>.</p>
+<p>1.  What specific proactive maintenance strategies did you agree upon for your chosen equipment?<br>
+2.  What were the most convincing arguments for adopting these strategies?<br>
+3.  Were there any challenges or concerns that were difficult to resolve?<br>
+4.  Think about the vocabulary and phrases you used. Were you able to incorporate the target language effectively?</p>
+</section>
+</article>
+</body>
+</html>

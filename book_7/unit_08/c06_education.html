@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crafting Collaborative Strategic Proposals</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Crafting Collaborative Strategic Proposals</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>8</dd>
+      <dt>Class</dt><dd>6</dd>
+      <dt>Theme</dt><dd>T08_EDUCATION</dd>
+      <dt>Framework</dt><dd>SK-PROD</dd>
+      <dt>Role</dt><dd>SK_PROD_WRITING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Collaborative Problem Solving</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Begin by projecting the lead-in brief. Ensure students understand the core challenge: an intricate operational bottleneck no single person fully grasps.<br>
+Divide students into small groups (3-4).<br>
+Ask groups to discuss the questions, encouraging them to draw on their own workplace experiences.<br>
+Facilitate a brief whole-class feedback session, noting down key strategies and challenges mentioned.<br>
+Introduce the idea of formalizing these discussions into written communication for clarity and action.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Solving Complex Challenges Together</h4>
+<p>Your team is facing an intricate operational bottleneck that no single person understands completely. This issue is causing delays and impacting productivity across multiple departments. To resolve it, you need to draw on everyone&#x27;s unique insights.</p>
+<p>Discuss in your groups:<br>
+1. How would you start a conversation to gather insights from colleagues who only know part of the problem?<br>
+2. What challenges might you face when trying to get everyone to share their knowledge openly?<br>
+3. What kind of information would you need to collect from different people?<br>
+4. Why is it important to capture these insights in writing?</p>
+</section>
+</article>
+<article class="stage" id="stage-MOD">
+<header class="stage-header"><span class="stage-code">MOD</span><h2>Model Analysis: Strategic Collaboration Summary</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Distribute the &#x27;Interdepartmental Synergy Report&#x27; to students.<br>
+Explain that this report is a summary written after a series of collaborative discussions aimed at resolving a complex operational bottleneck.<br>
+Give students 5-7 minutes to read the report silently.<br>
+Instruct students to then complete the multiple-choice and short-answer tasks individually, focusing on the purpose, audience, and key strategies presented in the model.<br>
+After individual work, put students in pairs to compare answers and discuss any discrepancies.<br>
+Lead a whole-class review of the answers, clarifying any points and highlighting the effective use of strategic communication and knowledge synthesis.<br>
+Pay particular attention to the language used to acknowledge diverse input and propose actionable solutions.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reviewing a Collaboration Brief</h4>
+<p>Read the following report, written after a series of meetings to address a complex interdepartmental issue. This report aims to summarize the collective findings and proposed solutions.</p>
+<p>After reading, answer the questions that follow.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Interdepartmental Synergy Report: Optimizing Workflow Integration</h5>
+<p>To: Project Stakeholders<br>
+From: Operations Strategy Team<br>
+Date: October 26, 2023<br>
+Subject: Summary of Collaborative Initiatives for Workflow Integration Challenge</p>
+<p><strong class="lexis">1. Executive Summary</strong><br>
+This report synthesizes insights from recent <strong class="lexis">interdepartmental collaboration</strong> sessions focused on addressing the persistent workflow integration bottleneck between Manufacturing, Logistics, and Quality Assurance. Our objective was to leverage <strong class="lexis">collective intelligence</strong> to devise a comprehensive solution. The sessions highlighted specific friction points and identified actionable strategies for resolution, emphasizing <strong class="lexis">critical systems thinking</strong>.</p>
+<p><strong class="lexis">2. Background: The Integration Bottleneck</strong><br>
+The current hand-off process between Manufacturing and Logistics has led to frequent delays and miscommunications, impacting delivery timelines and customer satisfaction. Quality Assurance also reported inconsistencies in data transfer, complicating post-production analysis. No single department held all the necessary information to diagnose the root cause or propose a complete fix.</p>
+<p><strong class="lexis">3. Collaborative Approach &amp; Knowledge Synthesis</strong><br>
+We convened representatives from all three departments. The methodology involved structured brainstorming, root cause analysis, and cross-functional process mapping. Key to our success was the open exchange of departmental perspectives, enabling genuine <strong class="lexis">knowledge synthesis</strong>. Each team member contributed their specialized understanding, creating a holistic view of the operational challenge.</p>
+<p><strong class="lexis">4. Key Findings &amp; Strategic Recommendations</strong><br>
+Through this collaborative process, we identified several critical areas for improvement:</p>
+<p>a) <strong class="lexis">Standardized Data Protocol</strong>: Implementing a unified digital protocol for information transfer between Manufacturing and Logistics. This will reduce manual errors and improve real-time visibility.</p>
+<p>b) <strong class="lexis">Cross-Training Initiative</strong>: Developing a cross-training program for key personnel in Logistics and Quality Assurance to better understand each other&#x27;s operational requirements. This fosters empathy and improves problem anticipation.</p>
+<p>c) <strong class="lexis">Dedicated Integration Liaison</strong>: Appointing a temporary liaison for the next quarter to oversee the implementation of new protocols and facilitate ongoing <strong class="lexis">strategic communication</strong> between departments.</p>
+<p>d) <strong class="lexis">Regular Review Cycles</strong>: Establishing bi-weekly check-ins for the next three months to monitor progress, address emerging issues, and reinforce collaborative efforts.</p>
+<p><strong class="lexis">5. Expected Outcomes</strong><br>
+These recommendations are projected to reduce workflow integration delays by 15% within the next three months, improve data accuracy by 20%, and enhance overall team synergy. We believe this demonstrates the power of leveraging diverse team knowledge to solve complex challenges effectively.</p>
+<p><strong class="lexis">6. Next Steps</strong><br>
+The Operations Strategy Team will present these recommendations to senior management next week. We will then schedule a follow-up meeting with departmental heads to finalize implementation plans.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Choose the best option to complete the statement about the report&#x27;s main purpose.</p>
+<p>The primary purpose of this report is to...</p>
+<ul><li>criticize departmental performance.</li><li>summarize collaborative problem-solving efforts and propose solutions.</li><li>provide a detailed account of individual departmental failures.</li><li>request additional budget for new software.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Who is the main audience for this report?</p>
+<p>Identify the primary audience for this report.</p>
+</div>
+<div class="task"><p class="task-instruction">Which phrase best describes the approach used to solve the problem, as highlighted in the report?</p>
+<p>The report emphasizes the use of...</p>
+<ul><li>isolated individual expertise.</li><li>top-down directives without consultation.</li><li>collective intelligence and interdepartmental collaboration.</li><li>external consultants for all solutions.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Based on the report, what is one tangible expected outcome mentioned?</p>
+<p>State one specific expected outcome.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-PREP">
+<header class="stage-header"><span class="stage-code">PREP</span><h2>Preparation: Planning a Strategic Proposal</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Remind students of the initial bottleneck discussion from L-IN.<br>
+Explain that they will now plan their own strategic proposal based on a hypothetical collaborative discussion.<br>
+Divide students into new pairs or small groups (3-4).<br>
+Guide them through brainstorming content for their proposal, using the model report structure as a guide (Executive Summary, Background, Collaborative Approach, Findings/Recommendations, Expected Outcomes, Next Steps).<br>
+Introduce the column_banks with useful phrases. Encourage students to select phrases that fit the C2 level and professional tone required.<br>
+Circulate and provide support, prompting students to think about strong arguments and clear communication for their proposed solutions.<br>
+Emphasize the importance of using the target lexical tags where appropriate.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Building Your Solution Strategy</h4>
+<p>Imagine you&#x27;ve successfully facilitated a series of discussions about the operational bottleneck from our lead-in. Now, you need to consolidate the insights and propose a solution. Think about the model report we just analyzed.</p>
+<p>Work in groups to plan your own strategic proposal. Consider the following points:<br>
+1. <strong class="lexis">Audience</strong>: Who needs to read this proposal? (e.g., senior management, department heads)<br>
+2. <strong class="lexis">Purpose</strong>: What do you want this proposal to achieve?<br>
+3. <strong class="lexis">Key Findings</strong>: What were the main problems identified through <strong class="lexis">collective intelligence</strong>?<br>
+4. <strong class="lexis">Proposed Solutions</strong>: What specific actions or changes are you recommending? How do they leverage <strong class="lexis">knowledge synthesis</strong>?<br>
+5. <strong class="lexis">Expected Outcomes</strong>: What positive results do you anticipate from your solutions?<br>
+6. <strong class="lexis">Structure</strong>: How will you organize your proposal for maximum clarity and impact?</p>
+<p>Use the phrases in the bank below to help you craft a professional and effective proposal.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Opening &amp; Purpose</th><th>Collaboration &amp; Synthesis</th><th>Findings &amp; Recommendations</th><th>Impact &amp; Next Steps</th></tr><tr><td>This report synthesizes findings from...</td><td>Through robust **interdepartmental collaboration**...</td><td>We identified critical friction points, notably...</td><td>These initiatives are projected to yield...</td></tr><tr><td>Our objective was to leverage **collective intelligence** to...</td><td>The sessions enabled comprehensive **knowledge synthesis**...</td><td>Key recommendations include...</td><td>Anticipated outcomes include...</td></tr><tr><td>The purpose of this document is to outline...</td><td>Drawing on diverse team knowledge...</td><td>Proposed solutions involve...</td><td>For effective implementation, the next steps are...</td></tr><tr><td>Addressing the identified operational bottleneck...</td><td>A holistic view emerged from cross-functional input...</td><td>To mitigate these challenges, we suggest...</td><td>We will proceed with **strategic communication** to...</td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Free Practice: Drafting a Strategic Proposal</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Remind students of their planning from the PREP stage.<br>
+Instruct them to write their strategic proposal individually, using their notes and the language from the column banks.<br>
+Emphasize adhering to the specified audience (senior management/department heads), purpose (proposing solutions based on collective intelligence), and approximate length.<br>
+Monitor students as they write, offering support on language, structure, and content, but avoid direct correction at this stage.<br>
+Encourage them to focus on clarity, professional tone, and effectively communicating how diverse insights led to the proposed solutions.</p>
+<p><strong class="lexis">Model Answer (for teacher reference only, approx. 280 words):</strong><br>
+<strong class="lexis">Subject: Strategic Proposal for Supply Chain Integration &amp; Communication Bottleneck</strong><br>
+To: Senior Leadership, Department Heads (Procurement, Logistics, Production)<br>
+From: Interdepartmental Task Force<br>
+Date: October 26, 2023</p>
+<p><strong class="lexis">1. Executive Summary</strong><br>
+This proposal outlines a strategic approach to resolve the long-standing supply chain integration bottleneck impacting lead times and inventory management. Through focused <strong class="lexis">interdepartmental collaboration</strong>, we leveraged <strong class="lexis">collective intelligence</strong> from Procurement, Logistics, and Production to achieve comprehensive <strong class="lexis">knowledge synthesis</strong>. Our recommendations prioritize streamlining information flow and fostering proactive <strong class="lexis">strategic communication</strong>.</p>
+<p><strong class="lexis">2. Background &amp; Collaborative Insights</strong><br>
+Analysis revealed disconnects in real-time inventory data sharing and order processing. No single department possessed the full picture, leading to reactive problem-solving. Our task force convened a series of workshops, encouraging open dialogue and <strong class="lexis">critical systems thinking</strong> to map the entire supply chain.</p>
+<p><strong class="lexis">3. Key Recommendations</strong><br>
+a) <strong class="lexis">Integrated Digital Platform</strong>: Implement a unified software solution for shared inventory visibility and order tracking across all departments.<br>
+b) <strong class="lexis">Weekly Coordination Huddles</strong>: Establish mandatory 15-minute weekly huddles between team leads from affected departments to pre-empt issues.<br>
+c) <strong class="lexis">Role-Based Cross-Training</strong>: Develop a program to familiarize key personnel with upstream/downstream processes, enhancing mutual understanding.</p>
+<p><strong class="lexis">4. Anticipated Outcomes &amp; Next Steps</strong><br>
+These measures are projected to reduce order processing errors by 10%, improve inventory turnover by 5%, and significantly boost cross-functional efficiency within six months. We believe this represents an effective application of diverse team knowledge. The Task Force seeks approval to begin piloting the integrated platform next month.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Writing Your Strategic Solution Proposal</h4>
+<p>Now, write your strategic proposal. Use your plan from the previous activity and integrate the target vocabulary and professional phrases we&#x27;ve discussed.</p>
+<p>Your proposal should be: <br>
+<strong class="lexis">Audience:</strong> Senior management and department heads affected by the bottleneck.<br>
+<strong class="lexis">Purpose:</strong> To present a consolidated understanding of the operational bottleneck, derived from <strong class="lexis">collective intelligence</strong> and <strong class="lexis">interdepartmental collaboration</strong>, and to propose actionable solutions that leverage <strong class="lexis">knowledge synthesis</strong>.<br>
+<strong class="lexis">Length:</strong> Approximately 250-300 words.</p>
+<p>Aim for a clear, professional, and persuasive tone. Structure your proposal logically, similar to the model report, ensuring it effectively communicates the value of a collaborative approach.</p>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback &amp; Correction: Refining Your Proposal</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Explain the two-stage feedback process: first content, then language.<br>
+Pair students (preferably with someone they didn&#x27;t work with in PREP) and instruct them to exchange their written proposals.<br>
+Guide students to use the feedback questions provided, focusing on the clarity, completeness, and strategic value of the content first.<br>
+Circulate and facilitate discussions, ensuring constructive criticism and positive reinforcement.<br>
+After content feedback, instruct students to re-read their own proposals, focusing on language accuracy, professional register, and effective use of target vocabulary.<br>
+Collect proposals for final teacher feedback on language accuracy.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Polishing Your Professional Proposal</h4>
+<p>Now it’s time to get feedback on your strategic proposal and refine it. A well-communicated proposal is crucial for gaining support for your solutions.</p>
+<p><strong class="lexis">Part 1: Content Feedback (Peer Review)</strong><br>
+Exchange your proposal with a partner. Read their proposal carefully and discuss the following questions:<br>
+1. <strong class="lexis">Clarity</strong>: Is the operational bottleneck clearly explained? Are the proposed solutions easy to understand?<br>
+2. <strong class="lexis">Logic</strong>: Does the proposal flow logically from identifying the problem to presenting solutions and expected outcomes?<br>
+3. <strong class="lexis">Collaboration</strong>: Does the proposal effectively convey how <strong class="lexis">collective intelligence</strong> and <strong class="lexis">knowledge synthesis</strong> were used to arrive at the solutions?<br>
+4. <strong class="lexis">Impact</strong>: Are the expected outcomes persuasive? Do the solutions seem achievable?<br>
+5. <strong class="lexis">Audience &amp; Purpose</strong>: Is the tone appropriate for senior management? Does it clearly aim to solve a workplace challenge?</p>
+<p><strong class="lexis">Part 2: Language &amp; Register Review (Self-Correction)</strong><br>
+After receiving feedback on content, review your own proposal. Focus on:<br>
+1. <strong class="lexis">Lexis</strong>: Have you effectively used vocabulary related to strategic learning, <strong class="lexis">interdepartmental collaboration</strong>, <strong class="lexis">critical systems thinking</strong>, and <strong class="lexis">strategic communication</strong>?<br>
+2. <strong class="lexis">Professionalism</strong>: Is the language consistently professional and appropriate for a C2-level workplace document?<br>
+3. <strong class="lexis">Accuracy</strong>: Check for any grammatical errors, spelling mistakes, or awkward phrasing.</p>
+<p>Make any necessary revisions to improve your proposal.</p>
+</section>
+</article>
+</body>
+</html>

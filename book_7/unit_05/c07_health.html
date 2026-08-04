@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Analytical Subjunctive in Policy Drafting</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>The Analytical Subjunctive in Policy Drafting</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>5</dd>
+      <dt>Class</dt><dd>7</dd>
+      <dt>Theme</dt><dd>T05_HEALTH</dd>
+      <dt>Framework</dt><dd>TTT</dd>
+      <dt>Role</dt><dd>TTT_ADVANCED_REVIEW_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Ethical AI Monitoring in the Workplace</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by presenting the &#x27;lead-in brief&#x27; scenario to students.<br>
+2. Ask students to discuss the initial ethical concerns that come to mind.<br>
+3. Encourage students to use advanced vocabulary related to surveillance, data, privacy, and ethics from previous lessons.<br>
+4. Facilitate a brief class discussion, noting down any advanced structures or relevant lexis students produce, or struggle with, for later reference.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Digital Health, Real Concerns</h4>
+<p>Your company is considering a new initiative: equipping all employees with smart devices. These devices are designed to monitor stress levels and predict fatigue, primarily for safety reasons. The aim is to enhance overall workplace wellness and prevent accidents.</p>
+<p>Working with a partner, discuss the following:<br>
+1. What are the most significant ethical concerns that immediately come to mind when you hear about this proposal?<br>
+2. Who benefits most from such a system, and who might face potential drawbacks?<br>
+3. What rights might employees need to protect in such a scenario?<br>
+4. What specific vocabulary related to <strong class="lexis">surveillance ethics</strong>, <strong class="lexis">data ownership</strong>, or <strong class="lexis">algorithmic bias</strong> comes to mind?</p>
+</section>
+</article>
+<article class="stage" id="stage-T1">
+<header class="stage-header"><span class="stage-code">T1</span><h2>Test 1: Diagnosing Formal Mandates</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that this task is to diagnose understanding of formal, institutional language used for regulations and mandates.<br>
+2. Instruct students to complete the tasks individually.<br>
+3. Observe students carefully for errors, particularly regarding the use of the bare infinitive in &#x27;that&#x27; clauses (e.g., &#x27;requires that he completes&#x27; instead of &#x27;requires that he complete&#x27;).<br>
+4. Collect answers for analysis, identifying common errors for the TCH stage.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Policy Language Check-Up</h4>
+<p>Read the following policy statements and choose the correct grammatical form to complete them. Pay close attention to the verb forms, especially in formal or legal contexts.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Choose the best option to complete the statement, reflecting a formal institutional requirement.</p>
+<p>The updated welfare protocol requires that every medical officer ______ the biotechnology screening immediately.</p>
+<ul><li>completes</li><li>complete</li><li>is completing</li><li>will complete</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Fill in the blank with the correct negative form of the verb &#x27;compromise&#x27; to maintain the formal tone of a mandate.</p>
+<p>It is crucial that the state data ______ (compromise) the public pandemic preparedness plan.</p>
+</div>
+<div class="task"><p class="task-instruction">Select the grammatically correct and most formal option for the company&#x27;s internal directive.</p>
+<p>The board insists that all management staff ______ full disclosure regarding employee productivity tracking methods.</p>
+<ul><li>provides</li><li>provide</li><li>are providing</li><li>should provide</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-TCH">
+<header class="stage-header"><span class="stage-code">TCH</span><h2>Teach: The Analytical Subjunctive for Institutional Welfare Regulations</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Based on errors from T1, focus clarification on &#x27;The Analytical Subjunctive&#x27;.<br>
+2. Write the correct &#x27;form&#x27; on the board:<br>
+   - Affirmative: Subject + verb of demand/necessity (insist/mandate/require) + that + subject + bare infinitive<br>
+   - Negative: Subject + verb of demand/necessity + that + subject + not + bare infinitive<br>
+3. Elicit or explain the &#x27;meaning&#x27;: This structure formulates binding biotechnology mandates, pandemic preparedness protocols, public welfare legislation, and healthcare infrastructure policies – emphasizing urgency and necessity.<br>
+4. Use the provided &#x27;concept check questions&#x27; to ensure understanding:<br>
+   - &#x27;Does the verb inside the &#x27;that&#x27; clause utilize an &#x27;s&#x27; for third-person singular subjects?&#x27; (Expected answer: No, it uses the bare infinitive).<br>
+   - &#x27;Does this construction express an urgent institutional mandate or legal necessity for societal health?&#x27; (Expected answer: Yes).<br>
+5. Work through the practice tasks, guiding students to apply the correct form and meaning.<br>
+6. Highlight that this structure is very formal and typically found in written policies, legal documents, or highly formal speech.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Crafting Clear Mandates</h4>
+<p>Let&#x27;s review &#x27;The Analytical Subjunctive&#x27;, a formal structure used for expressing institutional demands, necessities, or recommendations. This is common in policy documents, legal texts, and formal regulations, especially when discussing public health, ethical guidelines, or workplace protocols.</p>
+<p><strong class="lexis">Form:</strong><br>
+Subject + verb of demand/necessity (e.g., insist, mandate, require, recommend, propose) + that + subject + bare infinitive (base form of the verb, without &#x27;to&#x27; or &#x27;-s&#x27;).</p>
+<p><strong class="lexis">Examples:</strong><br>
+*   The committee <strong class="lexis">insists that every research team follow</strong> strict <strong class="lexis">data ownership</strong> guidelines.<br>
+*   It is <strong class="lexis">crucial that the new AI system not infringe</strong> on employee privacy.<br>
+*   The legislation <strong class="lexis">mandates that all companies adhere</strong> to ethical <strong class="lexis">surveillance ethics</strong> protocols.</p>
+<p><strong class="lexis">Key Point:</strong> The verb in the &#x27;that&#x27; clause <strong class="lexis">never</strong> takes an &#x27;-s&#x27; for third-person singular subjects (e.g., &#x27;he/she/it&#x27;). It always remains in its bare infinitive form.</p>
+<p>Now, complete the following sentences using the correct form of the verb in parentheses, applying the Analytical Subjunctive.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Complete the sentence with the correct form of the verb &#x27;be&#x27;.</p>
+<p>It is essential that the consent form ______ comprehensive regarding data usage.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence with the correct negative form of the verb &#x27;neglect&#x27;.</p>
+<p>The health authority recommends that no employer ______ their duty of care towards employees&#x27; digital well-being.</p>
+</div>
+<div class="task"><p class="task-instruction">Choose the most appropriate and grammatically correct option for this formal policy statement.</p>
+<p>Our new policy dictates that any algorithmic bias identified within monitoring systems ______ immediately addressed.</p>
+<ul><li>is</li><li>be</li><li>will be</li><li>should be</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-T2">
+<header class="stage-header"><span class="stage-code">T2</span><h2>Test 2: Drafting Ethical AI Monitoring Regulations</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Revisit the initial scenario about company smart devices for health monitoring.<br>
+2. Instruct students to work in pairs or small groups to draft a short policy statement.<br>
+3. Emphasize the use of the Analytical Subjunctive to express binding rules and ethical considerations.<br>
+4. Encourage students to incorporate relevant vocabulary (e.g., <strong class="lexis">informed consent</strong>, <strong class="lexis">data ownership</strong>, <strong class="lexis">surveillance ethics</strong>, <strong class="lexis">productivity tracking</strong>).<br>
+5. Monitor groups for correct application of the target structure and appropriate thematic vocabulary.<br>
+6. After drafting, have groups present their statements. Provide feedback on grammar and content.<br>
+7. Sample output (for teacher reference): &#x27;It is imperative that all employee data <strong class="lexis">be</strong> anonymized before analysis. Furthermore, the company mandates that any monitoring <strong class="lexis">not infringe</strong> upon individual privacy rights, and it is proposed that regular audits <strong class="lexis">be</strong> conducted to ensure compliance with <strong class="lexis">informed consent</strong> protocols.&#x27;</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Policy Drafting Workshop</h4>
+<p>Imagine you are part of a special committee at your company tasked with drafting the initial ethical guidelines for the proposed employee health and productivity monitoring system using smart devices.</p>
+<p>Working in small groups, draft a short, formal policy statement (2-3 sentences) that addresses at least one significant ethical concern. Your statement should clearly outline a binding rule, a necessity, or a strong recommendation. Ensure you use <strong class="lexis">The Analytical Subjunctive</strong> at least once, and try to incorporate relevant vocabulary from our discussions (e.g., <strong class="lexis">informed consent</strong>, <strong class="lexis">data ownership</strong>, <strong class="lexis">surveillance ethics</strong>, <strong class="lexis">algorithmic bias</strong>).</p>
+<p><strong class="lexis">Example Opening:</strong><br>
+&quot;In light of employee well-being and data privacy, the committee insists that...&quot;</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">In one sentence, provide a policy recommendation for the AI monitoring system, using the Analytical Subjunctive and focusing on informed consent.</p>
+<p>Draft a sentence:</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+</body>
+</html>

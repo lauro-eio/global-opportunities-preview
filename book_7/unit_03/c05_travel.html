@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formal Lexical Register for Global Coordination</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Formal Lexical Register for Global Coordination</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>3</dd>
+      <dt>Class</dt><dd>5</dd>
+      <dt>Theme</dt><dd>T03_TRAVEL</dd>
+      <dt>Framework</dt><dd>TTT</dd>
+      <dt>Role</dt><dd>TTT_LEXICAL_REGISTER_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Virtual Coordination Challenges</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by asking learners about their experience coordinating work across different sites or with remote colleagues.<br>
+2. Prompt them to consider the differences between face-to-face communication (e.g., on a construction yard) and virtual communication (phone calls, chat messages, video conferences).<br>
+3. Guide the discussion towards what can be &#x27;lost&#x27; or misunderstood when coordinating virtually. Focus on the need for clarity and precision.<br>
+4. Elicit specific challenges related to tone, detail, and ensuring everyone has the same understanding.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Talking Across Distances</h4>
+<p>Think about a time you had to coordinate a job or project with colleagues who were not in the same physical location as you. This could be over the phone, via chat, or video call.</p>
+<p>1. What are the main challenges when you can&#x27;t talk <strong class="lexis">face-to-face</strong>? <br>
+2. How do you ensure everyone understands the instructions and expectations clearly, especially when dealing with complex tasks?<br>
+3. Have you ever experienced misunderstandings due to the way information was communicated virtually?<br>
+4. Why might the language you use change when you&#x27;re coordinating virtually compared to when you&#x27;re physically present with someone?</p>
+</section>
+</article>
+<article class="stage" id="stage-T1">
+<header class="stage-header"><span class="stage-code">T1</span><h2>Test 1: Formal Communication Challenges</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Distribute the memo to learners.<br>
+2. Instruct them to read the memo carefully and complete the tasks without any prior explanation of the target lexis.<br>
+3. The goal of this stage is to diagnose their current ability to select appropriate, formal register for multi-site coordination. <br>
+4. Do not provide answers or explicit teaching at this stage. Note common errors for the TCH stage.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Workplace Memo Check-up</h4>
+<p>Read the following memo concerning an important multi-site project. Choose the most appropriate word or phrase for each blank to maintain a professional and clear tone suitable for high-level coordination. Some options might sound okay, but only one truly fits the formal context required for global operations.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Internal Memo: Project Aurora Progress</h5>
+<p>To: All Site Managers, Project Aurora<br>
+From: Regional Operations Lead<br>
+Date: 2024-05-15<br>
+Subject: Critical Update: Phase 2 Rollout and Cross-Site Synergy</p>
+<p>Dear Teams,</p>
+<p>Following our recent review of Project Aurora Phase 2 implementation, it is imperative to address several key aspects impacting our operational effectiveness. We are focusing on enhancing <strong class="lexis">(1) __________</strong> across all participating sites. While individual site performance remains strong, a more cohesive <strong class="lexis">(2) __________</strong> is required to mitigate potential bottlenecks and ensure seamless progression.</p>
+<p>Our current operational model presents a unique opportunity to establish a <strong class="lexis">(3) __________</strong> for data and resource sharing, moving beyond traditional geographical constraints. This virtual pathway is crucial for timely decision-making. Furthermore, we must refine our <strong class="lexis">(4) __________</strong> to accurately represent the flow of materials and personnel between our global hubs, ensuring all teams are operating with a unified perspective.</p>
+<p>In light of these considerations, a dedicated task force will be established to review our existing protocols and propose refinements. We appreciate your continued commitment to achieving our shared objectives.</p>
+<p>Sincerely,</p>
+<p>[Operations Lead]</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">For blank (1) in the memo, choose the best phrase to maintain a high-register and professional tone.</p>
+<p>Which option best fits blank (1)?</p>
+<ul><li>global connections</li><li>worldwide hook-up</li><li>global connectivity</li><li>international links</li></ul>
+</div>
+<div class="task"><p class="task-instruction">For blank (2) in the memo, choose the best phrase to maintain a high-register and professional tone.</p>
+<p>Which option best fits blank (2)?</p>
+<ul><li>plan for getting things done</li><li>logistics strategy</li><li>delivery blueprint</li><li>shipping method</li></ul>
+</div>
+<div class="task"><p class="task-instruction">For blank (3) in the memo, choose the best phrase to maintain a high-register and professional tone.</p>
+<p>Which option best fits blank (3)?</p>
+<ul><li>online pathway</li><li>cyber road</li><li>virtual corridor</li><li>digital highway</li></ul>
+</div>
+<div class="task"><p class="task-instruction">For blank (4) in the memo, choose the best phrase to maintain a high-register and professional tone.</p>
+<p>Which option best fits blank (4)?</p>
+<ul><li>space diagram</li><li>area drawing</li><li>spatial mapping</li><li>location charting</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-TCH">
+<header class="stage-header"><span class="stage-code">TCH</span><h2>Teach: Mastering Professional Terminology</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Go through the answers for T1, eliciting why the correct options are better in this formal context.<br>
+2. Introduce and clarify the meaning and register of each target exponent from &#x27;Infrastructure and Connectivity Register&#x27; list.<br>
+3. For each exponent, provide further context and an example sentence. Emphasize that these are high-register terms used in executive and policy briefs.<br>
+4. <strong class="lexis">Phonology Focus:</strong> Drill sentence stress on the key nouns within the target phrases (e.g., &#x27;global CONnectivity&#x27;, &#x27;logistics STRAtegy&#x27;, &#x27;INfrastructure THEory&#x27;, &#x27;VIRTUAL corridor&#x27;, &#x27;SPATIAL mapping&#x27;).<br>
+5. Highlight weak forms in formal phrases often accompanying these terms (e.g., &#x27;in light of&#x27;, &#x27;with regard to&#x27;). Model and drill these for clear articulation in formal speech.<br>
+6. Use CCQs (Concept Checking Questions) to ensure understanding of meaning and appropriacy (e.g., &#x27;Can I use &#x27;worldwide hook-up&#x27; in a board meeting? Why not?&#x27;).<br>
+7. Facilitate the matching task to reinforce meaning and context.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Precise Language for Global Teams</h4>
+<p>Now let&#x27;s look at the specific language used in formal communication, especially when discussing global systems and coordination. These terms help ensure clarity and professionalism in high-level discussions and documents.</p>
+<p><strong class="lexis">Key Vocabulary for Formal Coordination:</strong></p>
+<p>1.  <strong class="lexis">global connectivity</strong> (n.): The state of being connected on a worldwide scale, especially concerning communication, transport, or digital networks. Often implies high-level infrastructure.<br>
+    *   _Example:_ &quot;Improving <strong class="lexis">global connectivity</strong> is crucial for our distributed teams.&quot;</p>
+<p>2.  <strong class="lexis">logistics strategy</strong> (n.): A high-level plan for how resources (materials, personnel, information) will be acquired, stored, and transported to their final destination efficiently and effectively.<br>
+    *   _Example:_ &quot;Our new <strong class="lexis">logistics strategy</strong> aims to reduce shipping times by 15%.&quot;</p>
+<p>3.  <strong class="lexis">infrastructure theory</strong> (n.): The conceptual framework and principles behind the design, development, and management of fundamental facilities and systems (like roads, power grids, or data networks) in an organized manner.<br>
+    *   _Example:_ &quot;The design incorporates advanced <strong class="lexis">infrastructure theory</strong> to ensure system robustness.&quot;</p>
+<p>4.  <strong class="lexis">virtual corridor</strong> (n.): A conceptual or digital pathway or channel for the movement of data, resources, or communication, often spanning geographical distances.<br>
+    *   _Example:_ &quot;We established a <strong class="lexis">virtual corridor</strong> for secure data exchange between our European and Asian hubs.&quot;</p>
+<p>5.  <strong class="lexis">spatial mapping</strong> (n.): The process of creating visual representations or models of geographical or conceptual space, often used for planning, analysis, and navigation of complex systems.<br>
+    *   _Example:_ &quot;Accurate <strong class="lexis">spatial mapping</strong> is essential for optimizing our warehouse layout and delivery routes.&quot;</p>
+<p>Remember to pay attention to the stress in these words for clear communication in formal settings. For instance, in &#x27;global <strong class="lexis">con</strong>nectivity&#x27;, the stress falls on &#x27;con&#x27;.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match each high-register term to its most appropriate informal equivalent or simpler explanation.</p>
+<p>Match the formal term to its less formal meaning.</p>
+<ul><li><strong>global connectivity</strong> — how things are linked worldwide</li><li><strong>logistics strategy</strong> — the big plan for moving stuff</li><li><strong>infrastructure theory</strong> — the ideas behind building big systems</li><li><strong>virtual corridor</strong> — a digital path for communication/data</li><li><strong>spatial mapping</strong> — drawing out how space is organised</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Choose the most appropriate high-register term to complete the sentence.</p>
+<p>The new fiber optic network will significantly enhance our __________ across continents.</p>
+<ul><li>global connections</li><li>global connectivity</li><li>worldwide reach</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-T2">
+<header class="stage-header"><span class="stage-code">T2</span><h2>Test 2: Strategic Coordination Brief</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain the scenario: learners need to prepare a brief for a critical multi-site meeting.<br>
+2. Emphasize that the brief must use the formal, high-register language practiced in the TCH stage.<br>
+3. Instruct learners to work individually or in pairs to draft their brief.<br>
+4. Monitor carefully for correct usage of the target exponents, appropriate register, and accurate pronunciation (especially sentence stress).<br>
+5. Provide constructive feedback on both linguistic accuracy and pragmatic appropriacy.<br>
+6. A model answer should include at least 3-4 of the target exponents, used correctly in context.<br>
+<strong class="lexis">Model Answer Example:</strong><br>
+&quot;Our recent analysis highlights the need to strengthen <strong class="lexis">global connectivity</strong> between our production facilities. A revised <strong class="lexis">logistics strategy</strong> is imperative, particularly in establishing a secure <strong class="lexis">virtual corridor</strong> for critical data. We also need to implement advanced <strong class="lexis">spatial mapping</strong> to optimize warehouse efficiencies, informed by sound <strong class="lexis">infrastructure theory</strong>.&quot;</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Project Update: Your Report</h4>
+<p>Imagine you are preparing a short, formal update for a high-level meeting involving site managers from multiple international locations. The purpose of this meeting is to discuss how to improve coordination and efficiency for an upcoming global project. </p>
+<p>Your task is to draft a brief report (approximately 100-150 words) outlining the key areas for improvement. You must use at least three of the high-register terms we studied (e.g., <strong class="lexis">global connectivity</strong>, <strong class="lexis">logistics strategy</strong>, <strong class="lexis">infrastructure theory</strong>, <strong class="lexis">virtual corridor</strong>, <strong class="lexis">spatial mapping</strong>) to demonstrate your understanding of formal, strategic communication.</p>
+<p>Consider the following questions as you draft your brief:<br>
+*   What specific challenges are you addressing?<br>
+*   How will your proposed solutions improve coordination across sites?<br>
+*   What specific benefits will these changes bring to the project?</p>
+</section>
+</article>
+</body>
+</html>

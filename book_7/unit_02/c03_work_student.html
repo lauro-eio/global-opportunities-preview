@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Talking Through Conflicts at Work</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Talking Through Conflicts at Work</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>2</dd>
+      <dt>Class</dt><dd>3</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-when-priorities-clash">
+<header class="stage-header"><h2>When Priorities Clash</h2></header>
+<section class="handout">
+<p>Have you ever experienced a disagreement or <strong class="lexis">conflict</strong> at work where your <strong class="lexis">priorities</strong> clashed with a colleague&#x27;s or another department&#x27;s?</p>
+<p>Think about a specific situation. For example, was it about:<br>
+*   <strong class="lexis">Scheduling</strong>: conflicting shift times, overlapping use of equipment, or leave requests?<br>
+*   <strong class="lexis">Workload/Overtime</strong>: differing expectations on project deadlines or additional hours?<br>
+*   <strong class="lexis">Safety Standards</strong>: a disagreement on procedures or protocols?<br>
+*   <strong class="lexis">Conflicting Targets</strong>: different departmental goals leading to friction?</p>
+<p>Discuss with a partner:<br>
+1.  What was the situation? Briefly describe it.<br>
+2.  What caused the <strong class="lexis">conflict</strong>? What were the opposing <strong class="lexis">priorities</strong>?<br>
+3.  How was it initially handled (or not handled)?<br>
+4.  What was the outcome? Was a <strong class="lexis">compromise</strong> reached?</p>
+</section>
+</article>
+<article class="stage" id="stage-a-productive-conversation">
+<header class="stage-header"><h2>A Productive Conversation</h2></header>
+<section class="handout">
+<p>Read the following conversation between David, a production supervisor, and Emily, a logistics coordinator, who are trying to resolve a conflict over shared equipment.</p>
+<p><strong class="lexis">David:</strong> Emily, do you have a moment? I need to discuss the use of the main forklift next week.<br>
+<strong class="lexis">Emily:</strong> Certainly, David. What&#x27;s on your mind?<br>
+<strong class="lexis">David:</strong> My team absolutely needs that forklift all day on Monday to load the new custom orders. It’s a tight turnaround, and missing that window will mean significant penalties for us.<br>
+<strong class="lexis">Emily:</strong> I understand the pressure, David, but that&#x27;s going to be a real problem. My logistics team relies on that very forklift for the morning deliveries. We have strict client deadlines, and any delay impacts our entire supply chain.<br>
+<strong class="lexis">David:</strong> I appreciate your <strong class="lexis">priorities</strong>, and I <strong class="lexis">respect</strong> the demands on your team, but this production run is critical for our quarterly targets. We can&#x27;t afford to push it back.<br>
+<strong class="lexis">Emily:</strong> And we can&#x27;t afford to miss our delivery commitments. Perhaps there&#x27;s a way we can <strong class="lexis">compromise</strong>? Could your team start later in the day, or maybe we could split the usage?<br>
+<strong class="lexis">David:</strong> Splitting the day could work, but it would make our loading process much less efficient. What if your team uses it from 6 AM to 10 AM, and then my team takes over from 10 AM until the end of the day?<br>
+<strong class="lexis">Emily:</strong> That&#x27;s a fair <strong class="lexis">proposal</strong>, David. It would mean a bit of adjustment for my morning crew, but I think we can make that work. I appreciate your willingness to <strong class="lexis">negotiate</strong>.<br>
+<strong class="lexis">David:</strong> Thanks, Emily. I really value your flexibility. It helps us avoid unnecessary <strong class="lexis">conflict</strong> and ensures we both meet our essential targets.<br>
+<strong class="lexis">Emily:</strong> Agreed. It&#x27;s about finding a solution that works for the whole operation.</p>
+</section>
+</article>
+<article class="stage" id="stage-tools-for-tricky-talks">
+<header class="stage-header"><h2>Tools for Tricky Talks</h2></header>
+<section class="handout">
+<p>Before you engage in a negotiation, it&#x27;s helpful to have some key phrases ready. Review the phrases below to help you express your position, acknowledge others, propose solutions, and reach a <strong class="lexis">compromise</strong> respectfully.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Stating Your Position / Problem</th><th>Acknowledging the Other Side</th><th>Proposing a Solution / Compromise</th><th>Seeking Agreement / Closing</th></tr><tr><td>My main concern is...</td><td>I understand your **priorities**.</td><td>Perhaps we could **compromise** by...</td><td>Does that sound fair?</td></tr><tr><td>From our perspective, the challenge is...</td><td>I appreciate your team&#x27;s situation.</td><td>What if we tried...?</td><td>Are you open to this suggestion?</td></tr><tr><td>We have a firm deadline for...</td><td>I hear what you&#x27;re saying about...</td><td>My **proposal** is...</td><td>I think we can make this work.</td></tr><tr><td>This is critical for our team&#x27;s targets.</td><td>I **respect** your need for...</td><td>Would it be possible to...?</td><td>Thanks for your willingness to **negotiate**.</td></tr><tr><td></td><td></td><td>How about we split the difference?</td><td>I appreciate your flexibility.</td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-negotiating-a-resolution">
+<header class="stage-header"><h2>Negotiating a Resolution</h2></header>
+<section class="handout">
+<p>You are going to roleplay a workplace negotiation. Read your role card carefully. You and your partner have conflicting <strong class="lexis">priorities</strong> and need to <strong class="lexis">negotiate</strong> a solution that works for both of you.</p>
+<p><strong class="lexis">Role A: Warehouse Operations Lead</strong><br>
+Your team needs exclusive access to the main loading dock and pallet jacks all day Friday to prepare a large, urgent international shipment. The client is high-priority, and any delay will result in severe financial penalties and damage to your company&#x27;s reputation. You cannot afford to lose more than two hours of access.</p>
+<p><strong class="lexis">Role B: Inventory Management Supervisor</strong><br>
+Your team has scheduled a mandatory, full-day inventory audit for Friday, requiring exclusive access to the main loading dock and pallet jacks. This audit is legally mandated and must be completed by Friday evening. Rescheduling would be a logistical nightmare and could lead to compliance issues.</p>
+<p><strong class="lexis">Your Goal:</strong> Successfully <strong class="lexis">negotiate</strong> a solution that addresses both your team&#x27;s critical needs and your partner&#x27;s. Aim for a fair <strong class="lexis">compromise</strong>.</p>
+<p>Use the phrases from the &#x27;Tools for Tricky Talks&#x27; to help you.</p>
+</section>
+</article>
+<article class="stage" id="stage-reflecting-on-your-negotiation">
+<header class="stage-header"><h2>Reflecting on Your Negotiation</h2></header>
+<section class="handout">
+<p>Think about your negotiation:<br>
+1.  Did you manage to reach a <strong class="lexis">compromise</strong> or find a solution that satisfied both parties?<br>
+2.  What was the most challenging part of the <strong class="lexis">negotiation</strong>?<br>
+3.  Which phrases from the &#x27;Tools for Tricky Talks&#x27; did you find most useful, or wish you had used?</p>
+<p>Now, let&#x27;s reflect on the language we used. We&#x27;ll look at some examples from your conversations to help us improve our future negotiations.</p>
+</section>
+</article>
+</body>
+</html>

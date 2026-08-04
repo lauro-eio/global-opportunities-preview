@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Listening to Urgent Operational Updates</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Listening to Urgent Operational Updates</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>3</dd>
+      <dt>Class</dt><dd>4</dd>
+      <dt>Theme</dt><dd>T03_TRAVEL</dd>
+      <dt>Framework</dt><dd>SK-REC</dd>
+      <dt>Role</dt><dd>SK_REC_LISTENING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Sharing Workplace Update Channels</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by asking learners about their experience with unexpected delays or changes in their work.<br>
+2. Prompt them to consider how they typically receive these crucial updates (e.g., company radio, dedicated apps, supervisor announcements, text messages).<br>
+3. Encourage discussion on the urgency and clarity of these communication channels in their specific lines of work (e.g., logistics, service, transport).<br>
+4. Link the discussion to the importance of accurate information for <strong class="lexis">routing</strong> and <strong class="lexis">network operations</strong>.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Getting the Message: Delays and Changes</h4>
+<p>Think about your daily work. Have you ever experienced unexpected delays or had to change your plans at short notice? How do you usually find out about these changes?</p>
+<p>1. What are the fastest ways you receive urgent information at work?<br>
+2. Who gives you these <strong class="lexis">updates</strong>?<br>
+3. How important is it to get clear information quickly when there are <strong class="lexis">delays</strong> or a need to <strong class="lexis">re-route</strong>?<br>
+4. What kinds of situations require immediate communication about changes to operations?</p>
+</section>
+</article>
+<article class="stage" id="stage-PTV">
+<header class="stage-header"><span class="stage-code">PTV</span><h2>Pre-Teach Vocabulary: Key Terms for Network Updates</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the new vocabulary items one by one. Check for known meanings and provide context where necessary.<br>
+2. Guide learners through the matching task to consolidate understanding.<br>
+3. Monitor and clarify any misconceptions, ensuring learners can articulate the meaning of each term in a workplace context.<br>
+4. Ensure pronunciation practice as needed.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Understanding Operation Terms</h4>
+<p>Before we listen, let&#x27;s look at some important words you&#x27;ll hear. Match each term with its correct definition. Some of these words are critical for understanding how <strong class="lexis">network operations</strong> are managed.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>routing</li><li>network operations</li><li>updates</li><li>delays</li><li>re-route</li><li>congestion</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match the words on the left with their definitions on the right.</p>
+<p>Match the words with their definitions:</p>
+<ul><li><strong>routing</strong> — The process of planning the path for data, vehicles, or goods.</li><li><strong>network operations</strong> — The management and monitoring of a system of interconnected elements (e.g., transport routes, data flow).</li><li><strong>updates</strong> — The latest information or new details about a situation.</li><li><strong>delays</strong> — Situations where something is postponed or slowed down, causing it to be late.</li><li><strong>re-route</strong> — To change the planned course or path of something.</li><li><strong>congestion</strong> — A situation where there is too much traffic or activity, causing blockages and slowing things down.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-GIST">
+<header class="stage-header"><span class="stage-code">GIST</span><h2>Gist Listening: Understanding the Main Problem</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that learners will listen to an urgent announcement from a logistics coordinator.<br>
+2. Tell them to listen for the main purpose of the announcement and the general problem being addressed, without focusing on small details.<br>
+3. Play the audio once.<br>
+4. After listening, give learners time to choose the best option for the multiple-choice question.<br>
+5. Check answers as a class, discussing why the correct option best summarizes the main idea.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Quick Overview: The Urgent Briefing</h4>
+<p>Listen to an urgent briefing from a logistics coordinator. What is the main reason for this announcement? Choose the best answer.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Urgent Dispatch Briefing: Southern Bypass Incident</h5>
+<p>Good morning, dispatch team and all drivers on the Southern Bypass sector. This is Maria, your Lead Coordinator, with an urgent <strong class="lexis">network operations</strong> <strong class="lexis">update</strong>. We&#x27;ve just received confirmation of a major incident on the Southern Bypass, near Junction 17. A multi-vehicle accident has completely blocked all lanes, eastbound and westbound. This is causing severe <strong class="lexis">congestion</strong> and will result in significant <strong class="lexis">delays</strong> across all scheduled deliveries relying on that primary <strong class="lexis">routing</strong> channel.</p>
+<p>Our immediate priority is to minimize disruption. We are actively working on a plan to <strong class="lexis">re-route</strong> all affected vehicles. Please listen carefully: effective immediately, all traffic originally scheduled to use the Southern Bypass through Junction 17 must <strong class="lexis">re-route</strong>. For eastbound traffic, use the designated alternative via the A12 Northern Link, then reconnect at Junction 21. Westbound traffic, divert immediately via the B304, approaching from the south.</p>
+<p>I repeat, this is a critical <strong class="lexis">update</strong> due to an unforeseen incident. Do not attempt to use the Southern Bypass near Junction 17. Our <strong class="lexis">mapping</strong> systems are being updated in real-time to reflect these new <strong class="lexis">routing</strong> instructions. Supervisors will be contacting individual drivers shortly with precise revised schedules and any additional instructions. Your cooperation in executing these emergency <strong class="lexis">re-route</strong> plans is paramount to maintaining our service levels. We will provide further <strong class="lexis">updates</strong> as the situation evolves. Thank you.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main purpose of Maria’s urgent briefing?</p>
+<ul><li>To announce new company policy for driver safety.</li><li>To inform drivers about a major disruption and provide immediate alternative routing.</li><li>To request feedback on current logistics procedures.</li><li>To clarify the use of new mapping software.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-DET">
+<header class="stage-header"><span class="stage-code">DET</span><h2>Detailed Listening: Specific Information and Implications</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that learners will listen to the same audio again, this time focusing on specific details.<br>
+2. Play the audio.<br>
+3. Have learners answer the short-text questions, recalling specific pieces of information mentioned.<br>
+4. Check answers for accuracy.<br>
+5. For the inference question, encourage learners to discuss in pairs or small groups first, then share their thoughts with the class.<br>
+6. Provide feedback on their inferences, guiding them towards understanding the broader implications of effective <strong class="lexis">network operations</strong> and rapid response. Key points for inference: minimizing financial loss, maintaining customer satisfaction, ensuring safety, demonstrating operational resilience.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Key Details and Why They Matter</h4>
+<p>Now listen again carefully for specific details in the briefing. Answer the following questions based on what Maria says.</p>
+<p>1. What specific road is affected by the incident?<br>
+2. Which junction is near the incident?<br>
+3. What is the designated alternative route for eastbound traffic?</p>
+<p>After answering, think about this: What does Maria&#x27;s detailed instructions about re-routing imply about the overall importance of efficient <strong class="lexis">network operations</strong> in their business? Why is this level of detail crucial?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Urgent Dispatch Briefing: Southern Bypass Incident</h5>
+<p>Good morning, dispatch team and all drivers on the Southern Bypass sector. This is Maria, your Lead Coordinator, with an urgent <strong class="lexis">network operations</strong> <strong class="lexis">update</strong>. We&#x27;ve just received confirmation of a major incident on the Southern Bypass, near Junction 17. A multi-vehicle accident has completely blocked all lanes, eastbound and westbound. This is causing severe <strong class="lexis">congestion</strong> and will result in significant <strong class="lexis">delays</strong> across all scheduled deliveries relying on that primary <strong class="lexis">routing</strong> channel.</p>
+<p>Our immediate priority is to minimize disruption. We are actively working on a plan to <strong class="lexis">re-route</strong> all affected vehicles. Please listen carefully: effective immediately, all traffic originally scheduled to use the Southern Bypass through Junction 17 must <strong class="lexis">re-route</strong>. For eastbound traffic, use the designated alternative via the A12 Northern Link, then reconnect at Junction 21. Westbound traffic, divert immediately via the B304, approaching from the south.</p>
+<p>I repeat, this is a critical <strong class="lexis">update</strong> due to an unforeseen incident. Do not attempt to use the Southern Bypass near Junction 17. Our <strong class="lexis">mapping</strong> systems are being updated in real-time to reflect these new <strong class="lexis">routing</strong> instructions. Supervisors will be contacting individual drivers shortly with precise revised schedules and any additional instructions. Your cooperation in executing these emergency <strong class="lexis">re-route</strong> plans is paramount to maintaining our service levels. We will provide further <strong class="lexis">updates</strong> as the situation evolves. Thank you.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What specific road is affected by the incident?</p>
+</div>
+<div class="task"><p class="task-instruction">Which junction is near the incident?</p>
+</div>
+<div class="task"><p class="task-instruction">What is the designated alternative route for eastbound traffic?</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback and Discussion: Responding to Changes</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Open a discussion about the listening passage, focusing on how learners felt about the urgency and clarity of the communication.<br>
+2. Ask how such <strong class="lexis">updates</strong> might affect their own work or roles.<br>
+3. Guide the conversation to reflect on strategies for handling unexpected <strong class="lexis">delays</strong> or changes to <strong class="lexis">routing</strong> in their professional lives.<br>
+4. Provide feedback on overall comprehension and any remaining lexical challenges.<br>
+5. Encourage learners to share any personal experiences or best practices from their workplaces related to managing disruptions in <strong class="lexis">network operations</strong>.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Handling Unexpected Changes at Work</h4>
+<p>Imagine you are one of the drivers receiving Maria&#x27;s urgent briefing. </p>
+<p>1. How would you react to this <strong class="lexis">update</strong>?<br>
+2. What challenges would these unexpected <strong class="lexis">delays</strong> and <strong class="lexis">re-routing</strong> plans present in your work?<br>
+3. What are the key strategies your workplace uses to minimize disruption when similar incidents occur?<br>
+4. How important is clear, concise communication during these critical <strong class="lexis">network operations</strong> challenges?</p>
+</section>
+</article>
+</body>
+</html>

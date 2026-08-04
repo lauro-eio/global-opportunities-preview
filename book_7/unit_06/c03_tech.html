@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Workplace AI Monitoring: A Debate on Ethics</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Workplace AI Monitoring: A Debate on Ethics</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>6</dd>
+      <dt>Class</dt><dd>3</dd>
+      <dt>Theme</dt><dd>T06_TECH</dd>
+      <dt>Framework</dt><dd>SK-PROD</dd>
+      <dt>Role</dt><dd>SK_PROD_SPEAKING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: AI at Work</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by asking students to briefly share any experiences with workplace monitoring, if comfortable (e.g., CCTV, clocking in/out systems, email scans). <br>
+2. Introduce the concept of AI-powered surveillance using the lead-in brief. <br>
+3. Divide students into pairs or small groups. <br>
+4. Give them 5-7 minutes to discuss the questions. <br>
+5. Open up for a brief whole-class discussion, noting down any initial feelings or strong opinions.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">The AI Eye: Workplace Monitoring</h4>
+<p>Imagine your every work action tracked by AI. This could include your computer activity, communications, physical movements, and even your tone of voice. We&#x27;re going to examine the ethical boundaries of AI surveillance in professional environments.</p>
+<p>Discuss the following questions with a partner:<br>
+1. What are some existing ways workplaces monitor employees, beyond just tracking hours?<br>
+2. How would you feel if an AI system monitored your every work action, from emails to breaks?<br>
+3. What potential benefits might a company see in using AI for employee monitoring? And what are the major concerns for employees?<br>
+4. Where do you think the line should be drawn between a company&#x27;s need for oversight and an employee&#x27;s right to privacy?</p>
+</section>
+</article>
+<article class="stage" id="stage-MOD">
+<header class="stage-header"><span class="stage-code">MOD</span><h2>Model Dialogue: Debating AI Surveillance</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the model dialogue as a conversation between two colleagues discussing a new AI monitoring system being introduced at their logistics firm. <br>
+2. Ask students to read the dialogue individually, focusing on the main points each speaker makes. <br>
+3. Put students in pairs to discuss the gist comprehension questions. <br>
+4. Conduct a quick class check for comprehension, then move to the detail questions. <br>
+5. Assign the detail comprehension tasks (short text/MCQ) for students to complete individually. <br>
+6. Review answers as a class. Highlight any <strong class="lexis">bolded</strong> vocabulary from the dialogue and check understanding.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Employee vs. Management: The Monitoring Debate</h4>
+<p>Read the following dialogue between two employees, Maria and David, who work at a busy logistics company. They are discussing a newly announced AI-powered monitoring system.</p>
+<p>After reading, complete the comprehension tasks.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>New AI Monitoring System: A Discussion</h5>
+<p>Maria: Can you believe this new AI monitoring system they’re rolling out? It feels like we&#x27;re about to be living in a <strong class="lexis">digital panopticon</strong>.</p>
+<p>David: I understand your concerns, Maria. HR presented it yesterday as a way to enhance productivity and identify bottlenecks, using advanced <strong class="lexis">performance metrics</strong>. They say it will make our operations more efficient.</p>
+<p>Maria: Efficient, maybe, but at what cost? To me, it&#x27;s a blatant <strong class="lexis">privacy invasion</strong>. Every keystroke, every communication, even how long we spend on a break… it’s too much. What about trust?</p>
+<p>David: They did emphasize that the system is designed to analyze patterns, not individual incidents. And they assured us about <strong class="lexis">data integrity</strong> – that the information collected would be secure and used solely for operational improvements.</p>
+<p>Maria: Secure? Who has access to this data? And what about <strong class="lexis">employee consent</strong>? We were informed, but did anyone really &#x27;consent&#x27; when the alternative feels like falling behind or being viewed suspiciously?</p>
+<p>David: Good point. The memo did state that aggregate data would be anonymous. It’s supposed to flag systemic issues, not micromanage individuals. But I agree, the idea of constant oversight is unsettling, even if the intentions are positive.</p>
+<p>Maria: Intentions or not, it changes the dynamic. It feels like they&#x27;re solving a problem of trust by removing trust entirely. I’m not convinced it will improve morale or genuine productivity.</p>
+<p>David: Perhaps not. It certainly opens a big ethical can of worms.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main topic of Maria and David&#x27;s discussion?</p>
+<p>The main topic is...</p>
+</div>
+<div class="task"><p class="task-instruction">What is Maria&#x27;s primary concern about the new system?</p>
+<p>Maria is most worried about...</p>
+<ul><li>The cost of implementing the system.</li><li>Her privacy being invaded.</li><li>The system not being efficient enough.</li><li>Not understanding how the system works.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">According to David, what is the company&#x27;s main justification for introducing the AI system?</p>
+<p>The company justifies it by...</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-PREP">
+<header class="stage-header"><span class="stage-code">PREP</span><h2>Preparation: Structuring Your Argument</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will now prepare for their own debate on AI monitoring. <br>
+2. Direct students to the &#x27;Phrases for Debate&#x27; table. Explain the categories. <br>
+3. Go through the &#x27;Key Vocabulary&#x27; column, ensuring students understand each term and how to use it in context. <br>
+4. Give students 10-15 minutes to take notes based on the scenario, using the phrases and vocabulary to plan their arguments. Encourage them to anticipate counter-arguments.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Building Your Case: Phrases for Debate</h4>
+<p>You will now prepare to debate the implementation of an AI monitoring system in a workplace. Use the phrases and vocabulary below to help you structure your arguments. Think about both sides of the argument so you can respond effectively.</p>
+<p>Take notes for your role, outlining your main points, supporting reasons, and potential responses to the other side&#x27;s arguments. Focus on using the target vocabulary and expressions for debating.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Expressing Concern / Disagreement</th><th>Stating Company Position / Justification</th><th>Seeking Clarification / Compromise</th><th>Key Vocabulary</th></tr><tr><td>I&#x27;m deeply concerned about...</td><td>Our objective is to enhance...</td><td>Could you elaborate on...?</td><td>digital panopticon</td></tr><tr><td>This raises serious questions about...</td><td>The primary goal is to optimize...</td><td>What measures are in place to...?</td><td>privacy invasion</td></tr><tr><td>I cannot agree with the idea that...</td><td>We need to ensure greater accountability.</td><td>Is there room for compromise on...?</td><td>performance metrics</td></tr><tr><td>From an employee&#x27;s perspective, this feels like...</td><td>This system is designed to provide...</td><td>How can we balance X with Y?</td><td>employee consent</td></tr><tr><td>We must consider the ethical implications of...</td><td>It&#x27;s about data-driven decision making.</td><td>What assurances can you offer regarding...?</td><td>data integrity</td></tr><tr><td>This could lead to a decline in morale.</td><td>We are committed to operational efficiency.</td><td>Perhaps we could explore alternatives like...</td><td>ethical boundaries</td></tr><tr><td></td><td></td><td></td><td>workplace dignity</td></tr><tr><td></td><td></td><td></td><td>transparent policies</td></tr><tr><td></td><td></td><td></td><td>constructive dialogue</td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Freer Practice: Workplace AI Debate</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Divide students into pairs (or groups of three, with one student acting as a neutral mediator/note-taker if preferred). <br>
+2. Assign roles: one &#x27;Employee Representative&#x27; and one &#x27;Company HR/Operations Manager&#x27;. <br>
+3. Reiterate the scenario and task. Emphasize using the phrases and vocabulary from the PREP stage. <br>
+4. Give students 15-20 minutes for their debate. Circulate, monitor for language use, and make notes for delayed correction, but do not interrupt fluency.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">The Big Debate: AI Monitoring at Work</h4>
+<p>Scenario: Your company is proposing to implement a new AI-powered monitoring system across all departments. This system would track computer usage, communication patterns, and efficiency data for all employees.</p>
+<p>Task: In pairs, role-play the following situation:</p>
+<p><strong class="lexis">Role A: Employee Representative / Shop Steward</strong><br>
+You are deeply concerned about the potential negative impact on employee well-being, privacy, and trust. Your goal is to argue against the implementation of such an extensive system, or at least to negotiate significant safeguards and limitations. Focus on employee rights and workplace dignity.</p>
+<p><strong class="lexis">Role B: HR Director / Operations Manager</strong><br>
+You believe this system is crucial for improving efficiency, identifying areas for training, and ensuring fair performance evaluations. Your goal is to justify the system&#x27;s implementation and address employee concerns while upholding company obligations. Focus on clear performance metrics and data integrity.</p>
+<p>Debate the ethical boundaries and practical implications of this AI monitoring system. Try to find common ground or clearly present your opposing viewpoints. Remember to use the vocabulary and phrases you prepared!</p>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback and Delayed Correction</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Start with open-class content feedback: &#x27;What were the key arguments from each side?&#x27;, &#x27;Were any compromises reached?&#x27;, &#x27;Which arguments were most persuasive?&#x27;. <br>
+2. Ask students about the challenges of the debate: &#x27;Was it easy to argue your point?&#x27;, &#x27;Did you find it difficult to use the new vocabulary?&#x27;, &#x27;What did you find difficult about responding to counter-arguments?&#x27;. <br>
+3. Move to delayed correction. Write selected errors (from monitoring) on the board – focusing on pronunciation, lexical accuracy, and fluency – without identifying the student. <br>
+4. Ask students to correct the errors individually or in pairs. <br>
+5. Go through corrections as a class. <br>
+6. Praise good use of target vocabulary and effective debating strategies observed during the task.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reflecting on the Debate</h4>
+<p>Take a moment to reflect on your debate.</p>
+<p>1. What were the most challenging aspects of arguing your role?<br>
+2. What new vocabulary or phrases did you manage to use effectively?<br>
+3. What did you learn about the complexities of AI monitoring in the workplace from this discussion?</p>
+</section>
+</article>
+</body>
+</html>

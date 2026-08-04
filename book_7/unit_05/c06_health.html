@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Drafting HR Guidelines for Employee Leave</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Drafting HR Guidelines for Employee Leave</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>5</dd>
+      <dt>Class</dt><dd>6</dd>
+      <dt>Theme</dt><dd>T05_HEALTH</dd>
+      <dt>Framework</dt><dd>SK-PROD</dd>
+      <dt>Role</dt><dd>SK_PROD_WRITING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Ethical Employer Support</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Greet students and introduce the topic of employer support for employees facing personal crises.<br>
+2. Ask students to read the scenario provided in &#x27;Student Content&#x27;.<br>
+3. Facilitate a class discussion based on the questions, encouraging them to share their initial thoughts on ethical responsibilities and practical challenges.<br>
+4. Emphasize that there are no &#x27;right&#x27; or &#x27;wrong&#x27; answers at this stage, focusing on exploring the complexity of the issue.<br>
+5. Guide students to consider both the employee&#x27;s needs and the employer&#x27;s operational realities.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Supporting Our Team: A Discussion</h4>
+<p>Imagine an employee whose close family member requires full-time palliative care. This employee needs <strong class="lexis">extended leave</strong> to provide <strong class="lexis">end-of-life care</strong>. </p>
+<p>Discuss the following questions with a partner or in a small group:</p>
+<p>1. What ethical responsibilities, if any, do employers bear in supporting staff through such profoundly challenging personal circumstances?<br>
+2. What kind of <strong class="lexis">employee support</strong> might be necessary in this situation, beyond just time off?<br>
+3. What challenges might a company face when an employee requires <strong class="lexis">compassionate leave</strong> for an <strong class="lexis">extended</strong> period?<br>
+4. How can a workplace balance the needs of the individual employee with the needs of the team and the business?</p>
+</section>
+</article>
+<article class="stage" id="stage-MOD">
+<header class="stage-header"><span class="stage-code">MOD</span><h2>Model Analysis: Internal Memo on Compassionate Leave</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Hand out the memo and instruct students to read it, focusing on how the company communicates its policy.<br>
+2. Ask students to complete the MCQ tasks independently, referring back to the memo as needed.<br>
+3. After students have completed the tasks, review the answers as a class, discussing why each option is correct or incorrect.<br>
+4. Draw attention to the tone, structure, and specific phrases used to convey empathy and professionalism.<br>
+5. Highlight instances where the memo addresses both policy and the ethical considerations discussed in the L-IN.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Understanding Company Communication</h4>
+<p>Read the internal memo below from HR regarding the company&#x27;s <strong class="lexis">compassionate leave</strong> policy. Pay attention to its purpose, tone, and how it addresses supporting employees during difficult times.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Internal Memo: Supporting Employees Through Personal Challenges</h5>
+<p>Date: October 26, 2024<br>
+To: All Department Managers<br>
+From: Human Resources Department<br>
+Subject: Enhancing Our <strong class="lexis">Employee Support</strong> for <strong class="lexis">Extended Leave</strong></p>
+<p>Dear Managers,</p>
+<p>We are writing to clarify and reinforce our commitment to <strong class="lexis">employee support</strong>, particularly concerning situations requiring <strong class="lexis">extended leave</strong> for <strong class="lexis">end-of-life care</strong> for a close family member. We understand that these are profoundly challenging personal circumstances, and our goal is to ensure our policies reflect both our ethical responsibilities and a supportive workplace culture.</p>
+<p>Our updated <strong class="lexis">bereavement policy</strong> and <strong class="lexis">family medical leave</strong> guidelines are designed to provide clear frameworks while allowing for flexibility and empathy. For situations involving <strong class="lexis">end-of-life care</strong>, employees may be eligible for a combination of <strong class="lexis">compassionate leave</strong>, <strong class="lexis">family medical leave</strong>, and flexible working arrangements. This approach aims to support their <strong class="lexis">work-life balance</strong> during critical times.</p>
+<p>Key points for managers:</p>
+<p>1.  <strong class="lexis">Open Communication:</strong> Encourage employees to speak openly with HR and their immediate manager about their needs as early as possible. This helps us plan for coverage and offer appropriate assistance.<br>
+2.  <strong class="lexis">Resource Guidance:</strong> Direct employees to HR for detailed information on their leave entitlements, available company resources, and external support networks.<br>
+3.  <strong class="lexis">Team Planning:</strong> Work with your team and HR to manage workloads effectively during an employee&#x27;s absence. This might involve temporary reassignments or flexible scheduling for remaining team members, ensuring continuous operational efficiency while minimizing stress on those providing cover.<br>
+4.  <strong class="lexis">Reintegration Support:</strong> Upon an employee’s return, initiate a supportive reintegration process. This could include a phased return to work or a review of their workload to ease the transition.</p>
+<p>We recognize the critical role managers play in fostering a supportive environment. Your sensitivity and proactive approach are invaluable. Please consult with HR for any specific cases or further clarification on these policies.</p>
+<p>Sincerely,</p>
+<p>The HR Department</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the primary purpose of this memo?</p>
+<p>The main purpose of this memo is to...</p>
+<ul><li>Announce a new stricter leave policy.</li><li>Inform managers about revised guidelines for supporting employees needing extended leave.</li><li>Request managers to report all employee leave requests to HR immediately.</li><li>Introduce new employee benefits for all staff.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Which aspect is NOT emphasized as a key point for managers?</p>
+<p>The memo advises managers on all of the following EXCEPT...</p>
+<ul><li>Encouraging open communication with employees.</li><li>Guiding employees to available resources.</li><li>Directly negotiating leave terms with employees.</li><li>Supporting employees upon their return to work.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">According to the memo, what is the HR department&#x27;s goal regarding leave policies for challenging personal circumstances?</p>
+<p>What is HR&#x27;s goal regarding these policies?</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-PREP">
+<header class="stage-header"><span class="stage-code">PREP</span><h2>Preparation: Useful Language for Internal Communication</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will now prepare to write their own internal communication.<br>
+2. Guide students through the &#x27;Useful Phrases for Communication&#x27; column banks.<br>
+3. Ask them to consider which phrases would be appropriate for different parts of an email or memo (e.g., opening, explaining policy, offering support, closing).<br>
+4. Have students complete the &#x27;Matching Terms&#x27; activity, reinforcing the vocabulary related to employee leave.<br>
+5. Review the matching activity as a class, clarifying any misconceptions.<br>
+6. Encourage students to think about how these phrases contribute to a professional yet empathetic tone.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Crafting Supportive Messages</h4>
+<p>Before you write, let&#x27;s look at some useful phrases and terms that can help you communicate effectively and empathetically in a professional setting.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Opening &amp; Purpose</th><th>Explaining Policy &amp; Support</th><th>Guidance &amp; Action</th><th>Closing &amp; Professionalism</th></tr><tr><td>We understand that these are challenging times...</td><td>Employees may be eligible for a combination of...</td><td>Encourage employees to speak openly with HR...</td><td>We recognize the critical role managers play...</td></tr><tr><td>To clarify our approach to...</td><td>Our guidelines are designed to provide frameworks while allowing for flexibility...</td><td>Direct employees to HR for detailed information...</td><td>Your sensitivity and proactive approach are invaluable...</td></tr><tr><td>Reinforcing our commitment to...</td><td>This approach aims to support their **work-life balance**...</td><td>Work with your team and HR to manage workloads effectively...</td><td>Please consult with HR for any specific cases...</td></tr><tr><td>Regarding support for employees needing...</td><td>We provide comprehensive **employee support** through...</td><td>Initiate a supportive reintegration process...</td><td>Committed to fostering a supportive environment...</td></tr></table></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match the term related to employee leave with its correct definition.</p>
+<p>Match the following terms:</p>
+<ul><li><strong>Compassionate leave</strong> — Time off granted to an employee to deal with family illness, death, or other emergencies.</li><li><strong>Bereavement policy</strong> — A company&#x27;s official rules and guidelines regarding time off for mourning a deceased family member.</li><li><strong>Family medical leave</strong> — A type of leave that allows employees to take unpaid, job-protected time off for specific family and medical reasons.</li><li><strong>Work-life balance</strong> — The state of equilibrium where a person&#x27;s professional and personal lives are equally prioritized.</li><li><strong>Employee support</strong> — Resources and assistance provided by an employer to help staff with personal and professional challenges.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Focused Production: Drafting an Internal Email to Managers</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Clearly explain the writing task to students, reviewing the audience, purpose, and approximate length.<br>
+2. Advise students to use the model memo from the MOD stage and the useful language from the PREP stage as a guide.<br>
+3. Emphasize the importance of maintaining a professional yet empathetic tone.<br>
+4. Encourage students to structure their email logically, with a clear subject line, opening, body paragraphs outlining policy/guidance, and a professional closing.<br>
+5. Circulate around the room, offering individual guidance and answering questions as students draft their emails. Do not correct language errors at this stage; focus on content and clarity of message.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Writing Your Support Guidelines</h4>
+<p>Your task is to draft an internal email from the HR department to all department managers. The email should:</p>
+<p>*   <strong class="lexis">Audience:</strong> Department Managers<br>
+*   <strong class="lexis">Purpose:</strong> Inform and guide managers on how to effectively support employees who require <strong class="lexis">extended leave</strong> to provide <strong class="lexis">end-of-life care</strong> for a close family member, reinforcing the company&#x27;s commitment to <strong class="lexis">employee support</strong> and outlining the <strong class="lexis">bereavement policy</strong> and <strong class="lexis">compassionate leave</strong> options.<br>
+*   <strong class="lexis">Approximate Length:</strong> 150-200 words.</p>
+<p>Structure your email with a clear subject line, a professional opening, key points for managers to consider, and a supportive closing. Remember to use appropriate vocabulary and maintain an empathetic yet professional tone. You can refer to the model memo and the useful phrases from previous stages.</p>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback and Correction: Peer Review</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain the peer feedback process. Students will work in pairs to review each other&#x27;s emails.<br>
+2. Emphasize that feedback should be constructive and focus on clarity, tone, and whether the purpose of the email is met, using the provided questions.<br>
+3. First, have students focus on content and message delivery (questions 1-3).<br>
+4. After content feedback, instruct them to review for language accuracy and appropriateness (questions 4-5).<br>
+5. Circulate and monitor discussions, providing guidance as needed. Avoid correcting individual errors at this point; encourage students to identify and suggest improvements.<br>
+6. Conclude by having students reflect on the feedback they received and make mental notes for future writing tasks.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Improving Our Communication</h4>
+<p>Now, exchange your drafted email with a partner. Read your partner&#x27;s email carefully and provide constructive feedback using the questions below. Think about both the message and the language used.</p>
+<p><strong class="lexis">Part 1: Content and Purpose</strong><br>
+1.  Does the email clearly communicate the company&#x27;s approach to <strong class="lexis">extended leave</strong> for <strong class="lexis">end-of-life care</strong>?<br>
+2.  Is the tone appropriate (professional yet empathetic) for the sensitive nature of the topic?<br>
+3.  Does the email provide clear, actionable guidance for managers on how to support their employees?</p>
+<p><strong class="lexis">Part 2: Language and Style</strong><br>
+4.  Are the key terms like <strong class="lexis">compassionate leave</strong>, <strong class="lexis">bereavement policy</strong>, and <strong class="lexis">employee support</strong> used correctly and effectively?<br>
+5.  Are there any sentences or phrases that could be clearer, more concise, or more impactful?</p>
+<p>Discuss your feedback with your partner, then consider how you might revise your own email based on the discussion.</p>
+</section>
+</article>
+</body>
+</html>

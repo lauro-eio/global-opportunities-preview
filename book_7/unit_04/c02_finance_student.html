@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crafting Impactful Financial Advice</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Crafting Impactful Financial Advice</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>4</dd>
+      <dt>Class</dt><dd>2</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-navigating-new-ventures">
+<header class="stage-header"><h2>Navigating New Ventures</h2></header>
+<section class="handout">
+<p>Imagine you are advising a close colleague who is incredibly excited about setting up their first business. They&#x27;ve saved up, they have a solid product idea, but they&#x27;re relatively new to the complexities of the current economic climate.</p>
+<p>Considering today&#x27;s market volatility and global economic shifts:</p>
+<p>1. What are the top two or three financial risks you would immediately warn them about?<br>
+2. What initial, practical steps could they take to protect their new venture financially from day one?</p>
+<p>Discuss your ideas with a partner.</p>
+</section>
+</article>
+<article class="stage" id="stage-understanding-the-economic-landscape">
+<header class="stage-header"><h2>Understanding the Economic Landscape</h2></header>
+<section class="handout">
+<p>Read the advisory memo below from a financial firm to its small business clients. Don&#x27;t worry about understanding every detail at this stage; just focus on the main purpose of the document.</p>
+<p>Then, answer the question that follows.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Advisory: Navigating Global Economic Headwinds for Small Enterprises</h5>
+<p>To: All Clients, Small Business Division<br>
+From: Risk Mitigation Strategies Team<br>
+Date: October 26, 2023<br>
+Subject: Proactive Measures Amidst Market Volatility</p>
+<p>Dear Valued Clients,</p>
+<p>In these dynamic times, understanding and responding to global economic shifts is paramount, especially for small and medium-sized enterprises (SMEs). Our latest analysis indicates persistent market volatility, necessitating a proactive stance on financial planning.</p>
+<p>Never before have small businesses faced such a complex interplay of inflationary pressures, supply chain disruptions, and evolving consumer behaviours. This memo outlines key considerations and actionable strategies to safeguard your ventures.</p>
+<p>Assessing Current Economic Outlooks:<br>
+Our models indicate projected growth rates that, while positive, remain susceptible to external shocks. We are closely monitoring global events for any signs of an adverse economic outlook that could impact your operational stability. Recent governmental decisions suggest potential fiscal policy adjustments on the horizon, which may influence lending conditions and consumer spending.</p>
+<p>Mitigating Potential Risks:<br>
+Effective contingency planning is no longer a luxury but a fundamental requirement. We strongly advise a review of your current cash flow forecasts and liquidity positions. Under no circumstances should the potential for cash flow gaps be underestimated.</p>
+<p>Furthermore, we advocate for robust portfolio diversification where applicable, to spread exposure across various asset classes or revenue streams. Rarely has the emphasis on maintaining adequate capital reserves been more critical than it is today, given the rising spectre of solvency risk among less prepared entities.</p>
+<p>Our team is also exploring advanced techniques like financial hedging for those exposed to significant currency or commodity price fluctuations, though for many SMEs, simpler, more direct risk management remains the priority.</p>
+<p>We stand ready to assist you in developing bespoke strategies to mitigate potential risks and foster resilience. Do not hesitate to contact your dedicated account manager for a personalized consultation.</p>
+<p>Sincerely,<br>
+The Risk Mitigation Strategies Team</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the primary purpose of this advisory memo?</p>
+<p>The main goal of the memo is to...</p>
+<ul><li>Announce new financial products available for small businesses.</li><li>Inform clients about past economic performance and market trends.</li><li>Provide guidance and strategies for small businesses to manage current financial risks.</li><li>Predict the exact future projected growth rates for various industries.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-dissecting-the-report">
+<header class="stage-header"><h2>Dissecting the Report</h2></header>
+<section class="handout">
+<p>Read the advisory memo again, this time focusing on the specific details and advice provided. Then, answer the following questions.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Advisory: Navigating Global Economic Headwinds for Small Enterprises</h5>
+<p>To: All Clients, Small Business Division<br>
+From: Risk Mitigation Strategies Team<br>
+Date: October 26, 2023<br>
+Subject: Proactive Measures Amidst Market Volatility</p>
+<p>Dear Valued Clients,</p>
+<p>In these dynamic times, understanding and responding to global economic shifts is paramount, especially for small and medium-sized enterprises (SMEs). Our latest analysis indicates persistent market volatility, necessitating a proactive stance on financial planning.</p>
+<p>Never before have small businesses faced such a complex interplay of inflationary pressures, supply chain disruptions, and evolving consumer behaviours. This memo outlines key considerations and actionable strategies to safeguard your ventures.</p>
+<p>Assessing Current Economic Outlooks:<br>
+Our models indicate projected growth rates that, while positive, remain susceptible to external shocks. We are closely monitoring global events for any signs of an adverse economic outlook that could impact your operational stability. Recent governmental decisions suggest potential fiscal policy adjustments on the horizon, which may influence lending conditions and consumer spending.</p>
+<p>Mitigating Potential Risks:<br>
+Effective contingency planning is no longer a luxury but a fundamental requirement. We strongly advise a review of your current cash flow forecasts and liquidity positions. Under no circumstances should the potential for cash flow gaps be underestimated.</p>
+<p>Furthermore, we advocate for robust portfolio diversification where applicable, to spread exposure across various asset classes or revenue streams. Rarely has the emphasis on maintaining adequate capital reserves been more critical than it is today, given the rising spectre of solvency risk among less prepared entities.</p>
+<p>Our team is also exploring advanced techniques like financial hedging for those exposed to significant currency or commodity price fluctuations, though for many SMEs, simpler, more direct risk management remains the priority.</p>
+<p>We stand ready to assist you in developing bespoke strategies to mitigate potential risks and foster resilience. Do not hesitate to contact your dedicated account manager for a personalized consultation.</p>
+<p>Sincerely,<br>
+The Risk Mitigation Strategies Team</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">According to the memo, what specific types of pressures contribute to the &#x27;complex interplay&#x27; faced by small businesses?</p>
+<p>The memo mentions inflationary pressures, supply chain disruptions, and...</p>
+</div>
+<div class="task"><p class="task-instruction">What is advised regarding contingency planning?</p>
+<p>The memo states that contingency planning is...</p>
+<ul><li>an optional extra for stable businesses.</li><li>a fundamental requirement for all businesses.</li><li>only necessary for businesses engaged in financial hedging.</li><li>less important than portfolio diversification.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">What two specific areas of financial review are strongly advised for clients?</p>
+<p>Clients are advised to review their cash flow forecasts and...</p>
+</div>
+<div class="task"><p class="task-instruction">According to the memo, what kind of risk management is prioritized for many SMEs?</p>
+<p>For many SMEs, __________ remains the priority.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-unpacking-professional-language">
+<header class="stage-header"><h2>Unpacking Professional Language</h2></header>
+<section class="handout">
+<p>The advisory memo uses language in a very specific and professional way. Let&#x27;s look closer at two key features.</p>
+<p>Part 1: Rhetorical Emphasis with Inversion</p>
+<p>Look at these sentences from the memo:</p>
+<p>*   “Never before have small businesses faced such a complex interplay...”<br>
+*   “Under no circumstances should the potential for cash flow gaps be underestimated.”<br>
+*   “Rarely has the emphasis on maintaining adequate capital reserves been more critical...”</p>
+<p>1.  Compare the word order of these sentences to a more standard sentence structure, like: &#x27;Small businesses have never faced such a complex interplay.&#x27; What is different about the sentences from the memo?<br>
+2.  Why do you think the financial firm chose to phrase these statements this way? What effect does it create?<br>
+3.  Can you identify the pattern? (e.g., a negative adverbial phrase at the beginning, followed by...)</p>
+<p>Part 2: Formal Assessment Language</p>
+<p>Now, find the following phrases in the memo and consider their use:</p>
+<p>*   projected growth rates<br>
+*   fiscal policy adjustments<br>
+*   mitigate potential risks<br>
+*   market volatility trends<br>
+*   adverse economic outlook</p>
+<p>1.  Why are these precise, formal expressions used instead of simpler, more general words (e.g., &#x27;expected increases&#x27; instead of &#x27;projected growth rates&#x27;)?<br>
+2.  How does this choice of language contribute to the overall professional tone and credibility of the memo?<br>
+3.  Think about how you would stress these phrases when speaking them to convey their full meaning and maintain a professional tone.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Advisory: Navigating Global Economic Headwinds for Small Enterprises</h5>
+<p>To: All Clients, Small Business Division<br>
+From: Risk Mitigation Strategies Team<br>
+Date: October 26, 2023<br>
+Subject: Proactive Measures Amidst Market Volatility</p>
+<p>Dear Valued Clients,</p>
+<p>In these dynamic times, understanding and responding to global economic shifts is paramount, especially for small and medium-sized enterprises (SMEs). Our latest analysis indicates persistent market volatility, necessitating a proactive stance on financial planning.</p>
+<p>Never before have small businesses faced such a complex interplay of inflationary pressures, supply chain disruptions, and evolving consumer behaviours. This memo outlines key considerations and actionable strategies to safeguard your ventures.</p>
+<p>Assessing Current Economic Outlooks:<br>
+Our models indicate projected growth rates that, while positive, remain susceptible to external shocks. We are closely monitoring global events for any signs of an adverse economic outlook that could impact your operational stability. Recent governmental decisions suggest potential fiscal policy adjustments on the horizon, which may influence lending conditions and consumer spending.</p>
+<p>Mitigating Potential Risks:<br>
+Effective contingency planning is no longer a luxury but a fundamental requirement. We strongly advise a review of your current cash flow forecasts and liquidity positions. Under no circumstances should the potential for cash flow gaps be underestimated.</p>
+<p>Furthermore, we advocate for robust portfolio diversification where applicable, to spread exposure across various asset classes or revenue streams. Rarely has the emphasis on maintaining adequate capital reserves been more critical than it is today, given the rising spectre of solvency risk among less prepared entities.</p>
+<p>Our team is also exploring advanced techniques like financial hedging for those exposed to significant currency or commodity price fluctuations, though for many SMEs, simpler, more direct risk management remains the priority.</p>
+<p>We stand ready to assist you in developing bespoke strategies to mitigate potential risks and foster resilience. Do not hesitate to contact your dedicated account manager for a personalized consultation.</p>
+<p>Sincerely,<br>
+The Risk Mitigation Strategies Team</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Identify the grammatical pattern of the inverted sentences from the memo.</p>
+<p>The inverted sentences begin with a negative adverbial phrase, followed by...</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-crafting-precise-statements">
+<header class="stage-header"><h2>Crafting Precise Statements</h2></header>
+<section class="handout">
+<p>Now, let&#x27;s practice using the advanced structures and formal language we&#x27;ve discussed. Complete the following sentences, paying close attention to grammatical structure and professional register.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Rewrite the sentence using inversion, starting with &#x27;Only when&#x27;.</p>
+<p>We can truly understand the market after we analyze all the data. (Only when...)</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence using inversion, starting with &#x27;Seldom&#x27;.</p>
+<p>The board has seen such a rapid shift in consumer demand. (Seldom...)</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence with the most appropriate formal term.</p>
+<p>The central bank announced new __________ to control inflation.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence with the most appropriate formal term.</p>
+<p>To successfully __________ in a volatile market, businesses need clear strategies.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence using inversion, starting with &#x27;At no point&#x27;.</p>
+<p>We were told about the impending solvency risk. (At no point...)</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-your-expert-financial-advice">
+<header class="stage-header"><h2>Your Expert Financial Advice</h2></header>
+<section class="handout">
+<p>Imagine your colleague, who is starting their new business, has asked for your final thoughts on preparing for financial challenges. Write a short advisory note (about 5-7 sentences) to them.</p>
+<p>In your note, make sure to:</p>
+<p>*   Use at least two examples of inversion post negative adverbials (e.g., &#x27;Never before...&#x27;, &#x27;Under no circumstances...&#x27;, &#x27;Rarely...&#x27;).<br>
+*   Include at least two formal expressions for assessing economic outlooks or mitigating risks (e.g., &#x27;projected growth rates&#x27;, &#x27;adverse economic outlook&#x27;, &#x27;fiscal policy adjustments&#x27;, &#x27;mitigate potential risks&#x27;, &#x27;portfolio diversification&#x27;, &#x27;contingency planning&#x27;).<br>
+*   Maintain a professional and diplomatic tone suitable for a C2 level interaction.</p>
+</section>
+</article>
+</body>
+</html>

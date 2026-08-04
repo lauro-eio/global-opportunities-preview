@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interpreting Nuance in Professional Briefings</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Interpreting Nuance in Professional Briefings</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>1</dd>
+      <dt>Class</dt><dd>1</dd>
+      <dt>Theme</dt><dd>T01_IDENTITY</dd>
+      <dt>Framework</dt><dd>SK-REC</dd>
+      <dt>Role</dt><dd>SK_REC_READING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Reading Between the Lines</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by asking learners about their professional communication experiences.<br>
+2. Guide them to recall situations where an email or briefing from a manager or client required careful interpretation.<br>
+3. Focus the discussion on <strong class="lexis">what</strong> made the wording careful or indirect.<br>
+4. Encourage sharing examples of phrases or situations where they had to &#x27;read between the lines&#x27;.<br>
+5. Emphasize that this is not about abstract theory, but practical workplace communication.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Understanding Unspoken Messages</h4>
+<p>Think about your professional life. Have you ever received an email or a briefing from a manager, client, or colleague that seemed carefully worded? </p>
+<p>1. What was the situation? Who was the sender?<br>
+2. What made the wording &#x27;careful&#x27; or indirect?<br>
+3. What do you think the sender <strong class="lexis">really</strong> wanted to convey, beyond the words on the page?<br>
+4. How did you figure it out? What clues did you use?</p>
+</section>
+</article>
+<article class="stage" id="stage-PTV">
+<header class="stage-header"><span class="stage-code">PTV</span><h2>Pre-Teach Vocabulary: Key Terms for Sensitive Briefings</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the vocabulary words from the list.<br>
+2. Elicit or explain the meaning of each word in the context of professional communication and sensitive documents.<br>
+3. Distribute the matching task.<br>
+4. Monitor students as they complete the task, providing support as needed.<br>
+5. Check answers as a class, clarifying any misunderstandings.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Vocabulary for Careful Communication</h4>
+<p>We&#x27;re going to look at some key vocabulary that will help us understand sensitive professional communication. Read the words and their definitions below.</p>
+<p>Then, complete the matching task to connect each term with its correct meaning.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>diplomacy</li><li>stakeholder</li><li>nuance</li><li>integrity</li><li>briefing</li><li>convey</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match each term on the left to its best definition on the right.</p>
+<p>Match the terms related to careful communication.</p>
+<ul><li><strong>Diplomacy</strong> — Skill in handling situations without causing offense; tact.</li><li><strong>Stakeholder</strong> — A person or group with an interest or concern in a business or project.</li><li><strong>Nuance</strong> — A subtle difference in meaning, expression, or sound.</li><li><strong>Integrity</strong> — The quality of being honest and having strong moral principles; moral uprightness.</li><li><strong>Briefing</strong> — A meeting or document giving detailed instructions or information.</li><li><strong>Convey</strong> — To communicate a message or information.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-GIST">
+<header class="stage-header"><span class="stage-code">GIST</span><h2>Gist Reading: The Purpose of a Sensitive Briefing</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the reading passage, explaining it&#x27;s a sensitive interdepartmental <strong class="lexis">briefing</strong>.<br>
+2. Tell students they will read for gist – to understand the main purpose of the document.<br>
+3. Set a strict time limit for skimming (e.g., 2-3 minutes).<br>
+4. Students should complete the multiple-choice task individually.<br>
+5. Discuss answers as a class, eliciting reasons for their choices and why other options are incorrect.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">First Impressions of the Briefing</h4>
+<p>You are going to read a <strong class="lexis">briefing</strong> document sent to team leads. It&#x27;s about some new initiatives.</p>
+<p>Read the <strong class="lexis">briefing</strong> quickly to get a general idea of its main purpose. Don&#x27;t worry about understanding every single word.</p>
+<p>Then, choose the best option that describes the main purpose of this <strong class="lexis">briefing</strong>.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Interpreting the Interdepartmental Review Briefing</h5>
+<p>Subject: Operational Review and Synergy Initiatives - Update</p>
+<p>Dear Team Leads,</p>
+<p>Following our recent interdepartmental operational review, I am pleased to share an initial <strong class="lexis">briefing</strong> on the proposed synergy initiatives. These developments are designed to enhance cross-functional collaboration and streamline our workflows, ultimately fostering a more cohesive and productive environment. We are excited about the potential for improved efficiency and shared best practices across all our divisions.</p>
+<p>The attached document outlines the preliminary recommendations. While the language maintains a positive and forward-looking tone, it is crucial that we, as team leaders, approach this with a keen eye for <strong class="lexis">nuance</strong>. Several sections subtly highlight areas where current practices might be perceived as less than optimal. For instance, &#x27;optimising resource allocation&#x27; in Section 3 might imply a re-evaluation of current staffing levels in certain areas, rather than simply moving equipment around. Similarly, &#x27;enhancing accountability frameworks&#x27; could signify a stricter monitoring of individual contributions and team outputs.</p>
+<p>Our approach to discussing these changes with our teams will require considerable <strong class="lexis">diplomacy</strong>. It’s vital to <strong class="lexis">convey</strong> the positive aspirations of these initiatives without inadvertently causing apprehension or undermining team morale. We must uphold the <strong class="lexis">integrity</strong> of our teams while integrating these new directives. Your role as a key <strong class="lexis">stakeholder</strong> in this process is not just to disseminate information, but to interpret and guide your teams through these adjustments with wisdom and foresight.</p>
+<p>Particular attention should be paid to the section on &#x27;Stakeholder Engagement and Communication Protocols.&#x27; This emphasis suggests that there may have been instances of miscommunication or lack of coordination in the past. It’s a subtle reminder to ensure all future external communications are carefully vetted and aligned with corporate messaging. The goal is to present a united front and avoid any perceptions of internal disagreement.</p>
+<p>We will convene a follow-up meeting next Tuesday to discuss your initial interpretations and strategies for implementation. Please come prepared to share how you plan to read between the lines and address the unstated implications of this <strong class="lexis">briefing</strong> within your respective departments. Your considered feedback will be invaluable as we move forward.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main purpose of this briefing?</p>
+<p>The main purpose of this briefing is to...</p>
+<ul><li>Announce immediate staff reductions and department mergers.</li><li>Inform team leads about new initiatives and prepare them for careful communication about these changes.</li><li>Praise the teams for their excellent cross-functional collaboration.</li><li>Request a detailed report on past communication failures from team leads.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-DET">
+<header class="stage-header"><span class="stage-code">DET</span><h2>Detailed Reading: Unpacking the Hidden Messages</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Remind students they will reread the same <strong class="lexis">briefing</strong>, but this time for specific details and implied meanings.<br>
+2. Instruct them to read the <strong class="lexis">briefing</strong> again carefully.<br>
+3. Distribute the short-text comprehension tasks and allow time for students to complete them.<br>
+4. Check answers for the factual detail tasks. Encourage students to quote from the text.<br>
+5. Transition to the open discussion prompts. Divide students into pairs or small groups for discussion.<br>
+6. Circulate, listening to their interpretations and guiding them to identify the &#x27;unstated implications&#x27;.<br>
+7. Bring the class back together to share their interpretations for each prompt.<br>
+<strong class="lexis">Model Answers for Discussion Prompts:</strong><br>
+1. It implies current practices might be inefficient or have issues, and they are looking to change how people work.<br>
+2. It suggests there have been communication issues or a lack of alignment in previous external communications, hence the need for &#x27;careful vetting&#x27;.<br>
+3. It means team leads need to understand the deeper, unstated implications of the document and manage their teams&#x27; reactions to potential changes, acting as a buffer or interpreter.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reading Between the Lines for Key Details</h4>
+<p>Now, read the <strong class="lexis">briefing</strong> again, but this time more carefully. Focus on understanding the specific details and any <strong class="lexis">nuance</strong> in the language. Think about what the sender might be implying without stating it directly.</p>
+<p>First, answer the questions with short answers:</p>
+<p>Then, discuss the following questions with a partner. Think about what the <strong class="lexis">briefing</strong> hints at, rather than what it explicitly says:</p>
+<p>1. When the <strong class="lexis">briefing</strong> talks about &#x27;optimising resource allocation&#x27; and &#x27;enhancing accountability frameworks&#x27;, what potential changes or challenges is it subtly suggesting?<br>
+2. What does the emphasis on &#x27;Stakeholder Engagement and Communication Protocols&#x27; imply about past communication within the company?<br>
+3. What does it mean for team leads to &#x27;interpret and guide your teams through these adjustments with wisdom and foresight&#x27;?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Interpreting the Interdepartmental Review Briefing</h5>
+<p>Subject: Operational Review and Synergy Initiatives - Update</p>
+<p>Dear Team Leads,</p>
+<p>Following our recent interdepartmental operational review, I am pleased to share an initial <strong class="lexis">briefing</strong> on the proposed synergy initiatives. These developments are designed to enhance cross-functional collaboration and streamline our workflows, ultimately fostering a more cohesive and productive environment. We are excited about the potential for improved efficiency and shared best practices across all our divisions.</p>
+<p>The attached document outlines the preliminary recommendations. While the language maintains a positive and forward-looking tone, it is crucial that we, as team leaders, approach this with a keen eye for <strong class="lexis">nuance</strong>. Several sections subtly highlight areas where current practices might be perceived as less than optimal. For instance, &#x27;optimising resource allocation&#x27; in Section 3 might imply a re-evaluation of current staffing levels in certain areas, rather than simply moving equipment around. Similarly, &#x27;enhancing accountability frameworks&#x27; could signify a stricter monitoring of individual contributions and team outputs.</p>
+<p>Our approach to discussing these changes with our teams will require considerable <strong class="lexis">diplomacy</strong>. It’s vital to <strong class="lexis">convey</strong> the positive aspirations of these initiatives without inadvertently causing apprehension or undermining team morale. We must uphold the <strong class="lexis">integrity</strong> of our teams while integrating these new directives. Your role as a key <strong class="lexis">stakeholder</strong> in this process is not just to disseminate information, but to interpret and guide your teams through these adjustments with wisdom and foresight.</p>
+<p>Particular attention should be paid to the section on &#x27;Stakeholder Engagement and Communication Protocols.&#x27; This emphasis suggests that there may have been instances of miscommunication or lack of coordination in the past. It’s a subtle reminder to ensure all future external communications are carefully vetted and aligned with corporate messaging. The goal is to present a united front and avoid any perceptions of internal disagreement.</p>
+<p>We will convene a follow-up meeting next Tuesday to discuss your initial interpretations and strategies for implementation. Please come prepared to share how you plan to read between the lines and address the unstated implications of this <strong class="lexis">briefing</strong> within your respective departments. Your considered feedback will be invaluable as we move forward.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What kind of initiatives are proposed in the briefing?</p>
+<p>What kind of initiatives are proposed?</p>
+</div>
+<div class="task"><p class="task-instruction">What two specific areas does the briefing suggest might involve a re-evaluation or stricter monitoring?</p>
+<p>What two areas are mentioned as potentially being re-evaluated or monitored more strictly?</p>
+</div>
+<div class="task"><p class="task-instruction">When is the follow-up meeting scheduled?</p>
+<p>When is the follow-up meeting?</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback and Consolidation: Applying Diplomatic Reading</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Review the key takeaways from the detailed reading and discussion, focusing on the skill of identifying <strong class="lexis">nuance</strong> and implied messages.<br>
+2. Initiate a broader discussion, asking students to reflect on how this skill is important in their own workplaces.<br>
+3. Prompt them to think about how they would apply what they learned from interpreting this <strong class="lexis">briefing</strong> to similar situations.<br>
+4. Encourage students to share advice for reading sensitive documents effectively.<br>
+5. Offer brief, constructive language notes related to expressions used for interpreting or discussing sensitive information, without doing explicit error correction on structure.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Putting Diplomatic Reading into Practice</h4>
+<p>We&#x27;ve looked closely at how to &#x27;read between the lines&#x27; in a sensitive <strong class="lexis">briefing</strong>. Now, let&#x27;s think about how this skill applies to your own work.</p>
+<p>1. Why is it important for you, in your role, to be able to understand the unstated messages in communications from <strong class="lexis">stakeholders</strong> or managers?<br>
+2. What specific strategies can you use to identify <strong class="lexis">nuance</strong> and implied meanings in future communications?<br>
+3. Imagine you are in a similar situation at work. How would you approach discussing the &#x27;unstated implications&#x27; of a <strong class="lexis">briefing</strong> with your team or colleagues, while maintaining <strong class="lexis">diplomacy</strong> and <strong class="lexis">integrity</strong>?</p>
+</section>
+</article>
+</body>
+</html>

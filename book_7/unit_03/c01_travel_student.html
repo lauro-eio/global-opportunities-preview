@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Where Global Trade Gets Stuck</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Where Global Trade Gets Stuck</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>3</dd>
+      <dt>Class</dt><dd>1</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-local-connections">
+<header class="stage-header"><h2>Local Connections</h2></header>
+<section class="handout">
+<p>Think about your city or your job. <br>
+1. Is there a particular road, port, border crossing, or storage depot that is really important for moving goods or people?<br>
+2. What makes this place so crucial?<br>
+3. Have you ever noticed this place becoming a bottleneck, causing delays or problems?<br>
+4. What happens when there&#x27;s a problem there? Who is affected?</p>
+</section>
+</article>
+<article class="stage" id="stage-understanding-trade-language">
+<header class="stage-header"><h2>Understanding Trade Language</h2></header>
+<section class="handout">
+<p>You will read about global trade routes. Before we start, match these important terms to their correct definitions. </p>
+<p>Work with a partner to discuss your answers.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>corridor</li><li>choke point</li><li>logistics strategy</li><li>port</li><li>connectivity</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match each term to its definition.</p>
+<ul><li><strong>corridor</strong> — A defined route or path for transportation, often linking major hubs.</li><li><strong>choke point</strong> — A narrow passage or area where traffic or movement can be easily stopped or slowed down, causing delays.</li><li><strong>logistics strategy</strong> — A plan for managing the flow of goods, information, and resources from origin to destination efficiently.</li><li><strong>port</strong> — A place on a coast or river where ships can load and unload, and often connect to land transportation.</li><li><strong>connectivity</strong> — The degree to which different places or systems are linked or connected, allowing for smooth movement or communication.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-first-look-challenges-in-global-trade">
+<header class="stage-header"><h2>First Look: Challenges in Global Trade</h2></header>
+<section class="handout">
+<p>Read the article quickly to understand the main idea. Don&#x27;t worry about every word. </p>
+<p>Then, choose the best option that summarizes the primary focus of the text.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Navigating the World&#x27;s Vital Trade Arteries</h5>
+<p>The modern global economy depends heavily on the efficient movement of goods. From raw materials to finished products, millions of tons of cargo traverse vast distances daily, primarily by sea. This intricate network relies on key transportation routes and strategic hubs. Understanding these global <strong class="lexis">corridors</strong> and their potential vulnerabilities is essential for any business involved in international trade and <strong class="lexis">logistics strategy</strong>.</p>
+<p>While the concept seems straightforward, the reality is far more complex. Geopolitical factors, natural disasters, and infrastructure limitations can all impact these routes. Certain critical locations, often referred to as <strong class="lexis">choke points</strong>, are particularly susceptible to disruption. These are typically narrow waterways, straits, or canals where a significant portion of global trade passes through. Examples include the Suez Canal, the Strait of Hormuz, and the Panama Canal. A blockage or conflict in any of these areas can have immediate and severe ripple effects, causing delays, increasing shipping costs, and even impacting global supply chains.</p>
+<p>Major <strong class="lexis">ports</strong> also play a crucial role in this system, acting as gateways for goods entering and exiting continents. Their efficiency and <strong class="lexis">connectivity</strong> to inland transportation networks (roads, railways) are vital. Investments in port infrastructure and robust security measures are not just about local economies; they are critical components of a stable global trading environment. As businesses seek greater resilience in their supply chains, monitoring and strategizing around these vital <strong class="lexis">corridors</strong> and <strong class="lexis">choke points</strong> becomes paramount.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main topic of the article?</p>
+<ul><li>The history of global trade and ancient shipping routes.</li><li>The importance of efficient global trade routes, especially focusing on vulnerabilities like choke points and port connectivity.</li><li>How individual businesses can directly invest in port infrastructure projects.</li><li>The benefits of air freight over sea freight for international logistics.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-analyzing-trade-system-details">
+<header class="stage-header"><h2>Analyzing Trade System Details</h2></header>
+<section class="handout">
+<p>Read the article &#x27;Navigating the World&#x27;s Vital Trade Arteries&#x27; again, carefully. Answer the factual questions, then discuss the deeper implications.</p>
+<p>1. What makes <strong class="lexis">choke points</strong> particularly vulnerable in global trade?<br>
+2. In what two ways do major <strong class="lexis">ports</strong> contribute to a stable global trading environment?<br>
+3. How can businesses respond to the challenges presented by these vital trade <strong class="lexis">corridors</strong> and <strong class="lexis">choke points</strong>?<br>
+4. Based on your experience, what are some practical steps a company could take to reduce risk if one of these <strong class="lexis">choke points</strong> were blocked?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Navigating the World&#x27;s Vital Trade Arteries</h5>
+<p>The modern global economy depends heavily on the efficient movement of goods. From raw materials to finished products, millions of tons of cargo traverse vast distances daily, primarily by sea. This intricate network relies on key transportation routes and strategic hubs. Understanding these global <strong class="lexis">corridors</strong> and their potential vulnerabilities is essential for any business involved in international trade and <strong class="lexis">logistics strategy</strong>.</p>
+<p>While the concept seems straightforward, the reality is far more complex. Geopolitical factors, natural disasters, and infrastructure limitations can all impact these routes. Certain critical locations, often referred to as <strong class="lexis">choke points</strong>, are particularly susceptible to disruption. These are typically narrow waterways, straits, or canals where a significant portion of global trade passes through. Examples include the Suez Canal, the Strait of Hormuz, and the Panama Canal. A blockage or conflict in any of these areas can have immediate and severe ripple effects, causing delays, increasing shipping costs, and even impacting global supply chains.</p>
+<p>Major <strong class="lexis">ports</strong> also play a crucial role in this system, acting as gateways for goods entering and exiting continents. Their efficiency and <strong class="lexis">connectivity</strong> to inland transportation networks (roads, railways) are vital. Investments in port infrastructure and robust security measures are not just about local economies; they are critical components of a stable global trading environment. As businesses seek greater resilience in their supply chains, monitoring and strategizing around these vital <strong class="lexis">corridors</strong> and <strong class="lexis">choke points</strong> becomes paramount.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Name two types of factors that can impact global trade routes according to the text.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-real-world-impact-amp-solutions">
+<header class="stage-header"><h2>Real-World Impact &amp; Solutions</h2></header>
+<section class="handout">
+<p>Discuss the following questions with your partner or group:<br>
+1. Thinking about the <strong class="lexis">choke points</strong> mentioned in the article (Suez Canal, Panama Canal), what specific goods do you think would be most affected if these were blocked?<br>
+2. How might a disruption in a major global <strong class="lexis">corridor</strong> eventually impact your local community or even your own job?<br>
+3. What do you think is the most important lesson for businesses about managing their <strong class="lexis">logistics strategy</strong> in a world with these vulnerabilities?<br>
+4. Can you think of any recent news stories or events related to global trade disruptions or <strong class="lexis">ports</strong> that you have heard about?</p>
+</section>
+</article>
+</body>
+</html>

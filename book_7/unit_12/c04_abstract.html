@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Listening to and Discussing Strategic Change</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Listening to and Discussing Strategic Change</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>12</dd>
+      <dt>Class</dt><dd>4</dd>
+      <dt>Theme</dt><dd>T12_ABSTRACT</dd>
+      <dt>Framework</dt><dd>SK-REC</dd>
+      <dt>Role</dt><dd>SK_REC_LISTENING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Sharing Your Vision</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Greet students and introduce the day&#x27;s theme: presenting new ideas at work.<br>
+2. Read the lead-in prompt aloud and elicit initial thoughts.<br>
+3. Facilitate a brief discussion using the prompts provided in student content.<br>
+4. Encourage students to share personal experiences, focusing on the challenges of explaining complex ideas or getting support for changes.<br>
+5. Do not correct language explicitly, but note down any emergent language related to the topic for later feedback if appropriate.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Getting Started: New Ideas at Work</h4>
+<p>Imagine you&#x27;ve come up with a brilliant, innovative way to improve a process or solve a problem at work. This is a complex idea, a new way of thinking about things. How would you approach your colleagues and team leaders to ensure they not only understand it but also get behind it and support its implementation?</p>
+<p>Discuss with a partner:<br>
+1. What are the biggest challenges in presenting a completely new idea or strategy at work?<br>
+2. Who are the key people you need to convince to get a new initiative off the ground?<br>
+3. What kind of language or approach do you think is most effective when trying to gain support for a big change?</p>
+</section>
+</article>
+<article class="stage" id="stage-PTV">
+<header class="stage-header"><span class="stage-code">PTV</span><h2>Pre-teach Vocabulary: Key Terms for Strategic Communication</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the vocabulary words listed.<br>
+2. Have students work individually or in pairs to match the terms with their definitions.<br>
+3. Check answers as a class, clarifying any misunderstandings and providing example sentences if necessary.<br>
+4. Ensure students understand the professional context of each term.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Vocabulary for Explaining Big Ideas</h4>
+<p>Before listening to a presentation about a new company strategy, let&#x27;s learn some key terms you might hear. Match each term on the left to its definition on the right.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>strategic vision</li><li>paradigm shift</li><li>stakeholder buy-in</li><li>policy advocacy</li><li>rationale building</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match each term to its definition.</p>
+<ul><li><strong>strategic vision</strong> — A clear, long-term plan or idea for the future direction of an organization or project.</li><li><strong>paradigm shift</strong> — A fundamental and often dramatic change in how something is done or thought about.</li><li><strong>stakeholder buy-in</strong> — The agreement and support of all relevant parties (employees, customers, investors, etc.) for a plan or project.</li><li><strong>policy advocacy</strong> — The act of supporting or recommending a particular course of action or policy, often publicly.</li><li><strong>rationale building</strong> — The process of developing and presenting the logical reasons or justification for a particular decision or approach.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-GIST">
+<header class="stage-header"><span class="stage-code">GIST</span><h2>Gist Listening: Understanding the Core Message</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will listen to a speaker presenting a new operational strategy.<br>
+2. Tell students their first task is to understand the main purpose of the presentation – what is the speaker trying to achieve?<br>
+3. Play the audio (or read the script aloud) once.<br>
+4. Have students answer the multiple-choice question individually.<br>
+5. Check answers as a class, discussing briefly why the correct option is the best fit.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">First Listen: What&#x27;s the Big Idea?</h4>
+<p>You are going to listen to a team leader, Maria, presenting a new approach to project management within her department. Listen for the overall purpose of her presentation. Don&#x27;t worry about every detail – just focus on the main point.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Maria&#x27;s Presentation: &#x27;The Collaborative Sprint Initiative&#x27;</h5>
+<p>Good morning, everyone. Thanks for joining me. I&#x27;ve called this meeting today because we&#x27;re at a pivotal moment, and I want to introduce what I believe is a critical <strong class="lexis">paradigm shift</strong> in how we approach our team projects. For too long, we&#x27;ve relied on a sequential, hand-off model that, while familiar, often leads to bottlenecks and missed opportunities for innovation.</p>
+<p>My proposal is to introduce what I&#x27;m calling the &#x27;Collaborative Sprint Initiative.&#x27; This isn&#x27;t just a minor tweak; it&#x27;s a fundamental re-evaluation of our workflow, designed to foster greater agility and responsiveness. Our current processes, while established, sometimes hinder our ability to adapt quickly to client needs and market changes. This initiative represents a new <strong class="lexis">strategic vision</strong> for how we operate, moving towards integrated, cross-functional sprints.</p>
+<p>The core idea is to break down larger projects into shorter, focused work periods where small, diverse teams collaborate intensively on specific deliverables. This allows for continuous feedback loops, quicker problem-solving, and a more adaptive output. I understand this is a significant change, and I&#x27;m here to build the <strong class="lexis">rationale</strong> for why this shift is not only necessary but also beneficial for every one of us, and for the company as a whole.</p>
+<p>My aim today is to outline the benefits, address initial concerns, and most importantly, start the process of securing <strong class="lexis">stakeholder buy-in</strong>. We&#x27;ll need everyone on board – from individual contributors to department heads – to make this work effectively. This means transparent communication, clear training pathways, and a commitment to <strong class="lexis">policy advocacy</strong> to ensure this new model becomes an ingrained part of our operational culture. I truly believe that by embracing this collaborative approach, we can significantly boost our efficiency, improve output quality, and ultimately, enhance job satisfaction.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main purpose of Maria’s presentation?</p>
+<ul><li>To announce a new company policy about remote work.</li><li>To explain and gain support for a new way of working on projects.</li><li>To report on the success of recent team projects.</li><li>To introduce new team members to the department.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-DET">
+<header class="stage-header"><span class="stage-code">DET</span><h2>Detailed Listening: Specifics of the New Initiative</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will listen to the same audio again, this time focusing on specific details.<br>
+2. Give students time to read the short_text tasks before listening.<br>
+3. Play the audio (or read the script) a second time.<br>
+4. Have students complete the short_text tasks individually.<br>
+5. Check answers as a class, clarifying specific points from the script.<br>
+6. For the inferential question, facilitate a brief discussion, noting down student ideas on the board and comparing them to the model answer.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Second Listen: Unpacking the &#x27;Collaborative Sprint&#x27;</h4>
+<p>Listen again to Maria&#x27;s presentation. This time, focus on the details of her proposal and the reasons she gives for it. Answer the following questions.</p>
+<p>After answering, discuss with your partner: What challenges might Maria face when trying to get her team to fully adopt this new initiative, and how might she overcome them?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Maria&#x27;s Presentation: &#x27;The Collaborative Sprint Initiative&#x27;</h5>
+<p>Good morning, everyone. Thanks for joining me. I&#x27;ve called this meeting today because we&#x27;re at a pivotal moment, and I want to introduce what I believe is a critical <strong class="lexis">paradigm shift</strong> in how we approach our team projects. For too long, we&#x27;ve relied on a sequential, hand-off model that, while familiar, often leads to bottlenecks and missed opportunities for innovation.</p>
+<p>My proposal is to introduce what I&#x27;m calling the &#x27;Collaborative Sprint Initiative.&#x27; This isn&#x27;t just a minor tweak; it&#x27;s a fundamental re-evaluation of our workflow, designed to foster greater agility and responsiveness. Our current processes, while established, sometimes hinder our ability to adapt quickly to client needs and market changes. This initiative represents a new <strong class="lexis">strategic vision</strong> for how we operate, moving towards integrated, cross-functional sprints.</p>
+<p>The core idea is to break down larger projects into shorter, focused work periods where small, diverse teams collaborate intensively on specific deliverables. This allows for continuous feedback loops, quicker problem-solving, and a more adaptive output. I understand this is a significant change, and I&#x27;m here to build the <strong class="lexis">rationale</strong> for why this shift is not only necessary but also beneficial for every one of us, and for the company as a whole.</p>
+<p>My aim today is to outline the benefits, address initial concerns, and most importantly, start the process of securing <strong class="lexis">stakeholder buy-in</strong>. We&#x27;ll need everyone on board – from individual contributors to department heads – to make this work effectively. This means transparent communication, clear training pathways, and a commitment to <strong class="lexis">policy advocacy</strong> to ensure this new model becomes an ingrained part of our operational culture. I truly believe that by embracing this collaborative approach, we can significantly boost our efficiency, improve output quality, and ultimately, enhance job satisfaction.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the name of Maria&#x27;s proposed new initiative?</p>
+</div>
+<div class="task"><p class="task-instruction">According to Maria, what are two negative outcomes of the current sequential, hand-off model?</p>
+</div>
+<div class="task"><p class="task-instruction">What are the three main benefits of the new &#x27;Collaborative Sprint Initiative&#x27; Maria mentions?</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Follow-up: Reflecting on Strategic Communication</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Open the floor for discussion based on the questions in the student content.<br>
+2. Encourage students to connect Maria&#x27;s presentation style and content to the vocabulary learned and their initial thoughts from the lead-in.<br>
+3. Ask students to share their opinions on the effectiveness of Maria&#x27;s approach.<br>
+4. Provide feedback on any language points noted during the stages, particularly focusing on effective phrasing for &#x27;articulating a strategic vision&#x27; and using the target lexis.<br>
+5. Summarize key takeaways regarding both listening comprehension strategies and effective communication in a professional context.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">After the Listen: What Makes a Vision Stick?</h4>
+<p>Maria&#x27;s presentation aimed to get her team on board with a significant change. Let&#x27;s discuss her approach and your reactions.</p>
+<p>1. How effectively do you think Maria used the language we pre-taught (e.g., strategic vision, paradigm shift, stakeholder buy-in)?<br>
+2. What aspects of her presentation do you think would be most convincing to her colleagues?<br>
+3. If you were one of Maria&#x27;s team members, what questions or concerns might you still have after this presentation?<br>
+4. Thinking back to our lead-in discussion, how did Maria&#x27;s presentation compare to how you might present a new operational paradigm or strategic vision to gain team consensus?</p>
+</section>
+</article>
+</body>
+</html>

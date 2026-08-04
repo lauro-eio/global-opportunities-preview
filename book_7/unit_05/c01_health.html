@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Workplace Ethics: Reporting Safety Dilemmas</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Workplace Ethics: Reporting Safety Dilemmas</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>5</dd>
+      <dt>Class</dt><dd>1</dd>
+      <dt>Theme</dt><dd>T05_HEALTH</dd>
+      <dt>Framework</dt><dd>SK-REC</dd>
+      <dt>Role</dt><dd>SK_REC_READING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Ethical Workplace Situations</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by displaying the lead-in question on the board or screen.<br>
+2. Ask students to discuss the questions in pairs or small groups.<br>
+3. Encourage them to share personal experiences if comfortable, or hypothetical scenarios.<br>
+4. Facilitate a brief whole-class feedback session, noting down key ethical considerations raised.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Thinking About Safety at Work</h4>
+<p>Think about your workplace or a past job.</p>
+<p>1. Have you ever observed a situation at work that clearly violated safety standards, even minor ones?<br>
+2. What ethical considerations arose when you decided whether or not to report it?<br>
+3. What were the potential consequences for yourself, your colleagues, and the company if you reported it? What if you didn&#x27;t?<br>
+4. How would you define &#x27;duty of care&#x27; in a professional context?</p>
+</section>
+</article>
+<article class="stage" id="stage-PTV">
+<header class="stage-header"><span class="stage-code">PTV</span><h2>Pre-Teach Vocabulary: Understanding Key Terms</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the vocabulary items listed. Elicit or explain the meaning of each term.<br>
+2. Emphasise pronunciation and stress where necessary.<br>
+3. Instruct students to complete the matching task individually.<br>
+4. Check answers as a class, clarifying any misconceptions.<br>
+5. Encourage students to use the new vocabulary in a sentence related to the lead-in discussion.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Words for Workplace Ethics</h4>
+<p>Before we read, let&#x27;s look at some important words you&#x27;ll see in the text. Try to match them to their definitions.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>whistleblowing</li><li>safety protocols</li><li>liability</li><li>confidentiality</li><li>duty of care</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match each term to its correct definition.</p>
+<ul><li><strong>whistleblowing</strong> — Reporting illegal or unethical activities within an organisation to an external authority or the public.</li><li><strong>safety protocols</strong> — Established procedures and rules designed to prevent accidents and ensure safety in a workplace.</li><li><strong>liability</strong> — The state of being legally responsible for something, especially an expense or a legal obligation.</li><li><strong>confidentiality</strong> — The state of keeping certain information secret or private.</li><li><strong>duty of care</strong> — A legal or moral obligation to ensure the safety or well-being of others.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-GIST">
+<header class="stage-header"><span class="stage-code">GIST</span><h2>Gist Reading: Understanding the Main Idea</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Tell students they will read a short text about a workplace situation.<br>
+2. Explain that the first reading is for gist – they should not worry about understanding every word.<br>
+3. Instruct them to read the passage quickly to understand the main dilemma Maria faces.<br>
+4. Have them complete the multiple-choice question individually.<br>
+5. Check the answer as a class, asking students to justify their choice based on their quick read.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reading for the Main Challenge</h4>
+<p>Read the article below quickly. Don&#x27;t worry about understanding every detail. Focus on understanding the main ethical problem Maria is facing.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>The Weight of Silence: An Ethical Workplace Dilemma</h5>
+<p>Maria, a dedicated team leader at a busy logistics hub, noticed a recurring issue on the night shift. Forklift operators, under pressure to meet tight deadlines, were frequently bypassing essential <strong class="lexis">safety protocols</strong>. They were taking shortcuts, such as overloading pallets or neglecting crucial equipment checks. Maria had reminded her team multiple times, but the practice continued, often when managers weren&#x27;t present.</p>
+<p>One evening, a near-miss incident occurred. A heavily overloaded pallet nearly toppled, narrowly avoiding a colleague. It was a stark reminder of the serious risks involved. Maria knew that reporting this officially could have significant repercussions. Her company had a strict policy against <strong class="lexis">whistleblowing</strong> externally without first escalating internally, and she was concerned about her team members facing disciplinary action, or even losing their jobs. She also worried about the potential negative impact on team morale and her own professional standing.</p>
+<p>However, Maria also felt a profound <strong class="lexis">duty of care</strong> towards her colleagues. If an accident did happen, the company could face severe <strong class="lexis">liability</strong>, and individuals could be seriously injured. The <strong class="lexis">confidentiality</strong> of such a report was also a major concern; she didn&#x27;t want to be identified as the &#x27;snitch&#x27; within her own team. The ethical dilemma was immense: protect her team from potential job loss or protect them from potential physical harm? She knew that ignoring the issue was not an option, but the path forward was far from clear.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main ethical dilemma Maria is facing?</p>
+<ul><li>Whether to accept a promotion or stay in her current role.</li><li>How to manage a conflict between two of her team members.</li><li>Balancing the safety of her colleagues against potential negative consequences for her team and herself if she reports a breach.</li><li>Deciding which new safety equipment to purchase for the warehouse.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-DET">
+<header class="stage-header"><span class="stage-code">DET</span><h2>Detailed Reading: Factual Information and Inference</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Instruct students to read the passage again, this time more carefully.<br>
+2. Tell them to answer the short-text questions to check their factual understanding.<br>
+3. After checking the factual answers, put students in pairs to discuss the numbered inference questions in &#x27;Student Content&#x27;.<br>
+4. Facilitate a class discussion for the inference questions, encouraging students to refer back to the text to support their opinions.<br>
+5. Model answers for inference discussion:<br>
+   - 1. Maria is concerned about internal disciplinary action, team morale, losing jobs, her own professional standing, and the company&#x27;s internal whistleblowing policy.<br>
+   - 2. She feels a &#x27;duty of care&#x27; towards her colleagues&#x27; physical safety and the company&#x27;s overall well-being, suggesting a moral and professional obligation.<br>
+   - 3. The company could face legal action, fines, reputation damage, and increased insurance premiums. Individuals could suffer serious injuries or even fatalities.<br>
+   - 4. It&#x27;s a dilemma because she values both her team&#x27;s job security/well-being and their physical safety, and the act of reporting could harm the former while protecting the latter.<br>
+   - 5. Possible options include speaking to management anonymously, forming a group report, documenting evidence thoroughly, seeking advice from HR or a union, or escalating externally as a last resort.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Understanding Maria&#x27;s Situation</h4>
+<p>Read &#x27;The Weight of Silence&#x27; again, more carefully this time. Answer the questions to check your understanding.</p>
+<p>Then, discuss the numbered questions below with a partner.</p>
+<p>1. What specific professional and personal concerns does Maria have about reporting the safety breaches?<br>
+2. What does &#x27;duty of care&#x27; mean in Maria&#x27;s situation, and how does it influence her decision-making?<br>
+3. Besides physical injury, what other potential consequences could the company and individuals face if an accident occurs due to ignored safety protocols?<br>
+4. Why is this situation described as an &#x27;ethical dilemma&#x27; for Maria?<br>
+5. If you were Maria, what steps would you consider taking next to resolve this issue?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>The Weight of Silence: An Ethical Workplace Dilemma</h5>
+<p>Maria, a dedicated team leader at a busy logistics hub, noticed a recurring issue on the night shift. Forklift operators, under pressure to meet tight deadlines, were frequently bypassing essential <strong class="lexis">safety protocols</strong>. They were taking shortcuts, such as overloading pallets or neglecting crucial equipment checks. Maria had reminded her team multiple times, but the practice continued, often when managers weren&#x27;t present.</p>
+<p>One evening, a near-miss incident occurred. A heavily overloaded pallet nearly toppled, narrowly avoiding a colleague. It was a stark reminder of the serious risks involved. Maria knew that reporting this officially could have significant repercussions. Her company had a strict policy against <strong class="lexis">whistleblowing</strong> externally without first escalating internally, and she was concerned about her team members facing disciplinary action, or even losing their jobs. She also worried about the potential negative impact on team morale and her own professional standing.</p>
+<p>However, Maria also felt a profound <strong class="lexis">duty of care</strong> towards her colleagues. If an accident did happen, the company could face severe <strong class="lexis">liability</strong>, and individuals could be seriously injured. The <strong class="lexis">confidentiality</strong> of such a report was also a major concern; she didn&#x27;t want to be identified as the &#x27;snitch&#x27; within her own team. The ethical dilemma was immense: protect her team from potential job loss or protect them from potential physical harm? She knew that ignoring the issue was not an option, but the path forward was far from clear.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What specific type of equipment operation is described as violating safety protocols?</p>
+</div>
+<div class="task"><p class="task-instruction">What almost happened one evening, which served as a reminder of the risks?</p>
+</div>
+<div class="task"><p class="task-instruction">What specific company policy does Maria&#x27;s company have regarding external reporting?</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback and Discussion: Applying Ethical Principles</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Reconvene the class and ask students to share their conclusions from the detailed reading discussion.<br>
+2. Lead a whole-class discussion, focusing on different perspectives on Maria&#x27;s dilemma and proposed solutions.<br>
+3. Encourage students to use the vocabulary from the PTV stage.<br>
+4. Provide brief, constructive feedback on their ability to articulate their ideas and use the target vocabulary.<br>
+5. Highlight any effective phrases or strong arguments heard during the discussion.<br>
+6. Do not correct structural errors, but praise clear communication.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Your Views on Reporting</h4>
+<p>Now, let&#x27;s discuss your thoughts on Maria&#x27;s situation as a class. </p>
+<p>1. Based on your detailed reading and discussion, what do you think is the most challenging aspect of Maria&#x27;s ethical dilemma?<br>
+2. What are the key takeaways about <strong class="lexis">whistleblowing</strong> and <strong class="lexis">duty of care</strong> from this story?<br>
+3. Have your personal views on reporting workplace safety breaches changed or been reinforced after reading and discussing Maria&#x27;s story?<br>
+4. What advice would you give to someone in a similar situation, considering the balance between <strong class="lexis">confidentiality</strong>, <strong class="lexis">liability</strong>, and ensuring <strong class="lexis">safety protocols</strong> are followed?</p>
+</section>
+</article>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Handling Conflicting Team Priorities</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Handling Conflicting Team Priorities</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>1</dd>
+      <dt>Class</dt><dd>3</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-when-teams-clash">
+<header class="stage-header"><h2>When Teams Clash</h2></header>
+<section class="handout">
+<p>Think about a time at work when two different teams or departments had very different priorities, leading to a clash or misunderstanding. For example, Logistics vs. Sales, or Warehouse vs. Office staff.</p>
+<p>Discuss the following questions with a partner:</p>
+<p>1.  What was the core conflict between the teams?<br>
+2.  How did people from each team try to communicate their needs or concerns?<br>
+3.  Were there moments when people seemed to be &#x27;talking past&#x27; each other, not truly listening or understanding the other side&#x27;s perspective?<br>
+4.  What were the immediate consequences of this communication breakdown?</p>
+</section>
+</article>
+<article class="stage" id="stage-the-account-team-and-logistics">
+<header class="stage-header"><h2>The Account Team and Logistics</h2></header>
+<section class="handout">
+<p>Read the conversation between Sarah, an Account Manager, and Mark, the Logistics Coordinator. They are reflecting on a past issue where client expectations and delivery realities clashed.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Sarah &amp; Mark: Revisiting a Priority Conflict</h5>
+<p>Sarah: Mark, good to catch up. I was just thinking about that <strong class="lexis">priority conflict</strong> we had last quarter with the Davison order. That was a tough one.</p>
+<p>Mark: It certainly was, Sarah. From my side, the team was under immense pressure. We had multiple urgent dispatches, and the Davison order, while important, wasn&#x27;t flagged for <strong class="lexis">expedited handling</strong> until it was almost too late. My team felt quite blindsided.</p>
+<p>Sarah: I understand. From our perspective in Account Management, the client had specific expectations, and we hadn&#x27;t effectively communicated the potential <strong class="lexis">logistical constraints</strong> to them upfront. We then tried to push it through, perhaps without fully appreciating the knock-on effect on your operations.</p>
+<p>Mark: Exactly. It felt like a direct contradiction of our existing delivery schedule. I remember trying to explain the capacity issues, but it seemed like the sales target was the <strong class="lexis">overriding priority</strong> at the time, and our concerns weren&#x27;t quite landing.</p>
+<p>Sarah: And I recall thinking you were being inflexible, which wasn&#x27;t fair. We were both operating under different pressures. It taught me a lot about the need for <strong class="lexis">early alignment</strong> and ensuring we both <strong class="lexis">understand the full scope</strong> of a request.</p>
+<p>Mark: Absolutely. Now, when the account team submits a new client request, there&#x27;s much better <strong class="lexis">clarity</strong> on timelines and potential challenges. We can <strong class="lexis">negotiate</strong> realistic deadlines and manage expectations together. It’s about <strong class="lexis">mutual respect</strong> for each other&#x27;s processes.</p>
+<p>Sarah: Right. And knowing when to bring in a third party if we can&#x27;t <strong class="lexis">resolve a disagreement</strong> internally. We&#x27;ve certainly improved our <strong class="lexis">diplomacy</strong> since then. No more talking past each other.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Choose the best answer.</p>
+<p>What was the main reason for the initial conflict between Sarah&#x27;s and Mark&#x27;s teams?</p>
+<ul><li>The Logistics team refused to handle an urgent order.</li><li>The Account Management team missed a key deadline.</li><li>Lack of clear communication and understanding of each other&#x27;s priorities and constraints.</li><li>They had a disagreement over budget allocations.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Answer the question.</p>
+<p>According to Mark, how did his team feel when the urgent order was submitted late?</p>
+</div>
+<div class="task"><p class="task-instruction">Choose the best answer.</p>
+<p>What key lesson did Sarah and Mark learn from the experience?</p>
+<ul><li>To avoid urgent orders completely.</li><li>To always prioritize sales targets above all else.</li><li>The importance of early alignment, clarity, negotiation, and mutual respect.</li><li>That external consultants are always necessary for conflict resolution.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-planning-your-diplomatic-approach">
+<header class="stage-header"><h2>Planning Your Diplomatic Approach</h2></header>
+<section class="handout">
+<p>You will roleplay a situation where your team has conflicting priorities with another department. Before you start, prepare your arguments and consider how you will communicate effectively.</p>
+<p><strong class="lexis">Scenario:</strong> Your company is launching a new product. Your team (choose either Marketing or Production) has a key priority, but it clashes with the other team&#x27;s needs.</p>
+<p>*   <strong class="lexis">If you choose Marketing:</strong> Your priority is to launch the product with a major campaign next month to capture market share. This requires production to expedite a large initial batch, which might disrupt their current schedule.<br>
+*   <strong class="lexis">If you choose Production:</strong> Your priority is to ensure product quality and meet existing orders. Rushing a new product launch next month could compromise quality and strain resources, affecting other deadlines.</p>
+<p><strong class="lexis">Your Goal:</strong> Approach the other team to discuss these conflicting priorities and find a <strong class="lexis">mutually acceptable solution</strong> using diplomatic language.</p>
+<p>Use the phrases below to help you prepare your points.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Expressing Your Team&#x27;s Priorities</th><th>Understanding Other Teams</th><th>Suggesting Solutions Diplomatically</th><th>Seeking Clarity &amp; Negotiation</th></tr><tr><td>Our primary objective is to...</td><td>I understand your team&#x27;s challenges with...</td><td>Perhaps we could consider...</td><td>Could you clarify what that means for our timeline?</td></tr><tr><td>From our perspective, the most critical aspect is...</td><td>I appreciate that [X] is a major concern for you.</td><td>What if we explored an option where...?</td><td>What would be a realistic timeframe for your team?</td></tr><tr><td>We need to ensure that...</td><td>Could you elaborate on the impact this would have on your operations?</td><td>Would you be open to a compromise on...?</td><td>Are there any **non-negotiable** aspects for you?</td></tr><tr><td>Our team is focusing on...</td><td>What are your key constraints?</td><td>We could look at [X] to alleviate pressure on [Y].</td><td>How can we **align our objectives**?</td></tr><tr><td>The success of [X] hinges on...</td><td>I want to make sure I fully grasp your position.</td><td>Let&#x27;s try to **find common ground**.</td><td>What steps can we take to **mitigate the risks**?</td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-the-diplomatic-challenge">
+<header class="stage-header"><h2>The Diplomatic Challenge</h2></header>
+<section class="handout">
+<p>Now it&#x27;s time to put your diplomatic skills to the test!</p>
+<p><strong class="lexis">Instructions:</strong></p>
+<p>1.  Work with your partner. One of you will represent the Marketing team, and the other will represent the Production team.<br>
+2.  You both know your team&#x27;s core priority, which conflicts with the other team&#x27;s.<br>
+3.  Your task is to have a conversation, using the phrases and strategies you prepared, to discuss these conflicting priorities.<br>
+4.  Aim to <strong class="lexis">negotiate</strong> a solution that acknowledges both teams&#x27; needs and leads to a <strong class="lexis">mutually acceptable outcome</strong>.</p>
+<p>Remember to:<br>
+*   Express your own team&#x27;s needs clearly and respectfully.<br>
+*   Listen actively to understand the other team&#x27;s perspective and constraints.<br>
+*   Suggest potential compromises or solutions.<br>
+*   Seek <strong class="lexis">clarity</strong> and <strong class="lexis">respectful disagreement</strong> when needed.</p>
+<p>Good luck!</p>
+</section>
+</article>
+<article class="stage" id="stage-reflecting-on-your-diplomacy">
+<header class="stage-header"><h2>Reflecting on Your Diplomacy</h2></header>
+<section class="handout">
+<p>Now it&#x27;s time to reflect on your conversation and give each other feedback.</p>
+<p><strong class="lexis">Part 1: Content Feedback (with your partner)</strong></p>
+<p>1.  Did you feel heard and understood by your partner?<br>
+2.  Were you able to identify and discuss the core conflicting priorities?<br>
+3.  Did you manage to negotiate a <strong class="lexis">mutually acceptable outcome</strong> or a clear path forward?<br>
+4.  What was one thing your partner said or did that helped move the conversation forward constructively?</p>
+<p><strong class="lexis">Part 2: Language Focus (whole class)</strong></p>
+<p>Your teacher will share some observations on language use from your discussions. Pay attention to common errors and effective phrases that were used.</p>
+</section>
+</article>
+</body>
+</html>

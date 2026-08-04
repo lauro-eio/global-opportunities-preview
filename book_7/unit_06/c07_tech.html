@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Workforce Ethics: Advanced Formal Reporting</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>AI Workforce Ethics: Advanced Formal Reporting</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>6</dd>
+      <dt>Class</dt><dd>7</dd>
+      <dt>Theme</dt><dd>T06_TECH</dd>
+      <dt>Framework</dt><dd>TTT</dd>
+      <dt>Role</dt><dd>TTT_ADVANCED_REVIEW_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Ethical Imperatives in AI Adaptation</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by displaying the lead-in brief. <br>
+2. Elicit initial thoughts on the statement: &#x27;Whose job is it to retrain the workforce as AI advances?&#x27; <br>
+3. Facilitate a short group discussion, encouraging learners to use professional and formal language to express their opinions. <br>
+4. Note down any emergent complex structures or potential areas for review related to formal reporting.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">AI &amp; Our Responsibility</h4>
+<p>As AI continues to reshape industries, a critical question emerges: <strong class="lexis">whose job is it to retrain the workforce?</strong> Companies are embracing new technologies, but what are their ethical responsibilities to employees facing <strong class="lexis">job transition</strong> or the need for <strong class="lexis">digital upskilling</strong>? </p>
+<p>Discuss the following questions with a partner or in a small group: </p>
+<p>1. In your opinion, which stakeholders (e.g., individuals, companies, government) bear the primary responsibility for <strong class="lexis">lifelong learning</strong> and <strong class="lexis">workforce adaptation</strong> in an AI-driven future? <br>
+2. How might a lack of proactive <strong class="lexis">ethical innovation</strong> in workforce strategy lead to significant <strong class="lexis">socio-economic impact</strong>? <br>
+3. What are the potential consequences for organizations that fail to address these ethical imperatives?</p>
+</section>
+</article>
+<article class="stage" id="stage-T1">
+<header class="stage-header"><span class="stage-code">T1</span><h2>Test 1: Advanced Structural Review</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Distribute the &#x27;AI Governance Statement&#x27; task. <br>
+2. Instruct learners to complete the task individually, focusing on accuracy in formal structures, particularly those involving fronting and inversion. <br>
+3. Do not provide help during this stage. <br>
+4. Collect responses for later analysis to identify common errors, especially regarding the target structure of prepositional noun phrase fronting and negative fronting requiring subject-auxiliary inversion.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Formal Reporting Challenges</h4>
+<p>You are reviewing a draft statement for an executive report on AI governance. Read the sentences below. Each sentence contains a structural error that makes it less formal or grammatically incorrect for a high-level corporate document. Rewrite each sentence to correct the errors, focusing on appropriate C2-level structures for emphasis and formality. Pay close attention to word order and inversion where necessary.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Rewrite the sentence, correcting the structural error for a formal executive report.</p>
+<p>Original: Under no circumstances the innovation policy can authorize unsupervised deep learning loops.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence, correcting the structural error for a formal executive report.</p>
+<p>Original: Across the technological singularity has expanded new challenges for virtual ethics.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-TCH">
+<header class="stage-header"><span class="stage-code">TCH</span><h2>Teach: Formal Fronting and Inversion</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Based on errors from T1, selectively review the target structure: Prepositional Noun Phrase Fronting and Negative Fronted Phrases requiring inversion. <br>
+2. Display correct examples of the structures. <br>
+3. Elicit the form: &#x27;Complex prepositional phrase + inverted verb + subject&#x27; and &#x27;Negative fronted phrase + subject-auxiliary inversion&#x27;. <br>
+4. Use the concept check questions: &#x27;Is the word order altered to put the focal pre-modifier context first? (Yes)&#x27; and &#x27;Does a negative fronted phrase like &#x27;under no circumstances&#x27; require subject-auxiliary inversion? (Yes)&#x27; to ensure understanding. <br>
+5. Clarify the meaning: applying high-level stylistic variations to synthesize corporate risks, structural paradigm errors, or governance restrictions inside executive reports. <br>
+6. Guide learners through a controlled practice exercise.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Mastering Report Language</h4>
+<p>When drafting high-level reports, especially on complex topics like AI governance, using advanced structures for emphasis and formality is crucial. One such structure involves <strong class="lexis">fronting</strong> a prepositional noun phrase or a negative phrase, which often requires <strong class="lexis">subject-auxiliary inversion</strong>. </p>
+<p>Look at these examples and the rules: </p>
+<p><strong class="lexis">1. Prepositional Noun Phrase Fronting:</strong> To emphasize the context or origin of an action or state, a complex prepositional phrase can be placed at the beginning of the sentence, followed by an inverted verb and then the subject. <br>
+  <strong class="lexis">Example:</strong> <strong class="lexis">**Out of technological singularity arose new paradigms of virtual ethics.</strong>** </p>
+<p>  <strong class="lexis">Concept Check:</strong> Is the word order altered to put the focal pre-modifier context first? (Yes) </p>
+<p><strong class="lexis">2. Negative Fronting:</strong> When a negative phrase (like <strong class="lexis">Under no circumstances</strong>, <strong class="lexis">Never before</strong>, <strong class="lexis">Hardly ever</strong>) is placed at the beginning of a sentence, the auxiliary verb often comes before the subject. <br>
+  <strong class="lexis">Example:</strong> <strong class="lexis">**Under no circumstances can algorithmic governance ignore the philosophy of tech.</strong>** </p>
+<p>  <strong class="lexis">Concept Check:</strong> Does a negative fronted phrase like &#x27;under no circumstances&#x27; require subject-auxiliary inversion? (Yes) </p>
+<p>Now, complete the practice sentences below to apply these structures correctly, ensuring your language remains formal and precise for an executive audience.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Rewrite the sentence, starting with the given fronted phrase and ensuring correct inversion.</p>
+<p>Start with &#x27;Under no circumstances&#x27;: The board will not tolerate non-compliance with ethical AI guidelines.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence, starting with the given fronted phrase and ensuring correct inversion.</p>
+<p>Start with &#x27;Beyond mere automation&#x27;: The socio-economic impact of AI became apparent.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence, starting with the given fronted phrase and ensuring correct inversion.</p>
+<p>Start with &#x27;Only by implementing robust training&#x27;: Organizations can effectively support digital upskilling.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-T2">
+<header class="stage-header"><span class="stage-code">T2</span><h2>Test 2: Drafting an Ethical Stance</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Present the scenario and task to the learners. <br>
+2. Instruct them to work individually or in pairs to draft the introductory paragraph for the AI Adaptation Policy statement. <br>
+3. Emphasize the need to incorporate the formal fronting and inversion structures practiced in the previous stage, as well as relevant unit vocabulary. <br>
+4. Circulate and monitor, providing support as needed but encouraging self-correction. <br>
+5. Collect or have learners share their drafts. <br>
+6. Provide feedback focusing on the correct application of the target structures and the professional register. <br>
+7. Sample Answer (for teacher reference): &#x27;Under no circumstances can an organization committed to ethical innovation neglect its responsibility for <strong class="lexis">digital upskilling</strong>. Out of the imperative for <strong class="lexis">lifelong learning</strong> arises a new standard for corporate governance, necessitating proactive strategies for <strong class="lexis">workforce adaptation</strong>. Only through transparent and sustained investment will the company mitigate the potential for adverse <strong class="lexis">socio-economic impact</strong> and ensure a seamless <strong class="lexis">job transition</strong> for all employees.&#x27;</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Our AI Adaptation Policy</h4>
+<p>You are part of a task force developing a new internal policy document titled &#x27;AI Adaptation and Workforce Responsibility&#x27;. Your task is to draft the introductory paragraph (approximately 50-70 words) for this policy. </p>
+<p>Your paragraph must:<br>
+1.  Address the <strong class="lexis">ethical imperative</strong> for organizations to support workforce adaptation to AI advancements. <br>
+2.  Incorporate at least <strong class="lexis">two</strong> examples of the advanced fronting and inversion structures you have reviewed (e.g., &#x27;Under no circumstances...&#x27;, &#x27;Out of X arose Y...&#x27;). <br>
+3.  Use at least <strong class="lexis">three</strong> relevant lexical items from the unit&#x27;s focus on AI and ethics (e.g., <strong class="lexis">digital upskilling</strong>, <strong class="lexis">job transition</strong>, <strong class="lexis">lifelong learning</strong>, <strong class="lexis">ethical innovation</strong>, <strong class="lexis">socio-economic impact</strong>). <br>
+4.  Maintain a highly formal and professional register suitable for an internal corporate policy document.</p>
+</section>
+</article>
+</body>
+</html>

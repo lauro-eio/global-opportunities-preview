@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI in Recruitment: Ethical Considerations</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>AI in Recruitment: Ethical Considerations</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>6</dd>
+      <dt>Class</dt><dd>1</dd>
+      <dt>Theme</dt><dd>T06_TECH</dd>
+      <dt>Framework</dt><dd>SK-REC</dd>
+      <dt>Role</dt><dd>SK_REC_READING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Algorithmic Fairness in HR</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Introduce the topic of AI in human resources and recruitment. Realize the lead-in brief by prompting discussion on the ethical implications of computers making career decisions. Encourage students to share their experiences and opinions on the fairness of such systems. Ensure the discussion remains focused on professional contexts.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">The Computer&#x27;s Choice</h4>
+<p>When a computer decides your career path, is it truly fair? We&#x27;ll unpack the ethical minefield of AI in human resources and recruitment.</p>
+<p>Discuss the following questions with a partner or in a small group:</p>
+<p>1.  Have you ever applied for a job where you suspected a computer program might have been involved in the initial screening process? What was your impression?<br>
+2.  What do you think are the advantages and disadvantages of using Artificial Intelligence (AI) for hiring and promotions in the workplace?<br>
+3.  How can we ensure that technology, especially AI, makes fair decisions about people&#x27;s careers? What does &quot;fair&quot; even mean in this context?</p>
+</section>
+</article>
+<article class="stage" id="stage-PTV">
+<header class="stage-header"><span class="stage-code">PTV</span><h2>Pre-Teaching Vocabulary: AI Ethics in HR</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Introduce the key vocabulary terms. Elicit definitions or provide clear explanations in a professional register. Conduct the matching task to check comprehension. Monitor and provide support as needed.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Key Terms for Fair Decisions</h4>
+<p>Before we read, let&#x27;s look at some important terms related to AI and fairness in recruitment. Match each term to its correct definition.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>algorithmic bias</li><li>meritocracy</li><li>equitable opportunity</li><li>human-in-the-loop</li><li>unconscious bias</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match each important term related to AI and fairness with its correct definition.</p>
+<p>Match each term to its definition.</p>
+<ul><li><strong>algorithmic bias</strong> — Systematic errors in AI decisions leading to unfair outcomes, often reflecting historical prejudices.</li><li><strong>meritocracy</strong> — A system where success is based on individual ability and effort, rather than background or connections.</li><li><strong>equitable opportunity</strong> — Ensuring everyone has a fair and just chance to achieve success, regardless of their background.</li><li><strong>human-in-the-loop</strong> — An approach where human expertise and judgment are actively involved in AI decision-making processes.</li><li><strong>unconscious bias</strong> — Automatic, often unintentional assumptions or judgments based on stereotypes, affecting decisions.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-GIST">
+<header class="stage-header"><span class="stage-code">GIST</span><h2>Gist Reading: AI and Professional Advancement</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Explain the purpose of gist reading: to quickly understand the main idea without focusing on every detail. Set a short time limit (e.g., 3-5 minutes). After reading, have students complete the multiple-choice task. Elicit the correct answer and briefly discuss why it is the best summary.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">AI and Your Career: The Main Point</h4>
+<p>Read the article quickly to understand its main purpose. Don&#x27;t worry about every detail. Choose the best option that describes what the article is mainly about.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>The Digital Gatekeeper: Navigating AI&#x27;s Role in Your Career</h5>
+<p>In today’s fast-evolving job market, Artificial Intelligence (AI) is increasingly acting as a gatekeeper, influencing who gets hired, promoted, and even who gets a second glance from employers. From automated CV screening to AI-powered interview analysis, technology promises to streamline human resources (HR) processes, making them more efficient and, theoretically, more objective. However, for the adult working-class professional, the rise of AI in <strong class="lexis">professional advancement</strong> presents a complex landscape, raising critical questions about fairness and <strong class="lexis">equitable opportunity</strong>.</p>
+<p>One of the most pressing concerns is <strong class="lexis">algorithmic bias</strong>. AI systems learn from vast amounts of data, often historical data reflecting past hiring decisions. If this data contains existing human <strong class="lexis">unconscious bias</strong>—for example, favoring certain demographics, educational backgrounds, or career paths that have traditionally been privileged—the AI system can inadvertently learn and perpetuate these prejudices. This means an AI designed to identify &quot;top talent&quot; might, without explicit programming, disadvantage candidates from underrepresented groups or those with non-traditional work histories. The promise of a <strong class="lexis">meritocracy</strong>, where success is based purely on skill and effort, can be undermined if the digital gatekeeper isn&#x27;t truly impartial.</p>
+<p>Consider the scenario where an AI is trained on successful past employees, most of whom came from a particular university or had a specific professional network. The AI might then prioritize these characteristics, overlooking highly capable individuals who simply took a different route. This isn&#x27;t about malicious intent; it&#x27;s a consequence of how AI learns patterns from historical information, embedding existing societal biases into its decision-making.</p>
+<p>The implications are significant for career progression. If an AI recommends candidates for promotion based on potentially biased past performance data, it could limit upward mobility for many. This can create a cycle where certain groups are consistently overlooked, regardless of their true potential or performance.</p>
+<p>So, how can we ensure a fair playing field? Experts emphasize the importance of a <strong class="lexis">human-in-the-loop</strong> approach. This means integrating human oversight and judgment into every stage of the AI-driven HR process. Instead of fully automating decisions, AI can serve as a tool to flag potential candidates or offer data insights, with the final decisions always made by human recruiters or managers who can apply ethical considerations and nuanced understanding.</p>
+<p>Furthermore, companies must commit to regularly auditing their AI systems for bias, ensuring that the training data is diverse and representative. Transparency in how AI systems make decisions is also vital. Professionals should have some understanding of the criteria being used, even if the underlying algorithms are complex. The goal is not to abandon AI in HR, but to ensure it serves as an enabler of <strong class="lexis">equitable opportunity</strong> rather than a perpetuator of existing inequalities. For the working professional, understanding these challenges and advocating for fair practices is key to navigating the future of their career.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Choose the best statement that summarizes the main point of the article.</p>
+<p>The main purpose of this article is to:</p>
+<ul><li>Explain how AI makes recruitment processes much faster and more efficient.</li><li>Argue that AI in human resources is inherently unfair and should be banned.</li><li>Discuss the ethical challenges of using AI in professional advancement and suggest ways to ensure fairness.</li><li>Describe various technical methods for developing advanced AI recruitment software.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-DET">
+<header class="stage-header"><span class="stage-code">DET</span><h2>Detailed Reading: AI&#x27;s Impact on Fairness</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Instruct students to re-read the article more carefully to locate specific details for the short_text tasks. Review answers collaboratively. Then, move to the discussion prompts. Encourage students to refer back to the text to support their answers for the inference questions. Facilitate a deeper discussion around the implications of AI on ethical hiring practices and career progression. Provide model answers for the discussion points:<br>
+1. Even if AI isn&#x27;t explicitly programmed for bias, it learns from historical data, which often contains past human biases. So, if a company historically favored certain types of candidates, the AI will learn and perpetuate that pattern, leading to <strong class="lexis">algorithmic bias</strong>.<br>
+2. The article suggests: 1) integrating human oversight (<strong class="lexis">human-in-the-loop</strong> approach), 2) regularly auditing AI systems for bias, 3) ensuring training data is diverse and representative, and 4) increasing transparency in how AI makes decisions.<br>
+3. <strong class="lexis">Human-in-the-loop</strong> is crucial because it allows human recruiters or managers to apply ethical considerations, nuanced understanding, and common sense that AI lacks, preventing fully automated biased decisions.<br>
+4. The ideal of <strong class="lexis">meritocracy</strong> is that achievement is based purely on skill and effort. However, if AI-driven recruitment systems are influenced by <strong class="lexis">unconscious bias</strong> or historical data that leads to <strong class="lexis">algorithmic bias</strong>, then the system won&#x27;t be truly meritocratic. It might overlook qualified candidates due to factors unrelated to their actual merit, contradicting the core principle.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">In-Depth Look: Challenges and Solutions</h4>
+<p>Now, read the article again carefully to answer the following questions. First, answer the factual questions, then discuss the deeper implications.</p>
+<p><strong class="lexis">Part 1: Factual Details</strong></p>
+<p><strong class="lexis">Part 2: Deeper Discussion</strong></p>
+<p>1.  The article mentions that AI can sometimes &#x27;learn&#x27; from past human decisions. How might this lead to <strong class="lexis">algorithmic bias</strong> even if the AI itself isn&#x27;t programmed to be biased?<br>
+2.  What specific steps does the article suggest for companies to ensure more <strong class="lexis">equitable opportunity</strong> when using AI in recruitment?<br>
+3.  Why is the concept of &quot;<strong class="lexis">human-in-the-loop</strong>&quot; described as crucial for AI systems in HR?<br>
+4.  Considering the article, what are the key differences between the ideal of <strong class="lexis">meritocracy</strong> and the reality of AI-driven recruitment when biases are present?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>The Digital Gatekeeper: Navigating AI&#x27;s Role in Your Career</h5>
+<p>In today’s fast-evolving job market, Artificial Intelligence (AI) is increasingly acting as a gatekeeper, influencing who gets hired, promoted, and even who gets a second glance from employers. From automated CV screening to AI-powered interview analysis, technology promises to streamline human resources (HR) processes, making them more efficient and, theoretically, more objective. However, for the adult working-class professional, the rise of AI in <strong class="lexis">professional advancement</strong> presents a complex landscape, raising critical questions about fairness and <strong class="lexis">equitable opportunity</strong>.</p>
+<p>One of the most pressing concerns is <strong class="lexis">algorithmic bias</strong>. AI systems learn from vast amounts of data, often historical data reflecting past hiring decisions. If this data contains existing human <strong class="lexis">unconscious bias</strong>—for example, favoring certain demographics, educational backgrounds, or career paths that have traditionally been privileged—the AI system can inadvertently learn and perpetuate these prejudices. This means an AI designed to identify &quot;top talent&quot; might, without explicit programming, disadvantage candidates from underrepresented groups or those with non-traditional work histories. The promise of a <strong class="lexis">meritocracy</strong>, where success is based purely on skill and effort, can be undermined if the digital gatekeeper isn&#x27;t truly impartial.</p>
+<p>Consider the scenario where an AI is trained on successful past employees, most of whom came from a particular university or had a specific professional network. The AI might then prioritize these characteristics, overlooking highly capable individuals who simply took a different route. This isn&#x27;t about malicious intent; it&#x27;s a consequence of how AI learns patterns from historical information, embedding existing societal biases into its decision-making.</p>
+<p>The implications are significant for career progression. If an AI recommends candidates for promotion based on potentially biased past performance data, it could limit upward mobility for many. This can create a cycle where certain groups are consistently overlooked, regardless of their true potential or performance.</p>
+<p>So, how can we ensure a fair playing field? Experts emphasize the importance of a <strong class="lexis">human-in-the-loop</strong> approach. This means integrating human oversight and judgment into every stage of the AI-driven HR process. Instead of fully automating decisions, AI can serve as a tool to flag potential candidates or offer data insights, with the final decisions always made by human recruiters or managers who can apply ethical considerations and nuanced understanding.</p>
+<p>Furthermore, companies must commit to regularly auditing their AI systems for bias, ensuring that the training data is diverse and representative. Transparency in how AI systems make decisions is also vital. Professionals should have some understanding of the criteria being used, even if the underlying algorithms are complex. The goal is not to abandon AI in HR, but to ensure it serves as an enabler of <strong class="lexis">equitable opportunity</strong> rather than a perpetuator of existing inequalities. For the working professional, understanding these challenges and advocating for fair practices is key to navigating the future of their career.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Based on the article, what is one major reason AI systems might perpetuate bias?</p>
+<p>According to the article, what is one major reason AI systems might perpetuate bias?</p>
+</div>
+<div class="task"><p class="task-instruction">Which approach does the article highlight as crucial for integrating human oversight into AI decision-making?</p>
+</div>
+<div class="task"><p class="task-instruction">What is mentioned as a potential benefit of AI in recruitment, aside from efficiency?</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Follow-Up and Language Feedback: AI and Your Future</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Open the floor for a final discussion, encouraging students to reflect on the article&#x27;s implications for their own professional lives and the wider workforce. Provide general feedback on the content of the discussions, praising insightful points and engagement. Offer brief, non-intrusive language notes focusing on general clarity and effective use of target lexis, avoiding direct error correction on grammar or specific student mistakes. Emphasize confident communication.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reflecting on Ethical AI</h4>
+<p>Now that we&#x27;ve explored the topic of AI in professional advancement, let&#x27;s share our final thoughts and reflections.</p>
+<p>Discuss the following questions:</p>
+<p>1.  After reading the article, how has your view on AI in professional advancement changed or been reinforced?<br>
+2.  If you were a manager, what would be your top priority for using AI fairly in recruitment and promotions?<br>
+3.  What advice would you give to someone applying for a job, knowing that AI might be involved in the screening process?</p>
+</section>
+</article>
+</body>
+</html>

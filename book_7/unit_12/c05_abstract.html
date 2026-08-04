@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Precision in Professional Workplace Communication</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Precision in Professional Workplace Communication</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>12</dd>
+      <dt>Class</dt><dd>5</dd>
+      <dt>Theme</dt><dd>T12_ABSTRACT</dd>
+      <dt>Framework</dt><dd>TTT</dd>
+      <dt>Role</dt><dd>TTT_LEXICAL_REGISTER_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Ethical Dilemmas at Work</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Divide learners into pairs or small groups.<br>
+2. Instruct them to read the prompt and discuss their experiences, focusing on the decision-making process.<br>
+3. Monitor discussions, listen for examples of balancing principles, and note any initial use of abstract reasoning vocabulary.<br>
+4. Facilitate a brief whole-class feedback session, inviting groups to share one key takeaway without going into full details.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Workplace Ethics: Sharing Experiences</h4>
+<p>Think about a time in your workplace when the rules or established procedures created an ethical conflict for you or your team. This could be a situation where:</p>
+<p>1. You had to choose between what was &#x27;right by the book&#x27; and what felt &#x27;fair&#x27; to an individual.<br>
+2. Customer service guidelines clashed with ensuring employee well-being.<br>
+3. Team loyalty conflicted with reporting a procedural breach.</p>
+<p>How did you approach this situation? What different principles or values did you have to consider and weigh against each other to make a difficult but ultimately sound decision? Share your experience with a partner.</p>
+</section>
+</article>
+<article class="stage" id="stage-T1">
+<header class="stage-header"><span class="stage-code">T1</span><h2>Test 1: Navigating Policy &amp; Values</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Distribute the &#x27;Director&#x27;s Memo&#x27; and instruct learners to read it carefully.<br>
+2. Explain that the memo contains some gaps where a specific phrase would best complete the meaning and maintain the professional tone.<br>
+3. Instruct learners to complete the multiple-choice tasks, choosing the option that sounds most appropriate for a formal, strategic communication.<br>
+4. Do not provide definitions or discuss the target phrases at this stage. The goal is to diagnose existing knowledge and register awareness.<br>
+5. Collect answers or ask learners to note their choices for later review.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Deciphering the Director&#x27;s Memo</h4>
+<p>Read the memo from the Director below. For each numbered gap, choose the phrase that best completes the sentence, maintaining a professional tone and precise meaning.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Memo: New Resource Allocation Protocol</h5>
+<p>Subject: Implementation of the New Resource Allocation Protocol</p>
+<p>Dear Team,</p>
+<p>As we move forward into the next quarter, we face increasing demands on our shared resources. To ensure fairness and operational efficiency, we are introducing a new <strong class="lexis">Resource Allocation Protocol</strong>.</p>
+<p>We understand that change can bring immediate questions. It&#x27;s crucial (1) __________ behind this decision. This protocol isn&#x27;t merely about cutting costs; it&#x27;s about (2) __________ of equitable access for all departments, which ultimately strengthens our collective output.</p>
+<p>The goal is to provide a clear, transparent framework. We&#x27;ve spent considerable time (3) __________ of balancing individual department needs with overall organizational sustainability. This required careful consideration of various factors, from workload distribution to equipment maintenance schedules.</p>
+<p>Ultimately, this new protocol is designed (4) __________ of fostering a collaborative and high-performing environment. We appreciate your understanding and cooperation as we implement these necessary adjustments.</p>
+<p>Best regards,<br>
+[Director&#x27;s Name]</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Choose the best phrase for blank (1).</p>
+<p>(1) It&#x27;s crucial __________ behind this decision.</p>
+<ul><li>to explain the main reason</li><li>to get the real story of</li><li>to unpack the underlying logic</li><li>to talk about why we did this</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Choose the best phrase for blank (2).</p>
+<p>(2) This protocol isn&#x27;t merely about cutting costs; it&#x27;s about __________ of equitable access for all departments.</p>
+<ul><li>thinking about what we really need</li><li>conceptualizing the strategic imperative</li><li>figuring out the big plan</li><li>making sure we have a good strategy</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Choose the best phrase for blank (3).</p>
+<p>(3) We&#x27;ve spent considerable time __________ of balancing individual department needs with overall organizational sustainability.</p>
+<ul><li>getting to the bottom of the problem</li><li>distilling the core challenge</li><li>understanding the real issue</li><li>finding the hardest part</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Choose the best phrase for blank (4).</p>
+<p>(4) Ultimately, this new protocol is designed __________ of fostering a collaborative and high-performing environment.</p>
+<ul><li>to match our bigger goals</li><li>to fit with what we want to do</li><li>to align with our broader vision</li><li>to be part of our main idea</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-TCH">
+<header class="stage-header"><span class="stage-code">TCH</span><h2>Teach: Framing Strategic Ideas</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Review the answers to T1, explaining why the target phrases are the most appropriate choice in a formal, strategic context, highlighting their precision.<br>
+2. Introduce each target exponent one by one. For each:<br>
+   a. Write the phrase on the board.<br>
+   b. Elicit or explain its core meaning: &#x27;This target focuses on C2 lexis for effectively articulating complex, abstract strategic concepts within a professional workplace setting, ensuring clarity and actionable relevance. It enables learners to frame sophisticated ideas with appropriate gravitas and precision for practical discussion.&#x27;<br>
+   c. Discuss the register: &#x27;These are highly professional and formal phrases. They communicate authority, careful consideration, and strategic thinking. You would use them in formal meetings, reports, or when explaining significant policy decisions.&#x27;<br>
+   d. Model pronunciation, focusing on word stress and intonation as per phonological_focus: &#x27;Learners should focus on clear word stress on key lexical items within each phrase and use a confident, declarative intonation to convey authority and precision when presenting these complex ideas.&#x27; Have learners repeat.<br>
+   e. Provide a contrasting example with a simpler, less formal phrase to emphasize the difference in impact.<br>
+3. Have learners complete the matching task to consolidate understanding of meaning and function.<br>
+4. Conduct the follow-up MCQ to check conceptual understanding of register and usage.<br>
+5. Encourage learners to practice saying the phrases with the correct stress and intonation.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Precision in Professional Communication</h4>
+<p>The phrases you encountered in the memo are powerful tools for communicating complex ideas with professionalism and precision. They are used to:</p>
+<p>*   Clearly explain the deeper reasons behind decisions.<br>
+*   Describe important long-term goals and why they are necessary.<br>
+*   Identify the central problems in a situation.<br>
+*   Show how current actions fit into larger company objectives.</p>
+<p>Listen carefully to your teacher for the correct pronunciation, focusing on emphasizing the key words in each phrase to convey authority and precision.</p>
+<p>Key Phrases for Strategic Communication:</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Phrase</th><th>Meaning/Function</th></tr><tr><td>to unpack the underlying logic</td><td>To thoroughly analyze and explain the deep reasons or principles behind something.</td></tr><tr><td>conceptualizing the strategic imperative</td><td>To think about and form a clear idea of a crucial, long-term strategic need or goal.</td></tr><tr><td>distilling the core challenge</td><td>To identify and clearly state the most important or fundamental problem/difficulty.</td></tr><tr><td>to align with our broader vision</td><td>To ensure that actions, plans, or policies are consistent with a larger, overarching goal or mission.</td></tr></table></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Which of these situations would best use the phrase &#x27;conceptualizing the strategic imperative&#x27;?</p>
+<p>You are presenting a new company-wide initiative. When would you most appropriately use &#x27;conceptualizing the strategic imperative&#x27;?</p>
+<ul><li>When describing a simple, short-term task.</li><li>When discussing the critical, long-term necessity of a particular direction or goal for the company&#x27;s future.</li><li>When brainstorming ideas for a team social event.</li><li>When asking for someone to explain a basic procedure.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Consider the phrase &#x27;to unpack the underlying logic&#x27;. Which of the following best describes its purpose in a professional context?</p>
+<p>The phrase &#x27;to unpack the underlying logic&#x27; is used to...</p>
+<ul><li>Quickly summarize a simple point.</li><li>Critically analyze and explain the fundamental reasoning or principles behind a complex decision or system.</li><li>Provide a basic explanation of how something works.</li><li>Suggest that a situation is overly complicated and confusing.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-T2">
+<header class="stage-header"><span class="stage-code">T2</span><h2>Test 2: Ethical Case Study Discussion</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Divide learners into small groups (3-4 people).<br>
+2. Present the ethical dilemma case study. Ensure learners understand the core conflict.<br>
+3. Instruct them to discuss the situation, considering the questions provided.<br>
+4. Emphasize that they should use the target lexical phrases learned in the previous stage to articulate their reasoning, proposals, and considerations.<br>
+5. Circulate among groups, observing and listening for accurate and appropriate use of the target lexis. Note down examples of good usage and areas for improvement (e.g., mispronounced words, awkward phrasing, incorrect register).<br>
+6. Do not intervene unless absolutely necessary for comprehension. This is a fluency practice stage.<br>
+7. After the discussion, bring the class together. Ask each group to briefly present their key discussion points, encouraging them to use the target language. Provide constructive feedback on language use, focusing on accuracy, appropriacy, and pronunciation of the target phrases.</p>
+<p>Model Response / Key Points (for teacher reference):<br>
+*   To approach this, we first need to <strong class="lexis">unpack the underlying logic</strong> of both the company&#x27;s disciplinary policy and the ethical principles of support and fairness.<br>
+*   We&#x27;re <strong class="lexis">conceptualizing the strategic imperative</strong> of maintaining team productivity while also fostering a supportive work environment.<br>
+*   The <strong class="lexis">core challenge</strong> here is balancing adherence to policy with compassion for a colleague&#x27;s potential personal struggles.<br>
+*   Our proposed solution must ultimately <strong class="lexis">align with our broader vision</strong> of a high-performing yet empathetic workplace. Perhaps a confidential conversation to understand the personal issues, followed by a plan that supports the colleague while ensuring team responsibilities are met.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Resolving Workplace Dilemmas: A Collaborative Approach</h4>
+<p>Work in small groups. Read the following workplace dilemma and discuss how you would approach it. Focus on using the professional phrases we have just learned to explain your reasoning and proposed solutions.</p>
+<p><strong class="lexis">The Dilemma: The Struggling Colleague</strong></p>
+<p>Your colleague, an essential member of your team, has been consistently missing deadlines over the past month. This is causing significant delays for other team members and impacting overall project timelines. You suspect they might be dealing with personal issues outside of work, but company policy clearly states that repeated missed deadlines will lead to formal disciplinary action, potentially impacting their employment.</p>
+<p><strong class="lexis">Discussion Questions:</strong><br>
+1.  How would you begin to analyze this situation, considering both company policy and ethical obligations to a colleague?<br>
+2.  What are the key strategic considerations for the team and the company in the short and long term?<br>
+3.  What is the main problem or conflict that needs to be resolved here?<br>
+4.  How can any proposed solution reflect the larger values and goals of the organization?<br>
+5.  What steps would you take, using our new phrases to explain your decision-making process?</p>
+</section>
+</article>
+</body>
+</html>

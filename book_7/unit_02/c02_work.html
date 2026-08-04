@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formulating Urgent Corporate Directives</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Formulating Urgent Corporate Directives</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>2</dd>
+      <dt>Class</dt><dd>2</dd>
+      <dt>Theme</dt><dd>T02_WORK</dd>
+      <dt>Framework</dt><dd>TBLF</dd>
+      <dt>Role</dt><dd>TBLF_DISCOURSE_ANALYSIS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Setting the Strategic Tone</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Greet learners and introduce the lesson&#x27;s context: advising senior leadership.<br>
+2. Explain the scenario: a critical report has landed, requiring immediate strategic action.<br>
+3. Facilitate a brief discussion using the prompts in &#x27;student_content&#x27;.<br>
+4. Encourage learners to think about the <strong class="lexis">impact</strong> of language choices in high-stakes communication.<br>
+5. Do not pre-teach specific vocabulary or grammar at this stage.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Urgent Directives: Your Role on the Board</h4>
+<p>Imagine you are part of a senior advisory team. A critical report on <strong class="lexis">market disruption</strong> and its impact on the workforce has just landed on your desk.</p>
+<p>Discuss with a partner:<br>
+1. What makes a recommendation sound truly urgent and authoritative, especially to senior leadership?<br>
+2. How important is it for your language to be precise and leave no room for misunderstanding when dealing with high-stakes decisions like <strong class="lexis">workforce transition</strong> or <strong class="lexis">automation roadmap</strong> changes?<br>
+3. What kind of words or phrases might you use to express a strong demand or a vital suggestion?</p>
+</section>
+</article>
+<article class="stage" id="stage-GIST">
+<header class="stage-header"><span class="stage-code">GIST</span><h2>Gist Reading: Navigating Disruptive Change</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Distribute the &#x27;Urgent Directive&#x27; memo.<br>
+2. Instruct learners to read the memo quickly to get a general understanding.<br>
+3. Set a strict time limit for gist reading (e.g., 2-3 minutes).<br>
+4. Direct learners to complete the multiple-choice task to check their global comprehension.<br>
+5. Do not address specific vocabulary or grammatical structures yet.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Executive Summary: The Core Message</h4>
+<p>Read the &#x27;Urgent Directive&#x27; memo from the Board of Directors. Don&#x27;t worry about every detail for now, just try to understand the main purpose of the memo and the most pressing issue it addresses.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Urgent Directive: Addressing Automation&#x27;s Impact on Workforce Readiness</h5>
+<p>To: Executive Leadership Committee<br>
+From: Board of Directors<br>
+Date: [Current Date]<br>
+Subject: Critical Workforce Adaptation &amp; <strong class="lexis">Automation Roadmap</strong> Review</p>
+<p>Following the recent <strong class="lexis">market disruption</strong> analysis and the subsequent urgent briefing from the Strategic Initiatives Division, the Board convenes this directive with immediate effect. It is imperative that we address the accelerating pace of <strong class="lexis">digital transformation</strong> and its profound implications for our global workforce.</p>
+<p>The Board <strong class="lexis">insists that</strong> executive management <strong class="lexis">develop</strong> a comprehensive <strong class="lexis">reskilling imperative</strong> plan within the next ninety days. This plan must detail actionable strategies for <strong class="lexis">workforce transition</strong> and talent redeployment across all affected operational units. It is not sufficient to merely monitor trends; we must proactively shape our future.</p>
+<p>Furthermore, we <strong class="lexis">recommend that</strong> the proposed <strong class="lexis">automation roadmap be</strong> re-evaluated immediately. This re-evaluation must consider not only efficiency gains but also the societal and ethical responsibilities tied to large-scale technological shifts. A detailed report outlining a revised strategy, which ensures fair and equitable <strong class="lexis">workforce transition</strong>, is expected by the end of the quarter.</p>
+<p>It is absolutely vital that the Human Resources department, in conjunction with Operations, <strong class="lexis">ensure</strong> that all affected employees <strong class="lexis">receive</strong> clear communication and robust support structures during this period of change. The Board also <strong class="lexis">demands that</strong> ongoing <strong class="lexis">strategic foresight</strong> exercises <strong class="lexis">integrate</strong> robust social impact assessments, moving forward. We must safeguard our people as we innovate.</p>
+<p>We understand the scale of this challenge but also recognize the immense opportunity it presents to reaffirm our commitment to our employees and our long-term market position. The future of our enterprise <strong class="lexis">depends that</strong> we <strong class="lexis">act</strong> decisively and with collective resolve. Executive leadership is expected to present initial findings and a detailed action timeline at the next scheduled Board meeting.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Choose the best summary of the Board&#x27;s main concern in the memo.</p>
+<p>The primary purpose of this directive is to:</p>
+<ul><li>Announce new market trends in digital technology.</li><li>Demand immediate strategic plans for workforce adaptation due to automation.</li><li>Congratulate the Strategic Initiatives Division on their analysis.</li><li>Review past performance metrics of the HR department.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-DET">
+<header class="stage-header"><span class="stage-code">DET</span><h2>Detailed Reading: Grasping Nuance and Implication</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Instruct learners to read the memo again, this time more carefully.<br>
+2. Direct them to answer the short-text comprehension questions.<br>
+3. Then, have them discuss the inference question in pairs or small groups.<br>
+4. Monitor discussions, prompting learners to justify their answers with evidence from the text.<br>
+5. Clarify any misunderstandings regarding specific details or implications, but avoid explicit language focus for now.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Analyzing the Mandate</h4>
+<p>Read the &#x27;Urgent Directive&#x27; memo again. This time, focus on the specific demands and expectations laid out by the Board. Pay attention to the timeline and responsibilities.</p>
+<p>Discuss with your partner:<br>
+What is the Board implying about the company&#x27;s previous approach to <strong class="lexis">digital transformation</strong> when it states, &#x27;It is not sufficient to merely monitor trends; we must proactively shape our future&#x27;?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Urgent Directive: Addressing Automation&#x27;s Impact on Workforce Readiness</h5>
+<p>To: Executive Leadership Committee<br>
+From: Board of Directors<br>
+Date: [Current Date]<br>
+Subject: Critical Workforce Adaptation &amp; <strong class="lexis">Automation Roadmap</strong> Review</p>
+<p>Following the recent <strong class="lexis">market disruption</strong> analysis and the subsequent urgent briefing from the Strategic Initiatives Division, the Board convenes this directive with immediate effect. It is imperative that we address the accelerating pace of <strong class="lexis">digital transformation</strong> and its profound implications for our global workforce.</p>
+<p>The Board <strong class="lexis">insists that</strong> executive management <strong class="lexis">develop</strong> a comprehensive <strong class="lexis">reskilling imperative</strong> plan within the next ninety days. This plan must detail actionable strategies for <strong class="lexis">workforce transition</strong> and talent redeployment across all affected operational units. It is not sufficient to merely monitor trends; we must proactively shape our future.</p>
+<p>Furthermore, we <strong class="lexis">recommend that</strong> the proposed <strong class="lexis">automation roadmap be</strong> re-evaluated immediately. This re-evaluation must consider not only efficiency gains but also the societal and ethical responsibilities tied to large-scale technological shifts. A detailed report outlining a revised strategy, which ensures fair and equitable <strong class="lexis">workforce transition</strong>, is expected by the end of the quarter.</p>
+<p>It is absolutely vital that the Human Resources department, in conjunction with Operations, <strong class="lexis">ensure</strong> that all affected employees <strong class="lexis">receive</strong> clear communication and robust support structures during this period of change. The Board also <strong class="lexis">demands that</strong> ongoing <strong class="lexis">strategic foresight</strong> exercises <strong class="lexis">integrate</strong> robust social impact assessments, moving forward. We must safeguard our people as we innovate.</p>
+<p>We understand the scale of this challenge but also recognize the immense opportunity it presents to reaffirm our commitment to our employees and our long-term market position. The future of our enterprise <strong class="lexis">depends that</strong> we <strong class="lexis">act</strong> decisively and with collective resolve. Executive leadership is expected to present initial findings and a detailed action timeline at the next scheduled Board meeting.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">According to the memo, by when does the Board expect a comprehensive reskilling imperative plan?</p>
+<p>The reskilling imperative plan is due within ______ days.</p>
+</div>
+<div class="task"><p class="task-instruction">What additional aspect must the re-evaluation of the automation roadmap consider, beyond efficiency?</p>
+<p>Beyond efficiency gains, the automation roadmap re-evaluation must also account for:</p>
+<ul><li>The company&#x27;s stock performance.</li><li>Competitor&#x27;s market strategies.</li><li>Societal and ethical responsibilities.</li><li>Upcoming regulatory changes.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-GD">
+<header class="stage-header"><span class="stage-code">GD</span><h2>Guided Discovery: Language of Imperative Strategy</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Direct learners to specific sentences in the memo identified in &#x27;student_content&#x27;.<br>
+2. Ask learners to analyze the verb forms after &#x27;that&#x27; in these sentences.<br>
+3. Guide them to discover the bare infinitive form used after verbs like &#x27;insist&#x27;, &#x27;recommend&#x27;, &#x27;demand&#x27;, &#x27;depend&#x27;.<br>
+4. Elicit the meaning: expressing urgency, demand, or high-stakes recommendation.<br>
+5. Introduce the term &#x27;subjunctive&#x27; if appropriate for C2 learners, or refer to it as &#x27;the bare infinitive for demands&#x27;.<br>
+6. Use concept check questions: &#x27;Does the verb after &#x27;that&#x27; take an &#x27;s&#x27; for third-person singular subjects? (No)&#x27;, &#x27;Does this reflect an urgent, authoritative recommendation for strategic foresight? (Yes)&#x27;.<br>
+7. Focus on sentence stress in compound nouns (automation roadmap, market disruption) and clear articulation of policy terms.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Crafting Urgent Recommendations</h4>
+<p>The Board&#x27;s memo uses very specific language to convey urgency and authority. Look at these sentences from the text:</p>
+<p>1. &#x27;The Board <strong class="lexis">insists that</strong> executive management <strong class="lexis">develop</strong> a comprehensive <strong class="lexis">reskilling imperative</strong> plan...&#x27; (Paragraph 2)<br>
+2. &#x27;...we <strong class="lexis">recommend that</strong> the proposed <strong class="lexis">automation roadmap be</strong> re-evaluated immediately.&#x27; (Paragraph 3)<br>
+3. &#x27;The Board also <strong class="lexis">demands that</strong> ongoing <strong class="lexis">strategic foresight</strong> exercises <strong class="lexis">integrate</strong> robust social impact assessments...&#x27; (Paragraph 4)<br>
+4. &#x27;The future of our enterprise <strong class="lexis">depends that</strong> we <strong class="lexis">act</strong> decisively...&#x27; (Paragraph 5)</p>
+<p>In pairs, discuss:<br>
+- What is unusual about the verb form immediately after &#x27;that&#x27; in these sentences? (e.g., &#x27;management develop&#x27;, &#x27;roadmap be&#x27;, &#x27;exercises integrate&#x27;, &#x27;we act&#x27;)<br>
+- Why do you think the Board uses this specific verb form rather than, for example, &#x27;management develops&#x27; or &#x27;roadmap is&#x27;? What pragmatic effect does it create?<br>
+- How does this structure reinforce the high-stakes, authoritative nature of the directive?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Urgent Directive: Addressing Automation&#x27;s Impact on Workforce Readiness</h5>
+<p>To: Executive Leadership Committee<br>
+From: Board of Directors<br>
+Date: [Current Date]<br>
+Subject: Critical Workforce Adaptation &amp; <strong class="lexis">Automation Roadmap</strong> Review</p>
+<p>Following the recent <strong class="lexis">market disruption</strong> analysis and the subsequent urgent briefing from the Strategic Initiatives Division, the Board convenes this directive with immediate effect. It is imperative that we address the accelerating pace of <strong class="lexis">digital transformation</strong> and its profound implications for our global workforce.</p>
+<p>The Board <strong class="lexis">insists that</strong> executive management <strong class="lexis">develop</strong> a comprehensive <strong class="lexis">reskilling imperative</strong> plan within the next ninety days. This plan must detail actionable strategies for <strong class="lexis">workforce transition</strong> and talent redeployment across all affected operational units. It is not sufficient to merely monitor trends; we must proactively shape our future.</p>
+<p>Furthermore, we <strong class="lexis">recommend that</strong> the proposed <strong class="lexis">automation roadmap be</strong> re-evaluated immediately. This re-evaluation must consider not only efficiency gains but also the societal and ethical responsibilities tied to large-scale technological shifts. A detailed report outlining a revised strategy, which ensures fair and equitable <strong class="lexis">workforce transition</strong>, is expected by the end of the quarter.</p>
+<p>It is absolutely vital that the Human Resources department, in conjunction with Operations, <strong class="lexis">ensure</strong> that all affected employees <strong class="lexis">receive</strong> clear communication and robust support structures during this period of change. The Board also <strong class="lexis">demands that</strong> ongoing <strong class="lexis">strategic foresight</strong> exercises <strong class="lexis">integrate</strong> robust social impact assessments, moving forward. We must safeguard our people as we innovate.</p>
+<p>We understand the scale of this challenge but also recognize the immense opportunity it presents to reaffirm our commitment to our employees and our long-term market position. The future of our enterprise <strong class="lexis">depends that</strong> we <strong class="lexis">act</strong> decisively and with collective resolve. Executive leadership is expected to present initial findings and a detailed action timeline at the next scheduled Board meeting.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Identify the base form of the verb after &#x27;that&#x27; in the following sentence.</p>
+<p>The Board insists that executive management ______ a comprehensive reskilling imperative plan.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence with the correct subjunctive verb form.</p>
+<p>It is crucial that the proposed automation roadmap ______ re-evaluated immediately.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-CP">
+<header class="stage-header"><span class="stage-code">CP</span><h2>Controlled Practice: Formulating Directives</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain the target structure clearly: &#x27;Subject + demand/suggest/recommend/insist + that + Subject + bare infinitive verb&#x27;.<br>
+2. Highlight the common errors (e.g., adding &#x27;-s&#x27; to third-person singular subjects).<br>
+3. Instruct learners to complete the transformation tasks, ensuring they apply the subjunctive form correctly.<br>
+4. Encourage learners to use the high-register vocabulary introduced earlier.<br>
+5. Provide feedback on both grammatical accuracy and appropriate register.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Putting Policy into Practice</h4>
+<p>Now, let&#x27;s practice using this specific, authoritative language structure to formulate urgent directives. Remember the pattern: <strong class="lexis">Subject + demand/suggest/recommend/insist + that + Subject + bare infinitive verb.</strong></p>
+<p>Rewrite the following sentences, transforming them into formal, urgent directives using the given verbs and the subjunctive form. Pay attention to using the bare infinitive.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Rewrite the sentence as a formal directive using &#x27;demand&#x27;.</p>
+<p>The executive director must update the automation roadmap immediately. (Use: The board demands that...)</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence using &#x27;insist&#x27; and the correct subjunctive form for the negative.</p>
+<p>The company should not compromise its position in global markets. (Use: It is vital that the company insists that...)</p>
+</div>
+<div class="task"><p class="task-instruction">Transform the sentence into a recommendation using &#x27;suggest&#x27; and the subjunctive.</p>
+<p>All teams need to integrate strategic foresight into their planning. (Use: We suggest that all teams...)</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Freer Practice: Advising the Executive Board</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the scenario for freer practice: advising the Executive Board on a new challenge.<br>
+2. Instruct learners, individually or in pairs, to draft 2-3 urgent recommendations using the target subjunctive forms and high-register vocabulary.<br>
+3. Emphasize the importance of clear, authoritative language and the pragmatic function of the subjunctive.<br>
+4. Circulate and provide support, focusing on accurate use of the target language.<br>
+5. Ask a few learners to share their recommendations with the class, fostering peer feedback.<br>
+6. Sample Answer Key points: The board insists that we secure new supply chains immediately. We recommend that the legal department review all international trade agreements. It is imperative that the new regional office be established by year-end.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Your Strategic Briefing</h4>
+<p>Imagine a new, unexpected <strong class="lexis">market disruption</strong> has occurred, requiring immediate action from your company. You are preparing a short briefing for the Executive Board, outlining crucial steps they must take. Your goal is to sound urgent, authoritative, and professional.</p>
+<p>Draft 2-3 specific recommendations using the subjunctive form (e.g., &#x27;The Board insists that...&#x27;, &#x27;We recommend that...&#x27;, &#x27;It is vital that...&#x27;) and incorporating the high-register vocabulary we&#x27;ve studied (<strong class="lexis">strategic foresight</strong>, <strong class="lexis">reskilling imperative</strong>, <strong class="lexis">automation roadmap</strong>, <strong class="lexis">workforce transition</strong>). Your recommendations should be clear, actionable, and reflect the high stakes of the situation.</p>
+</section>
+</article>
+</body>
+</html>

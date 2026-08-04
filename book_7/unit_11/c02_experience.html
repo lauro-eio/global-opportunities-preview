@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Workforce Strategy: Planning &amp; Proactive Language</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Workforce Strategy: Planning &amp; Proactive Language</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>11</dd>
+      <dt>Class</dt><dd>2</dd>
+      <dt>Theme</dt><dd>T11_EXPERIENCE</dd>
+      <dt>Framework</dt><dd>TBLF</dd>
+      <dt>Role</dt><dd>TBLF_DISCOURSE_ANALYSIS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Strategic Workforce Challenges</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by drawing learners&#x27; attention to the &#x27;Reflecting on Team Capacity&#x27; prompt.<br>
+2. Encourage pairs or small groups to discuss the scenario: a time when their team was either overstretched or underutilized.<br>
+3. Guide them to consider how better long-term forecasting could have improved efficiency and morale in those situations.<br>
+4. Facilitate a brief whole-class feedback session, noting down key ideas related to workforce planning and its impact.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reflecting on Team Capacity</h4>
+<p>Think about a time in your workplace when your team either had too much to do, or not enough. How do you think more accurate long-term forecasting of staffing needs – considering future projects, evolving skills, or seasonal busy periods – could have improved efficiency and improved everyone&#x27;s morale?</p>
+</section>
+</article>
+<article class="stage" id="stage-GIST">
+<header class="stage-header"><span class="stage-code">GIST</span><h2>Gist Reading: Proactive Workforce Strategy</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the memo as an internal communication from a Senior Operations Director.<br>
+2. Ask learners to read the memo quickly to understand its main purpose.<br>
+3. Explain that they do not need to understand every word at this stage.<br>
+4. Have learners complete the multiple-choice question individually.<br>
+5. Check the answer as a class, encouraging justification from the text.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Understanding the Core Message</h4>
+<p>Read the memo from Eleanor Vance quickly to get a general idea of its content. Then, choose the option that best summarizes its primary focus.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Memo: Strategic Workforce Readiness for Q3/Q4</h5>
+<p>To: All Department Heads<br>
+From: Eleanor Vance, Senior Operations Director<br>
+Date: 2024-05-15<br>
+Subject: Proactive Measures for Anticipated Operational Shifts</p>
+<p>Team,</p>
+<p>As we approach the second half of the fiscal year, it is imperative that we critically assess our human capital strategy. Proactive <strong class="lexis">strategic foresight</strong> is crucial to navigating the evolving demands of our operational landscape. Our analysis indicates a potential <strong class="lexis">seasonal surge</strong> in project volume, particularly within the logistics and client support divisions, commencing early Q3 and extending through Q4.</p>
+<p>To <strong class="lexis">mitigate foreseeable risks</strong> and ensure sustained operational excellence, we are launching several key initiatives. First, a comprehensive review of our current <strong class="lexis">skill matrix</strong> is underway to identify potential gaps in critical areas. This will directly inform a new <strong class="lexis">cross-training initiative</strong>, designed to enhance team versatility and resilience.</p>
+<p>Furthermore, addressing potential <strong class="lexis">workforce attrition</strong> and strengthening our <strong class="lexis">talent pipeline</strong> remain top priorities. We will intensify our <strong class="lexis">succession planning</strong> efforts, ensuring that key roles are continuously supported by a robust pool of qualified internal candidates.</p>
+<p><strong class="lexis">Notwithstanding the inherent complexities of long-term economic forecasting, our commitment to proactive staffing solutions is unwavering.</strong> We must <strong class="lexis">draw upon past insights</strong> to <strong class="lexis">anticipate potential pitfalls</strong> and <strong class="lexis">inform future strategies</strong>, thereby <strong class="lexis">leverage prior learning</strong> to secure our competitive advantage. Your active participation in these initiatives is vital.</p>
+<p>Thank you,</p>
+<p>Eleanor Vance<br>
+Senior Operations Director</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main purpose of Eleanor Vance&#x27;s memo?</p>
+<p>The primary aim of this memo is to:</p>
+<ul><li>Announce immediate staff reductions due to budget cuts.</li><li>Outline strategic initiatives for future workforce planning and development.</li><li>Request feedback on current employee performance reviews.</li><li>Delegate all responsibility for hiring to department heads.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-DET">
+<header class="stage-header"><span class="stage-code">DET</span><h2>Detailed Comprehension: Strategic Imperatives</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Ask learners to reread the memo more carefully this time.<br>
+2. Explain that they will answer questions that require them to locate specific information and make inferences.<br>
+3. Instruct learners to answer the short-text questions individually.<br>
+4. After learners have completed the task, facilitate a class discussion for checking answers, prompting them to refer back to the text to justify their responses.<br>
+5. For question 3, encourage discussion about the implications of Eleanor Vance&#x27;s tone.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Diving Deeper into the Report</h4>
+<p>Read the memo again in detail. Answer the following questions based on the information provided and what you can infer.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Memo: Strategic Workforce Readiness for Q3/Q4</h5>
+<p>To: All Department Heads<br>
+From: Eleanor Vance, Senior Operations Director<br>
+Date: 2024-05-15<br>
+Subject: Proactive Measures for Anticipated Operational Shifts</p>
+<p>Team,</p>
+<p>As we approach the second half of the fiscal year, it is imperative that we critically assess our human capital strategy. Proactive <strong class="lexis">strategic foresight</strong> is crucial to navigating the evolving demands of our operational landscape. Our analysis indicates a potential <strong class="lexis">seasonal surge</strong> in project volume, particularly within the logistics and client support divisions, commencing early Q3 and extending through Q4.</p>
+<p>To <strong class="lexis">mitigate foreseeable risks</strong> and ensure sustained operational excellence, we are launching several key initiatives. First, a comprehensive review of our current <strong class="lexis">skill matrix</strong> is underway to identify potential gaps in critical areas. This will directly inform a new <strong class="lexis">cross-training initiative</strong>, designed to enhance team versatility and resilience.</p>
+<p>Furthermore, addressing potential <strong class="lexis">workforce attrition</strong> and strengthening our <strong class="lexis">talent pipeline</strong> remain top priorities. We will intensify our <strong class="lexis">succession planning</strong> efforts, ensuring that key roles are continuously supported by a robust pool of qualified internal candidates.</p>
+<p><strong class="lexis">Notwithstanding the inherent complexities of long-term economic forecasting, our commitment to proactive staffing solutions is unwavering.</strong> We must <strong class="lexis">draw upon past insights</strong> to <strong class="lexis">anticipate potential pitfalls</strong> and <strong class="lexis">inform future strategies</strong>, thereby <strong class="lexis">leverage prior learning</strong> to secure our competitive advantage. Your active participation in these initiatives is vital.</p>
+<p>Thank you,</p>
+<p>Eleanor Vance<br>
+Senior Operations Director</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">According to the memo, which specific operational divisions are expected to experience a potential &#x27;seasonal surge&#x27;?</p>
+<p>Expected &#x27;seasonal surge&#x27; divisions:</p>
+</div>
+<div class="task"><p class="task-instruction">What two key outcomes is the &#x27;cross-training initiative&#x27; designed to achieve?</p>
+<p>Two outcomes of the cross-training initiative:</p>
+</div>
+<div class="task"><p class="task-instruction">What does the phrase &#x27;our commitment to proactive staffing solutions is unwavering&#x27; suggest about the company&#x27;s approach to potential challenges, even when faced with &#x27;inherent complexities&#x27;?</p>
+<p>What does this phrase imply?</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-GD">
+<header class="stage-header"><span class="stage-code">GD</span><h2>Guided Discovery: Strategic Communication</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Direct learners to focus on specific sentences from the memo.<br>
+2. For Task 1, guide learners to identify the part of the sentence that introduces a challenge or concession, and then the part that states the company&#x27;s main commitment despite that challenge. Emphasize how this structure maintains a professional and decisive tone.<br>
+3. For Task 2, ask learners to find phrases related to using past experience for future planning. Discuss the C2-level nuance of these phrases compared to simpler expressions. For example, &#x27;draw upon past insights&#x27; is more formal than &#x27;remember what happened before&#x27;.<br>
+4. Elicit the meaning and pragmatic function of these linguistic features – how they convey authority and certainty while acknowledging difficulties.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Analyzing Professional Language</h4>
+<p>Now, let&#x27;s look closely at how Eleanor Vance uses language to communicate strategic ideas effectively, especially when discussing challenges and proactive planning.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Memo: Strategic Workforce Readiness for Q3/Q4</h5>
+<p>To: All Department Heads<br>
+From: Eleanor Vance, Senior Operations Director<br>
+Date: 2024-05-15<br>
+Subject: Proactive Measures for Anticipated Operational Shifts</p>
+<p>Team,</p>
+<p>As we approach the second half of the fiscal year, it is imperative that we critically assess our human capital strategy. Proactive <strong class="lexis">strategic foresight</strong> is crucial to navigating the evolving demands of our operational landscape. Our analysis indicates a potential <strong class="lexis">seasonal surge</strong> in project volume, particularly within the logistics and client support divisions, commencing early Q3 and extending through Q4.</p>
+<p>To <strong class="lexis">mitigate foreseeable risks</strong> and ensure sustained operational excellence, we are launching several key initiatives. First, a comprehensive review of our current <strong class="lexis">skill matrix</strong> is underway to identify potential gaps in critical areas. This will directly inform a new <strong class="lexis">cross-training initiative</strong>, designed to enhance team versatility and resilience.</p>
+<p>Furthermore, addressing potential <strong class="lexis">workforce attrition</strong> and strengthening our <strong class="lexis">talent pipeline</strong> remain top priorities. We will intensify our <strong class="lexis">succession planning</strong> efforts, ensuring that key roles are continuously supported by a robust pool of qualified internal candidates.</p>
+<p><strong class="lexis">Notwithstanding the inherent complexities of long-term economic forecasting, our commitment to proactive staffing solutions is unwavering.</strong> We must <strong class="lexis">draw upon past insights</strong> to <strong class="lexis">anticipate potential pitfalls</strong> and <strong class="lexis">inform future strategies</strong>, thereby <strong class="lexis">leverage prior learning</strong> to secure our competitive advantage. Your active participation in these initiatives is vital.</p>
+<p>Thank you,</p>
+<p>Eleanor Vance<br>
+Senior Operations Director</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Look at the sentence: &#x27;Notwithstanding the inherent complexities of long-term economic forecasting, our commitment to proactive staffing solutions is unwavering.&#x27; What does the phrase &#x27;Notwithstanding the inherent complexities...&#x27; do? And what is the main clause &#x27;our commitment... is unwavering&#x27; affirming despite this?</p>
+<p>1. What does &#x27;Notwithstanding...&#x27; acknowledge?
+2. What does the main clause affirm?</p>
+</div>
+<div class="task"><p class="task-instruction">Match the phrases from the memo on the left with their meaning related to &#x27;Leveraging Experience for Proactive Planning&#x27; on the right.</p>
+<p>Match phrases to their function.</p>
+<ul><li><strong>draw upon past insights</strong> — To use knowledge gained from previous situations.</li><li><strong>anticipate potential pitfalls</strong> — To foresee and prepare for possible problems or challenges.</li><li><strong>inform future strategies</strong> — To use current knowledge to shape plans for what comes next.</li><li><strong>leverage prior learning</strong> — To effectively utilize previous knowledge or experience.</li><li><strong>mitigate foreseeable risks</strong> — To reduce the severity or likelihood of predicted dangers.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-CP">
+<header class="stage-header"><span class="stage-code">CP</span><h2>Controlled Practice: Crafting Strategic Statements</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain to learners that they will now practice using the structures and phrases they just identified.<br>
+2. For Task 1, guide learners to use the concessive modifier &#x27;Notwithstanding&#x27; or &#x27;Albeit&#x27; to combine the two ideas, ensuring the main clause clearly states the primary assertion.<br>
+3. For Task 2, instruct learners to choose and insert the most appropriate C2-level phrase to complete the sentences, focusing on the meaning of &#x27;Leveraging Experience for Proactive Planning&#x27;.<br>
+4. Encourage learners to work individually first, then compare answers with a partner before a whole-class check.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Applying New Structures</h4>
+<p>Practice using the strategic language patterns from the memo. Your goal is to sound professional and convey both caution and confidence.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Rewrite the following sentences using a concessive modifier (e.g., &#x27;Notwithstanding...&#x27;, &#x27;Albeit...&#x27;) to acknowledge the challenge while maintaining a strong main assertion. Keep the tone professional.</p>
+<p>1. The project budget faces unforeseen constraints. We are fully committed to its timely delivery.
+Rewrite:</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the following sentences using a concessive modifier (e.g., &#x27;Notwithstanding...&#x27;, &#x27;Albeit...&#x27;) to acknowledge the challenge while maintaining a strong main assertion. Keep the tone professional.</p>
+<p>2. There is a projected slowdown in market growth. Our market share expansion strategy remains unchanged.
+Rewrite:</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the following sentences using one of the phrases for &#x27;Leveraging Experience for Proactive Planning&#x27; from the list: &#x27;draw upon past insights&#x27;, &#x27;anticipate potential pitfalls&#x27;, &#x27;inform future strategies&#x27;, &#x27;leverage prior learning&#x27;, &#x27;mitigate foreseeable risks&#x27;.</p>
+<p>3. To improve efficiency, we must __________ from similar past projects.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the following sentences using one of the phrases for &#x27;Leveraging Experience for Proactive Planning&#x27; from the list: &#x27;draw upon past insights&#x27;, &#x27;anticipate potential pitfalls&#x27;, &#x27;inform future strategies&#x27;, &#x27;leverage prior learning&#x27;, &#x27;mitigate foreseeable risks&#x27;.</p>
+<p>4. Our team&#x27;s objective is to __________ by conducting thorough scenario planning.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Freer Practice: Strategic Planning Application</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that learners will now apply both the concessive structures and the &#x27;Leveraging Experience&#x27; phrases in a more open context.<br>
+2. Present the scenario: a new cross-departmental project with identified challenges and the need to plan effectively.<br>
+3. Instruct learners to draft a short paragraph (2-3 sentences) or prepare a brief verbal statement outlining their strategy. They must use at least one concessive modifier (e.g., Notwithstanding...) and at least two phrases for leveraging experience (e.g., draw upon past insights, anticipate potential pitfalls).<br>
+4. Monitor and provide support as learners draft their responses.<br>
+5. Have learners share their statements in pairs or small groups, followed by a brief whole-class share. Emphasize the professional and diplomatic register.<br>
+Sample Answer: &#x27;Notwithstanding the inherent challenges of integrating disparate systems, our team will <strong class="lexis">draw upon past insights</strong> from similar implementations to <strong class="lexis">anticipate potential pitfalls</strong>. This will allow us to <strong class="lexis">inform future strategies</strong> effectively and ensure a smoother rollout.&#x27;</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Developing a Future Strategy</h4>
+<p>Imagine your department is about to embark on a new cross-departmental project. You have identified some potential challenges, but you also want to reassure stakeholders that the project will be successful due to careful planning and past experience.</p>
+<p>Draft a short statement (2-3 sentences) for an internal briefing. In your statement, you must:<br>
+1. Use at least one rhetorical subordination post concessive modifier (e.g., &#x27;Notwithstanding...&#x27;, &#x27;Albeit...&#x27;).<br>
+2. Use at least two phrases related to &#x27;Leveraging Experience for Proactive Planning&#x27; (e.g., &#x27;draw upon past insights&#x27;, &#x27;anticipate potential pitfalls&#x27;, &#x27;inform future strategies&#x27;, &#x27;leverage prior learning&#x27;, &#x27;mitigate foreseeable risks&#x27;).</p>
+<p>Be prepared to share your statement with a partner or the class.</p>
+</section>
+</article>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Making Powerful Workplace Recommendations</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Making Powerful Workplace Recommendations</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>2</dd>
+      <dt>Class</dt><dd>7</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-workplace-expectations-your-experience">
+<header class="stage-header"><h2>Workplace Expectations: Your Experience</h2></header>
+<section class="handout">
+<p>In your professional life, how do your supervisors or managers communicate performance expectations and targets?</p>
+<p>1. Think about recent appraisal meetings or team discussions. What kind of language is used when someone needs to <strong class="lexis">meet expectations</strong> or <strong class="lexis">hit a target</strong>?<br>
+2. Have you ever been in a situation where a critical change was <strong class="lexis">demanded</strong> or <strong class="lexis">recommended</strong>? What was the context and how was that instruction conveyed?<br>
+3. Discuss with a partner: What are KPIs (Key Performance Indicators) in your field, and how are they usually discussed?</p>
+</section>
+</article>
+<article class="stage" id="stage-formulating-key-directives">
+<header class="stage-header"><h2>Formulating Key Directives</h2></header>
+<section class="handout">
+<p>Read the following sentences, which discuss strategic workplace decisions. Choose the grammatically correct option for each sentence, paying attention to verb forms in formal contexts.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Choose the grammatically correct sentence.</p>
+<p>The board insists that the executive director...</p>
+<ul><li>updates the automation roadmap immediately.</li><li>update the automation roadmap immediately.</li><li>is updating the automation roadmap immediately.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Choose the grammatically correct sentence.</p>
+<p>It is vital that the company...</p>
+<ul><li>does not compromises its position in global markets.</li><li>do not compromise its position in global markets.</li><li>not compromise its position in global markets.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Choose the grammatically correct sentence.</p>
+<p>Management recommended that all team leaders...</p>
+<ul><li>attends the new training module.</li><li>attend the new training module.</li><li>are attending the new training module.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Choose the grammatically correct sentence.</p>
+<p>The new policy demands that every employee...</p>
+<ul><li>completes the safety briefing by Friday.</li><li>complete the safety briefing by Friday.</li><li>is completing the safety briefing by Friday.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-clarifying-formal-demands-and-recommenda">
+<header class="stage-header"><h2>Clarifying Formal Demands and Recommendations</h2></header>
+<section class="handout">
+<p>When making formal recommendations, demands, or suggestions that are urgent or strategic, especially in a professional context, we often use a specific grammatical structure known as the subjunctive.</p>
+<p>Look at these examples and rules:</p>
+<p><strong class="lexis">Form:</strong></p>
+<p>*   Subject + demand/suggest/recommend/insist + that + Subject + <strong class="lexis">bare infinitive verb</strong><br>
+*   <strong class="lexis">Negative:</strong> Subject + demand/suggest/recommend/insist + that + Subject + <strong class="lexis">not</strong> + <strong class="lexis">bare infinitive verb</strong></p>
+<p>Notice that the verb after &#x27;that&#x27; does not change, even for third-person singular subjects (he/she/it). It always stays in its base form.</p>
+<p><strong class="lexis">Meaning:</strong><br>
+This structure emphasizes the importance or urgency of a recommendation, demand, or suggestion, often for high-stakes decisions, strategic planning, or policy implementation within an organization.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Rewrite the following sentence, using the subjunctive form. Do not include &#x27;do/does&#x27;.</p>
+<p>It is crucial that he (submit) his report by noon.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the following sentence, using the subjunctive form. Do not include &#x27;do/does&#x27;.</p>
+<p>The manager suggested that she (not delay) the project launch.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the following sentence, using the subjunctive form. Do not include &#x27;do/does&#x27;.</p>
+<p>They demanded that the supplier (deliver) the goods on time.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the following sentence, using the subjunctive form. Do not include &#x27;do/does&#x27;.</p>
+<p>The committee insisted that the new regulations (be) strictly followed.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-addressing-workplace-challenges">
+<header class="stage-header"><h2>Addressing Workplace Challenges</h2></header>
+<section class="handout">
+<p>Imagine your company is facing a few challenges. Your task is to formulate recommendations and demands using the subjunctive structure discussed today.</p>
+<p><strong class="lexis">Scenario:</strong> A regional branch office has been underperforming. Employee morale is low, and key targets for customer satisfaction are consistently missed. There&#x27;s also a new competitor entering the market aggressively.</p>
+<p>In groups, discuss the situation and then complete the recommendations below, focusing on high-stakes actions and urgent directives for the branch manager and team.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Complete the recommendation using the correct subjunctive form. (Hint: Use &#x27;initiate&#x27;)</p>
+<p>The regional director suggests that the branch manager ______________ a new employee engagement program immediately.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the recommendation using the correct subjunctive form. (Hint: Use &#x27;review&#x27;)</p>
+<p>It is crucial that the team ______________ customer feedback daily to identify pain points.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the recommendation using the correct subjunctive form. (Hint: Use &#x27;not ignore&#x27;)</p>
+<p>Head office insists that the branch ______________ the threat from the new competitor.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the recommendation using the correct subjunctive form. (Hint: Use &#x27;implement&#x27;)</p>
+<p>We propose that the sales team ______________ a targeted strategy to reclaim market share.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+</body>
+</html>

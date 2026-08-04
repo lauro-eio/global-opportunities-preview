@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spotting and Solving Project Risks</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Spotting and Solving Project Risks</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>11</dd>
+      <dt>Class</dt><dd>4</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-sharing-past-project-hurdles">
+<header class="stage-header"><h2>Sharing Past Project Hurdles</h2></header>
+<section class="handout">
+<p>In your professional life, have you ever been part of a project, big or small, that faced unexpected difficulties? Perhaps a delivery was delayed, equipment broke down, or a key team member was unavailable.</p>
+<p>1.  Think of one such situation. What was the project and what was its goal?<br>
+2.  What were the main unexpected obstacles or &#x27;vulnerabilities&#x27; you encountered?<br>
+3.  If you had the chance to review that project beforehand, what specific areas would you have scrutinized more closely for potential risks?</p>
+</section>
+</article>
+<article class="stage" id="stage-essential-project-jargon">
+<header class="stage-header"><h2>Essential Project Jargon</h2></header>
+<section class="handout">
+<p>Before we listen to a discussion about project planning, let&#x27;s look at some key terms that will help us understand the conversation. Match each term to its correct definition.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>critical path analysis</li><li>contingency reserve</li><li>scenario planning</li><li>risk register</li><li>project scope creep</li><li>unforeseen variable</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match each term to its definition.</p>
+<p>Match the project management terms on the left with their definitions on the right.</p>
+<ul><li><strong>critical path analysis</strong> — A method to identify the sequence of tasks that must be completed on time for the entire project to finish on schedule.</li><li><strong>contingency reserve</strong> — Money, time, or resources set aside to cover unexpected costs, delays, or issues in a project.</li><li><strong>scenario planning</strong> — The process of considering different possible future situations and how a project might be affected by each of them.</li><li><strong>risk register</strong> — A document that lists potential risks to a project, detailing their likelihood, impact, and plans to deal with them.</li><li><strong>project scope creep</strong> — When the requirements, objectives, or deliverables of a project expand beyond what was originally agreed, often leading to delays and increased costs.</li><li><strong>unforeseen variable</strong> — An unexpected factor or element that was not predicted and can significantly affect a project&#x27;s outcome.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-understanding-the-core-issues">
+<header class="stage-header"><h2>Understanding the Core Issues</h2></header>
+<section class="handout">
+<p>You will now listen to a conversation between a project manager, Maria, and a team leader, Ben. They are discussing an upcoming project. Listen for the main purpose of their meeting.</p>
+<p>Choose the best option.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>The Mid-Project Review Meeting</h5>
+<p>Maria: &quot;Thanks for meeting, Ben. We&#x27;re in the final planning stages for the new inventory system rollout, and I want to do a thorough <strong class="lexis">risk register</strong> update. Before we commit, I need to know we&#x27;ve considered all angles. What&#x27;s keeping you up at night about this?&quot;</p>
+<p>Ben: &quot;Well, Maria, my biggest concern is avoiding <strong class="lexis">project scope creep</strong>. We started with a clear goal: optimize stock levels and reduce manual tracking. But lately, I&#x27;ve heard talk about integrating the delivery route optimization, and then adding a customer feedback module. While these are good ideas, they weren&#x27;t in the original plan and could push our timeline way out.&quot;</p>
+<p>Maria: &quot;Agreed. We need to hold the line on the initial scope. Any specific technical vulnerabilities you&#x27;ve identified? What about the integration with our legacy warehouse management software?&quot;</p>
+<p>Ben: &quot;That&#x27;s a definite <strong class="lexis">unforeseen variable</strong> waiting to happen. Our current system is old, and even with extensive testing, there&#x27;s always a chance of compatibility issues cropping up during live data migration. We also haven&#x27;t fully nailed down the <strong class="lexis">critical path analysis</strong> for the data transfer phase. If that goes wrong, everything else grinds to a halt.&quot;</p>
+<p>Maria: &quot;Right. And we absolutely need to factor in a solid <strong class="lexis">contingency reserve</strong> for that. Not just financially, but in terms of manpower and alternative data entry procedures if the automatic transfer fails. Have you done any <strong class="lexis">scenario planning</strong> for a complete system outage during the first week?&quot;</p>
+<p>Ben: &quot;We&#x27;ve sketched out a few &#x27;worst-case&#x27; scenarios, but nothing concrete. A full outage would be devastating, halting all outgoing shipments. We&#x27;d need a manual fallback procedure that could handle at least 50% of our daily volume, even if it&#x27;s less efficient.&quot;</p>
+<p>Maria: &quot;Okay, let&#x27;s put that high on the <strong class="lexis">risk register</strong>. And what about training? The team isn&#x27;t as tech-savvy as some of our other departments. Could that lead to operational delays?&quot;</p>
+<p>Ben: &quot;Absolutely. User error during the initial phase is a high probability risk. We&#x27;ve got a training plan, but uptake might be slower than expected. This could effectively be another form of <strong class="lexis">project scope creep</strong> if we have to divert resources to constant re-training.&quot;</p>
+<p>Maria: &quot;Good point. We need to ensure our <strong class="lexis">contingency reserve</strong> also includes extra support staff for the first month. Let&#x27;s make sure we document all these points and assign owners. We can&#x27;t afford any surprises on this one.&quot;</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Listen to the discussion between Maria and Ben. What is the main purpose of their meeting?</p>
+<p>What is the primary focus of Maria and Ben&#x27;s discussion?</p>
+<ul><li>To celebrate the successful launch of a new system.</li><li>To identify and evaluate potential challenges and vulnerabilities for an upcoming project.</li><li>To review past project failures and assign blame.</li><li>To plan a new marketing strategy for a logistics company.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-identifying-the-details">
+<header class="stage-header"><h2>Identifying the Details</h2></header>
+<section class="handout">
+<p>Now listen to the conversation again. This time, focus on the specific challenges, vulnerabilities, and plans discussed by Maria and Ben. Answer the questions below in short sentences.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>The Mid-Project Review Meeting</h5>
+<p>Maria: &quot;Thanks for meeting, Ben. We&#x27;re in the final planning stages for the new inventory system rollout, and I want to do a thorough <strong class="lexis">risk register</strong> update. Before we commit, I need to know we&#x27;ve considered all angles. What&#x27;s keeping you up at night about this?&quot;</p>
+<p>Ben: &quot;Well, Maria, my biggest concern is avoiding <strong class="lexis">project scope creep</strong>. We started with a clear goal: optimize stock levels and reduce manual tracking. But lately, I&#x27;ve heard talk about integrating the delivery route optimization, and then adding a customer feedback module. While these are good ideas, they weren&#x27;t in the original plan and could push our timeline way out.&quot;</p>
+<p>Maria: &quot;Agreed. We need to hold the line on the initial scope. Any specific technical vulnerabilities you&#x27;ve identified? What about the integration with our legacy warehouse management software?&quot;</p>
+<p>Ben: &quot;That&#x27;s a definite <strong class="lexis">unforeseen variable</strong> waiting to happen. Our current system is old, and even with extensive testing, there&#x27;s always a chance of compatibility issues cropping up during live data migration. We also haven&#x27;t fully nailed down the <strong class="lexis">critical path analysis</strong> for the data transfer phase. If that goes wrong, everything else grinds to a halt.&quot;</p>
+<p>Maria: &quot;Right. And we absolutely need to factor in a solid <strong class="lexis">contingency reserve</strong> for that. Not just financially, but in terms of manpower and alternative data entry procedures if the automatic transfer fails. Have you done any <strong class="lexis">scenario planning</strong> for a complete system outage during the first week?&quot;</p>
+<p>Ben: &quot;We&#x27;ve sketched out a few &#x27;worst-case&#x27; scenarios, but nothing concrete. A full outage would be devastating, halting all outgoing shipments. We&#x27;d need a manual fallback procedure that could handle at least 50% of our daily volume, even if it&#x27;s less efficient.&quot;</p>
+<p>Maria: &quot;Okay, let&#x27;s put that high on the <strong class="lexis">risk register</strong>. And what about training? The team isn&#x27;t as tech-savvy as some of our other departments. Could that lead to operational delays?&quot;</p>
+<p>Ben: &quot;Absolutely. User error during the initial phase is a high probability risk. We&#x27;ve got a training plan, but uptake might be slower than expected. This could effectively be another form of <strong class="lexis">project scope creep</strong> if we have to divert resources to constant re-training.&quot;</p>
+<p>Maria: &quot;Good point. We need to ensure our <strong class="lexis">contingency reserve</strong> also includes extra support staff for the first month. Let&#x27;s make sure we document all these points and assign owners. We can&#x27;t afford any surprises on this one.&quot;</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What specific type of &#x27;creep&#x27; does Ben initially worry about for the project?</p>
+<p>Ben is concerned about avoiding what specific &#x27;creep&#x27;?</p>
+</div>
+<div class="task"><p class="task-instruction">What is Ben&#x27;s biggest technical concern regarding the new system?</p>
+<p>What is Ben&#x27;s main technical concern regarding the new system?</p>
+</div>
+<div class="task"><p class="task-instruction">Maria emphasizes the need for a contingency reserve for two main reasons. What are they?</p>
+<p>For what two main reasons does Maria highlight the need for a contingency reserve?</p>
+</div>
+<div class="task"><p class="task-instruction">According to Ben, what is a high probability risk related to the team&#x27;s tech-savviness?</p>
+<p>What risk does Ben identify concerning the team&#x27;s tech-savviness?</p>
+</div>
+<div class="task"><p class="task-instruction">What immediate impact would a complete system outage during the first week have, according to Ben?</p>
+<p>What is the immediate consequence of a complete system outage, according to Ben?</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-future-proofing-your-projects">
+<header class="stage-header"><h2>Future-Proofing Your Projects</h2></header>
+<section class="handout">
+<p>You&#x27;ve just listened to Maria and Ben identify various vulnerabilities for their inventory system project. Let&#x27;s discuss their strategies and compare them to your own experiences.</p>
+<p>1.  Which of the risks they discussed do you think is the most challenging to mitigate in a real-world logistics or service operation? Why?<br>
+2.  Can you think of any other <strong class="lexis">unforeseen variables</strong> or potential for <strong class="lexis">project scope creep</strong> that Maria and Ben might have missed in their discussion?<br>
+3.  How important do you think maintaining a comprehensive <strong class="lexis">risk register</strong> and establishing a <strong class="lexis">contingency reserve</strong> are in the kinds of projects you are familiar with?<br>
+4.  What practical strategies could Maria and Ben employ to ensure their team genuinely adopts the new system and avoids user errors?</p>
+</section>
+</article>
+</body>
+</html>

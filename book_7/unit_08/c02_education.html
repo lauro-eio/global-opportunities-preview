@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Strategic Communication for Organizational Change</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Strategic Communication for Organizational Change</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>8</dd>
+      <dt>Class</dt><dd>2</dd>
+      <dt>Theme</dt><dd>T08_EDUCATION</dd>
+      <dt>Framework</dt><dd>TBLF</dd>
+      <dt>Role</dt><dd>TBLF_DISCOURSE_ANALYSIS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Navigating New Software Integration</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the scenario: a new, complex enterprise software system is being implemented at the learners&#x27; company.<br>
+2. Elicit initial reactions and challenges from learners.<br>
+3. Facilitate discussion on strategies for mastering the system and integrating it without disruption.<br>
+4. Encourage use of language related to strategic learning and adaptation, linking to the &#x27;upskill proactively&#x27; exponent.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Preparing for Digital Shifts</h4>
+<p>Imagine your company has just introduced a completely new enterprise software system. This system is complex and impacts many aspects of your daily workflow.</p>
+<p>Discuss with a partner or in small groups:<br>
+1. What are the immediate challenges you anticipate when a major new system is rolled out?<br>
+2. What personal and team strategies would you employ to quickly master its complexities?<br>
+3. How can you ensure this new system is integrated into your daily tasks with minimal disruption to productivity and team morale?<br>
+4. In what ways can you upskill proactively to make the most of this new technology?</p>
+</section>
+</article>
+<article class="stage" id="stage-GIST">
+<header class="stage-header"><span class="stage-code">GIST</span><h2>Gist Reading: Strategic Adaptation to New Systems</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Instruct learners to read the memo quickly for its main purpose.<br>
+2. Emphasize not getting stuck on unfamiliar vocabulary at this stage.<br>
+3. Have learners complete the multiple-choice question individually.<br>
+4. Check answers as a class, asking learners to justify their choice.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Understanding the Rollout</h4>
+<p>Read the following internal memo from the Digital Transformation Task Force. Focus on identifying its overall message and primary objective.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Strategic Integration of Nexus ERP – Phase One Update</h5>
+<p>To: All Department Heads<br>
+From: Digital Transformation Task Force<br>
+Date: [Current Date]<br>
+Subject: Strategic Integration of Nexus ERP – Phase One Update</p>
+<p>This memo provides an update on the ongoing implementation of the Nexus Enterprise Resource Planning (ERP) system, a cornerstone of our <strong class="lexis">digital transformation</strong> initiative. The Nexus ERP is designed to streamline operations, enhance data analytics, and improve overall <strong class="lexis">workflow optimization</strong> across all divisions.</p>
+<p><strong class="lexis">Albeit a significant initial learning curve for some teams,</strong> the long-term benefits of this system are projected to deliver substantial gains in efficiency and operational transparency. We understand that embracing new technology requires considerable <strong class="lexis">process adaptation</strong> and a commitment to continuous learning.</p>
+<p>To support this transition, the Task Force has established several key strategic learning pathways. We strongly encourage all personnel to <strong class="lexis">upskill proactively</strong> by engaging with the dedicated Nexus training modules. These modules are structured to allow individuals to <strong class="lexis">tailor learning pathways</strong> that directly address their roles and responsibilities within the new system.</p>
+<p><strong class="lexis">Notwithstanding some initial resistance to change,</strong> particularly concerning data migration and interface familiarity, feedback from early adopters highlights the intuitive design and powerful capabilities of Nexus once basic proficiency is achieved. We are actively collecting user insights through our <strong class="lexis">rapid prototyping</strong> feedback loop to refine support materials and user interfaces where necessary.</p>
+<p>We expect department heads to <strong class="lexis">leverage professional development opportunities</strong> by ensuring team members have the allocated time and resources for training. Our objective is to <strong class="lexis">align skill sets with industry demands</strong> and foster an environment where every employee can <strong class="lexis">foster a growth mindset</strong> in navigating this technological shift. Effective <strong class="lexis">technological literacy</strong> is paramount for our collective success.</p>
+<p>The successful integration of Nexus ERP is crucial for our competitive edge and operational excellence. Your active participation and leadership in championing this strategic learning initiative are vital.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Read the memo quickly to understand its main purpose. Choose the best option.</p>
+<p>What is the primary objective of this memo?</p>
+<ul><li>To announce the complete rollout of the Nexus ERP system.</li><li>To acknowledge challenges and outline strategic learning for a new software system.</li><li>To solicit feedback on the Nexus ERP system&#x27;s user interface.</li><li>To detail the technical specifications of the Nexus ERP system.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-DET">
+<header class="stage-header"><span class="stage-code">DET</span><h2>Detailed Reading: Navigating Strategic Communication</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Instruct learners to re-read the memo from the GIST stage more closely.<br>
+2. Explain that the tasks focus on understanding specific details, implied meanings, and the tone of the communication.<br>
+3. Review answers as a class, prompting learners to justify their choices by referring to the text.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reading Between the Lines</h4>
+<p>Reread the memo carefully, focusing on how the information is presented and what it implies for employees and the company.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Strategic Integration of Nexus ERP – Phase One Update</h5>
+<p>To: All Department Heads<br>
+From: Digital Transformation Task Force<br>
+Date: [Current Date]<br>
+Subject: Strategic Integration of Nexus ERP – Phase One Update</p>
+<p>This memo provides an update on the ongoing implementation of the Nexus Enterprise Resource Planning (ERP) system, a cornerstone of our <strong class="lexis">digital transformation</strong> initiative. The Nexus ERP is designed to streamline operations, enhance data analytics, and improve overall <strong class="lexis">workflow optimization</strong> across all divisions.</p>
+<p><strong class="lexis">Albeit a significant initial learning curve for some teams,</strong> the long-term benefits of this system are projected to deliver substantial gains in efficiency and operational transparency. We understand that embracing new technology requires considerable <strong class="lexis">process adaptation</strong> and a commitment to continuous learning.</p>
+<p>To support this transition, the Task Force has established several key strategic learning pathways. We strongly encourage all personnel to <strong class="lexis">upskill proactively</strong> by engaging with the dedicated Nexus training modules. These modules are structured to allow individuals to <strong class="lexis">tailor learning pathways</strong> that directly address their roles and responsibilities within the new system.</p>
+<p><strong class="lexis">Notwithstanding some initial resistance to change,</strong> particularly concerning data migration and interface familiarity, feedback from early adopters highlights the intuitive design and powerful capabilities of Nexus once basic proficiency is achieved. We are actively collecting user insights through our <strong class="lexis">rapid prototyping</strong> feedback loop to refine support materials and user interfaces where necessary.</p>
+<p>We expect department heads to <strong class="lexis">leverage professional development opportunities</strong> by ensuring team members have the allocated time and resources for training. Our objective is to <strong class="lexis">align skill sets with industry demands</strong> and foster an environment where every employee can <strong class="lexis">foster a growth mindset</strong> in navigating this technological shift. Effective <strong class="lexis">technological literacy</strong> is paramount for our collective success.</p>
+<p>The successful integration of Nexus ERP is crucial for our competitive edge and operational excellence. Your active participation and leadership in championing this strategic learning initiative are vital.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">According to the memo, what are two key projected long-term benefits of the Nexus ERP system?</p>
+<p>List two projected long-term benefits:</p>
+</div>
+<div class="task"><p class="task-instruction">The memo mentions &#x27;initial resistance to change.&#x27; What does this implicitly suggest about the rollout?</p>
+<p>The phrase &#x27;initial resistance to change&#x27; implies:</p>
+<ul><li>All employees are enthusiastic about the new system.</li><li>Some employees are finding it difficult to adapt or are reluctant to embrace the new system.</li><li>The new system is fundamentally flawed and will fail.</li><li>The company should immediately halt the implementation process.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">What is the primary goal behind encouraging employees to &#x27;tailor learning pathways&#x27;?</p>
+<p>The goal is to allow individuals to:</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-GD">
+<header class="stage-header"><span class="stage-code">GD</span><h2>Guided Discovery: Navigating Nuance and Strategy</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Guide learners to identify the target structures and lexis in the memo.<br>
+2. For the concessive linkers:<br>
+    a. Ask learners to locate the phrases &#x27;Albeit a significant initial learning curve&#x27; and &#x27;Notwithstanding some initial resistance to change&#x27;.<br>
+    b. Discuss what these phrases introduce (a challenge/difficulty).<br>
+    c. Ask what follows these phrases (the main point/strategy that holds true despite the challenge).<br>
+    d. Elicit why these structures are used in formal communication (to acknowledge difficulties while maintaining a positive or strategic stance).<br>
+3. For the strategic upskilling vocabulary:<br>
+    a. Ask learners to find phrases like &#x27;upskill proactively&#x27;, &#x27;tailor learning pathways&#x27;, &#x27;leverage professional development opportunities&#x27;, &#x27;align skill sets with industry demands&#x27;, &#x27;foster a growth mindset&#x27;.<br>
+    b. Discuss the specific meaning and pragmatic function of each phrase in the context of professional development.<br>
+    c. Emphasize the professional and strategic tone conveyed by these multi-word units.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Analyzing Communication Styles</h4>
+<p>Look back at the memo. We&#x27;re going to analyze specific phrases that help the authors convey their message effectively, especially when discussing challenges and strategies.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Strategic Integration of Nexus ERP – Phase One Update</h5>
+<p>To: All Department Heads<br>
+From: Digital Transformation Task Force<br>
+Date: [Current Date]<br>
+Subject: Strategic Integration of Nexus ERP – Phase One Update</p>
+<p>This memo provides an update on the ongoing implementation of the Nexus Enterprise Resource Planning (ERP) system, a cornerstone of our <strong class="lexis">digital transformation</strong> initiative. The Nexus ERP is designed to streamline operations, enhance data analytics, and improve overall <strong class="lexis">workflow optimization</strong> across all divisions.</p>
+<p><strong class="lexis">Albeit a significant initial learning curve for some teams,</strong> the long-term benefits of this system are projected to deliver substantial gains in efficiency and operational transparency. We understand that embracing new technology requires considerable <strong class="lexis">process adaptation</strong> and a commitment to continuous learning.</p>
+<p>To support this transition, the Task Force has established several key strategic learning pathways. We strongly encourage all personnel to <strong class="lexis">upskill proactively</strong> by engaging with the dedicated Nexus training modules. These modules are structured to allow individuals to <strong class="lexis">tailor learning pathways</strong> that directly address their roles and responsibilities within the new system.</p>
+<p><strong class="lexis">Notwithstanding some initial resistance to change,</strong> particularly concerning data migration and interface familiarity, feedback from early adopters highlights the intuitive design and powerful capabilities of Nexus once basic proficiency is achieved. We are actively collecting user insights through our <strong class="lexis">rapid prototyping</strong> feedback loop to refine support materials and user interfaces where necessary.</p>
+<p>We expect department heads to <strong class="lexis">leverage professional development opportunities</strong> by ensuring team members have the allocated time and resources for training. Our objective is to <strong class="lexis">align skill sets with industry demands</strong> and foster an environment where every employee can <strong class="lexis">foster a growth mindset</strong> in navigating this technological shift. Effective <strong class="lexis">technological literacy</strong> is paramount for our collective success.</p>
+<p>The successful integration of Nexus ERP is crucial for our competitive edge and operational excellence. Your active participation and leadership in championing this strategic learning initiative are vital.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Locate two phrases in the memo that introduce a challenge or difficulty but are followed by a statement of a positive outcome or strategy. Copy the full phrase, starting with &#x27;Albeit&#x27; or &#x27;Notwithstanding&#x27;.</p>
+<p>Phrase 1:</p>
+</div>
+<div class="task"><p class="task-instruction">Locate two phrases in the memo that introduce a challenge or difficulty but are followed by a statement of a positive outcome or strategy. Copy the full phrase, starting with &#x27;Albeit&#x27; or &#x27;Notwithstanding&#x27;.</p>
+<p>Phrase 2:</p>
+</div>
+<div class="task"><p class="task-instruction">What effect do the phrases &#x27;Albeit...&#x27; and &#x27;Notwithstanding...&#x27; have in the memo? Why are they used in this professional context?</p>
+<p>These phrases are used to...</p>
+</div>
+<div class="task"><p class="task-instruction">Match the strategic learning phrase from the memo to its pragmatic meaning.</p>
+<p>Match the strategic learning phrase to its meaning.</p>
+<ul><li><strong>upskill proactively</strong> — To take initiative in learning new skills before they become urgently needed.</li><li><strong>tailor learning pathways</strong> — To customize educational plans to fit individual needs and roles.</li><li><strong>leverage professional development opportunities</strong> — To make effective use of available training or growth chances.</li><li><strong>align skill sets with industry demands</strong> — To ensure one&#x27;s abilities match current and future market requirements.</li><li><strong>foster a growth mindset</strong> — To encourage an attitude that embraces learning and development as a continuous process.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-CP">
+<header class="stage-header"><span class="stage-code">CP</span><h2>Controlled Practice: Crafting Diplomatic Language</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that learners will practice integrating the concessive linkers and strategic upskilling phrases.<br>
+2. Emphasize the C2-level formality and diplomatic nuance required.<br>
+3. For the concessive linker tasks, encourage learners to use the identified pattern: Concessive linker + NP/Adjectival block, main clause.<br>
+4. For the lexical tasks, ensure correct usage of the multi-word units in context.<br>
+5. Provide feedback on grammatical accuracy, appropriate register, and pragmatic effect.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Applying Strategic Wording</h4>
+<p>Now, let&#x27;s practice using the formal language and strategic phrases we&#x27;ve identified. You&#x27;ll complete or rewrite sentences to reflect a professional, diplomatic tone when discussing challenges and solutions in the workplace.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Complete the following sentences using &#x27;Albeit&#x27; or &#x27;Notwithstanding&#x27; followed by a noun phrase or adjectival block, acknowledging a challenge before stating a positive or strategic outcome. Refer to the structure: Concessive linker + noun phrase/adjectival block, main clause.</p>
+<p>______, the new safety protocols have significantly reduced workplace incidents.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the following sentences using &#x27;Albeit&#x27; or &#x27;Notwithstanding&#x27; followed by a noun phrase or adjectival block, acknowledging a challenge before stating a positive or strategic outcome. Refer to the structure: Concessive linker + noun phrase/adjectival block, main clause.</p>
+<p>The project was delivered on time. ______, the team faced several unexpected technical difficulties.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentences below using the most appropriate strategic upskilling phrase from our lesson (&#x27;upskill proactively&#x27;, &#x27;tailor learning pathways&#x27;, &#x27;leverage professional development opportunities&#x27;, &#x27;align skill sets with industry demands&#x27;, &#x27;foster a growth mindset&#x27;).</p>
+<p>To stay competitive in this rapidly evolving sector, employees must constantly ______ by seeking out new training.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentences below using the most appropriate strategic upskilling phrase from our lesson (&#x27;upskill proactively&#x27;, &#x27;tailor learning pathways&#x27;, &#x27;leverage professional development opportunities&#x27;, &#x27;align skill sets with industry demands&#x27;, &#x27;foster a growth mindset&#x27;).</p>
+<p>Our goal is to ______ by offering specialized courses that directly relate to future business needs.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentences below using the most appropriate strategic upskilling phrase from our lesson (&#x27;upskill proactively&#x27;, &#x27;tailor learning pathways&#x27;, &#x27;leverage professional development opportunities&#x27;, &#x27;align skill sets with industry demands&#x27;, &#x27;foster a growth mindset&#x27;).</p>
+<p>Managers are encouraged to ______ to ensure their teams are well-prepared for upcoming projects.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Freer Practice: Strategic Planning for Future Challenges</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Set the scenario: introduction of AI tools requiring new skills and job role changes.<br>
+2. Instruct learners to prepare a short internal briefing for their team/colleagues.<br>
+3. Remind them to integrate:<br>
+    a. Concessive linkers (Albeit, Notwithstanding) to acknowledge challenges diplomatically.<br>
+    b. At least three strategic professional upskilling phrases.<br>
+    c. A professional and forward-looking tone.<br>
+4. Monitor group work or individual preparation, offering support on language and structure.<br>
+5. Facilitate sharing of briefings in pairs or small groups.<br>
+6. Provide general feedback on the effective use of target language and the overall professional register.</p>
+<p>Sample Answer / Key Points:<br>
+&#x27;Team, as we look towards integrating new AI tools into our operations, we recognize this marks a significant shift. <strong class="lexis">Albeit some initial concerns regarding job role evolution,</strong> this presents an exciting opportunity for greater efficiency and innovation. Our strategy is clear: we must all <strong class="lexis">upskill proactively</strong>. We will also <strong class="lexis">tailor learning pathways</strong> through expert-led workshops to ensure everyone can <strong class="lexis">align skill sets with industry demands</strong>. <strong class="lexis">Notwithstanding the scale of this technological shift,</strong> I am confident that by embracing a <strong class="lexis">growth mindset</strong>, we will seamlessly adapt and thrive in this new landscape, leveraging these tools to enhance our productivity.&#x27;</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Planning for Tomorrow&#x27;s Skills</h4>
+<p>Your company is considering introducing Artificial Intelligence (AI) tools to automate some routine tasks. This could significantly change job roles and require new skills.</p>
+<p>Prepare a short internal briefing for your team (or colleagues) on how you plan to approach this transition. In your briefing:<br>
+1. Acknowledge potential challenges or concerns diplomatically, using concessive language (e.g., &#x27;Albeit...&#x27;, &#x27;Notwithstanding...&#x27;).<br>
+2. Outline strategies for skill development and adaptation, incorporating at least three of the &#x27;strategic professional upskilling&#x27; phrases we&#x27;ve learned.<br>
+3. Maintain a professional and forward-looking tone.</p>
+</section>
+</article>
+</body>
+</html>

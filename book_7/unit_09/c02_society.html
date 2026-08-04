@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Analyzing Consumer Protection Discourse and Drafting</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Analyzing Consumer Protection Discourse and Drafting</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>9</dd>
+      <dt>Class</dt><dd>2</dd>
+      <dt>Theme</dt><dd>T09_SOCIETY</dd>
+      <dt>Framework</dt><dd>TBLF</dd>
+      <dt>Role</dt><dd>TBLF_DISCOURSE_ANALYSIS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Consumer Power and Corporate Accountability</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by asking students to think about a time they experienced a problem with a product or service. <br>
+2. Elicit specific examples without going into too much detail. <br>
+3. Ask: &#x27;What steps did you take? Were you satisfied with the outcome?&#x27;<br>
+4. Transition to discussing the power dynamic: &#x27;How much power do individual consumers really have against large corporations? What are the biggest challenges?&#x27;<br>
+5. Encourage open discussion on the complexities of seeking redress and the concept of corporate responsibility.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Your Rights, Your Voice</h4>
+<p>Think about a time when a product or service you bought caused you significant problems, harm, or financial loss. </p>
+<p>1. What happened? <br>
+2. What actions did you consider or take to resolve the issue? <br>
+3. How effective do you think those actions were? <br>
+4. In your experience, how much power do consumers truly have against large corporations when things go wrong? Discuss the obstacles you might face when trying to seek justice or compensation.</p>
+</section>
+</article>
+<article class="stage" id="stage-GIST">
+<header class="stage-header"><span class="stage-code">GIST</span><h2>Gist Reading: Understanding Official Guidance</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Distribute the &#x27;Advisory Notice&#x27;.<br>
+2. Instruct students to read the text quickly to understand its main purpose and content, without focusing on details.<br>
+3. Set the MCQ task. <br>
+4. Check answers and briefly discuss why the correct option is the best summary.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">First Look: Official Consumer Protection</h4>
+<p>Read the following advisory notice from the National Consumer Protection Authority (NCPA). Don&#x27;t worry about understanding every single word. Just focus on getting the main idea.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Advisory Notice: **Consumer Rights** and **Product Liability** Safeguards</h5>
+<p>This advisory notice is issued by the National Consumer Protection Authority (NCPA) to clarify and reinforce the rights afforded to consumers and the obligations incumbent upon manufacturers and service providers operating <strong class="lexis">within</strong> the jurisdiction of this body. The NCPA <strong class="lexis">hereby</strong> advises all stakeholders of their responsibilities <strong class="lexis">thereof</strong> concerning <strong class="lexis">product liability</strong> and quality assurance.</p>
+<p>Consumers are entitled to products and services that are of satisfactory quality, fit for purpose, and as described. Should a product or service fail to meet these statutory requirements, the <strong class="lexis">Consumer Rights Act</strong> stipulates clear mechanisms for redress. Under no circumstances <strong class="lexis">shall</strong> a manufacturer or provider deny legitimate claims for repair, replacement, or refund <strong class="lexis">wherein</strong> a demonstrable defect or breach of contract is established. The prompt and fair resolution of such disputes is paramount.</p>
+<p>It is imperative that consumers <strong class="lexis">adhere strictly to protocols</strong> when reporting incidents. Any claim of <strong class="lexis">corporate malfeasance</strong> must be supported by thoroughly <strong class="lexis">documenting the incident thoroughly</strong>, including purchase records, photographic evidence, and communication logs. Failure to <strong class="lexis">document the incident thoroughly</strong> may impede the swift resolution of a claim, and may require consumers to <strong class="lexis">seek legal counsel</strong> to navigate complex procedures.</p>
+<p>The NCPA further asserts that manufacturers <strong class="lexis">shall</strong> maintain rigorous quality control measures and <strong class="lexis">adhere strictly to protocols</strong> for product safety. Corporate entities <strong class="lexis">thereby</strong> acknowledge their duty of care. Any enterprise found not to be <strong class="lexis">in full compliance with statutory requirements</strong> will be subject to stringent penalties, including fines and potential <strong class="lexis">class action lawsuits</strong>. Consumers who believe their rights have been infringed are strongly encouraged to <strong class="lexis">lodge a formal complaint</strong> with the NCPA. This framework precisely positions accountability at the core of all commercial transactions. The NCPA maintains the right to conduct investigations <strong class="lexis">wherein</strong> consumer complaints are substantiated, and <strong class="lexis">hereby</strong> commits to upholding the highest standards of consumer protection.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the primary purpose of this advisory notice?</p>
+<p>Choose the best answer.</p>
+<ul><li>To announce new consumer protection legislation for product recalls.</li><li>To inform consumers and businesses about existing rights and obligations regarding product quality and legal recourse.</li><li>To invite consumers to join a class action lawsuit against negligent corporations.</li><li>To detail the internal procedures for the National Consumer Protection Authority&#x27;s investigations.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-DET">
+<header class="stage-header"><span class="stage-code">DET</span><h2>Detailed Comprehension: Key Information and Implications</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Ask students to reread the advisory notice more carefully, this time focusing on specific details.<br>
+2. Have students complete the short_text tasks to check understanding of factual points.<br>
+3. For the inference questions, guide students to discuss in pairs before eliciting answers from the whole class.<br>
+4. Ensure students justify their inferences based on the text. For example, for Q3 (implied outcome for corporate malfeasance), point to &#x27;stringent penalties, including fines and potential class action lawsuits.&#x27;<br>
+5. Answer keys:<br>
+    - Q1: National Consumer Protection Authority (NCPA)<br>
+    - Q2: Satisfactory quality, fit for purpose, and as described.<br>
+    - Q3: Stringent penalties, including fines and potential class action lawsuits.<br>
+    - Inference 1: The language is formal and legalistic, indicating the seriousness of the topic and the authority of the issuing body. It&#x27;s designed for official communication, not casual conversation.<br>
+    - Inference 2: The emphasis on &#x27;adhere strictly to protocols&#x27; and &#x27;documenting the incident thoroughly&#x27; implies that many consumer claims might fail or be delayed due to insufficient evidence or improper procedure.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Zooming In: Specifics of the Notice</h4>
+<p>Read the &#x27;Advisory Notice&#x27; again, this time paying close attention to specific details and what the language implies. Then answer the questions below.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Advisory Notice: **Consumer Rights** and **Product Liability** Safeguards</h5>
+<p>This advisory notice is issued by the National Consumer Protection Authority (NCPA) to clarify and reinforce the rights afforded to consumers and the obligations incumbent upon manufacturers and service providers operating <strong class="lexis">within</strong> the jurisdiction of this body. The NCPA <strong class="lexis">hereby</strong> advises all stakeholders of their responsibilities <strong class="lexis">thereof</strong> concerning <strong class="lexis">product liability</strong> and quality assurance.</p>
+<p>Consumers are entitled to products and services that are of satisfactory quality, fit for purpose, and as described. Should a product or service fail to meet these statutory requirements, the <strong class="lexis">Consumer Rights Act</strong> stipulates clear mechanisms for redress. Under no circumstances <strong class="lexis">shall</strong> a manufacturer or provider deny legitimate claims for repair, replacement, or refund <strong class="lexis">wherein</strong> a demonstrable defect or breach of contract is established. The prompt and fair resolution of such disputes is paramount.</p>
+<p>It is imperative that consumers <strong class="lexis">adhere strictly to protocols</strong> when reporting incidents. Any claim of <strong class="lexis">corporate malfeasance</strong> must be supported by thoroughly <strong class="lexis">documenting the incident thoroughly</strong>, including purchase records, photographic evidence, and communication logs. Failure to <strong class="lexis">document the incident thoroughly</strong> may impede the swift resolution of a claim, and may require consumers to <strong class="lexis">seek legal counsel</strong> to navigate complex procedures.</p>
+<p>The NCPA further asserts that manufacturers <strong class="lexis">shall</strong> maintain rigorous quality control measures and <strong class="lexis">adhere strictly to protocols</strong> for product safety. Corporate entities <strong class="lexis">thereby</strong> acknowledge their duty of care. Any enterprise found not to be <strong class="lexis">in full compliance with statutory requirements</strong> will be subject to stringent penalties, including fines and potential <strong class="lexis">class action lawsuits</strong>. Consumers who believe their rights have been infringed are strongly encouraged to <strong class="lexis">lodge a formal complaint</strong> with the NCPA. This framework precisely positions accountability at the core of all commercial transactions. The NCPA maintains the right to conduct investigations <strong class="lexis">wherein</strong> consumer complaints are substantiated, and <strong class="lexis">hereby</strong> commits to upholding the highest standards of consumer protection.</p>
+</section>
+<section><h5>Vocabulary</h5><ul><li>jurisdiction</li><li>incumbent upon</li><li>stipulates</li><li>redress</li><li>paramount</li><li>impede</li><li>stringent</li><li>substantiated</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Who issued this advisory notice?</p>
+<p>Answer with the full name or acronym.</p>
+</div>
+<div class="task"><p class="task-instruction">According to the notice, what three qualities are consumers entitled to expect from products and services?</p>
+<p>List the three qualities separated by commas.</p>
+</div>
+<div class="task"><p class="task-instruction">What are the potential consequences for corporate entities not in full compliance with statutory requirements?</p>
+<p>Mention two possible consequences.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-GD">
+<header class="stage-header"><span class="stage-code">GD</span><h2>Guided Discovery: Formal Structures and Pragmatic Function</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Direct students to the target structures in the reading passage.<br>
+2. <strong class="lexis">Target 1: Archaic Formalisms and Precise Adverbial Positioning (structure)</strong><br>
+    - Ask students to find examples of &#x27;hereby&#x27;, &#x27;thereby&#x27;, &#x27;wherein&#x27;, &#x27;thereof&#x27;.<br>
+    - Guide them to identify the subjects, verbs, and adverbs in these constructions.<br>
+    - Discuss &#x27;Prepositional compound + subject + precisely positioned adverb + verb&#x27; (e.g., &#x27;NCPA hereby advises&#x27;) and the meaning (&#x27;by this document&#x27;, &#x27;in this respect&#x27;).<br>
+    - Discuss &#x27;Subject + shall + under no circumstances + bare infinitive&#x27; (e.g., &#x27;Under no circumstances shall a manufacturer...&#x27;). Highlight the inversion after &#x27;Under no circumstances&#x27; (which is implied in the target&#x27;s concept check question: &#x27;Does a fronted negative constraint require subject-auxiliary inversion in this formal register? (Yes)&#x27;). Contrast this with the predicted error &#x27;Under no circumstances the diplomatic assembly can compromise&#x27; to show the error of non-inversion.<br>
+    - Concept Check: Ask the concept check questions: &#x27;Is this structural framework used in everyday casual speech, or strictly inside high-level legislative text?&#x27; (Strictly inside high-level legislative text). &#x27;Does a fronted negative constraint require subject-auxiliary inversion in this formal register?&#x27; (Yes).<br>
+    - Use the &#x27;match_pairs&#x27; task to reinforce the meaning and context.<br>
+3. <strong class="lexis">Target 2: Formal Language for Legal Documentation and Engagement (pragmatics/lexis)</strong><br>
+    - Ask students to find phrases like &#x27;adhere strictly to protocols&#x27;, &#x27;lodge a formal complaint&#x27;, &#x27;document the incident thoroughly&#x27;, &#x27;seek legal counsel&#x27;, &#x27;in full compliance with statutory requirements&#x27;.<br>
+    - Discuss the pragmatic function of these phrases: conveying authority, formality, precision, and seriousness in legal/official contexts. Why these phrases instead of simpler ones? (To ensure clarity, avoid ambiguity, maintain professional register, establish authority).<br>
+    - Emphasize phonological focus: clear articulation, falling intonation for authority.<br>
+4. Provide feedback on matching and concept checks, clarifying any misconceptions.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Unpacking Legal Language</h4>
+<p>Now, let&#x27;s analyze the specific language patterns used in the &#x27;Advisory Notice&#x27;. We&#x27;ll focus on how certain words and structures create a formal, authoritative tone.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Advisory Notice: **Consumer Rights** and **Product Liability** Safeguards</h5>
+<p>This advisory notice is issued by the National Consumer Protection Authority (NCPA) to clarify and reinforce the rights afforded to consumers and the obligations incumbent upon manufacturers and service providers operating <strong class="lexis">within</strong> the jurisdiction of this body. The NCPA <strong class="lexis">hereby</strong> advises all stakeholders of their responsibilities <strong class="lexis">thereof</strong> concerning <strong class="lexis">product liability</strong> and quality assurance.</p>
+<p>Consumers are entitled to products and services that are of satisfactory quality, fit for purpose, and as described. Should a product or service fail to meet these statutory requirements, the <strong class="lexis">Consumer Rights Act</strong> stipulates clear mechanisms for redress. Under no circumstances <strong class="lexis">shall</strong> a manufacturer or provider deny legitimate claims for repair, replacement, or refund <strong class="lexis">wherein</strong> a demonstrable defect or breach of contract is established. The prompt and fair resolution of such disputes is paramount.</p>
+<p>It is imperative that consumers <strong class="lexis">adhere strictly to protocols</strong> when reporting incidents. Any claim of <strong class="lexis">corporate malfeasance</strong> must be supported by thoroughly <strong class="lexis">documenting the incident thoroughly</strong>, including purchase records, photographic evidence, and communication logs. Failure to <strong class="lexis">document the incident thoroughly</strong> may impede the swift resolution of a claim, and may require consumers to <strong class="lexis">seek legal counsel</strong> to navigate complex procedures.</p>
+<p>The NCPA further asserts that manufacturers <strong class="lexis">shall</strong> maintain rigorous quality control measures and <strong class="lexis">adhere strictly to protocols</strong> for product safety. Corporate entities <strong class="lexis">thereby</strong> acknowledge their duty of care. Any enterprise found not to be <strong class="lexis">in full compliance with statutory requirements</strong> will be subject to stringent penalties, including fines and potential <strong class="lexis">class action lawsuits</strong>. Consumers who believe their rights have been infringed are strongly encouraged to <strong class="lexis">lodge a formal complaint</strong> with the NCPA. This framework precisely positions accountability at the core of all commercial transactions. The NCPA maintains the right to conduct investigations <strong class="lexis">wherein</strong> consumer complaints are substantiated, and <strong class="lexis">hereby</strong> commits to upholding the highest standards of consumer protection.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match the formal expressions from the text to their functions or meanings in legal contexts.</p>
+<p>Draw lines to connect each phrase to its description.</p>
+<ul><li><strong>hereby advises</strong> — To formally state or announce something through this document.</li><li><strong>thereof concerning</strong> — Relating to or about the aforementioned subject.</li><li><strong>Under no circumstances shall...</strong> — A strong, formal prohibition, implying legal consequences for non-compliance.</li><li><strong>wherein a defect is established</strong> — In the case where or at the point when a specific condition is met.</li><li><strong>precisely positions accountability</strong> — Clearly defines who is responsible and where that responsibility lies.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">The structure &#x27;Under no circumstances shall...&#x27; involves inversion. Rewrite the following informal sentence into a formal, legalistic one, beginning with &#x27;Under no circumstances...&#x27;, using correct inversion as seen in the text:</p>
+<p>Informal: &#x27;The company should not, for any reason, delay compensation.&#x27;
+Formal: &#x27;Under no circumstances ____________.&#x27;</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-CP">
+<header class="stage-header"><span class="stage-code">CP</span><h2>Controlled Practice: Applying Formal Language</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will now practice using the formal structures and vocabulary they&#x27;ve discovered.<br>
+2. Go through each short_text task, ensuring students understand the prompt.<br>
+3. Emphasize the importance of precise wording and adhering to the formal register.<br>
+4. Provide immediate feedback on answers, correcting any errors in form or register.<br>
+5. Discuss common errors, linking back to the &#x27;predicted learner errors&#x27; (e.g., &#x27;The constitutional law specifies the terms wherein the state can hereby execute enforcement.&#x27; vs. &#x27;The state hereby executes enforcement wherein the terms are specified.&#x27;). Or &#x27;Under no circumstances the diplomatic assembly can compromise&#x27; vs. &#x27;Under no circumstances shall the diplomatic assembly compromise&#x27;.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Drafting Formal Statements</h4>
+<p>Use the formal language and structures we&#x27;ve analyzed to complete or rewrite the following sentences. Pay close attention to register, word order, and precision.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Complete the sentence using a formal adverbial compound and precise positioning, as if from an official document:</p>
+<p>The board has decided to implement new safety regulations. The board ____________ advises that these regulations will take effect immediately.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence to be more formal and legally binding, starting with &#x27;Under no circumstances...&#x27;. Remember the inversion!</p>
+<p>Informal: &#x27;Employees are not allowed to use company equipment for personal reasons, under any circumstances.&#x27;
+Formal: &#x27;Under no circumstances ______________.&#x27;</p>
+</div>
+<div class="task"><p class="task-instruction">Choose the most appropriate formal phrase to complete the sentence:</p>
+<p>All staff must ______________ data protection guidelines, or face disciplinary action.</p>
+</div>
+<div class="task"><p class="task-instruction">Fill in the blank with a formal phrase related to legal action:</p>
+<p>If a product causes injury, consumers are advised to ______________ to understand their options.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Freer Practice: Advocating for Consumer Protection</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the scenario: Students are part of a consumer advocacy group.<br>
+2. Instruct them to draft a short paragraph (2-3 sentences) for a policy recommendation, using at least two of the formal structures/phrases practiced in the lesson.<br>
+3. Encourage them to focus on the unit theme of &#x27;Law &amp; Power&#x27; and &#x27;consumer protection against corporate malfeasance&#x27;.<br>
+4. Provide a sample answer for guidance:<br>
+    - &#x27;Our organization <strong class="lexis">hereby</strong> recommends that legislative bodies mandate stricter oversight. Under no circumstances <strong class="lexis">shall</strong> corporations evade their duty to consumers, and all entities must <strong class="lexis">adhere strictly to protocols</strong> for product safety.&#x27;<br>
+5. Have students share their drafts in pairs or small groups, giving peer feedback on formality and clarity.<br>
+6. Optionally, collect a few examples to review as a class, focusing on correct application of the target language.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Drafting a Policy Recommendation</h4>
+<p>Imagine you are part of a consumer advocacy group. Your task is to draft a short policy recommendation to your local government about strengthening consumer protections against <strong class="lexis">corporate malfeasance</strong> or ensuring <strong class="lexis">product liability</strong>. </p>
+<p>In your recommendation, aim to use at least two of the formal structures or phrases from today&#x27;s lesson (e.g., &#x27;hereby&#x27;, &#x27;thereby&#x27;, &#x27;wherein&#x27;, &#x27;under no circumstances shall...&#x27;, &#x27;adhere strictly to protocols&#x27;, &#x27;lodge a formal complaint&#x27;, &#x27;in full compliance with statutory requirements&#x27;).</p>
+<p>Focus on maintaining a formal, authoritative, and precise tone, similar to the advisory notice we analyzed.</p>
+</section>
+</article>
+</body>
+</html>

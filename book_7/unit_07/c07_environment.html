@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nominalization in Policy Documents</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Nominalization in Policy Documents</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>7</dd>
+      <dt>Class</dt><dd>7</dd>
+      <dt>Theme</dt><dd>T07_ENVIRONMENT</dd>
+      <dt>Framework</dt><dd>TTT</dd>
+      <dt>Role</dt><dd>TTT_ADVANCED_REVIEW_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Revisiting Workplace Sustainability Directives</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by referring to the lead_in_brief provided: Your company is revising its internal environmental policy. <br>
+2. Divide students into small groups (2-3). <br>
+3. Prompt discussion using the questions in the student content. Encourage students to think critically about daily routines and propose actionable, practical suggestions. <br>
+4. Emphasize using professional, formal language appropriate for C2 learners. <br>
+5. Elicit any advanced structures or lexis related to environmental policy from the previous unit, focusing on abstract concepts and systemic processes.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Our Collective Footprint: Policy Ideas</h4>
+<p>Your company is actively revising its internal environmental policy to align with global stewardship principles. Consider your typical administrative tasks and collaborative efforts. In small groups, discuss the following:</p>
+<p>1. What are the most significant ecological impacts of your current workplace routines, especially those involving digital and paper-based activities?<br>
+2. What <strong class="lexis">actionable suggestions</strong> could you propose to reduce the collective ecological footprint of these tasks? Think about <strong class="lexis">paperless initiatives</strong>, <strong class="lexis">digital carbon footprint</strong>, and <strong class="lexis">eco-procurement office</strong> strategies.<br>
+3. How could these suggestions be framed to ensure high <strong class="lexis">employee engagement</strong> and adherence to new policies?</p>
+<p>Be prepared to share your group&#x27;s most impactful ideas with the class.</p>
+</section>
+</article>
+<article class="stage" id="stage-T1">
+<header class="stage-header"><span class="stage-code">T1</span><h2>Test 1: Diagnosing Formal Policy Language</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that this is a diagnostic task to assess students&#x27; ability to use formal, objective language suitable for policy documents, specifically focusing on abstract actions. <br>
+2. Instruct students to rewrite the sentences to achieve a more formal and impersonal tone. <br>
+3. Do not pre-teach or provide clues; allow students to attempt the transformations based on their current understanding. <br>
+4. Observe closely for predicted_learner_errors related to grammatical nominalization (e.g., using verbs instead of complex noun phrases, maintaining an agent-focused rather than process-focused structure). <br>
+5. Collect common errors and successful transformations for targeted clarification in the TCH stage.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Refining Objective Policy Statements</h4>
+<p>The following sentences attempt to describe environmental impacts or policy needs but lack the formal, objective tone required for a C2-level corporate policy document. Rewrite each sentence, making it sound more authoritative, impersonal, and focused on the process or concept rather than a specific actor. Pay attention to how actions are expressed.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Rewrite the sentence to be more formal and objective.</p>
+<p>1. The company accelerating planetary boundaries disruption causes severe fines.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence to be more formal and objective.</p>
+<p>2. Because we did not perform the resilience planning of the urban ecology brought systemic collapse.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence to be more formal and objective.</p>
+<p>3. If we introduce new digital tools, it will reduce our paper consumption.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-TCH">
+<header class="stage-header"><span class="stage-code">TCH</span><h2>Teach: Clarifying Grammatical Nominalization</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by reviewing the errors identified in T1, specifically highlighting how students used verbs where nominalized forms would be more appropriate for C2 formal contexts. <br>
+2. Introduce or re-clarify the meaning of grammatical nominalization: &#x27;Converting action-based verbs into complex abstract noun packages to construct authoritative, impersonal scientific assessments concerning anthropocene tracking and environmental bio-governance.&#x27;<br>
+3. Explain the form: &#x27;Abstract noun phrase + active verb + prepositional complement&#x27; (e.g., The acceleration of global resource degradation necessitates bio-governance). Provide both affirmative and negative examples as per the linguistic target. <br>
+4. Use the concept_check_questions to guide student understanding: &#x27;Have we packaged an action into a complex noun phrase to sound more formal and objective?&#x27; and &#x27;Is the sentence focused on a specific human worker, or on an objective systemic process?&#x27; <br>
+5. Use the column banks to visually demonstrate common verb-to-noun transformations. <br>
+6. Guide students through the practice tasks, encouraging them to apply the clarified form and meaning.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Packaging Actions into Powerful Nouns</h4>
+<p>In C2-level professional communication, especially for policy, scientific, or executive reports, we often use <strong class="lexis">grammatical nominalization</strong> to make our language sound more formal, objective, and authoritative. Instead of using verbs to describe actions, we &#x27;package&#x27; these actions into abstract noun phrases. This shifts the focus from who performs an action to the action or process itself.</p>
+<p><strong class="lexis">Key idea:</strong> Convert verbs into noun phrases to achieve an impersonal and objective tone, often for describing systemic processes or findings.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Verb Forms (Less Formal)</th><th>Nominalized Forms (C2 Formal)</th></tr><tr><td>accelerate</td><td>the acceleration of...</td></tr><tr><td>disrupt</td><td>the disruption of...</td></tr><tr><td>perform (planning)</td><td>the performance of (planning)</td></tr><tr><td>reduce (consumption)</td><td>the reduction of (consumption)</td></tr><tr><td>implement (policies)</td><td>the implementation of (policies)</td></tr><tr><td>fail (to adapt)</td><td>the failure of (adaptation)</td></tr></table></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Transform the following verb-based sentences into formally nominalized statements, suitable for a C2-level policy report. The goal is objectivity and impersonality.</p>
+<p>1. The department decided to prioritize energy efficiency measures.</p>
+</div>
+<div class="task"><p class="task-instruction">Transform the following verb-based sentences into formally nominalized statements.</p>
+<p>2. Employees did not adopt the new paperless initiatives quickly.</p>
+</div>
+<div class="task"><p class="task-instruction">Transform the following verb-based sentences into formally nominalized statements.</p>
+<p>3. The company must address how it impacts the local ecosystem.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-T2">
+<header class="stage-header"><span class="stage-code">T2</span><h2>Test 2: Drafting Workplace Policy Statements</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Divide students into small groups (3-4). <br>
+2. Reiterate the situational_focus: crafting and implementing effective workplace sustainability policies. <br>
+3. Instruct groups to select two areas from the thematic_context (e.g., digital carbon footprint, paperless initiatives, eco-procurement) and draft one formal policy statement for each, using grammatical nominalization. <br>
+4. Emphasize that each statement should be a single, well-structured sentence, reflecting the C2 level and the impersonal, authoritative tone discussed. <br>
+5. Circulate and monitor for correct application of nominalization, C2 lexis (e.g., <strong class="lexis">digital carbon footprint reduction</strong>, <strong class="lexis">resource degradation mitigation</strong>, <strong class="lexis">sustainable procurement protocols</strong>), and overall coherence. <br>
+6. Encourage peer review within groups before sharing. <br>
+7. Sample expected output (for teacher reference): &#x27;The <strong class="lexis">implementation of digital carbon footprint reduction initiatives</strong> has led to <strong class="lexis">a significant decrease in energy consumption</strong> across all departments.&#x27; or &#x27;The <strong class="lexis">non-adherence to eco-procurement office standards</strong> will necessitate further review of supplier contracts.&#x27;</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Crafting Our Sustainable Future</h4>
+<p>Now it&#x27;s time to apply what we&#x27;ve reviewed. Your company needs strong, formal policy statements for its new environmental guidelines. In your groups, choose <strong class="lexis">two</strong> of the following areas relevant to your workplace sustainability policy:</p>
+<p>*   <strong class="lexis">Digital carbon footprint reduction</strong><br>
+*   <strong class="lexis">Paperless initiatives</strong><br>
+*   <strong class="lexis">Eco-procurement office standards</strong><br>
+*   <strong class="lexis">Employee engagement in sustainability efforts</strong></p>
+<p>For each chosen area, draft <strong class="lexis">one single, formal policy statement</strong> using grammatical nominalization. Ensure your statements are objective, impersonal, and reflect the C2 level. Your policy statements should clearly outline a company position or objective related to the area.</p>
+<p>Be prepared to present your two policy statements to the class and justify your use of nominalization.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Draft one formal policy statement (one sentence) on &#x27;Digital carbon footprint reduction,&#x27; using grammatical nominalization. Start with &#x27;The...&#x27;</p>
+<p>Policy Area 1: Digital Carbon Footprint Reduction
+Statement:</p>
+</div>
+<div class="task"><p class="task-instruction">Draft one formal policy statement (one sentence) on &#x27;Paperless initiatives,&#x27; using grammatical nominalization. Start with &#x27;The...&#x27;</p>
+<p>Policy Area 2: Paperless Initiatives
+Statement:</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+</body>
+</html>

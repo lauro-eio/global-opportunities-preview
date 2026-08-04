@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Training Your New Colleagues</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Training Your New Colleagues</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>8</dd>
+      <dt>Class</dt><dd>3</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-getting-started-training-a-new-teammate">
+<header class="stage-header"><h2>Getting Started: Training a New Teammate</h2></header>
+<section class="handout">
+<p>Imagine you&#x27;re the go-to person on your team for a complex procedure. A new colleague is starting next week, and it&#x27;s your job to get them up to speed quickly and effectively.</p>
+<p>Discuss in pairs:<br>
+1. What&#x27;s the most challenging part of teaching someone a new, complex work procedure?<br>
+2. What&#x27;s one good tip you&#x27;ve learned for making sure someone <strong class="lexis">really</strong> understands what you&#x27;re teaching them?<br>
+3. How do you make sure a new person feels confident enough to try it on their own?</p>
+</section>
+</article>
+<article class="stage" id="stage-learning-from-experience">
+<header class="stage-header"><h2>Learning from Experience</h2></header>
+<section class="handout">
+<p>Read the conversation between Elena and Mark. They are discussing how to train a new team member.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Mark and Elena&#x27;s Training Discussion</h5>
+<p><strong class="lexis">Elena</strong>: Mark, I’m a bit worried about training Liam on the new inventory system next week. It’s pretty complex.<br>
+<strong class="lexis">Mark</strong>: I hear you. It can be tough. What’s your initial plan?<br>
+<strong class="lexis">Elena</strong>: Well, I thought I’d just walk him through it step-by-step, then let him try.<br>
+<strong class="lexis">Mark</strong>: That’s a start, but for <strong class="lexis">onboarding efficiency</strong>, I’ve found a few <strong class="lexis">instructional techniques</strong> really help. First, break it down. Don’t overwhelm him with everything at once. Show him the most critical part, then let him do it immediately with you watching.<br>
+<strong class="lexis">Elena</strong>: So, practical application right away?<br>
+<strong class="lexis">Mark</strong>: Exactly. And for effective <strong class="lexis">knowledge sharing</strong>, instead of just telling him <strong class="lexis">what</strong> to do, explain <strong class="lexis">why</strong> it’s done that way. Understanding the purpose helps retention.<br>
+<strong class="lexis">Elena</strong>: That makes sense. I often forget the &#x27;why&#x27;.<br>
+<strong class="lexis">Mark</strong>: Also, after he tries, don&#x27;t just say &#x27;good job&#x27;. Ask him to explain the steps back to you. It&#x27;s a great way to check his understanding and identify any gaps. This kind of <strong class="lexis">peer coaching</strong> is invaluable.<br>
+<strong class="lexis">Elena</strong>: Right, so &#x27;teach it back&#x27; instead of just &#x27;show and tell&#x27;.<br>
+<strong class="lexis">Mark</strong>: And share <strong class="lexis">best practices dissemination</strong> as you go. Point out common mistakes and how to avoid them. By the end, the goal is for him to feel independent, not just follow instructions.<br>
+<strong class="lexis">Elena</strong>: That’s a lot more strategic than my original plan. Thanks, Mark. I&#x27;ll definitely use these tips.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Based on the dialogue, list two of Mark&#x27;s key strategies for effective knowledge transfer and training.</p>
+<p>List two key strategies Mark suggests for effective knowledge transfer:</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-building-your-mentoring-toolkit">
+<header class="stage-header"><h2>Building Your Mentoring Toolkit</h2></header>
+<section class="handout">
+<p>Before you begin your training session, take a few minutes to plan. Use the phrases below to help structure your approach. You can make notes about the procedure you&#x27;ll be teaching and how you plan to use these strategies.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Starting the Session</th><th>Explaining the Process</th><th>Checking Understanding</th><th>Encouraging Independence</th></tr><tr><td>Let&#x27;s begin by looking at...</td><td>First, you&#x27;ll need to...</td><td>Can you walk me through that step?</td><td>Now, why don&#x27;t you try?</td></tr><tr><td>Our focus today is on...</td><td>The next step involves...</td><td>What do you think is the main purpose of...?</td><td>I&#x27;ll be here if you need support.</td></tr><tr><td>This is a critical procedure because...</td><td>It&#x27;s important to remember that...</td><td>How would you approach this part?</td><td>Feel free to ask questions at any point.</td></tr><tr><td>I&#x27;m here to guide you through...</td><td>The &#x27;why&#x27; behind this is...</td><td>Just to check, what are the key stages?</td><td>The goal is for you to feel confident doing this.</td></tr><tr><td></td><td>We call this a **best practice** because...</td><td>So far, does that make sense?</td><td>You&#x27;ll be proficient in no time.</td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-role-play-guiding-your-new-colleague">
+<header class="stage-header"><h2>Role Play: Guiding Your New Colleague</h2></header>
+<section class="handout">
+<p>Work in pairs. You will role-play a training session.</p>
+<p><strong class="lexis">Role A: The Experienced Colleague</strong><br>
+You are tasked with training a new team member, Pat, on a complex, multi-step procedure vital to your team&#x27;s output (e.g., operating a specific piece of machinery, a complex software process, or a critical safety protocol). Your goal is to ensure Pat truly grasps it and can perform independently. Focus on your <strong class="lexis">instructional techniques</strong>.</p>
+<p><strong class="lexis">Role B: Pat, the New Colleague</strong><br>
+You are new to the team and need to learn a complex procedure. Ask questions, try to understand the &#x27;why&#x27; behind the steps, and show your willingness to learn and apply the information. Encourage <strong class="lexis">knowledge sharing</strong>.</p>
+<p><strong class="lexis">Task:</strong><br>
+Have a conversation where Role A begins to train Role B on a procedure. Focus on implementing effective <strong class="lexis">instructional techniques</strong>, <strong class="lexis">knowledge sharing</strong>, and demonstrating <strong class="lexis">peer coaching</strong>. Aim to make Pat feel confident and capable. You do not need to invent a full procedure, just discuss <strong class="lexis">how</strong> you would teach and learn a key part of it.</p>
+</section>
+</article>
+<article class="stage" id="stage-reflecting-on-your-coaching">
+<header class="stage-header"><h2>Reflecting on Your Coaching</h2></header>
+<section class="handout">
+<p>Reflect on your training role-play:</p>
+<p>1. As the &#x27;Experienced Colleague&#x27;, what strategies did you use to transfer knowledge effectively? Were they successful?<br>
+2. As the &#x27;New Colleague&#x27;, what helped you understand and feel more confident? What could have been clearer?<br>
+3. What new phrases or techniques did you try out today for <strong class="lexis">peer coaching</strong> and <strong class="lexis">knowledge sharing</strong>?</p>
+</section>
+</article>
+</body>
+</html>

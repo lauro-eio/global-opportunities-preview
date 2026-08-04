@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Writing a Memo on Workplace Data Privacy</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Writing a Memo on Workplace Data Privacy</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>9</dd>
+      <dt>Class</dt><dd>6</dd>
+      <dt>Theme</dt><dd>T09_SOCIETY</dd>
+      <dt>Framework</dt><dd>SK-PROD</dd>
+      <dt>Role</dt><dd>SK_PROD_WRITING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Understanding Workplace Surveillance</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by asking students if they have experienced or heard of workplace monitoring. <br>
+2. Facilitate a brief open-class discussion based on the questions in student_content. <br>
+3. Encourage students to share their initial thoughts on the balance between employer oversight and employee privacy. <br>
+4. Note down any key vocabulary or concepts that emerge for later use.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Your Rights in the Workplace</h4>
+<p>Think about your current or past jobs. <br>
+1. Has your employer ever used technology to track your computer usage, emails, or even your movements within the workplace? How did you feel about it?<br>
+2. Where do you personally draw the line between a company&#x27;s legitimate need for oversight and an invasion of an employee&#x27;s privacy?<br>
+3. What legal rights do you believe employees should have when it comes to <strong class="lexis">data privacy</strong> at work?</p>
+</section>
+</article>
+<article class="stage" id="stage-MOD">
+<header class="stage-header"><span class="stage-code">MOD</span><h2>Model Analysis: Reviewing a Data Privacy Policy Memo</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Distribute the memo (or direct students to the reading passage). <br>
+2. Give students 5-7 minutes to read the memo for general understanding. <br>
+3. Ask students to complete the multiple-choice questions to check their comprehension of the memo&#x27;s purpose and key arguments. <br>
+4. Review answers as a class, discussing why each option is correct or incorrect. <br>
+5. Draw attention to the formal register, structure, and use of specific terminology related to privacy and law.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reading a Policy Reminder</h4>
+<p>Read the following internal memo from the Employee Representative Committee (ERC) to Senior Management. As you read, pay attention to the main points and the specific language used to address the issue of <strong class="lexis">workplace monitoring</strong>.</p>
+<p>Then, answer the questions that follow to check your understanding of the memo&#x27;s content and its intended message.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Internal Memo: Clarification on Employee Data Privacy</h5>
+<p>To: Senior Management<br>
+From: Employee Representative Committee (ERC)<br>
+Date: [Current Date]<br>
+Subject: Request for Clarification on Employee Data Privacy and Workplace Monitoring Practices</p>
+<p>Dear Senior Management,</p>
+<p>The Employee Representative Committee (ERC) wishes to address growing concerns among staff regarding the scope and nature of <strong class="lexis">workplace monitoring</strong> within our organisation. We understand the necessity for operational efficiency and security, particularly in today&#x27;s digital landscape. However, we also recognise the fundamental right to privacy for all employees.</p>
+<p>Recent discussions among our members have highlighted a degree of uncertainty regarding existing policies and practices related to the collection and use of employee data. Specifically, questions have arisen concerning the monitoring of digital communications, internet usage, and, in some areas, physical location tracking.</p>
+<p>We would like to request clarification on how our current practices align with the <strong class="lexis">Data Protection Act</strong> (DPA) and the organisation&#x27;s stated <strong class="lexis">privacy policy</strong>. It is imperative that all employees fully understand their rights and the company&#x27;s obligations under these regulations. Transparency in these matters is crucial for maintaining trust and a positive working environment.</p>
+<p>Of particular concern is the clarity around situations where <strong class="lexis">employee consent forms</strong> are required for specific types of data collection, and how these forms are communicated and updated. Some employees have expressed confusion about the extent of <strong class="lexis">consent</strong> they have provided, or whether they can withdraw it under certain circumstances.</p>
+<p>The ERC believes that a clear, comprehensive review and re-communication of our <strong class="lexis">data privacy</strong> and monitoring policies would be highly beneficial. This would not only ensure legal compliance but also reassure staff and prevent potential misunderstandings. We propose a collaborative effort to update and disseminate this information, possibly through a dedicated workshop or an updated employee handbook section.</p>
+<p>We look forward to your prompt response and the opportunity to work together to ensure a fair and transparent approach to <strong class="lexis">employee data privacy</strong>.</p>
+<p>Sincerely,<br>
+The Employee Representative Committee (ERC)</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the primary purpose of the memo from the Employee Representative Committee?</p>
+<p>Choose the best option.</p>
+<ul><li>To demand an immediate halt to all workplace monitoring activities.</li><li>To request clearer information and review of existing data privacy policies and practices.</li><li>To inform Senior Management about new legislation regarding data protection.</li><li>To formally complain about a specific instance of employee surveillance.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">According to the memo, what specific legal framework is mentioned as a point of reference for data privacy?</p>
+<p>Answer in your own words.</p>
+</div>
+<div class="task"><p class="task-instruction">Which of the following concerns is NOT explicitly mentioned as a source of confusion among employees?</p>
+<p>Choose the best option.</p>
+<ul><li>The monitoring of digital communications.</li><li>The process for reporting privacy violations.</li><li>The necessity of employee consent forms.</li><li>The extent of consent provided for data collection.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-PREP">
+<header class="stage-header"><span class="stage-code">PREP</span><h2>Preparation: Brainstorming Your Position</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Divide students into small groups or pairs. <br>
+2. Instruct them to use the column banks to brainstorm ideas and relevant vocabulary for expressing concerns or making suggestions about workplace privacy. <br>
+3. Encourage them to consider their own experiences or observations, keeping the target audience (management/HR) in mind. <br>
+4. Circulate and assist with vocabulary and idea generation. <br>
+5. Emphasise using formal and professional language.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Building Your Argument</h4>
+<p>Now, let&#x27;s prepare to write your own communication about <strong class="lexis">workplace data privacy</strong>. Based on the memo you read and your own thoughts, brainstorm ideas and useful phrases.</p>
+<p>Think about:<br>
+*   What specific concerns do you have about current or potential <strong class="lexis">workplace monitoring</strong>?<br>
+*   What solutions or clarifications would you propose to management?<br>
+*   How can you express these points clearly and professionally?</p>
+<p>Use the following banks of phrases and vocabulary to help you structure your thoughts and arguments.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Key Terms for Privacy</th><th>Expressing Concern/Stating Facts</th><th>Proposing Solutions/Recommendations</th></tr><tr><td>Data Protection Act (DPA)</td><td>We wish to address concerns...</td><td>We would like to request clarification on...</td></tr><tr><td>workplace monitoring</td><td>It has come to our attention...</td><td>We propose a comprehensive review of...</td></tr><tr><td>employee data privacy</td><td>There is a degree of uncertainty regarding...</td><td>A re-communication of policies would be beneficial...</td></tr><tr><td>privacy policy</td><td>Questions have arisen concerning...</td><td>We suggest a collaborative effort to...</td></tr><tr><td>employee consent forms</td><td>It is imperative that...</td><td>This would not only ensure compliance but also reassure staff...</td></tr><tr><td>digital communications</td><td>Transparency in these matters is crucial...</td><td>We look forward to working together to ensure...</td></tr><tr><td>physical location tracking</td><td>Of particular concern is...</td><td>To ensure clarity and understanding...</td></tr><tr><td>legal boundaries</td><td>We understand the necessity for...</td><td>Consider implementing a dedicated workshop...</td></tr><tr><td>ethical considerations</td><td>However, we also recognise the right to...</td><td></td></tr><tr><td>transparency</td><td></td><td></td></tr><tr><td>confidentiality</td><td></td><td></td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Freer Production: Drafting Your Formal Communication</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain the writing task clearly, ensuring students understand the audience, purpose, and required length. <br>
+2. Emphasise the importance of using a formal and professional register, similar to the model memo. <br>
+3. Set a time limit for the writing task (e.g., 20-25 minutes). <br>
+4. Circulate and provide individual support, focusing on guiding students rather than correcting every error at this stage. <br>
+5. Collect the written pieces for feedback or prepare for peer feedback in the next stage.</p>
+<p><strong class="lexis">Model Answer Example (for teacher reference):</strong><br>
+Subject: Concerns and Suggestions Regarding Workplace Monitoring Policy</p>
+<p>Dear [Manager&#x27;s Name or HR Department],</p>
+<p>I am writing to express some concerns and offer suggestions regarding our organisation&#x27;s policies on <strong class="lexis">workplace monitoring</strong> and <strong class="lexis">employee data privacy</strong>. While I appreciate the need for security and efficiency, I believe greater clarity on these practices would benefit all staff.</p>
+<p>Specifically, I&#x27;ve observed some uncertainty among colleagues about the extent to which digital communications and internet usage are monitored, and how this aligns with the <strong class="lexis">Data Protection Act</strong> and our company&#x27;s <strong class="lexis">privacy policy</strong>. There is also confusion surrounding <strong class="lexis">employee consent forms</strong> – what exactly we are consenting to and under what conditions that consent can be reviewed or withdrawn.</p>
+<p>To foster a more transparent and trusting environment, I would suggest a clear review and re-communication of these policies. Perhaps a brief, updated guide outlining what data is collected, how it&#x27;s used, and what our rights are would be highly beneficial. A Q&amp;A session or an internal memo from HR could also help clarify these points.</p>
+<p>I believe that addressing these issues proactively will not only ensure our compliance with legal requirements but also significantly improve employee morale and understanding. I am confident that, by working together, we can achieve a balance that respects both operational needs and individual privacy.</p>
+<p>Thank you for considering these points. I look forward to your response.</p>
+<p>Sincerely,<br>
+[Your Name]<br>
+[Your Department]</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Writing Your Memo or Email</h4>
+<p>It&#x27;s your turn to write! Imagine you are an employee who has concerns about workplace monitoring and data privacy. Your task is to write a formal email or short memo to your manager or the Human Resources Department.</p>
+<p><strong class="lexis">Audience:</strong> Your manager or HR Department<br>
+<strong class="lexis">Purpose:</strong> To clearly and professionally express your concerns about current or potential <strong class="lexis">workplace monitoring</strong> practices and to suggest ways to improve clarity and transparency regarding <strong class="lexis">employee data privacy</strong>.<br>
+<strong class="lexis">Length:</strong> Approximately 200-250 words.</p>
+<p>Remember to:<br>
+*   Maintain a formal and respectful tone.<br>
+*   Refer to specific areas of concern (e.g., digital communications, consent forms).<br>
+*   Suggest practical solutions or requests for clarification, similar to the model memo.<br>
+*   Use appropriate vocabulary, including terms like <strong class="lexis">Data Protection Act</strong>, <strong class="lexis">privacy policy</strong>, and <strong class="lexis">workplace monitoring</strong>.</p>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback and Correction: Peer Review</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Pair students up and provide clear instructions for peer feedback. <br>
+2. First, instruct students to read their partner&#x27;s text and provide feedback on content: Have they clearly expressed their concerns? Are their suggestions practical? Is the tone appropriate? <br>
+3. Next, guide them to review language: check for clarity, formality, accuracy of vocabulary (especially target lexis), and grammatical errors. <br>
+4. Circulate and monitor discussions, offering support and redirecting as needed. <br>
+5. After peer feedback, encourage students to revise their own texts based on the feedback received. <br>
+6. Optionally, collect the revised texts for teacher assessment.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Refining Your Message</h4>
+<p>Now that you&#x27;ve drafted your communication, it&#x27;s time to get some feedback and make improvements. Work with a partner to review each other&#x27;s memos or emails.</p>
+<p><strong class="lexis">Part 1: Content Feedback (5-7 minutes)</strong><br>
+1.  Read your partner&#x27;s text carefully.<br>
+2.  Does the text clearly state the concerns about <strong class="lexis">workplace monitoring</strong> and <strong class="lexis">data privacy</strong>?<br>
+3.  Are the suggested solutions or requests for clarification practical and reasonable?<br>
+4.  Is the tone appropriate for communicating with a manager or HR department (i.e., professional and respectful)?<br>
+5.  Give your partner specific feedback on what was clear and what could be improved in terms of their message and arguments.</p>
+<p><strong class="lexis">Part 2: Language Feedback (5-7 minutes)</strong><br>
+1.  Re-read your partner&#x27;s text, this time focusing on language.<br>
+2.  Check for clarity, formality, and accuracy in vocabulary, especially the key terms we&#x27;ve discussed (e.g., <strong class="lexis">Data Protection Act</strong>, <strong class="lexis">privacy policy</strong>, <strong class="lexis">employee consent forms</strong>).<br>
+3.  Identify any grammatical errors or awkward phrasing that could be improved.<br>
+4.  Discuss these points with your partner, suggesting specific changes. </p>
+<p>After receiving feedback, take some time to revise your own memo or email, incorporating the suggestions you found helpful.</p>
+</section>
+</article>
+</body>
+</html>

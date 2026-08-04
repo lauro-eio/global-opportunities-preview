@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Workforce Housing: Planning and Integration</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Workforce Housing: Planning and Integration</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>10</dd>
+      <dt>Class</dt><dd>3</dd>
+      <dt>Theme</dt><dd>T10_LIFESTYLE</dd>
+      <dt>Framework</dt><dd>SK-PROD</dd>
+      <dt>Role</dt><dd>SK_PROD_SPEAKING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Initial Considerations for Workforce Housing</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Divide students into pairs or small groups (3-4).<br>
+2. Introduce the scenario from the student content, ensuring they understand the context of the construction project and the need for international labor.<br>
+3. Ask them to discuss the three questions provided, encouraging them to share initial ideas and experiences related to housing, integration, and ethical considerations.<br>
+4. Monitor discussions, listening for emerging themes and vocabulary.<br>
+5. Bring the class back together for a brief whole-class share-out of key points from their discussions.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Setting the Scene: Housing Our New Workforce</h4>
+<p>Imagine our company has just won a major contract, and we need to bring in 200 skilled workers from overseas for a new construction project. This is a big opportunity, but it also comes with significant responsibilities. We need to make sure these workers have not just a place to sleep, but dignified housing and a positive experience integrating into our community.</p>
+<p>Discuss with a partner:<br>
+1. What are the most important things to consider when finding accommodation for a large group of international workers?<br>
+2. What challenges might these workers face when arriving in a new country and community, beyond their immediate job role?<br>
+3. How can we ensure they feel respected and are well-integrated, not just housed?</p>
+</section>
+</article>
+<article class="stage" id="stage-MOD">
+<header class="stage-header"><span class="stage-code">MOD</span><h2>Model Dialogue: Strategic Planning for Accommodation</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Instruct students to read the dialogue individually or in pairs.<br>
+2. Ask them to identify the key strategies and considerations mentioned by Aisha and Ben.<br>
+3. Focus on the emphasized lexical items: <strong class="lexis">workforce housing standards</strong>, <strong class="lexis">temporary residency</strong>, <strong class="lexis">regulatory compliance</strong>, <strong class="lexis">social cohesion</strong>, <strong class="lexis">community outreach</strong>, <strong class="lexis">labor mobility</strong>.<br>
+4. Briefly discuss their answers to the discussion question, ensuring they understand the various facets of the problem.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Professional Perspectives: Planning for Dignified Housing</h4>
+<p>Read the following dialogue between two project managers, Aisha and Ben, who are discussing strategies for the new international workforce housing project.</p>
+<p><strong class="lexis">Aisha:</strong> &#x27;Ben, regarding the new influx of international workers for the South Ridge project, we need a robust plan for their living arrangements. It&#x27;s more than just finding buildings; we&#x27;re talking about <strong class="lexis">workforce housing standards</strong> that reflect our company&#x27;s values.&#x27;</p>
+<p><strong class="lexis">Ben:</strong> &#x27;Absolutely, Aisha. Dignity and practicality are key. I&#x27;ve been looking into options that go beyond basic <strong class="lexis">temporary residency</strong>. We need to ensure their living conditions are comfortable and safe. And thinking about <strong class="lexis">regulatory compliance</strong> is crucial from the outset to avoid any future issues.&#x27;</p>
+<p><strong class="lexis">Aisha:</strong> &#x27;Precisely. And beyond the physical structures, there&#x27;s the human element – <strong class="lexis">social cohesion</strong>. How do we help these workers integrate smoothly? We can&#x27;t have them feeling isolated. Perhaps a dedicated <strong class="lexis">community outreach</strong> program?&#x27;</p>
+<p><strong class="lexis">Ben:</strong> &#x27;That&#x27;s a great point. Maybe partnerships with local community centers or language support programs? We also need to consider the practicalities of <strong class="lexis">labor mobility</strong> – how easily can they commute to the site? Is public transport available, or do we need to arrange dedicated shuttles?&#x27;</p>
+<p><strong class="lexis">Aisha:</strong> &#x27;Good thinking. And what about cultural sensitivity in their living spaces? Shared kitchens, prayer rooms, recreational areas? These details contribute to overall well-being. We should also think about support for their families, even if it&#x27;s just a temporary stay.&#x27;</p>
+<p><strong class="lexis">Ben:</strong> &#x27;Agreed. It&#x27;s a complex puzzle, but by focusing on these ethical and practical strategies, we can ensure a successful and respectful experience for everyone involved.&#x27;</p>
+<p><strong class="lexis">Discussion:</strong> What specific strategies do Aisha and Ben suggest for the workers&#x27; housing and integration?</p>
+</section>
+</article>
+<article class="stage" id="stage-PREP">
+<header class="stage-header"><span class="stage-code">PREP</span><h2>Preparation: Gathering Ideas and Phrases</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will prepare for a discussion on developing a comprehensive plan.<br>
+2. Go through the column banks, encouraging students to read the phrases aloud and discuss their meaning in context.<br>
+3. Ask students to choose 3-4 phrases from each column that they find most useful or that they want to try to use in the next speaking activity.<br>
+4. Give students 5-7 minutes to make notes, perhaps jotting down their own specific ideas under each category, using the provided phrases as a starting point. Emphasize that these notes are for guiding their speaking, not for writing a script.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Building Your Argument: Key Phrases for Discussion</h4>
+<p>Before you discuss your own solutions, review these useful phrases and ideas. You might want to make notes in the spaces provided or use these as inspiration.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Ethical Considerations</th><th>Practical Housing Solutions</th><th>Community Integration Strategies</th><th>Compliance &amp; Logistics</th></tr><tr><td>Ensuring dignity and respect</td><td>Establishing clear **workforce housing standards**</td><td>Facilitating **social cohesion**</td><td>Adhering to **regulatory compliance**</td></tr><tr><td>Prioritizing well-being over profit</td><td>Exploring long-term rental agreements</td><td>Developing **community outreach** programs</td><td>Managing **temporary residency** paperwork</td></tr><tr><td>Fair treatment and equal opportunities</td><td>Ensuring safe and comfortable living conditions</td><td>Offering language and cultural support</td><td>Optimizing **labor mobility** (transport)</td></tr><tr><td>Addressing cultural sensitivities</td><td>Providing essential amenities</td><td>Connecting with local services and groups</td><td>Setting up clear communication channels</td></tr><tr><td>Promoting a welcoming environment</td><td>Considering proximity to workplaces</td><td>Creating recreational opportunities</td><td>Budgeting for support services</td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Freer Practice: Developing a Housing &amp; Integration Plan</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Divide students into groups of 3-4.<br>
+2. Present the roleplay scenario and instructions clearly.<br>
+3. Emphasize that they should aim for fluency and use some of the language from the previous stages and the column banks.<br>
+4. Give students 15-20 minutes for their discussion and to create a brief summary of their plan.<br>
+5. Monitor groups closely, listening for effective communication, range of vocabulary, and areas for delayed correction. Avoid interrupting fluency.<br>
+6. Note down examples of good language use and common errors for feedback.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Group Challenge: Our Comprehensive Plan</h4>
+<p>You are part of a special committee tasked with developing a comprehensive plan for housing and integrating the 200 international workers for the new construction project. Your goal is to propose a plan that is both ethical and practical, considering all aspects discussed today.</p>
+<p>In groups of three or four, discuss the following:</p>
+<p>*   <strong class="lexis">Housing:</strong> What specific types of accommodation will you secure? How will you ensure high <strong class="lexis">workforce housing standards</strong>?<br>
+*   <strong class="lexis">Integration:</strong> What initiatives will you put in place to ensure <strong class="lexis">social cohesion</strong> and successful <strong class="lexis">community outreach</strong>?<br>
+*   <strong class="lexis">Logistics &amp; Support:</strong> How will you manage <strong class="lexis">labor mobility</strong>, <strong class="lexis">temporary residency</strong> requirements, and overall <strong class="lexis">regulatory compliance</strong>?<br>
+*   <strong class="lexis">Budget &amp; Resources:</strong> What resources will be needed, and how will you justify the investment in dignified living conditions?</p>
+<p>Work together to create a summary of your proposed plan. Be ready to share your main ideas with the class.</p>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback and Delayed Correction</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. <strong class="lexis">Content Feedback (5-7 minutes):</strong><br>
+    a. Ask each group to quickly share the main points of their proposed plan (2-3 minutes per group).<br>
+    b. Facilitate a brief whole-class discussion, comparing plans and highlighting strong ideas (e.g., &#x27;Group A&#x27;s idea for community partnerships was very strong&#x27; or &#x27;Group B raised a practical point about transport that others missed&#x27;).<br>
+    c. Praise effective contributions and problem-solving.</p>
+<p>2. <strong class="lexis">Delayed Correction (7-10 minutes):</strong><br>
+    a. Inform students that you took notes on language during their discussions.<br>
+    b. Write a selection of common errors (anonymously) on the board or screen. Mix error types (e.g., lexical, pronunciation, sentence structure) but prioritize those affecting clarity or related to target lexis.<br>
+    c. Ask students to work in pairs or individually to correct the errors. Provide support as needed.<br>
+    d. Go through the corrections as a class, explaining the correct forms.<br>
+    e. Also, highlight examples of excellent language use observed during the task, especially uses of the target vocabulary from the column banks.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reflecting on Our Plans and Language</h4>
+<p>Now that you&#x27;ve completed your discussions, let&#x27;s reflect on the ideas you generated and the way we communicated them.</p>
+<p><strong class="lexis">1. Content Feedback (Whole Class):</strong><br>
+*   Each group briefly presents the main points of their housing and integration plan.<br>
+*   As a class, discuss: Which plan seems most practical? Which plan is most ethical? What were the strongest ideas across the groups?</p>
+<p><strong class="lexis">2. Self-Correction &amp; Peer Feedback (Individual/Pairs):</strong><br>
+*   Think about your own speaking during the discussion. What did you do well?<br>
+*   What specific phrases or vocabulary did you try to use? Did you feel confident using them?<br>
+*   What aspects of your language would you like to improve for next time?</p>
+</section>
+</article>
+</body>
+</html>

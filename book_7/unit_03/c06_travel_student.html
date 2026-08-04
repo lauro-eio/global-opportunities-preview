@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Write a Workplace Brief</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Write a Workplace Brief</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>3</dd>
+      <dt>Class</dt><dd>6</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-what-needs-improving">
+<header class="stage-header"><h2>What Needs Improving?</h2></header>
+<section class="handout">
+<p>Think about your workplace. What small, practical improvements could make things easier or safer? This isn&#x27;t about big company policy; it&#x27;s about a specific, tangible change in your daily routine or immediate work area.</p>
+<p>For example:<br>
+1. Better lighting in a specific corridor or storage area.<br>
+2. A clearer sign for a delivery route.<br>
+3. A small adjustment to a loading bay rule.<br>
+4. A new system for tracking shared tools.</p>
+<p>Discuss with a partner:<br>
+* What small improvement would you propose?<br>
+* Who would you send this suggestion to (your supervisor, team lead)?<br>
+* Why is this improvement important for you and your colleagues?<br>
+* What&#x27;s the goal of your message?</p>
+</section>
+</article>
+<article class="stage" id="stage-analyzing-a-workplace-brief">
+<header class="stage-header"><h2>Analyzing a Workplace Brief</h2></header>
+<section class="handout">
+<p>Read the brief below. It&#x27;s a short message to a supervisor about a workplace improvement.<br>
+As you read, think about:<br>
+* What is the main problem identified?<br>
+* What solution is suggested?<br>
+* How is the message structured for <strong class="lexis">clarity</strong>?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Brief: South Loading Bay Lighting</h5>
+<p>Subject: Request for improved lighting in South Loading Bay<br>
+To: [Supervisor&#x27;s Name]<br>
+From: [Your Name]<br>
+Date: [Date]</p>
+<p>Dear [Supervisor&#x27;s Name],</p>
+<p>I am writing to respectfully request an assessment of the lighting conditions in the South Loading Bay, specifically near bays 3 and 4.</p>
+<p>Over the past few weeks, several colleagues and I have noted that the current illumination in this particular section is often <strong class="lexis">insufficient</strong>, especially during early morning shifts and on darker afternoons. This makes it challenging to accurately read small print on shipping labels and to safely operate equipment, increasing the potential for errors or minor incidents.</p>
+<p>To address this, I would like to <strong class="lexis">recommend</strong> the installation of additional overhead LED lighting fixtures in this area. LED lights would provide brighter, more consistent light, improving visibility and reducing eye strain. This improvement would directly enhance safety protocols and the <strong class="lexis">efficiency</strong> of loading and unloading operations in a critical section of the warehouse.</p>
+<p>Thank you for considering this request. I am available to discuss this further at your convenience.</p>
+<p>Sincerely,<br>
+[Your Name]<br>
+[Your Department]</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main purpose of this brief?</p>
+<p>The primary goal of this brief is to:</p>
+<ul><li>Complain about working conditions.</li><li>Inform the supervisor about a safety risk and suggest a solution.</li><li>Request a new job assignment.</li><li>Provide a detailed technical report on lighting.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Identify the key solution recommended in the brief.</p>
+<p>What specific action does the writer recommend to improve the situation?</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-building-your-brief">
+<header class="stage-header"><h2>Building Your Brief</h2></header>
+<section class="handout">
+<p>Now it&#x27;s time to plan your own <strong class="lexis">brief</strong>. Remember the problem you identified in the Lead-In stage? We&#x27;ll use the structure of the model brief to help you.</p>
+<p>Look at the useful phrases below. These will help you write clearly and professionally.</p>
+<p>1.  <strong class="lexis">Opening the brief:</strong> How will you introduce your request?<br>
+2.  <strong class="lexis">Stating the problem:</strong> How will you describe the issue?<br>
+3.  <strong class="lexis">Explaining the impact:</strong> Why is this problem important?<br>
+4.  <strong class="lexis">Proposing a solution:</strong> What is your <strong class="lexis">recommendation</strong>?<br>
+5.  <strong class="lexis">Closing the brief:</strong> How will you end professionally?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Opening &amp; Purpose</th><th>Problem &amp; Impact</th><th>Solution &amp; Benefit</th><th>Closing &amp; Call to Action</th></tr><tr><td>I am writing to respectfully request...</td><td>The current setup often leads to...</td><td>I would like to **recommend**...</td><td>Thank you for considering this request.</td></tr><tr><td>This brief outlines a proposal for...</td><td>We have observed challenges with...</td><td>A potential solution could be to...</td><td>I am available to discuss this further.</td></tr><tr><td>I would like to bring to your attention...</td><td>This results in increased delays/errors/safety concerns.</td><td>This improvement would directly enhance...</td><td>I look forward to your feedback.</td></tr><tr><td>Regarding the **routing** of...</td><td>It makes it difficult to...</td><td>This would streamline the process and improve...</td><td>Please let me know if you require more information.</td></tr><tr><td>Concerning the current **infrastructure** at...</td><td>This impacts the **efficiency** of operations.</td><td>It would reduce risks and increase **clarity**.</td><td></td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-my-workplace-brief">
+<header class="stage-header"><h2>My Workplace Brief</h2></header>
+<section class="handout">
+<p>Now, write your own short <strong class="lexis">brief</strong> (around 100-150 words) to your supervisor.</p>
+<p><strong class="lexis">Audience:</strong> Your supervisor or team lead.<br>
+<strong class="lexis">Purpose:</strong> To clearly identify a small <strong class="lexis">infrastructure</strong> or <strong class="lexis">routing</strong> issue, explain its impact, and propose a concrete, practical solution.<br>
+<strong class="lexis">Length:</strong> Approximately 100-150 words.</p>
+<p>Use the ideas from your planning and the useful phrases from the previous activity.</p>
+<p>Make sure your brief is:<br>
+*   <strong class="lexis">Clear</strong> and easy to understand.<br>
+*   <strong class="lexis">Professional</strong> in tone.<br>
+*   <strong class="lexis">Concise</strong> – get straight to the point.</p>
+</section>
+</article>
+<article class="stage" id="stage-reviewing-our-briefs">
+<header class="stage-header"><h2>Reviewing Our Briefs</h2></header>
+<section class="handout">
+<p>Now you will review your <strong class="lexis">brief</strong>, or exchange it with a partner for feedback.</p>
+<p>First, focus on the <strong class="lexis">content</strong>:<br>
+1.  Is the problem clearly stated? Can you understand exactly what the issue is?<br>
+2.  Is the proposed solution practical and specific?<br>
+3.  Is the impact of the problem clearly explained (e.g., delays, safety, <strong class="lexis">efficiency</strong>)?<br>
+4.  Is the tone professional and respectful?</p>
+<p>Next, look at the <strong class="lexis">language</strong>:<br>
+5.  Are there any phrases that could be clearer or more concise?<br>
+6.  Check for spelling and punctuation errors.<br>
+7.  Did the writer use appropriate vocabulary (e.g., from our column banks)?</p>
+<p>Use this feedback to make any necessary improvements to your brief. Remember, the goal is to communicate effectively and professionally.</p>
+</section>
+</article>
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Proposing Strategic Skill Development</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Proposing Strategic Skill Development</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>11</dd>
+      <dt>Class</dt><dd>6</dd>
+      <dt>Theme</dt><dd>T11_EXPERIENCE</dd>
+      <dt>Framework</dt><dd>SK-PROD</dd>
+      <dt>Role</dt><dd>SK_PROD_WRITING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Future-Proofing Your Career</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Introduce the concept of career foresight. Encourage learners to share personal experiences and challenges. Guide discussion to link individual actions to broader industry trends. Ensure a professional and practical tone. The discussion should directly address the lead-in brief.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Navigating Tomorrow&#x27;s Workplace</h4>
+<p>Imagine your industry undergoing a <strong class="lexis">radical transformation</strong> in the next decade.</p>
+<p>1.  What new skills or knowledge might become <strong class="lexis">essential</strong> for someone in your role or field? Think about <strong class="lexis">industry disruption</strong> you&#x27;ve already seen or anticipate.<br>
+2.  How are you <strong class="lexis">proactively positioning yourself</strong> for these future demands? What does <strong class="lexis">professional upskilling</strong> mean to you?<br>
+3.  Consider <strong class="lexis">transferable competencies</strong> – what skills do you have now that could be valuable in different future roles?</p>
+</section>
+</article>
+<article class="stage" id="stage-MOD">
+<header class="stage-header"><span class="stage-code">MOD</span><h2>Model Analysis: Strategic Skill Development Proposal</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Introduce the model text as an example of a proactive career development proposal within a professional context. <br>
+1. Ask students to read the memo for general understanding first. <br>
+2. Guide them through the comprehension tasks, focusing on identifying the memo&#x27;s purpose, audience, tone, and key arguments. <br>
+3. Discuss how Javier uses specific vocabulary to convey his message effectively.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Understanding a Proactive Plan</h4>
+<p>Read the internal memo below from an Operations Coordinator to their Manager regarding future skill development. Then answer the questions that follow.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Internal Memo: Strategic Skill Development – Operations Team</h5>
+<p>To: Eleanor Vance, Operations Manager<br>
+From: Javier Rodriguez, Operations Coordinator<br>
+Date: October 26, 2024<br>
+Subject: Proactive Skill Development for Future Operational Demands</p>
+<p>Dear Eleanor,</p>
+<p>I am writing to propose a proactive approach to skill development within our operations team, given the anticipated shifts in the logistics sector. Recent discussions and industry reports highlight a growing trend towards <strong class="lexis">automation</strong> and integrated digital platforms, suggesting a potential <strong class="lexis">industry disruption</strong> in how we manage inventory and dispatch.</p>
+<p>To ensure our team’s <strong class="lexis">long-term viability</strong> and maintain operational efficiency, I believe it is crucial to focus on <strong class="lexis">professional upskilling</strong> in areas such as data analytics for logistics optimization, basic programming for automated system oversight, and advanced digital communication tools. These skills, while not core to our current daily tasks, will become <strong class="lexis">essential competencies</strong> as our infrastructure evolves.</p>
+<p>Specifically, I’d like to explore opportunities for myself and my colleagues to acquire training in <strong class="lexis">transferable competencies</strong> like process automation software (e.g., RPA basics) and advanced spreadsheet modeling. These would directly enhance our ability to adapt to new systems, understand complex data sets, and identify efficiencies, thereby improving our contributions to the company’s strategic goals.</p>
+<p>Investing in these areas now will align our team with emerging <strong class="lexis">market demand</strong> for digitally proficient logistics professionals and strengthen our internal capabilities. I am keen to discuss this further and outline a potential timeline and resources for such development.</p>
+<p>Sincerely,<br>
+Javier Rodriguez<br>
+Operations Coordinator</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main purpose of Javier&#x27;s memo?</p>
+<ul><li>To report on a current problem with team skills.</li><li>To request a salary increase based on new skills.</li><li>To propose a plan for developing future-focused skills.</li><li>To complain about industry changes affecting his job.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Identify one specific skill area Javier suggests for &#x27;professional upskilling&#x27;.</p>
+</div>
+<div class="task"><p class="task-instruction">Which phrase best describes the tone of Javier&#x27;s memo?</p>
+<ul><li>Casual and informal</li><li>Proactive and professional</li><li>Demanding and aggressive</li><li>Hesitant and uncertain</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-PREP">
+<header class="stage-header"><span class="stage-code">PREP</span><h2>Preparation: Outlining Your Career Strategy</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Guide students to brainstorm and outline their own career strategy, mirroring the structure of the model text. <br>
+1. Encourage them to consider their own industry and role, and to think critically about future trends. <br>
+2. Provide the column banks as a resource for language. <br>
+3. Circulate and assist with idea generation and vocabulary selection.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Building Your Future-Focused Vocabulary</h4>
+<p>Before you write your own proposal, brainstorm ideas and outline your plan based on your industry and role. Use the vocabulary banks to help you with appropriate professional language.</p>
+<p><strong class="lexis">Brainstorming Questions:</strong></p>
+<p>1.  What specific <strong class="lexis">industry disruption</strong> or change do you foresee in your sector in the next 5-10 years?<br>
+2.  What new skills or <strong class="lexis">transferable competencies</strong> will be in <strong class="lexis">market demand</strong> because of these changes?<br>
+3.  What specific actions can you take for <strong class="lexis">professional upskilling</strong> or <strong class="lexis">personal branding</strong> in these areas (e.g., courses, projects, mentoring)?<br>
+4.  How will this plan ensure your <strong class="lexis">long-term viability</strong> and benefit your employer?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Key Phrases for Strategic Planning</th><th>Essential Future-Proofing Terms</th></tr><tr><td>anticipate future shifts</td><td>industry disruption</td></tr><tr><td>proactively address change</td><td>professional upskilling</td></tr><tr><td>acquire new competencies</td><td>transferable competencies</td></tr><tr><td>enhance **transferable skills**</td><td>market demand</td></tr><tr><td>align with **market demand**</td><td>personal branding</td></tr><tr><td>ensure **long-term viability**</td><td>long-term viability</td></tr><tr><td>invest in **professional upskilling**</td><td>strategic foresight</td></tr><tr><td>foster **personal branding**</td><td>adaptive learning</td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Free Practice: Drafting Your Career Progression Memo</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Instruct students to write their own memo or email based on their outline and the model text. <br>
+1. Remind them of the audience, purpose, and length requirements. <br>
+2. Circulate, offering support with structure and language, but avoid direct correction at this stage. <br>
+3. Emphasize using the professional register and relevant vocabulary.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Your Proactive Skill Development Proposal</h4>
+<p>Now, draft an internal memo or formal email proposing your strategic skill development plan. Refer to the model text and your outline from the previous stage.</p>
+<p><strong class="lexis">Your Writing Brief:</strong></p>
+<p>*   <strong class="lexis">Audience:</strong> Your manager or HR department.<br>
+*   <strong class="lexis">Purpose:</strong> To propose a plan for your professional upskilling and career development, anticipating future changes in your industry.<br>
+*   <strong class="lexis">Genre:</strong> Internal memo or a formal email.<br>
+*   <strong class="lexis">Length:</strong> Approximately 200-300 words.</p>
+<p><strong class="lexis">Key points to include:</strong></p>
+<p>1.  Briefly describe a potential future change or <strong class="lexis">industry disruption</strong> relevant to your role.<br>
+2.  Identify <strong class="lexis">essential new skills</strong> or <strong class="lexis">transferable competencies</strong> that will be in <strong class="lexis">market demand</strong>.<br>
+3.  Propose specific actions for your <strong class="lexis">professional upskilling</strong> (e.g., courses, certifications, on-the-job training).<br>
+4.  Explain how this plan contributes to your <strong class="lexis">long-term viability</strong> and benefits the company.</p>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback: Refining Your Career Strategy</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Guide students through peer review. <br>
+1. First, focus on content and clarity of ideas – do the proposals make sense and meet the brief? <br>
+2. Then, move to language accuracy and appropriate register, ensuring that the target vocabulary is used effectively. <br>
+3. Collect pieces for final teacher feedback or highlight common errors for whole-class correction.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Peer Review: Enhancing Your Proposal</h4>
+<p>Exchange your memo/email with a partner. Read each other&#x27;s proposals and provide constructive feedback using the points below.</p>
+<p><strong class="lexis">Content Check:</strong></p>
+<p>1.  Is the anticipated <strong class="lexis">industry disruption</strong> clear and relevant to the writer&#x27;s field?<br>
+2.  Are the proposed skills and actions logical, practical, and well-explained?<br>
+3.  Is the benefit to both the individual&#x27;s <strong class="lexis">long-term viability</strong> and the company&#x27;s strategic goals clear?<br>
+4.  Does the proposal sound proactive and well-reasoned?</p>
+<p><strong class="lexis">Language Check:</strong></p>
+<p>1.  Is the tone professional and appropriate for a manager/HR?<br>
+2.  Are terms like <strong class="lexis">professional upskilling</strong>, <strong class="lexis">transferable competencies</strong>, <strong class="lexis">market demand</strong>, <strong class="lexis">personal branding</strong>, and <strong class="lexis">long-term viability</strong> used effectively and accurately?<br>
+3.  Are there any grammatical errors or awkward phrasing that could be improved?</p>
+</section>
+</article>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Our Hotel Goes Green</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Our Hotel Goes Green</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>7</dd>
+      <dt>Class</dt><dd>4</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-towards-a-greener-workplace">
+<header class="stage-header"><h2>Towards a Greener Workplace</h2></header>
+<section class="handout">
+<p>Your restaurant or hotel is aiming for a new &#x27;eco-certification&#x27;. This requires significant changes in daily operations.</p>
+<p>Discuss with a partner:<br>
+1. What are some environmental issues you&#x27;ve observed in food service or hospitality, perhaps at your own workplace or places you visit?<br>
+2. What practical changes do you think a business could implement to meet strict environmental criteria for such a certification?<br>
+3. What benefits might an &#x27;eco-certification&#x27; bring to a business?</p>
+</section>
+</article>
+<article class="stage" id="stage-key-terms-for-sustainable-operations">
+<header class="stage-header"><h2>Key Terms for Sustainable Operations</h2></header>
+<section class="handout">
+<p>Before listening, let&#x27;s look at some important terms related to making businesses more environmentally friendly. Match each term on the left with its definition on the right.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>food waste reduction</li><li>local procurement</li><li>biodegradable packaging</li><li>water stewardship</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match the terms related to eco-hospitality with their definitions.</p>
+<p>Match the terms with their definitions.</p>
+<ul><li><strong>food waste reduction</strong> — Strategies and actions taken to minimize the amount of unused or spoiled food.</li><li><strong>local procurement</strong> — The practice of obtaining goods and services from suppliers within a limited geographical area.</li><li><strong>biodegradable packaging</strong> — Materials designed to decompose naturally into the environment without causing pollution.</li><li><strong>water stewardship</strong> — The responsible planning and management of water resources to ensure their sustainable use.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-first-listen-understanding-the-overall-g">
+<header class="stage-header"><h2>First Listen: Understanding the Overall Goal</h2></header>
+<section class="handout">
+<p>You will hear Maria, an operations manager, talking to her team about their hotel&#x27;s new environmental goals. Listen for the main purpose of her meeting. Do not worry about understanding every word.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>The Green Leaf Hotel: Aiming for Eco-Certification</h5>
+<p>Good morning, everyone. Thanks for coming. As you know, we&#x27;re serious about achieving our &#x27;Emerald Eco-Certification&#x27; this year, and that means looking at every aspect of our operations. I want to discuss some key areas where we can make significant progress.</p>
+<p>First, <strong class="lexis">food waste reduction</strong>. Our kitchen currently generates a considerable amount of organic waste. We&#x27;re implementing a new system for portion control, and crucially, partnering with a local charity to redistribute edible surplus food. This isn&#x27;t just about saving money; it’s about responsible consumption. We also need to get better at composting everything that can&#x27;t be reused or donated.</p>
+<p>Next, <strong class="lexis">local procurement</strong>. We&#x27;ve been buying produce from all over the country. Moving forward, we&#x27;re committing to sourcing at least 60% of our fresh ingredients from local farms and suppliers within a 50-mile radius. This reduces our carbon footprint significantly and supports the community. It might mean adjusting some menu items seasonally, but I believe our guests will appreciate the freshness and the story behind their meal.</p>
+<p>Then there&#x27;s <strong class="lexis">biodegradable packaging</strong>. For our takeaway options and room service amenities, we&#x27;re transitioning entirely to compostable or recyclable materials. No more single-use plastics. This includes everything from coffee cups to soap wrappers. It&#x27;s a noticeable upfront cost, but the long-term environmental benefit and brand image are well worth it. We’ll need staff to educate guests where necessary, for example, on how to dispose of the new packaging correctly.</p>
+<p>Finally, <strong class="lexis">water stewardship</strong>. We&#x27;ve already installed low-flow showerheads, but there&#x27;s more. We need to encourage guests to reuse towels, and more importantly, our kitchen and laundry teams need to be vigilant about water usage. We&#x27;re investing in a greywater recycling system for irrigation, but daily habits are paramount. Staff training on efficient cleaning practices and leak detection will be vital. Every drop counts.</p>
+<p>These changes are ambitious, but they&#x27;re essential for our certification and for our commitment to <strong class="lexis">global stewardship</strong>. Let&#x27;s work together to make Green Leaf a true leader in <strong class="lexis">eco-hospitality operations</strong>.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Listen to the audio. What is the main purpose of Maria&#x27;s meeting with her team?</p>
+<p>What is the main purpose of Maria&#x27;s meeting with her team?</p>
+<ul><li>To announce new hiring for the hotel&#x27;s eco-team.</li><li>To discuss new marketing strategies for their &#x27;green&#x27; image.</li><li>To outline practical changes for achieving an eco-certification.</li><li>To get feedback on current guest satisfaction with environmental initiatives.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-second-listen-unpacking-the-details">
+<header class="stage-header"><h2>Second Listen: Unpacking the Details</h2></header>
+<section class="handout">
+<p>Listen to Maria&#x27;s presentation again. This time, focus on the specific actions and details mentioned for each area of their eco-plan.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>The Green Leaf Hotel: Aiming for Eco-Certification</h5>
+<p>Good morning, everyone. Thanks for coming. As you know, we&#x27;re serious about achieving our &#x27;Emerald Eco-Certification&#x27; this year, and that means looking at every aspect of our operations. I want to discuss some key areas where we can make significant progress.</p>
+<p>First, <strong class="lexis">food waste reduction</strong>. Our kitchen currently generates a considerable amount of organic waste. We&#x27;re implementing a new system for portion control, and crucially, partnering with a local charity to redistribute edible surplus food. This isn&#x27;t just about saving money; it’s about responsible consumption. We also need to get better at composting everything that can&#x27;t be reused or donated.</p>
+<p>Next, <strong class="lexis">local procurement</strong>. We&#x27;ve been buying produce from all over the country. Moving forward, we&#x27;re committing to sourcing at least 60% of our fresh ingredients from local farms and suppliers within a 50-mile radius. This reduces our carbon footprint significantly and supports the community. It might mean adjusting some menu items seasonally, but I believe our guests will appreciate the freshness and the story behind their meal.</p>
+<p>Then there&#x27;s <strong class="lexis">biodegradable packaging</strong>. For our takeaway options and room service amenities, we&#x27;re transitioning entirely to compostable or recyclable materials. No more single-use plastics. This includes everything from coffee cups to soap wrappers. It&#x27;s a noticeable upfront cost, but the long-term environmental benefit and brand image are well worth it. We’ll need staff to educate guests where necessary, for example, on how to dispose of the new packaging correctly.</p>
+<p>Finally, <strong class="lexis">water stewardship</strong>. We&#x27;ve already installed low-flow showerheads, but there&#x27;s more. We need to encourage guests to reuse towels, and more importantly, our kitchen and laundry teams need to be vigilant about water usage. We&#x27;re investing in a greywater recycling system for irrigation, but daily habits are paramount. Staff training on efficient cleaning practices and leak detection will be vital. Every drop counts.</p>
+<p>These changes are ambitious, but they&#x27;re essential for our certification and for our commitment to <strong class="lexis">global stewardship</strong>. Let&#x27;s work together to make Green Leaf a true leader in <strong class="lexis">eco-hospitality operations</strong>.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">According to Maria, what percentage of fresh ingredients will the hotel aim to source locally?</p>
+<p>What percentage of fresh ingredients will the hotel aim to source locally?</p>
+</div>
+<div class="task"><p class="task-instruction">Besides portion control, what is one other strategy mentioned for food waste reduction?</p>
+</div>
+<div class="task"><p class="task-instruction">What is one key action Maria mentions to improve water stewardship beyond installing low-flow showerheads?</p>
+<ul><li>Installing smart sensors in guest bathrooms.</li><li>Encouraging guests to take shorter showers.</li><li>Investing in a greywater recycling system for irrigation.</li><li>Implementing a new system for tracking daily water usage per guest.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">What is the primary reason mentioned for the hotel&#x27;s transition to biodegradable packaging?</p>
+<ul><li>To reduce upfront costs.</li><li>To align with guest requests for more luxury packaging.</li><li>To improve brand image and environmental benefit.</li><li>To avoid a new government tax on plastic.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-making-it-happen-challenges-and-solution">
+<header class="stage-header"><h2>Making it Happen: Challenges and Solutions</h2></header>
+<section class="handout">
+<p>Maria&#x27;s hotel is making significant changes. Let&#x27;s discuss these ideas further.</p>
+<p>1. Which of the initiatives discussed (e.g., <strong class="lexis">food waste reduction</strong>, <strong class="lexis">local procurement</strong>, <strong class="lexis">biodegradable packaging</strong>, <strong class="lexis">water stewardship</strong>) do you think would be the easiest to implement in a business you know, and why?<br>
+2. What challenges might arise when trying to introduce these kinds of eco-friendly practices to staff or customers?<br>
+3. How might a business convince employees and clients to embrace these changes?<br>
+4. Beyond what Maria mentioned, what other environmental practices could be introduced in the food service or hospitality industry?</p>
+</section>
+</article>
+</body>
+</html>

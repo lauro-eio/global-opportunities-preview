@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mastering Precision in Policy Language</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Mastering Precision in Policy Language</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>9</dd>
+      <dt>Class</dt><dd>7</dd>
+      <dt>Theme</dt><dd>T09_SOCIETY</dd>
+      <dt>Framework</dt><dd>TTT</dd>
+      <dt>Role</dt><dd>TTT_ADVANCED_REVIEW_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Global Trade and Local Livelihoods</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the theme of international trade policies and their impact on local industries and job security.<br>
+2. Ask students to recall any recent news reports or discussions about trade agreements, disputes, tariffs, or sanctions between countries.<br>
+3. Facilitate a brief discussion using the provided questions, encouraging students to consider how global decisions, even seemingly distant ones, can directly influence their own work, local community, or the cost of goods.<br>
+4. Elicit initial thoughts on the kind of formal, precise language used in such international policy documents.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Understanding Global Shifts</h4>
+<p>Consider recent news reports about international trade agreements or disputes between countries. For example, think about discussions around new <strong class="lexis">tariff barriers</strong> on imported goods or ongoing trade negotiations. These global decisions can have significant local consequences.</p>
+<p>Discuss the following questions:<br>
+1. How might these international policies, which can seem far removed from daily life, directly influence job opportunities or the cost of goods in your local community or industry?<br>
+2. Can you recall any specific examples of local businesses or products that have been affected by changes in international trade policies?<br>
+3. What kind of official, formal language or documents do you think are used to establish and enforce these complex international agreements?</p>
+</section>
+</article>
+<article class="stage" id="stage-T1">
+<header class="stage-header"><span class="stage-code">T1</span><h2>Diagnostic: Formal Language in Trade Policy</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that this task is designed to diagnose their current understanding and application of high-register, formal language, particularly concerning legislative structures and precise adverbial positioning.<br>
+2. Instruct students to complete the sentences, choosing the most appropriate formal legal phrasing. Emphasize paying close attention to grammatical structure, word order, and the formal register expected in high-level texts.<br>
+3. Do not provide clarification or answers at this stage. Circulate and observe, noting any recurring errors, especially regarding subject-auxiliary inversion after fronted negatives and the precise placement of adverbs, which will be addressed in the TCH stage.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Policy Wording Challenge</h4>
+<p>Read the excerpts from hypothetical international trade policy documents below. Complete the sentences, choosing the most appropriate formal legal phrasing or rewriting the clause as instructed. Focus on the strict structure and word order required in such high-level texts.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Choose the most appropriate and precisely positioned phrase to complete the formal clause.</p>
+<p>International treaties stipulate the conditions wherein each signatory party agrees to _________ all required protocols concerning trade sanctions.</p>
+<ul><li>hereby execute</li><li>execute hereby</li><li>hereby execution</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the following clause to correctly apply formal negative inversion, starting with &#x27;Under no circumstances&#x27;.</p>
+<p>The diplomatic assembly can under no circumstances compromise the core human rights framework related to anti-dumping duties.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-TCH">
+<header class="stage-header"><span class="stage-code">TCH</span><h2>Clarification: Legislative Formalisms &amp; Inversion</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Review the answers from T1, highlighting common errors in adverbial positioning and subject-auxiliary inversion. Use student examples from T1 to illustrate points.<br>
+2. Explain the meaning of these structures: they are rigid, high-register structural formulas used to create binding legislative strategies, trade policies, or justice definitions within formal international documents.<br>
+3. Introduce and clarify the affirmative form: &#x27;Prepositional compound (e.g., <strong class="lexis">Hereby</strong>, <strong class="lexis">Wherein</strong>, <strong class="lexis">Thereof</strong>) + subject + precisely positioned adverb + verb&#x27;. Provide clear examples from the task and new ones.<br>
+4. Use <strong class="lexis">Concept Check Question 1</strong>: &quot;Is this structural framework used in everyday casual speech, or strictly inside high-level legislative text?&quot; (Elicit: Strictly inside high-level legislative text).<br>
+5. Clarify the negative form: &#x27;Subject + shall + under no circumstances + bare infinitive&#x27;. Emphasize the crucial point of inversion when the negative adverbial phrase is fronted.<br>
+6. Use <strong class="lexis">Concept Check Question 2</strong>: &quot;Does a fronted negative constraint require subject-auxiliary inversion in this formal register?&quot; (Elicit: Yes).<br>
+7. Provide targeted practice to consolidate understanding.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Mastering Legalistic Precision</h4>
+<p>Now, let&#x27;s clarify the structures for drafting precise and binding language in formal documents. We will focus on two key areas where errors often occur: the exact placement of adverbs within formal statements and the mandatory inversion rule for specific fronted negative phrases.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Choose the correct, precise phrasing for this legislative clause, demonstrating correct adverbial positioning.</p>
+<p>The international committee, wherein the authority rests, will _________ ensure compliance with the new regulations on supply chain disruption.</p>
+<ul><li>hereby diligently ensure</li><li>diligently hereby ensure</li><li>ensure hereby diligently</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence, starting with &#x27;Under no circumstances&#x27;, ensuring correct formal inversion.</p>
+<p>The court shall under no circumstances annul a duly signed international agreement concerning tariff barriers.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-T2">
+<header class="stage-header"><span class="stage-code">T2</span><h2>Integrative Task: Drafting Policy Amendments</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will apply the formal structures and vocabulary learned to draft a brief amendment or clarification clause for a hypothetical trade policy document.<br>
+2. Emphasize the need for absolute precision, adherence to the C2-level formal register, and the correct structural application of both precise adverbial positioning and, if chosen, fronted negative inversion.<br>
+3. Remind students to keep the thematic context in mind: the potential impact on local industries and job security due to global trade policies.<br>
+4. Circulate and monitor, providing support for structural accuracy and appropriate language use. Encourage students to self-correct based on the TCH stage clarifications.<br>
+5. Facilitate peer review: have students exchange their drafted clauses and check each other&#x27;s work for grammatical accuracy, formality, and structural correctness.<br>
+6. Sample expected output (teacher guidance, not for students to copy): &#x27;Hereby, the Ministry of Commerce shall diligently monitor all import quotas to mitigate local <strong class="lexis">supply chain disruption</strong>.&#x27; or &#x27;Under no circumstances shall domestic industries be unjustly disadvantaged by external <strong class="lexis">tariff barriers</strong>.&#x27;</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Crafting Formal Policy Updates</h4>
+<p>Imagine you are part of a national committee tasked with reviewing a new international trade policy. Your role is to draft a short amendment or clarification clause (1-2 sentences) that directly addresses a potential impact on a local industry or job security within your country.</p>
+<p>Your clause must:<br>
+1. Be written in a high-register, formal, legalistic style.<br>
+2. Incorporate at least one &#x27;prepositional compound&#x27; structure (e.g., <strong class="lexis">hereby</strong>, <strong class="lexis">wherein</strong>, <strong class="lexis">thereof</strong>) with precise adverbial positioning.<br>
+3. If relevant to your clause, include a fronted negative phrase (e.g., <strong class="lexis">under no circumstances</strong>) with correct subject-auxiliary inversion.</p>
+<p>Consider the impact of terms like &#x27;<strong class="lexis">tariff barriers</strong>&#x27; or &#x27;<strong class="lexis">anti-dumping duties</strong>&#x27; on a local sector you are familiar with (e.g., manufacturing, agriculture, services).</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Before you draft your clause, match these key trade terms to their definitions to ensure clarity in your policy language.</p>
+<p>Match each key trade term to its correct definition.</p>
+<ul><li><strong>tariff barriers</strong> — Taxes or duties imposed on imported goods, designed to restrict trade and protect domestic industries.</li><li><strong>anti-dumping duties</strong> — Special tariffs levied on imported goods priced significantly below fair market value, to protect local markets.</li><li><strong>trade sanctions</strong> — Economic or trade restrictions imposed by one country on another, often for political reasons or to enforce international law.</li><li><strong>supply chain disruption</strong> — Any unforeseen interruption or breakdown in the process of getting products or services from their origin to the final consumer.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+</body>
+</html>

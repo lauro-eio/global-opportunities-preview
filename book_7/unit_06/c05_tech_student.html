@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI at Work: Ethics, Policy &amp;amp; Language</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>AI at Work: Ethics, Policy &amp; Language</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>6</dd>
+      <dt>Class</dt><dd>5</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-predictive-tech-safety-security-amp-you">
+<header class="stage-header"><h2>Predictive Tech: Safety, Security, &amp; You</h2></header>
+<section class="handout">
+<p>Imagine your company is considering implementing advanced AI systems – for example, <strong class="lexis">facial recognition</strong> for secure access, or predictive software to flag potential safety hazards on the factory floor or in public-facing roles. The goal is to enhance safety and security, potentially preventing accidents or incidents before they happen.</p>
+<p>Discuss the following questions with a partner:<br>
+1. What are the potential benefits of using AI for <strong class="lexis">predictive safety and security</strong> in your workplace or a similar professional environment?<br>
+2. What are your immediate concerns about such technology, especially regarding employee <strong class="lexis">privacy safeguards</strong>?<br>
+3. If AI could significantly reduce accidents, how much privacy would you be willing to give up?<br>
+4. What kind of rules or guidelines do you think would be essential to manage such a system fairly?</p>
+</section>
+</article>
+<article class="stage" id="stage-understanding-the-ai-safety-memo">
+<header class="stage-header"><h2>Understanding the AI Safety Memo</h2></header>
+<section class="handout">
+<p>Read the internal memo below from the &#x27;Workplace Safety &amp; Innovation Committee&#x27;. It outlines a new proposal for implementing AI for <strong class="lexis">predictive safety analytics</strong>. Then, choose the most suitable and professional option to complete the sentences that follow, based on the memo&#x27;s context and intended audience.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Internal Memo: Workplace AI Safety Initiative</h5>
+<p>TO: All Staff<br>
+FROM: Workplace Safety &amp; Innovation Committee<br>
+DATE: 15 October 2024<br>
+SUBJECT: Proposal for Advanced Predictive Safety Integration</p>
+<p>Dear Team,</p>
+<p>We are exploring the integration of advanced AI-driven <strong class="lexis">predictive analytics</strong> to bolster our existing workplace safety and security protocols. This initiative aims to proactively identify and mitigate risks, thereby creating a safer environment for everyone. For instance, new systems could monitor machinery for unusual patterns signaling potential malfunctions or use <strong class="lexis">facial recognition</strong> for enhanced access control.</p>
+<p>We understand that introducing new technology, particularly in areas concerning security and monitoring, raises questions. The committee is committed to an open dialogue and ensuring that any implemented system includes robust <strong class="lexis">privacy safeguards</strong>. Our priority is to prevent incidents and protect our colleagues while respecting individual rights.</p>
+<p>Your feedback will be crucial as we move forward. We will hold an open forum next month to discuss these plans in detail and hear your perspectives. Our ultimate goal is to <strong class="lexis">foster responsible innovation</strong> that truly benefits our workforce.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Which phrase best completes the sentence to maintain a professional tone when discussing the proposal&#x27;s wider considerations?</p>
+<p>The committee will thoroughly evaluate the __________ of integrating advanced AI systems.</p>
+<ul><li>pros and cons</li><li>good and bad points</li><li>ethical implications</li><li>ins and outs</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Which phrase is the most appropriate for describing the process of dealing with potential biases in AI?</p>
+<p>It is critical for us to consider __________ inherent in any new technology to ensure fair treatment for all staff.</p>
+<ul><li>sorting out any unfairness</li><li>addressing algorithmic bias</li><li>fixing the tech&#x27;s prejudice</li><li>dealing with system partiality</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Which option best reflects a company&#x27;s commitment to protecting personal information?</p>
+<p>Central to our planning is __________ and ensuring transparency regarding data usage.</p>
+<ul><li>keeping data safe</li><li>minding people&#x27;s info</li><li>upholding data privacy</li><li>protecting private details</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-building-your-ai-ethics-toolkit">
+<header class="stage-header"><h2>Building Your AI Ethics Toolkit</h2></header>
+<section class="handout">
+<p>The discussion around AI in the workplace requires precise and professional language. Let&#x27;s look at some key phrases that will help you articulate complex ideas clearly and appropriately. Pay attention to how they are used and their specific nuances.</p>
+<p><strong class="lexis">Key Expressions for Ethical AI Discussions</strong></p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Formal Expressions</th><th>Meaning &amp; Nuance</th></tr><tr><td>ethical implications</td><td>The moral questions or consequences that arise from an action or decision.</td></tr><tr><td>addressing algorithmic bias</td><td>Taking steps to identify, understand, and correct unfair or discriminatory patterns in how AI makes decisions.</td></tr><tr><td>upholding data privacy</td><td>Maintaining and protecting the confidentiality and security of personal information.</td></tr><tr><td>fostering responsible innovation</td><td>Encouraging and supporting the development of new ideas and technologies in a way that prioritizes safety, fairness, and societal well-being.</td></tr></table></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match the formal expressions with their precise meanings to deepen your understanding.</p>
+<p>Match the formal expressions on the left with their definitions on the right.</p>
+<ul><li><strong>ethical implications</strong> — The moral questions or consequences that arise from an action or decision.</li><li><strong>addressing algorithmic bias</strong> — Taking steps to identify, understand, and correct unfair or discriminatory patterns in how AI makes decisions.</li><li><strong>upholding data privacy</strong> — Maintaining and protecting the confidentiality and security of personal information.</li><li><strong>fostering responsible innovation</strong> — Encouraging and supporting the development of new ideas and technologies in a way that prioritizes safety, fairness, and societal well-being.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Choose the correct phrase to complete each sentence, demonstrating your understanding of their appropriate use in professional contexts.</p>
+<p>When developing AI for security, it&#x27;s crucial to consider the long-term ___________ for individuals and society.</p>
+<ul><li>ethical implications</li><li>moral issues</li><li>right and wrong stuff</li><li>values questions</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Choose the correct phrase to complete each sentence, demonstrating your understanding of their appropriate use in professional contexts.</p>
+<p>The company has a clear policy on __________ to ensure all employee data is handled securely and transparently.</p>
+<ul><li>keeping information secret</li><li>upholding data privacy</li><li>data protection rules</li><li>privacy safeguards</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-crafting-your-company-x27-s-ai-policy">
+<header class="stage-header"><h2>Crafting Your Company&#x27;s AI Policy</h2></header>
+<section class="handout">
+<p>Your company is moving forward with the <strong class="lexis">Workplace AI Safety Initiative</strong>. You are part of a special committee tasked with debating the specific details and outlining the principles that will guide its implementation. Your goal is to reach a consensus on how the AI will be used, balancing safety with employee rights.</p>
+<p>Work in groups of 3-4. Assign yourselves the following roles:</p>
+<p>*   <strong class="lexis">Operations Manager:</strong> Focus on efficiency, safety, and operational benefits of AI.<br>
+*   <strong class="lexis">Employee Representative:</strong> Advocate for employee rights, <strong class="lexis">privacy safeguards</strong>, and fairness.<br>
+*   <strong class="lexis">IT Security Lead:</strong> Ensure technical feasibility, data security, and explain <strong class="lexis">algorithmic bias</strong> risks.<br>
+*   <strong class="lexis">(Optional) HR Manager:</strong> Focus on policy, training, and employee well-being.</p>
+<p>Discuss the following points and try to agree on at least three core principles for your company&#x27;s AI policy. Make sure to use the key expressions we discussed today:<br>
+1.  How will the company ensure <strong class="lexis">upholding data privacy</strong> while using AI for monitoring?<br>
+2.  What steps must be taken for <strong class="lexis">addressing algorithmic bias</strong> to prevent unfair treatment or <strong class="lexis">false positives</strong>?<br>
+3.  How can the company demonstrate <strong class="lexis">fostering responsible innovation</strong> in its approach to AI implementation?<br>
+4.  What are the most significant <strong class="lexis">ethical implications</strong> that need to be considered and communicated to all staff?</p>
+</section>
+</article>
+</body>
+</html>

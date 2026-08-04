@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Powerful Language: Reporting on Local Digital Impact</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Powerful Language: Reporting on Local Digital Impact</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>10</dd>
+      <dt>Class</dt><dd>7</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-local-futures-in-a-digital-world">
+<header class="stage-header"><h2>Local Futures in a Digital World</h2></header>
+<section class="handout">
+<p>Consider the widespread adoption of international ride-sharing or delivery applications in your city.</p>
+<p>Discuss the following questions with a partner:<br>
+1. How has this <strong class="lexis">digital disruption</strong> affected the <strong class="lexis">job security</strong>, income, and overall lifestyle of traditional local service providers (e.g., taxi drivers, local restaurants, independent couriers)?<br>
+2. What <strong class="lexis">adaptations</strong> have these traditional businesses and workers made to survive or even thrive in this new landscape?<br>
+3. What challenges remain, and what are the potential long-term impacts on the <strong class="lexis">local service sector</strong>?</p>
+</section>
+</article>
+<article class="stage" id="stage-analyzing-economic-shifts-spot-the-struc">
+<header class="stage-header"><h2>Analyzing Economic Shifts: Spot the Structural Missteps</h2></header>
+<section class="handout">
+<p>Read the following sentences, which discuss the impact of the digital economy on local services. Some sentences contain structural errors in advanced grammatical forms used for emphasis and impact. Identify and correct these errors.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Choose the most grammatically correct and impactful sentence.</p>
+<p>Which sentence correctly uses structural inversion?</p>
+<ul><li>Deep within the gig economy&#x27;s data resides the hidden costs for platform labor.</li><li>Deep within the gig economy&#x27;s data reside the hidden costs for platform labor.</li><li>The hidden costs for platform labor deep within the gig economy&#x27;s data resides.</li><li>Resides deep within the gig economy&#x27;s data the hidden costs for platform labor.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence, correcting any structural errors. The meaning should remain the same, but the emphasis should be on the fronted phrase.</p>
+<p>Not since the widespread adoption of digital platforms local businesses have faced such existential challenges. (Rewrite for correct inversion)</p>
+</div>
+<div class="task"><p class="task-instruction">Select the sentence that correctly uses a fronted prepositional phrase for emphasis, maintaining subject-verb agreement.</p>
+<p>Which sentence is grammatically correct?</p>
+<ul><li>Among the most urgent concerns stands the regulatory frameworks for gig economy workers.</li><li>Among the most urgent concerns stand the regulatory frameworks for gig economy workers.</li><li>The regulatory frameworks for gig economy workers stands among the most urgent concerns.</li><li>Stands among the most urgent concerns the regulatory frameworks for gig economy workers.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-mastering-emphatic-structures">
+<header class="stage-header"><h2>Mastering Emphatic Structures</h2></header>
+<section class="handout">
+<p>We often vary standard sentence hierarchy to inject structural focus and narrative weight, especially in reports or evaluations. This is done through <strong class="lexis">fronting</strong> and <strong class="lexis">inversion</strong>.</p>
+<p><strong class="lexis">Rule 1: Fronted Prepositional/Directional Phrases</strong><br>
+When a phrase like &#x27;Deep within...&#x27; or &#x27;Among...&#x27; starts a sentence, the verb often comes before the subject. The verb must agree with the <strong class="lexis">true subject</strong>, which follows the verb.<br>
+<strong class="lexis">   </strong>Incorrect:* Deep within the data <strong class="lexis">resides</strong> the <strong class="lexis">challenges</strong>.<br>
+<strong class="lexis">   </strong>Correct:* Deep within the data <strong class="lexis">reside</strong> the <strong class="lexis">challenges</strong>.</p>
+<p><strong class="lexis">Rule 2: Fronted Negative or Restrictive Adverbs</strong><br>
+When a sentence starts with a negative or restrictive adverbial phrase (e.g., <strong class="lexis">Not since</strong>, <strong class="lexis">Never before</strong>, <strong class="lexis">Rarely</strong>, <strong class="lexis">Little did I know</strong>), we must use subject-auxiliary inversion, just like in a question.<br>
+<strong class="lexis">   </strong>Incorrect:* Not since the crisis <strong class="lexis">local businesses have</strong> adapted so quickly.<br>
+<strong class="lexis">   </strong>Correct:* Not since the crisis <strong class="lexis">have local businesses</strong> adapted so quickly.</p>
+<p>Complete the following practice exercises, applying these rules.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Rewrite the sentence, correcting any errors in subject-verb agreement after a fronted phrase. The subject is in bold.</p>
+<p>Beyond the immediate profits lies the long-term implications of unchecked platform labor.</p>
+</div>
+<div class="task"><p class="task-instruction">Choose the option that correctly uses inversion after the fronted negative phrase.</p>
+<p>Never before __________ the urgency for effective regulatory frameworks.</p>
+<ul><li>has been such widespread consensus on</li><li>there has been such widespread consensus on</li><li>has such widespread consensus been on</li><li>such widespread consensus has been on</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Transform the sentence to begin with &#x27;Among the key adaptations...&#x27;, ensuring correct inversion and agreement. The subject is in bold.</p>
+<p>Digital literacy training for senior workers is among the key adaptations.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-drafting-an-impact-report">
+<header class="stage-header"><h2>Drafting an Impact Report</h2></header>
+<section class="handout">
+<p>Imagine you are preparing an executive summary for a local council meeting, assessing the impact of global digital platforms on the stability and lifestyle of traditional local service workers. Your report needs to be concise, impactful, and demonstrate a clear understanding of the complex issues.</p>
+<p>Draft a short executive summary (approximately 50-70 words) that includes:<br>
+1.  An overview of the current situation.<br>
+2.  A key challenge or opportunity.<br>
+3.  A strong concluding statement.</p>
+<p><strong class="lexis">Crucially, incorporate at least two sentences that use the fronting and inversion structures we reviewed, to add emphasis and weight to your analysis.</strong> Focus on a professional register suitable for an executive briefing.</p>
+</section>
+</article>
+</body>
+</html>

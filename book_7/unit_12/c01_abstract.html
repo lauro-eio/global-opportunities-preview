@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Diagnosing Equipment Failure: A Case Study</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Diagnosing Equipment Failure: A Case Study</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>12</dd>
+      <dt>Class</dt><dd>1</dd>
+      <dt>Theme</dt><dd>T12_ABSTRACT</dd>
+      <dt>Framework</dt><dd>SK-REC</dd>
+      <dt>Role</dt><dd>SK_REC_READING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Problem-Solving Scenarios</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Greet students and introduce the class theme: diagnosing system malfunctions.<br>
+2. Read the lead-in scenario aloud. <br>
+3. Facilitate a brief discussion using the prompts provided, encouraging students to share their experiences and initial thoughts on logical troubleshooting steps.<br>
+4. Emphasize the importance of a structured approach in the workplace.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">When Equipment Stops</h4>
+<p>Imagine a critical piece of operational equipment suddenly stops working. This could be anything from a faulty conveyor belt to a non-responsive tracking system.</p>
+<p>Discuss with a partner:<br>
+1. What&#x27;s your immediate reaction when a key machine fails?<br>
+2. What are the very first steps you take to understand what might be wrong?<br>
+3. Have you ever encountered a problem that seemed simple but turned out to be much more complex? What happened?</p>
+</section>
+</article>
+<article class="stage" id="stage-PTV">
+<header class="stage-header"><span class="stage-code">PTV</span><h2>Pre-Teach Vocabulary: Diagnostic Terms</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the new vocabulary items related to diagnosing problems.<br>
+2. Explain each term clearly, using examples relevant to the students&#x27; work contexts.<br>
+3. Instruct students to complete the matching pairs task.<br>
+4. Check answers as a class and clarify any misunderstandings.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Essential Words for Troubleshooting</h4>
+<p>Before we read about a real-life malfunction, let&#x27;s learn some key terms you&#x27;ll encounter. Match each term on the left with its correct definition on the right.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>troubleshooting</li><li>fault isolation</li><li>root cause analysis</li><li>systemic failure</li><li>diagnostic logic</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match each term to its definition.</p>
+<p>Match the terms related to diagnosing malfunctions with their definitions.</p>
+<ul><li><strong>troubleshooting</strong> — The process of identifying and solving problems, especially in machinery or systems.</li><li><strong>fault isolation</strong> — The process of identifying the specific faulty component or area within a larger system.</li><li><strong>root cause analysis</strong> — A systematic process for identifying the underlying causes of problems or incidents, not just the symptoms.</li><li><strong>systemic failure</strong> — A failure that affects an entire system or multiple interconnected parts, rather than just an isolated component.</li><li><strong>diagnostic logic</strong> — The structured thinking process or reasoning used to identify the nature and cause of a problem.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-GIST">
+<header class="stage-header"><span class="stage-code">GIST</span><h2>Gist Reading: Understanding the Core Issue</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the reading passage and its title.<br>
+2. Explain that students should read quickly to get the main idea, without focusing on every detail.<br>
+3. Set a strict time limit (e.g., 2-3 minutes) for skimming.<br>
+4. Instruct students to answer the multiple-choice question based on their first read.<br>
+5. Check the answer and briefly discuss the main purpose of the text.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">First Read: Getting the Big Picture</h4>
+<p>Read the following article quickly. Don&#x27;t worry about understanding every single word. Focus on getting a general idea of what the text is about. Then, answer the question below.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>The Pallet Wrapper Conundrum: A Case Study in System Diagnostics</h5>
+<p>Last Tuesday, the automatic pallet wrapper at the distribution center ground to an unexpected halt. This wasn&#x27;t just a minor inconvenience; it threatened to create a significant bottleneck in outbound logistics. Operations Manager, Anya Sharma, immediately initiated the standard <strong class="lexis">troubleshooting</strong> protocol.</p>
+<p>First, the team focused on <strong class="lexis">fault isolation</strong>. Was the problem electrical, mechanical, or software-related? They checked the power supply – green light, stable. Next, they inspected for physical obstructions – nothing obvious. The control panel displayed a generic error code: &#x27;System Malfunction 03.&#x27; This suggested a deeper issue, moving beyond simple <strong class="lexis">diagnostic logic</strong> checks.</p>
+<p>Anya convened her lead technicians for a brief huddle. &#x27;We need to move beyond symptoms and establish the <strong class="lexis">root cause analysis</strong> pathway,&#x27; she instructed. They reviewed the wrapper&#x27;s maintenance logs, noting a recurring minor sensor calibration issue from the previous month. Could this be escalating into a <strong class="lexis">systemic failure</strong>?</p>
+<p>One technician, Mark, remembered a similar problem with an older model where a worn-out hydraulic valve caused intermittent pressure drops, leading to sensor errors. This wasn&#x27;t a direct match, but it provided a useful parallel. They decided to systematically check pressure gauges and fluid levels. Bingo. The hydraulic reservoir was critically low, and a slow leak was discovered near a frequently stressed joint. The sensor error was merely a symptom of the underlying hydraulic problem.</p>
+<p>The wrapper was back online within two hours after the leak was sealed and the reservoir refilled. This incident reinforced the importance of following a structured diagnostic approach rather than jumping to conclusions based on initial error messages. Effective <strong class="lexis">fault isolation</strong> and a thorough <strong class="lexis">root cause analysis</strong> saved valuable operational time and prevented potential order delays.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main purpose of this article?</p>
+<ul><li>To describe a new piece of equipment in a distribution center.</li><li>To highlight the challenges of working in logistics.</li><li>To illustrate an effective approach to diagnosing and resolving equipment malfunctions.</li><li>To explain the different types of error codes in machinery.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-DET">
+<header class="stage-header"><span class="stage-code">DET</span><h2>Detailed Reading: Pinpointing the Problem</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Instruct students to read the passage again, this time carefully, to find specific details to answer the questions.<br>
+2. Allow sufficient time for detailed reading and task completion.<br>
+3. Check answers for the short-text questions as a class, encouraging students to refer back to the text to justify their answers.<br>
+4. For the discussion prompts in student_content, lead a brief class discussion, encouraging students to analyze the steps taken and their effectiveness.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Close Look: Finding the Facts</h4>
+<p>Read the article again, more carefully this time. Answer the following questions with short answers. Then, discuss the numbered prompts.</p>
+<p><strong class="lexis">Discussion Prompts:</strong><br>
+1. Why was &#x27;System Malfunction 03&#x27; considered a &#x27;generic&#x27; error code, and what did it imply about the nature of the problem?<br>
+2. How did Mark&#x27;s memory of a past problem contribute to finding the solution, even though it wasn&#x27;t a direct match?<br>
+3. The article states that the sensor error was &#x27;merely a symptom.&#x27; What does this mean in the context of <strong class="lexis">root cause analysis</strong>?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>The Pallet Wrapper Conundrum: A Case Study in System Diagnostics</h5>
+<p>Last Tuesday, the automatic pallet wrapper at the distribution center ground to an unexpected halt. This wasn&#x27;t just a minor inconvenience; it threatened to create a significant bottleneck in outbound logistics. Operations Manager, Anya Sharma, immediately initiated the standard <strong class="lexis">troubleshooting</strong> protocol.</p>
+<p>First, the team focused on <strong class="lexis">fault isolation</strong>. Was the problem electrical, mechanical, or software-related? They checked the power supply – green light, stable. Next, they inspected for physical obstructions – nothing obvious. The control panel displayed a generic error code: &#x27;System Malfunction 03.&#x27; This suggested a deeper issue, moving beyond simple <strong class="lexis">diagnostic logic</strong> checks.</p>
+<p>Anya convened her lead technicians for a brief huddle. &#x27;We need to move beyond symptoms and establish the <strong class="lexis">root cause analysis</strong> pathway,&#x27; she instructed. They reviewed the wrapper&#x27;s maintenance logs, noting a recurring minor sensor calibration issue from the previous month. Could this be escalating into a <strong class="lexis">systemic failure</strong>?</p>
+<p>One technician, Mark, remembered a similar problem with an older model where a worn-out hydraulic valve caused intermittent pressure drops, leading to sensor errors. This wasn&#x27;t a direct match, but it provided a useful parallel. They decided to systematically check pressure gauges and fluid levels. Bingo. The hydraulic reservoir was critically low, and a slow leak was discovered near a frequently stressed joint. The sensor error was merely a symptom of the underlying hydraulic problem.</p>
+<p>The wrapper was back online within two hours after the leak was sealed and the reservoir refilled. This incident reinforced the importance of following a structured diagnostic approach rather than jumping to conclusions based on initial error messages. Effective <strong class="lexis">fault isolation</strong> and a thorough <strong class="lexis">root cause analysis</strong> saved valuable operational time and prevented potential order delays.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">According to the text, what was the immediate threat caused by the pallet wrapper stopping?</p>
+<p>What was the immediate threat caused by the pallet wrapper stopping?</p>
+</div>
+<div class="task"><p class="task-instruction">What initial checks did the team perform for &#x27;fault isolation&#x27;?</p>
+</div>
+<div class="task"><p class="task-instruction">What specific problem did the team discover after a more thorough investigation?</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Follow-Up Discussion: Applying Diagnostic Logic</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Facilitate a final discussion to consolidate learning and encourage application of the concepts.<br>
+2. Guide students to connect the diagnostic process from the article to their own work situations or hypothetical scenarios.<br>
+3. Provide general feedback on their comprehension and use of the target vocabulary.<br>
+4. Address any common pronunciation or usage issues without formal error correction.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">What Would You Do Next?</h4>
+<p>Think about the <strong class="lexis">diagnostic logic</strong> used in the article. How might you apply a similar structured approach in your own workplace when facing a problem?</p>
+<p>Discuss:<br>
+1. Can you think of a piece of equipment or system in your workplace that, if it stopped working, would cause a &#x27;bottleneck&#x27;?<br>
+2. How would you start the <strong class="lexis">fault isolation</strong> process for that specific item?<br>
+3. What are the benefits of performing a thorough <strong class="lexis">root cause analysis</strong> rather than just fixing the symptom?<br>
+4. What steps could be taken to prevent a similar &#x27;systemic failure&#x27; from occurring again?</p>
+</section>
+</article>
+</body>
+</html>

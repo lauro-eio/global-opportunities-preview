@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project Approval: Engaging Local Authorities</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Project Approval: Engaging Local Authorities</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>9</dd>
+      <dt>Class</dt><dd>3</dd>
+      <dt>Theme</dt><dd>T09_SOCIETY</dd>
+      <dt>Framework</dt><dd>SK-PROD</dd>
+      <dt>Role</dt><dd>SK_PROD_SPEAKING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Local Decisions, Global Impact</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Write the lesson title on the board.<br>
+2. Divide students into pairs or small groups.<br>
+3. Present the discussion questions and give students 3-5 minutes to discuss their experiences.<br>
+4. Facilitate a brief whole-class feedback session, inviting students to share key points from their discussions.<br>
+5. Highlight how local decisions connect to their professional and personal lives.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Local Rules, Real Lives</h4>
+<p>Think about a time a local council decision affected your neighborhood or workplace. Perhaps it was:</p>
+<p>1.  A new construction project that changed traffic or access.<br>
+2.  A change in street parking rules that impacted customer visits or deliveries.<br>
+3.  A new <strong class="lexis">local bylaw</strong> that affected how a small business operates.</p>
+<p>Discuss these questions with a partner:<br>
+*   What was the decision?<br>
+*   How did it affect your daily life or professional activities?<br>
+*   What challenges or opportunities did it create?<br>
+*   How do you typically find out about these local decisions?</p>
+</section>
+</article>
+<article class="stage" id="stage-MOD">
+<header class="stage-header"><span class="stage-code">MOD</span><h2>Model: Navigating Regulatory Hurdles</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the scenario: a local business owner discussing permits with a council representative.<br>
+2. Ask students to read the dialogue carefully.<br>
+3. After reading, ask students to discuss the comprehension question in pairs.<br>
+4. Elicit answers from the class to check understanding.<br>
+5. Draw attention to any unfamiliar vocabulary or phrases used in the dialogue related to regulations, but do not pre-teach extensively.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">The Community Hub Dilemma</h4>
+<p>Read the following conversation between Maria, a small business owner, and David, a local council planning officer. Maria is trying to open a new community arts and crafts hub.</p>
+<p><strong class="lexis">David:</strong> Good morning, Maria. Thanks for coming in. I understand you&#x27;re keen to get the Community Hub up and running.<br>
+<strong class="lexis">Maria:</strong> Absolutely, David. We&#x27;ve had such positive feedback, but we&#x27;ve hit a snag with the paperwork. Specifically, the <strong class="lexis">zoning ordinance</strong> for this particular area.<br>
+<strong class="lexis">David:</strong> Yes, the premises you&#x27;ve chosen are currently designated for light retail. A community hub, with classes and workshops, falls under a &#x27;mixed-use&#x27; category, which requires a specific amendment to the <strong class="lexis">zoning ordinance</strong>. It&#x27;s a standard <strong class="lexis">regulatory compliance</strong> procedure.<br>
+<strong class="lexis">Maria:</strong> I see. And what about the renovation work? We&#x27;re just putting in some partition walls and a disabled access ramp. Do we need a separate <strong class="lexis">building permit</strong> for that?<br>
+<strong class="lexis">David:</strong> For any structural alteration, even minor ones like partition walls, yes, a <strong class="lexis">building permit</strong> is essential. And for the ramp, given it impacts public access, it falls under accessibility <strong class="lexis">local bylaws</strong>, requiring approval from the Disabled Access Committee.<br>
+<strong class="lexis">Maria:</strong> It feels like a lot of hoops to jump through for something that&#x27;s clearly beneficial for the community. Is there any way to fast-track this, or ensure we&#x27;re not missing anything else?<br>
+<strong class="lexis">David:</strong> I understand it can seem overwhelming. My advice would be to submit the zoning amendment request and the building permit application concurrently. We can also schedule a pre-application meeting with all relevant departments to ensure you&#x27;re fully aware of all requirements and avoid further delays. We want to support local initiatives, but we also have to ensure public safety and adherence to <strong class="lexis">local bylaws</strong>.</p>
+<p><strong class="lexis">Question:</strong> What is the main challenge Maria is facing with her new Community Hub, and what solution does David suggest?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Based on the dialogue, state Maria&#x27;s main challenge and David&#x27;s proposed solution in one or two sentences.</p>
+<p>What is Maria&#x27;s main challenge and David&#x27;s proposed solution?</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-PREP">
+<header class="stage-header"><span class="stage-code">PREP</span><h2>Preparation: Planning Your Pitch</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will prepare for a role-play similar to the model dialogue.<br>
+2. Divide students into two roles: business owner/community project manager and local council representative.<br>
+3. Instruct students to brainstorm ideas for their role using the prompts provided.<br>
+4. Direct students to the &#x27;Useful Phrases&#x27; column bank and encourage them to incorporate these phrases into their notes.<br>
+5. Monitor and assist as students prepare, checking for understanding of the terms and phrases.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">My Proposal, My Rules</h4>
+<p>You are going to role-play a conversation about a new business or community project that is facing challenges with local regulations. Take notes for your role.</p>
+<p><strong class="lexis">Role A: The Business Owner / Community Project Manager</strong><br>
+*   Think of a small business (e.g., a food truck, a small workshop, a local market) or a community project (e.g., a community garden, a youth club renovation).<br>
+*   What specific <strong class="lexis">local bylaws</strong>, <strong class="lexis">zoning ordinances</strong>, or <strong class="lexis">building permits</strong> are causing you issues or confusion?<br>
+*   What are your main concerns (e.g., delays, costs, specific requirements)?<br>
+*   What is your desired outcome from this meeting? What specific clarification or help do you need?</p>
+<p><strong class="lexis">Role B: The Local Council Representative</strong><br>
+*   You work for the local planning or licensing department.<br>
+*   You need to explain the regulations clearly and professionally.<br>
+*   Be prepared to clarify terms like <strong class="lexis">regulatory compliance</strong>, <strong class="lexis">zoning ordinance</strong>, and <strong class="lexis">building permit</strong>.<br>
+*   Your goal is to ensure the applicant understands the process and to find a workable path forward, while upholding the <strong class="lexis">local bylaws</strong>.<br>
+*   What advice or next steps can you offer to help them?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Expressing Concerns / Asking for Clarification</th><th>Explaining Regulations / Offering Solutions</th><th>Emphasising Impact / Seeking Common Ground</th></tr><tr><td>Could you clarify what this **zoning ordinance** entails?</td><td>As per the **local bylaws**, you&#x27;ll need to...</td><td>This project will significantly benefit the community by...</td></tr><tr><td>I&#x27;m a bit confused about the **regulatory compliance** for...</td><td>The **zoning ordinance** specifies that...</td><td>We&#x27;re aiming to create local employment opportunities.</td></tr><tr><td>What exactly does this **building permit** cover?</td><td>Regarding **regulatory compliance**, the key steps are...</td><td>I understand your concerns about the bureaucracy.</td></tr><tr><td>How do these **local bylaws** impact my project&#x27;s timeline?</td><td>We can offer a pre-application meeting to discuss the **building permit**.</td><td>Our department strives to support local initiatives.</td></tr><tr><td>Is there any flexibility regarding...?</td><td>A possible solution could be to apply for...</td><td>Let&#x27;s work together to find a mutually agreeable path.</td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Fluency Practice: Navigating Bureaucracy</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Pair students up, ensuring one &#x27;Owner&#x27; and one &#x27;Representative&#x27; are together.<br>
+2. Instruct them to engage in the role-play, using their notes and the useful phrases from the PREP stage.<br>
+3. Emphasize fluency and communication over accuracy at this stage. Encourage them to keep the conversation going.<br>
+4. Circulate and monitor, taking discrete notes on language for delayed correction (do not interrupt).<br>
+5. Give a time warning after 5-7 minutes, then allow another 2-3 minutes for them to conclude.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">The Regulations Role-Play</h4>
+<p>Now, work with a partner to role-play the conversation. </p>
+<p><strong class="lexis">Role-Play Scenario:</strong><br>
+You are a small business owner (or community project manager) trying to get your new venture approved. You&#x27;ve hit some unexpected challenges with <strong class="lexis">local bylaws</strong> and <strong class="lexis">permits</strong>.</p>
+<p>Your partner is a representative from the local council&#x27;s planning department. They need to explain the regulations and help you find a way forward.</p>
+<p><strong class="lexis">Your Goal:</strong> Have a clear, productive conversation. The owner should explain their situation and ask for clarification and solutions. The representative should explain the requirements, using terms like <strong class="lexis">zoning ordinance</strong>, <strong class="lexis">building permit</strong>, and <strong class="lexis">regulatory compliance</strong>, and offer practical next steps.</p>
+<p>Try to use phrases from the &#x27;Useful Phrases&#x27; bank in your discussion. Keep the conversation flowing!</p>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback and Delayed Correction</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin with content feedback: Ask pairs to briefly summarize the outcome of their discussion or the solution they found.<br>
+2. Ask students if they found the task challenging and why.<br>
+3. Transition to language feedback: Present the language points noted during the FP stage on the board.<br>
+4. Focus on areas where students might have struggled with the target vocabulary, professional register, or fluency in expressing complex ideas.<br>
+5. Elicit corrections or better ways to phrase sentences from the students first.<br>
+6. Provide clear models for improvement where necessary.<br>
+7. Conclude by reiterating the importance of clear, professional communication when navigating regulatory environments.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reflecting on the Discussion</h4>
+<p>Let&#x27;s reflect on your discussions.</p>
+<p>1.  What was the main outcome of your role-play? Did you find a solution or a clear path forward?<br>
+2.  What was the most challenging part of the conversation for you?<br>
+3.  Did you feel confident using the specific vocabulary related to local regulations?</p>
+<p>Your teacher will now provide some feedback on the language used during your discussions.</p>
+</section>
+</article>
+</body>
+</html>

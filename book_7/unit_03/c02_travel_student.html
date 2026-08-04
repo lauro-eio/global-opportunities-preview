@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Communicating Complex Business Problems</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Communicating Complex Business Problems</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>3</dd>
+      <dt>Class</dt><dd>2</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-facing-unexpected-obstacles">
+<header class="stage-header"><h2>Facing Unexpected Obstacles</h2></header>
+<section class="handout">
+<p>Think about a time when a plan at your workplace, maybe a delivery, a project, or a service, didn&#x27;t go as expected. Perhaps there was a delay, a rerouting, or a supplier issue.</p>
+<p>Discuss with a partner:<br>
+1. How did your management communicate this unexpected problem? Was the language direct or more diplomatic?<br>
+2. What phrases or types of sentences did they use to explain the situation without blaming specific individuals or departments?<br>
+3. How did they introduce the solutions or &#x27;Plan B&#x27;? What was the tone when discussing these <strong class="lexis">contingency</strong> plans?</p>
+</section>
+</article>
+<article class="stage" id="stage-executive-brief-navigating-global-disrup">
+<header class="stage-header"><h2>Executive Brief: Navigating Global Disruption</h2></header>
+<section class="handout">
+<p>Read the following memorandum quickly. Don&#x27;t worry about understanding every single word. Focus on identifying the main purpose of this communication from the Global Operations Board. Then, answer the question below.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Memorandum: Navigating Evolving Global Logistics Challenges</h5>
+<p>MEMORANDUM</p>
+<p>To: Regional Operations Directors<br>
+From: Global Operations Board<br>
+Date: [Current Date]<br>
+Subject: Navigating Evolving Global Logistics Challenges</p>
+<p>Dear Directors,</p>
+<p>This memo addresses the recent shifts impacting our <strong class="lexis">global connectivity</strong> framework, particularly in the APAC and EMEA regions. We understand that new regulatory changes and unforeseen climatic events have introduced complexities into our established <strong class="lexis">logistics strategy</strong>. Our commitment remains steadfast in maintaining the fluidity and efficiency of our supply chain networks.</p>
+<p><strong class="lexis">Albeit</strong> the initial projections for the <strong class="lexis">virtual corridor</strong> expansion indicated a seamless transition, recent developments necessitate a re-evaluation of certain operational timelines. We acknowledge the potential for localised disruption and the additional resource allocation this might entail for your teams. Our objective remains to minimise impact on service delivery while adapting to these dynamic external factors.</p>
+<p><strong class="lexis">Notwithstanding</strong> the immediate challenges presented by these external pressures, the core principles of our <strong class="lexis">infrastructure theory</strong> for sustainable growth and enhanced market access are undiminished. The strategic imperative to strengthen our inter-regional linkages and optimise <strong class="lexis">spatial mapping</strong> across all hubs is more critical than ever.</p>
+<p><strong class="lexis">Be that as it may</strong>, we are actively deploying a dedicated task force to develop robust <strong class="lexis">contingency</strong> plans, focusing on alternative routing protocols and resource re-allocation models. We are confident that through collaborative efforts and agile responses, we can navigate these developments effectively. Your teams’ resilience and dedication are instrumental in ensuring our continued success. We will provide further updates and guidelines in due course.</p>
+<p>Sincerely,<br>
+The Global Operations Board</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the primary purpose of this memorandum?</p>
+<p>The main purpose of this memorandum is to:</p>
+<ul><li>Announce a complete overhaul of the company&#x27;s global logistics strategy.</li><li>Inform regional directors about recent disruptions and reassure them about the overall strategic direction.</li><li>Request detailed feedback on the efficiency of current virtual corridor expansions.</li><li>Delegate full responsibility for managing new regulatory changes to regional teams.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-deeper-dive-understanding-the-nuances">
+<header class="stage-header"><h2>Deeper Dive: Understanding the Nuances</h2></header>
+<section class="handout">
+<p>Read the memorandum again, this time focusing on the details. Answer the following questions based on the text. Try to use phrases directly from the memo where possible.</p>
+<p>1. What are the two main types of factors that have complicated the existing <strong class="lexis">logistics strategy</strong>?<br>
+2. What is the Global Operations Board&#x27;s stated &#x27;objective&#x27; in light of the disruptions?<br>
+3. Despite the &#x27;immediate challenges,&#x27; what core principles does the Board affirm are &#x27;undiminished&#x27;?<br>
+4. What specific actions is the Board taking to address the situation?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Memorandum: Navigating Evolving Global Logistics Challenges</h5>
+<p>MEMORANDUM</p>
+<p>To: Regional Operations Directors<br>
+From: Global Operations Board<br>
+Date: [Current Date]<br>
+Subject: Navigating Evolving Global Logistics Challenges</p>
+<p>Dear Directors,</p>
+<p>This memo addresses the recent shifts impacting our <strong class="lexis">global connectivity</strong> framework, particularly in the APAC and EMEA regions. We understand that new regulatory changes and unforeseen climatic events have introduced complexities into our established <strong class="lexis">logistics strategy</strong>. Our commitment remains steadfast in maintaining the fluidity and efficiency of our supply chain networks.</p>
+<p><strong class="lexis">Albeit</strong> the initial projections for the <strong class="lexis">virtual corridor</strong> expansion indicated a seamless transition, recent developments necessitate a re-evaluation of certain operational timelines. We acknowledge the potential for localised disruption and the additional resource allocation this might entail for your teams. Our objective remains to minimise impact on service delivery while adapting to these dynamic external factors.</p>
+<p><strong class="lexis">Notwithstanding</strong> the immediate challenges presented by these external pressures, the core principles of our <strong class="lexis">infrastructure theory</strong> for sustainable growth and enhanced market access are undiminished. The strategic imperative to strengthen our inter-regional linkages and optimise <strong class="lexis">spatial mapping</strong> across all hubs is more critical than ever.</p>
+<p><strong class="lexis">Be that as it may</strong>, we are actively deploying a dedicated task force to develop robust <strong class="lexis">contingency</strong> plans, focusing on alternative routing protocols and resource re-allocation models. We are confident that through collaborative efforts and agile responses, we can navigate these developments effectively. Your teams’ resilience and dedication are instrumental in ensuring our continued success. We will provide further updates and guidelines in due course.</p>
+<p>Sincerely,<br>
+The Global Operations Board</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Identify the two main types of factors mentioned that have introduced complexities.</p>
+<p>The two main factors introducing complexities are:</p>
+</div>
+<div class="task"><p class="task-instruction">State the Board&#x27;s objective regarding service delivery.</p>
+<p>The Board&#x27;s objective is to:</p>
+</div>
+<div class="task"><p class="task-instruction">Which core principles are still valid despite the challenges?</p>
+<p>The core principles of our __________ are undiminished.</p>
+</div>
+<div class="task"><p class="task-instruction">What is the Board doing to develop robust contingency plans?</p>
+<p>The Board is actively deploying a dedicated task force to develop robust __________.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-unpacking-diplomatic-language">
+<header class="stage-header"><h2>Unpacking Diplomatic Language</h2></header>
+<section class="handout">
+<p>Look at the memorandum again, focusing on the specific words and phrases used. Pay close attention to the sentences that start with or include: <strong class="lexis">Albeit</strong>, <strong class="lexis">Notwithstanding</strong>, and <strong class="lexis">Be that as it may</strong>.</p>
+<p>Work in pairs to answer the questions and complete the tasks below.</p>
+<p>1. What is the effect of these phrases? Do they deny or acknowledge a problem? Do they weaken or strengthen the main message?<br>
+2. What kind of ideas or information usually follows these phrases? (e.g., problems, facts, opinions)<br>
+3. What phrases are used to talk about &#x27;big picture&#x27; planning and systems? Match the highlighted words from the memo to their meanings.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Memorandum: Navigating Evolving Global Logistics Challenges</h5>
+<p>MEMORANDUM</p>
+<p>To: Regional Operations Directors<br>
+From: Global Operations Board<br>
+Date: [Current Date]<br>
+Subject: Navigating Evolving Global Logistics Challenges</p>
+<p>Dear Directors,</p>
+<p>This memo addresses the recent shifts impacting our <strong class="lexis">global connectivity</strong> framework, particularly in the APAC and EMEA regions. We understand that new regulatory changes and unforeseen climatic events have introduced complexities into our established <strong class="lexis">logistics strategy</strong>. Our commitment remains steadfast in maintaining the fluidity and efficiency of our supply chain networks.</p>
+<p><strong class="lexis">Albeit</strong> the initial projections for the <strong class="lexis">virtual corridor</strong> expansion indicated a seamless transition, recent developments necessitate a re-evaluation of certain operational timelines. We acknowledge the potential for localised disruption and the additional resource allocation this might entail for your teams. Our objective remains to minimise impact on service delivery while adapting to these dynamic external factors.</p>
+<p><strong class="lexis">Notwithstanding</strong> the immediate challenges presented by these external pressures, the core principles of our <strong class="lexis">infrastructure theory</strong> for sustainable growth and enhanced market access are undiminished. The strategic imperative to strengthen our inter-regional linkages and optimise <strong class="lexis">spatial mapping</strong> across all hubs is more critical than ever.</p>
+<p><strong class="lexis">Be that as it may</strong>, we are actively deploying a dedicated task force to develop robust <strong class="lexis">contingency</strong> plans, focusing on alternative routing protocols and resource re-allocation models. We are confident that through collaborative efforts and agile responses, we can navigate these developments effectively. Your teams’ resilience and dedication are instrumental in ensuring our continued success. We will provide further updates and guidelines in due course.</p>
+<p>Sincerely,<br>
+The Global Operations Board</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match the high-register terms from the memo to their simpler definitions.</p>
+<p>Match the terms to their definitions:</p>
+<ul><li><strong>global connectivity</strong> — The ability to link and interact across the world, often digitally or via transport.</li><li><strong>logistics strategy</strong> — A high-level plan for managing the flow of goods, information, and resources.</li><li><strong>infrastructure theory</strong> — The conceptual framework or principles guiding the development of large-scale systems (e.g., transport, communication).</li><li><strong>virtual corridor</strong> — A planned route or pathway that exists conceptually or digitally, rather than physically.</li><li><strong>spatial mapping</strong> — The process of analyzing and representing the geographical distribution of elements.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Identify the clause that represents the acknowledged obstacle in the sentence beginning with &#x27;Albeit&#x27;.</p>
+<p>What specific obstacle is acknowledged by &#x27;Albeit&#x27;?</p>
+</div>
+<div class="task"><p class="task-instruction">What specific challenge is acknowledged by &#x27;Notwithstanding&#x27;?</p>
+<p>What challenge follows &#x27;Notwithstanding&#x27;?</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-crafting-strategic-statements">
+<header class="stage-header"><h2>Crafting Strategic Statements</h2></header>
+<section class="handout">
+<p>Now, let&#x27;s practice using the concessive clauses to craft professional and strategic statements. Remember that these phrases help you acknowledge an obstacle or counter-argument, but still emphasize your main point or strategy.</p>
+<p>Complete the following sentences using <strong class="lexis">Albeit</strong>, <strong class="lexis">Notwithstanding</strong>, or <strong class="lexis">Be that as it may</strong>. Ensure your sentences are grammatically correct and maintain a formal tone.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Complete the sentence using &#x27;Albeit&#x27; to acknowledge a minor issue.</p>
+<p>__________ a slight delay in material procurement, the project remains on schedule.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence using &#x27;Notwithstanding&#x27; to acknowledge a significant concern.</p>
+<p>The concerns raised by the initial site survey, our commitment to expand into the new territory is unwavering. (Rewrite using &#x27;Notwithstanding&#x27;)</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the statement using &#x27;Be that as it may&#x27; to dismiss a previously mentioned challenge.</p>
+<p>We&#x27;ve discussed the increased operational costs. __________, the long-term strategic advantages outweigh these short-term expenditures.</p>
+</div>
+<div class="task"><p class="task-instruction">Combine the ideas using a concessive clause: &#x27;The new routing system presented initial technical glitches. It significantly improved delivery times overall.&#x27; (Start with &#x27;Albeit&#x27;)</p>
+<p>Albeit...</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-proposing-contingency-your-strategy">
+<header class="stage-header"><h2>Proposing Contingency: Your Strategy</h2></header>
+<section class="handout">
+<p>Imagine you are a senior manager reporting to an executive board. Your company is facing a significant, unexpected challenge in its international operations (e.g., a major supplier suddenly closed, a crucial international transport route is blocked due to political reasons, or a new competitor has emerged with an aggressive pricing model affecting your <strong class="lexis">logistics strategy</strong>).</p>
+<p>You need to draft a short, formal paragraph for an internal report or a brief statement to your board. Your goal is to:</p>
+<p>1. Acknowledge the problem diplomatically.<br>
+2. Reaffirm the company&#x27;s core strategy or vision.<br>
+3. Hint at <strong class="lexis">contingency</strong> plans or solutions without dwelling on blame.</p>
+<p>Make sure to use at least one of the concessive clauses (e.g., <strong class="lexis">Albeit</strong>, <strong class="lexis">Notwithstanding</strong>, <strong class="lexis">Be that as it may</strong>) and incorporate some high-register vocabulary from this lesson (e.g., <strong class="lexis">global connectivity</strong>, <strong class="lexis">infrastructure theory</strong>, <strong class="lexis">virtual corridor</strong>, <strong class="lexis">spatial mapping</strong>).</p>
+</section>
+</article>
+</body>
+</html>

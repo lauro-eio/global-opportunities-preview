@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Developing Cost Reduction Strategies</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Developing Cost Reduction Strategies</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>4</dd>
+      <dt>Class</dt><dd>3</dd>
+      <dt>Theme</dt><dd>T04_FINANCE</dd>
+      <dt>Framework</dt><dd>SK-PROD</dd>
+      <dt>Role</dt><dd>SK_PROD_SPEAKING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Operational Cost Challenge</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Write the &#x27;10% cost reduction target&#x27; on the board.<br>
+2. Divide students into pairs or small groups.<br>
+3. Give them 3-4 minutes to discuss the prompt, encouraging them to think about their own work contexts or hypothetical scenarios.<br>
+4. Bring the class together for a brief whole-class feedback session, asking groups to share their initial thoughts.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Our Department&#x27;s Cost Challenge</h4>
+<p>Imagine your department has been given a critical task: reduce operational costs by 10% this quarter. This is a significant challenge, and your team needs to act quickly.</p>
+<p>Discuss with your partner:<br>
+1. Which specific section of a financial report (e.g., income statement, balance sheet, cash flow statement) would you scrutinize first to identify potential areas for cutbacks or optimization?<br>
+2. Why would you start there?<br>
+3. What kind of <strong class="lexis">expenditure</strong> or <strong class="lexis">revenue streams</strong> would you typically find in that section that might offer opportunities for savings or improvement?</p>
+</section>
+</article>
+<article class="stage" id="stage-MOD">
+<header class="stage-header"><span class="stage-code">MOD</span><h2>Model: Analyzing Expenditure Reports</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Tell students they will listen to/read a short dialogue between two colleagues discussing cost reduction.<br>
+2. Play the audio or have students read the dialogue individually.<br>
+3. Give students the comprehension tasks.<br>
+4. Check answers as a class, clarifying any unfamiliar vocabulary, but avoid explicit grammar teaching.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Listening to Financial Discussions</h4>
+<p>Read the following conversation between Maria, a Production Manager, and David, a Senior Team Lead, as they discuss their Q3 financial review.</p>
+<p>Maria: &quot;David, thanks for coming in. The Q3 figures are out, and we&#x27;re looking at a serious push for <strong class="lexis">cost efficiency</strong>. Senior management wants a 10% reduction across the board. I&#x27;ve been poring over the <strong class="lexis">income statement</strong> and our recent <strong class="lexis">expenditure analysis</strong>.&quot;</p>
+<p>David: &quot;No problem, Maria. I saw the initial report. My first thought went straight to our <strong class="lexis">operating expenses</strong>. We&#x27;ve had a consistent rise in <strong class="lexis">logistics costs</strong> due to supplier changes and fuel price volatility. That seems like a prime area for immediate review.&quot;</p>
+<p>Maria: &quot;Agreed. Also, looking at the <strong class="lexis">balance sheet</strong>, I noticed our inventory carrying costs are up. We might be holding too much stock, impacting our <strong class="lexis">profit margins</strong>. We need better <strong class="lexis">budgetary oversight</strong> there.&quot;</p>
+<p>David: &quot;Absolutely. I also think we should review our supplier contracts. There might be opportunities to renegotiate terms or explore alternative suppliers to reduce our <strong class="lexis">cost of goods sold</strong>. It&#x27;s all about extracting <strong class="lexis">actionable insights</strong> from these reports.&quot;</p>
+<p>Maria: &quot;Exactly. And the <strong class="lexis">cash flow report</strong> shows a slower return on some of our receivables. We need to tighten that up to improve our overall resource allocation.&quot;</p>
+<p>David: &quot;It&#x27;s going to be challenging, but with focused <strong class="lexis">expenditure analysis</strong> and smart <strong class="lexis">resource allocation</strong>, I&#x27;m confident we can hit that 10% target.&quot;</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main goal Maria and David are discussing?</p>
+</div>
+<div class="task"><p class="task-instruction">Which financial report section does David first suggest reviewing for immediate cost reduction?</p>
+<ul><li>Balance Sheet</li><li>Operating Expenses (within Income Statement)</li><li>Cash Flow Report</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-PREP">
+<header class="stage-header"><span class="stage-code">PREP</span><h2>Preparation: Brainstorming Solutions</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will now prepare for a role-play about addressing a cost reduction target.<br>
+2. Direct students to the &#x27;Useful Phrases&#x27; and &#x27;Areas for Review&#x27; sections.<br>
+3. Give them 5-7 minutes to brainstorm ideas and make notes for their assigned roles (to be given in FP stage) using these phrases and their own ideas.<br>
+4. Circulate and assist with vocabulary and ideas, but avoid correcting language errors directly at this point.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Tools for Financial Discussions</h4>
+<p>You are about to enter a simulated meeting to discuss strategies for achieving a 10% operational cost reduction. Use the phrases below to help you plan your arguments and proposals. Think about specific actions you can suggest related to financial reports and operational efficiency.</p>
+<p>Consider the <strong class="lexis">budgetary oversight</strong>, <strong class="lexis">expenditure analysis</strong>, and potential <strong class="lexis">revenue streams</strong> within your department.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Analyzing Reports &amp; Identifying Issues</th><th>Proposing Solutions &amp; Strategies</th><th>Discussing &amp; Responding</th></tr><tr><td>&quot;Looking at the **income statement**...&quot;</td><td>&quot;I propose we focus on **cost efficiency** by...&quot;</td><td>&quot;What are your thoughts on this?&quot;</td></tr><tr><td>&quot;The **expenditure analysis** clearly shows...&quot;</td><td>&quot;My suggestion for **resource allocation** is...&quot;</td><td>&quot;Do you see other areas for cutbacks?&quot;</td></tr><tr><td>&quot;I&#x27;ve identified a trend in our **operating expenses**...&quot;</td><td>&quot;We could optimize our **revenue streams** through...&quot;</td><td>&quot;That&#x27;s a valid point, however...&quot;</td></tr><tr><td>&quot;The **balance sheet** indicates a challenge with...&quot;</td><td>&quot;We should implement stricter **budgetary oversight** on...&quot;</td><td>&quot;Perhaps we should also consider...&quot;</td></tr><tr><td>&quot;Our **profit margins** are being impacted by...&quot;</td><td>&quot;Let&#x27;s explore ways to reduce **unnecessary expenditure**.&quot;</td><td>&quot;How would that impact our operations?&quot;</td></tr><tr><td>&quot;We need to scrutinize the **cash flow report** for...&quot;</td><td>&quot;We need to extract **actionable insights** from...&quot;</td><td>&quot;I&#x27;m confident we can achieve this if we...&quot;</td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Fluency Practice: The Cost Reduction Meeting</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Divide students into groups of 3-4. Assign roles: one student acts as the &#x27;Department Head&#x27; and the others are &#x27;Team Leads&#x27; from different sub-departments (e.g., Logistics, Procurement, Operations, Sales).<br>
+2. Explain the scenario: The Department Head has called a meeting to discuss proposals for achieving the 10% cost reduction target. Team Leads must present their findings and proposals based on their departmental financial data (hypothetical).<br>
+3. Emphasize fluency and communication over accuracy at this stage. Encourage students to use the phrases from the PREP stage.<br>
+4. Give students 10-12 minutes for the discussion. Circulate, monitor, and make notes on language for delayed correction, but do not interrupt fluency.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">The Q4 Cost Strategy Meeting</h4>
+<p>Your department is holding its quarterly strategy meeting. The main agenda item is achieving the 10% operational cost reduction target. Each of you has reviewed hypothetical financial data for your area and needs to present your findings and proposals.</p>
+<p><strong class="lexis">Roles:</strong><br>
+*   <strong class="lexis">Department Head:</strong> Lead the meeting, listen to proposals, ask questions, guide the discussion towards actionable solutions.<br>
+*   <strong class="lexis">Team Lead (e.g., Operations/Logistics/Sales/Procurement):</strong> Present your analysis of your area&#x27;s financial data, identify potential cost-saving opportunities, and propose specific actions. Be prepared to justify your proposals and discuss their impact on <strong class="lexis">operational efficiency</strong> and <strong class="lexis">profit margins</strong>.</p>
+<p><strong class="lexis">Your Task:</strong><br>
+Work together to reach a consensus on at least <strong class="lexis">three concrete strategies</strong> for achieving the 10% cost reduction. Focus on drawing <strong class="lexis">actionable insights</strong> from your &#x27;financial statements&#x27; and discussing effective <strong class="lexis">resource allocation</strong>.</p>
+<p>Remember to listen to your colleagues, ask clarifying questions, and build on each other&#x27;s ideas to develop a robust plan.</p>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback &amp; Delayed Correction</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. <strong class="lexis">Content Feedback (5-7 mins):</strong><br>
+    a. Ask each group to report back on the 2-3 key strategies they agreed upon to achieve the cost reduction target. Discuss the viability and practicality of their solutions.<br>
+    b. Facilitate a brief whole-class discussion on which strategies seemed most effective or innovative.<br>
+2. <strong class="lexis">Language Feedback (5-7 mins):</strong><br>
+    a. Write common errors or good language examples you noted during the FP stage on the board (without identifying specific students).<br>
+    b. Elicit corrections or ask students to identify the good examples and explain why they were effective.<br>
+    c. Focus on errors that hindered communication or were related to the target language of the lesson (e.g., misuse of financial terms, less precise phrasing).<br>
+    d. Provide positive reinforcement for effective communication and use of new vocabulary.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reflecting on Our Strategy</h4>
+<p>Now that you&#x27;ve completed your strategy meeting, let&#x27;s reflect on your discussions and the language you used.</p>
+<p><strong class="lexis">1. Content Reflection:</strong><br>
+*   What were the most challenging aspects of reaching a consensus?<br>
+*   Which of your proposed strategies do you think would be most effective in a real-world scenario?<br>
+*   Did you feel you successfully identified <strong class="lexis">actionable insights</strong> for <strong class="lexis">operational efficiency</strong>?</p>
+<p><strong class="lexis">2. Language Focus:</strong><br>
+*   Think about the phrases and vocabulary we practised in the PREP stage. Did you manage to use them effectively?<br>
+*   Were there any moments during your discussion where you struggled to express a financial concept or proposal clearly?<br>
+*   What specific financial terms or phrases did you find most useful during your discussion?</p>
+</section>
+</article>
+</body>
+</html>

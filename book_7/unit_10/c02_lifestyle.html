@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Discourse Analysis: Urban Futures &amp; Remote Work</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Discourse Analysis: Urban Futures &amp; Remote Work</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>10</dd>
+      <dt>Class</dt><dd>2</dd>
+      <dt>Theme</dt><dd>T10_LIFESTYLE</dd>
+      <dt>Framework</dt><dd>TBLF</dd>
+      <dt>Role</dt><dd>TBLF_DISCOURSE_ANALYSIS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Global Lifestyles and Urban Adjustments</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by displaying the lead-in brief on the board or screen.<br>
+2. Ask students to read the brief individually.<br>
+3. Divide students into small groups (3-4).<br>
+4. Give groups 5-7 minutes to discuss the prompt questions in student_content.<br>
+5. Facilitate a brief whole-class feedback session, noting down key ideas related to urban planning and remote work.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Rethinking Our Cities for a Global Workforce</h4>
+<p>With many companies adopting permanent remote work models, allowing employees to reside globally, city planners face unprecedented challenges. Consider the following:</p>
+<p>1.  What immediate changes might a city experience if a significant portion of its workforce begins working remotely from different locations, potentially even different countries?<br>
+2.  How might commuter patterns, office space usage, and housing demand be affected?<br>
+3.  What practical steps must city planners consider to adapt to these shifts? Think about infrastructure, services, and community life.</p>
+</section>
+</article>
+<article class="stage" id="stage-GIST">
+<header class="stage-header"><span class="stage-code">GIST</span><h2>Gist Reading: Understanding the Core Challenges of Urban Adaptation</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the reading passage as an extract from a city planning brief.<br>
+2. Ask students to read the text quickly to get the general idea, focusing on the main purpose of the document.<br>
+3. Instruct them to complete the multiple-choice question based on their gist understanding.<br>
+4. Check answers as a class.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">First Look: Urban Planning in the Remote Era</h4>
+<p>Read the brief below to understand the main purpose of the document. Then, answer the question that follows.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Navigating the New Urban Fabric: A City Planner&#x27;s Brief on Remote Work Impacts</h5>
+<p>The global shift towards a <strong class="lexis">distributed workforce</strong> has undeniably redrawn the socio-economic maps of urban centers worldwide. Beyond the initial excitement of economic decentralization lies a complex reality for city planners, demanding a recalibration of long-held assumptions about urban development and resource allocation.</p>
+<p>Not since the post-industrial era’s profound demographic shifts has the need for adaptive <strong class="lexis">zoning policy</strong> been so urgent. The traditional distinction between residential and commercial zones is blurring, prompting questions about mixed-use development that can <strong class="lexis">foster work-life synergy</strong> within residential communities. Deep within the proposals for <strong class="lexis">urban regeneration</strong> initiatives, however, resides a subtle but critical challenge: how to transform underutilized office blocks into viable housing without compromising the character of established neighborhoods.</p>
+<p>Among the immediate concerns is the fluctuating demand for <strong class="lexis">public transit adaptation</strong>. While peak commuter traffic may have diminished in some corridors, new patterns emerge, necessitating flexible and efficient local transport options that cater to localized movement rather than centralized hubs. Elsewhere, across various municipalities, the debate around <strong class="lexis">housing density</strong> intensifies. Can existing infrastructure accommodate a greater influx of residents seeking more affordable living outside traditional employment centers? The answer often dictates the feasibility of attracting and retaining a vibrant, globally connected population.</p>
+<p>We must also critically examine how to <strong class="lexis">uphold personal well-being</strong> among a diverse population with varied working hours and demands. Ensuring access to green spaces, community services, and robust digital infrastructure is paramount. Not since the inception of modern urban planning has the imperative to <strong class="lexis">mitigate professional burnout</strong> through thoughtful community design been so explicitly recognized. City councils and planning committees are now tasked with formulating policies that allow residents to <strong class="lexis">negotiate flexible working parameters</strong> without suffering a decline in quality of life.</p>
+<p>Ultimately, the goal is not merely adaptation but proactive design for <strong class="lexis">economic revitalization</strong>. This means creating environments where innovation can thrive, and where the benefits of a remote workforce translate into tangible improvements for all residents, not just a select few. From the discussions surrounding spatial justice to the practicalities of waste management, every aspect of urban governance is under review. Thus, ensuring equitable access to high-speed internet and re-skilling opportunities for local labor becomes integral to sustaining a truly resilient and inclusive urban future.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the primary purpose of this brief?</p>
+<ul><li>To announce new specific zoning policies for remote workers.</li><li>To detail the historical evolution of urban planning in response to industrial shifts.</li><li>To outline the challenges and considerations for urban planners adapting to a distributed workforce.</li><li>To advocate for a complete overhaul of public transit systems across all cities.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-DET">
+<header class="stage-header"><span class="stage-code">DET</span><h2>Detailed Comprehension: Cohesion and Inference in Urban Planning</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Ask students to read the passage again, this time more carefully.<br>
+2. Instruct them to complete the short-text questions, identifying specific details from the text.<br>
+3. After checking answers, move to the open inference question in student_content.<br>
+4. Facilitate a group discussion for the inference question, encouraging students to justify their answers with references to the text.<br>
+5. Discuss as a whole class, comparing different interpretations and their textual support. Emphasize that there might be multiple valid inferences.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Diving Deeper: Key Issues for City Futures</h4>
+<p>Read the passage again. Then, answer the following questions based on the text.</p>
+<p><strong class="lexis">Inference Challenge:</strong><br>
+Based on the language used in the brief, particularly phrases like &#x27;complex reality,&#x27; &#x27;subtle but critical challenge,&#x27; and &#x27;imperative to mitigate,&#x27; what impression do you get about the city planners&#x27; overall tone and their view of the task ahead?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Navigating the New Urban Fabric: A City Planner&#x27;s Brief on Remote Work Impacts</h5>
+<p>The global shift towards a <strong class="lexis">distributed workforce</strong> has undeniably redrawn the socio-economic maps of urban centers worldwide. Beyond the initial excitement of economic decentralization lies a complex reality for city planners, demanding a recalibration of long-held assumptions about urban development and resource allocation.</p>
+<p>Not since the post-industrial era’s profound demographic shifts has the need for adaptive <strong class="lexis">zoning policy</strong> been so urgent. The traditional distinction between residential and commercial zones is blurring, prompting questions about mixed-use development that can <strong class="lexis">foster work-life synergy</strong> within residential communities. Deep within the proposals for <strong class="lexis">urban regeneration</strong> initiatives, however, resides a subtle but critical challenge: how to transform underutilized office blocks into viable housing without compromising the character of established neighborhoods.</p>
+<p>Among the immediate concerns is the fluctuating demand for <strong class="lexis">public transit adaptation</strong>. While peak commuter traffic may have diminished in some corridors, new patterns emerge, necessitating flexible and efficient local transport options that cater to localized movement rather than centralized hubs. Elsewhere, across various municipalities, the debate around <strong class="lexis">housing density</strong> intensifies. Can existing infrastructure accommodate a greater influx of residents seeking more affordable living outside traditional employment centers? The answer often dictates the feasibility of attracting and retaining a vibrant, globally connected population.</p>
+<p>We must also critically examine how to <strong class="lexis">uphold personal well-being</strong> among a diverse population with varied working hours and demands. Ensuring access to green spaces, community services, and robust digital infrastructure is paramount. Not since the inception of modern urban planning has the imperative to <strong class="lexis">mitigate professional burnout</strong> through thoughtful community design been so explicitly recognized. City councils and planning committees are now tasked with formulating policies that allow residents to <strong class="lexis">negotiate flexible working parameters</strong> without suffering a decline in quality of life.</p>
+<p>Ultimately, the goal is not merely adaptation but proactive design for <strong class="lexis">economic revitalization</strong>. This means creating environments where innovation can thrive, and where the benefits of a remote workforce translate into tangible improvements for all residents, not just a select few. From the discussions surrounding spatial justice to the practicalities of waste management, every aspect of urban governance is under review. Thus, ensuring equitable access to high-speed internet and re-skilling opportunities for local labor becomes integral to sustaining a truly resilient and inclusive urban future.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">According to the brief, what is blurring the traditional distinction between residential and commercial zones?</p>
+</div>
+<div class="task"><p class="task-instruction">What specific challenge is mentioned regarding the transformation of underutilized office blocks?</p>
+</div>
+<div class="task"><p class="task-instruction">Beyond adaptation, what is the ultimate goal for urban planning regarding the remote workforce?</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-GD">
+<header class="stage-header"><span class="stage-code">GD</span><h2>Guided Discovery: Structural Emphasis and Professional Register</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Direct students to re-read specific sentences in the passage focusing on sentence structure and specific phrases.<br>
+2. For the structural focus (Fronting and Inversion):<br>
+    a. Ask students to identify the sentences where the usual subject-verb order is changed or where a phrase is placed at the beginning for emphasis.<br>
+    b. Guide them to analyze the effect of these structures (e.g., drawing attention to a condition, historical context, or a problem).<br>
+    c. Use the concept check questions from compiled_linguistic_targets to clarify understanding: &#x27;Is the logical subject placed before or after the main verb of the inverted clause? (After)&#x27; and &#x27;Does a fronted negative time phrase like &#x27;not since&#x27; require subject-auxiliary inversion? (Yes)&#x27;.<br>
+    d. Discuss the &#x27;meaning&#x27; of varying standard sentence hierarchy: to inject structural focus and narrative weight to evaluations.<br>
+3. For the lexical/pragmatic focus (Navigating Work-Life Integration):<br>
+    a. Ask students to locate the phrases provided (foster work-life synergy, uphold personal well-being, negotiate flexible working parameters, mitigate professional burnout).<br>
+    b. Discuss their &#x27;meaning&#x27; in the context of professional decorum and workplace policy. How do these phrases sound more professional or diplomatic than simpler alternatives?<br>
+    c. Briefly touch upon &#x27;phonological_focus&#x27;: how stress on content words conveys meaning and a professional tone.<br>
+4. Have students complete the match_pairs task to connect the phrases with their purpose.<br>
+5. Circulate and provide support, clarifying meaning and function.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Unpacking the Language of Strategic Planning</h4>
+<p>Let&#x27;s examine how the language in the brief is constructed to convey specific messages and maintain a professional tone.</p>
+<p><strong class="lexis">Part A: Emphasizing Challenges and Historical Context</strong><br>
+Look at the following sentences from the brief. Notice how they begin differently than a typical sentence. How does this structure change the emphasis?</p>
+<p>1.  &quot;<strong class="lexis">Beyond the initial excitement of economic decentralization lies</strong> a complex reality for city planners...&quot;<br>
+2.  &quot;<strong class="lexis">Not since the post-industrial era’s profound demographic shifts has the need for adaptive zoning policy been</strong> so urgent.&quot;<br>
+3.  &quot;<strong class="lexis">Deep within the proposals for urban regeneration initiatives, however, resides</strong> a subtle but critical challenge...&quot;<br>
+4.  &quot;<strong class="lexis">Not since the inception of modern urban planning has the imperative to mitigate professional burnout through thoughtful community design been</strong> so explicitly recognized.&quot;</p>
+<p>*   What is placed at the beginning of these sentences? (A prepositional or negative phrase)<br>
+*   What happens to the usual subject-verb order in these sentences? (It is inverted)<br>
+*   Why do you think the author chose to structure these sentences this way? What effect does it create?</p>
+<p><strong class="lexis">Part B: Navigating Work-Life Integration</strong><br>
+Locate the following phrases in the text. Consider their meaning and why these specific phrases are used in a formal report about urban planning rather than simpler, more direct terms.</p>
+<p>*   <strong class="lexis">foster work-life synergy</strong><br>
+*   <strong class="lexis">uphold personal well-being</strong><br>
+*   <strong class="lexis">negotiate flexible working parameters</strong><br>
+*   <strong class="lexis">mitigate professional burnout</strong></p>
+<p>Think about: How do these phrases contribute to a professional and diplomatic register? What might be the implications of using less formal language in such a document?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Navigating the New Urban Fabric: A City Planner&#x27;s Brief on Remote Work Impacts</h5>
+<p>The global shift towards a <strong class="lexis">distributed workforce</strong> has undeniably redrawn the socio-economic maps of urban centers worldwide. Beyond the initial excitement of economic decentralization lies a complex reality for city planners, demanding a recalibration of long-held assumptions about urban development and resource allocation.</p>
+<p>Not since the post-industrial era’s profound demographic shifts has the need for adaptive <strong class="lexis">zoning policy</strong> been so urgent. The traditional distinction between residential and commercial zones is blurring, prompting questions about mixed-use development that can <strong class="lexis">foster work-life synergy</strong> within residential communities. Deep within the proposals for <strong class="lexis">urban regeneration</strong> initiatives, however, resides a subtle but critical challenge: how to transform underutilized office blocks into viable housing without compromising the character of established neighborhoods.</p>
+<p>Among the immediate concerns is the fluctuating demand for <strong class="lexis">public transit adaptation</strong>. While peak commuter traffic may have diminished in some corridors, new patterns emerge, necessitating flexible and efficient local transport options that cater to localized movement rather than centralized hubs. Elsewhere, across various municipalities, the debate around <strong class="lexis">housing density</strong> intensifies. Can existing infrastructure accommodate a greater influx of residents seeking more affordable living outside traditional employment centers? The answer often dictates the feasibility of attracting and retaining a vibrant, globally connected population.</p>
+<p>We must also critically examine how to <strong class="lexis">uphold personal well-being</strong> among a diverse population with varied working hours and demands. Ensuring access to green spaces, community services, and robust digital infrastructure is paramount. Not since the inception of modern urban planning has the imperative to <strong class="lexis">mitigate professional burnout</strong> through thoughtful community design been so explicitly recognized. City councils and planning committees are now tasked with formulating policies that allow residents to <strong class="lexis">negotiate flexible working parameters</strong> without suffering a decline in quality of life.</p>
+<p>Ultimately, the goal is not merely adaptation but proactive design for <strong class="lexis">economic revitalization</strong>. This means creating environments where innovation can thrive, and where the benefits of a remote workforce translate into tangible improvements for all residents, not just a select few. From the discussions surrounding spatial justice to the practicalities of waste management, every aspect of urban governance is under review. Thus, ensuring equitable access to high-speed internet and re-skilling opportunities for local labor becomes integral to sustaining a truly resilient and inclusive urban future.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match the phrases for &#x27;Navigating Work-Life Integration&#x27; to their professional implications.</p>
+<ul><li><strong>foster work-life synergy</strong> — Encouraging a harmonious balance between professional duties and personal life.</li><li><strong>uphold personal well-being</strong> — Ensuring the mental and physical health and welfare of individuals.</li><li><strong>negotiate flexible working parameters</strong> — Discussing and agreeing upon adaptable conditions for employment.</li><li><strong>mitigate professional burnout</strong> — Reducing the risk of exhaustion and stress caused by excessive work demands.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-CP">
+<header class="stage-header"><span class="stage-code">CP</span><h2>Controlled Practice: Applying Fronting, Inversion, and Professional Register</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain to students that they will now practice using the target structures and phrases in their own sentences, adapting them to new contexts.<br>
+2. For the inversion practice, guide students to transform the sentences, emphasizing the fronted element and ensuring correct subject-verb agreement (e.g., &#x27;the flaws reside&#x27; not &#x27;resides the flaws&#x27;). Remind them of the concept check from GD regarding subject-verb order after inversion.<br>
+3. For the lexical/pragmatic practice, have students rephrase sentences to adopt a more formal, diplomatic tone using the learned exponents.<br>
+4. Circulate, monitoring for correct application of grammar and appropriate lexical choices. Pay attention to common errors identified: subject-verb agreement after inversion and incorrect auxiliary use with &#x27;not since&#x27;.<br>
+5. Provide corrective feedback, focusing on form and appropriateness.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Crafting Impactful Statements for Urban Policy</h4>
+<p>Now, let&#x27;s practice applying the structural emphasis and professional phrases we&#x27;ve analyzed.</p>
+<p><strong class="lexis">Task 1: Structural Emphasis (Fronting and Inversion)</strong><br>
+Rewrite the following sentences, starting with the given phrase. Pay attention to subject-verb agreement and inversion.</p>
+<p><strong class="lexis">Task 2: Professional Register</strong><br>
+Rephrase the following statements using the professional terms we&#x27;ve discussed (e.g., &#x27;foster work-life synergy,&#x27; &#x27;uphold personal well-being,&#x27; &#x27;negotiate flexible working parameters,&#x27; &#x27;mitigate professional burnout&#x27;) to sound more formal and diplomatic.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Rewrite the sentence, starting with &#x27;Beyond the current infrastructure challenges&#x27;.</p>
+<p>The necessity for strategic digital investment stands as the next critical step. (Start: Beyond the current infrastructure challenges...)</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence, starting with &#x27;Not since the recent economic downturn&#x27;.</p>
+<p>The city council has reviewed its economic revitalization strategies with such intensity. (Start: Not since the recent economic downturn...)</p>
+</div>
+<div class="task"><p class="task-instruction">Rephrase to use a more professional term for &#x27;make sure people are healthy and happy&#x27;.</p>
+<p>It&#x27;s crucial for companies to make sure people are healthy and happy at work.</p>
+</div>
+<div class="task"><p class="task-instruction">Rephrase to use a more professional term for &#x27;discuss ways to be flexible about work hours&#x27;.</p>
+<p>Employees want to discuss ways to be flexible about work hours and locations.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Free Practice: Developing a Policy Statement on Remote Work</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain to students that they will now apply all the learned language (structural emphasis, professional register) in a more extended, communicative task.<br>
+2. Divide students into small groups (3-4), assigning each group a specific stakeholder role (e.g., a residents&#x27; association, a small business owners&#x27; collective, a city planning department subcommittee).<br>
+3. Instruct them to brainstorm and draft a short policy statement or a section of a public address (approx. 100-150 words) regarding the impacts of remote work on their community/city, from their assigned stakeholder&#x27;s perspective.<br>
+4. Emphasize the use of fronting and inversion for emphasis where appropriate, and the professional work-life integration language.<br>
+5. Circulate, monitoring for both grammatical accuracy and appropriate use of the target discourse features. Provide support with vocabulary and structural choices.<br>
+6. Have each group present their statement to the class. Encourage peer feedback, focusing on clarity, impact, and appropriate language use.<br>
+7. <strong class="lexis">Model Answer (Teacher&#x27;s reference):</strong><br>
+    <strong class="lexis">Example from City Planning Department Subcommittee Perspective:</strong> &#x27;Beyond the immediate shifts in commuter patterns lies the imperative for proactive <strong class="lexis">urban regeneration</strong>. Not since the advent of the digital era has the need to <strong class="lexis">foster work-life synergy</strong> through innovative <strong class="lexis">zoning policy</strong> been so evident. Deep within our strategic reviews, however, resides a commitment to <strong class="lexis">uphold personal well-being</strong> across all demographics, particularly as residents <strong class="lexis">negotiate flexible working parameters</strong>. It is our duty to <strong class="lexis">mitigate professional burnout</strong> through thoughtful planning, ensuring <strong class="lexis">economic revitalization</strong> benefits all citizens, regardless of their work location.&#x27;</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Shaping the Future: A Community&#x27;s Vision</h4>
+<p>Imagine you are part of a community group or a city committee tasked with addressing the rise of remote work. Your goal is to draft a short policy statement (around 100-150 words) or a section of a public address for your community. This statement should communicate your group&#x27;s perspective on the challenges and opportunities presented by the <strong class="lexis">distributed workforce</strong>.</p>
+<p>When writing, make sure to:</p>
+<p>*   Incorporate at least two examples of <strong class="lexis">fronting or inversion</strong> to add emphasis or gravitas to your points (e.g., &#x27;Beyond these challenges...&#x27;, &#x27;Not since...&#x27;).<br>
+*   Use at least two phrases from the &#x27;Navigating Work-Life Integration&#x27; register (e.g., <strong class="lexis">foster work-life synergy</strong>, <strong class="lexis">uphold personal well-being</strong>, <strong class="lexis">negotiate flexible working parameters</strong>, <strong class="lexis">mitigate professional burnout</strong>).<br>
+*   Maintain a formal, professional, and diplomatic tone suitable for a public statement.</p>
+<p>Consider your audience: Are you reassuring residents, advocating for a specific policy, or outlining future plans?</p>
+</section>
+</article>
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formal Concessive Language for Strategic Analysis</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Formal Concessive Language for Strategic Analysis</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>8</dd>
+      <dt>Class</dt><dd>7</dd>
+      <dt>Theme</dt><dd>T08_EDUCATION</dd>
+      <dt>Framework</dt><dd>TTT</dd>
+      <dt>Role</dt><dd>TTT_ADVANCED_REVIEW_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Strategic Post-Mortem Analysis</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by displaying the lead-in brief (or reading it aloud).<br>
+2. Elicit initial responses from students regarding their experiences with project failures or unexpected challenges in their workplaces.<br>
+3. Guide the discussion towards structured processes for analysis, focusing on how their teams identify systemic issues and prevent recurrence.<br>
+4. Encourage students to use formal language and advanced vocabulary related to analysis, planning, and mitigation, without explicitly pre-teaching the target structure yet. Focus on generating interest and activating prior knowledge.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Learning from Operational Setbacks</h4>
+<p>A significant project recently encountered unexpected challenges and failed to meet key targets. This is a common situation in many professional environments.</p>
+<p>Discuss the following questions with a partner:<br>
+1. Has your team or company ever faced a major operational setback or project failure? What was the outcome?<br>
+2. What structured process would you strategically employ to analyze what went wrong? Think about identifying <strong class="lexis">root causes</strong> and <strong class="lexis">systemic issues</strong>.<br>
+3. How do you ensure such <strong class="lexis">setbacks are avoided</strong> in the future? What kind of <strong class="lexis">corrective actions</strong> or <strong class="lexis">lessons learned initiatives</strong> would be put in place?<br>
+4. What role does <strong class="lexis">continuous improvement</strong> and <strong class="lexis">risk mitigation</strong> play in your workplace? How are they integrated into planning?</p>
+</section>
+</article>
+<article class="stage" id="stage-T1">
+<header class="stage-header"><span class="stage-code">T1</span><h2>Test 1: Diagnosing Advanced Concessive Linker Usage</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that this test assesses their current understanding and application of advanced formal linking phrases.<br>
+2. Instruct students to complete the tasks individually.<br>
+3. Observe carefully for common errors, especially those predicted in the linguistic target (e.g., &#x27;but&#x27; after albeit, &#x27;that&#x27; after notwithstanding, incorrect noun/adjective phrase usage).<br>
+4. Do not provide answers or immediate correction at this stage. The purpose is diagnostic.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Refining Formal Concessive Statements</h4>
+<p>In formal business and professional contexts, especially when evaluating performance or proposing improvements, it&#x27;s crucial to acknowledge limiting factors or counter-arguments precisely. The following tasks will help identify areas where we can refine our use of formal concessive linkers.</p>
+<p>Read each sentence and choose the option that correctly completes it, maintaining a professional and precise tone.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Choose the most appropriate word or phrase to complete the sentence, ensuring correct formal usage.</p>
+<p>The new safety protocols proved effective, __________ concerns about initial implementation costs, they significantly reduced workplace incidents.</p>
+<ul><li>albeit they had</li><li>notwithstanding that</li><li>albeit initial</li><li>in spite of the</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Select the correct option to express concession formally.</p>
+<p>__________ the lack of cohesive discourse, the macro-pedagogical strategy for employee training still demonstrates potential for long-term skill development.</p>
+<ul><li>Albeit of the</li><li>Notwithstanding the</li><li>Despite that the</li><li>Although the</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Identify the grammatically correct and formally appropriate sentence.</p>
+<p>Which sentence correctly uses a concessive linker?</p>
+<ul><li>Albeit the educational reform was highly experimental, but it stabilized the learning metric.</li><li>Notwithstanding that the knowledge system lacked data, the board executed the macro strategy.</li><li>Albeit highly experimental, the educational reform stabilized the learning metric.</li><li>Notwithstanding of the knowledge system lacking data, the board executed the macro strategy.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-TCH">
+<header class="stage-header"><span class="stage-code">TCH</span><h2>Teach: Clarifying Concessive Linkers (Albeit/Notwithstanding)</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Address specific errors identified in T1. Focus on the distinction between &#x27;Albeit/Notwithstanding + Noun/Adjectival Phrase&#x27; and &#x27;Although/Despite + Clause/Gerund&#x27;.<br>
+2. Explain the form: &#x27;Concessive linker (Albeit/Notwithstanding) + noun phrase/adjectival block, main clause&#x27;. Emphasize the lack of &#x27;but&#x27; or &#x27;that&#x27; directly following.<br>
+3. Discuss the meaning: &#x27;Structuring formal executive evaluations, corporate learning re-engineering plans, and educational reform policies while systematically addressing layout limitations.&#x27; Explain how these linkers introduce a significant systemic barrier or philosophical constraint, yet the core argument remains valid.<br>
+4. Use the concept check questions orally: &#x27;Are we introducing a significant systemic barrier or philosophical constraint first? (Yes)&#x27; and &#x27;Does the core argument regarding knowledge systems remain valid despite this concession? (Yes)&#x27; to confirm understanding.<br>
+5. Guide students through the practice tasks, encouraging self-correction and peer discussion based on the rules clarified.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Mastering Concessive Structures for Formal Reports</h4>
+<p>From our diagnostic, it&#x27;s clear we need to focus on the precise usage of <strong class="lexis">concessive linkers</strong> like <strong class="lexis">Albeit</strong> and <strong class="lexis">Notwithstanding</strong> in formal writing. These linkers are powerful tools for executive evaluations and strategic reports, allowing us to acknowledge a challenge or limitation without undermining our main point.</p>
+<p><strong class="lexis">Key Rules:</strong><br>
+1.  <strong class="lexis">Albeit / Notwithstanding</strong> are followed directly by a <strong class="lexis">noun phrase</strong> or <strong class="lexis">adjectival block</strong>, NOT a full clause with &#x27;that&#x27; or a coordinating conjunction like &#x27;but&#x27;.<br>
+2.  They introduce a concession or counterpoint that is significant but does not invalidate the main statement.</p>
+<p>Look at the examples below and then complete the practice sentences.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Correct Usage</th><th>Common Errors (and why)</th></tr><tr><td>**Albeit** challenging, the transition to remote work improved productivity.</td><td>~~Albeit it was challenging~~ (should be noun/adjectival phrase)</td></tr><tr><td>**Notwithstanding** initial resistance, the new policy garnered broad support.</td><td>~~Notwithstanding that there was resistance~~ (avoid &#x27;that&#x27;)</td></tr><tr><td>**Albeit** highly experimental, the system showed promising results.</td><td>~~Albeit experimental, but it showed results~~ (no &#x27;but&#x27;)</td></tr><tr><td>**Notwithstanding** the comprehensive audit, some discrepancies remained.</td><td>~~Notwithstanding of the audit~~ (no &#x27;of&#x27;)</td></tr></table></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Rewrite the following sentences using &#x27;Albeit&#x27; or &#x27;Notwithstanding&#x27; to express the concession formally. Maintain the original meaning.</p>
+<p>The project faced severe budget cuts, but it still achieved its core objectives.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the following sentences using &#x27;Albeit&#x27; or &#x27;Notwithstanding&#x27; to express the concession formally. Maintain the original meaning.</p>
+<p>The new training module was very complex, yet it significantly boosted staff competence.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the following sentences using &#x27;Albeit&#x27; or &#x27;Notwithstanding&#x27; to express the concession formally. Maintain the original meaning.</p>
+<p>Despite the team&#x27;s initial skepticism, the innovative solution delivered superior results.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-T2">
+<header class="stage-header"><span class="stage-code">T2</span><h2>Test 2: Drafting a Strategic Post-Mortem Summary</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will apply the target language in a more integrated, productive context related to the unit&#x27;s theme of &#x27;learning from operational setbacks&#x27;.<br>
+2. Instruct students to draft a brief summary or analysis, focusing on incorporating the concessive linkers &#x27;Albeit&#x27; and &#x27;Notwithstanding&#x27; naturally and correctly.<br>
+3. Circulate and monitor, providing support as needed but primarily observing for correct application of the target structures.<br>
+4. Provide a sample answer or key points for discussion after students have completed their drafts. Focus on:<br>
+    - Correct form (linker + noun/adjectival block).<br>
+    - Appropriate use to introduce significant, yet non-fatal, constraints.<br>
+    - Professional register and coherence.<br>
+Sample structure for student response:<br>
+&#x27;The Q3 project review revealed critical oversights. Albeit significant initial challenges, the team managed to stabilize client relations. Notwithstanding budget constraints, the new software integration provided valuable insights into workflow bottlenecks. This post-mortem highlights areas for continuous improvement.&#x27;</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Applying Concessive Language in Analysis</h4>
+<p>You are tasked with drafting a brief section of a <strong class="lexis">strategic post-mortem analysis</strong> for an operational failure at your company. This section should summarize key findings, acknowledge significant limitations or challenges encountered, but also highlight an aspect where progress was made or the core objective remains viable. Your goal is to use the formal concessive linkers <strong class="lexis">Albeit</strong> and <strong class="lexis">Notwithstanding</strong> effectively.</p>
+<p><strong class="lexis">Your Task:</strong><br>
+1.  Think of a recent (imaginary or real) project setback or operational challenge in a workplace context.<br>
+2.  Draft a short paragraph (approx. 70-100 words) for an executive summary.<br>
+3.  Incorporate at least two instances of &#x27;Albeit&#x27; or &#x27;Notwithstanding&#x27; correctly. Ensure they are followed by a noun phrase or adjectival block, addressing a significant constraint while affirming a broader positive outcome or enduring viability.<br>
+4.  Focus on maintaining a professional register and clear, concise language.</p>
+<p><strong class="lexis">Example Scenario:</strong> A new product launch experienced unexpected delays and cost overruns.</p>
+<p><strong class="lexis">Draft your summary here:</strong></p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Before drafting your full summary, identify one significant challenge you will concede and one positive outcome or ongoing viability you will assert, using the target linkers. Briefly outline them.</p>
+<p>Concession (e.g., &#x27;Albeit severe resource limitations&#x27;):</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+</body>
+</html>

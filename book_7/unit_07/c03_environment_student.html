@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Producing Smart, Reducing Waste</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Producing Smart, Reducing Waste</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>7</dd>
+      <dt>Class</dt><dd>3</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-facing-the-raw-material-crunch">
+<header class="stage-header"><h2>Facing the Raw Material Crunch</h2></header>
+<section class="handout">
+<p>Imagine your company is facing a sudden, significant increase in raw material costs due to global scarcity. This is impacting production budgets and profit margins.</p>
+<p>Your production team needs to develop immediate strategies to minimize material waste and optimize usage without compromising product quality or production targets.</p>
+<p>Discuss in pairs or small groups:<br>
+1. How would this scarcity directly affect your daily operations?<br>
+2. What immediate steps could your team take to identify and reduce waste in current processes?<br>
+3. What are the potential long-term benefits of implementing robust waste reduction strategies beyond cost savings?</p>
+</section>
+</article>
+<article class="stage" id="stage-cutting-waste-boosting-profits">
+<header class="stage-header"><h2>Cutting Waste, Boosting Profits</h2></header>
+<section class="handout">
+<p>Read the following dialogue between Maria, a Production Manager, and David, a Sustainability Coordinator, discussing how to tackle rising material costs.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Meeting the Scarcity Challenge</h5>
+<p>Maria: David, thanks for coming. We&#x27;re really feeling the pinch with the new raw material costs. Our usual production process simply isn&#x27;t sustainable anymore.<br>
+David: I understand, Maria. It&#x27;s a common challenge right now. We need to shift our mindset towards <strong class="lexis">lean manufacturing</strong> principles more aggressively. Have you considered a full audit of our current waste streams?<br>
+Maria: We&#x27;ve done basic waste checks, but nothing comprehensive. I&#x27;m thinking about setting up a cross-departmental team. What kind of strategies should we be focusing on?<br>
+David: Definitely <strong class="lexis">closed-loop systems</strong>. Can we redesign any processes to reclaim and reuse materials internally? For instance, scrap metal from the cutting process – is there a way to melt it down and reintroduce it into production, rather than selling it off as low-value waste?<br>
+Maria: That&#x27;s ambitious, but potentially very impactful. It would require significant upfront investment in recycling infrastructure. What about materials that can&#x27;t be reused directly?<br>
+David: That&#x27;s where <strong class="lexis">waste valorization</strong> comes in. Can we convert that waste into something of value for another industry? Perhaps our sawdust byproduct could be pressed into composite boards for packaging, or even generate bioenergy. It&#x27;s about seeing waste as a resource, not just a disposal problem.<br>
+Maria: So, it&#x27;s not just about reducing, but also about finding new uses. And keeping track of everything through the entire process?<br>
+David: Exactly. We need to map out the entire <strong class="lexis">material lifecycle</strong> for our key components, from sourcing to disposal or, ideally, reuse. This helps identify bottlenecks and opportunities for circularity. It&#x27;s a significant project, but the long-term cost savings and environmental benefits are substantial. We could even look into partnerships with local recycling companies for specialized material processing.<br>
+Maria: It sounds like we need a comprehensive plan. This isn&#x27;t just about cutting costs; it&#x27;s about building a more resilient and responsible operation. Let&#x27;s get that audit scheduled.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Based on the dialogue, what are two main strategies David suggests to Maria for minimizing waste and optimizing resource use?</p>
+<p>List two main strategies suggested in the dialogue.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-your-eco-innovation-toolkit">
+<header class="stage-header"><h2>Your Eco-Innovation Toolkit</h2></header>
+<section class="handout">
+<p>You are preparing for a meeting where you need to propose strategies for reducing waste and conserving resources in your company’s manufacturing processes. Use the phrases below to help you structure your ideas and arguments.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Key Concepts</th><th>Proposing Solutions</th><th>Addressing Challenges</th><th>Planning Your Strategy</th></tr><tr><td>**Lean manufacturing** principles</td><td>We could implement...</td><td>We need to overcome...</td><td>1. **Identify**: What specific waste streams or resource inefficiencies exist?</td></tr><tr><td>**Closed-loop systems**</td><td>A key strategy would be to...</td><td>The initial investment might be high, but...</td><td>2. **Analyze**: What are the root causes? What materials are involved?</td></tr><tr><td>**Waste valorization**</td><td>I recommend exploring...</td><td>A potential challenge is...</td><td>3. **Propose**: What concrete actions can be taken (e.g., process changes, new technologies, partnerships)?</td></tr><tr><td>**Material lifecycle** analysis</td><td>Consider redesigning our process to...</td><td>To mitigate this, we could...</td><td>4. **Justify**: What are the expected benefits (cost savings, environmental impact, reputation)?</td></tr><tr><td>Resource efficiency</td><td>It&#x27;s crucial to invest in...</td><td>It&#x27;s vital to get buy-in from...</td><td>5. **Outline**: What are the next steps or required resources?</td></tr><tr><td>Circular economy approach</td><td>This would involve...</td><td>This requires a shift in mindset.</td><td></td></tr><tr><td>Upcycling / Downcycling</td><td>The benefits would include...</td><td></td><td></td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-the-green-production-meeting">
+<header class="stage-header"><h2>The Green Production Meeting</h2></header>
+<section class="handout">
+<p>You are now in a cross-departmental meeting to discuss and agree on strategies for reducing material waste and optimizing resource usage. Work in groups of 3-4.</p>
+<p><strong class="lexis">Your Task:</strong><br>
+1. Each person presents their best ideas and proposed strategies for tackling the problem of rising raw material costs and waste.<br>
+2. Discuss the feasibility, potential impact, and challenges of each proposal.<br>
+3. As a group, decide on at least <strong class="lexis">two concrete strategies</strong> that your company should implement immediately.<br>
+4. Be prepared to explain your chosen strategies and their rationale to the rest of the class.</p>
+<p>Remember to:<br>
+*   Use the key concepts and phrases from the previous stage.<br>
+*   Listen actively to your colleagues&#x27; ideas.<br>
+*   Negotiate and reach a consensus.</p>
+</section>
+</article>
+<article class="stage" id="stage-reflecting-on-our-proposals">
+<header class="stage-header"><h2>Reflecting on Our Proposals</h2></header>
+<section class="handout">
+<p>Well done on your discussions!</p>
+<p>Now, let&#x27;s reflect on the strategies proposed and the language used:</p>
+<p>1. What were the most innovative or practical strategies your group discussed?<br>
+2. Did you find it easy to use the new vocabulary and phrases during your discussion? Which ones did you find most useful?<br>
+3. What was one thing your group did well in reaching a consensus?<br>
+4. What was one area where your group could improve in future discussions?</p>
+</section>
+</article>
+</body>
+</html>

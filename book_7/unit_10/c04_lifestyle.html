@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Global Team Work-Life Integration</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Global Team Work-Life Integration</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>10</dd>
+      <dt>Class</dt><dd>4</dd>
+      <dt>Theme</dt><dd>T10_LIFESTYLE</dd>
+      <dt>Framework</dt><dd>SK-REC</dd>
+      <dt>Role</dt><dd>SK_REC_LISTENING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Setting Professional Boundaries</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Greet students and introduce the class topic: comparing global work cultures and their impact on personal boundaries.<br>
+2. Ask students to read the lead-in questions and discuss in pairs or small groups.<br>
+3. Facilitate a brief whole-class feedback session, drawing out key ideas about dedication, personal time, and global collaboration.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Work &amp; Home: Finding the Balance</h4>
+<p>In some professional environments, extended working hours are a mark of dedication, while in others, strict separation of work and personal time is valued. These differing cultural norms impact expectations for effective global team collaboration and employee well-being, particularly concerning personal boundaries.</p>
+<p>Discuss the following questions with a partner:<br>
+1. How do you define &#x27;dedication&#x27; in your workplace? Does it involve working extended hours, or something else?<br>
+2. What are some unwritten rules or expectations about work hours and personal time in your country or industry?<br>
+3. Have you ever worked with people from different cultural backgrounds who had very different ideas about work-life boundaries? What challenges did this create?</p>
+</section>
+</article>
+<article class="stage" id="stage-PTV">
+<header class="stage-header"><span class="stage-code">PTV</span><h2>Pre-teach Vocabulary: Global Work Lexis</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the vocabulary items to students.<br>
+2. Ask students to complete the matching task individually.<br>
+3. Check answers as a class, clarifying meaning and pronunciation as needed. Encourage students to give examples using the new vocabulary.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Key Terms for Global Work</h4>
+<p>Before listening, let&#x27;s look at some important terms you&#x27;ll hear. Match each term to its definition.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>work-life integration</li><li>cultural intelligence</li><li>professional etiquette</li><li>global team collaboration</li><li>time zone management</li><li>family leave policies</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match each term to its definition.</p>
+<ul><li><strong>work-life integration</strong> — Blending professional and personal responsibilities into a single lifestyle, often with flexible boundaries.</li><li><strong>cultural intelligence</strong> — The ability to understand and adapt to different cultural contexts and situations.</li><li><strong>professional etiquette</strong> — The formal rules of polite behavior in professional situations.</li><li><strong>global team collaboration</strong> — Working together effectively with colleagues located in different countries and time zones.</li><li><strong>time zone management</strong> — Strategizing and coordinating schedules across multiple time zones to facilitate communication and productivity.</li><li><strong>family leave policies</strong> — Official rules and benefits that allow employees time off for family-related reasons, such as childbirth or care for a sick relative.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-GIST">
+<header class="stage-header"><span class="stage-code">GIST</span><h2>Gist Listening: Understanding Main Ideas</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Tell students they will listen to a conversation between an HR specialist and a team lead discussing challenges in global work environments.<br>
+2. Instruct them to listen for the main idea and answer the multiple-choice question.<br>
+3. Play the audio once.<br>
+4. Have students compare answers with a partner before whole-class feedback.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">First Listen: What&#x27;s the Big Picture?</h4>
+<p>Listen to the conversation between Maria, an HR specialist, and David, a team lead. Choose the best option that summarizes the main topic of their discussion.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Balancing Global Work Cultures</h5>
+<p>Maria: Good morning, David. Thanks for joining. Our global teams are doing great work, but we&#x27;ve had some feedback regarding <strong class="lexis">work-life integration</strong> and cultural expectations.<br>
+David: Certainly, Maria. It&#x27;s a common topic. For instance, in some regions, staying late is seen as a sign of dedication, while in others, leaving on time is simply good <strong class="lexis">professional etiquette</strong> and a sign of efficiency.<br>
+Maria: Exactly. We&#x27;ve noticed this impacting <strong class="lexis">global team collaboration</strong>. Our team in Tokyo often works very long hours, whereas our colleagues in Berlin strictly adhere to their contracts, valuing personal time. This creates unspoken tension.<br>
+David: I understand. One of my team members mentioned feeling pressured to respond to emails late at night from a different time zone. It really impacts their employee well-being, especially concerning <strong class="lexis">time zone management</strong> when scheduling calls.<br>
+Maria: That&#x27;s a key point. We need to foster greater <strong class="lexis">cultural intelligence</strong> across our departments. It’s not about one culture being right or wrong; it&#x27;s about understanding and respecting different professional boundaries.<br>
+David: Absolutely. We recently implemented a &#x27;no email after 7 PM local time&#x27; policy for non-urgent matters, specifically to improve work-life balance.<br>
+Maria: That&#x27;s a positive step. What about <strong class="lexis">family leave policies</strong>? Are they consistent, or do local regulations still dictate too much variation?<br>
+David: We&#x27;re trying to centralize them, Maria, but local laws are complex. Our aim is to ensure fair support for all, whether it&#x27;s paternity leave in Sweden or extended family care in India. The challenge is communicating these nuances effectively without causing confusion or resentment.<br>
+Maria: Right. So, better training on cross-cultural communication and clear guidelines on expected response times are crucial. We also need managers to actively role-model healthy work-life boundaries.<br>
+David: Agreed. It&#x27;s about setting clear expectations, empowering employees, and building a culture where everyone feels valued and understood, regardless of where they are in the world. It’s a continuous effort to achieve true workplace dignity.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Choose the main topic of the discussion.</p>
+<p>The conversation primarily focuses on:</p>
+<ul><li>The benefits of working long hours in global teams.</li><li>The challenges of managing time zones for international projects.</li><li>How cultural differences in work-life expectations affect global team dynamics and employee well-being.</li><li>New company policies for holiday and sick leave.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-DET">
+<header class="stage-header"><span class="stage-code">DET</span><h2>Detailed Listening: Specific Information</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Tell students they will listen again to identify specific details and complete the tasks.<br>
+2. Play the audio a second time.<br>
+3. Have students complete the short_text tasks and the mcq_single task.<br>
+4. For the open inference question in student_content (about specific cultural examples), allow students to discuss in pairs, then elicit answers and provide feedback. Emphasize that there are no single &#x27;right&#x27; answers, but rather interpretations supported by the text.<br>
+<strong class="lexis">Answer Key for open inference:</strong> The Berlin team values personal time and strict adherence to contracts. The Tokyo team often works very long hours, indicating dedication through extended work. India/Sweden mentioned for specific family leave situations.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Second Listen: Getting the Details</h4>
+<p>Listen to the conversation again. Complete the tasks below by filling in the blanks or choosing the correct option. Then, discuss the last question.</p>
+<p>After listening, discuss:<br>
+Based on the conversation, what specific cultural examples were given regarding different approaches to work-life boundaries?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Balancing Global Work Cultures</h5>
+<p>Maria: Good morning, David. Thanks for joining. Our global teams are doing great work, but we&#x27;ve had some feedback regarding <strong class="lexis">work-life integration</strong> and cultural expectations.<br>
+David: Certainly, Maria. It&#x27;s a common topic. For instance, in some regions, staying late is seen as a sign of dedication, while in others, leaving on time is simply good <strong class="lexis">professional etiquette</strong> and a sign of efficiency.<br>
+Maria: Exactly. We&#x27;ve noticed this impacting <strong class="lexis">global team collaboration</strong>. Our team in Tokyo often works very long hours, whereas our colleagues in Berlin strictly adhere to their contracts, valuing personal time. This creates unspoken tension.<br>
+David: I understand. One of my team members mentioned feeling pressured to respond to emails late at night from a different time zone. It really impacts their employee well-being, especially concerning <strong class="lexis">time zone management</strong> when scheduling calls.<br>
+Maria: That&#x27;s a key point. We need to foster greater <strong class="lexis">cultural intelligence</strong> across our departments. It’s not about one culture being right or wrong; it&#x27;s about understanding and respecting different professional boundaries.<br>
+David: Absolutely. We recently implemented a &#x27;no email after 7 PM local time&#x27; policy for non-urgent matters, specifically to improve work-life balance.<br>
+Maria: That&#x27;s a positive step. What about <strong class="lexis">family leave policies</strong>? Are they consistent, or do local regulations still dictate too much variation?<br>
+David: We&#x27;re trying to centralize them, Maria, but local laws are complex. Our aim is to ensure fair support for all, whether it&#x27;s paternity leave in Sweden or extended family care in India. The challenge is communicating these nuances effectively without causing confusion or resentment.<br>
+Maria: Right. So, better training on cross-cultural communication and clear guidelines on expected response times are crucial. We also need managers to actively role-model healthy work-life boundaries.<br>
+David: Agreed. It&#x27;s about setting clear expectations, empowering employees, and building a culture where everyone feels valued and understood, regardless of where they are in the world. It’s a continuous effort to achieve true workplace dignity.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">According to David, in some regions, staying late is seen as a sign of __________.</p>
+<p>Staying late is a sign of:</p>
+</div>
+<div class="task"><p class="task-instruction">What specific challenge did a team member face due to different time zones?</p>
+<p>A team member felt pressured to:</p>
+<ul><li>Work on weekends.</li><li>Respond to emails late at night.</li><li>Travel frequently.</li><li>Learn a new language.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">What kind of policy did David mention they recently implemented to improve work-life balance?</p>
+<p>New policy implemented:</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Follow-up Discussion: Reflecting on Boundaries</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Initiate a class discussion based on the questions in student_content.<br>
+2. Encourage students to connect the discussion to their own experiences and the themes from the listening.<br>
+3. Provide feedback on language use, particularly encouraging the accurate use of the target vocabulary from the PTV stage.<br>
+4. Briefly review the listening comprehension strategies used (listening for gist, listening for detail).</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Your Take: Building a Better Workplace</h4>
+<p>Reflect on the conversation and your own experiences. Discuss the following questions in small groups or as a class:<br>
+1. David mentioned a &#x27;no email after 7 PM local time&#x27; policy. Do you think this is an effective strategy? Why or why not?<br>
+2. What other specific actions or policies could companies implement to improve <strong class="lexis">work-life integration</strong> and respect <strong class="lexis">cultural intelligence</strong> in global teams?<br>
+3. How important do you think &#x27;role-modeling healthy work-life boundaries&#x27; by managers is? Provide an example if you can.<br>
+4. What is one practical takeaway you can apply to your own professional interactions with colleagues from different cultural backgrounds?</p>
+</section>
+</article>
+</body>
+</html>

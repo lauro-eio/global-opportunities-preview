@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Strategic Communication for Operational Improvement</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Strategic Communication for Operational Improvement</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>12</dd>
+      <dt>Class</dt><dd>2</dd>
+      <dt>Theme</dt><dd>T12_ABSTRACT</dd>
+      <dt>Framework</dt><dd>TBLF</dd>
+      <dt>Role</dt><dd>TBLF_DISCOURSE_ANALYSIS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Diagnosing Inefficiency</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by eliciting learners&#x27; immediate thoughts on inefficiencies.<br>
+2. Guide the discussion to specific, practical examples from their own workplaces.<br>
+3. Encourage learners to think about how they would articulate these issues to management, setting the stage for professional discourse.<br>
+4. Introduce the concept of systematically analyzing processes.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Identifying Workplace Hurdles</h4>
+<p>Think about a routine process in your workplace that seems inefficient. It could be anything from stock management to client intake, or even internal communication flows.</p>
+<p>Discuss with a partner:<br>
+1. What is this process and what makes it inefficient?<br>
+2. What are the specific steps involved that cause delays or waste resources?<br>
+3. How would you begin to analyze these steps to identify areas for significant improvement?<br>
+4. What would be the key information you&#x27;d need to present to justify a change?</p>
+</section>
+</article>
+<article class="stage" id="stage-GIST">
+<header class="stage-header"><span class="stage-code">GIST</span><h2>Gist Reading: Strategic Review Memo</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Distribute the memo for a first, quick read.<br>
+2. Instruct learners to read for the overall purpose and main challenges outlined.<br>
+3. Emphasize not getting bogged down in detail at this stage.<br>
+4. Check answers as a class.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">The Workflow Dilemma</h4>
+<p>Read the following internal memo from the Operations Director to the Senior Leadership Team. Focus on understanding the primary concern and the memo&#x27;s overall objective.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Memo: Urgent Review of Operational Workflow Synergy</h5>
+<p>To: Senior Leadership Team<br>
+From: Operations Director<br>
+Date: October 26, 2023<br>
+Subject: Critical Review of Inter-Departmental Workflow Synergy and <strong class="lexis">Efficiency Gains</strong></p>
+<p>Dear Team,</p>
+<p>This memo outlines the critical need to immediately <strong class="lexis">conceptualize the strategic imperative</strong> behind a comprehensive review of our operational workflows. Recent internal audits, coupled with emerging market pressures, indicate a pervasive underperformance that can no longer be attributed to isolated incidents. We are observing systemic vulnerabilities that directly impact our delivery timelines and overall profitability.</p>
+<p>While individual departmental <strong class="lexis">process optimization</strong> efforts have yielded some localized improvements, it has become abundantly clear that these siloed initiatives fail to address the overarching interconnectedness of our operations. The true challenge lies not in individual component failure, but in the lack of synergistic <strong class="lexis">workflow design</strong> across the entire supply chain and client service lifecycle. This is creating significant <strong class="lexis">bottleneck analysis</strong> challenges, making it difficult to pinpoint precise points of friction without a holistic perspective.</p>
+<p><strong class="lexis">How can we genuinely pursue lean principles if our core operational ontology remains fragmented and disparate?</strong> Is it not true that failing to <strong class="lexis">unpack the underlying logic</strong> of our cross-functional engagements compromises the very foundation of our promised <strong class="lexis">efficiency gains</strong>?</p>
+<p>Our current approach, while well-intentioned, risks cementing a reactive culture rather than fostering a proactive, integrated one. It is imperative that we move beyond mere troubleshooting to <strong class="lexis">distilling the core challenge</strong>: redesigning for seamless inter-departmental collaboration. This strategic realignment is essential if we are to <strong class="lexis">align with our broader vision</strong> of market leadership and sustained growth. I propose forming an immediate task force to develop a unified framework for <strong class="lexis">workflow design</strong> and optimization, leveraging cross-functional expertise to ensure we address these systemic issues at their root. Your prompt attention to this matter is appreciated.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the primary objective of this memo?</p>
+<p>The Operations Director wrote this memo mainly to:</p>
+<ul><li>Report on recent market pressures affecting profitability.</li><li>Call for an urgent, comprehensive review and redesign of interconnected operational workflows.</li><li>Praise individual departments for their localized process optimization efforts.</li><li>Propose immediate troubleshooting for isolated operational incidents.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-DET">
+<header class="stage-header"><span class="stage-code">DET</span><h2>Detailed Comprehension: Analyzing the Report&#x27;s Substance</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Instruct learners to re-read the memo carefully for specific details.<br>
+2. Have them complete the short answer questions individually.<br>
+3. Discuss answers as a class, encouraging justification from the text.<br>
+4. Pay attention to how the author&#x27;s stance is conveyed through specific phrases.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Deep Dive into the Report</h4>
+<p>Read the memo again in detail. Answer the following questions based on the information provided in the text.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Memo: Urgent Review of Operational Workflow Synergy</h5>
+<p>To: Senior Leadership Team<br>
+From: Operations Director<br>
+Date: October 26, 2023<br>
+Subject: Critical Review of Inter-Departmental Workflow Synergy and <strong class="lexis">Efficiency Gains</strong></p>
+<p>Dear Team,</p>
+<p>This memo outlines the critical need to immediately <strong class="lexis">conceptualize the strategic imperative</strong> behind a comprehensive review of our operational workflows. Recent internal audits, coupled with emerging market pressures, indicate a pervasive underperformance that can no longer be attributed to isolated incidents. We are observing systemic vulnerabilities that directly impact our delivery timelines and overall profitability.</p>
+<p>While individual departmental <strong class="lexis">process optimization</strong> efforts have yielded some localized improvements, it has become abundantly clear that these siloed initiatives fail to address the overarching interconnectedness of our operations. The true challenge lies not in individual component failure, but in the lack of synergistic <strong class="lexis">workflow design</strong> across the entire supply chain and client service lifecycle. This is creating significant <strong class="lexis">bottleneck analysis</strong> challenges, making it difficult to pinpoint precise points of friction without a holistic perspective.</p>
+<p><strong class="lexis">How can we genuinely pursue lean principles if our core operational ontology remains fragmented and disparate?</strong> Is it not true that failing to <strong class="lexis">unpack the underlying logic</strong> of our cross-functional engagements compromises the very foundation of our promised <strong class="lexis">efficiency gains</strong>?</p>
+<p>Our current approach, while well-intentioned, risks cementing a reactive culture rather than fostering a proactive, integrated one. It is imperative that we move beyond mere troubleshooting to <strong class="lexis">distilling the core challenge</strong>: redesigning for seamless inter-departmental collaboration. This strategic realignment is essential if we are to <strong class="lexis">align with our broader vision</strong> of market leadership and sustained growth. I propose forming an immediate task force to develop a unified framework for <strong class="lexis">workflow design</strong> and optimization, leveraging cross-functional expertise to ensure we address these systemic issues at their root. Your prompt attention to this matter is appreciated.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">According to the memo, what specific issues indicate a &#x27;pervasive underperformance&#x27;?</p>
+<p>Specific issues indicating pervasive underperformance:</p>
+</div>
+<div class="task"><p class="task-instruction">What is identified as the &#x27;true challenge&#x27; beyond individual component failure?</p>
+<p>The true challenge is:</p>
+</div>
+<div class="task"><p class="task-instruction">What is the Operations Director&#x27;s proposed next step to address the issues?</p>
+<p>Proposed next step:</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-GD">
+<header class="stage-header"><span class="stage-code">GD</span><h2>Guided Discovery: Rhetoric and Strategic Framing</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Direct learners to the specific sentences containing the target structures and lexis.<br>
+2. For the rhetorical questions, ask learners: &#x27;Is the director truly asking for information here? What is the real purpose of these questions? What effect do they have on the reader?&#x27; (They are cementing a strategic logic point, emphasizing systemic vulnerabilities, and manipulating grammar for high-stakes engagement).<br>
+3. For the lexical phrases, ask: &#x27;What does each phrase mean in this context? Why are these specific words chosen? How do they make the argument sound more professional and impactful?&#x27; (They articulate complex, abstract strategic concepts with gravitas and precision).<br>
+4. Guide them to discover the meaning and pragmatic function before providing explicit clarification.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Understanding Strategic Language</h4>
+<p>Re-read the memo, paying close attention to the highlighted phrases and questions. Complete the following tasks to analyze how the Operations Director uses language to convey a sense of urgency and strategic importance.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Memo: Urgent Review of Operational Workflow Synergy</h5>
+<p>To: Senior Leadership Team<br>
+From: Operations Director<br>
+Date: October 26, 2023<br>
+Subject: Critical Review of Inter-Departmental Workflow Synergy and <strong class="lexis">Efficiency Gains</strong></p>
+<p>Dear Team,</p>
+<p>This memo outlines the critical need to immediately <strong class="lexis">conceptualize the strategic imperative</strong> behind a comprehensive review of our operational workflows. Recent internal audits, coupled with emerging market pressures, indicate a pervasive underperformance that can no longer be attributed to isolated incidents. We are observing systemic vulnerabilities that directly impact our delivery timelines and overall profitability.</p>
+<p>While individual departmental <strong class="lexis">process optimization</strong> efforts have yielded some localized improvements, it has become abundantly clear that these siloed initiatives fail to address the overarching interconnectedness of our operations. The true challenge lies not in individual component failure, but in the lack of synergistic <strong class="lexis">workflow design</strong> across the entire supply chain and client service lifecycle. This is creating significant <strong class="lexis">bottleneck analysis</strong> challenges, making it difficult to pinpoint precise points of friction without a holistic perspective.</p>
+<p><strong class="lexis">How can we genuinely pursue lean principles if our core operational ontology remains fragmented and disparate?</strong> Is it not true that failing to <strong class="lexis">unpack the underlying logic</strong> of our cross-functional engagements compromises the very foundation of our promised <strong class="lexis">efficiency gains</strong>?</p>
+<p>Our current approach, while well-intentioned, risks cementing a reactive culture rather than fostering a proactive, integrated one. It is imperative that we move beyond mere troubleshooting to <strong class="lexis">distilling the core challenge</strong>: redesigning for seamless inter-departmental collaboration. This strategic realignment is essential if we are to <strong class="lexis">align with our broader vision</strong> of market leadership and sustained growth. I propose forming an immediate task force to develop a unified framework for <strong class="lexis">workflow design</strong> and optimization, leveraging cross-functional expertise to ensure we address these systemic issues at their root. Your prompt attention to this matter is appreciated.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Consider the rhetorical questions in the memo: &#x27;How can we genuinely pursue lean principles if our core operational ontology remains fragmented and disparate?&#x27; and &#x27;Is it not true that failing to unpack the underlying logic of our cross-functional engagements compromises the very foundation of our promised efficiency gains?&#x27;. What is the primary purpose of these questions in the memo?</p>
+<p>The primary purpose of these rhetorical questions is to:</p>
+</div>
+<div class="task"><p class="task-instruction">Analyze the following phrases from the memo: &#x27;conceptualize the strategic imperative&#x27;, &#x27;unpack the underlying logic&#x27;, &#x27;distilling the core challenge&#x27;, &#x27;align with our broader vision&#x27;. How do these phrases contribute to the memo&#x27;s overall tone and professional impact?</p>
+<p>These phrases contribute to a tone that is:</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-CP">
+<header class="stage-header"><span class="stage-code">CP</span><h2>Controlled Practice: Crafting Strategic Statements</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain the task: learners will transform declarative statements into rhetorical questions and complete sentences using target lexis.<br>
+2. For the rhetorical questions, emphasize the C2 register and the function of reinforcing an undeniable truth or highlighting a critical flaw.<br>
+3. For the lexical items, ensure learners understand the nuanced meaning of each phrase.<br>
+4. Provide individual feedback on sentence structure and word choice, focusing on the precision and gravitas required for C2 professional contexts.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Refining Your Strategic Voice</h4>
+<p>Now, let&#x27;s practice using the advanced strategic language and rhetorical patterns we analyzed. Complete the following tasks to develop your ability to frame complex ideas professionally.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Rewrite the following declarative statement as a high-register rhetorical question to emphasize a systemic vulnerability. Use an interrogative frame enclosing an axiomatic truth, similar to the memo.</p>
+<p>Declarative: Our current data management system is severely outdated, compromising the accuracy of financial forecasts.
+Rhetorical Question: __________ if our data management system is fundamentally flawed?</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the following sentence using a phrase from the memo to articulate a complex strategic idea.</p>
+<p>Before developing any new initiatives, it is crucial to first __________ of our long-term goals.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the following sentence using a phrase from the memo, focusing on identifying the core problem.</p>
+<p>Our first step in improving customer satisfaction must be __________ the causes of frequent complaints.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the following statement into a rhetorical question that reinforces a logical consequence, similar to the example &#x27;Is it not true that...&#x27;</p>
+<p>Declarative: Neglecting employee training will inevitably lead to a decline in service quality.
+Rhetorical Question: __________ that a failure to invest in employee training compromises our commitment to service quality?</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Freer Practice: Proposing Workflow Improvements</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain the task: Learners will prepare a short, structured pitch for a workplace improvement.<br>
+2. Encourage them to use at least one rhetorical question (Target 1) and two phrases from Target 2 to frame their argument.<br>
+3. Monitor pair work, listening for appropriate use of the target language.<br>
+4. Facilitate a short &#x27;pitch&#x27; session where pairs present their ideas to the class.<br>
+5. Provide constructive feedback on the strategic impact and linguistic accuracy of their proposals.<br>
+Sample answer:<br>
+&#x27;Friends, colleagues, how can we truly claim to be a forward-thinking logistics hub if our internal communication channels remain analogue and siloed? It is imperative that we conceptualize the strategic imperative of digital transformation in this area. Our first step is distilling the core challenge of information lag, and only then can we truly align with our broader vision of real-time supply chain management.&#x27;</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Applying Advanced Strategic Thought</h4>
+<p>Imagine you need to present a proposal to your management team for a significant improvement to an inefficient process in your workplace. This is a high-stakes discussion where you need to convince them of the critical need for change.</p>
+<p>Work in pairs. Prepare a short, compelling pitch (2-3 minutes) that includes:</p>
+<p>1.  A brief description of the inefficiency and its impact.<br>
+2.  At least one rhetorical question (like those from the memo) to highlight a systemic vulnerability or reinforce an undeniable truth.<br>
+3.  At least two of the advanced strategic phrases (e.g., &quot;conceptualize the strategic imperative,&quot; &quot;unpack the underlying logic,&quot; &quot;distilling the core challenge,&quot; &quot;align with our broader vision&quot;) to articulate your ideas professionally.</p>
+<p>Be ready to present your pitch to another pair or the class.</p>
+</section>
+</article>
+</body>
+</html>

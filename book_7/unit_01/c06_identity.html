@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Responding Diplomatically to Challenging Communication</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Responding Diplomatically to Challenging Communication</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>1</dd>
+      <dt>Class</dt><dd>6</dd>
+      <dt>Theme</dt><dd>T01_IDENTITY</dd>
+      <dt>Framework</dt><dd>SK-PROD</dd>
+      <dt>Role</dt><dd>SK_PROD_WRITING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Professional Pressure Points</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the class by asking learners to think about situations where they received an angry email or message at work.<br>
+2. Ask learners if they ever had to write a response to an angry client or supervisor without making the situation worse.<br>
+3. Facilitate a short group discussion: &#x27;What makes these responses difficult to write?&#x27; &#x27;What&#x27;s the goal when you write back?&#x27;<br>
+4. Emphasize the importance of maintaining a professional register and not escalating conflict.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Dealing with Difficult Messages</h4>
+<p>Have you ever received an <strong class="lexis">angry message</strong> or email from a client or supervisor at work? How did you feel?</p>
+<p>Now, imagine you have to write back. What kind of situations would require you to write a very careful, <strong class="lexis">diplomatic response</strong>?</p>
+<p>Discuss with a partner: <br>
+1. What is your main <strong class="lexis">purpose</strong> when writing a response to an angry message?<br>
+2. What are the dangers of replying too quickly or emotionally?<br>
+3. What specific words or phrases should you <strong class="lexis">avoid</strong> when trying to calm a tense situation?</p>
+</section>
+</article>
+<article class="stage" id="stage-MOD">
+<header class="stage-header"><span class="stage-code">MOD</span><h2>Model Analysis: A Diplomatic Email</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Distribute the model email.<br>
+2. Ask learners to read the email quickly to get the gist: What is the main problem? What is the sender&#x27;s goal?<br>
+3. Instruct learners to reread the email more carefully and complete the comprehension tasks.<br>
+4. Review answers as a class, focusing on how the writer achieves a diplomatic tone and addresses concerns without escalating the issue. Pay attention to how the writer acknowledges the issue, offers solutions, and sets a professional tone.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Analyzing a Calm Reply</h4>
+<p>Read the following email response. It was written by a logistics coordinator to a client who was very unhappy about a delayed shipment. Think about how the coordinator manages the client&#x27;s anger.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Response Regarding Shipment Delay</h5>
+<p>Subject: Following Up on Your Query Regarding Order #2024-57890</p>
+<p>Dear Mr. Davies,</p>
+<p>Thank you for reaching out and sharing your concerns regarding the recent delay with Order #2024-57890. I understand your frustration, and I sincerely apologize for any inconvenience this has caused your team and your operations. We recognize the importance of timely deliveries, especially for critical components like these.</p>
+<p>Upon reviewing the situation, the unexpected disruption was due to an unforeseen technical issue at our regional sorting facility on Tuesday, which impacted a small percentage of outbound shipments, including yours. We have already implemented a contingency plan and reinforced our systems to prevent recurrence.</p>
+<p>I can confirm that your shipment has now been rerouted and is currently on schedule to arrive at your facility by <strong class="lexis">end of day tomorrow, July 25th</strong>. You can track its updated status using the link here: [Tracking Link]. Additionally, as a gesture of goodwill and to mitigate any further disruption, we are arranging a special discount on your next order with us. Your account manager, Sarah Chen, will be in touch directly tomorrow to discuss this further.</p>
+<p>We value your business and are committed to ensuring your satisfaction. Please do not hesitate to contact me directly if you have any further questions or require additional assistance. </p>
+<p>Sincerely,</p>
+<p>Eleanor Vance<br>
+Logistics Coordinator<br>
+Global Transit Solutions</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the primary purpose of Eleanor&#x27;s email?</p>
+<ul><li>To blame the client for not checking the tracking link.</li><li>To explain the delay, apologize, and offer a solution.</li><li>To inform the client about a new company policy.</li><li>To request more information from the client.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Identify two phrases Eleanor uses to show empathy or acknowledge the client&#x27;s feelings.</p>
+</div>
+<div class="task"><p class="task-instruction">How does Eleanor address the issue of responsibility without assigning blame?</p>
+</div>
+<div class="task"><p class="task-instruction">Which best describes the tone of Eleanor&#x27;s email?</p>
+<ul><li>Defensive and accusatory.</li><li>Aggressive and demanding.</li><li>Professional and conciliatory.</li><li>Informal and casual.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-PREP">
+<header class="stage-header"><span class="stage-code">PREP</span><h2>Preparation: Crafting Diplomatic Language</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that effective diplomatic writing relies on specific phrases and structures.<br>
+2. Direct learners to the &#x27;Apologizing &amp; Empathizing&#x27; column bank. Ask them to identify which phrases from the model email fit into this category, and then add other common phrases they know.<br>
+3. Repeat for &#x27;Explaining &amp; Offering Solutions&#x27; and &#x27;Maintaining Professionalism&#x27;.<br>
+4. Facilitate a discussion on how these phrases help to de-escalate tension and maintain a positive working relationship. Emphasize that the choice of words directly impacts the reader&#x27;s perception.<br>
+5. Encourage learners to practice using these phrases in short sentences.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Toolbox for Calm Responses</h4>
+<p>When writing a diplomatic response, choosing the right words can change everything. Look at the phrases below. We can use them to help us keep a professional and calm tone.</p>
+<p>Complete the table with phrases you might use in similar situations. Look back at Eleanor&#x27;s email for ideas.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Apologizing &amp; Empathizing</th><th>Explaining &amp; Offering Solutions</th><th>Maintaining Professionalism</th></tr><tr><td>I understand your frustration.</td><td>This was due to an unforeseen technical issue.</td><td>We value your business.</td></tr><tr><td>I sincerely apologize for any inconvenience.</td><td>We have implemented a contingency plan.</td><td>We are committed to ensuring your satisfaction.</td></tr><tr><td>We regret that this situation has occurred.</td><td>We can confirm that your shipment is now...</td><td>Please do not hesitate to contact me.</td></tr><tr><td>We appreciate you bringing this to our attention.</td><td>As a gesture of goodwill, we are arranging...</td><td>Thank you for your understanding.</td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Free Practice: Drafting a Diplomatic Email</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Remind learners of the scenario they discussed in the Lead-In, or provide a new one if preferred.<br>
+2. Clearly outline the task: write a diplomatic email response to an angry client or supervisor.<br>
+3. Emphasize the importance of purpose (de-escalate, inform, resolve), audience (angry client/supervisor), and length (150-200 words).<br>
+4. Give learners time to plan their email using the phrases from the PREP stage.<br>
+5. Circulate and monitor, offering help with vocabulary and structure. Do not correct extensively at this stage; focus on content and tone.<br>
+6. Model Answer (for teacher reference):<br>
+   Subject: Regarding the Project Timeline for Q3 Report<br>
+   Dear Mr. Henderson,</p>
+<p>   Thank you for your email concerning the revised timeline for the Q3 report. I understand your disappointment with the adjusted deadline, especially given the tight schedules we&#x27;re all managing. I sincerely apologize for the initial miscommunication regarding the original target date, and for any extra pressure this may have caused.</p>
+<p>   The change was necessitated by an unexpected technical upgrade to our data analysis software, which temporarily impacted our team’s access to historical figures last week. This was an unforeseen issue that has now been resolved. However, to ensure the report&#x27;s accuracy and comprehensive nature, we&#x27;ve had to adjust the submission date.</p>
+<p>   I can confirm that the team is working diligently to complete the report. We are on track to submit a fully revised draft for your review by Friday, August 10th. To assist with your planning, I&#x27;ve attached a provisional executive summary outlining the key findings available to date. </p>
+<p>   We are committed to delivering a high-quality report and appreciate your patience and understanding in this matter. Please let me know if you have any questions.</p>
+<p>   Sincerely,</p>
+<p>   [Your Name]<br>
+   [Your Position]</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Your Turn: Responding Under Pressure</h4>
+<p>Now it&#x27;s your turn to write a careful professional response.</p>
+<p><strong class="lexis">Task:</strong> Write an email (150-200 words) to an angry client or supervisor. The situation can be one you discussed in the Lead-In, or you can use the following:</p>
+<p><strong class="lexis">Scenario:</strong> You are a team lead. A supervisor has sent you an angry email, complaining that a critical project deliverable will be late, which will impact their department&#x27;s schedule. You know your team faced an unexpected technical issue last week that caused the delay, but the issue is now resolved, and you have a new, realistic delivery date. </p>
+<p><strong class="lexis">Your Goal:</strong><br>
+*   <strong class="lexis">Acknowledge</strong> their frustration.<br>
+*   <strong class="lexis">Explain</strong> the situation calmly, without blaming anyone.<br>
+*   <strong class="lexis">Offer</strong> a clear solution and a new, firm delivery date.<br>
+*   <strong class="lexis">Maintain</strong> a professional and diplomatic tone throughout.</p>
+<p>Use the useful phrases from our previous activity to help you structure your response. Remember to focus on clarity and de-escalation.</p>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback &amp; Correction: Refining the Diplomatic Tone</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Organize learners into pairs or small groups for peer feedback.<br>
+2. Instruct learners to exchange their emails and read each other&#x27;s work.<br>
+3. Provide specific questions for peer feedback, focusing first on content and tone, then on language accuracy.<br>
+4. Circulate and listen to discussions, noting common errors or areas for improvement.<br>
+5. Facilitate a whole-class discussion: &#x27;What worked well in the emails you read?&#x27; &#x27;What was challenging?&#x27;<br>
+6. Address common language issues (e.g., formal vs. informal language, appropriate verb tenses for apologies/explanations, clarity of solutions).<br>
+7. Encourage learners to revise their emails based on feedback, focusing on improving diplomacy and clarity.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reviewing and Improving Our Responses</h4>
+<p>Now we will review and improve our emails. Exchange your email with a partner. Read their email carefully and consider the following points for feedback:</p>
+<p><strong class="lexis">Content and Tone Feedback:</strong><br>
+1.  Does the email clearly <strong class="lexis">acknowledge</strong> the recipient&#x27;s frustration?<br>
+2.  Is the <strong class="lexis">explanation</strong> for the problem clear and easy to understand?<br>
+3.  Does the email offer a clear and <strong class="lexis">realistic solution</strong> or next step?<br>
+4.  Is the <strong class="lexis">tone</strong> professional and diplomatic throughout? Does it avoid escalating the conflict?<br>
+5.  What is one thing you liked about your partner&#x27;s email?<br>
+6.  What is one suggestion you have for making the email even more diplomatic or clear?</p>
+<p><strong class="lexis">Language Feedback:</strong><br>
+*   Underline any phrases that could be more formal or polite.<br>
+*   Circle any grammatical errors or unclear sentences.</p>
+<p>After receiving feedback, revise your email to make it as effective and diplomatic as possible. Focus on applying the language we practiced.</p>
+</section>
+</article>
+</body>
+</html>

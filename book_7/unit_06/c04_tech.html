@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI in Logistics: Ethical Considerations</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>AI in Logistics: Ethical Considerations</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>6</dd>
+      <dt>Class</dt><dd>4</dd>
+      <dt>Theme</dt><dd>T06_TECH</dd>
+      <dt>Framework</dt><dd>SK-REC</dd>
+      <dt>Role</dt><dd>SK_REC_LISTENING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: AI&#x27;s Footprint in Logistics</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by displaying the unit theme: &#x27;Ethics &amp; AI&#x27;.<br>
+2. Introduce the specific situational focus: &#x27;Addressing the ethical trade-offs of AI-driven automation in transportation and supply chains.&#x27;<br>
+3. Explain that today&#x27;s lesson will explore these issues through a listening exercise.<br>
+4. Facilitate a brief class discussion based on the student questions, encouraging learners to share their initial thoughts and experiences.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">The Road Ahead: AI in Your World</h4>
+<p>As technology advances, <strong class="lexis">autonomous vehicles</strong> and AI are becoming more common in industries like logistics and transportation. This means big changes for how goods move and for the people who work in these sectors.</p>
+<p>Discuss with a partner or the class:<br>
+1. Have you seen or heard about AI-driven automation in transportation or supply chains in your region or industry?<br>
+2. What are some immediate benefits you can think of from such automation?<br>
+3. What ethical dilemmas or challenges might arise when AI takes over roles traditionally done by humans?</p>
+</section>
+</article>
+<article class="stage" id="stage-PTV">
+<header class="stage-header"><span class="stage-code">PTV</span><h2>Pre-Teach Vocabulary: Key Terms for AI Ethics</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the new vocabulary items to the class.<br>
+2. Briefly explain the meaning of each term and provide a clear example sentence for context.<br>
+3. Instruct students to complete the matching task individually.<br>
+4. Review answers as a class, clarifying any misconceptions and ensuring correct pronunciation.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Understanding the Language of Automation</h4>
+<p>Before we listen, let&#x27;s look at some important terms you&#x27;ll hear. Match each term on the left with its correct definition on the right.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>autonomous fleets</li><li>job displacement</li><li>supply chain resilience</li><li>ethical programming</li><li>human-machine collaboration</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match each term to its definition.</p>
+<p>Match the terms related to AI and logistics with their definitions.</p>
+<ul><li><strong>autonomous fleets</strong> — Groups of vehicles (e.g., trucks, drones) that operate independently without direct human control.</li><li><strong>job displacement</strong> — The situation where people lose their jobs because of automation or technological advancements.</li><li><strong>supply chain resilience</strong> — The ability of a supply chain to resist, respond to, and recover from disruptions, often enhanced by technology.</li><li><strong>ethical programming</strong> — The process of designing AI systems with moral principles and values embedded in their decision-making processes.</li><li><strong>human-machine collaboration</strong> — A working relationship where humans and machines (like AI or robots) work together to achieve a common goal.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-GIST">
+<header class="stage-header"><span class="stage-code">GIST</span><h2>Gist Listening: The Ethical Landscape of Automated Logistics</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain to students that they will listen to a podcast segment discussing AI in logistics.<br>
+2. Instruct them to listen for the main ideas and overall message, rather than specific details.<br>
+3. Play the audio once.<br>
+4. Have students answer the multiple-choice question to check their global understanding.<br>
+5. Discuss the answer as a class, inviting brief explanations for their choice.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">First Listen: Main Ideas in AI Logistics</h4>
+<p>You will hear a podcast discussing the ethical considerations of AI in logistics. Listen once to understand the main points. Then, choose the option that best summarizes the discussion.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Future Frontiers: The Human Cost of Automated Logistics</h5>
+<p>Host: Welcome to &#x27;Future Frontiers&#x27;. Today, we&#x27;re talking about the rapid advancement of AI in logistics. Dr. Anya Sharma, a specialist in AI ethics, is with us. Dr. Sharma, we&#x27;re seeing more <strong class="lexis">autonomous fleets</strong> and automated warehouses. What are the primary ethical considerations here?</p>
+<p>Dr. Sharma: Thank you. It&#x27;s a critical discussion. On one hand, AI promises unprecedented efficiency and <strong class="lexis">supply chain resilience</strong>. Think about optimized routes, reduced human error, and 24/7 operations. But the immediate concern for many is <strong class="lexis">job displacement</strong>. Truck drivers, warehouse staff – these roles are directly impacted. We have to address how we transition these workforces.</p>
+<p>Host: So, <strong class="lexis">job displacement</strong> is a major ethical hurdle. How can companies or governments mitigate this?</p>
+<p>Dr. Sharma: It&#x27;s a multi-faceted approach. We need massive investment in re-skilling and up-skilling programs. People whose jobs are automated need new pathways. Beyond that, there&#x27;s the question of <strong class="lexis">ethical programming</strong> itself. How do we program these autonomous systems to make decisions in morally ambiguous situations? For instance, in an accident scenario, how do we prioritize? It&#x27;s not just about efficiency; it&#x27;s about embedding human values into algorithms.</p>
+<p>Host: That&#x27;s a profound point. It sounds like <strong class="lexis">human-machine collaboration</strong> is key, not just total replacement.</p>
+<p>Dr. Sharma: Exactly. The future isn&#x27;t purely autonomous. It&#x27;s about how humans and AI augment each other. AI can handle repetitive, data-heavy tasks, freeing up humans for complex problem-solving, creative input, and oversight. This requires rethinking job roles to focus on managing AI systems, interpreting their data, and intervening when necessary. It&#x27;s a shift from manual labor to cognitive labor, requiring new skills and a new mindset.</p>
+<p>Host: And what about the broader societal impact on communities reliant on these traditional logistics jobs?</p>
+<p>Dr. Sharma: That&#x27;s where policy makers need to step in. We need social safety nets, transition support, and regional development initiatives to create new opportunities where old ones are phased out. The ethical imperative isn&#x27;t just about the technology itself, but about managing its societal ripple effects responsibly. It&#x27;s a conversation that involves technologists, ethicists, policy makers, and the workforce itself. We cannot just automate and hope for the best.</p>
+<p>Host: Dr. Sharma, a fascinating and vital discussion. Thank you for joining us.</p>
+<p>Dr. Sharma: My pleasure.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Which of the following best summarizes the main focus of the podcast segment?</p>
+<p>The podcast segment primarily discusses:</p>
+<ul><li>The technological advancements enabling autonomous fleets in logistics.</li><li>The financial benefits and increased profits from AI automation in supply chains.</li><li>The ethical dilemmas and societal impacts of AI-driven automation on the logistics workforce and community.</li><li>The historical development of AI and its application across various industries.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-DET">
+<header class="stage-header"><span class="stage-code">DET</span><h2>Detailed Listening: Specifics of AI&#x27;s Impact</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will listen to the same podcast segment again, this time focusing on specific details.<br>
+2. Instruct them to read the questions carefully before the second listening.<br>
+3. Play the audio once or twice, pausing if necessary after key sections, to allow students to complete the tasks.<br>
+4. Have students compare their answers in pairs.<br>
+5. Conduct a whole-class check, reviewing each answer and clarifying any points of confusion.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Second Listen: Unpacking the Details</h4>
+<p>Now, listen again for more specific information. Answer the questions based on what Dr. Sharma and the Host discuss.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Future Frontiers: The Human Cost of Automated Logistics</h5>
+<p>Host: Welcome to &#x27;Future Frontiers&#x27;. Today, we&#x27;re talking about the rapid advancement of AI in logistics. Dr. Anya Sharma, a specialist in AI ethics, is with us. Dr. Sharma, we&#x27;re seeing more <strong class="lexis">autonomous fleets</strong> and automated warehouses. What are the primary ethical considerations here?</p>
+<p>Dr. Sharma: Thank you. It&#x27;s a critical discussion. On one hand, AI promises unprecedented efficiency and <strong class="lexis">supply chain resilience</strong>. Think about optimized routes, reduced human error, and 24/7 operations. But the immediate concern for many is <strong class="lexis">job displacement</strong>. Truck drivers, warehouse staff – these roles are directly impacted. We have to address how we transition these workforces.</p>
+<p>Host: So, <strong class="lexis">job displacement</strong> is a major ethical hurdle. How can companies or governments mitigate this?</p>
+<p>Dr. Sharma: It&#x27;s a multi-faceted approach. We need massive investment in re-skilling and up-skilling programs. People whose jobs are automated need new pathways. Beyond that, there&#x27;s the question of <strong class="lexis">ethical programming</strong> itself. How do we program these autonomous systems to make decisions in morally ambiguous situations? For instance, in an accident scenario, how do we prioritize? It&#x27;s not just about efficiency; it&#x27;s about embedding human values into algorithms.</p>
+<p>Host: That&#x27;s a profound point. It sounds like <strong class="lexis">human-machine collaboration</strong> is key, not just total replacement.</p>
+<p>Dr. Sharma: Exactly. The future isn&#x27;t purely autonomous. It&#x27;s about how humans and AI augment each other. AI can handle repetitive, data-heavy tasks, freeing up humans for complex problem-solving, creative input, and oversight. This requires rethinking job roles to focus on managing AI systems, interpreting their data, and intervening when necessary. It&#x27;s a shift from manual labor to cognitive labor, requiring new skills and a new mindset.</p>
+<p>Host: And what about the broader societal impact on communities reliant on these traditional logistics jobs?</p>
+<p>Dr. Sharma: That&#x27;s where policy makers need to step in. We need social safety nets, transition support, and regional development initiatives to create new opportunities where old ones are phased out. The ethical imperative isn&#x27;t just about the technology itself, but about managing its societal ripple effects responsibly. It&#x27;s a conversation that involves technologists, ethicists, policy makers, and the workforce itself. We cannot just automate and hope for the best.</p>
+<p>Host: Dr. Sharma, a fascinating and vital discussion. Thank you for joining us.</p>
+<p>Dr. Sharma: My pleasure.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">According to Dr. Sharma, what two main benefits does AI offer in logistics?</p>
+<p>AI offers unprecedented efficiency and _______________.</p>
+</div>
+<div class="task"><p class="task-instruction">What is the immediate concern for many people regarding AI in logistics, according to Dr. Sharma?</p>
+<p>The immediate concern for many is:</p>
+<ul><li>The high cost of implementing AI technology.</li><li>The potential for job displacement.</li><li>The difficulty of maintaining autonomous vehicles.</li><li>The lack of reliable data for AI systems.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Dr. Sharma emphasizes that a key aspect of the future is not total replacement, but what kind of collaboration?</p>
+<p>The future isn&#x27;t purely autonomous, it&#x27;s about _______________.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback and Discussion: Navigating the AI Era</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Lead a class discussion to allow students to react to the podcast&#x27;s content and share their perspectives.<br>
+2. Encourage them to use vocabulary from the lesson and to express reasoned opinions.<br>
+3. Provide brief feedback on language use, focusing on how accurately students used the target vocabulary and expressed complex ideas related to the theme.<br>
+4. Optionally, extend the discussion to a broader context of AI in their own industries.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Beyond Automation: Your Take</h4>
+<p>We&#x27;ve listened to Dr. Sharma&#x27;s insights on AI and logistics. Now, let&#x27;s discuss:</p>
+<p>1. What do you think is the most challenging ethical trade-off discussed by Dr. Sharma?<br>
+2. How important is <strong class="lexis">ethical programming</strong> in AI development, and who should be responsible for it?<br>
+3. In your view, how can industries best prepare their workforce for a future with increased <strong class="lexis">human-machine collaboration</strong>?<br>
+4. What measures do you think are most effective in mitigating the impact of <strong class="lexis">job displacement</strong>?</p>
+</section>
+</article>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crafting Formal Environmental Proposals</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Crafting Formal Environmental Proposals</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>7</dd>
+      <dt>Class</dt><dd>2</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-setting-the-standard-for-green-operation">
+<header class="stage-header"><h2>Setting the Standard for Green Operations</h2></header>
+<section class="handout">
+<p>Imagine you&#x27;ve been tasked with overseeing an initiative to make your company&#x27;s facilities more environmentally responsible. You&#x27;re walking through the building, observing operations, with the goal of identifying areas for improvement.</p>
+<p>What are some immediate, practical steps you could propose to reduce the building&#x27;s overall energy consumption and improve waste management? Think about specific actions and their potential impact.</p>
+</section>
+</article>
+<article class="stage" id="stage-understanding-the-new-environmental-mand">
+<header class="stage-header"><h2>Understanding the New Environmental Mandate</h2></header>
+<section class="handout">
+<p>Read the following internal directive from the CEO regarding our new environmental commitments. Focus on understanding the overall purpose and main message.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Internal Directive: Advancing Our Environmental Stewardship</h5>
+<p>To: All Department Heads<br>
+From: CEO&#x27;s Office<br>
+Date: [Current Date]<br>
+Subject: Enhanced Commitment to <strong class="lexis">Green Facility Management</strong> and <strong class="lexis">Resource Efficiency Initiatives</strong></p>
+<p>Dear Colleagues,</p>
+<p>Our commitment to environmental responsibility is a cornerstone of our corporate values and operational strategy. As part of our ongoing efforts to uphold <strong class="lexis">global stewardship</strong>, I am announcing a significant enhancement to our approach to <strong class="lexis">environmental impact assessment</strong> and <strong class="lexis">carbon footprint mitigation</strong> across all facilities.</p>
+<p>Effective immediately, we will be implementing a comprehensive program focused on <strong class="lexis">sustainable operational practices</strong>. This initiative will involve a thorough review of our current resource consumption patterns, including detailed <strong class="lexis">energy audits</strong> across all commercial properties. The objective is to identify key areas for improvement and integrate <strong class="lexis">smart building tech</strong> solutions to optimize our energy usage.</p>
+<p>Furthermore, we will be initiating a company-wide drive towards <strong class="lexis">waste stream optimization</strong>, with a particular focus on improving <strong class="lexis">waste segregation</strong> protocols. This is not merely about compliance with <strong class="lexis">environmental regulations</strong>; it is about embracing a proactive stance in minimizing our ecological footprint.</p>
+<p>We anticipate that the <strong class="lexis">acceleration of global resource degradation</strong> necessitates a robust response from all sectors. Our collective effort in <strong class="lexis">adhering to environmental regulations</strong> and going beyond minimum requirements will position us as a leader in responsible <strong class="lexis">green facility management</strong>. Department heads are required to review this directive and prepare for upcoming training sessions on new protocols and reporting standards. Your proactive engagement is crucial for the successful <strong class="lexis">implementation of energy-efficient upgrades</strong> and the achievement of our ambitious sustainability goals.</p>
+<p>Sincerely,<br>
+[CEO&#x27;s Name]</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main purpose of this internal directive?</p>
+<p>The primary objective of the CEO&#x27;s directive is to...</p>
+<ul><li>Inform staff about a new energy bill.</li><li>Announce a comprehensive program to enhance environmental responsibility and sustainability across the company.</li><li>Delegate responsibility for waste disposal to all department heads.</li><li>Outline a plan for new building construction.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-unpacking-the-directive-key-actions-and-">
+<header class="stage-header"><h2>Unpacking the Directive: Key Actions and Implications</h2></header>
+<section class="handout">
+<p>Read the internal directive again more closely. This time, pay attention to the specific actions outlined, who is responsible, and the overall message conveyed by the language used.</p>
+<p>1. What specific actions will be taken regarding energy consumption and waste management?<br>
+2. Who is primarily responsible for ensuring the success of these new initiatives?<br>
+3. What is the implied consequence for companies that do not adopt such measures, according to the directive&#x27;s tone?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Internal Directive: Advancing Our Environmental Stewardship</h5>
+<p>To: All Department Heads<br>
+From: CEO&#x27;s Office<br>
+Date: [Current Date]<br>
+Subject: Enhanced Commitment to <strong class="lexis">Green Facility Management</strong> and <strong class="lexis">Resource Efficiency Initiatives</strong></p>
+<p>Dear Colleagues,</p>
+<p>Our commitment to environmental responsibility is a cornerstone of our corporate values and operational strategy. As part of our ongoing efforts to uphold <strong class="lexis">global stewardship</strong>, I am announcing a significant enhancement to our approach to <strong class="lexis">environmental impact assessment</strong> and <strong class="lexis">carbon footprint mitigation</strong> across all facilities.</p>
+<p>Effective immediately, we will be implementing a comprehensive program focused on <strong class="lexis">sustainable operational practices</strong>. This initiative will involve a thorough review of our current resource consumption patterns, including detailed <strong class="lexis">energy audits</strong> across all commercial properties. The objective is to identify key areas for improvement and integrate <strong class="lexis">smart building tech</strong> solutions to optimize our energy usage.</p>
+<p>Furthermore, we will be initiating a company-wide drive towards <strong class="lexis">waste stream optimization</strong>, with a particular focus on improving <strong class="lexis">waste segregation</strong> protocols. This is not merely about compliance with <strong class="lexis">environmental regulations</strong>; it is about embracing a proactive stance in minimizing our ecological footprint.</p>
+<p>We anticipate that the <strong class="lexis">acceleration of global resource degradation</strong> necessitates a robust response from all sectors. Our collective effort in <strong class="lexis">adhering to environmental regulations</strong> and going beyond minimum requirements will position us as a leader in responsible <strong class="lexis">green facility management</strong>. Department heads are required to review this directive and prepare for upcoming training sessions on new protocols and reporting standards. Your proactive engagement is crucial for the successful <strong class="lexis">implementation of energy-efficient upgrades</strong> and the achievement of our ambitious sustainability goals.</p>
+<p>Sincerely,<br>
+[CEO&#x27;s Name]</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Identify two specific actions mentioned for energy consumption.</p>
+<p>Two actions for energy consumption are:</p>
+</div>
+<div class="task"><p class="task-instruction">Which role is primarily responsible for ensuring the success of these new initiatives?</p>
+<p>The primary responsibility falls on:</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-deconstructing-formal-language-in-sustai">
+<header class="stage-header"><h2>Deconstructing Formal Language in Sustainability Reports</h2></header>
+<section class="handout">
+<p>Now, let&#x27;s look at how this directive uses language to convey its message formally and authoritatively. We&#x27;ll examine two key features:</p>
+<p><strong class="lexis">A. Grammatical Nominalization: Turning Actions into Concepts</strong><br>
+Look at the phrases below from the text. Notice how verbs or adjectives are transformed into noun phrases. This makes the language sound more formal and focuses on the process or concept rather than who is doing the action.</p>
+<p>1. &#x27;Our collective effort in <strong class="lexis">adhering to environmental regulations</strong> and going beyond minimum requirements...&#x27; (Original action: &#x27;We adhere to environmental regulations&#x27;)<br>
+2. &#x27;...the successful <strong class="lexis">implementation of energy-efficient upgrades</strong>...&#x27; (Original action: &#x27;We implement energy-efficient upgrades&#x27;)<br>
+3. &#x27;...the <strong class="lexis">acceleration of global resource degradation</strong> necessitates a robust response...&#x27; (Original action: &#x27;Global resources are degrading faster&#x27;)</p>
+<p><strong class="lexis">Task A:</strong> For each of the nominalized phrases above, consider: Have we packaged an action into a complex noun phrase to sound more formal and objective? Is the sentence focused on a specific human worker, or on an objective systemic process? How does this change the tone and impact of the message?</p>
+<p><strong class="lexis">B. Professional Lexis for Environmental Responsibility</strong><br>
+The directive uses specific, formal vocabulary to discuss environmental impact, compliance, and proactive stewardship. These phrases are crucial for professional communication in this field.</p>
+<p>Identify phrases from the text that precisely convey the following meanings:</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Internal Directive: Advancing Our Environmental Stewardship</h5>
+<p>To: All Department Heads<br>
+From: CEO&#x27;s Office<br>
+Date: [Current Date]<br>
+Subject: Enhanced Commitment to <strong class="lexis">Green Facility Management</strong> and <strong class="lexis">Resource Efficiency Initiatives</strong></p>
+<p>Dear Colleagues,</p>
+<p>Our commitment to environmental responsibility is a cornerstone of our corporate values and operational strategy. As part of our ongoing efforts to uphold <strong class="lexis">global stewardship</strong>, I am announcing a significant enhancement to our approach to <strong class="lexis">environmental impact assessment</strong> and <strong class="lexis">carbon footprint mitigation</strong> across all facilities.</p>
+<p>Effective immediately, we will be implementing a comprehensive program focused on <strong class="lexis">sustainable operational practices</strong>. This initiative will involve a thorough review of our current resource consumption patterns, including detailed <strong class="lexis">energy audits</strong> across all commercial properties. The objective is to identify key areas for improvement and integrate <strong class="lexis">smart building tech</strong> solutions to optimize our energy usage.</p>
+<p>Furthermore, we will be initiating a company-wide drive towards <strong class="lexis">waste stream optimization</strong>, with a particular focus on improving <strong class="lexis">waste segregation</strong> protocols. This is not merely about compliance with <strong class="lexis">environmental regulations</strong>; it is about embracing a proactive stance in minimizing our ecological footprint.</p>
+<p>We anticipate that the <strong class="lexis">acceleration of global resource degradation</strong> necessitates a robust response from all sectors. Our collective effort in <strong class="lexis">adhering to environmental regulations</strong> and going beyond minimum requirements will position us as a leader in responsible <strong class="lexis">green facility management</strong>. Department heads are required to review this directive and prepare for upcoming training sessions on new protocols and reporting standards. Your proactive engagement is crucial for the successful <strong class="lexis">implementation of energy-efficient upgrades</strong> and the achievement of our ambitious sustainability goals.</p>
+<p>Sincerely,<br>
+[CEO&#x27;s Name]</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Find a phrase that means &#x27;ways of operating that don&#x27;t harm the environment in the long term&#x27;.</p>
+<p>Meaning: ways of operating that don&#x27;t harm the environment in the long term</p>
+</div>
+<div class="task"><p class="task-instruction">Find a phrase that means &#x27;reducing the amount of greenhouse gases produced&#x27;.</p>
+<p>Meaning: reducing the amount of greenhouse gases produced</p>
+</div>
+<div class="task"><p class="task-instruction">Find a phrase that means &#x27;following official rules about the environment&#x27;.</p>
+<p>Meaning: following official rules about the environment</p>
+</div>
+<div class="task"><p class="task-instruction">Find a phrase that means &#x27;a check of how green a property is&#x27;.</p>
+<p>Meaning: a check of how green a property is</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-crafting-formal-statements-for-environme">
+<header class="stage-header"><h2>Crafting Formal Statements for Environmental Policy</h2></header>
+<section class="handout">
+<p>Rewrite the following sentences using nominalization and the formal environmental lexis you&#x27;ve learned. Aim for a more objective, impersonal, and authoritative tone suitable for a formal report or directive.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Rewrite the sentence using nominalization.</p>
+<p>We need to plan how we will make urban areas more resilient to ecological changes.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence using nominalization and formal lexis.</p>
+<p>When companies don&#x27;t follow regulations, it often causes fines.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence using formal lexis.</p>
+<p>The company assessed the impact it had on the ecology last year.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence using formal lexis.</p>
+<p>We are working to make our operations more sustainable.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-drafting-proposals-for-enhanced-sustaina">
+<header class="stage-header"><h2>Drafting Proposals for Enhanced Sustainability</h2></header>
+<section class="handout">
+<p>You are now responsible for drafting a short proposal or executive summary to your management detailing two to three new initiatives for improving environmental stewardship within your workplace. Your goal is to convince them of the necessity and benefits of these changes.</p>
+<p>Use grammatical nominalization and the formal vocabulary we&#x27;ve discussed to make your proposal sound authoritative, objective, and professional. Focus on specific areas like <strong class="lexis">energy efficiency</strong>, <strong class="lexis">waste management</strong>, or <strong class="lexis">resource optimization</strong>.</p>
+<p><strong class="lexis">Draft your proposal in approximately 100-150 words.</strong></p>
+</section>
+</article>
+</body>
+</html>

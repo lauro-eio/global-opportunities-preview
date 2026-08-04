@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Untangling Unexpected Trade Costs</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Untangling Unexpected Trade Costs</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>4</dd>
+      <dt>Class</dt><dd>4</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-navigating-international-trade-risks">
+<header class="stage-header"><h2>Navigating International Trade Risks</h2></header>
+<section class="handout">
+<p>Your company relies on imported raw materials. Imagine a critical shipment is delayed or becomes unexpectedly expensive.</p>
+<p>Discuss the following with a partner:<br>
+1. Describe a hypothetical scenario where a misunderstanding in contractual terms (e.g., who pays for shipping, insurance) or a sudden currency shift (e.g., the value of the foreign currency changes) severely impacts your supply chain.<br>
+2. How would this impact your company&#x27;s operations and finances?<br>
+3. How would you professionally address this situation with your suppliers and internal teams?<br>
+4. What steps could you take to prevent such issues in the future?</p>
+</section>
+</article>
+<article class="stage" id="stage-understanding-key-business-language">
+<header class="stage-header"><h2>Understanding Key Business Language</h2></header>
+<section class="handout">
+<p>Before listening, familiarize yourself with these important terms related to international trade and finance. Match each term with its correct definition.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>customs_declarations</li><li>Incoterms_2020</li><li>payment_terms</li><li>foreign_exchange_fluctuations</li><li>supply_chain_resilience</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match each term related to global economics and risk analysis to its correct definition.</p>
+<p>Match the terms to their definitions:</p>
+<ul><li><strong>customs_declarations</strong> — Official documents detailing goods being imported or exported, used for assessing duties and ensuring regulatory compliance.</li><li><strong>Incoterms_2020</strong> — Internationally recognized rules that define the responsibilities of sellers and buyers for the delivery of goods under sales contracts.</li><li><strong>payment_terms</strong> — The agreed-upon conditions under which payment is to be made for goods or services, including timing and method.</li><li><strong>foreign_exchange_fluctuations</strong> — Changes in the relative value of one currency compared to another, impacting the cost of international transactions.</li><li><strong>supply_chain_resilience</strong> — The ability of a supply chain to anticipate, withstand, and recover from disruptions, adapting to maintain operations.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-first-listen-what-x27-s-the-main-issue">
+<header class="stage-header"><h2>First Listen: What&#x27;s the Main Issue?</h2></header>
+<section class="handout">
+<p>You will hear a conversation between Elena, a Procurement Manager, and Mark, a Finance Specialist. Listen once to understand the main issue they are discussing. Then, choose the best option to summarize the core problem.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Crisis in Copper: A Procurement and Finance Briefing</h5>
+<p><strong class="lexis">(Opening scene: Elena and Mark are on a video call, looking stressed.)</strong></p>
+<p><strong class="lexis">Elena:</strong> Thanks for making time, Mark. We have a significant issue with the latest copper shipment from Chile. The invoice from &#x27;Andean Resources&#x27; came in, and it&#x27;s considerably higher than anticipated, even with the agreed-upon <strong class="lexis">**payment_terms</strong>**.</p>
+<p><strong class="lexis">Mark:</strong> I saw the alert come through. It looks like a classic case of <strong class="lexis">**foreign_exchange_fluctuations</strong>** hitting us harder than our hedging strategy accounted for this quarter. The Chilean Peso has strengthened significantly against the Euro since we locked in the last contract.</p>
+<p><strong class="lexis">Elena:</strong> Exactly. And that&#x27;s compounded by the freight charges. We assumed DAP (Delivered at Place) according to our standard operating procedure, but their updated <strong class="lexis">**Incoterms_2020</strong>** declaration for this particular batch seems to indicate EXW (Ex Works), pushing the responsibility for main carriage and insurance onto us.</p>
+<p><strong class="lexis">Mark:</strong> EXW? That&#x27;s a massive oversight on their part, or ours, if we didn&#x27;t flag it during the negotiation review. That changes everything from a cost and risk perspective. Have you checked the <strong class="lexis">**customs_declarations</strong>** carefully? Sometimes the Incoterm is explicitly stated there, and it might contradict the initial commercial invoice if there&#x27;s been a miscommunication.</p>
+<p><strong class="lexis">Elena:</strong> I&#x27;ve scrutinized them. The <strong class="lexis">**customs_declarations</strong>** align with EXW for this specific consignment. It means we’re liable for all costs and risks until the goods arrive at our warehouse, starting from their factory gate in Santiago. That includes export packaging, loading, domestic transport in Chile, port handling, main carriage, insurance, and import clearance in Rotterdam. This isn&#x27;t just about the currency; it&#x27;s a fundamental misunderstanding of contractual obligations.</p>
+<p><strong class="lexis">Mark:</strong> This is precisely why <strong class="lexis">**Incoterms_2020</strong>** clarity is paramount. A single three-letter abbreviation can shift hundreds of thousands in costs. We need to review the original procurement contract for &#x27;Andean Resources&#x27;. Is there a discrepancy between the master agreement and this specific purchase order?</p>
+<p><strong class="lexis">Elena:</strong> That&#x27;s my next step. But beyond this immediate crisis, it highlights a vulnerability in our <strong class="lexis">**supply_chain_resilience</strong>**. If a critical raw material shipment can be so easily impacted by both currency shifts and ambiguous contractual terms, we need more robust checks.</p>
+<p><strong class="lexis">Mark:</strong> Absolutely. We need to initiate a formal dispute with Andean Resources, politely but firmly. We should reference the master contract and previous consignments where DAP was clearly stipulated. At the same time, our finance department can explore options for short-term currency swaps to mitigate immediate losses from the <strong class="lexis">**foreign_exchange_fluctuations</strong><strong class="lexis">. For the future, tighter integration between procurement, legal, and finance on </strong>every** new supplier contract is non-negotiable.</p>
+<p><strong class="lexis">Elena:</strong> Agreed. And we need to clarify our <strong class="lexis">**payment_terms</strong>** for future contracts to explicitly link them with the Incoterm used. Perhaps moving to a Letter of Credit (LC) for high-value imports could offer more security, though it adds administrative overhead. The priority now is getting this copper shipment cleared without further delays or unexpected charges, and then rectifying the contractual framework to prevent recurrence. This kind of misstep can seriously erode profitability and trust.</p>
+<p><strong class="lexis">Mark:</strong> Right. I&#x27;ll draft a formal communication for Andean Resources, outlining our concerns regarding the Incoterms discrepancy. You focus on expediting the customs clearance under the current, unfortunate EXW terms to minimize disruption. Let&#x27;s reconvene end of day.</p>
+<p><strong class="lexis">Elena:</strong> Will do. Thanks, Mark.</p>
+<p><strong class="lexis">(End of conversation.)</strong></p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the primary challenge Elena and Mark are discussing regarding the copper shipment?</p>
+<p>The core problem they are facing is:</p>
+<ul><li>The copper quality is substandard, leading to production delays.</li><li>A combination of unexpected currency shifts and a dispute over shipping responsibilities.</li><li>Their main supplier has gone out of business, requiring a new source.</li><li>The shipment has been lost in transit and cannot be traced.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-second-listen-digging-into-the-details">
+<header class="stage-header"><h2>Second Listen: Digging into the Details</h2></header>
+<section class="handout">
+<p>Listen to the conversation again. This time, answer the questions below with specific information from the dialogue.</p>
+<p>1. What specific Incoterm did the company assume, and which Incoterm was declared for the current shipment?<br>
+2. What is the main reason for the unexpected increase in the invoice due to currency issues?<br>
+3. According to Mark, what broad implications does the EXW Incoterm have for the company regarding cost and risk?<br>
+4. What long-term vulnerability in the company&#x27;s operations does Elena identify as a result of this issue?<br>
+5. Beyond the immediate problem, what strategic changes do Elena and Mark suggest for future contracts to enhance security?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Crisis in Copper: A Procurement and Finance Briefing</h5>
+<p><strong class="lexis">(Opening scene: Elena and Mark are on a video call, looking stressed.)</strong></p>
+<p><strong class="lexis">Elena:</strong> Thanks for making time, Mark. We have a significant issue with the latest copper shipment from Chile. The invoice from &#x27;Andean Resources&#x27; came in, and it&#x27;s considerably higher than anticipated, even with the agreed-upon <strong class="lexis">**payment_terms</strong>**.</p>
+<p><strong class="lexis">Mark:</strong> I saw the alert come through. It looks like a classic case of <strong class="lexis">**foreign_exchange_fluctuations</strong>** hitting us harder than our hedging strategy accounted for this quarter. The Chilean Peso has strengthened significantly against the Euro since we locked in the last contract.</p>
+<p><strong class="lexis">Elena:</strong> Exactly. And that&#x27;s compounded by the freight charges. We assumed DAP (Delivered at Place) according to our standard operating procedure, but their updated <strong class="lexis">**Incoterms_2020</strong>** declaration for this particular batch seems to indicate EXW (Ex Works), pushing the responsibility for main carriage and insurance onto us.</p>
+<p><strong class="lexis">Mark:</strong> EXW? That&#x27;s a massive oversight on their part, or ours, if we didn&#x27;t flag it during the negotiation review. That changes everything from a cost and risk perspective. Have you checked the <strong class="lexis">**customs_declarations</strong>** carefully? Sometimes the Incoterm is explicitly stated there, and it might contradict the initial commercial invoice if there&#x27;s been a miscommunication.</p>
+<p><strong class="lexis">Elena:</strong> I&#x27;ve scrutinized them. The <strong class="lexis">**customs_declarations</strong>** align with EXW for this specific consignment. It means we’re liable for all costs and risks until the goods arrive at our warehouse, starting from their factory gate in Santiago. That includes export packaging, loading, domestic transport in Chile, port handling, main carriage, insurance, and import clearance in Rotterdam. This isn&#x27;t just about the currency; it&#x27;s a fundamental misunderstanding of contractual obligations.</p>
+<p><strong class="lexis">Mark:</strong> This is precisely why <strong class="lexis">**Incoterms_2020</strong>** clarity is paramount. A single three-letter abbreviation can shift hundreds of thousands in costs. We need to review the original procurement contract for &#x27;Andean Resources&#x27;. Is there a discrepancy between the master agreement and this specific purchase order?</p>
+<p><strong class="lexis">Elena:</strong> That&#x27;s my next step. But beyond this immediate crisis, it highlights a vulnerability in our <strong class="lexis">**supply_chain_resilience</strong>**. If a critical raw material shipment can be so easily impacted by both currency shifts and ambiguous contractual terms, we need more robust checks.</p>
+<p><strong class="lexis">Mark:</strong> Absolutely. We need to initiate a formal dispute with Andean Resources, politely but firmly. We should reference the master contract and previous consignments where DAP was clearly stipulated. At the same time, our finance department can explore options for short-term currency swaps to mitigate immediate losses from the <strong class="lexis">**foreign_exchange_fluctuations</strong><strong class="lexis">. For the future, tighter integration between procurement, legal, and finance on </strong>every** new supplier contract is non-negotiable.</p>
+<p><strong class="lexis">Elena:</strong> Agreed. And we need to clarify our <strong class="lexis">**payment_terms</strong>** for future contracts to explicitly link them with the Incoterm used. Perhaps moving to a Letter of Credit (LC) for high-value imports could offer more security, though it adds administrative overhead. The priority now is getting this copper shipment cleared without further delays or unexpected charges, and then rectifying the contractual framework to prevent recurrence. This kind of misstep can seriously erode profitability and trust.</p>
+<p><strong class="lexis">Mark:</strong> Right. I&#x27;ll draft a formal communication for Andean Resources, outlining our concerns regarding the Incoterms discrepancy. You focus on expediting the customs clearance under the current, unfortunate EXW terms to minimize disruption. Let&#x27;s reconvene end of day.</p>
+<p><strong class="lexis">Elena:</strong> Will do. Thanks, Mark.</p>
+<p><strong class="lexis">(End of conversation.)</strong></p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What Incoterm did the company assume, and which was declared?</p>
+<p>Assumed Incoterm: __________
+Declared Incoterm: __________</p>
+</div>
+<div class="task"><p class="task-instruction">What is the main currency issue causing the invoice increase?</p>
+<p>The main currency issue is: __________</p>
+</div>
+<div class="task"><p class="task-instruction">What long-term vulnerability does Elena identify from this incident?</p>
+<p>Elena identifies a vulnerability in their: __________</p>
+</div>
+<div class="task"><p class="task-instruction">What is one specific action Mark will take immediately?</p>
+<p>Mark will draft a formal communication regarding: __________</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-applying-your-understanding">
+<header class="stage-header"><h2>Applying Your Understanding</h2></header>
+<section class="handout">
+<p>Reflect on the conversation between Elena and Mark, and discuss the following:</p>
+<p>1. How effectively did Elena and Mark identify and analyze the problems? What were their immediate priorities?<br>
+2. What does this conversation teach us about the importance of precision when negotiating international contracts, especially regarding <strong class="lexis">**Incoterms_2020</strong><strong class="lexis"> and </strong><strong class="lexis">payment_terms</strong>**?<br>
+3. Besides the immediate actions, what broader strategies did they propose to improve <strong class="lexis">**supply_chain_resilience</strong>**?<br>
+4. Imagine you are Elena or Mark. How would you communicate this situation to senior management? What solutions would you propose for the short-term and long-term?<br>
+5. What lessons can your own company or industry learn from this scenario regarding managing <strong class="lexis">**foreign_exchange_fluctuations</strong><strong class="lexis"> and </strong><strong class="lexis">customs_declarations</strong>**?</p>
+</section>
+</article>
+</body>
+</html>

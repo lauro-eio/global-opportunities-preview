@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Navigating Workplace Register and Diplomacy</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Navigating Workplace Register and Diplomacy</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>1</dd>
+      <dt>Class</dt><dd>5</dd>
+      <dt>Theme</dt><dd>T01_IDENTITY</dd>
+      <dt>Framework</dt><dd>TTT</dd>
+      <dt>Role</dt><dd>TTT_LEXICAL_REGISTER_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Contrasting Workplace Register</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Introduce the scenario: a significant error has occurred at work (e.g., a logistics mistake, a product recall).<br>
+Ask students to imagine two different reactions: one in the break room among colleagues, another in an official company memo.<br>
+Elicit general differences in language use (e.g., informal vs. formal, direct vs. diplomatic).<br>
+Focus discussion purely on word choice and register, not the specifics of the mistake itself.<br>
+Emphasize the importance of professional communication, especially in challenging situations.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Different Voices, Different Situations</h4>
+<p>Imagine a situation at your workplace where a significant mistake has occurred – maybe a delivery mix-up, a safety protocol wasn&#x27;t followed, or a customer complaint went unaddressed.</p>
+<p>Think about two different conversations that might happen:</p>
+<p>1.  <strong class="lexis">In the break room, among colleagues:</strong> How would people talk about this mistake? What kind of words would they use? What would be the general tone?<br>
+2.  <strong class="lexis">In an official memo or statement from management:</strong> How would leadership communicate about the same mistake? What kind of language would be expected? How would it sound different from the break room conversation?</p>
+<p>Discuss the differences in word choice and overall style. Why do we change the way we speak or write depending on who we&#x27;re talking to and the situation?</p>
+</section>
+</article>
+<article class="stage" id="stage-T1">
+<header class="stage-header"><span class="stage-code">T1</span><h2>Test 1: Register Appropriacy Diagnostic</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Explain that students will see excerpts related to a hypothetical workplace error.<br>
+Their task is to decide which phrases are appropriate for a formal, official communication and which are more casual.<br>
+Do not pre-teach any target language. This is a diagnostic to identify gaps.<br>
+Collect responses and note common errors or areas of uncertainty, especially regarding the target exponents.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Choosing the Right Words for the Job</h4>
+<p>Read each statement below. Decide if it would more likely be heard in an <strong class="lexis">Informal</strong> break room discussion or an <strong class="lexis">Official</strong> company announcement.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Read each statement below. Decide if it would more likely be heard in an Informal break room discussion or an Official company announcement.</p>
+<p>1. &quot;Yeah, we totally messed up the last order.&quot;</p>
+<ul><li>Informal</li><li>Official</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Read each statement below. Decide if it would more likely be heard in an Informal break room discussion or an Official company announcement.</p>
+<p>2. &quot;We acknowledge the recent logistical oversight.&quot;</p>
+<ul><li>Informal</li><li>Official</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Read each statement below. Decide if it would more likely be heard in an Informal break room discussion or an Official company announcement.</p>
+<p>3. &quot;Who dropped the ball on this one?&quot;</p>
+<ul><li>Informal</li><li>Official</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Read each statement below. Decide if it would more likely be heard in an Informal break room discussion or an Official company announcement.</p>
+<p>4. &quot;With due respect, the current procedure warrants reconsideration.&quot;</p>
+<ul><li>Informal</li><li>Official</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Read each statement below. Decide if it would more likely be heard in an Informal break room discussion or an Official company announcement.</p>
+<p>5. &quot;This whole thing makes us look bad, reputation-wise.&quot;</p>
+<ul><li>Informal</li><li>Official</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Read each statement below. Decide if it would more likely be heard in an Informal break room discussion or an Official company announcement.</p>
+<p>6. &quot;Our commitment to institutional integrity remains unwavering.&quot;</p>
+<ul><li>Informal</li><li>Official</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Read each statement below. Decide if it would more likely be heard in an Informal break room discussion or an Official company announcement.</p>
+<p>7. &quot;This could mess with our long-term standing.&quot;</p>
+<ul><li>Informal</li><li>Official</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Read each statement below. Decide if it would more likely be heard in an Informal break room discussion or an Official company announcement.</p>
+<p>8. &quot;Safeguarding our professional legacy is crucial.&quot;</p>
+<ul><li>Informal</li><li>Official</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Read each statement below. Decide if it would more likely be heard in an Informal break room discussion or an Official company announcement.</p>
+<p>9. &quot;They need to be careful how they talk about this.&quot;</p>
+<ul><li>Informal</li><li>Official</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Read each statement below. Decide if it would more likely be heard in an Informal break room discussion or an Official company announcement.</p>
+<p>10. &quot;Effective use of soft power is essential in these discussions.&quot;</p>
+<ul><li>Informal</li><li>Official</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-TCH">
+<header class="stage-header"><span class="stage-code">TCH</span><h2>Teach: High-Register Language of Accountability</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Go through the answers from T1, highlighting the correct register for each statement.<br>
+For each target exponent:<br>
+    *   <strong class="lexis">Meaning</strong>: Explain the nuanced meaning, contrasting it with the informal equivalent (e.g., &quot;we acknowledge&quot; vs. &quot;we messed up&quot;).<br>
+    *   <strong class="lexis">Register</strong>: Emphasize why it&#x27;s high-register and appropriate for formal, diplomatic communication in the workplace. Discuss &quot;functional utility&quot; and &quot;workplace dignity.&quot;<br>
+    *   <strong class="lexis">Pronunciation</strong>: Model sentence stress for &quot;institutional <strong class="lexis">integrity</strong>&quot; and &quot;professional <strong class="lexis">legacy</strong>&quot;. Model weak forms in &quot;with due respect&quot; (e.g., /ə/ in &#x27;due&#x27; and &#x27;respect&#x27; often reduced, stress on &#x27;due&#x27; and &#x27;respect&#x27;).<br>
+Use CCQs to check understanding of meaning and appropriacy.<br>
+Provide clear examples for each exponent.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Mastering Professional Communication</h4>
+<p>Now let&#x27;s look closer at the formal language we use when addressing important issues in a professional setting. We&#x27;ll focus on phrases that convey integrity, accountability, and careful diplomacy. Pay attention to how these phrases sound and how they make communication more professional.</p>
+<p>We will examine five key phrases:<br>
+1.  <strong class="lexis">with due respect</strong><br>
+2.  <strong class="lexis">we acknowledge</strong><br>
+3.  <strong class="lexis">institutional integrity</strong><br>
+4.  <strong class="lexis">professional legacy</strong><br>
+5.  <strong class="lexis">soft power</strong></p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Rewrite the informal sentence using a more formal, high-register expression. Make sure the meaning is similar but the tone is professional.</p>
+<p>1. &quot;We know there&#x27;s a problem with the latest delivery dates.&quot;</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the informal sentence using a more formal, high-register expression. Make sure the meaning is similar but the tone is professional.</p>
+<p>2. &quot;Look, I disagree, but you have a point.&quot;</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the informal sentence using a more formal, high-register expression. Make sure the meaning is similar but the tone is professional.</p>
+<p>3. &quot;This whole situation makes our company look untrustworthy.&quot;</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the informal sentence using a more formal, high-register expression. Make sure the meaning is similar but the tone is professional.</p>
+<p>4. &quot;How we handle this will affect our reputation for years to come.&quot;</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the informal sentence using a more formal, high-register expression. Make sure the meaning is similar but the tone is professional.</p>
+<p>5. &quot;They need to persuade people gently, not force them.&quot;</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-T2">
+<header class="stage-header"><span class="stage-code">T2</span><h2>Test 2: Applying High-Register Language in a Professional Response</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Set up a role-play scenario where students must respond to a critical situation using the target high-register language.<br>
+The scenario should be workplace-relevant and require the use of diplomacy, integrity, and accountability.<br>
+Pair students or put them in small groups.<br>
+Circulate and monitor, noting how well students incorporate the target exponents, their appropriacy, and pronunciation.<br>
+Do not interrupt fluency; note errors for later delayed error correction.<br>
+Provide a model response after the activity to compare.</p>
+<p>Model Response:<br>
+&quot;Thank you for raising these concerns. <strong class="lexis">We acknowledge</strong> the seriousness of the recent report regarding the protocol deviation. <strong class="lexis">With due respect</strong>, it is critical that we address these matters transparently to uphold our <strong class="lexis">institutional integrity</strong>. How we navigate this will significantly shape our <strong class="lexis">professional legacy</strong>. Therefore, our immediate focus is on a comprehensive review and a communication strategy that employs <strong class="lexis">soft power</strong> to ensure all stakeholders are aligned and informed.&quot;</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Crafting a Diplomatic Message</h4>
+<p>You are a manager at a manufacturing company. A serious quality control issue has been discovered in a recently shipped batch of products, leading to potential safety concerns and customer complaints. Your team has identified the cause, but the news needs to be communicated carefully to both internal stakeholders (e.g., other departments, senior leadership) and potentially external partners.</p>
+<p><strong class="lexis">Task:</strong> Work with a partner. One of you is the manager, the other is a concerned stakeholder (e.g., a department head, a key client representative).</p>
+<p>As the manager, draft a short, formal verbal response (2-3 sentences) to address the stakeholder&#x27;s concerns about the quality issue. Your response must:<br>
+*   Acknowledge the situation.<br>
+*   Show respect for the stakeholder&#x27;s concerns.<br>
+*   Emphasize the company&#x27;s commitment to quality and responsibility.<br>
+*   Suggest a diplomatic way forward.</p>
+<p>You must use at least <strong class="lexis">three</strong> of the following high-register phrases:<br>
+*   <strong class="lexis">with due respect</strong><br>
+*   <strong class="lexis">we acknowledge</strong><br>
+*   <strong class="lexis">institutional integrity</strong><br>
+*   <strong class="lexis">professional legacy</strong><br>
+*   <strong class="lexis">soft power</strong></p>
+<p>Prepare to share your response with the class. Focus on clear pronunciation and appropriate tone.</p>
+</section>
+</article>
+</body>
+</html>

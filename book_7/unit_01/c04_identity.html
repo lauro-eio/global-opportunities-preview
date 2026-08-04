@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Workplace Diplomacy: Navigating Sensitive Topics</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Workplace Diplomacy: Navigating Sensitive Topics</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>1</dd>
+      <dt>Class</dt><dd>4</dd>
+      <dt>Theme</dt><dd>T01_IDENTITY</dd>
+      <dt>Framework</dt><dd>SK-REC</dd>
+      <dt>Role</dt><dd>SK_REC_LISTENING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Softening Disagreement in Meetings</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Greet students and set the context for a lesson on workplace communication.<br>
+2. Introduce the idea of &#x27;soft power&#x27; in meetings and how language can influence outcomes.<br>
+3. Ask students to think about situations where they&#x27;ve observed or needed to use diplomatic language.<br>
+4. Facilitate a brief discussion using the prompts in student_content, encouraging sharing of personal experiences.<br>
+5. Emphasize the importance of maintaining professional relationships while addressing difficult topics.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Professional Conversations</h4>
+<p>Think about your own workplace experiences. We all know that open and direct communication is usually best, but sometimes in meetings, especially with bosses or clients, we need to be more careful with our words.</p>
+<p>Discuss these questions with a partner:<br>
+1. Have you ever heard your boss or a client use a specific phrase to <strong class="lexis">soften disagreement</strong> or suggest a different idea without being too direct?<br>
+2. Can you recall any examples? What phrases did they use?<br>
+3. Why do you think people choose to use more <strong class="lexis">diplomatic language</strong> in these situations instead of just saying &#x27;No&#x27; or &#x27;That&#x27;s wrong&#x27;?</p>
+</section>
+</article>
+<article class="stage" id="stage-PTV">
+<header class="stage-header"><span class="stage-code">PTV</span><h2>Pre-Teach Vocabulary: Diplomatic Framing</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the target vocabulary items one by one. Check for prior knowledge.<br>
+2. Explain the meaning and context of each word, particularly how they relate to diplomatic communication in meetings.<br>
+3. Guide students through the matching task to consolidate understanding.<br>
+4. Review answers as a class, clarifying any misconceptions.<br>
+5. Highlight how these terms are used to effectively &#x27;frame&#x27; discussions.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Key Phrases for Diplomacy</h4>
+<p>Before we listen to a meeting, let&#x27;s look at some important words and phrases related to <strong class="lexis">diplomacy</strong> and <strong class="lexis">framing</strong> in professional settings. Match each term on the left with its correct definition on the right.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>soften disagreement</li><li>hedge</li><li>framing</li><li>diplomatic language</li><li>navigate sensitivities</li><li>constructive feedback</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match each term to its definition.</p>
+<ul><li><strong>soften disagreement</strong> — To express an opposing view gently to avoid conflict.</li><li><strong>hedge</strong> — To avoid giving a direct answer or taking a firm position, often by using cautious language.</li><li><strong>framing</strong> — The way in which an issue or topic is presented to influence how it is perceived.</li><li><strong>diplomatic language</strong> — Careful and polite language used to avoid offending anyone or causing conflict, especially in difficult situations.</li><li><strong>navigate sensitivities</strong> — To handle a situation carefully, being aware of potential emotional or cultural issues.</li><li><strong>constructive feedback</strong> — Advice or criticism that is useful and intended to help or improve something.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-GIST">
+<header class="stage-header"><span class="stage-code">GIST</span><h2>Gist Listening: Identifying Overall Purpose</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will listen to a segment of a team meeting for the first time.<br>
+2. Instruct them to focus on the overall purpose of the discussion, rather than specific details.<br>
+3. Play the audio once. Allow students time to answer the multiple-choice question.<br>
+4. Collect answers and briefly discuss the main topic, but do not confirm correct answers yet to encourage re-listening in the next stage.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">First Impressions &amp; Core Themes</h4>
+<p>You are going to listen to a section of a team meeting at &#x27;Global Logistics Solutions&#x27;. The team is discussing an operational change. Listen for the main point of the discussion. What is the overall purpose or challenge being addressed?</p>
+<p>Choose the best option.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Team Meeting: Operational Efficiency</h5>
+<p>NARRATOR: Sarah, the Operations Manager at Global Logistics Solutions, is leading a team meeting to discuss a new routing software proposal that some team members are hesitant about.</p>
+<p>SARAH: Good morning, everyone. Thanks for joining. Today, we&#x27;re circling back to the new routing software. I know we’ve had some initial discussions, and there have been a few points where we’ve needed to <strong class="lexis">navigate sensitivities</strong> regarding integration. My main goal for today is to ensure we’re all aligned on the strategic advantages, even if there are implementation hurdles. </p>
+<p>MARK: Sarah, if I may, I just want to <strong class="lexis">hedge</strong> a little on the ‘strategic advantages’ side. While I see the potential, I’ve heard from my team in dispatch that they’re really concerned about the learning curve. They feel it might actually slow down their process in the short term, which could impact our delivery times. We’re already stretched thin, as you know.</p>
+<p>SARAH: Mark, I appreciate you <strong class="lexis">framing</strong> those concerns from your team. It’s absolutely vital we consider the ground-level impact. Perhaps we could look at this from a slightly different angle: instead of seeing it as a hurdle, how can we <strong class="lexis">frame</strong> it as an investment in future efficiency? We&#x27;re not looking to impose, but to evolve. What if we piloted it with a smaller group first? That might <strong class="lexis">soften disagreement</strong> about a full rollout.</p>
+<p>LINDA: That’s a very <strong class="lexis">diplomatic</strong> approach, Sarah. I also think we need to consider the client perspective. We&#x27;ve built strong relationships, and any perceived dip in service, even temporary, could be problematic. Could we get some <strong class="lexis">constructive feedback</strong> from a few trusted clients during a beta phase?</p>
+<p>SARAH: Excellent point, Linda. That’s precisely the kind of proactive <strong class="lexis">framing</strong> we need. It allows us to manage expectations externally while we streamline internally. So, to summarise, we’re not pushing for an immediate, full-scale shift. We’re exploring a phased approach to <strong class="lexis">soften disagreement</strong> and ensure a smooth transition. The ultimate aim is to enhance our overall operational efficiency and client satisfaction, even if it means adjusting our initial timeline.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the primary focus of Sarah&#x27;s discussion in this meeting?</p>
+<ul><li>To announce a mandatory, immediate rollout of new software.</li><li>To understand and address team concerns while promoting a new operational change.</li><li>To criticise the team for their resistance to new technology.</li><li>To decide on the budget allocation for a new client project.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-DET">
+<header class="stage-header"><span class="stage-code">DET</span><h2>Detailed Listening: Specific Language Use</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will listen again, this time focusing on specific phrases and their purpose.<br>
+2. Instruct students to pay close attention to how Sarah, Mark, and Linda use language to express concerns or propose solutions diplomatically.<br>
+3. Play the audio again. Give students time to complete the short-text questions.<br>
+4. Go through the answers, discussing why certain phrases were chosen and their effect on the conversation.<br>
+5. Emphasize the concepts of hedging and framing as demonstrated in the dialogue.</p>
+<p>Answer Key for Short Text Tasks:<br>
+DET-ST-1: Mark<br>
+DET-ST-2: Piloting it with a smaller group first; a phased approach<br>
+DET-ST-3: Manage expectations externally while streamlining internally<br>
+DET-ST-4: Linda<br>
+DET-ST-5: &#x27;We&#x27;re not looking to impose, but to evolve.&#x27; / &#x27;We&#x27;re not pushing for an immediate, full-scale shift.&#x27;</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Second Listen: The Nuances of Diplomacy</h4>
+<p>Now listen to the meeting again. This time, focus on the specific phrases and strategies used by the speakers to express ideas, concerns, and suggestions diplomatically. Pay attention to examples of <strong class="lexis">hedging</strong> and <strong class="lexis">framing</strong>.</p>
+<p>Answer the questions below in short answers.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Team Meeting: Operational Efficiency</h5>
+<p>NARRATOR: Sarah, the Operations Manager at Global Logistics Solutions, is leading a team meeting to discuss a new routing software proposal that some team members are hesitant about.</p>
+<p>SARAH: Good morning, everyone. Thanks for joining. Today, we&#x27;re circling back to the new routing software. I know we’ve had some initial discussions, and there have been a few points where we’ve needed to <strong class="lexis">navigate sensitivities</strong> regarding integration. My main goal for today is to ensure we’re all aligned on the strategic advantages, even if there are implementation hurdles. </p>
+<p>MARK: Sarah, if I may, I just want to <strong class="lexis">hedge</strong> a little on the ‘strategic advantages’ side. While I see the potential, I’ve heard from my team in dispatch that they’re really concerned about the learning curve. They feel it might actually slow down their process in the short term, which could impact our delivery times. We’re already stretched thin, as you know.</p>
+<p>SARAH: Mark, I appreciate you <strong class="lexis">framing</strong> those concerns from your team. It’s absolutely vital we consider the ground-level impact. Perhaps we could look at this from a slightly different angle: instead of seeing it as a hurdle, how can we <strong class="lexis">frame</strong> it as an investment in future efficiency? We&#x27;re not looking to impose, but to evolve. What if we piloted it with a smaller group first? That might <strong class="lexis">soften disagreement</strong> about a full rollout.</p>
+<p>LINDA: That’s a very <strong class="lexis">diplomatic</strong> approach, Sarah. I also think we need to consider the client perspective. We&#x27;ve built strong relationships, and any perceived dip in service, even temporary, could be problematic. Could we get some <strong class="lexis">constructive feedback</strong> from a few trusted clients during a beta phase?</p>
+<p>SARAH: Excellent point, Linda. That’s precisely the kind of proactive <strong class="lexis">framing</strong> we need. It allows us to manage expectations externally while we streamline internally. So, to summarise, we’re not pushing for an immediate, full-scale shift. We’re exploring a phased approach to <strong class="lexis">soften disagreement</strong> and ensure a smooth transition. The ultimate aim is to enhance our overall operational efficiency and client satisfaction, even if it means adjusting our initial timeline.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Who uses the phrase &#x27;I just want to hedge a little&#x27; to express caution?</p>
+</div>
+<div class="task"><p class="task-instruction">What specific solution does Sarah suggest to &#x27;soften disagreement&#x27; about the new software?</p>
+</div>
+<div class="task"><p class="task-instruction">According to Sarah, what is the benefit of &#x27;proactive framing&#x27; regarding client feedback?</p>
+</div>
+<div class="task"><p class="task-instruction">Which team member brings up the concern about the client perspective?</p>
+</div>
+<div class="task"><p class="task-instruction">Identify one phrase Sarah uses to clarify that the new software rollout is not an immediate, forced change.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Follow-Up Discussion: Applying Diplomatic Strategies</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Lead a post-listening discussion, encouraging students to reflect on the strategies observed.<br>
+2. Ask students to identify specific phrases used for hedging, framing, and softening disagreement.<br>
+3. Discuss how these strategies contribute to effective communication and conflict avoidance in a professional setting.<br>
+4. Elicit from students how they could apply these techniques in their own work contexts.<br>
+5. Provide brief feedback on any emergent language issues or comprehension strategies.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reflecting on Workplace Diplomacy</h4>
+<p>In this meeting, we heard several examples of <strong class="lexis">diplomatic language</strong>, <strong class="lexis">hedging</strong>, and <strong class="lexis">framing</strong> being used to <strong class="lexis">soften disagreement</strong> and <strong class="lexis">navigate sensitivities</strong>.</p>
+<p>Discuss with your partners or the class:<br>
+1. Which phrases from the meeting do you think were most effective in softening potential conflict?<br>
+2. Can you recall any specific examples of &#x27;hedging&#x27; or &#x27;framing&#x27; that stood out to you?<br>
+3. How might using these techniques help build stronger working relationships, even when there are disagreements?<br>
+4. Think about your own work. When might you use a similar &#x27;phased approach&#x27; or &#x27;pilot program&#x27; to introduce a new idea and get buy-in from others?</p>
+</section>
+</article>
+</body>
+</html>

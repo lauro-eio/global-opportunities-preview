@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Analyzing Data for Strategic Business Insights</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Analyzing Data for Strategic Business Insights</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_7</dd>
+      <dt>CEFR</dt><dd>C2</dd>
+      <dt>Unit</dt><dd>12</dd>
+      <dt>Class</dt><dd>6</dd>
+      <dt>Theme</dt><dd>T12_ABSTRACT</dd>
+      <dt>Framework</dt><dd>SK-PROD</dd>
+      <dt>Role</dt><dd>SK_PROD_WRITING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Deciphering Data for Strategic Insights</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by asking students about their daily work routines and the types of performance metrics or data they encounter.<br>
+2. Elicit examples of how they currently analyze this data.<br>
+3. Guide the discussion towards the challenge of identifying underlying trends or potential issues, rather than just reporting numbers.<br>
+4. Encourage students to think about what actions they might propose based on these insights.<br>
+5. Emphasize the importance of clear, professional communication when presenting such findings and recommendations.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Beyond the Numbers: Your Daily Data Challenge</h4>
+<p>Every day, your department receives a variety of performance metrics. This could be anything from sales figures to delivery times, customer feedback scores, or production output. But how often do you go beyond just looking at the raw numbers?</p>
+<p>Discuss the following with a partner or in small groups:</p>
+<p>1.  What specific types of performance data do you regularly see in your workplace?<br>
+2.  How do you currently try to <strong class="lexis">decipher complex data patterns</strong> or <strong class="lexis">identify underlying trends</strong> from these numbers?<br>
+3.  Can you recall a time when you noticed a pattern or a potential issue that wasn&#x27;t immediately obvious, and what action did you propose?<br>
+4.  Why is it important to move from just reporting data to extracting <strong class="lexis">strategic insights</strong> and driving <strong class="lexis">informed decisions</strong> in your role?</p>
+</section>
+</article>
+<article class="stage" id="stage-MOD">
+<header class="stage-header"><span class="stage-code">MOD</span><h2>Model Analysis: Interpreting a Performance Report</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Ask students to read the &#x27;Quarterly Operations Insight&#x27; report.<br>
+2. Instruct them to complete the comprehension tasks individually.<br>
+3. Review answers as a class, discussing the purpose, tone, and structure of the report.<br>
+4. Highlight how the report moves from data observations to <strong class="lexis">trend identification</strong>, <strong class="lexis">pattern recognition</strong>, and finally to <strong class="lexis">informed decisions</strong> or recommendations.<br>
+5. Draw attention to specific vocabulary related to data analysis and strategic recommendations.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Analyzing a Strategic Insight Brief</h4>
+<p>Read the following short report carefully. It analyzes recent performance metrics and offers strategic insights. Pay attention to how the writer presents the data, identifies trends, and proposes actions.</p>
+<p>After reading, answer the questions that follow.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Quarterly Operations Insight: Logistics Efficiency</h5>
+<p>To: Department Head, Logistics<br>
+From: Data Analysis Team<br>
+Date: October 26, 2023<br>
+Subject: Q3 Logistics Efficiency Review – Identifying Trends and Proposing Actions</p>
+<p>This report presents an overview of our logistics operations for Q3, with a focus on <strong class="lexis">deciphering complex data patterns</strong> to extract <strong class="lexis">strategic insights</strong> regarding delivery efficiency and resource allocation.</p>
+<p><strong class="lexis">Key Observations &amp; Trend Identification:</strong></p>
+<p>Our <strong class="lexis">data analysis</strong> reveals a consistent upward trend in &#x27;last-mile&#x27; delivery delays, particularly in urban areas, increasing by an average of 15% month-over-month. Concurrently, fuel consumption per delivery unit has shown a surprising 8% increase despite route optimization efforts. Further <strong class="lexis">pattern recognition</strong> indicates these delays and increased fuel usage correlate strongly with a rise in weekend deliveries, which now account for 35% of total Q3 volume compared to 20% in Q2.</p>
+<p><strong class="lexis">Strategic Insights &amp; Predictive Modeling:</strong></p>
+<p>This correlation suggests that current weekend staffing and vehicle allocation models are not optimized for the increased volume. The spike in fuel consumption points to sub-optimal routing or increased idle times during weekend operations. While weekday operations maintain high efficiency, the weekend metrics are beginning to significantly impact overall quarterly performance. Without intervention, <strong class="lexis">predictive modeling</strong> indicates a potential 20% reduction in our Q4 delivery efficiency target.</p>
+<p><strong class="lexis">Proposed Actions for Informed Decision-Making:</strong></p>
+<p>To drive <strong class="lexis">informed decision-making</strong> and mitigate these emerging issues, we propose the following:</p>
+<p>1.  <strong class="lexis">Weekend Operations Review:</strong> Conduct an immediate review of weekend staffing levels, vehicle availability, and route planning protocols to align with current demand.<br>
+2.  <strong class="lexis">Driver Training Refresher:</strong> Implement a targeted refresher course for weekend drivers on fuel-efficient driving techniques and advanced navigation software utilization.<br>
+3.  <strong class="lexis">Data-Driven Schedule Adjustment:</strong> Explore a revised weekend scheduling model for deliveries to avoid peak traffic times, potentially adjusting service windows based on detailed traffic analysis.</p>
+<p>Implementing these actions is crucial to reversing the negative trends and ensuring our logistics operations remain cost-effective and efficient.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the primary purpose of this report?</p>
+<p>The main goal of the &#x27;Quarterly Operations Insight&#x27; report is to:</p>
+<ul><li>Summarize Q3 financial expenditures.</li><li>Identify data patterns and recommend actions to improve logistics.</li><li>Criticize the performance of the logistics department.</li><li>Approve new equipment purchases for the logistics team.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">According to the report, what specific issue is causing delays and increased fuel consumption?</p>
+<p>What is the specific issue identified as causing the problems?</p>
+</div>
+<div class="task"><p class="task-instruction">Name two of the proposed actions to address the identified issues.</p>
+<p>List two actions proposed by the Data Analysis Team.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-PREP">
+<header class="stage-header"><span class="stage-code">PREP</span><h2>Preparation: Structuring Insights and Recommendations</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Briefly review the structure of the model report with students (Observations, Insights, Actions).<br>
+2. Present the column banks and explain the function of each phrase set.<br>
+3. Guide students to brainstorm a hypothetical data scenario they might encounter in their own workplaces.<br>
+4. Encourage them to outline their findings, insights, and proposed actions using the structure and some phrases from the column banks.<br>
+5. Circulate and provide support with vocabulary and structural choices.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Building Your Insightful Report</h4>
+<p>Before writing your own report, let&#x27;s prepare by outlining its structure and familiarizing ourselves with useful phrases for reporting data, identifying trends, and making recommendations.</p>
+<p><strong class="lexis">Activity 1: Brainstorming a Scenario</strong><br>
+Think about a department or process in your workplace that generates data (e.g., sales, customer service, production, supply chain). Imagine you&#x27;ve noticed a significant change or pattern in this data recently.</p>
+<p>*   What specific data points are involved?<br>
+*   What <strong class="lexis">complex data patterns</strong> or <strong class="lexis">trends</strong> have you identified?<br>
+*   What are the underlying <strong class="lexis">strategic insights</strong> you&#x27;ve extracted?<br>
+*   What <strong class="lexis">informed decisions</strong> or actions could be proposed?</p>
+<p><strong class="lexis">Activity 2: Useful Phrases for Your Report</strong><br>
+Use the phrases below to help structure your report effectively and professionally.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Reporting Observations &amp; Data</th><th>Extracting Strategic Insights</th><th>Proposing Informed Actions</th></tr><tr><td>Our data analysis reveals...</td><td>This correlation suggests that...</td><td>To drive informed decision-making, we propose...</td></tr><tr><td>Key observations indicate...</td><td>The spike in X points to...</td><td>We recommend an immediate review of...</td></tr><tr><td>There has been a consistent upward/downward trend in...</td><td>Without intervention, predictive modeling indicates...</td><td>Implementing a targeted X is crucial to...</td></tr><tr><td>We have identified a significant pattern of...</td><td>This trend is beginning to significantly impact...</td><td>Explore a revised Y model for...</td></tr><tr><td>X has increased/decreased by Y%.</td><td>These insights highlight a need for...</td><td>It is essential to align X with current demand.</td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Freer Practice: Writing a Strategic Insight Memo</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Provide the writing brief to the students.<br>
+2. Remind students of the audience (Department Manager/Team) and purpose (inform and recommend).<br>
+3. Advise them to use the structure and phrases practiced in the PREP stage.<br>
+4. Set a clear time limit for the writing task.<br>
+5. Circulate and monitor, offering minimal assistance to encourage independent production.<br>
+6. Collect the memos for review or prepare for peer feedback in the next stage.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Your Strategic Data Memo</h4>
+<p>You are a member of a team responsible for monitoring performance metrics in your workplace. Your manager has asked you to write a concise memo based on the data patterns you&#x27;ve identified in a specific area (e.g., customer service, operational efficiency, inventory management).</p>
+<p><strong class="lexis">Your Task:</strong></p>
+<p>Write a short report (approximately 150-250 words) to your Department Head, outlining:</p>
+<p>*   <strong class="lexis">Key Observations:</strong> Briefly present the significant data patterns or trends you&#x27;ve noticed.<br>
+*   <strong class="lexis">Strategic Insights:</strong> Explain what these patterns suggest about underlying issues or opportunities.<br>
+*   <strong class="lexis">Proposed Actions:</strong> Recommend specific, actionable steps to address the issues or capitalize on the opportunities.</p>
+<p><strong class="lexis">Audience:</strong> Your Department Head / Management Team<br>
+<strong class="lexis">Purpose:</strong> To inform them about crucial data patterns, extract strategic insights, and propose informed decisions.<br>
+<strong class="lexis">Length:</strong> 150-250 words</p>
+<p>Use professional language and aim for clarity and conciseness. Remember to use some of the phrases from the previous activity to structure your arguments effectively.</p>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback: Content and Language Review</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Pair students up for peer feedback, or collect papers for teacher feedback.<br>
+2. If peer feedback, distribute the checklist and explain each point clearly.<br>
+3. Emphasize constructive criticism and focusing first on content (clarity, insight, actionability) and then on language (professional register, accuracy, effective use of target lexis).<br>
+4. After peer feedback, facilitate a brief whole-class discussion on common strengths and areas for improvement.<br>
+5. Provide individualized feedback on language points after the lesson, if not done in class.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Refining Your Insights</h4>
+<p>Now it’s time to review your report and refine it. Giving and receiving feedback is a crucial part of the writing process.</p>
+<p><strong class="lexis">Activity: Peer Feedback Checklist</strong></p>
+<p>Work with a partner and use the following checklist to review each other&#x27;s reports. Provide specific comments and suggestions.</p>
+<p><strong class="lexis">Content:</strong></p>
+<p>1.  <strong class="lexis">Clarity of Observations:</strong> Are the identified data patterns and trends clear and easy to understand?<br>
+2.  <strong class="lexis">Depth of Insights:</strong> Does the report effectively move beyond just numbers to extract <strong class="lexis">strategic insights</strong>?<br>
+3.  <strong class="lexis">Actionability of Proposals:</strong> Are the proposed actions specific, realistic, and likely to drive <strong class="lexis">informed decisions</strong>?<br>
+4.  <strong class="lexis">Overall Purpose:</strong> Does the report clearly fulfill its purpose of informing and recommending?</p>
+<p><strong class="lexis">Language:</strong></p>
+<p>1.  <strong class="lexis">Professional Register:</strong> Is the tone appropriate for a memo to a Department Head?<br>
+2.  <strong class="lexis">Vocabulary Use:</strong> Does the report effectively use vocabulary related to data analysis, trend identification, and strategic planning (e.g., <strong class="lexis">deciphering complex data patterns</strong>, <strong class="lexis">pattern recognition</strong>, <strong class="lexis">predictive modeling</strong>)?<br>
+3.  <strong class="lexis">Clarity and Conciseness:</strong> Is the language precise and free from unnecessary jargon or repetition?<br>
+4.  <strong class="lexis">Grammar and Accuracy:</strong> Are there any noticeable grammatical errors or awkward phrasing that detract from clarity?</p>
+</section>
+</article>
+</body>
+</html>
