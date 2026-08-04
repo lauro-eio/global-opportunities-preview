@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit exam — Navigating Workplace Transformation</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<nav class="breadcrumbs"><a href="index.html">← Unit index</a></nav>
+<header>
+  <p class="view-banner">Teacher · Unit exam key</p>
+  <h1>Unit exam — Navigating Workplace Transformation</h1>
+  <p class="meta">T02_WORK · C2 · 30 items</p>
+</header>
+<article class="exam-item" id="q01"><div class="exam-item-header"><span class="qnum">1. q01</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">With the increasing prevalence of automation, the company is investing heavily in employee __________ programs to ensure the workforce remains relevant.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>upskilling ✓</li><li><span class="opt-key">B.</span>downgrading</li><li><span class="opt-key">C.</span>stabilization</li><li><span class="opt-key">D.</span>diversification</li></ul><div class="exam-explanation"><strong>Explanation</strong>Upskilling refers to teaching employees new skills, especially in response to technological changes like automation, making it the most appropriate fit for continuous professional development.</div></article><article class="exam-item" id="q02"><div class="exam-item-header"><span class="qnum">2. q02</span><span class="exam-meta">comprehension · class 1</span></div><div class="exam-prompt">The latest report indicates that while automation is displacing some entry-level positions, it is simultaneously creating new highly specialized &#x27;analyst&#x27; and &#x27;maintenance&#x27; job roles. What is the primary implication for workforce planning?</div><ul class="exam-options"><li><span class="opt-key">A.</span>The overall number of job roles will drastically decrease across the board.</li><li class="correct"><span class="opt-key">B.</span>Existing job roles must be redefined, and employees retrained for new responsibilities. ✓</li><li><span class="opt-key">C.</span>The company should immediately halt all automation initiatives to preserve current jobs.</li><li><span class="opt-key">D.</span>Future hiring should focus exclusively on external candidates with specific technical skills.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The creation of new specialized roles and displacement of others implies a need to redefine existing roles and retrain the current workforce (upskilling/reskilling), rather than an overall decrease in jobs or an exclusive focus on external hires.</div></article><article class="exam-item" id="q03"><div class="exam-item-header"><span class="qnum">3. q03</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">Organisations facing rapid technological shifts require significant __________ in their workforce to adapt to new challenges and maintain productivity.</div><ul class="exam-options"><li><span class="opt-key">A.</span>inflexibility</li><li><span class="opt-key">B.</span>stagnation</li><li class="correct"><span class="opt-key">C.</span>resilience ✓</li><li><span class="opt-key">D.</span>resistance</li></ul><div class="exam-explanation"><strong>Explanation</strong>Resilience describes the capacity to recover quickly from difficulties; toughness. In a workplace context, it refers to the ability to adapt well to change, which is crucial during technological shifts. Distractors suggest the opposite or unrelated concepts.</div></article><article class="exam-item" id="q04"><div class="exam-item-header"><span class="qnum">4. q04</span><span class="exam-meta">grammar · class 1</span></div><div class="exam-prompt">The board recommends that shopfloor automation __________ carefully to minimise disruption to existing job roles.</div><ul class="exam-options"><li><span class="opt-key">A.</span>is implemented</li><li class="correct"><span class="opt-key">B.</span>be implemented ✓</li><li><span class="opt-key">C.</span>implements</li><li><span class="opt-key">D.</span>will implement</li></ul><div class="exam-explanation"><strong>Explanation</strong>The subjunctive mood, &#x27;be implemented,&#x27; is correctly used after verbs like &#x27;recommend&#x27; to express a suggestion or demand, particularly in formal contexts concerning operational changes.</div></article><article class="exam-item" id="q05"><div class="exam-item-header"><span class="qnum">5. q05</span><span class="exam-meta">grammar · class 2</span></div><div class="exam-prompt">The CEO demands that the new Automation Roadmap __________ approved by the end of the fiscal quarter to address the urgent market disruption.</div><ul class="exam-options"><li><span class="opt-key">A.</span>is</li><li><span class="opt-key">B.</span>was</li><li class="correct"><span class="opt-key">C.</span>be ✓</li><li><span class="opt-key">D.</span>will be</li></ul><div class="exam-explanation"><strong>Explanation</strong>The subjunctive mood &#x27;be&#x27; is required after verbs of demand, such as &#x27;demands that&#x27;, to express an urgent directive in a formal corporate setting.</div></article><article class="exam-item" id="q06"><div class="exam-item-header"><span class="qnum">6. q06</span><span class="exam-meta">lexis · class 2</span></div><div class="exam-prompt">To remain competitive amidst rapid digital transformation, the company acknowledges a critical __________ to foster new competencies across the organisation.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>reskilling imperative ✓</li><li><span class="opt-key">B.</span>downsizing mandate</li><li><span class="opt-key">C.</span>staffing redundancy</li><li><span class="opt-key">D.</span>training preference</li></ul><div class="exam-explanation"><strong>Explanation</strong>A &#x27;reskilling imperative&#x27; accurately reflects the urgent and necessary need to develop new skills in the workforce to adapt to digital transformation and maintain competitiveness. Distractors are less formal or imply different organizational actions.</div></article><article class="exam-item" id="q07"><div class="exam-item-header"><span class="qnum">7. q07</span><span class="exam-meta">register · class 2</span></div><div class="exam-prompt">Which phrase best conveys an urgent corporate directive from the board regarding an unavoidable workforce transition?</div><ul class="exam-options"><li><span class="opt-key">A.</span>We&#x27;d like to suggest that employees perhaps consider retraining.</li><li class="correct"><span class="opt-key">B.</span>It is strongly recommended that the workforce transition plan be prioritised immediately. ✓</li><li><span class="opt-key">C.</span>Maybe we should think about how to manage the staff changes eventually.</li><li><span class="opt-key">D.</span>The hope is that staff will embrace new roles, given time.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B uses formal, strong language (&#x27;strongly recommended&#x27;, &#x27;be prioritised immediately&#x27;) and the subjunctive mood, which is suitable for an urgent corporate directive from a board level.</div></article><article class="exam-item" id="q08"><div class="exam-item-header"><span class="qnum">8. q08</span><span class="exam-meta">grammar · class 2</span></div><div class="exam-prompt">The advisory committee insists that the new &#x27;strategic foresight&#x27; model __________ fully integrated into quarterly planning by year-end.</div><ul class="exam-options"><li><span class="opt-key">A.</span>was</li><li><span class="opt-key">B.</span>is</li><li><span class="opt-key">C.</span>will be</li><li class="correct"><span class="opt-key">D.</span>be ✓</li></ul><div class="exam-explanation"><strong>Explanation</strong>The subjunctive &#x27;be&#x27; is correctly used after &#x27;insists that&#x27; to express a strong recommendation or demand for the &#x27;strategic foresight&#x27; model&#x27;s integration.</div></article><article class="exam-item" id="q09"><div class="exam-item-header"><span class="qnum">9. q09</span><span class="exam-meta">register · class 3</span></div><div class="exam-prompt">In a negotiation where department priorities collide, which statement is most effective for opening a discussion while acknowledging the other party&#x27;s position?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Your department&#x27;s objectives are clearly misguided, and we need to fix them.</li><li class="correct"><span class="opt-key">B.</span>I understand your team&#x27;s focus on cost reduction, but our project&#x27;s success demands significant resource allocation. ✓</li><li><span class="opt-key">C.</span>We simply cannot proceed with anything until our needs are fully met, no compromises.</li><li><span class="opt-key">D.</span>Let&#x27;s just agree to disagree and see what happens.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B demonstrates an understanding of the other party&#x27;s priority while clearly stating one&#x27;s own need, setting a constructive tone for negotiation. The distractors are either confrontational or avoidant.</div></article><article class="exam-item" id="q10"><div class="exam-item-header"><span class="qnum">10. q10</span><span class="exam-meta">comprehension · class 3</span></div><div class="exam-prompt">During a project review, the marketing lead states, &#x27;While I appreciate the development team&#x27;s innovative approach, our Q4 launch window is non-negotiable.&#x27; What does this implicitly communicate about their priorities?</div><ul class="exam-options"><li><span class="opt-key">A.</span>They are open to delaying the launch if the innovation is truly groundbreaking.</li><li class="correct"><span class="opt-key">B.</span>They are primarily concerned with adhering to the established timeline over additional feature development. ✓</li><li><span class="opt-key">C.</span>They believe the development team&#x27;s innovation is irrelevant to market success.</li><li><span class="opt-key">D.</span>They are subtly pushing for more resources for the marketing team.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The phrase &#x27;non-negotiable&#x27; explicitly communicates that the launch window is the top priority, even if it means sacrificing additional innovative features for adherence to the timeline.</div></article><article class="exam-item" id="q11"><div class="exam-item-header"><span class="qnum">11. q11</span><span class="exam-meta">register · class 3</span></div><div class="exam-prompt">Which of the following expressions is most appropriate for politely but firmly requesting a revised deadline during a negotiation?</div><ul class="exam-options"><li><span class="opt-key">A.</span>You absolutely must extend this deadline immediately.</li><li><span class="opt-key">B.</span>I&#x27;m afraid this deadline simply won&#x27;t work for us.</li><li class="correct"><span class="opt-key">C.</span>Given the unforeseen complications, we would appreciate it if the deadline could be re-evaluated. ✓</li><li><span class="opt-key">D.</span>I suppose we could try to meet it, but it&#x27;ll be a disaster.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option C uses hedging language (&#x27;given the unforeseen complications&#x27;, &#x27;we would appreciate it if&#x27;, &#x27;could be re-evaluated&#x27;) which is polite yet firm, suitable for professional negotiation.</div></article><article class="exam-item" id="q12"><div class="exam-item-header"><span class="qnum">12. q12</span><span class="exam-meta">grammar · class 3</span></div><div class="exam-prompt">If we were to reconsider the project scope, __________ a more realistic timeline?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>could we establish ✓</li><li><span class="opt-key">B.</span>we will establish</li><li><span class="opt-key">C.</span>we established</li><li><span class="opt-key">D.</span>can we establish</li></ul><div class="exam-explanation"><strong>Explanation</strong>This is a second conditional structure, used for hypothetical situations and their probable results, ideal for exploring alternatives in a negotiation. &#x27;Could we establish&#x27; fits the hypothetical nuance better than &#x27;can we establish&#x27;.</div></article><article class="exam-item" id="q13"><div class="exam-item-header"><span class="qnum">13. q13</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">After a decade in finance, Sarah decided to make a significant __________, retraining in sustainable technology to align with her environmental values.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>career pivot ✓</li><li><span class="opt-key">B.</span>job adjustment</li><li><span class="opt-key">C.</span>role rotation</li><li><span class="opt-key">D.</span>employment change</li></ul><div class="exam-explanation"><strong>Explanation</strong>A &#x27;career pivot&#x27; describes a significant change in career direction, often involving new skills or industries, aligning perfectly with the provided scenario.</div></article><article class="exam-item" id="q14"><div class="exam-item-header"><span class="qnum">14. q14</span><span class="exam-meta">comprehension · class 4</span></div><div class="exam-prompt">Many professionals are finding themselves in the &#x27;gig economy,&#x27; where traditional &#x27;job security&#x27; is often replaced by a series of &#x27;fixed-term contracts.&#x27; What is a potential long-term financial risk for these individuals?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Increased opportunities for continuous upskilling and specialization.</li><li><span class="opt-key">B.</span>Greater flexibility in work-life balance and project selection.</li><li class="correct"><span class="opt-key">C.</span>Challenges in obtaining long-term financial products like mortgages due to unpredictable income. ✓</li><li><span class="opt-key">D.</span>A wider network of professional contacts across various industries.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The lack of consistent, predictable income from &#x27;fixed-term contracts&#x27; in the &#x27;gig economy&#x27; directly impacts eligibility and approval for long-term financial commitments, highlighting a key aspect of &#x27;insecure work&#x27;.</div></article><article class="exam-item" id="q15"><div class="exam-item-header"><span class="qnum">15. q15</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">The new project manager was hired on a __________ for an initial period of eighteen months, with potential for extension based on performance.</div><ul class="exam-options"><li><span class="opt-key">A.</span>permanent employment</li><li class="correct"><span class="opt-key">B.</span>fixed-term contract ✓</li><li><span class="opt-key">C.</span>zero-hours agreement</li><li><span class="opt-key">D.</span>consultancy retainer</li></ul><div class="exam-explanation"><strong>Explanation</strong>A &#x27;fixed-term contract&#x27; specifies a definite period of employment, which matches the &#x27;initial period of eighteen months&#x27; described. The distractors represent different contractual arrangements.</div></article><article class="exam-item" id="q16"><div class="exam-item-header"><span class="qnum">16. q16</span><span class="exam-meta">register · class 4</span></div><div class="exam-prompt">When discussing the implications of &#x27;insecure work&#x27; with a colleague who has recently experienced it, which approach is most empathetic and professional?</div><ul class="exam-options"><li><span class="opt-key">A.</span>It&#x27;s tough, but everyone has to deal with market fluctuations.</li><li><span class="opt-key">B.</span>You know, the gig economy means jobs aren&#x27;t what they used to be, so just get used to it.</li><li class="correct"><span class="opt-key">C.</span>I understand this period of uncertain employment must be challenging; how are you navigating it? ✓</li><li><span class="opt-key">D.</span>Did you really think that job would last forever? You should have &#x27;upskilled&#x27; sooner.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option C acknowledges the difficulty (&#x27;must be challenging&#x27;) and invites a sharing of experience (&#x27;how are you navigating it?&#x27;) without judgment, which is appropriate for discussing sensitive topics like &#x27;insecure work&#x27; empathetically.</div></article><article class="exam-item" id="q17"><div class="exam-item-header"><span class="qnum">17. q17</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">Which statement best maintains a formal and strategic tone when announcing an &#x27;automation roadmap&#x27; to employees?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Heads up, folks! We&#x27;re rolling out some robots soon.</li><li class="correct"><span class="opt-key">B.</span>The implementation of our automation roadmap signifies a proactive step towards enhancing operational efficiency. ✓</li><li><span class="opt-key">C.</span>We&#x27;re going to use tech to make things easier around here, probably.</li><li><span class="opt-key">D.</span>Get ready for changes; it&#x27;s all part of the &#x27;digital transformation&#x27; thing.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B uses formal vocabulary (&#x27;implementation&#x27;, &#x27;signifies&#x27;, &#x27;proactive step&#x27;, &#x27;enhancing operational efficiency&#x27;) and a clear, professional structure suitable for formal communication regarding organizational change.</div></article><article class="exam-item" id="q18"><div class="exam-item-header"><span class="qnum">18. q18</span><span class="exam-meta">lexis · class 5</span></div><div class="exam-prompt">Successful leadership requires __________ to anticipate potential &#x27;market disruption&#x27; and strategically position the organisation for future challenges.</div><ul class="exam-options"><li><span class="opt-key">A.</span>hindsight bias</li><li class="correct"><span class="opt-key">B.</span>strategic foresight ✓</li><li><span class="opt-key">C.</span>operational oversight</li><li><span class="opt-key">D.</span>tactical planning</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Strategic foresight&#x27; refers to the ability to anticipate and prepare for future trends and challenges, which is crucial for navigating &#x27;market disruption&#x27;. Distractors are either retrospective, internal management, or tactical, not strategic anticipation.</div></article><article class="exam-item" id="q19"><div class="exam-item-header"><span class="qnum">19. q19</span><span class="exam-meta">grammar · class 5</span></div><div class="exam-prompt">It is imperative that our &#x27;workforce transition&#x27; strategy __________ clearly communicated to all stakeholders without delay.</div><ul class="exam-options"><li><span class="opt-key">A.</span>is</li><li><span class="opt-key">B.</span>was</li><li class="correct"><span class="opt-key">C.</span>be ✓</li><li><span class="opt-key">D.</span>will be</li></ul><div class="exam-explanation"><strong>Explanation</strong>The subjunctive &#x27;be&#x27; is correctly used after expressions of imperative or necessity (&#x27;it is imperative that&#x27;) to express a formal requirement for the &#x27;workforce transition&#x27; strategy.</div></article><article class="exam-item" id="q20"><div class="exam-item-header"><span class="qnum">20. q20</span><span class="exam-meta">lexis · class 5</span></div><div class="exam-prompt">The human resources department is actively managing the __________ following the decision to integrate new AI systems across several functions.</div><ul class="exam-options"><li><span class="opt-key">A.</span>staffing overhaul</li><li><span class="opt-key">B.</span>employee exodus</li><li class="correct"><span class="opt-key">C.</span>workforce transition ✓</li><li><span class="opt-key">D.</span>personnel shift</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Workforce transition&#x27; is the most formal and comprehensive term to describe the process of managing employees through changes in roles, skills, or numbers due to new systems like AI. The distractors are either less common, imply mass departure, or are too generic.</div></article><article class="exam-item" id="q21"><div class="exam-item-header"><span class="qnum">21. q21</span><span class="exam-meta">register · class 6</span></div><div class="exam-prompt">When writing a memo to announce a mandatory operational change, which opening phrase would best convey professionalism and clarity?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Just wanted to let you know about a few things changing.</li><li class="correct"><span class="opt-key">B.</span>This memo outlines essential updates to our operational procedures, effective November 4, 2024. ✓</li><li><span class="opt-key">C.</span>FYI, new rules are coming for everyone.</li><li><span class="opt-key">D.</span>Regarding upcoming adjustments, we&#x27;ll talk soon.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B is formal, precise, and immediately states the purpose and effective date, aligning with the requirements for a professional operational change memo and ensuring clarity.</div></article><article class="exam-item" id="q22"><div class="exam-item-header"><span class="qnum">22. q22</span><span class="exam-meta">comprehension · class 6</span></div><div class="exam-prompt">A memo includes a section titled &#x27;Dedicated 5-Minute Overlap:&#x27; followed by instructions. What is the primary purpose of this specific procedure?</div><ul class="exam-options"><li><span class="opt-key">A.</span>To allow employees to clock out five minutes early.</li><li class="correct"><span class="opt-key">B.</span>To provide a structured time for outgoing and incoming shifts to exchange critical information. ✓</li><li><span class="opt-key">C.</span>To facilitate a brief social interaction between shifts.</li><li><span class="opt-key">D.</span>To mandate a short break for employees at the beginning of their shift.</li></ul><div class="exam-explanation"><strong>Explanation</strong>A &#x27;Dedicated 5-Minute Overlap&#x27; in an operational context, especially for shift handoff, is designed for effective communication and information transfer between shifts to ensure continuity and prevent errors.</div></article><article class="exam-item" id="q23"><div class="exam-item-header"><span class="qnum">23. q23</span><span class="exam-meta">grammar · class 6</span></div><div class="exam-prompt">To ensure maximum __________ in the new &#x27;shift handoff procedure&#x27;, all steps must be explicitly detailed and numbered.</div><ul class="exam-options"><li><span class="opt-key">A.</span>ambiguity</li><li><span class="opt-key">B.</span>vagueness</li><li class="correct"><span class="opt-key">C.</span>clarity ✓</li><li><span class="opt-key">D.</span>complexity</li></ul><div class="exam-explanation"><strong>Explanation</strong>The context of &#x27;explicitly detailed and numbered&#x27; steps directly relates to achieving &#x27;clarity&#x27; in procedures, a key aspect of effective operational memos. The distractors imply the opposite or an undesirable outcome.</div></article><article class="exam-item" id="q24"><div class="exam-item-header"><span class="qnum">24. q24</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">The new digital checklist aims to streamline the __________ for factory operators, ensuring critical information is passed on efficiently.</div><ul class="exam-options"><li><span class="opt-key">A.</span>daily commute</li><li class="correct"><span class="opt-key">B.</span>shift handoff procedure ✓</li><li><span class="opt-key">C.</span>lunch break policy</li><li><span class="opt-key">D.</span>performance review cycle</li></ul><div class="exam-explanation"><strong>Explanation</strong>A &#x27;digital checklist&#x27; used to pass &#x27;critical information&#x27; between operators perfectly describes a &#x27;shift handoff procedure&#x27;, a common operational change targeted by such tools.</div></article><article class="exam-item" id="q25"><div class="exam-item-header"><span class="qnum">25. q25</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">The consultant recommended that the team __________ new key performance indicators to align with the revised strategic goals.</div><ul class="exam-options"><li><span class="opt-key">A.</span>adopts</li><li class="correct"><span class="opt-key">B.</span>adopt ✓</li><li><span class="opt-key">C.</span>is adopting</li><li><span class="opt-key">D.</span>will adopt</li></ul><div class="exam-explanation"><strong>Explanation</strong>The subjunctive mood &#x27;adopt&#x27; is correctly used after verbs of recommendation (&#x27;recommended that&#x27;) in formal contexts for strategic recommendations.</div></article><article class="exam-item" id="q26"><div class="exam-item-header"><span class="qnum">26. q26</span><span class="exam-meta">register · class 7</span></div><div class="exam-prompt">Which sentence most effectively formulates a strategic recommendation for performance improvement in a formal setting?</div><ul class="exam-options"><li><span class="opt-key">A.</span>You guys need to work harder, or else.</li><li class="correct"><span class="opt-key">B.</span>It is advised that all departments implement quarterly performance reviews to identify areas for growth. ✓</li><li><span class="opt-key">C.</span>Maybe we should try to do better next time.</li><li><span class="opt-key">D.</span>I think we should probably review what we&#x27;re doing.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B uses formal language (&#x27;It is advised that&#x27;, &#x27;implement&#x27;, &#x27;identify areas for growth&#x27;) and implicitly uses the subjunctive form, suitable for formulating strategic recommendations.</div></article><article class="exam-item" id="q27"><div class="exam-item-header"><span class="qnum">27. q27</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">It is essential that every manager __________ fully comprehend the updated &#x27;performance expectations&#x27; before their team meetings.</div><ul class="exam-options"><li><span class="opt-key">A.</span>fully comprehends</li><li class="correct"><span class="opt-key">B.</span>fully comprehend ✓</li><li><span class="opt-key">C.</span>has fully comprehended</li><li><span class="opt-key">D.</span>will fully comprehend</li></ul><div class="exam-explanation"><strong>Explanation</strong>The subjunctive &#x27;comprehend&#x27; is correctly used after expressions of necessity (&#x27;It is essential that&#x27;), regardless of the subject&#x27;s number, for formal statements of requirement.</div></article><article class="exam-item" id="q28"><div class="exam-item-header"><span class="qnum">28. q28</span><span class="exam-meta">comprehension · class 7</span></div><div class="exam-prompt">A board memo states: &#x27;We propose that an independent audit committee be established to ensure transparent reporting of financial targets.&#x27; What does this statement primarily aim to achieve?</div><ul class="exam-options"><li><span class="opt-key">A.</span>To indicate a distrust in the existing financial department.</li><li class="correct"><span class="opt-key">B.</span>To improve accountability and public confidence in financial statements. ✓</li><li><span class="opt-key">C.</span>To reduce the workload of the current executive team.</li><li><span class="opt-key">D.</span>To introduce a new layer of bureaucracy to the reporting process.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The establishment of an &#x27;independent audit committee&#x27; for &#x27;transparent reporting&#x27; directly aims to enhance accountability and build confidence in financial statements, which is a key strategic recommendation.</div></article><article class="exam-item" id="q29"><div class="exam-item-header"><span class="qnum">29. q29</span><span class="exam-meta">synthesis · class 1</span></div><div class="exam-prompt">Considering the discussions on &#x27;automation&#x27;, &#x27;reskilling imperative&#x27;, and &#x27;workforce transition&#x27;, which strategy offers the most holistic approach to managing future job roles?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Rely solely on external recruitment to fill new specialized roles as they emerge.</li><li><span class="opt-key">B.</span>Prioritise immediate cost-cutting measures by eliminating roles impacted by automation.</li><li class="correct"><span class="opt-key">C.</span>Invest in continuous upskilling programs for existing employees, alongside strategic new hires, to adapt and create new roles. ✓</li><li><span class="opt-key">D.</span>Maintain the current workforce structure and hope that employees will naturally acquire new skills.</li></ul><div class="exam-explanation"><strong>Explanation</strong>A holistic approach integrates elements from several classes: &#x27;automation&#x27; (Class 1), &#x27;reskilling imperative&#x27; (Class 2), and &#x27;workforce transition&#x27; (Class 2, 5). Investing in &#x27;continuous upskilling&#x27; and &#x27;strategic new hires&#x27; is the most comprehensive and sustainable strategy for adapting to future job roles.</div></article><article class="exam-item" id="q30"><div class="exam-item-header"><span class="qnum">30. q30</span><span class="exam-meta">synthesis · class 2</span></div><div class="exam-prompt">The combination of &#x27;market disruption&#x27; and a &#x27;reskilling imperative&#x27; often necessitates formal corporate directives. Which communicative action is most crucial for successful &#x27;workforce transition&#x27; in this context?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Issuing vague internal memos to avoid panic among employees.</li><li><span class="opt-key">B.</span>Implementing changes without prior consultation to speed up the process.</li><li class="correct"><span class="opt-key">C.</span>Utilising clear, formal communication, including subjunctive directives, to outline challenges, expectations, and support mechanisms. ✓</li><li><span class="opt-key">D.</span>Delegating all communication responsibilities to line managers without central oversight.</li></ul><div class="exam-explanation"><strong>Explanation</strong>This question synthesizes &#x27;market disruption&#x27; (Class 2, 5), &#x27;reskilling imperative&#x27; (Class 2, 5), &#x27;formal corporate directives&#x27; (Class 2, 5, 7), and &#x27;workforce transition&#x27; (Class 2, 5). Clear, formal communication, including subjunctive forms, that outlines expectations and support, is vital for managing such complex changes, contrasting with vague, uncoordinated, or unilateral approaches.</div></article>
+
+</body>
+</html>

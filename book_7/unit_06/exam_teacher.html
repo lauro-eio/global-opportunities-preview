@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit exam — Ethical AI in the Workplace: Policy Development</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<nav class="breadcrumbs"><a href="index.html">← Unit index</a></nav>
+<header>
+  <p class="view-banner">Teacher · Unit exam key</p>
+  <h1>Unit exam — Ethical AI in the Workplace: Policy Development</h1>
+  <p class="meta">T06_TECH · C2 · 30 items</p>
+</header>
+<article class="exam-item" id="q01"><div class="exam-item-header"><span class="qnum">1. q01</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">Our HR department is committed to ensuring that hiring decisions are based purely on qualifications and experience, thereby avoiding any form of ____________ inherent in automated screening tools.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>algorithmic bias ✓</li><li><span class="opt-key">B.</span>digital prejudice</li><li><span class="opt-key">C.</span>automated unfairness</li><li><span class="opt-key">D.</span>systematic partiality</li></ul><div class="exam-explanation"><strong>Explanation</strong>The term &#x27;algorithmic bias&#x27; specifically refers to systematic and repeatable errors in a computer system that create unfair outcomes, directly relating to the context of automated screening tools in HR. &#x27;Digital prejudice&#x27; and &#x27;automated unfairness&#x27; are descriptive but not the precise technical term. &#x27;Systematic partiality&#x27; is too broad.</div></article><article class="exam-item" id="q02"><div class="exam-item-header"><span class="qnum">2. q02</span><span class="exam-meta">grammar · class 1</span></div><div class="exam-prompt">Select the sentence that best scrutinizes the fairness of AI in recruitment and professional advancement.</div><ul class="exam-options"><li><span class="opt-key">A.</span>Careful scrutiny of AI&#x27;s fairness in professional advancement and recruitment is essential.</li><li class="correct"><span class="opt-key">B.</span>For scrutinizing algorithmic fairness in professional advancement and recruitment, robust policies are necessary. ✓</li><li><span class="opt-key">C.</span>Scrutiny concerning AI fairness in advancement and recruitment, it is paramount.</li><li><span class="opt-key">D.</span>The scrutiny of algorithmic fairness for professional advancement and recruitment must occur.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B uses the prepositional phrase &#x27;For scrutinizing...&#x27; to front the core idea, mirroring the target grammar label &#x27;Scrutinizing algorithmic fairness in professional advancement and recruitment.&#x27; and providing a C2-level sentence structure. Options A and D are grammatically correct but lack the targeted complexity. Option C is grammatically incorrect.</div></article><article class="exam-item" id="q03"><div class="exam-item-header"><span class="qnum">3. q03</span><span class="exam-meta">comprehension · class 1</span></div><div class="exam-prompt">A company policy states that &#x27;all AI-driven recruitment decisions must include a human-in-the-loop review process.&#x27; What is the primary implication of this clause?</div><ul class="exam-options"><li><span class="opt-key">A.</span>AI systems will fully automate the hiring process, with human oversight for compliance.</li><li class="correct"><span class="opt-key">B.</span>Human intervention is required at critical stages to validate or override AI recommendations. ✓</li><li><span class="opt-key">C.</span>AI is merely a supporting tool, and all final decisions rest with human managers from the outset.</li><li><span class="opt-key">D.</span>The AI is designed to mimic human decision-making, reducing the need for direct human input.</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Human-in-the-loop&#x27; implies that humans are integrated into the decision-making process to review, validate, or correct AI outputs, not just oversee compliance or make all decisions from scratch. It directly addresses the ethical consideration of maintaining human control over critical AI processes.</div></article><article class="exam-item" id="q04"><div class="exam-item-header"><span class="qnum">4. q04</span><span class="exam-meta">register · class 1</span></div><div class="exam-prompt">To foster an environment of ____________, our talent acquisition strategies emphasize transparent criteria and objective assessment for all candidates, regardless of background.</div><ul class="exam-options"><li><span class="opt-key">A.</span>equal chances</li><li><span class="opt-key">B.</span>fair shot</li><li class="correct"><span class="opt-key">C.</span>equitable opportunity ✓</li><li><span class="opt-key">D.</span>level playing field</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Equitable opportunity&#x27; is the most formal and appropriate term in a professional policy context for ensuring fairness and impartiality in talent acquisition. While the other options convey similar meaning, they are less formal or precise for a C2 business environment.</div></article><article class="exam-item" id="q05"><div class="exam-item-header"><span class="qnum">5. q05</span><span class="exam-meta">lexis · class 2</span></div><div class="exam-prompt">Our corporate ethos centers on ____________ by developing AI solutions that are not only innovative but also ethically sound and socially beneficial.</div><ul class="exam-options"><li><span class="opt-key">A.</span>driving progressive innovation</li><li><span class="opt-key">B.</span>promoting advanced technologies</li><li class="correct"><span class="opt-key">C.</span>fostering responsible innovation ✓</li><li><span class="opt-key">D.</span>cultivating ethical breakthroughs</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Fostering responsible innovation&#x27; is the precise lexical item from the brief, capturing the balance between technological advancement and ethical considerations. The distractors are close in meaning but do not use the specific phrase targeted.</div></article><article class="exam-item" id="q06"><div class="exam-item-header"><span class="qnum">6. q06</span><span class="exam-meta">grammar · class 2</span></div><div class="exam-prompt">Choose the most appropriate phrasing for a corporate statement emphasizing commitment to data privacy within AI operations.</div><ul class="exam-options"><li><span class="opt-key">A.</span>Our commitment to data sovereignty is paramount.</li><li class="correct"><span class="opt-key">B.</span>Out of a commitment to customer sovereignty, we prioritize data privacy in all AI operations. ✓</li><li><span class="opt-key">C.</span>Data privacy is prioritized by us, with commitment to customer sovereignty.</li><li><span class="opt-key">D.</span>Regarding customer data sovereignty, our commitment to privacy is absolute for AI.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B uses &#x27;Out of a commitment to customer sovereignty&#x27; as a fronted prepositional phrase, aligning with the &#x27;Prepositional Noun Phrase Fronting&#x27; grammar label and the sophisticated tone of corporate statements. It effectively emphasizes the origin of the company&#x27;s commitment. Other options are less sophisticated or grammatically awkward.</div></article><article class="exam-item" id="q07"><div class="exam-item-header"><span class="qnum">7. q07</span><span class="exam-meta">register · class 2</span></div><div class="exam-prompt">Which phrase is most appropriate for a strong, formal warning in an AI governance policy regarding misuse of data?</div><ul class="exam-options"><li><span class="opt-key">A.</span>It is strictly forbidden to misuse data.</li><li class="correct"><span class="opt-key">B.</span>Under no circumstances shall data be misused. ✓</li><li><span class="opt-key">C.</span>Misuse of data will not be tolerated, period.</li><li><span class="opt-key">D.</span>Users must avoid any data misuse.</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Under no circumstances shall data be misused&#x27; uses inversion and formal vocabulary characteristic of legal or highly official documents, aligning with the C2 register and the target lexical item &#x27;Under no circumstances&#x27;. The other options range from informal to less forceful.</div></article><article class="exam-item" id="q08"><div class="exam-item-header"><span class="qnum">8. q08</span><span class="exam-meta">comprehension · class 2</span></div><div class="exam-prompt">A company&#x27;s ethical AI statement mentions avoiding the &#x27;empathy gap&#x27; in customer service AI. What does this primarily refer to?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Ensuring AI can accurately detect and respond to human emotions.</li><li class="correct"><span class="opt-key">B.</span>Preventing AI from making decisions that lack human understanding or compassion. ✓</li><li><span class="opt-key">C.</span>Closing the gap between human and AI emotional intelligence.</li><li><span class="opt-key">D.</span>Implementing AI to reduce the workload on human customer service agents.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The &#x27;empathy gap&#x27; in this context refers to the risk of AI making decisions or interactions that fail to account for human nuance, context, or emotional needs, leading to a perceived lack of compassion or understanding. It&#x27;s about preventing the negative impact of AI on the human experience, rather than AI developing empathy itself.</div></article><article class="exam-item" id="q09"><div class="exam-item-header"><span class="qnum">9. q09</span><span class="exam-meta">lexis · class 3</span></div><div class="exam-prompt">Critics argue that pervasive workplace AI monitoring, without proper oversight, could transform the office into a ____________, where every action of an employee is tracked and recorded.</div><ul class="exam-options"><li><span class="opt-key">A.</span>data-driven workspace</li><li><span class="opt-key">B.</span>transparent environment</li><li class="correct"><span class="opt-key">C.</span>digital panopticon ✓</li><li><span class="opt-key">D.</span>surveillance ecosystem</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Digital panopticon&#x27; is the specific term from the brief, referencing Foucault&#x27;s concept of a disciplinary system where individuals feel constantly observed, even if they are not, thereby regulating their own behavior. The other options are descriptive but do not carry the same theoretical weight or specific association.</div></article><article class="exam-item" id="q10"><div class="exam-item-header"><span class="qnum">10. q10</span><span class="exam-meta">grammar · class 3</span></div><div class="exam-prompt">Which sentence best captures the ethical debate regarding employee rights and company obligations in AI monitoring?</div><ul class="exam-options"><li><span class="opt-key">A.</span>For companies, balancing employee rights against the obligations of AI monitoring is a complex task.</li><li class="correct"><span class="opt-key">B.</span>Debating employee rights and company obligations regarding AI-powered workplace monitoring necessitates careful policy formulation. ✓</li><li><span class="opt-key">C.</span>The debate over employee rights and obligations in AI monitoring requires resolution by companies.</li><li><span class="opt-key">D.</span>In relation to AI-powered workplace monitoring, employee rights and company obligations are being debated.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B directly uses the gerund phrase &#x27;Debating employee rights and company obligations regarding AI-powered workplace monitoring&#x27; as the subject of the sentence, reflecting the structure and intent of the target grammar label for discussing the topic in a C2 context. The other options are less direct or less formally structured to &#x27;debate&#x27; the issue.</div></article><article class="exam-item" id="q11"><div class="exam-item-header"><span class="qnum">11. q11</span><span class="exam-meta">comprehension · class 3</span></div><div class="exam-prompt">A company introduces AI-powered tools to analyze employee communications for &#x27;productivity insights.&#x27; What ethical concern is most likely to be raised by employees?</div><ul class="exam-options"><li><span class="opt-key">A.</span>The potential for increased workload due to AI analysis.</li><li><span class="opt-key">B.</span>The risk of technological obsolescence of current roles.</li><li class="correct"><span class="opt-key">C.</span>Concerns regarding privacy invasion and lack of employee consent. ✓</li><li><span class="opt-key">D.</span>The accuracy of the &#x27;productivity insights&#x27; generated by the AI.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Analyzing employee communications, even for &#x27;productivity insights,&#x27; directly touches upon privacy concerns and the necessity of employee consent, which are core ethical considerations in workplace AI monitoring. While other options might be valid concerns, privacy invasion and consent are the most immediate and significant ethical implications here.</div></article><article class="exam-item" id="q12"><div class="exam-item-header"><span class="qnum">12. q12</span><span class="exam-meta">register · class 3</span></div><div class="exam-prompt">When implementing AI monitoring, a critical step is to secure ____________, ensuring employees understand what data is collected and how it will be used.</div><ul class="exam-options"><li><span class="opt-key">A.</span>staff buy-in</li><li class="correct"><span class="opt-key">B.</span>employee consent ✓</li><li><span class="opt-key">C.</span>workforce approval</li><li><span class="opt-key">D.</span>personnel agreement</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Employee consent&#x27; is the most formal and legally relevant term in the context of data collection and privacy in the workplace, as highlighted in the brief. The other options are either less precise or less formal for a C2 policy context.</div></article><article class="exam-item" id="q13"><div class="exam-item-header"><span class="qnum">13. q13</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">The widespread adoption of AI-driven ____________ in logistics is raising significant concerns about the future of human employment in the transportation sector.</div><ul class="exam-options"><li><span class="opt-key">A.</span>automated vehicles</li><li><span class="opt-key">B.</span>self-driving units</li><li class="correct"><span class="opt-key">C.</span>autonomous fleets ✓</li><li><span class="opt-key">D.</span>driverless transports</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Autonomous fleets&#x27; is the specific lexical item from the brief, referring to a collection of self-operating vehicles, which is the precise context of AI in logistics that impacts employment. The other options are close but not the exact term specified.</div></article><article class="exam-item" id="q14"><div class="exam-item-header"><span class="qnum">14. q14</span><span class="exam-meta">grammar · class 4</span></div><div class="exam-prompt">Choose the sentence that effectively addresses the ethical trade-offs of AI automation in supply chains.</div><ul class="exam-options"><li><span class="opt-key">A.</span>The ethical trade-offs of AI-driven automation in supply chains are being addressed by our committee.</li><li class="correct"><span class="opt-key">B.</span>Addressing the ethical trade-offs of AI-driven automation in transportation and supply chains requires a holistic approach. ✓</li><li><span class="opt-key">C.</span>To address the ethical trade-offs of AI automation, supply chains must be considered.</li><li><span class="opt-key">D.</span>Ethical trade-offs in AI automation for supply chains are what we are addressing.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B uses the gerund phrase &#x27;Addressing the ethical trade-offs of AI-driven automation...&#x27; as the subject, aligning with the grammatical structure implied by the label &#x27;Addressing the ethical trade-offs...&#x27; and presenting a formal, C2-level statement of purpose or necessity.</div></article><article class="exam-item" id="q15"><div class="exam-item-header"><span class="qnum">15. q15</span><span class="exam-meta">comprehension · class 4</span></div><div class="exam-prompt">When discussing &#x27;job displacement&#x27; in the context of AI in logistics, what is the primary ethical concern?</div><ul class="exam-options"><li><span class="opt-key">A.</span>The increase in demand for new, highly skilled AI development roles.</li><li><span class="opt-key">B.</span>The reduction in operational costs achieved through automation.</li><li class="correct"><span class="opt-key">C.</span>The social and economic impact on workers whose jobs are replaced by AI. ✓</li><li><span class="opt-key">D.</span>The challenge of retraining existing employees for different roles within the company.</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Job displacement&#x27; specifically refers to workers losing their jobs due to automation. The primary ethical concern is the broader social and economic impact on these individuals and communities, rather than the specific internal company challenges of retraining or the positive outcomes like cost reduction or new job creation.</div></article><article class="exam-item" id="q16"><div class="exam-item-header"><span class="qnum">16. q16</span><span class="exam-meta">register · class 4</span></div><div class="exam-prompt">To optimize efficiency and safety in our warehouses, we are implementing systems that promote ____________, allowing AI to handle routine tasks while humans manage complex problem-solving.</div><ul class="exam-options"><li><span class="opt-key">A.</span>teamwork with machines</li><li class="correct"><span class="opt-key">B.</span>human-machine collaboration ✓</li><li><span class="opt-key">C.</span>automated human interaction</li><li><span class="opt-key">D.</span>manpower and robot integration</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Human-machine collaboration&#x27; is the most formal and appropriate term in a professional context for describing the synergistic working relationship between humans and AI/machines. The other options are less formal or less precise in their phrasing for a C2 audience.</div></article><article class="exam-item" id="q17"><div class="exam-item-header"><span class="qnum">17. q17</span><span class="exam-meta">lexis · class 5</span></div><div class="exam-prompt">The new security policy permits the use of ____________ for access control in highly restricted areas, subject to strict privacy protocols.</div><ul class="exam-options"><li><span class="opt-key">A.</span>face recognition</li><li><span class="opt-key">B.</span>facial identification</li><li class="correct"><span class="opt-key">C.</span>facial recognition ✓</li><li><span class="opt-key">D.</span>visage detection</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Facial recognition&#x27; is the standard and most precise technical term for this technology in professional contexts, as extracted from the brief. Other options are near-misses but lack the exact established terminology.</div></article><article class="exam-item" id="q18"><div class="exam-item-header"><span class="qnum">18. q18</span><span class="exam-meta">grammar · class 5</span></div><div class="exam-prompt">Which statement most formally discusses the ethical considerations of AI in predictive safety?</div><ul class="exam-options"><li><span class="opt-key">A.</span>It is important to discuss AI&#x27;s ethical considerations for predictive safety.</li><li class="correct"><span class="opt-key">B.</span>Discussing ethical AI in the workplace, particularly its role in predictive safety, is a priority. ✓</li><li><span class="opt-key">C.</span>The discussion about ethical AI, regarding predictive safety, should happen.</li><li><span class="opt-key">D.</span>For predictive safety, the ethics of AI need to be discussed.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B uses the gerund phrase &#x27;Discussing ethical AI in the workplace...&#x27; as a fronted or introductory element, aligning with the grammar label &#x27;Discussing Ethical AI in the Workplace&#x27; and providing a sophisticated C2-level sentence structure to frame the topic.</div></article><article class="exam-item" id="q19"><div class="exam-item-header"><span class="qnum">19. q19</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">In developing our AI policy, we must ensure robust ____________ to prevent unauthorized access and misuse of personal data gathered by AI systems.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>privacy safeguards ✓</li><li><span class="opt-key">B.</span>data protections</li><li><span class="opt-key">C.</span>secrecy measures</li><li><span class="opt-key">D.</span>confidentiality walls</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Privacy safeguards&#x27; is the precise and formal term used in the brief to describe mechanisms for protecting personal data. While &#x27;data protections&#x27; is close, &#x27;privacy safeguards&#x27; is more specific and widely used in policy documents concerning individual data rights, making it the most appropriate C2 register.</div></article><article class="exam-item" id="q20"><div class="exam-item-header"><span class="qnum">20. q20</span><span class="exam-meta">comprehension · class 5</span></div><div class="exam-prompt">The use of &#x27;predictive analytics&#x27; in workplace security, such as identifying potential risks before they occur, raises ethical questions concerning:</div><ul class="exam-options"><li><span class="opt-key">A.</span>The computational resources required for analysis.</li><li class="correct"><span class="opt-key">B.</span>The potential for discrimination or false positives against individuals. ✓</li><li><span class="opt-key">C.</span>The integration challenges with existing security infrastructure.</li><li><span class="opt-key">D.</span>The cost-effectiveness of preventative security measures.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Predictive analytics, especially in security, runs the risk of algorithmic bias, profiling, and potentially flagging individuals based on statistical probabilities rather than concrete evidence, leading to discrimination or false accusations. This is a significant ethical concern related to fairness and individual rights.</div></article><article class="exam-item" id="q21"><div class="exam-item-header"><span class="qnum">21. q21</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">A key challenge in implementing generative AI tools is clearly defining ____________ for content created by these systems.</div><ul class="exam-options"><li><span class="opt-key">A.</span>the creator&#x27;s rights</li><li class="correct"><span class="opt-key">B.</span>authorship and ownership ✓</li><li><span class="opt-key">C.</span>who owns the work</li><li><span class="opt-key">D.</span>intellectual dominion</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Authorship and ownership&#x27; is the specific and formal phrase from the brief that precisely captures the legal and ethical questions surrounding who is credited for and controls AI-generated content. Other options are either less formal or less comprehensive in their legal implications.</div></article><article class="exam-item" id="q22"><div class="exam-item-header"><span class="qnum">22. q22</span><span class="exam-meta">grammar · class 6</span></div><div class="exam-prompt">Which sentence effectively addresses the ethical challenges of AI-generated content ownership?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Navigating ethical challenges around authorship and ownership of AI-generated content in business requires clear policy. ✓</li><li><span class="opt-key">B.</span>To navigate ethical challenges of AI content ownership, business policies are needed.</li><li><span class="opt-key">C.</span>The navigation of ethical challenges with AI content ownership is important for business.</li><li><span class="opt-key">D.</span>Ethical challenges in AI content ownership, navigating them is a business priority.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A directly uses the gerund phrase &#x27;Navigating ethical challenges around authorship and ownership of AI-generated content in business&#x27; as the subject, mirroring the grammar label and providing a formal, C2-level statement about the necessity of policy in this context.</div></article><article class="exam-item" id="q23"><div class="exam-item-header"><span class="qnum">23. q23</span><span class="exam-meta">register · class 6</span></div><div class="exam-prompt">In an internal policy document, how would you formally introduce a section detailing the responsible use of AI for content creation?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Here&#x27;s how to use AI responsibly for content.</li><li><span class="opt-key">B.</span>Guidelines for AI-powered Content Creation.</li><li class="correct"><span class="opt-key">C.</span>Originality &amp; Ethical Use: Generative AI Content. ✓</li><li><span class="opt-key">D.</span>About Using AI for Content: The Right Way.</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Originality &amp; Ethical Use: Generative AI Content.&#x27; uses the specific policy terminology from the brief, combining key concepts (originality, ethics, generative AI) in a concise, formal heading suitable for a C2-level policy document. The colon structure is also common in such documents.</div></article><article class="exam-item" id="q24"><div class="exam-item-header"><span class="qnum">24. q24</span><span class="exam-meta">comprehension · class 6</span></div><div class="exam-prompt">A policy dictates that &#x27;all AI-generated content must include explicit attribution to the AI system used.&#x27; What is the primary reason for this rule?</div><ul class="exam-options"><li><span class="opt-key">A.</span>To acknowledge the technological capability of the AI.</li><li class="correct"><span class="opt-key">B.</span>To avoid potential copyright disputes and uphold intellectual property rights. ✓</li><li><span class="opt-key">C.</span>To inform readers that the content may contain errors.</li><li><span class="opt-key">D.</span>To promote transparency about the use of AI in content creation.</li></ul><div class="exam-explanation"><strong>Explanation</strong>While transparency (D) is a related benefit, the primary reason for explicit attribution, especially in a policy context dealing with IP and ownership, is to clarify copyright status and avoid disputes, as AI-generated content typically lacks legal authorship in the traditional sense, impacting intellectual property rights.</div></article><article class="exam-item" id="q25"><div class="exam-item-header"><span class="qnum">25. q25</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">Which sentence most effectively uses prepositional noun phrase fronting to analyze algorithmic governance?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>For the thorough analysis of algorithmic governance, robust frameworks are indispensable. ✓</li><li><span class="opt-key">B.</span>Robust frameworks are indispensable for the thorough analysis of algorithmic governance.</li><li><span class="opt-key">C.</span>Algorithmic governance analysis requires robust frameworks.</li><li><span class="opt-key">D.</span>With robust frameworks, we analyze algorithmic governance thoroughly.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A uses the prepositional phrase &#x27;For the thorough analysis of algorithmic governance&#x27; at the beginning of the sentence to emphasize its importance, which is a classic example of prepositional noun phrase fronting for formal, analytical discourse, aligning with the grammar label for Class 7 and C2 level writing.</div></article><article class="exam-item" id="q26"><div class="exam-item-header"><span class="qnum">26. q26</span><span class="exam-meta">comprehension · class 7</span></div><div class="exam-prompt">Organizations face an &#x27;ethical imperative&#x27; to support workforce adaptation to AI. What does this primarily mean?</div><ul class="exam-options"><li><span class="opt-key">A.</span>They must ensure all employees receive advanced AI programming training.</li><li class="correct"><span class="opt-key">B.</span>They have a moral obligation to mitigate negative impacts of AI on employees and facilitate new roles. ✓</li><li><span class="opt-key">C.</span>They are required by law to offer comprehensive AI re-skilling programs.</li><li><span class="opt-key">D.</span>They should only hire employees who are already proficient in AI technologies.</li></ul><div class="exam-explanation"><strong>Explanation</strong>An &#x27;ethical imperative&#x27; signifies a strong moral obligation. In this context, it means organizations are morally compelled to address the challenges AI presents to their workforce, such as job displacement, by providing support, training, and opportunities for employees to adapt and transition to new roles rather than simply replacing them.</div></article><article class="exam-item" id="q27"><div class="exam-item-header"><span class="qnum">27. q27</span><span class="exam-meta">register · class 7</span></div><div class="exam-prompt">Which of the following phrases is most appropriate for a formal report advocating for proactive AI policy development?</div><ul class="exam-options"><li><span class="opt-key">A.</span>It&#x27;s high time we got our act together on AI policy.</li><li class="correct"><span class="opt-key">B.</span>Urgent attention is warranted for comprehensive AI policy development. ✓</li><li><span class="opt-key">C.</span>We seriously need to make some AI policies happen now.</li><li><span class="opt-key">D.</span>Proactive AI policy development: let&#x27;s get it done.</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Urgent attention is warranted for comprehensive AI policy development&#x27; uses formal vocabulary and structure (e.g., &#x27;warranted,&#x27; &#x27;comprehensive&#x27;) suitable for an advanced formal report. The other options are too informal or less precise for a C2 professional context.</div></article><article class="exam-item" id="q28"><div class="exam-item-header"><span class="qnum">28. q28</span><span class="exam-meta">comprehension · class 7</span></div><div class="exam-prompt">When an organization emphasizes &#x27;supporting workforce adaptation&#x27; to AI advancements, which action aligns best with this principle?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Implementing AI systems with minimal employee communication to avoid resistance.</li><li class="correct"><span class="opt-key">B.</span>Investing in continuous learning and development programs focused on AI literacy and new skill sets. ✓</li><li><span class="opt-key">C.</span>Outsourcing roles that can be automated by AI to specialized contractors.</li><li><span class="opt-key">D.</span>Prioritizing the hiring of new graduates with AI expertise over retraining existing staff.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Supporting workforce adaptation involves proactive measures to help current employees transition and thrive in an AI-driven environment. Investing in continuous learning and skill development directly addresses this by equipping employees with the necessary competencies. The other options represent strategies that do not prioritize internal workforce adaptation.</div></article><article class="exam-item" id="q29"><div class="exam-item-header"><span class="qnum">29. q29</span><span class="exam-meta">synthesis · class 7</span></div><div class="exam-prompt">Considering the multifaceted ethical challenges of AI in the workplace, which principle should form the cornerstone of any comprehensive AI policy?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Maximizing efficiency and profitability through AI deployment.</li><li class="correct"><span class="opt-key">B.</span>Ensuring human oversight, fairness, transparency, and accountability in all AI applications. ✓</li><li><span class="opt-key">C.</span>Prioritizing the integration of AI tools across all operational departments.</li><li><span class="opt-key">D.</span>Developing proprietary AI solutions to gain a competitive market advantage.</li></ul><div class="exam-explanation"><strong>Explanation</strong>This question requires synthesizing insights from across the unit. The principles of human oversight, fairness, transparency, and accountability are recurring themes and are widely recognized as fundamental for ethical AI governance in any workplace setting, addressing the core concerns raised in recruitment, monitoring, content creation, and logistics.</div></article><article class="exam-item" id="q30"><div class="exam-item-header"><span class="qnum">30. q30</span><span class="exam-meta">synthesis · class 7</span></div><div class="exam-prompt">An organization aims to cultivate an &#x27;ethical AI culture.&#x27; What would be the most impactful initial step towards achieving this goal?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Implementing a company-wide ban on all non-essential AI tools.</li><li class="correct"><span class="opt-key">B.</span>Mandating AI ethics training for all employees and establishing clear channels for ethical concerns. ✓</li><li><span class="opt-key">C.</span>Hiring a dedicated team of AI ethicists to review all existing AI systems.</li><li><span class="opt-key">D.</span>Developing a detailed technical audit process for all AI algorithms.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Cultivating a culture starts with broad education and mechanisms for engagement. Mandating training for all employees (not just specialists) and establishing channels for concerns directly embeds ethical thinking into daily operations and empowers the workforce, fostering a pervasive ethical AI culture. While other options have merit, they are either too restrictive, too specialized, or focus on process over culture.</div></article>
+
+</body>
+</html>

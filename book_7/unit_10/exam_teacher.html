@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit exam — Global Forces Shaping Work, Home, and Lifestyle</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<nav class="breadcrumbs"><a href="index.html">← Unit index</a></nav>
+<header>
+  <p class="view-banner">Teacher · Unit exam key</p>
+  <h1>Unit exam — Global Forces Shaping Work, Home, and Lifestyle</h1>
+  <p class="meta">T10_LIFESTYLE · C2 · 30 items</p>
+</header>
+<article class="exam-item" id="q01"><div class="exam-item-header"><span class="qnum">1. q01</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">Persistent delays in acquiring raw materials have highlighted a critical vulnerability in the company&#x27;s manufacturing processes, primarily due to insufficient attention to __________.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>supply chain resilience ✓</li><li><span class="opt-key">B.</span>housing market volatility</li><li><span class="opt-key">C.</span>local procurement</li><li><span class="opt-key">D.</span>import tariffs</li></ul><div class="exam-explanation"><strong>Explanation</strong>Supply chain resilience refers to the ability to withstand disruptions. The lack of it caused vulnerabilities.</div></article><article class="exam-item" id="q02"><div class="exam-item-header"><span class="qnum">2. q02</span><span class="exam-meta">comprehension · class 1</span></div><div class="exam-prompt">The recent surge in global demand for specific building components, coupled with international shipping challenges, has significantly impacted local developers. What is the most immediate consequence of these global forces on the housing sector?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Increased infrastructure bottlenecks for urban expansion.</li><li><span class="opt-key">B.</span>Enhanced local procurement opportunities.</li><li class="correct"><span class="opt-key">C.</span>Exacerbated housing market volatility due to rising material costs. ✓</li><li><span class="opt-key">D.</span>A shift towards more resilient construction logistics.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Rising material costs directly lead to greater fluctuations (volatility) in the housing market, making &#x27;C&#x27; the most direct consequence.</div></article><article class="exam-item" id="q03"><div class="exam-item-header"><span class="qnum">3. q03</span><span class="exam-meta">grammar · class 1</span></div><div class="exam-prompt">Which sentence correctly assesses the logistical impacts of international trade disruptions on local housing development and material costs?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Assessing the logistical impacts, international trade disruptions have deeply affected housing development and material costs.</li><li class="correct"><span class="opt-key">B.</span>The logistical impacts of international trade disruptions on local housing development and material costs are currently being assessed. ✓</li><li><span class="opt-key">C.</span>Having assessed the logistical impacts, international trade disruptions influenced housing development and material costs.</li><li><span class="opt-key">D.</span>To assess the logistical impacts, international trade disruptions caused housing development and material costs.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B uses the gerund phrase as the subject, directly reflecting the grammar label&#x27;s focus on &#x27;assessing impacts&#x27; as an ongoing or present state. Options A, C, and D alter the meaning or grammatical structure incorrectly.</div></article><article class="exam-item" id="q04"><div class="exam-item-header"><span class="qnum">4. q04</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">The new government policy aims to mitigate the effects of __________ by introducing subsidies for first-time homebuyers, recognizing the unpredictable nature of property values.</div><ul class="exam-options"><li><span class="opt-key">A.</span>construction logistics</li><li class="correct"><span class="opt-key">B.</span>housing market volatility ✓</li><li><span class="opt-key">C.</span>infrastructure bottlenecks</li><li><span class="opt-key">D.</span>local procurement</li></ul><div class="exam-explanation"><strong>Explanation</strong>The context of &#x27;unpredictable nature of property values&#x27; directly points to &#x27;housing market volatility&#x27;.</div></article><article class="exam-item" id="q05"><div class="exam-item-header"><span class="qnum">5. q05</span><span class="exam-meta">lexis · class 2</span></div><div class="exam-prompt">With a significant portion of its staff now operating remotely from various global locations, the tech company has effectively transitioned to a __________ model.</div><ul class="exam-options"><li><span class="opt-key">A.</span>urban regeneration</li><li class="correct"><span class="opt-key">B.</span>distributed workforce ✓</li><li><span class="opt-key">C.</span>housing density</li><li><span class="opt-key">D.</span>economic revitalization</li></ul><div class="exam-explanation"><strong>Explanation</strong>A &#x27;distributed workforce&#x27; precisely describes employees working remotely from various locations, as opposed to a centralized office.</div></article><article class="exam-item" id="q06"><div class="exam-item-header"><span class="qnum">6. q06</span><span class="exam-meta">grammar · class 2</span></div><div class="exam-prompt">Which sentence effectively uses fronting to emphasize the necessity of urban planning adjustments in response to changing demographics?</div><ul class="exam-options"><li><span class="opt-key">A.</span>The necessity of urban planning adjustments, necessitated by changing demographics, is clear.</li><li class="correct"><span class="opt-key">B.</span>Necessitated by changing demographics are the significant urban planning adjustments. ✓</li><li><span class="opt-key">C.</span>Changing demographics necessitate the significant urban planning adjustments.</li><li><span class="opt-key">D.</span>Urban planning adjustments, it is necessitated by changing demographics, are significant.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B uses &#x27;Necessitated by changing demographics&#x27; at the beginning of the sentence, fronting the participial phrase to emphasize the cause of the adjustments, followed by inversion of the subject and verb.</div></article><article class="exam-item" id="q07"><div class="exam-item-header"><span class="qnum">7. q07</span><span class="exam-meta">register · class 2</span></div><div class="exam-prompt">A company memo is being drafted to encourage employees to find equilibrium between their professional and personal commitments. Which phrase best reflects this formal objective?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Helping staff balance their job and home life.</li><li class="correct"><span class="opt-key">B.</span>Supporting employees to foster work-life synergy. ✓</li><li><span class="opt-key">C.</span>Getting our team to sort out their work-life balance.</li><li><span class="opt-key">D.</span>Aiding workers in combining their duties and private time.</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Fostering work-life synergy&#x27; is a professional, high-level expression for achieving a positive and mutually reinforcing relationship between work and personal life, suitable for a formal company memo.</div></article><article class="exam-item" id="q08"><div class="exam-item-header"><span class="qnum">8. q08</span><span class="exam-meta">lexis · class 2</span></div><div class="exam-prompt">To ensure long-term employee retention and health, the firm has implemented new policies specifically designed to __________ by offering flexible schedules and mental wellness programs.</div><ul class="exam-options"><li><span class="opt-key">A.</span>uphold personal well-being</li><li><span class="opt-key">B.</span>negotiate flexible working parameters</li><li class="correct"><span class="opt-key">C.</span>mitigate professional burnout ✓</li><li><span class="opt-key">D.</span>foster work-life synergy</li></ul><div class="exam-explanation"><strong>Explanation</strong>Flexible schedules and wellness programs are direct strategies to &#x27;mitigate professional burnout,&#x27; which is the state of physical or emotional exhaustion caused by prolonged or excessive stress.</div></article><article class="exam-item" id="q09"><div class="exam-item-header"><span class="qnum">9. q09</span><span class="exam-meta">comprehension · class 3</span></div><div class="exam-prompt">When discussing ethical and practical strategies for providing dignified housing and integration support for an international labor force, which approach is most holistic and effective?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Providing dormitory-style accommodation solely on company premises to minimize logistical issues.</li><li class="correct"><span class="opt-key">B.</span>Offering culturally sensitive housing options and robust community integration programs. ✓</li><li><span class="opt-key">C.</span>Focusing exclusively on providing competitive wages, assuming housing will be resolved independently.</li><li><span class="opt-key">D.</span>Implementing temporary housing solutions until workers secure permanent residency.</li></ul><div class="exam-explanation"><strong>Explanation</strong>A &#x27;holistic and effective&#x27; approach for &#x27;dignified housing and integration support&#x27; would encompass both appropriate living arrangements and active community engagement, making &#x27;B&#x27; the best option.</div></article><article class="exam-item" id="q10"><div class="exam-item-header"><span class="qnum">10. q10</span><span class="exam-meta">grammar · class 3</span></div><div class="exam-prompt">Which sentence best captures the grammatical intent of &#x27;discussing ethical and practical strategies for providing dignified housing and integration support for an international labor force&#x27; as a recommendation?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>It is crucial to discuss ethical and practical strategies for providing dignified housing and integration support for an international labor force. ✓</li><li><span class="opt-key">B.</span>Discussed are the ethical and practical strategies for providing dignified housing and integration support for an international labor force.</li><li><span class="opt-key">C.</span>The ethical and practical strategies for providing dignified housing and integration support for an international labor force are being discussed.</li><li><span class="opt-key">D.</span>Discussing the ethical and practical strategies, dignified housing and integration support is provided for an international labor force.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A uses &#x27;It is crucial to discuss,&#x27; which frames the discussion as a recommendation or a necessary action, aligning with &#x27;discussing strategies&#x27; in a proactive sense. Options B, C, and D describe the action differently (past, ongoing, or as a subordinate clause).</div></article><article class="exam-item" id="q11"><div class="exam-item-header"><span class="qnum">11. q11</span><span class="exam-meta">register · class 3</span></div><div class="exam-prompt">In a formal report addressing the needs of an international labor force, which phrase most appropriately describes the provision of suitable living conditions?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Sorting out places for them to live.</li><li><span class="opt-key">B.</span>Arranging lodging for these workers.</li><li class="correct"><span class="opt-key">C.</span>Facilitating dignified residential provisions. ✓</li><li><span class="opt-key">D.</span>Helping with their housing setup.</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Facilitating dignified residential provisions&#x27; uses formal, precise language appropriate for a report on providing suitable living conditions, especially with the added nuance of &#x27;dignified&#x27;.</div></article><article class="exam-item" id="q12"><div class="exam-item-header"><span class="qnum">12. q12</span><span class="exam-meta">synthesis · class 3</span></div><div class="exam-prompt">A multinational corporation is expanding its operations into a new region, requiring a substantial influx of foreign workers. To ensure successful integration and long-term productivity, what comprehensive approach should the company prioritize?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Focus on rapid deployment and immediate task assignments, assuming workers will adapt quickly.</li><li class="correct"><span class="opt-key">B.</span>Implement robust relocation assistance, comprehensive language training, and culturally sensitive community outreach programs. ✓</li><li><span class="opt-key">C.</span>Provide standard employment contracts and rely on local charities for any additional worker support.</li><li><span class="opt-key">D.</span>Offer competitive salaries but leave housing and social integration entirely to individual worker initiative.</li></ul><div class="exam-explanation"><strong>Explanation</strong>A &#x27;comprehensive approach&#x27; for &#x27;successful integration and long-term productivity&#x27; requires more than just employment. Option B addresses practical needs (relocation, language) and social aspects (community outreach, cultural sensitivity).</div></article><article class="exam-item" id="q13"><div class="exam-item-header"><span class="qnum">13. q13</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">Effective __________ is crucial for managers leading diverse global teams, enabling them to navigate different communication styles and professional norms without causing offense.</div><ul class="exam-options"><li><span class="opt-key">A.</span>work-life integration</li><li class="correct"><span class="opt-key">B.</span>cultural intelligence ✓</li><li><span class="opt-key">C.</span>time zone management</li><li><span class="opt-key">D.</span>family leave policies</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Cultural intelligence&#x27; is the ability to understand and adapt to different cultural contexts, which is directly relevant to navigating diverse communication styles and professional norms.</div></article><article class="exam-item" id="q14"><div class="exam-item-header"><span class="qnum">14. q14</span><span class="exam-meta">comprehension · class 4</span></div><div class="exam-prompt">A global team is experiencing friction due to misunderstandings about project deadlines and expected response times, which vary significantly across team members&#x27; home cultures. Which concept is most directly at play?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Issues with family leave policies.</li><li class="correct"><span class="opt-key">B.</span>Challenges in professional etiquette across global teams. ✓</li><li><span class="opt-key">C.</span>Poor time zone management.</li><li><span class="opt-key">D.</span>Lack of work-life integration.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Misunderstandings about deadlines and response times, especially when tied to &#x27;home cultures,&#x27; are primarily issues of &#x27;professional etiquette,&#x27; which encompasses norms of interaction and conduct.</div></article><article class="exam-item" id="q15"><div class="exam-item-header"><span class="qnum">15. q15</span><span class="exam-meta">grammar · class 4</span></div><div class="exam-prompt">Which sentence correctly compares professional expectations and the integration of home life across varied global work cultures?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Comparing professional expectations, the integration of home life across varied global work cultures also differs significantly. ✓</li><li><span class="opt-key">B.</span>Professional expectations and home life integration, comparing these across varied global work cultures, differ.</li><li><span class="opt-key">C.</span>To compare professional expectations, the integration of home life varies across varied global work cultures.</li><li><span class="opt-key">D.</span>As professional expectations are compared, also the integration of home life across varied global work cultures differs significantly.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A uses the participial phrase &#x27;Comparing professional expectations&#x27; as an introductory element to draw a parallel with the varying integration of home life, accurately reflecting the grammatical label.</div></article><article class="exam-item" id="q16"><div class="exam-item-header"><span class="qnum">16. q16</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">To facilitate seamless collaboration among teams spread across continents, the company has invested in advanced scheduling software to improve __________ and ensure all meetings occur at reasonable hours for participants.</div><ul class="exam-options"><li><span class="opt-key">A.</span>global team collaboration</li><li><span class="opt-key">B.</span>work-life integration</li><li class="correct"><span class="opt-key">C.</span>time zone management ✓</li><li><span class="opt-key">D.</span>cultural intelligence</li></ul><div class="exam-explanation"><strong>Explanation</strong>The context of &#x27;teams spread across continents&#x27; and &#x27;meetings occur at reasonable hours&#x27; directly refers to the challenge and solution of &#x27;time zone management&#x27;.</div></article><article class="exam-item" id="q17"><div class="exam-item-header"><span class="qnum">17. q17</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">An executive is relocating internationally. Which option is the most professional and nuanced way to describe his need to achieve harmony between his job responsibilities and personal life?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Balance his job and home life.</li><li class="correct"><span class="opt-key">B.</span>Foster work-life synergy. ✓</li><li><span class="opt-key">C.</span>Make his work and home life click.</li><li><span class="opt-key">D.</span>Sort out his work-life situation.</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Foster work-life synergy&#x27; is a C2-level professional expression that implies a dynamic and mutually beneficial relationship between work and personal life, rather than just a static &#x27;balance&#x27;.</div></article><article class="exam-item" id="q18"><div class="exam-item-header"><span class="qnum">18. q18</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">In a formal HR document discussing employee support programs, which phrase most professionally conveys the concept of an individual maintaining good health and happiness?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Look after himself.</li><li class="correct"><span class="opt-key">B.</span>Uphold personal well-being. ✓</li><li><span class="opt-key">C.</span>Keep healthy and happy.</li><li><span class="opt-key">D.</span>Manage his individual welfare.</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Uphold personal well-being&#x27; is the most formal and comprehensive phrase for maintaining good health and happiness, aligning with the professional language expected in HR documentation.</div></article><article class="exam-item" id="q19"><div class="exam-item-header"><span class="qnum">19. q19</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">A manager is communicating with an employee about adapting their working arrangements. Which phrase is the most professional way to refer to the process of reaching an agreement on work hours?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Talk about his working hours.</li><li class="correct"><span class="opt-key">B.</span>Negotiate flexible working parameters. ✓</li><li><span class="opt-key">C.</span>Sort out his work schedule.</li><li><span class="opt-key">D.</span>Discuss his working arrangements.</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Negotiate flexible working parameters&#x27; is a formal, specific, and professional phrase that captures the active process of discussing and agreeing upon terms for work hours and arrangements.</div></article><article class="exam-item" id="q20"><div class="exam-item-header"><span class="qnum">20. q20</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">An internal company policy is being developed to address employee stress. Which phrase is the most professional and appropriate for describing the goal of preventing severe job-related stress and exhaustion?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Stop him from burning out.</li><li><span class="opt-key">B.</span>Prevent job stress.</li><li class="correct"><span class="opt-key">C.</span>Mitigate professional burnout. ✓</li><li><span class="opt-key">D.</span>Reduce his work strain.</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Mitigate professional burnout&#x27; is the most formal and precise term for preventing severe job-related stress and exhaustion, fitting the professional register for an internal policy.</div></article><article class="exam-item" id="q21"><div class="exam-item-header"><span class="qnum">21. q21</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">The board unanimously approved the new initiative, emphasizing the company&#x27;s long-term commitment to __________ and its environmental responsibilities.</div><ul class="exam-options"><li><span class="opt-key">A.</span>resource optimization</li><li class="correct"><span class="opt-key">B.</span>Corporate Sustainability ✓</li><li><span class="opt-key">C.</span>waste reduction strategies</li><li><span class="opt-key">D.</span>eco-friendly commuting</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Corporate Sustainability&#x27; is the overarching term for a company&#x27;s commitment to environmental, social, and economic responsibilities, fitting the context of a long-term initiative approved by the board.</div></article><article class="exam-item" id="q22"><div class="exam-item-header"><span class="qnum">22. q22</span><span class="exam-meta">comprehension · class 6</span></div><div class="exam-prompt">To foster sustainable habits among employees and reduce the carbon footprint of its urban workplace, a company implements a &#x27;Digital-First Policy&#x27; for documents and installs &#x27;Smart Recycling Bins&#x27;. Which of these initiatives primarily targets waste reduction?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Both the Digital-First Policy and Smart Recycling Bins contribute equally to waste reduction.</li><li><span class="opt-key">B.</span>The Digital-First Policy, as it reduces paper consumption.</li><li class="correct"><span class="opt-key">C.</span>The Smart Recycling Bins, as they directly manage physical waste. ✓</li><li><span class="opt-key">D.</span>Neither initiative directly targets waste reduction, focusing instead on resource optimization.</li></ul><div class="exam-explanation"><strong>Explanation</strong>While &#x27;Digital-First Policy&#x27; reduces paper waste, &#x27;Smart Recycling Bins&#x27; are a direct, physical waste management solution designed to handle and process actual waste, making them the primary target for waste reduction.</div></article><article class="exam-item" id="q23"><div class="exam-item-header"><span class="qnum">23. q23</span><span class="exam-meta">grammar · class 6</span></div><div class="exam-prompt">Which sentence correctly uses an imperative or strong recommendation to promote eco-friendly practices in urban workplaces and foster sustainable habits among employees?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>It is recommended that eco-friendly practices be promoted, and sustainable habits be fostered among employees. ✓</li><li><span class="opt-key">B.</span>Promoting eco-friendly practices and fostering sustainable habits among employees are important.</li><li><span class="opt-key">C.</span>Eco-friendly practices should be promoted, and sustainable habits fostered among employees.</li><li><span class="opt-key">D.</span>To promote eco-friendly practices, sustainable habits are fostered among employees.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A uses the subjunctive mood &#x27;be promoted&#x27; and &#x27;be fostered&#x27; after &#x27;It is recommended that,&#x27; which is a formal and strong way to express a recommendation or a directive, aligning with the intent of &#x27;implementing and promoting&#x27; practices.</div></article><article class="exam-item" id="q24"><div class="exam-item-header"><span class="qnum">24. q24</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">To reduce its carbon footprint, the company encourages __________ by offering incentives for staff who use public transport, cycle, or walk to work.</div><ul class="exam-options"><li><span class="opt-key">A.</span>responsible consumption</li><li><span class="opt-key">B.</span>green initiatives</li><li class="correct"><span class="opt-key">C.</span>eco-friendly commuting ✓</li><li><span class="opt-key">D.</span>resource optimization</li></ul><div class="exam-explanation"><strong>Explanation</strong>The context of &#x27;public transport, cycle, or walk to work&#x27; directly describes forms of &#x27;eco-friendly commuting,&#x27; which is a specific type of green initiative.</div></article><article class="exam-item" id="q25"><div class="exam-item-header"><span class="qnum">25. q25</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">Which sentence employs fronting and inversion to emphasize the significant impact of global digital platforms on traditional local service workers?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Significantly impacting traditional local service workers are global digital platforms. ✓</li><li><span class="opt-key">B.</span>Global digital platforms are significantly impacting traditional local service workers.</li><li><span class="opt-key">C.</span>The impact on traditional local service workers by global digital platforms is significant.</li><li><span class="opt-key">D.</span>Impacting traditional local service workers significantly, global digital platforms are.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A fronts the participial phrase &#x27;Significantly impacting traditional local service workers&#x27; and then inverts the subject (&#x27;global digital platforms&#x27;) and verb (&#x27;are&#x27;) to create emphasis.</div></article><article class="exam-item" id="q26"><div class="exam-item-header"><span class="qnum">26. q26</span><span class="exam-meta">comprehension · class 7</span></div><div class="exam-prompt">A recent report analyzes the rapid growth of ride-sharing apps and online food delivery services. What influence do these global digital platforms typically have on the stability and lifestyle of traditional local taxi drivers and restaurant staff?</div><ul class="exam-options"><li><span class="opt-key">A.</span>They invariably lead to improved job security and increased incomes for all local workers.</li><li><span class="opt-key">B.</span>They often create new entrepreneurial opportunities that fully offset losses in traditional sectors.</li><li class="correct"><span class="opt-key">C.</span>They generally disrupt established markets, leading to reduced earnings and job precarity for traditional local service workers. ✓</li><li><span class="opt-key">D.</span>Their influence is largely neutral, as traditional and digital services cater to distinct customer segments.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The growth of digital platforms like ride-sharing and food delivery typically introduces significant competition and often leads to disruption, reduced earnings, and increased job insecurity (precarity) for traditional service workers.</div></article><article class="exam-item" id="q27"><div class="exam-item-header"><span class="qnum">27. q27</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">Which sentence uses an emphatic structure (e.g., inversion with a negative adverbial) to highlight a challenge associated with digital disruption?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Only rarely do traditional businesses adapt quickly enough to digital disruption. ✓</li><li><span class="opt-key">B.</span>Traditional businesses rarely adapt quickly enough to digital disruption.</li><li><span class="opt-key">C.</span>It is traditional businesses that rarely adapt quickly enough to digital disruption.</li><li><span class="opt-key">D.</span>Digital disruption, traditional businesses rarely adapt quickly enough to it.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A uses the negative adverbial &#x27;Only rarely&#x27; at the beginning of the sentence, followed by subject-verb inversion (&#x27;do traditional businesses adapt&#x27;), which is a classic emphatic structure for C2 grammar.</div></article><article class="exam-item" id="q28"><div class="exam-item-header"><span class="qnum">28. q28</span><span class="exam-meta">comprehension · class 7</span></div><div class="exam-prompt">A financial analyst is preparing a report on the socio-economic impacts of digital platforms on local economies. Which statement represents the most objective and comprehensive view of their influence?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Digital platforms invariably foster innovation and economic growth, universally benefiting local communities.</li><li class="correct"><span class="opt-key">B.</span>While offering new opportunities, digital platforms often exacerbate existing inequalities and displace traditional livelihoods. ✓</li><li><span class="opt-key">C.</span>The influence of digital platforms is confined to specific sectors and has minimal broader socio-economic implications.</li><li><span class="opt-key">D.</span>Digital platforms are solely responsible for all current economic shifts and lifestyle changes in urban centers.</li></ul><div class="exam-explanation"><strong>Explanation</strong>An objective and comprehensive view recognizes both the potential benefits (new opportunities) and the negative consequences (exacerbating inequalities, displacing livelihoods), making B the most balanced and accurate statement.</div></article><article class="exam-item" id="q29"><div class="exam-item-header"><span class="qnum">29. q29</span><span class="exam-meta">synthesis · class 2</span></div><div class="exam-prompt">Considering the &#x27;Ripple Effect of Global Trade on Local Housing&#x27; and &#x27;Urban Futures &amp; Remote Work&#x27;, which policy recommendation best addresses the interconnected challenges of housing affordability and demographic shifts in urban areas?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Imposing strict import tariffs on all construction materials to lower housing costs immediately.</li><li class="correct"><span class="opt-key">B.</span>Developing integrated zoning policies that promote mixed-use developments and increase housing density while investing in public transit adaptation. ✓</li><li><span class="opt-key">C.</span>Encouraging a completely distributed workforce with no investment in local urban infrastructure.</li><li><span class="opt-key">D.</span>Subsidizing only single-family homes in suburban areas to attract remote workers.</li></ul><div class="exam-explanation"><strong>Explanation</strong>This question synthesizes concepts from Class 1 (housing) and Class 2 (urban futures, remote work, zoning, public transit, housing density). Option B offers a balanced, multi-faceted approach, integrating housing policy with urban planning and infrastructure adaptation, directly addressing the complexities highlighted in both classes.</div></article><article class="exam-item" id="q30"><div class="exam-item-header"><span class="qnum">30. q30</span><span class="exam-meta">synthesis · class 5</span></div><div class="exam-prompt">Bringing together insights on &#x27;Global Team Work-Life Integration&#x27; and &#x27;Professional Language for Executive Relocation&#x27;, a multinational HR department aims to develop a holistic strategy. Which statement effectively combines these elements to propose a comprehensive support framework?</div><ul class="exam-options"><li><span class="opt-key">A.</span>We must only focus on time zone management for global teams and provide a basic relocation package for executives.</li><li class="correct"><span class="opt-key">B.</span>Only through understanding cultural intelligence and negotiating flexible working parameters can we effectively uphold personal well-being for global professionals and relocating executives. ✓</li><li><span class="opt-key">C.</span>Providing comprehensive family leave policies is sufficient for global teams, and executives will independently foster work-life synergy.</li><li><span class="opt-key">D.</span>Our strategy involves implementing professional etiquette training and preventing job stress solely through individual employee initiatives.</li></ul><div class="exam-explanation"><strong>Explanation</strong>This synthesis question draws on <strong class="lexis">cultural intelligence</strong>, <strong class="lexis">negotiate flexible working parameters</strong>, <strong class="lexis">uphold personal well-being</strong>, and <strong class="lexis">work-life synergy</strong> from classes 4 and 5. Option B connects these key concepts, using <strong class="lexis">only through...can we</strong> for emphasis, indicating that these combined efforts are crucial for a comprehensive support framework.</div></article>
+
+</body>
+</html>

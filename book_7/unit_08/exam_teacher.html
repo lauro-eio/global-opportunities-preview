@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit exam — Developing Strategic Workplace Skills</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<nav class="breadcrumbs"><a href="index.html">← Unit index</a></nav>
+<header>
+  <p class="view-banner">Teacher · Unit exam key</p>
+  <h1>Unit exam — Developing Strategic Workplace Skills</h1>
+  <p class="meta">T08_EDUCATION · C2 · 30 items</p>
+</header>
+<article class="exam-item" id="q01"><div class="exam-item-header"><span class="qnum">1. q01</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">To ensure long-term relevance in a dynamic industry, employees must commit to a process of _______________, constantly acquiring new skills and knowledge.</div><ul class="exam-options"><li><span class="opt-key">A.</span>constant upgrading</li><li class="correct"><span class="opt-key">B.</span>continuous upskilling ✓</li><li><span class="opt-key">C.</span>perpetual enhancing</li><li><span class="opt-key">D.</span>ongoing learning</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q02"><div class="exam-item-header"><span class="qnum">2. q02</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">The human resources department uses _______________ to identify the specific skills and knowledge required for various roles within the organization, helping employees understand their growth path.</div><ul class="exam-options"><li><span class="opt-key">A.</span>skill assessment</li><li><span class="opt-key">B.</span>capability charting</li><li class="correct"><span class="opt-key">C.</span>competency mapping ✓</li><li><span class="opt-key">D.</span>talent identification</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q03"><div class="exam-item-header"><span class="qnum">3. q03</span><span class="exam-meta">grammar · class 1</span></div><div class="exam-prompt">Which of the following best articulates a strategic learning objective for career advancement?</div><ul class="exam-options"><li><span class="opt-key">A.</span>I need to learn more about data next year for my job.</li><li><span class="opt-key">B.</span>Becoming better at project management is what I want to do.</li><li class="correct"><span class="opt-key">C.</span>My objective is to acquire advanced data analytics certifications by year-end to enhance my project management capacity. ✓</li><li><span class="opt-key">D.</span>To do analytics and projects.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q04"><div class="exam-item-header"><span class="qnum">4. q04</span><span class="exam-meta">comprehension · class 1</span></div><div class="exam-prompt">Maria wants to shift her career path from marketing to product management. She identifies a gap in her technical knowledge and decides to enroll in an online course. This action best exemplifies which strategic approach?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Professional development focused on current role enhancement.</li><li><span class="opt-key">B.</span>Competency mapping for internal promotion.</li><li class="correct"><span class="opt-key">C.</span>Self-directed learning aimed at altering her career trajectory. ✓</li><li><span class="opt-key">D.</span>Continuous upskilling without a clear career goal.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q05"><div class="exam-item-header"><span class="qnum">5. q05</span><span class="exam-meta">lexis · class 2</span></div><div class="exam-prompt">The company&#x27;s initiative to integrate AI into its operations is a prime example of its commitment to _______________.</div><ul class="exam-options"><li><span class="opt-key">A.</span>technology upgrade</li><li class="correct"><span class="opt-key">B.</span>digital transformation ✓</li><li><span class="opt-key">C.</span>system modernization</li><li><span class="opt-key">D.</span>digital conversion</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q06"><div class="exam-item-header"><span class="qnum">6. q06</span><span class="exam-meta">lexis · class 2</span></div><div class="exam-prompt">Management aims to _______________ by identifying and eliminating redundancies in task execution, thereby improving overall operational efficiency.</div><ul class="exam-options"><li><span class="opt-key">A.</span>work process streamlining</li><li><span class="opt-key">B.</span>operational efficiency improvement</li><li class="correct"><span class="opt-key">C.</span>workflow optimization ✓</li><li><span class="opt-key">D.</span>task sequence refining</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q07"><div class="exam-item-header"><span class="qnum">7. q07</span><span class="exam-meta">grammar · class 2</span></div><div class="exam-prompt">Select the sentence that uses a concessive linker with rhetorical fronting correctly.</div><ul class="exam-options"><li><span class="opt-key">A.</span>The new software has dramatically improved collaboration, albeit a significant initial learning curve for some teams.</li><li class="correct"><span class="opt-key">B.</span>Albeit a significant initial learning curve for some teams, the new software has dramatically improved collaboration. ✓</li><li><span class="opt-key">C.</span>A significant initial learning curve for some teams, albeit, the new software has dramatically improved collaboration.</li><li><span class="opt-key">D.</span>Albeit, a significant initial learning curve for some teams, the new software has dramatically improved collaboration.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q08"><div class="exam-item-header"><span class="qnum">8. q08</span><span class="exam-meta">register · class 2</span></div><div class="exam-prompt">During a presentation on an organizational change, the project lead needs to acknowledge potential resistance while maintaining a positive outlook. Which phrase is most appropriate?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Even though some people are against it, it will be good.</li><li class="correct"><span class="opt-key">B.</span>Notwithstanding some initial resistance to change, we anticipate long-term benefits. ✓</li><li><span class="opt-key">C.</span>Despite the pushback, we will proceed.</li><li><span class="opt-key">D.</span>While there are difficulties, success is assured.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q09"><div class="exam-item-header"><span class="qnum">9. q09</span><span class="exam-meta">lexis · class 3</span></div><div class="exam-prompt">To improve _______________, the HR department is revising its training modules for new hires, aiming to reduce the time it takes for them to become fully productive.</div><ul class="exam-options"><li><span class="opt-key">A.</span>new employee integration</li><li class="correct"><span class="opt-key">B.</span>onboarding efficiency ✓</li><li><span class="opt-key">C.</span>induction effectiveness</li><li><span class="opt-key">D.</span>beginner productivity</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q10"><div class="exam-item-header"><span class="qnum">10. q10</span><span class="exam-meta">lexis · class 3</span></div><div class="exam-prompt">The workshop focused on various _______________ to ensure that complex information was conveyed clearly and retained by the participants.</div><ul class="exam-options"><li><span class="opt-key">A.</span>teaching methods</li><li><span class="opt-key">B.</span>learning strategies</li><li class="correct"><span class="opt-key">C.</span>instructional techniques ✓</li><li><span class="opt-key">D.</span>pedagogical approaches</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q11"><div class="exam-item-header"><span class="qnum">11. q11</span><span class="exam-meta">grammar · class 3</span></div><div class="exam-prompt">Which statement clearly and strategically describes a method for internal knowledge transfer?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Teams should talk more about what they know.</li><li><span class="opt-key">B.</span>Everyone needs to learn from each other somehow.</li><li class="correct"><span class="opt-key">C.</span>We are establishing a formal mentorship program to facilitate interdepartmental knowledge sharing. ✓</li><li><span class="opt-key">D.</span>Knowledge will be transferred between departments.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q12"><div class="exam-item-header"><span class="qnum">12. q12</span><span class="exam-meta">comprehension · class 3</span></div><div class="exam-prompt">Elena is an experienced engineer who dedicates an hour each week to mentor a junior colleague, Mark, helping him troubleshoot coding issues and understand project specifications. This scenario exemplifies which training strategy?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Formal instructional techniques.</li><li><span class="opt-key">B.</span>Onboarding efficiency improvement.</li><li class="correct"><span class="opt-key">C.</span>Peer coaching and knowledge sharing. ✓</li><li><span class="opt-key">D.</span>Best practices dissemination via broadcast.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q13"><div class="exam-item-header"><span class="qnum">13. q13</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">After each major project, the team engages in _______________ to review successes and failures, identifying areas for individual and collective improvement.</div><ul class="exam-options"><li><span class="opt-key">A.</span>project retrospection</li><li><span class="opt-key">B.</span>self-evaluation exercise</li><li class="correct"><span class="opt-key">C.</span>reflective practice ✓</li><li><span class="opt-key">D.</span>performance review</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q14"><div class="exam-item-header"><span class="qnum">14. q14</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">The company introduced a new _______________ outlining the essential skills and behaviors required for success at different levels within the organization.</div><ul class="exam-options"><li><span class="opt-key">A.</span>skill structure</li><li><span class="opt-key">B.</span>ability guideline</li><li class="correct"><span class="opt-key">C.</span>competency framework ✓</li><li><span class="opt-key">D.</span>performance standard</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q15"><div class="exam-item-header"><span class="qnum">15. q15</span><span class="exam-meta">grammar · class 4</span></div><div class="exam-prompt">Which sentence most effectively articulates a finding from a critical self-assessment for strategic development?</div><ul class="exam-options"><li><span class="opt-key">A.</span>I need to learn statistics better for work.</li><li><span class="opt-key">B.</span>Statistics are hard, and I&#x27;m not good at them yet.</li><li class="correct"><span class="opt-key">C.</span>My performance analysis revealed a critical gap in advanced statistical modeling, necessitating targeted training for future project leadership. ✓</li><li><span class="opt-key">D.</span>The project showed I could improve in some areas like numbers.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q16"><div class="exam-item-header"><span class="qnum">16. q16</span><span class="exam-meta">comprehension · class 4</span></div><div class="exam-prompt">An employee reviews their project deliverables against established metrics, identifies an area where they consistently underperformed, and then outlines specific courses and mentorship opportunities to address this gap in their annual review. This process directly contributes to the creation of a/an _______________.</div><ul class="exam-options"><li><span class="opt-key">A.</span>skill matrix update</li><li><span class="opt-key">B.</span>competency framework revision</li><li class="correct"><span class="opt-key">C.</span>individual development plan ✓</li><li><span class="opt-key">D.</span>general performance analysis</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q17"><div class="exam-item-header"><span class="qnum">17. q17</span><span class="exam-meta">lexis · class 5</span></div><div class="exam-prompt">To remain competitive, employees are encouraged to _______________ by anticipating future skill requirements and acquiring them in advance.</div><ul class="exam-options"><li><span class="opt-key">A.</span>learn ahead</li><li class="correct"><span class="opt-key">B.</span>upskill proactively ✓</li><li><span class="opt-key">C.</span>train foresightedly</li><li><span class="opt-key">D.</span>develop anticipatorily</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q18"><div class="exam-item-header"><span class="qnum">18. q18</span><span class="exam-meta">lexis · class 5</span></div><div class="exam-prompt">A key aspect of talent management is to _______________ for each employee, ensuring their training aligns with both personal aspirations and company needs.</div><ul class="exam-options"><li><span class="opt-key">A.</span>customize education routes</li><li class="correct"><span class="opt-key">B.</span>tailor learning pathways ✓</li><li><span class="opt-key">C.</span>design study courses</li><li><span class="opt-key">D.</span>individualize training programs</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q19"><div class="exam-item-header"><span class="qnum">19. q19</span><span class="exam-meta">grammar · class 5</span></div><div class="exam-prompt">Which statement best exemplifies the intent to strategically upskill by leveraging existing resources?</div><ul class="exam-options"><li><span class="opt-key">A.</span>We will find ways to get better at our jobs.</li><li class="correct"><span class="opt-key">B.</span>Our department plans to leverage professional development opportunities by funding certifications directly relevant to our Q3 objectives. ✓</li><li><span class="opt-key">C.</span>Training will happen if we have the budget for it.</li><li><span class="opt-key">D.</span>It&#x27;s good to use development chances when they come up.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q20"><div class="exam-item-header"><span class="qnum">20. q20</span><span class="exam-meta">comprehension · class 5</span></div><div class="exam-prompt">The training manager emphasized the importance of viewing challenges as opportunities for growth rather than insurmountable obstacles. This approach aims to _______________ among team members.</div><ul class="exam-options"><li><span class="opt-key">A.</span>promote positive thinking</li><li><span class="opt-key">B.</span>encourage resilience</li><li class="correct"><span class="opt-key">C.</span>foster a growth mindset ✓</li><li><span class="opt-key">D.</span>develop problem-solving skills</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q21"><div class="exam-item-header"><span class="qnum">21. q21</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">The first section of a strategic proposal, _______________, provides a concise overview of the document&#x27;s key points and recommendations.</div><ul class="exam-options"><li><span class="opt-key">A.</span>Introduction</li><li class="correct"><span class="opt-key">B.</span>Executive Summary ✓</li><li><span class="opt-key">C.</span>Abstract</li><li><span class="opt-key">D.</span>Main Points</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q22"><div class="exam-item-header"><span class="qnum">22. q22</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">The success of our new project depends heavily on effective _______________, requiring different teams to work seamlessly towards a common objective.</div><ul class="exam-options"><li><span class="opt-key">A.</span>cross-team cooperation</li><li><span class="opt-key">B.</span>internal partnership</li><li class="correct"><span class="opt-key">C.</span>interdepartmental collaboration ✓</li><li><span class="opt-key">D.</span>departmental teamwork</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q23"><div class="exam-item-header"><span class="qnum">23. q23</span><span class="exam-meta">grammar · class 6</span></div><div class="exam-prompt">Which sentence best expresses the strategic intent of leveraging collective intelligence in a proposal?</div><ul class="exam-options"><li><span class="opt-key">A.</span>We should ask everyone for their ideas to solve problems.</li><li class="correct"><span class="opt-key">B.</span>By integrating diverse perspectives through structured workshops, we aim to enhance our collective intelligence for robust problem-solving. ✓</li><li><span class="opt-key">C.</span>Gathering thoughts from various people makes solutions better.</li><li><span class="opt-key">D.</span>Our team will use smart ideas from everyone to fix issues.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q24"><div class="exam-item-header"><span class="qnum">24. q24</span><span class="exam-meta">register · class 6</span></div><div class="exam-prompt">A project manager is drafting a proposal section titled &#x27;Key Findings &amp; Strategic Recommendations&#x27;. Which option best reflects the formal and action-oriented tone expected?</div><ul class="exam-options"><li><span class="opt-key">A.</span>We found data issues, so fix them with a standard.</li><li><span class="opt-key">B.</span>It&#x27;s clear data needs to be standardized.</li><li class="correct"><span class="opt-key">C.</span>Implement a Standardized Data Protocol across all departments to mitigate integration bottlenecks. ✓</li><li><span class="opt-key">D.</span>Recommendation: make data standard.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q25"><div class="exam-item-header"><span class="qnum">25. q25</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">Choose the sentence that correctly employs formal concessive language with rhetorical fronting.</div><ul class="exam-options"><li><span class="opt-key">A.</span>The project achieved its core objectives, notwithstanding some minor budgetary constraints.</li><li class="correct"><span class="opt-key">B.</span>Notwithstanding some minor budgetary constraints, the project achieved all its core objectives within the revised timeline. ✓</li><li><span class="opt-key">C.</span>Some minor budgetary constraints notwithstanding, the project achieved all its core objectives.</li><li><span class="opt-key">D.</span>Notwithstanding, some minor budgetary constraints, the project achieved all its core objectives.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q26"><div class="exam-item-header"><span class="qnum">26. q26</span><span class="exam-meta">comprehension · class 7</span></div><div class="exam-prompt">Following a critical system outage, the incident response team initiated a thorough post-mortem analysis. What is the primary strategic goal of this activity?</div><ul class="exam-options"><li><span class="opt-key">A.</span>To assign blame to individuals responsible for the outage.</li><li><span class="opt-key">B.</span>To quickly restore system functionality and resume operations.</li><li class="correct"><span class="opt-key">C.</span>To identify root causes and implement preventative measures to avert future recurrences. ✓</li><li><span class="opt-key">D.</span>To document the events for legal and compliance records.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q27"><div class="exam-item-header"><span class="qnum">27. q27</span><span class="exam-meta">synthesis · class 7</span></div><div class="exam-prompt">A successful modern professional is characterized by their ability to anticipate industry shifts, proactively acquire new competencies, and view learning as a continuous journey. Which combination of strategic skills is most central to this description?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Workflow optimization, best practices dissemination, and onboarding efficiency.</li><li class="correct"><span class="opt-key">B.</span>Self-directed learning, continuous upskilling, and fostering a growth mindset. ✓</li><li><span class="opt-key">C.</span>Competency mapping, peer coaching, and interdepartmental collaboration.</li><li><span class="opt-key">D.</span>Rhetorical fronting, knowledge synthesis, and performance analysis.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q28"><div class="exam-item-header"><span class="qnum">28. q28</span><span class="exam-meta">synthesis · class 7</span></div><div class="exam-prompt">An organization aims to cultivate a culture of continuous improvement. After a major project, teams are required to engage in structured reflection, identify skill gaps, and propose collaborative solutions for future challenges. Which sequence of actions best aligns with this overarching goal?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Focusing on onboarding efficiency, digital transformation, and rapid prototyping.</li><li class="correct"><span class="opt-key">B.</span>Engaging in reflective practice, developing individual development plans, and crafting strategic proposals. ✓</li><li><span class="opt-key">C.</span>Conducting performance analysis, leveraging professional development, and implementing instructional techniques.</li><li><span class="opt-key">D.</span>Aligning skill sets, peer coaching, and rhetorical fronting.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q29"><div class="exam-item-header"><span class="qnum">29. q29</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">Which of the following sentences uses a concessive linker to introduce a formally fronted clause appropriately in a strategic report?</div><ul class="exam-options"><li><span class="opt-key">A.</span>The project&#x27;s viability was affirmed, albeit the initial projections indicated higher risks.</li><li class="correct"><span class="opt-key">B.</span>Albeit the initial projections indicated higher risks, subsequent market analysis affirmed the project&#x27;s viability. ✓</li><li><span class="opt-key">C.</span>Initial projections indicated higher risks, albeit, subsequent market analysis affirmed the project&#x27;s viability.</li><li><span class="opt-key">D.</span>Albeit, initial projections indicated higher risks, the project&#x27;s viability was affirmed.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q30"><div class="exam-item-header"><span class="qnum">30. q30</span><span class="exam-meta">register · class 7</span></div><div class="exam-prompt">In a strategic post-mortem report discussing a project setback, which phrase maintains the most objective and formal tone when acknowledging challenges?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Even though things were tough, the team did well.</li><li class="correct"><span class="opt-key">B.</span>Despite considerable operational complexities, the team demonstrated remarkable adaptability. ✓</li><li><span class="opt-key">C.</span>Challenges were big, but the team performed.</li><li><span class="opt-key">D.</span>While it was hard, the team tried their best.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article>
+
+</body>
+</html>

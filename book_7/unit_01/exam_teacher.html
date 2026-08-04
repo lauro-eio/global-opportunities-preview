@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit exam — Strategic Workplace Diplomacy</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<nav class="breadcrumbs"><a href="index.html">← Unit index</a></nav>
+<header>
+  <p class="view-banner">Teacher · Unit exam key</p>
+  <h1>Unit exam — Strategic Workplace Diplomacy</h1>
+  <p class="meta">T01_IDENTITY · C2 · 30 items</p>
+</header>
+<article class="exam-item" id="q01"><div class="exam-item-header"><span class="qnum">1. q01</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">The CEO&#x27;s statement, though outwardly supportive, carried a subtle ________ that suggested underlying concerns about project feasibility.</div><ul class="exam-options"><li><span class="opt-key">A.</span>emphasis</li><li class="correct"><span class="opt-key">B.</span>subtext ✓</li><li><span class="opt-key">C.</span>overtone</li><li><span class="opt-key">D.</span>implication</li></ul><div class="exam-explanation"><strong>Explanation</strong>Nuance relates to subtle distinctions in meaning. &#x27;Subtext&#x27; refers to an underlying meaning or message not explicitly stated but implied, fitting the concept of a subtle underlying concern.</div></article><article class="exam-item" id="q02"><div class="exam-item-header"><span class="qnum">2. q02</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">It is crucial to engage all key ________ early in the project lifecycle to ensure broader buy-in and prevent future conflicts.</div><ul class="exam-options"><li><span class="opt-key">A.</span>participants</li><li><span class="opt-key">B.</span>contributors</li><li class="correct"><span class="opt-key">C.</span>stakeholders ✓</li><li><span class="opt-key">D.</span>beneficiaries</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Stakeholders&#x27; are individuals or groups who have an interest or concern in a project or organization, and whose involvement is crucial for its success.</div></article><article class="exam-item" id="q03"><div class="exam-item-header"><span class="qnum">3. q03</span><span class="exam-meta">comprehension · class 1</span></div><div class="exam-prompt">The internal briefing noted, &#x27;While Project Atlas shows promising initial metrics, the long-term scalability requires continuous vigilance regarding resource allocation.&#x27; What is the most diplomatic interpretation of this statement?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Project Atlas is performing exceptionally well and needs more resources.</li><li><span class="opt-key">B.</span>There are significant unaddressed problems with Project Atlas&#x27;s scalability.</li><li class="correct"><span class="opt-key">C.</span>Project Atlas is doing well now, but potential future resource issues need proactive monitoring. ✓</li><li><span class="opt-key">D.</span>The project is too resource-intensive and should be re-evaluated.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The statement acknowledges initial promise but immediately shifts to the need for &#x27;continuous vigilance&#x27; on &#x27;resource allocation&#x27; for &#x27;long-term scalability,&#x27; diplomatically highlighting potential future challenges without declaring current failure.</div></article><article class="exam-item" id="q04"><div class="exam-item-header"><span class="qnum">4. q04</span><span class="exam-meta">register · class 1</span></div><div class="exam-prompt">When preparing a sensitive briefing for executive leadership regarding a budget overrun, which approach best conveys integrity while maintaining a diplomatic tone?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Clearly stating the error and suggesting immediate, drastic cuts.</li><li class="correct"><span class="opt-key">B.</span>Presenting the facts transparently, outlining contributing factors, and proposing considered solutions. ✓</li><li><span class="opt-key">C.</span>Minimizing the impact of the overrun and focusing only on future preventative measures.</li><li><span class="opt-key">D.</span>Blaming external market conditions entirely for the unexpected expenditure.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Transparency, analysis, and constructive action are hallmarks of conveying integrity and maintaining diplomacy, even in difficult situations.</div></article><article class="exam-item" id="q05"><div class="exam-item-header"><span class="qnum">5. q05</span><span class="exam-meta">grammar · class 2</span></div><div class="exam-prompt">To emphasize the absolute confidentiality of the upcoming merger, the CEO stated, &#x27;________ should details of this acquisition be disclosed to external parties.&#x27;</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Under no circumstances ✓</li><li><span class="opt-key">B.</span>No circumstances under</li><li><span class="opt-key">C.</span>Circumstances under no</li><li><span class="opt-key">D.</span>Under no any circumstances</li></ul><div class="exam-explanation"><strong>Explanation</strong>This is an example of inversion after a negative adverbial phrase. The correct structure is &#x27;Negative Adverbial + auxiliary verb + subject + main verb&#x27;.</div></article><article class="exam-item" id="q06"><div class="exam-item-header"><span class="qnum">6. q06</span><span class="exam-meta">register · class 2</span></div><div class="exam-prompt">In a challenging negotiation, which phrase best exemplifies diplomatic register and soft-power application?</div><ul class="exam-options"><li><span class="opt-key">A.</span>We must insist on our terms without compromise.</li><li class="correct"><span class="opt-key">B.</span>With due respect, we believe there might be a more mutually beneficial path forward. ✓</li><li><span class="opt-key">C.</span>Our position is non-negotiable, take it or leave it.</li><li><span class="opt-key">D.</span>Frankly, your proposal is unacceptable.</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;With due respect&#x27; is a classic diplomatic softener, and &#x27;mutually beneficial path forward&#x27; uses soft power to suggest collaboration and common ground.</div></article><article class="exam-item" id="q07"><div class="exam-item-header"><span class="qnum">7. q07</span><span class="exam-meta">lexis · class 2</span></div><div class="exam-prompt">A strong commitment to ________ is essential for public trust, especially when dealing with sensitive data and financial reports.</div><ul class="exam-options"><li><span class="opt-key">A.</span>corporate culture</li><li class="correct"><span class="opt-key">B.</span>institutional integrity ✓</li><li><span class="opt-key">C.</span>organizational structure</li><li><span class="opt-key">D.</span>internal audits</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Institutional integrity&#x27; refers to the adherence to moral and ethical principles by an organization, which is fundamental for maintaining public trust.</div></article><article class="exam-item" id="q08"><div class="exam-item-header"><span class="qnum">8. q08</span><span class="exam-meta">comprehension · class 2</span></div><div class="exam-prompt">An official announcement reads: &#x27;While Project Alpha has regrettably encountered unforeseen logistical challenges, we acknowledge the dedication of all teams involved and are committed to ensuring minimal disruption.&#x27; What is the primary purpose of the &#x27;we acknowledge&#x27; clause?</div><ul class="exam-options"><li><span class="opt-key">A.</span>To assign blame to the logistical teams.</li><li><span class="opt-key">B.</span>To downplay the severity of the challenges.</li><li class="correct"><span class="opt-key">C.</span>To maintain team morale and organizational cohesion amidst difficulties. ✓</li><li><span class="opt-key">D.</span>To suggest that the project will be terminated soon.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The &#x27;we acknowledge&#x27; clause is an example of face-saving language. It maintains positive internal relations by recognizing effort despite setbacks, which helps preserve morale and cohesion.</div></article><article class="exam-item" id="q09"><div class="exam-item-header"><span class="qnum">9. q09</span><span class="exam-meta">lexis · class 3</span></div><div class="exam-prompt">Due to the critical nature of the security update, the IT department requested ________ of the software patch deployment.</div><ul class="exam-options"><li><span class="opt-key">A.</span>swift progress</li><li class="correct"><span class="opt-key">B.</span>expedited handling ✓</li><li><span class="opt-key">C.</span>quick process</li><li><span class="opt-key">D.</span>rapid deployment</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Expedited handling&#x27; specifically refers to processing or treating something more quickly than usual, often used in formal or critical contexts.</div></article><article class="exam-item" id="q10"><div class="exam-item-header"><span class="qnum">10. q10</span><span class="exam-meta">lexis · class 3</span></div><div class="exam-prompt">Ensuring customer data security is an ________ for our company, taking precedence over all other operational concerns.</div><ul class="exam-options"><li><span class="opt-key">A.</span>essential goal</li><li><span class="opt-key">B.</span>ultimate objective</li><li class="correct"><span class="opt-key">C.</span>overriding priority ✓</li><li><span class="opt-key">D.</span>primary concern</li></ul><div class="exam-explanation"><strong>Explanation</strong>An &#x27;overriding priority&#x27; is a priority that is more important than all others and takes precedence.</div></article><article class="exam-item" id="q11"><div class="exam-item-header"><span class="qnum">11. q11</span><span class="exam-meta">register · class 3</span></div><div class="exam-prompt">You need to discuss a project delay with a colleague from another department whose team relies on your deliverable. Which statement is the most diplomatic?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Your team needs to understand that we are delayed and adjust accordingly.</li><li class="correct"><span class="opt-key">B.</span>I wanted to provide an update: we&#x27;ve encountered some unexpected blockers, and I&#x27;d like to discuss how we can best mitigate the impact on your timeline. ✓</li><li><span class="opt-key">C.</span>We&#x27;re behind schedule, and it&#x27;s not our fault; you&#x27;ll have to wait.</li><li><span class="opt-key">D.</span>The delay is regrettable, but we have more important projects right now.</li></ul><div class="exam-explanation"><strong>Explanation</strong>This option is diplomatic because it provides an update, acknowledges the potential impact on the other team, and proactively seeks collaboration to mitigate issues, showing respect and a problem-solving approach.</div></article><article class="exam-item" id="q12"><div class="exam-item-header"><span class="qnum">12. q12</span><span class="exam-meta">comprehension · class 3</span></div><div class="exam-prompt">During a discussion about conflicting project timelines, a manager states, &#x27;I understand the full scope of your team&#x27;s commitments, and ours are equally pressing. Perhaps we can explore an early alignment on key milestones to avoid future bottlenecks.&#x27; What is the manager&#x27;s implied goal?</div><ul class="exam-options"><li><span class="opt-key">A.</span>To suggest that both teams are equally inefficient.</li><li><span class="opt-key">B.</span>To shift blame for potential future delays.</li><li class="correct"><span class="opt-key">C.</span>To foster collaborative problem-solving and prevent future priority conflicts. ✓</li><li><span class="opt-key">D.</span>To politely dismiss the other team&#x27;s concerns.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The manager uses phrases like &#x27;understand the full scope,&#x27; &#x27;equally pressing,&#x27; and &#x27;early alignment to avoid bottlenecks,&#x27; all pointing towards a collaborative and diplomatic approach to resolving potential conflicts proactively.</div></article><article class="exam-item" id="q13"><div class="exam-item-header"><span class="qnum">13. q13</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">Which of the following sentences best demonstrates the use of a &#x27;hedge&#x27; in professional communication?</div><ul class="exam-options"><li><span class="opt-key">A.</span>The project will definitely be completed on time.</li><li class="correct"><span class="opt-key">B.</span>I believe the project might encounter some minor delays. ✓</li><li><span class="opt-key">C.</span>There is no possibility of any project delays.</li><li><span class="opt-key">D.</span>We are 100% confident in the project timeline.</li></ul><div class="exam-explanation"><strong>Explanation</strong>A &#x27;hedge&#x27; is a word or phrase that minimizes the force of a statement, indicating uncertainty or softening a claim. &#x27;Might&#x27; is a classic hedging device.</div></article><article class="exam-item" id="q14"><div class="exam-item-header"><span class="qnum">14. q14</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">The way the consultant presented the negative survey results, focusing on &#x27;areas for growth&#x27; rather than &#x27;failures,&#x27; is an excellent example of effective ________.</div><ul class="exam-options"><li><span class="opt-key">A.</span>detailing</li><li><span class="opt-key">B.</span>reporting</li><li class="correct"><span class="opt-key">C.</span>framing ✓</li><li><span class="opt-key">D.</span>presenting</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Framing&#x27; refers to the way an issue or piece of information is characterized or presented, especially in a way that influences how it is understood or perceived.</div></article><article class="exam-item" id="q15"><div class="exam-item-header"><span class="qnum">15. q15</span><span class="exam-meta">register · class 4</span></div><div class="exam-prompt">You strongly disagree with a colleague&#x27;s proposal during a meeting. Which phrase is the most diplomatic way to express your reservations?</div><ul class="exam-options"><li><span class="opt-key">A.</span>That idea simply won&#x27;t work, it&#x27;s flawed.</li><li class="correct"><span class="opt-key">B.</span>I understand your perspective, but I&#x27;m concerned that might present some unforeseen challenges. ✓</li><li><span class="opt-key">C.</span>I totally disagree with everything you just said.</li><li><span class="opt-key">D.</span>Your proposal is impractical and lacks foresight.</li></ul><div class="exam-explanation"><strong>Explanation</strong>This option acknowledges the other person&#x27;s perspective before gently introducing concerns, using softer language (&#x27;I&#x27;m concerned,&#x27; &#x27;might present challenges&#x27;) to express disagreement diplomatically.</div></article><article class="exam-item" id="q16"><div class="exam-item-header"><span class="qnum">16. q16</span><span class="exam-meta">comprehension · class 4</span></div><div class="exam-prompt">During a team review, a senior manager stated, &#x27;While the current approach has yielded some initial successes, it would be prudent to consider alternative methodologies to ensure long-term resilience.&#x27; What is the manager implicitly suggesting?</div><ul class="exam-options"><li><span class="opt-key">A.</span>The current approach is failing and must be abandoned immediately.</li><li><span class="opt-key">B.</span>The team should focus on replicating the initial successes.</li><li><span class="opt-key">C.</span>The current strategy is adequate for future challenges.</li><li class="correct"><span class="opt-key">D.</span>The current approach has limitations and should be re-evaluated for future sustainability. ✓</li></ul><div class="exam-explanation"><strong>Explanation</strong>The statement balances &#x27;initial successes&#x27; with a recommendation to &#x27;consider alternative methodologies for long-term resilience,&#x27; implicitly suggesting that while the current approach has worked so far, it may not be sustainable or robust enough for future challenges.</div></article><article class="exam-item" id="q17"><div class="exam-item-header"><span class="qnum">17. q17</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">When addressing a significant ethical lapse within the organization, which phrase exemplifies high-register language conveying integrity and accountability?</div><ul class="exam-options"><li><span class="opt-key">A.</span>We messed up, and we&#x27;re sorry.</li><li class="correct"><span class="opt-key">B.</span>We accept full culpability for these actions and are implementing robust corrective measures. ✓</li><li><span class="opt-key">C.</span>Mistakes were made, but we&#x27;re moving on.</li><li><span class="opt-key">D.</span>Someone is responsible, and we&#x27;ll find them.</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Accept full culpability&#x27; and &#x27;implementing robust corrective measures&#x27; are formal, precise terms that clearly demonstrate integrity and accountability in a high-register context.</div></article><article class="exam-item" id="q18"><div class="exam-item-header"><span class="qnum">18. q18</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">Which of the following phrases is a common soft-power exponent used in workplace diplomacy?</div><ul class="exam-options"><li><span class="opt-key">A.</span>We demand your immediate compliance.</li><li class="correct"><span class="opt-key">B.</span>It would be greatly appreciated if you could consider this request. ✓</li><li><span class="opt-key">C.</span>Failure to comply will result in consequences.</li><li><span class="opt-key">D.</span>You are required to submit by the deadline.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Soft-power exponents rely on politeness, indirectness, and goodwill rather than direct command. &#x27;It would be greatly appreciated if you could consider&#x27; is a polite, indirect request.</div></article><article class="exam-item" id="q19"><div class="exam-item-header"><span class="qnum">19. q19</span><span class="exam-meta">grammar · class 5</span></div><div class="exam-prompt">Choose the most diplomatically phrased request to check the status of a delayed report.</div><ul class="exam-options"><li><span class="opt-key">A.</span>Where is that report I asked for?</li><li><span class="opt-key">B.</span>I need an update on the report immediately.</li><li class="correct"><span class="opt-key">C.</span>Could you possibly provide an update on the report&#x27;s progress, when you have a moment? ✓</li><li><span class="opt-key">D.</span>The report is late; why haven&#x27;t you sent it?</li></ul><div class="exam-explanation"><strong>Explanation</strong>This request uses modal verbs (&#x27;Could you&#x27;), hedging (&#x27;possibly&#x27;), and a polite time-frame (&#x27;when you have a moment&#x27;) to create a highly diplomatic and respectful inquiry.</div></article><article class="exam-item" id="q20"><div class="exam-item-header"><span class="qnum">20. q20</span><span class="exam-meta">comprehension · class 5</span></div><div class="exam-prompt">A project lead states, &#x27;While the challenges were significant, it falls to us to ensure that the project is delivered with the highest standards, embodying our collective commitment to excellence.&#x27; What core principle is being emphasized here?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Blaming external factors for delays.</li><li><span class="opt-key">B.</span>The importance of individual achievement.</li><li class="correct"><span class="opt-key">C.</span>Collective accountability and upholding quality standards despite adversity. ✓</li><li><span class="opt-key">D.</span>The need for additional resources to overcome difficulties.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Phrases like &#x27;it falls to us to ensure,&#x27; &#x27;highest standards,&#x27; and &#x27;collective commitment&#x27; all underscore shared responsibility and the importance of maintaining quality, aligning with the principles of accountability and integrity.</div></article><article class="exam-item" id="q21"><div class="exam-item-header"><span class="qnum">21. q21</span><span class="exam-meta">register · class 6</span></div><div class="exam-prompt">A client has sent an urgent request with an unrealistic deadline. How should you respond diplomatically to manage expectations?</div><ul class="exam-options"><li><span class="opt-key">A.</span>That&#x27;s impossible, we can&#x27;t do it.</li><li><span class="opt-key">B.</span>We will try our best, but I can&#x27;t promise anything.</li><li class="correct"><span class="opt-key">C.</span>We appreciate the urgency, and we&#x27;re assessing the request. To ensure quality, could we propose an adjusted timeline of [new date]? ✓</li><li><span class="opt-key">D.</span>You&#x27;ve given us too little time, so expect delays.</li></ul><div class="exam-explanation"><strong>Explanation</strong>This response acknowledges the urgency, indicates active assessment, and then politely proposes a realistic alternative, which is a key aspect of diplomatic communication under pressure.</div></article><article class="exam-item" id="q22"><div class="exam-item-header"><span class="qnum">22. q22</span><span class="exam-meta">register · class 6</span></div><div class="exam-prompt">You need to politely decline a request to take on an additional task due to your current workload. Which option is the most diplomatic?</div><ul class="exam-options"><li><span class="opt-key">A.</span>I&#x27;m too busy, I can&#x27;t do it.</li><li class="correct"><span class="opt-key">B.</span>While I appreciate the opportunity, given my current commitments, I wouldn&#x27;t be able to dedicate the necessary focus to this without impacting existing priorities. ✓</li><li><span class="opt-key">C.</span>No, that&#x27;s not possible for me right now.</li><li><span class="opt-key">D.</span>You should ask someone else, I have enough to do.</li></ul><div class="exam-explanation"><strong>Explanation</strong>This option diplomatically declines by acknowledging the opportunity and professionally explaining the constraint (current commitments) without a blunt refusal, thereby maintaining good working relationships.</div></article><article class="exam-item" id="q23"><div class="exam-item-header"><span class="qnum">23. q23</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">To confirm a deadline precisely and politely in an email, which phrase is most appropriate?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Please submit it by tomorrow.</li><li class="correct"><span class="opt-key">B.</span>We require your submission no later than end of day, July 25th. ✓</li><li><span class="opt-key">C.</span>Get it done by the 25th.</li><li><span class="opt-key">D.</span>Is it possible for you to send it soon?</li></ul><div class="exam-explanation"><strong>Explanation</strong>This option provides a clear, precise deadline (&#x27;end of day, July 25th&#x27;) while maintaining a professional and politely firm tone (&#x27;We require your submission&#x27;).</div></article><article class="exam-item" id="q24"><div class="exam-item-header"><span class="qnum">24. q24</span><span class="exam-meta">comprehension · class 6</span></div><div class="exam-prompt">An email states: &#x27;I understand there are multiple demands on your time, but given the critical nature of this regulatory filing, I need your input by EOD Friday, no exceptions.&#x27; What is the sender&#x27;s underlying message despite the polite opening?</div><ul class="exam-options"><li><span class="opt-key">A.</span>The sender is being exceptionally flexible with the deadline.</li><li class="correct"><span class="opt-key">B.</span>The sender is subtly conveying that this task is an absolute, non-negotiable priority. ✓</li><li><span class="opt-key">C.</span>The sender is merely informing about a standard deadline.</li><li><span class="opt-key">D.</span>The sender is delegating responsibility for potential delays.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The initial polite acknowledgement of &#x27;multiple demands&#x27; is immediately followed by strong, non-negotiable terms (&#x27;critical nature,&#x27; &#x27;need your input by EOD Friday, no exceptions&#x27;), indicating a very firm and absolute priority.</div></article><article class="exam-item" id="q25"><div class="exam-item-header"><span class="qnum">25. q25</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">To emphasize the rarity of such a leadership achievement, the board chairman remarked, &#x27;________ has a leader demonstrated such foresight and resilience in our company&#x27;s history.&#x27;</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Seldom ✓</li><li><span class="opt-key">B.</span>Rarely ever</li><li><span class="opt-key">C.</span>Not often</li><li><span class="opt-key">D.</span>Infrequently</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Seldom&#x27; is a negative adverbial that commonly triggers subject-auxiliary inversion for emphasis in formal contexts, fitting the sentence structure: &#x27;Seldom + auxiliary verb + subject + main verb&#x27;.</div></article><article class="exam-item" id="q26"><div class="exam-item-header"><span class="qnum">26. q26</span><span class="exam-meta">register · class 7</span></div><div class="exam-prompt">When evaluating a former executive&#x27;s professional legacy, which statement uses appropriate diplomatic language?</div><ul class="exam-options"><li><span class="opt-key">A.</span>She left a mixed bag of results, honestly.</li><li class="correct"><span class="opt-key">B.</span>Her contributions, while impactful in their time, also presented certain challenges for future integration. ✓</li><li><span class="opt-key">C.</span>She was a terrible leader who caused many problems.</li><li><span class="opt-key">D.</span>Her work was simply outstanding without flaw.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Diplomatic evaluation requires balance and nuance, acknowledging both positive aspects (&#x27;impactful in their time&#x27;) and potential areas of concern (&#x27;certain challenges for future integration&#x27;) without resorting to extremes.</div></article><article class="exam-item" id="q27"><div class="exam-item-header"><span class="qnum">27. q27</span><span class="exam-meta">comprehension · class 7</span></div><div class="exam-prompt">The internal review concluded: &#x27;While Mr. Henderson&#x27;s tenure was marked by significant innovation, it is also important to consider the sustainability of some initiatives in the long term.&#x27; What is the review diplomatically suggesting about Mr. Henderson&#x27;s legacy?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Mr. Henderson&#x27;s innovations were groundbreaking and perfectly sustainable.</li><li class="correct"><span class="opt-key">B.</span>Mr. Henderson was a visionary but his projects lacked practical long-term viability. ✓</li><li><span class="opt-key">C.</span>Mr. Henderson lacked any significant achievements during his time.</li><li><span class="opt-key">D.</span>The review is purely positive, focusing only on achievements.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The review praises &#x27;significant innovation&#x27; but immediately qualifies it with concerns about &#x27;sustainability...in the long term,&#x27; indicating that while creative, some of his initiatives might not have been practically viable for the future.</div></article><article class="exam-item" id="q28"><div class="exam-item-header"><span class="qnum">28. q28</span><span class="exam-meta">lexis · class 7</span></div><div class="exam-prompt">Building a strong ________ requires consistent ethical conduct and a track record of positive contributions over many years.</div><ul class="exam-options"><li><span class="opt-key">A.</span>career path</li><li class="correct"><span class="opt-key">B.</span>professional legacy ✓</li><li><span class="opt-key">C.</span>work history</li><li><span class="opt-key">D.</span>employment record</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Professional legacy&#x27; refers to the lasting impact, reputation, and contributions one leaves behind in their career, often built on ethical conduct and achievements.</div></article><article class="exam-item" id="q29"><div class="exam-item-header"><span class="qnum">29. q29</span><span class="exam-meta">synthesis · class 3</span></div><div class="exam-prompt">A critical project has stalled due to conflicting priorities between two key departments. Which of the following approaches best represents strategic workplace diplomacy to resolve this situation?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Escalating the issue directly to the CEO for a definitive decision.</li><li><span class="opt-key">B.</span>Publicly assigning blame to the department causing the delay to pressure them into action.</li><li class="correct"><span class="opt-key">C.</span>Facilitating a neutral meeting to identify common goals, acknowledge each department&#x27;s pressures, and negotiate a phased resolution with clear, shared commitments. ✓</li><li><span class="opt-key">D.</span>Implementing a strict, top-down mandate without consulting the involved teams.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Strategic workplace diplomacy involves understanding nuance, managing conflict through open communication, negotiating collaboratively, and seeking early alignment on shared commitments to resolve priority conflicts effectively.</div></article><article class="exam-item" id="q30"><div class="exam-item-header"><span class="qnum">30. q30</span><span class="exam-meta">synthesis · class 5</span></div><div class="exam-prompt">You need to deliver potentially unpopular news about budget cuts to your team while maintaining morale and ensuring continued productivity. Which approach best utilizes the principles of diplomatic communication taught in this unit?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Announce the cuts abruptly and state that it is non-negotiable.</li><li class="correct"><span class="opt-key">B.</span>Frame the cuts as a necessary measure for long-term company resilience, acknowledge the impact on individuals, explain the rationale transparently, and invite constructive input on implementation. ✓</li><li><span class="opt-key">C.</span>Delegate the announcement to a junior manager to avoid personal backlash.</li><li><span class="opt-key">D.</span>Downplay the severity of the cuts, suggesting they are temporary and minor.</li></ul><div class="exam-explanation"><strong>Explanation</strong>This approach integrates several diplomatic principles: framing a difficult message positively (&#x27;long-term resilience&#x27;), acknowledging impact (empathy, nuance), transparently explaining the rationale (integrity), and using soft power (&#x27;invite constructive input&#x27;) to maintain engagement and morale.</div></article>
+
+</body>
+</html>

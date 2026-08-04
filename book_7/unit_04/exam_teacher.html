@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit exam — Strategic Financial Management: Global Trade &amp; Risk</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<nav class="breadcrumbs"><a href="index.html">← Unit index</a></nav>
+<header>
+  <p class="view-banner">Teacher · Unit exam key</p>
+  <h1>Unit exam — Strategic Financial Management: Global Trade &amp; Risk</h1>
+  <p class="meta">T04_FINANCE · C2 · 30 items</p>
+</header>
+<article class="exam-item" id="q01"><div class="exam-item-header"><span class="qnum">1. q01</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">The imposition of new _______ by Country X significantly increased the cost of imported raw materials for domestic manufacturers.</div><ul class="exam-options"><li><span class="opt-key">A.</span>fiscal subsidies</li><li class="correct"><span class="opt-key">B.</span>trade tariffs ✓</li><li><span class="opt-key">C.</span>monetary incentives</li><li><span class="opt-key">D.</span>economic stimuli</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q02"><div class="exam-item-header"><span class="qnum">2. q02</span><span class="exam-meta">comprehension · class 1</span></div><div class="exam-prompt">Recent disruptions to international shipping routes have exposed vulnerabilities within our _______. We need to diversify our sourcing.</div><ul class="exam-options"><li><span class="opt-key">A.</span>corporate social responsibility initiatives</li><li class="correct"><span class="opt-key">B.</span>global supply chains ✓</li><li><span class="opt-key">C.</span>operational risk assessments</li><li><span class="opt-key">D.</span>market entry strategies</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q03"><div class="exam-item-header"><span class="qnum">3. q03</span><span class="exam-meta">grammar · class 1</span></div><div class="exam-prompt">Increased automation in manufacturing plants frequently translates _______ a shift in the local labor market dynamics.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>into ✓</li><li><span class="opt-key">B.</span>for</li><li><span class="opt-key">C.</span>onto</li><li><span class="opt-key">D.</span>within</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q04"><div class="exam-item-header"><span class="qnum">4. q04</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">The company&#x27;s stable financial performance has positively impacted _______ for its employees, despite broader economic uncertainties.</div><ul class="exam-options"><li><span class="opt-key">A.</span>market competitiveness</li><li><span class="opt-key">B.</span>shareholder value</li><li class="correct"><span class="opt-key">C.</span>job security ✓</li><li><span class="opt-key">D.</span>operational overheads</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q05"><div class="exam-item-header"><span class="qnum">5. q05</span><span class="exam-meta">grammar · class 2</span></div><div class="exam-prompt">_______ has the market shown such extreme volatility since the 2008 crisis.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Rarely before ✓</li><li><span class="opt-key">B.</span>Before rarely</li><li><span class="opt-key">C.</span>It rarely before</li><li><span class="opt-key">D.</span>Seldomly</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q06"><div class="exam-item-header"><span class="qnum">6. q06</span><span class="exam-meta">grammar · class 2</span></div><div class="exam-prompt">Not only _______ the company face increased competition, but it also experienced significant supply chain delays.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>did ✓</li><li><span class="opt-key">B.</span>has</li><li><span class="opt-key">C.</span>was</li><li><span class="opt-key">D.</span>would</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q07"><div class="exam-item-header"><span class="qnum">7. q07</span><span class="exam-meta">comprehension · class 2</span></div><div class="exam-prompt">To mitigate the impact of currency fluctuations, the small business decided to hedge its foreign exchange exposure. This strategy aims to _______.</div><ul class="exam-options"><li><span class="opt-key">A.</span>maximize speculative gains</li><li class="correct"><span class="opt-key">B.</span>lock in an exchange rate ✓</li><li><span class="opt-key">C.</span>increase market exposure</li><li><span class="opt-key">D.</span>diversify product offerings</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q08"><div class="exam-item-header"><span class="qnum">8. q08</span><span class="exam-meta">register · class 2</span></div><div class="exam-prompt">Which sentence uses the most appropriate register for a formal market report?</div><ul class="exam-options"><li><span class="opt-key">A.</span>The economy looks a bit wobbly, to be honest.</li><li class="correct"><span class="opt-key">B.</span>The economic outlook is somewhat uncertain at present. ✓</li><li><span class="opt-key">C.</span>Things aren&#x27;t great for the economy right now.</li><li><span class="opt-key">D.</span>We&#x27;re in for a rough ride, economically speaking.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q09"><div class="exam-item-header"><span class="qnum">9. q09</span><span class="exam-meta">comprehension · class 3</span></div><div class="exam-prompt">A high current ratio on the balance sheet generally indicates that a company _______.</div><ul class="exam-options"><li><span class="opt-key">A.</span>has significant long-term debt</li><li><span class="opt-key">B.</span>is highly profitable</li><li class="correct"><span class="opt-key">C.</span>has sufficient short-term assets to cover its short-term liabilities ✓</li><li><span class="opt-key">D.</span>is experiencing rapid revenue growth</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q10"><div class="exam-item-header"><span class="qnum">10. q10</span><span class="exam-meta">grammar · class 3</span></div><div class="exam-prompt">Analysis of the cash flow report revealed that the company&#x27;s operating activities _______ a significant net inflow, suggesting strong core business performance.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>generated ✓</li><li><span class="opt-key">B.</span>created for</li><li><span class="opt-key">C.</span>resulted to</li><li><span class="opt-key">D.</span>caused by</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q11"><div class="exam-item-header"><span class="qnum">11. q11</span><span class="exam-meta">register · class 3</span></div><div class="exam-prompt">To enhance operational efficiency, the team proposed _______.</div><ul class="exam-options"><li><span class="opt-key">A.</span>cutting corners wherever possible</li><li class="correct"><span class="opt-key">B.</span>streamlining production processes ✓</li><li><span class="opt-key">C.</span>doing less work for the same pay</li><li><span class="opt-key">D.</span>making some quick fixes</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q12"><div class="exam-item-header"><span class="qnum">12. q12</span><span class="exam-meta">comprehension · class 3</span></div><div class="exam-prompt">Effective resource allocation requires careful consideration of departmental needs against strategic priorities. This primarily means _______.</div><ul class="exam-options"><li><span class="opt-key">A.</span>distributing all available funds equally</li><li class="correct"><span class="opt-key">B.</span>prioritizing spending based on strategic impact and ROI ✓</li><li><span class="opt-key">C.</span>solely funding departments with the highest past expenditures</li><li><span class="opt-key">D.</span>avoiding any new investments to conserve capital</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q13"><div class="exam-item-header"><span class="qnum">13. q13</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">Under ________, the seller is responsible for delivering the goods to the buyer&#x27;s designated place, but not for unloading them.</div><ul class="exam-options"><li><span class="opt-key">A.</span>EXW (Ex Works)</li><li><span class="opt-key">B.</span>FOB (Free on Board)</li><li class="correct"><span class="opt-key">C.</span>DAP (Delivered at Place) ✓</li><li><span class="opt-key">D.</span>CIF (Cost, Insurance and Freight)</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q14"><div class="exam-item-header"><span class="qnum">14. q14</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">Delays at the port were primarily caused by incomplete or inaccurate _______, leading to goods being held for inspection.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>customs declarations ✓</li><li><span class="opt-key">B.</span>marketing reports</li><li><span class="opt-key">C.</span>product specifications</li><li><span class="opt-key">D.</span>supplier agreements</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q15"><div class="exam-item-header"><span class="qnum">15. q15</span><span class="exam-meta">comprehension · class 4</span></div><div class="exam-prompt">If a contract specifies &quot;EXW&quot; (Ex Works), who is primarily responsible for the cost of main carriage and insurance from the seller&#x27;s factory?</div><ul class="exam-options"><li><span class="opt-key">A.</span>The seller only</li><li class="correct"><span class="opt-key">B.</span>The buyer only ✓</li><li><span class="opt-key">C.</span>Both seller and buyer equally</li><li><span class="opt-key">D.</span>The freight forwarder</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q16"><div class="exam-item-header"><span class="qnum">16. q16</span><span class="exam-meta">register · class 4</span></div><div class="exam-prompt">During a contract dispute, which phrase best reflects professional etiquette when addressing a discrepancy?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Your team clearly messed this up, we need answers.</li><li class="correct"><span class="opt-key">B.</span>We must politely but firmly reference the master agreement. ✓</li><li><span class="opt-key">C.</span>I&#x27;m afraid this is totally unacceptable on your part.</li><li><span class="opt-key">D.</span>Let&#x27;s just agree to disagree and move on.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q17"><div class="exam-item-header"><span class="qnum">17. q17</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">Choose the most formal and appropriate phrasing for a business report.</div><ul class="exam-options"><li><span class="opt-key">A.</span>The economy&#x27;s looking pretty bad.</li><li class="correct"><span class="opt-key">B.</span>We&#x27;re facing an adverse economic outlook. ✓</li><li><span class="opt-key">C.</span>Things aren&#x27;t great economically speaking.</li><li><span class="opt-key">D.</span>There&#x27;s a bit of a crisis brewing in the market.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q18"><div class="exam-item-header"><span class="qnum">18. q18</span><span class="exam-meta">lexis · class 5</span></div><div class="exam-prompt">The government&#x27;s recent _______, including changes in taxation and spending, are expected to stimulate consumer spending.</div><ul class="exam-options"><li><span class="opt-key">A.</span>market volatility trends</li><li><span class="opt-key">B.</span>projected growth rates</li><li class="correct"><span class="opt-key">C.</span>fiscal policy adjustments ✓</li><li><span class="opt-key">D.</span>interest rate increases</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q19"><div class="exam-item-header"><span class="qnum">19. q19</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">Which option is the most appropriate formal equivalent for &quot;Our current hedging strategy is giving us a real headache&quot;?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Our current hedging strategy is somewhat problematic. ✓</li><li><span class="opt-key">B.</span>Our current hedging strategy is a bit of a pain.</li><li><span class="opt-key">C.</span>Our current hedging strategy is a serious nuisance.</li><li><span class="opt-key">D.</span>Our current hedging strategy is causing much distress.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q20"><div class="exam-item-header"><span class="qnum">20. q20</span><span class="exam-meta">comprehension · class 5</span></div><div class="exam-prompt">An unexpected interest rate increase by the central bank is most likely to have which effect on local businesses?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Reduced borrowing costs and increased investment.</li><li class="correct"><span class="opt-key">B.</span>Increased borrowing costs and potentially reduced consumer spending. ✓</li><li><span class="opt-key">C.</span>A depreciation of the local currency, boosting exports.</li><li><span class="opt-key">D.</span>Greater access to credit for expansion projects.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q21"><div class="exam-item-header"><span class="qnum">21. q21</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">Prior to any acquisition, it is imperative to conduct thorough _______ to identify potential financial and legal risks.</div><ul class="exam-options"><li><span class="opt-key">A.</span>marketing research</li><li class="correct"><span class="opt-key">B.</span>due diligence ✓</li><li><span class="opt-key">C.</span>brand positioning</li><li><span class="opt-key">D.</span>stakeholder mapping</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q22"><div class="exam-item-header"><span class="qnum">22. q22</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">Financial institutions are required to implement robust _______ procedures to prevent illicit funds from entering the financial system.</div><ul class="exam-options"><li><span class="opt-key">A.</span>customer service</li><li class="correct"><span class="opt-key">B.</span>anti-money laundering (AML) ✓</li><li><span class="opt-key">C.</span>investment advisory</li><li><span class="opt-key">D.</span>public relations</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q23"><div class="exam-item-header"><span class="qnum">23. q23</span><span class="exam-meta">comprehension · class 6</span></div><div class="exam-prompt">In financial dealings, a sudden, unexplained large transaction to an unrelated overseas account often constitutes a _______.</div><ul class="exam-options"><li><span class="opt-key">A.</span>market opportunity</li><li><span class="opt-key">B.</span>new revenue stream</li><li class="correct"><span class="opt-key">C.</span>red flag ✓</li><li><span class="opt-key">D.</span>strategic partnership</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q24"><div class="exam-item-header"><span class="qnum">24. q24</span><span class="exam-meta">register · class 6</span></div><div class="exam-prompt">Which sentence is most appropriate for a compliance memo regarding financial ethics?</div><ul class="exam-options"><li><span class="opt-key">A.</span>We need to make sure everyone&#x27;s playing by the rules.</li><li class="correct"><span class="opt-key">B.</span>We are implementing new accountability mechanisms. ✓</li><li><span class="opt-key">C.</span>It&#x27;s crucial that nobody messes up here.</li><li><span class="opt-key">D.</span>The bosses want to see better control over funds.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q25"><div class="exam-item-header"><span class="qnum">25. q25</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">Seldom _______ such rapid technological advancement impacted the financial sector.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>has ✓</li><li><span class="opt-key">B.</span>have</li><li><span class="opt-key">C.</span>did</li><li><span class="opt-key">D.</span>does</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q26"><div class="exam-item-header"><span class="qnum">26. q26</span><span class="exam-meta">lexis · class 7</span></div><div class="exam-prompt">The company&#x27;s comprehensive _______ strategy aims to integrate new technologies across all departments to enhance efficiency and customer experience.</div><ul class="exam-options"><li><span class="opt-key">A.</span>job displacement</li><li><span class="opt-key">B.</span>workforce reskilling</li><li><span class="opt-key">C.</span>operational automation</li><li class="correct"><span class="opt-key">D.</span>digital transformation ✓</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q27"><div class="exam-item-header"><span class="qnum">27. q27</span><span class="exam-meta">comprehension · class 7</span></div><div class="exam-prompt">While _______ in the financial sector due to AI is a concern, many firms are investing heavily in _______ programs to prepare employees for new roles.</div><ul class="exam-options"><li><span class="opt-key">A.</span>job security; early retirement</li><li class="correct"><span class="opt-key">B.</span>job displacement; workforce reskilling ✓</li><li><span class="opt-key">C.</span>talent acquisition; headhunting</li><li><span class="opt-key">D.</span>labor market dynamics; economic indicators</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q28"><div class="exam-item-header"><span class="qnum">28. q28</span><span class="exam-meta">lexis · class 7</span></div><div class="exam-prompt">Implementing advanced algorithms for _______ has significantly improved our ability to identify and mitigate potential financial threats.</div><ul class="exam-options"><li><span class="opt-key">A.</span>market speculation</li><li><span class="opt-key">B.</span>customer acquisition</li><li class="correct"><span class="opt-key">C.</span>risk analysis ✓</li><li><span class="opt-key">D.</span>regulatory lobbying</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q29"><div class="exam-item-header"><span class="qnum">29. q29</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">In light of recent global economic shifts and heightened market volatility, a financial analyst needs to present a concise summary to the board. Which statement best combines clarity, formality, and strategic insight?</div><ul class="exam-options"><li><span class="opt-key">A.</span>We&#x27;re seeing some pretty wild market swings, and the global economy isn&#x27;t looking too hot, so we need to be careful.</li><li class="correct"><span class="opt-key">B.</span>The confluence of evolving global economic indicators and prevailing market volatility necessitates a re-evaluation of our fiscal strategy. ✓</li><li><span class="opt-key">C.</span>Economic stuff is happening globally, and markets are jumping around; we should think about our money plans.</li><li><span class="opt-key">D.</span>Global financial conditions are a bit dodgy, impacting our projected growth rates.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q30"><div class="exam-item-header"><span class="qnum">30. q30</span><span class="exam-meta">grammar · class 6</span></div><div class="exam-prompt">_______ through rigorous due diligence and stringent regulatory compliance can a financial institution truly safeguard against illicit activities and maintain its reputation.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Only ✓</li><li><span class="opt-key">B.</span>Not only</li><li><span class="opt-key">C.</span>Barely</li><li><span class="opt-key">D.</span>Seldom</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article>
+
+</body>
+</html>

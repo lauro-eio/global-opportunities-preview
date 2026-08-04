@@ -140,6 +140,68 @@
       font-weight: 400;
       margin-right: 0.75rem;
     }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
   </style>
 </head>
 <body class="view-teacher">
@@ -150,7 +212,7 @@
   <p class="meta">book_7 · Unit 9</p>
 </header>
 <ul class="index-list">
-<li><a href="c01_society.html">Employee Power: Collective Bargaining and Legal Protections</a><div class="index-meta">How to Protect Your Rights at Work · SK_REC_READING_FOCUS · SK-REC</div><div class="index-links"><a href="c01_society.html">Teacher view</a><a href="c01_society_student.html">Student view</a></div></li><li><a href="c02_society.html">Analyzing Consumer Protection Discourse and Drafting</a><div class="index-meta">Your Consumer Rights: The Official Word · TBLF_DISCOURSE_ANALYSIS · TBLF</div><div class="index-links"><a href="c02_society.html">Teacher view</a><a href="c02_society_student.html">Student view</a></div></li><li><a href="c03_society.html">Project Approval: Engaging Local Authorities</a><div class="index-meta">Your Project and Local Bylaws · SK_PROD_SPEAKING_FOCUS · SK-PROD</div><div class="index-links"><a href="c03_society.html">Teacher view</a><a href="c03_society_student.html">Student view</a></div></li><li><a href="c04_society.html">Legal Aid for Immigrant Workers: A Listening Interview</a><div class="index-meta">Navigating Immigrant Worker Rights · SK_REC_LISTENING_FOCUS · SK-REC</div><div class="index-links"><a href="c04_society.html">Teacher view</a><a href="c04_society_student.html">Student view</a></div></li><li><a href="c05_society.html">Mastering Formal Register for Official Texts</a><div class="index-meta">The Language of Official Communication · TTT_LEXICAL_REGISTER_FOCUS · TTT</div><div class="index-links"><a href="c05_society.html">Teacher view</a><a href="c05_society_student.html">Student view</a></div></li><li><a href="c06_society.html">Writing a Memo on Workplace Data Privacy</a><div class="index-meta">Your Data and Privacy at Work · SK_PROD_WRITING_FOCUS · SK-PROD</div><div class="index-links"><a href="c06_society.html">Teacher view</a><a href="c06_society_student.html">Student view</a></div></li><li><a href="c07_society.html">Mastering Precision in Policy Language</a><div class="index-meta">Write with Policy Precision · TTT_ADVANCED_REVIEW_FOCUS · TTT</div><div class="index-links"><a href="c07_society.html">Teacher view</a><a href="c07_society_student.html">Student view</a></div></li>
+<li><a href="c01_society.html">Employee Power: Collective Bargaining and Legal Protections</a><div class="index-meta">How to Protect Your Rights at Work · SK_REC_READING_FOCUS · SK-REC</div><div class="index-links"><a href="c01_society.html">Teacher view</a><a href="c01_society_student.html">Student view</a></div></li><li><a href="c02_society.html">Analyzing Consumer Protection Discourse and Drafting</a><div class="index-meta">Your Consumer Rights: The Official Word · TBLF_DISCOURSE_ANALYSIS · TBLF</div><div class="index-links"><a href="c02_society.html">Teacher view</a><a href="c02_society_student.html">Student view</a></div></li><li><a href="c03_society.html">Project Approval: Engaging Local Authorities</a><div class="index-meta">Your Project and Local Bylaws · SK_PROD_SPEAKING_FOCUS · SK-PROD</div><div class="index-links"><a href="c03_society.html">Teacher view</a><a href="c03_society_student.html">Student view</a></div></li><li><a href="c04_society.html">Legal Aid for Immigrant Workers: A Listening Interview</a><div class="index-meta">Navigating Immigrant Worker Rights · SK_REC_LISTENING_FOCUS · SK-REC</div><div class="index-links"><a href="c04_society.html">Teacher view</a><a href="c04_society_student.html">Student view</a></div></li><li><a href="c05_society.html">Mastering Formal Register for Official Texts</a><div class="index-meta">The Language of Official Communication · TTT_LEXICAL_REGISTER_FOCUS · TTT</div><div class="index-links"><a href="c05_society.html">Teacher view</a><a href="c05_society_student.html">Student view</a></div></li><li><a href="c06_society.html">Writing a Memo on Workplace Data Privacy</a><div class="index-meta">Your Data and Privacy at Work · SK_PROD_WRITING_FOCUS · SK-PROD</div><div class="index-links"><a href="c06_society.html">Teacher view</a><a href="c06_society_student.html">Student view</a></div></li><li><a href="c07_society.html">Mastering Precision in Policy Language</a><div class="index-meta">Write with Policy Precision · TTT_ADVANCED_REVIEW_FOCUS · TTT</div><div class="index-links"><a href="c07_society.html">Teacher view</a><a href="c07_society_student.html">Student view</a></div></li><li><a href="exam_teacher.html">Unit exam</a><div class="index-meta">Offline MCQ · teacher key</div><div class="index-links"><a href="exam_teacher.html">Teacher view</a></div></li>
 </ul>
 
 </body>

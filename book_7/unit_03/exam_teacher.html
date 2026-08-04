@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit exam — Operational Logistics: Challenges and Solutions</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<nav class="breadcrumbs"><a href="index.html">← Unit index</a></nav>
+<header>
+  <p class="view-banner">Teacher · Unit exam key</p>
+  <h1>Unit exam — Operational Logistics: Challenges and Solutions</h1>
+  <p class="meta">T03_TRAVEL · C2 · 30 items</p>
+</header>
+<article class="exam-item" id="q01"><div class="exam-item-header"><span class="qnum">1. q01</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">Our recent analysis highlights a critical geographic area where political instability severely impacts the flow of goods. This region has become a significant _______ for international shipping routes.</div><ul class="exam-options"><li><span class="opt-key">A.</span>bottleneck</li><li class="correct"><span class="opt-key">B.</span>choke point ✓</li><li><span class="opt-key">C.</span>dead end</li><li><span class="opt-key">D.</span>pressure point</li></ul><div class="exam-explanation"><strong>Explanation</strong>A &#x27;choke point&#x27; specifically refers to a narrow passage or area, such as a strait or canal, where traffic can be easily stopped or interrupted, making it a critical vulnerability in logistics and trade. &#x27;Bottleneck&#x27; is a close synonym but &#x27;choke point&#x27; is the more precise and common term in global trade lexicon for geographic vulnerabilities.</div></article><article class="exam-item" id="q02"><div class="exam-item-header"><span class="qnum">2. q02</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">The board tasked the team with developing a robust _______ that would minimize delays and ensure resilience against unforeseen disruptions across our supply chain.</div><ul class="exam-options"><li><span class="opt-key">A.</span>logistical plan</li><li class="correct"><span class="opt-key">B.</span>logistics strategy ✓</li><li><span class="opt-key">C.</span>supply chain blueprint</li><li><span class="opt-key">D.</span>operational scheme</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Logistics strategy&#x27; is the most appropriate and common formal term for the overarching plan to manage the flow of goods and resources, encompassing design, planning, execution, control, and monitoring of supply chain activities.</div></article><article class="exam-item" id="q03"><div class="exam-item-header"><span class="qnum">3. q03</span><span class="exam-meta">comprehension · class 1</span></div><div class="exam-prompt">The new report suggests that investing heavily in diverse trade corridors will significantly enhance the global economy&#x27;s resilience. What does this imply about current trade routes?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Current trade routes are already highly diversified and resilient.</li><li class="correct"><span class="opt-key">B.</span>Existing trade routes are likely over-reliant on a few vulnerable pathways. ✓</li><li><span class="opt-key">C.</span>Diversification of routes will only benefit specific regional economies.</li><li><span class="opt-key">D.</span>The global economy is currently stable and requires no route adjustments.</li></ul><div class="exam-explanation"><strong>Explanation</strong>If investing in diverse corridors will &#x27;significantly enhance resilience&#x27;, it implies that current routes lack this diversity and resilience, suggesting an over-reliance on limited, potentially vulnerable pathways.</div></article><article class="exam-item" id="q04"><div class="exam-item-header"><span class="qnum">4. q04</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">For efficient international shipping, securing access to a deep-water _______ is paramount, allowing large vessels to load and unload cargo without restriction.</div><ul class="exam-options"><li><span class="opt-key">A.</span>dockyard</li><li><span class="opt-key">B.</span>harbor</li><li class="correct"><span class="opt-key">C.</span>port ✓</li><li><span class="opt-key">D.</span>quay</li></ul><div class="exam-explanation"><strong>Explanation</strong>A &#x27;port&#x27; is a facility on a coastline or shore where ships can load and unload cargo and passengers. While &#x27;harbor&#x27;, &#x27;dockyard&#x27;, and &#x27;quay&#x27; are related, &#x27;port&#x27; encompasses the entire commercial and logistical infrastructure for international shipping.</div></article><article class="exam-item" id="q05"><div class="exam-item-header"><span class="qnum">5. q05</span><span class="exam-meta">grammar · class 2</span></div><div class="exam-prompt">The budget cuts will undoubtedly impact our project timeline; _______, we are committed to delivering the core functionalities by the original deadline.</div><ul class="exam-options"><li><span class="opt-key">A.</span>Nevertheless</li><li><span class="opt-key">B.</span>Despite this</li><li class="correct"><span class="opt-key">C.</span>Notwithstanding ✓</li><li><span class="opt-key">D.</span>Even so</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Notwithstanding&#x27; is a formal concessive adverb that correctly introduces a contrasting point or a statement that holds true despite a preceding challenge, aligning with the unit&#x27;s focus on formal concessive language.</div></article><article class="exam-item" id="q06"><div class="exam-item-header"><span class="qnum">6. q06</span><span class="exam-meta">grammar · class 2</span></div><div class="exam-prompt">The new software update offers enhanced security features, _______ a steep learning curve for some users.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>albeit with ✓</li><li><span class="opt-key">B.</span>despite having</li><li><span class="opt-key">C.</span>even though it has</li><li><span class="opt-key">D.</span>however, it has</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Albeit with&#x27; correctly introduces a concessive phrase, indicating a drawback or qualification to the preceding positive statement. &#x27;Albeit&#x27; means &#x27;although it be&#x27; or &#x27;even though it is&#x27;, and &#x27;with&#x27; clarifies the nature of the steep learning curve.</div></article><article class="exam-item" id="q07"><div class="exam-item-header"><span class="qnum">7. q07</span><span class="exam-meta">grammar · class 2</span></div><div class="exam-prompt">Our competitor has released a similar product at a lower price point. _______, our market research indicates a strong preference for our brand&#x27;s superior quality.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Be that as it may ✓</li><li><span class="opt-key">B.</span>In spite of that</li><li><span class="opt-key">C.</span>Regardless of this</li><li><span class="opt-key">D.</span>Nonetheless</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Be that as it may&#x27; is a formal idiomatic expression used to acknowledge a preceding point or counter-argument while still asserting the validity of one&#x27;s own statement. It fits the C2 level and the unit&#x27;s focus on concessive language.</div></article><article class="exam-item" id="q08"><div class="exam-item-header"><span class="qnum">8. q08</span><span class="exam-meta">lexis · class 2</span></div><div class="exam-prompt">Our project plan includes a robust _______ strategy to address potential supply chain disruptions, ensuring minimal impact on production.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>contingency ✓</li><li><span class="opt-key">B.</span>mitigation</li><li><span class="opt-key">C.</span>emergency</li><li><span class="opt-key">D.</span>prevention</li></ul><div class="exam-explanation"><strong>Explanation</strong>A &#x27;contingency strategy&#x27; specifically refers to a plan for an unforeseen event or circumstance. While &#x27;mitigation&#x27; and &#x27;emergency&#x27; are related, &#x27;contingency&#x27; is the precise term for proactive planning against potential future disruptions in a formal business context.</div></article><article class="exam-item" id="q09"><div class="exam-item-header"><span class="qnum">9. q09</span><span class="exam-meta">comprehension · class 3</span></div><div class="exam-prompt">The city&#x27;s new public transport system is highly efficient for long distances, but residents living in newly developed suburban areas struggle to access the main lines due to infrequent local bus services. This situation describes a classic _______.</div><ul class="exam-options"><li><span class="opt-key">A.</span>infrastructure gap</li><li><span class="opt-key">B.</span>commuter bottleneck</li><li class="correct"><span class="opt-key">C.</span>last-mile problem ✓</li><li><span class="opt-key">D.</span>transit impedance</li></ul><div class="exam-explanation"><strong>Explanation</strong>A &#x27;last-mile problem&#x27; refers to the challenge of moving people or goods from a transportation hub to their final destination, often involving inefficient or inaccessible local connections. This aligns with the scenario of residents struggling to reach main lines from their homes.</div></article><article class="exam-item" id="q10"><div class="exam-item-header"><span class="qnum">10. q10</span><span class="exam-meta">register · class 3</span></div><div class="exam-prompt">Which of the following phrases is the most appropriate and formal way to propose a solution to improve workplace mobility for employees with varying schedules?</div><ul class="exam-options"><li><span class="opt-key">A.</span>We should totally get some flexible transport options going.</li><li class="correct"><span class="opt-key">B.</span>I suggest implementing a staggered shuttle service. ✓</li><li><span class="opt-key">C.</span>How about we look into better ways for people to get around?</li><li><span class="opt-key">D.</span>Let&#x27;s figure out a ride-sharing app or something.</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;I suggest implementing a staggered shuttle service&#x27; uses formal language and concrete action (&#x27;implementing&#x27;, &#x27;staggered shuttle service&#x27;) suitable for a workplace proposal. The other options are either too informal or vague.</div></article><article class="exam-item" id="q11"><div class="exam-item-header"><span class="qnum">11. q11</span><span class="exam-meta">comprehension · class 3</span></div><div class="exam-prompt">During a team discussion on remote work policies, a manager stated, &#x27;While remote work offers flexibility, it inadvertently exacerbates the feeling of detachment for some team members, particularly those new to the company, hindering their integration.&#x27; What is the manager&#x27;s primary concern?</div><ul class="exam-options"><li><span class="opt-key">A.</span>The logistical challenges of providing remote work setups.</li><li><span class="opt-key">B.</span>The difficulty in monitoring employee productivity remotely.</li><li class="correct"><span class="opt-key">C.</span>The impact on team cohesion and new employee integration. ✓</li><li><span class="opt-key">D.</span>The increased cost associated with maintaining a virtual workforce.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The manager explicitly mentions &#x27;exacerbates the feeling of detachment&#x27; and &#x27;hindering their integration,&#x27; directly addressing concerns about team cohesion and the assimilation of new employees, not logistics, productivity monitoring, or cost.</div></article><article class="exam-item" id="q12"><div class="exam-item-header"><span class="qnum">12. q12</span><span class="exam-meta">lexis · class 3</span></div><div class="exam-prompt">To enhance the usability of our office space for all employees, we need to focus on improving its _______, especially for those with physical limitations.</div><ul class="exam-options"><li><span class="opt-key">A.</span>mobility</li><li><span class="opt-key">B.</span>adaptability</li><li class="correct"><span class="opt-key">C.</span>accessibility ✓</li><li><span class="opt-key">D.</span>utility</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Accessibility&#x27; is the most precise term when discussing the ease with which people, especially those with disabilities, can access and use a place or service. While &#x27;mobility&#x27; is related, &#x27;accessibility&#x27; specifically refers to the design and features that allow for easy use by everyone.</div></article><article class="exam-item" id="q13"><div class="exam-item-header"><span class="qnum">13. q13</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">Due to a sudden surge in data traffic, our servers are experiencing severe _______, leading to slower response times for users.</div><ul class="exam-options"><li><span class="opt-key">A.</span>clogging</li><li><span class="opt-key">B.</span>overload</li><li class="correct"><span class="opt-key">C.</span>congestion ✓</li><li><span class="opt-key">D.</span>obstruction</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Congestion&#x27; is the appropriate term for an excessive accumulation of traffic (data, vehicles, etc.) that impedes flow. It&#x27;s commonly used in network operations to describe performance degradation due to high demand.</div></article><article class="exam-item" id="q14"><div class="exam-item-header"><span class="qnum">14. q14</span><span class="exam-meta">comprehension · class 4</span></div><div class="exam-prompt">An urgent operational update states: &#x27;Severe weather conditions have necessitated a re-route for all eastbound cargo flights. Expected delay: 3-5 hours.&#x27; What is the immediate implication for flight operations managers?</div><ul class="exam-options"><li><span class="opt-key">A.</span>They must cancel all eastbound flights immediately.</li><li class="correct"><span class="opt-key">B.</span>They need to find alternative flight paths and inform stakeholders of new ETAs. ✓</li><li><span class="opt-key">C.</span>They should wait for weather conditions to improve before taking action.</li><li><span class="opt-key">D.</span>They only need to inform the pilots about the weather.</li></ul><div class="exam-explanation"><strong>Explanation</strong>A &#x27;re-route&#x27; means to change the planned path. Managers must actively find new routes and communicate these changes, including the new estimated times of arrival (ETAs), to all relevant parties due to the specified delay.</div></article><article class="exam-item" id="q15"><div class="exam-item-header"><span class="qnum">15. q15</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">The IT department is conducting an emergency audit of all critical systems to ensure continuity of _______ after the cyberattack attempt.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>network operations ✓</li><li><span class="opt-key">B.</span>system functionalities</li><li><span class="opt-key">C.</span>data processing</li><li><span class="opt-key">D.</span>server management</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Network operations&#x27; broadly refers to the daily management and maintenance of the entire IT network infrastructure, including connectivity, security, and performance. In the context of a cyberattack, ensuring the continuation of these overall operations is key.</div></article><article class="exam-item" id="q16"><div class="exam-item-header"><span class="qnum">16. q16</span><span class="exam-meta">comprehension · class 4</span></div><div class="exam-prompt">A field supervisor sends an urgent message: &#x27;Heavy equipment malfunction on Site B. Requires immediate attention. Prioritize resources.&#x27; What should the project manager&#x27;s immediate response be?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Schedule a meeting for next week to discuss long-term solutions.</li><li class="correct"><span class="opt-key">B.</span>Allocate available technicians and tools to Site B without delay. ✓</li><li><span class="opt-key">C.</span>Send an email to the supervisor requesting more details about the malfunction.</li><li><span class="opt-key">D.</span>Wait for a formal report before taking any decisive action.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The message specifies &#x27;urgent message&#x27;, &#x27;immediate attention&#x27;, and &#x27;Prioritize resources&#x27;. The appropriate immediate response is to dispatch resources to address the malfunction rather than delaying with meetings, further requests, or waiting for reports.</div></article><article class="exam-item" id="q17"><div class="exam-item-header"><span class="qnum">17. q17</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">In a formal email discussing a collaborative project with international partners, which phrase is most appropriate to encourage participants to join an online meeting?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Let&#x27;s all jump on a call.</li><li class="correct"><span class="opt-key">B.</span>Please endeavor to connect to the virtual session. ✓</li><li><span class="opt-key">C.</span>You guys should log in to the meeting.</li><li><span class="opt-key">D.</span>Hope you can make it to the online catch-up.</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Please endeavor to connect to the virtual session&#x27; uses formal vocabulary (&#x27;endeavor&#x27;, &#x27;connect to the virtual session&#x27;) appropriate for a C2 level business communication with international partners. The other options are too informal.</div></article><article class="exam-item" id="q18"><div class="exam-item-header"><span class="qnum">18. q18</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">When formally advising a colleague about maintaining communication during an international deployment, which phrase is most suitable?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Keep me in the loop, yeah?</li><li class="correct"><span class="opt-key">B.</span>Ensure consistent communication updates. ✓</li><li><span class="opt-key">C.</span>Just drop me a line sometimes.</li><li><span class="opt-key">D.</span>Let&#x27;s touch base periodically.</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Ensure consistent communication updates&#x27; is the most formal and professional option, directly addressing the need for regular and reliable information exchange. &#x27;Let&#x27;s touch base periodically&#x27; is less formal.</div></article><article class="exam-item" id="q19"><div class="exam-item-header"><span class="qnum">19. q19</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">To formally solicit innovative ideas from cross-departmental teams for a new initiative, which instruction is most appropriate?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Brainstorm some cool ideas for the project.</li><li class="correct"><span class="opt-key">B.</span>Submit your creative concepts for consideration. ✓</li><li><span class="opt-key">C.</span>Come up with novel suggestions for the initiative.</li><li><span class="opt-key">D.</span>Let&#x27;s bounce around some thoughts about this.</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Submit your creative concepts for consideration&#x27; uses formal language (&#x27;submit&#x27;, &#x27;creative concepts&#x27;, &#x27;consideration&#x27;) appropriate for a professional request for innovative ideas from multiple departments. &#x27;Come up with novel suggestions&#x27; is also good but &#x27;submit concepts&#x27; has a slightly more formal, process-oriented feel.</div></article><article class="exam-item" id="q20"><div class="exam-item-header"><span class="qnum">20. q20</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">In a formal report on the initial phase of a project, which phrase is most appropriate for requesting input or feedback from stakeholders?</div><ul class="exam-options"><li><span class="opt-key">A.</span>We&#x27;re keen to hear your thoughts.</li><li class="correct"><span class="opt-key">B.</span>Your insights would be greatly appreciated. ✓</li><li><span class="opt-key">C.</span>Please give us your two cents.</li><li><span class="opt-key">D.</span>Tell us what you think.</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Your insights would be greatly appreciated&#x27; is a highly formal and professional way to request feedback, emphasizing the value of the stakeholders&#x27; input. The other options are too informal for a formal report.</div></article><article class="exam-item" id="q21"><div class="exam-item-header"><span class="qnum">21. q21</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">The current bandwidth allocated to the remote team is _______ for their video conferencing and data transfer needs, leading to frequent disconnections.</div><ul class="exam-options"><li><span class="opt-key">A.</span>deficient</li><li><span class="opt-key">B.</span>lacking</li><li class="correct"><span class="opt-key">C.</span>insufficient ✓</li><li><span class="opt-key">D.</span>inadequate</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Insufficient&#x27; precisely means &#x27;not enough; less than required&#x27;. While &#x27;deficient&#x27; and &#x27;inadequate&#x27; are similar, &#x27;insufficient&#x27; directly and formally states that the quantity (bandwidth) is not meeting the demands. The nuanced distinction for C2 is that &#x27;insufficient&#x27; often implies a quantitative shortage.</div></article><article class="exam-item" id="q22"><div class="exam-item-header"><span class="qnum">22. q22</span><span class="exam-meta">grammar · class 6</span></div><div class="exam-prompt">In a brief proposing changes to office layout for better collaboration, which sentence structure formally expresses a recommendation?</div><ul class="exam-options"><li><span class="opt-key">A.</span>We should totally rethink the seating arrangements.</li><li class="correct"><span class="opt-key">B.</span>It is recommended that open-plan workstations be implemented. ✓</li><li><span class="opt-key">C.</span>Our suggestion is to try out some new desk setups.</li><li><span class="opt-key">D.</span>I&#x27;d advise moving to a more open concept.</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;It is recommended that open-plan workstations be implemented&#x27; uses the passive voice and formal phrasing typical of a professional brief, making the recommendation objective rather than personal. The subjunctive &#x27;be implemented&#x27; is also characteristic of formal recommendations.</div></article><article class="exam-item" id="q23"><div class="exam-item-header"><span class="qnum">23. q23</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">Implementing the new automated system is projected to significantly improve operational _______ by reducing manual errors and processing times.</div><ul class="exam-options"><li><span class="opt-key">A.</span>productivity</li><li><span class="opt-key">B.</span>efficacy</li><li class="correct"><span class="opt-key">C.</span>efficiency ✓</li><li><span class="opt-key">D.</span>effectiveness</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Efficiency&#x27; refers to achieving maximum productivity with minimum wasted effort or expense. Reducing errors and processing times directly relates to doing things in a more efficient manner. While &#x27;productivity&#x27; and &#x27;effectiveness&#x27; are related, &#x27;efficiency&#x27; is the most precise fit for this context.</div></article><article class="exam-item" id="q24"><div class="exam-item-header"><span class="qnum">24. q24</span><span class="exam-meta">register · class 6</span></div><div class="exam-prompt">Which opening statement is most appropriate for a formal brief outlining proposals for infrastructure upgrades?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>This brief presents an overview of proposed infrastructure enhancements. ✓</li><li><span class="opt-key">B.</span>Here&#x27;s a quick look at some ideas for upgrading our stuff.</li><li><span class="opt-key">C.</span>We want to tell you about our plans for better infrastructure.</li><li><span class="opt-key">D.</span>This document covers what we&#x27;re thinking for infra improvements.</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;This brief presents an overview of proposed infrastructure enhancements&#x27; uses formal language (&#x27;presents an overview&#x27;, &#x27;proposed infrastructure enhancements&#x27;) and structure, suitable for a professional brief. The other options are too informal or casual.</div></article><article class="exam-item" id="q25"><div class="exam-item-header"><span class="qnum">25. q25</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">_______ the initial capital outlay is substantial, the long-term return on investment from this renewable energy project is projected to be exceptionally high.</div><ul class="exam-options"><li><span class="opt-key">A.</span>Even though</li><li><span class="opt-key">B.</span>Despite that</li><li class="correct"><span class="opt-key">C.</span>Whilst ✓</li><li><span class="opt-key">D.</span>Insofar as</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Whilst&#x27; is a formal conjunction, meaning &#x27;although&#x27; or &#x27;while&#x27;, often used in British English and formal contexts to introduce a concessive clause. It effectively contrasts the substantial outlay with the high return, fitting the C2 formal register for strategic proposals.</div></article><article class="exam-item" id="q26"><div class="exam-item-header"><span class="qnum">26. q26</span><span class="exam-meta">comprehension · class 7</span></div><div class="exam-prompt">A strategic proposal states: &#x27;While our new logistics hub offers unparalleled speed, its remote location presents a significant challenge for local recruitment.&#x27; What aspect of the hub is being acknowledged as a counter-argument to its primary benefit?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Its overall operating cost is too high.</li><li><span class="opt-key">B.</span>Its potential for environmental impact.</li><li class="correct"><span class="opt-key">C.</span>Its difficulty in attracting local talent due to location. ✓</li><li><span class="opt-key">D.</span>Its advanced technology requires highly specialized staff.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The phrase &#x27;its remote location presents a significant challenge for local recruitment&#x27; directly identifies the difficulty in staffing the hub due to its placement as a drawback, despite its benefit of &#x27;unparalleled speed&#x27;.</div></article><article class="exam-item" id="q27"><div class="exam-item-header"><span class="qnum">27. q27</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">Which sentence correctly uses a concessive clause to acknowledge a potential drawback while maintaining a positive outlook on a project&#x27;s viability?</div><ul class="exam-options"><li><span class="opt-key">A.</span>The project might face initial delays; however, its strategic importance remains undisputed.</li><li class="correct"><span class="opt-key">B.</span>Though the project faces initial delays, its strategic importance remains undisputed. ✓</li><li><span class="opt-key">C.</span>Facing initial delays, the project&#x27;s strategic importance is undisputed.</li><li><span class="opt-key">D.</span>The project faces initial delays, yet its strategic importance is undisputed.</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Though the project faces initial delays, its strategic importance remains undisputed&#x27; uses a clear concessive subordinate clause (&#x27;Though...&#x27;) to directly acknowledge the drawback before presenting the positive aspect, adhering to the specified grammar construct. The other options use coordinate conjunctions or participial phrases, which are less specific to the &#x27;concessive subordinate clause&#x27; construct.</div></article><article class="exam-item" id="q28"><div class="exam-item-header"><span class="qnum">28. q28</span><span class="exam-meta">register · class 7</span></div><div class="exam-prompt">In a strategic proposal, how would you formally acknowledge that a proposed system has limited coverage in certain outlying zones, without undermining its overall value?</div><ul class="exam-options"><li><span class="opt-key">A.</span>The system doesn&#x27;t quite reach everywhere yet.</li><li><span class="opt-key">B.</span>We&#x27;ve got some blind spots in the system&#x27;s coverage.</li><li class="correct"><span class="opt-key">C.</span>It is pertinent to note that system coverage is currently restricted to core operational zones. ✓</li><li><span class="opt-key">D.</span>The system only covers the main areas for now.</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;It is pertinent to note that system coverage is currently restricted to core operational zones&#x27; uses highly formal and precise language (&#x27;pertinent to note&#x27;, &#x27;currently restricted&#x27;, &#x27;core operational zones&#x27;) to acknowledge a limitation while maintaining a professional tone, typical of C2-level strategic proposals. It avoids informal phrasing or downplaying the issue.</div></article><article class="exam-item" id="q29"><div class="exam-item-header"><span class="qnum">29. q29</span><span class="exam-meta">synthesis · class 1</span></div><div class="exam-prompt">Considering the global context of operational logistics, what overarching principle best guides a company in mitigating risks associated with trade choke points and ensuring supply chain resilience?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Aggressive cost-cutting across all transportation modes to reduce overheads.</li><li><span class="opt-key">B.</span>Centralizing all inventory in a single, strategically located mega-warehouse for economies of scale.</li><li class="correct"><span class="opt-key">C.</span>Implementing diversified routing, multi-modal transport, and robust contingency planning. ✓</li><li><span class="opt-key">D.</span>Focusing solely on immediate market demands without long-term infrastructure investments.</li></ul><div class="exam-explanation"><strong>Explanation</strong>To mitigate risks at choke points and build resilience, a comprehensive strategy is needed. &#x27;Diversified routing&#x27;, &#x27;multi-modal transport&#x27;, and &#x27;robust contingency planning&#x27; collectively address the need for flexibility, redundancy, and proactive risk management, synthesizing concepts from various unit classes (Class 1, 2, 4).</div></article><article class="exam-item" id="q30"><div class="exam-item-header"><span class="qnum">30. q30</span><span class="exam-meta">synthesis · class 3</span></div><div class="exam-prompt">A company is experiencing significant delays in its final delivery stage due to complex urban traffic and limited access to customer sites. This situation combines elements of &#x27;last-mile problems&#x27; with &#x27;operational congestion&#x27;. Which solution integrates formal language and strategic thinking to address this multifaceted challenge?</div><ul class="exam-options"><li><span class="opt-key">A.</span>We need to get our delivery drivers to try harder and navigate traffic better.</li><li class="correct"><span class="opt-key">B.</span>It is imperative that we implement a comprehensive urban logistics re-evaluation, including micro-depots and eco-friendly last-mile delivery vehicles. ✓</li><li><span class="opt-key">C.</span>Let&#x27;s just tell customers deliveries might be late and offer some discounts.</li><li><span class="opt-key">D.</span>Our plan is to simply hire more drivers to handle the increased load.</li></ul><div class="exam-explanation"><strong>Explanation</strong>This question synthesizes &#x27;last-mile problems&#x27; (Class 3) and &#x27;operational congestion&#x27; (Class 4), requiring a solution that is both strategic and formally presented (Class 5, 6). Option B proposes a comprehensive, multi-faceted solution using formal, business-appropriate language, addressing the complexity of the challenge. &#x27;Micro-depots&#x27; and &#x27;eco-friendly last-mile delivery vehicles&#x27; are specific, modern logistics solutions.</div></article>
+
+</body>
+</html>

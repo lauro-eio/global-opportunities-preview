@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit exam — Rights, Regulations, and Official Language</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<nav class="breadcrumbs"><a href="index.html">← Unit index</a></nav>
+<header>
+  <p class="view-banner">Teacher · Unit exam key</p>
+  <h1>Unit exam — Rights, Regulations, and Official Language</h1>
+  <p class="meta">T09_SOCIETY · C2 · 30 items</p>
+</header>
+<article class="exam-item" id="q01"><div class="exam-item-header"><span class="qnum">1. q01</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">After months of negotiations, the employees decided to pursue ______ to secure better working conditions and pay.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>collective bargaining ✓</li><li><span class="opt-key">B.</span>individual agreements</li><li><span class="opt-key">C.</span>arbitration awards</li><li><span class="opt-key">D.</span>personal requests</li></ul><div class="exam-explanation"><strong>Explanation</strong>Collective bargaining is the process of negotiation between employers and a group of employees aimed at reaching agreements to regulate working conditions. The distractors refer to individual or mediated processes, not group negotiation.</div></article><article class="exam-item" id="q02"><div class="exam-item-header"><span class="qnum">2. q02</span><span class="exam-meta">comprehension · class 1</span></div><div class="exam-prompt">An employee, Sarah, believes she was fired without a valid reason. She has compiled evidence showing her performance reviews were excellent and that her termination followed a complaint she made about workplace safety. Which legal body is most appropriate for her to present her case to?</div><ul class="exam-options"><li><span class="opt-key">A.</span>The local magistrate&#x27;s court</li><li class="correct"><span class="opt-key">B.</span>An employment tribunal ✓</li><li><span class="opt-key">C.</span>The national civil court</li><li><span class="opt-key">D.</span>The company&#x27;s internal ethics committee</li></ul><div class="exam-explanation"><strong>Explanation</strong>An employment tribunal specializes in hearing cases related to disputes between employees and employers, such as unfair dismissal. Other options are either incorrect legal bodies or internal company procedures.</div></article><article class="exam-item" id="q03"><div class="exam-item-header"><span class="qnum">3. q03</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">The CEO stated that recent cost-cutting measures might lead to some redundancies, but assured staff that any dismissals would be handled fairly, aiming to avoid claims of ______.</div><ul class="exam-options"><li><span class="opt-key">A.</span>constructive dismissal</li><li><span class="opt-key">B.</span>wrongful termination</li><li class="correct"><span class="opt-key">C.</span>unfair dismissal ✓</li><li><span class="opt-key">D.</span>summary dismissal</li></ul><div class="exam-explanation"><strong>Explanation</strong>Unfair dismissal is a specific legal term for when an employee is dismissed in an unjust manner, as per employment law. While &#x27;wrongful termination&#x27; is a broader term, &#x27;unfair dismissal&#x27; is the precise term from the brief. &#x27;Constructive dismissal&#x27; refers to an employee resigning due to employer&#x27;s conduct, and &#x27;summary dismissal&#x27; refers to immediate termination for gross misconduct.</div></article><article class="exam-item" id="q04"><div class="exam-item-header"><span class="qnum">4. q04</span><span class="exam-meta">grammar · class 1</span></div><div class="exam-prompt">The union representative emphasized the importance of effective ______ to secure better benefits for its members, highlighting their rights within the current legal framework.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>union negotiation ✓</li><li><span class="opt-key">B.</span>union negotiations</li><li><span class="opt-key">C.</span>negotiating unions</li><li><span class="opt-key">D.</span>negotiated union</li></ul><div class="exam-explanation"><strong>Explanation</strong>Union negotiation (singular) functions as a compound noun phrase, referring to the process or act of the union negotiating. The prompt implies a general concept of negotiation. &#x27;Union negotiations&#x27; would suggest multiple instances. The other options are grammatically awkward or change the meaning.</div></article><article class="exam-item" id="q05"><div class="exam-item-header"><span class="qnum">5. q05</span><span class="exam-meta">lexis · class 2</span></div><div class="exam-prompt">This agreement shall remain in full force and effect from the date ______.</div><ul class="exam-options"><li><span class="opt-key">A.</span>herein</li><li class="correct"><span class="opt-key">B.</span>thereof ✓</li><li><span class="opt-key">C.</span>wherein</li><li><span class="opt-key">D.</span>hereby</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Thereof&#x27; means &#x27;of that&#x27; or &#x27;of it,&#x27; referring to the agreement. &#x27;Herein&#x27; means &#x27;in this document,&#x27; &#x27;wherein&#x27; means &#x27;in which,&#x27; and &#x27;hereby&#x27; means &#x27;by this means,&#x27; which are not appropriate in this context for specifying the date of the agreement itself.</div></article><article class="exam-item" id="q06"><div class="exam-item-header"><span class="qnum">6. q06</span><span class="exam-meta">grammar · class 2</span></div><div class="exam-prompt">The company policy ______ that all employees must complete data privacy training annually.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>stipulates ✓</li><li><span class="opt-key">B.</span>infers</li><li><span class="opt-key">C.</span>implies</li><li><span class="opt-key">D.</span>suggests</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Stipulates&#x27; is the most precise and formal verb for stating a requirement in a policy. &#x27;Infers,&#x27; &#x27;implies,&#x27; and &#x27;suggests&#x27; convey a weaker or less direct meaning of obligation.</div></article><article class="exam-item" id="q07"><div class="exam-item-header"><span class="qnum">7. q07</span><span class="exam-meta">register · class 2</span></div><div class="exam-prompt">Choose the most appropriate phrase for a formal legal document describing a new company regulation.</div><ul class="exam-options"><li><span class="opt-key">A.</span>The new rule states that...</li><li class="correct"><span class="opt-key">B.</span>It is incumbent upon all staff to... ✓</li><li><span class="opt-key">C.</span>We&#x27;re asking everyone to...</li><li><span class="opt-key">D.</span>Employees should probably...</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;It is incumbent upon&#x27; is a highly formal phrase indicating a duty or responsibility, perfectly fitting for a legal document. The other options are too informal or weak in register.</div></article><article class="exam-item" id="q08"><div class="exam-item-header"><span class="qnum">8. q08</span><span class="exam-meta">comprehension · class 2</span></div><div class="exam-prompt">A customer discovered a critical flaw in a newly purchased electronic device that caused significant property damage. They are considering a ______ against the manufacturer, citing the product&#x27;s failure to meet safety standards.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>class action lawsuit ✓</li><li><span class="opt-key">B.</span>public relations campaign</li><li><span class="opt-key">C.</span>product recall petition</li><li><span class="opt-key">D.</span>personal grievance report</li></ul><div class="exam-explanation"><strong>Explanation</strong>Given the &#x27;critical flaw&#x27; and &#x27;significant property damage,&#x27; a &#x27;class action lawsuit&#x27; is a strong legal recourse against a manufacturer, especially if other consumers are similarly affected by product liability issues. The options &#x27;public relations campaign&#x27; and &#x27;product recall petition&#x27; are not direct legal actions for damages.</div></article><article class="exam-item" id="q09"><div class="exam-item-header"><span class="qnum">9. q09</span><span class="exam-meta">comprehension · class 3</span></div><div class="exam-prompt">A small business plans to open a new outdoor cafe in a residential area. Before proceeding, they must understand the local zoning ______ and secure all necessary permits. Which of the following is the most immediate concern?</div><ul class="exam-options"><li><span class="opt-key">A.</span>The potential for increased traffic congestion.</li><li class="correct"><span class="opt-key">B.</span>Compliance with noise ordinances and operating hours. ✓</li><li><span class="opt-key">C.</span>Hiring a diverse local workforce.</li><li><span class="opt-key">D.</span>Marketing strategies to attract new customers.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Opening an outdoor cafe in a residential area makes &#x27;noise ordinances and operating hours&#x27; a critical and immediate concern from a regulatory standpoint (local ordinances and licensing). While other options are relevant to the business, they are not primarily about immediate compliance with local authority regulations.</div></article><article class="exam-item" id="q10"><div class="exam-item-header"><span class="qnum">10. q10</span><span class="exam-meta">register · class 3</span></div><div class="exam-prompt">When submitting a proposal for a community art project to the city council, which statement best demonstrates an appropriate formal and respectful tone?</div><ul class="exam-options"><li><span class="opt-key">A.</span>We think this project would be super cool for the neighborhood.</li><li class="correct"><span class="opt-key">B.</span>This initiative aims to enhance public spaces and foster community engagement. ✓</li><li><span class="opt-key">C.</span>You guys should totally approve this, it&#x27;s a no-brainer.</li><li><span class="opt-key">D.</span>The project intends to improve things in the area, you know.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B uses formal, professional language (&#x27;initiative aims to enhance,&#x27; &#x27;foster community engagement&#x27;) suitable for a proposal to a city council. The other options are informal or vague.</div></article><article class="exam-item" id="q11"><div class="exam-item-header"><span class="qnum">11. q11</span><span class="exam-meta">comprehension · class 3</span></div><div class="exam-prompt">A community group wishes to host a large cultural festival in a public park. They need to secure a temporary event license. What kind of information would the local authority most likely require from them?</div><ul class="exam-options"><li><span class="opt-key">A.</span>A list of potential food vendors.</li><li class="correct"><span class="opt-key">B.</span>Detailed plans for waste management and public safety. ✓</li><li><span class="opt-key">C.</span>Biographies of all organizing committee members.</li><li><span class="opt-key">D.</span>Future plans for annual expansion of the festival.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Local authorities granting event licenses are primarily concerned with public safety, health, and environmental impact. &#x27;Detailed plans for waste management and public safety&#x27; directly addresses these concerns. The other options are less critical for initial licensing approval.</div></article><article class="exam-item" id="q12"><div class="exam-item-header"><span class="qnum">12. q12</span><span class="exam-meta">grammar · class 3</span></div><div class="exam-prompt">The board discussed ______ local heritage protection orders on their development plans, which required significant adjustments.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>the impact of ✓</li><li><span class="opt-key">B.</span>impacting from</li><li><span class="opt-key">C.</span>what impacted</li><li><span class="opt-key">D.</span>how they impact</li></ul><div class="exam-explanation"><strong>Explanation</strong>The phrase &#x27;the impact of&#x27; is the most grammatically correct and formal way to refer to the influence or effect of the orders on the plans. The other options are either ungrammatical or less formal/precise in this context.</div></article><article class="exam-item" id="q13"><div class="exam-item-header"><span class="qnum">13. q13</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">Reports surfaced of undocumented workers being paid significantly below minimum wage and working excessive hours in unsafe conditions. This is a clear case of ______.</div><ul class="exam-options"><li><span class="opt-key">A.</span>labor arbitrage</li><li class="correct"><span class="opt-key">B.</span>labor exploitation ✓</li><li><span class="opt-key">C.</span>labor migration</li><li><span class="opt-key">D.</span>labor regulations</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Labor exploitation&#x27; accurately describes situations where workers are treated unfairly, often illegally, for economic gain, fitting the description of being underpaid and working in unsafe conditions. The other terms refer to different economic or social phenomena.</div></article><article class="exam-item" id="q14"><div class="exam-item-header"><span class="qnum">14. q14</span><span class="exam-meta">comprehension · class 4</span></div><div class="exam-prompt">An immigrant worker approaches a legal aid clinic, concerned about their employer threatening to report them to immigration authorities if they complain about unpaid wages. What is the most crucial piece of advice the clinic should provide?</div><ul class="exam-options"><li><span class="opt-key">A.</span>To immediately find a new job.</li><li class="correct"><span class="opt-key">B.</span>To document all incidents and seek legal protection regardless of visa status. ✓</li><li><span class="opt-key">C.</span>To avoid contacting immigration authorities under any circumstances.</li><li><span class="opt-key">D.</span>To accept the unpaid wages to avoid deportation.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The core of &#x27;migrant rights advocacy&#x27; (a term from the brief) and legal aid for immigrant workers is to ensure they know their rights, even if their &#x27;visa status&#x27; is precarious, and to document evidence for legal recourse against &#x27;labor exploitation&#x27;. Threatening deportation for complaining about wages is illegal. Option B empowers the worker legally.</div></article><article class="exam-item" id="q15"><div class="exam-item-header"><span class="qnum">15. q15</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">Despite having lived in the country for years, his application for permanent residency was rejected, putting his ______ in jeopardy.</div><ul class="exam-options"><li><span class="opt-key">A.</span>employment status</li><li><span class="opt-key">B.</span>residential permit</li><li class="correct"><span class="opt-key">C.</span>visa status ✓</li><li><span class="opt-key">D.</span>citizenship application</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Visa status&#x27; is the general term for the official immigration category or permission allowing someone to reside in a country, which would be directly affected by a rejected residency application. &#x27;Residential permit&#x27; is a type of visa, but &#x27;visa status&#x27; is a broader and more accurate term.</div></article><article class="exam-item" id="q16"><div class="exam-item-header"><span class="qnum">16. q16</span><span class="exam-meta">register · class 4</span></div><div class="exam-prompt">When discussing the legal rights of immigrant workers in a formal policy document, which phrasing is most appropriate?</div><ul class="exam-options"><li><span class="opt-key">A.</span>These workers have rights, just like everyone else.</li><li class="correct"><span class="opt-key">B.</span>All individuals, regardless of nationality or immigration status, are entitled to fundamental labor protections. ✓</li><li><span class="opt-key">C.</span>Migrants should get the same deal as citizens.</li><li><span class="opt-key">D.</span>We should probably ensure migrant workers are looked after.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B uses precise, inclusive, and formal language (&#x27;All individuals, regardless of nationality or immigration status,&#x27; &#x27;entitled to fundamental labor protections&#x27;) suitable for a policy document discussing legal rights. The other options are too informal, vague, or casual.</div></article><article class="exam-item" id="q17"><div class="exam-item-header"><span class="qnum">17. q17</span><span class="exam-meta">lexis · class 5</span></div><div class="exam-prompt">All personnel are instructed to ______ established safety procedures during chemical handling.</div><ul class="exam-options"><li><span class="opt-key">A.</span>observe carefully</li><li><span class="opt-key">B.</span>follow closely</li><li class="correct"><span class="opt-key">C.</span>adhere strictly to protocols ✓</li><li><span class="opt-key">D.</span>stick firmly with rules</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Adhere strictly to protocols&#x27; is a formal and precise expression directly from the brief, meaning to follow rules exactly. The other options are less formal or less precise for a formal instruction.</div></article><article class="exam-item" id="q18"><div class="exam-item-header"><span class="qnum">18. q18</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">In an official letter to a government agency, how should one formally express the need for a legal response?</div><ul class="exam-options"><li><span class="opt-key">A.</span>We need you to get back to us ASAP regarding this.</li><li class="correct"><span class="opt-key">B.</span>A prompt and comprehensive response is hereby requested. ✓</li><li><span class="opt-key">C.</span>Could you please speed things up a bit with this matter?</li><li><span class="opt-key">D.</span>We&#x27;d like to get your take on this legal issue when you have a moment.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B uses highly formal and direct language, including the archaic formalism &#x27;hereby requested,&#x27; appropriate for an official letter to a government agency seeking a legal response. The other options are too informal or imply a less urgent or serious tone.</div></article><article class="exam-item" id="q19"><div class="exam-item-header"><span class="qnum">19. q19</span><span class="exam-meta">comprehension · class 5</span></div><div class="exam-prompt">A community legal aid service notes a significant barrier for working-class individuals seeking legal representation for civil disputes. What is the most common and immediate cause of this challenge?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Lack of awareness about the legal system&#x27;s complexities.</li><li class="correct"><span class="opt-key">B.</span>The prohibitive cost of legal fees and limited access to pro bono services. ✓</li><li><span class="opt-key">C.</span>Geographical distance from major legal centers.</li><li><span class="opt-key">D.</span>A general distrust of legal professionals.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The &#x27;situational focus&#x27; for this class is &#x27;Discussing the challenges working-class individuals face in accessing legal representation.&#x27; The most common and immediate challenge is the financial barrier – &#x27;the prohibitive cost of legal fees and limited access to pro bono services.&#x27; Other options might be contributing factors but are generally secondary to cost.</div></article><article class="exam-item" id="q20"><div class="exam-item-header"><span class="qnum">20. q20</span><span class="exam-meta">grammar · class 5</span></div><div class="exam-prompt">Which sentence correctly uses formal language to emphasize an obligation?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Employees are meant to complete the form.</li><li><span class="opt-key">B.</span>It is obligatory that employees complete the form.</li><li class="correct"><span class="opt-key">C.</span>All employees shall complete the required form. ✓</li><li><span class="opt-key">D.</span>The form should be completed by all employees.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The use of &#x27;shall&#x27; in legal and formal contexts denotes a mandatory obligation, making option C the most appropriate for emphasizing an obligation in formal language. &#x27;Obligatory that&#x27; is less common and somewhat awkward, and &#x27;meant to&#x27; or &#x27;should be&#x27; are less forceful.</div></article><article class="exam-item" id="q21"><div class="exam-item-header"><span class="qnum">21. q21</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">The new company guidelines cover all aspects of employee data, ensuring strict adherence to the latest ______ regulations.</div><ul class="exam-options"><li><span class="opt-key">A.</span>information governance</li><li><span class="opt-key">B.</span>data protection act</li><li class="correct"><span class="opt-key">C.</span>data privacy ✓</li><li><span class="opt-key">D.</span>digital security</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Data privacy&#x27; is the overarching concept that encompasses the regulations and practices related to handling personal data, directly from the brief&#x27;s lexis. &#x27;Data Protection Act&#x27; is a specific legislation, but &#x27;data privacy&#x27; refers to the broader regulatory domain. The context implies a general adherence to regulatory principles rather than a single act.</div></article><article class="exam-item" id="q22"><div class="exam-item-header"><span class="qnum">22. q22</span><span class="exam-meta">comprehension · class 6</span></div><div class="exam-prompt">A company is considering implementing AI-powered ______ to monitor employee productivity and internet usage. What is the primary legal concern they must address?</div><ul class="exam-options"><li><span class="opt-key">A.</span>The cost of the AI software.</li><li><span class="opt-key">B.</span>Ensuring the system is accessible to all employees.</li><li class="correct"><span class="opt-key">C.</span>Obtaining explicit employee consent and defining privacy policy boundaries. ✓</li><li><span class="opt-key">D.</span>The impact on network bandwidth.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The &#x27;situational focus&#x27; for this class is &#x27;Debating the legal boundaries of employer surveillance and employees&#x27; data privacy rights.&#x27; &#x27;Obtaining explicit employee consent and defining privacy policy boundaries&#x27; is directly related to these legal boundaries and the &#x27;employee consent forms&#x27; lexis.</div></article><article class="exam-item" id="q23"><div class="exam-item-header"><span class="qnum">23. q23</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">Before implementing the new security cameras in the office, management must obtain clear ______ from employees regarding potential workplace monitoring.</div><ul class="exam-options"><li><span class="opt-key">A.</span>acquiescence</li><li class="correct"><span class="opt-key">B.</span>consent ✓</li><li><span class="opt-key">C.</span>agreement</li><li><span class="opt-key">D.</span>permission</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Consent&#x27; is the specific legal and formal term, from the brief, required for privacy matters, often formalized through &#x27;employee consent forms&#x27;. While &#x27;agreement&#x27; and &#x27;permission&#x27; are similar, &#x27;consent&#x27; carries the precise legal weight. &#x27;Acquiescence&#x27; suggests passive acceptance, not active approval.</div></article><article class="exam-item" id="q24"><div class="exam-item-header"><span class="qnum">24. q24</span><span class="exam-meta">register · class 6</span></div><div class="exam-prompt">In a memo to all staff about a revised privacy policy, which opening statement is most appropriate for a formal and informative tone?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Hey team, big news on our privacy stuff!</li><li class="correct"><span class="opt-key">B.</span>This memo details updates to the company&#x27;s employee data privacy policy. ✓</li><li><span class="opt-key">C.</span>Just wanted to let you know about some changes to privacy rules.</li><li><span class="opt-key">D.</span>Regarding privacy, here are some things you should know.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B is direct, formal, and clearly states the purpose of the memo, using precise terminology like &#x27;employee data privacy policy&#x27; (from the brief). The other options are too informal or vague for an official workplace memo on a sensitive topic like privacy.</div></article><article class="exam-item" id="q25"><div class="exam-item-header"><span class="qnum">25. q25</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">The policy statement clearly delineates the conditions ______ such exemptions may be granted, ensuring strict adherence to regulatory compliance.</div><ul class="exam-options"><li><span class="opt-key">A.</span>for which</li><li class="correct"><span class="opt-key">B.</span>under which ✓</li><li><span class="opt-key">C.</span>where</li><li><span class="opt-key">D.</span>that</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Under which&#x27; is the most precise and formal phrasing for specifying the conditions or circumstances governing a situation, characteristic of &#x27;Mastering Precision in Policy Language.&#x27; &#x27;For which&#x27; implies purpose, &#x27;where&#x27; implies location, and &#x27;that&#x27; is less formal and precise.</div></article><article class="exam-item" id="q26"><div class="exam-item-header"><span class="qnum">26. q26</span><span class="exam-meta">comprehension · class 7</span></div><div class="exam-prompt">A developing nation proposes new tariffs on imported agricultural products to protect its local farmers. What is the most likely long-term consequence for the local industry if these tariffs are implemented without careful international negotiation?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Increased efficiency and competitiveness of local agriculture.</li><li class="correct"><span class="opt-key">B.</span>Retaliatory tariffs from trading partners, harming export markets. ✓</li><li><span class="opt-key">C.</span>A significant decrease in domestic food prices.</li><li><span class="opt-key">D.</span>Diversification into new, non-agricultural industries.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The &#x27;situational focus&#x27; for this class is &#x27;Analyzing how global trade policies and disputes can affect local industries.&#x27; Imposing tariffs without negotiation often leads to &#x27;retaliatory tariffs,&#x27; which would negatively impact export markets, aligning with the idea of global trade disputes affecting local industries. The other options are either unlikely or not the primary direct consequence of unilateral tariff action.</div></article><article class="exam-item" id="q27"><div class="exam-item-header"><span class="qnum">27. q27</span><span class="exam-meta">register · class 7</span></div><div class="exam-prompt">Which sentence most effectively demonstrates precision and formal register when discussing policy implications?</div><ul class="exam-options"><li><span class="opt-key">A.</span>The policy has some big impacts that we need to think about.</li><li class="correct"><span class="opt-key">B.</span>The ramifications of this policy warrant meticulous examination. ✓</li><li><span class="opt-key">C.</span>We should look at what this policy means for everything.</li><li><span class="opt-key">D.</span>This policy will affect a lot of things, so be careful.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B uses highly formal vocabulary (&#x27;ramifications,&#x27; &#x27;warrant,&#x27; &#x27;meticulous examination&#x27;) and a precise structure typical of policy language at a C2 level. The other options are informal or vague.</div></article><article class="exam-item" id="q28"><div class="exam-item-header"><span class="qnum">28. q28</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">The amendments to the contract must be executed ______ the specified deadline.</div><ul class="exam-options"><li><span class="opt-key">A.</span>by</li><li class="correct"><span class="opt-key">B.</span>within ✓</li><li><span class="opt-key">C.</span>on</li><li><span class="opt-key">D.</span>before</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Within&#x27; implies that the action must be completed during the period leading up to the deadline, or before the end of that period, which is a precise legal and formal way to express a timeframe for completion, especially used with &#x27;deadline&#x27;. &#x27;By&#x27; implies &#x27;no later than&#x27;, but &#x27;within&#x27; emphasizes the enclosed nature of the timeframe. &#x27;On&#x27; is too specific to a date, and &#x27;before&#x27; is also plausible but less precise than &#x27;within&#x27; when dealing with a &#x27;deadline&#x27; as a boundary.</div></article><article class="exam-item" id="q29"><div class="exam-item-header"><span class="qnum">29. q29</span><span class="exam-meta">synthesis · class 7</span></div><div class="exam-prompt">Considering the unit&#x27;s focus on rights, regulations, and official language, which action best exemplifies an organization&#x27;s commitment to ethical and legal conduct in its global operations?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Outsourcing production to countries with minimal labor laws to reduce costs.</li><li class="correct"><span class="opt-key">B.</span>Implementing universal data privacy standards and ensuring fair labor practices across all international subsidiaries, irrespective of local minimums. ✓</li><li><span class="opt-key">C.</span>Lobbying for looser environmental regulations in developing markets.</li><li><span class="opt-key">D.</span>Using informal language in internal communications to foster a &#x27;friendly&#x27; corporate culture.</li></ul><div class="exam-explanation"><strong>Explanation</strong>This synthesis question draws on themes from multiple classes: labor rights (Class 1, 4), data privacy (Class 6), and ethical conduct in a global context (Class 7&#x27;s broader implications). Option B demonstrates a commitment to high standards across the board, reflecting the positive aspects of &#x27;Rights, Regulations, and Official Language&#x27;. The distractors describe unethical or non-compliant practices, or irrelevant communication style.</div></article><article class="exam-item" id="q30"><div class="exam-item-header"><span class="qnum">30. q30</span><span class="exam-meta">synthesis · class 7</span></div><div class="exam-prompt">A new piece of legislation significantly impacts how a particular industry operates, from employee contracts to consumer engagement. Which stakeholder group would be most interested in understanding the &#x27;Archaic Formalisms and Precise Adverbial Positioning in Legislative Text&#x27; to navigate these changes effectively?</div><ul class="exam-options"><li><span class="opt-key">A.</span>The marketing department, for drafting consumer-friendly advertisements.</li><li class="correct"><span class="opt-key">B.</span>Human Resources, for updating employee handbooks and compliance documents. ✓</li><li><span class="opt-key">C.</span>The IT department, for technical implementation of new systems.</li><li><span class="opt-key">D.</span>Sales representatives, for explaining new product features to clients.</li></ul><div class="exam-explanation"><strong>Explanation</strong>This synthesis question combines grammar labels (&#x27;Archaic Formalisms and Precise Adverbial Positioning&#x27;) from Class 2 and 7 with the practical application of regulations, impacting &#x27;employee contracts&#x27; (Class 1) and &#x27;consumer engagement&#x27; (Class 2). Human Resources (HR) would be directly responsible for interpreting and implementing the legal text into &#x27;employee handbooks and compliance documents&#x27;, thus requiring a deep understanding of the precise language used in legislation. Other departments have different focuses.</div></article>
+
+</body>
+</html>

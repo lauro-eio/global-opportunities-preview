@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit exam — Communicating and Implementing Environmental Initiatives</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<nav class="breadcrumbs"><a href="index.html">← Unit index</a></nav>
+<header>
+  <p class="view-banner">Teacher · Unit exam key</p>
+  <h1>Unit exam — Communicating and Implementing Environmental Initiatives</h1>
+  <p class="meta">T07_ENVIRONMENT · C2 · 30 items</p>
+</header>
+<article class="exam-item" id="q01"><div class="exam-item-header"><span class="qnum">1. q01</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">Before initiating new manufacturing processes, our team must conduct a thorough _______ to quantify the environmental impact of our operations and identify areas for improvement.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>carbon audit ✓</li><li><span class="opt-key">B.</span>energy assessment</li><li><span class="opt-key">C.</span>ecological review</li><li><span class="opt-key">D.</span>environmental scan</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q02"><div class="exam-item-header"><span class="qnum">2. q02</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">To ensure our products are manufactured responsibly, we prioritize _______, selecting suppliers who adhere to strict labor standards and environmental regulations.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>ethical sourcing ✓</li><li><span class="opt-key">B.</span>moral purchasing</li><li><span class="opt-key">C.</span>conscious procurement</li><li><span class="opt-key">D.</span>responsible acquisition</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q03"><div class="exam-item-header"><span class="qnum">3. q03</span><span class="exam-meta">comprehension · class 1</span></div><div class="exam-prompt">A key aspect of enhancing our supply chain&#x27;s environmental performance involves rigorous evaluation. Which of the following best exemplifies this evaluation process?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Implementing real-time tracking for all shipments.</li><li class="correct"><span class="opt-key">B.</span>Analyzing transportation routes for efficiency and supplier labor practices. ✓</li><li><span class="opt-key">C.</span>Negotiating favorable terms with new logistics partners.</li><li><span class="opt-key">D.</span>Automating warehouse inventory management systems.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q04"><div class="exam-item-header"><span class="qnum">4. q04</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">In an unpredictable global market, building _______ is crucial to withstand disruptions like natural disasters or geopolitical events without compromising delivery schedules.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>supply chain resilience ✓</li><li><span class="opt-key">B.</span>logistical fortitude</li><li><span class="opt-key">C.</span>operational robustness</li><li><span class="opt-key">D.</span>market durability</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q05"><div class="exam-item-header"><span class="qnum">5. q05</span><span class="exam-meta">grammar · class 2</span></div><div class="exam-prompt">The company aims to reduce its carbon footprint. Which option best nominalizes the action &#x27;to reduce its carbon footprint&#x27; in a formal policy context?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Carbon footprint mitigation ✓</li><li><span class="opt-key">B.</span>Carbon footprint reducing efforts</li><li><span class="opt-key">C.</span>Reducing carbon footprints</li><li><span class="opt-key">D.</span>The reduction of carbon footprint</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q06"><div class="exam-item-header"><span class="qnum">6. q06</span><span class="exam-meta">lexis · class 2</span></div><div class="exam-prompt">Our new waste management strategy focuses on _______ to maximize recycling rates and minimize landfill contributions across all facility operations.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>waste stream optimization ✓</li><li><span class="opt-key">B.</span>trash flow improvement</li><li><span class="opt-key">C.</span>refuse channel enhancement</li><li><span class="opt-key">D.</span>disposal path efficiency</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q07"><div class="exam-item-header"><span class="qnum">7. q07</span><span class="exam-meta">grammar · class 2</span></div><div class="exam-prompt">The management discussed the need for energy-efficient upgrades. Which of the following accurately nominalizes this statement for a formal report?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Implementation of energy-efficient upgrades ✓</li><li><span class="opt-key">B.</span>Carrying out energy-efficient upgrades</li><li><span class="opt-key">C.</span>Upgrading for energy efficiency</li><li><span class="opt-key">D.</span>The upgrades for energy efficiency</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q08"><div class="exam-item-header"><span class="qnum">8. q08</span><span class="exam-meta">lexis · class 2</span></div><div class="exam-prompt">As part of our commitment to sustainability, we are launching several _______ aimed at reducing water consumption and improving energy usage.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Resource Efficiency Initiatives ✓</li><li><span class="opt-key">B.</span>Resource Saving Campaigns</li><li><span class="opt-key">C.</span>Efficiency Enhancement Programs</li><li><span class="opt-key">D.</span>Green Resource Drives</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q09"><div class="exam-item-header"><span class="qnum">9. q09</span><span class="exam-meta">lexis · class 3</span></div><div class="exam-prompt">Adopting _______ principles has allowed our manufacturing plant to drastically reduce waste and improve productivity by eliminating non-value-adding activities.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>lean manufacturing ✓</li><li><span class="opt-key">B.</span>agile production</li><li><span class="opt-key">C.</span>streamlined fabrication</li><li><span class="opt-key">D.</span>efficient assembly</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q10"><div class="exam-item-header"><span class="qnum">10. q10</span><span class="exam-meta">lexis · class 3</span></div><div class="exam-prompt">Our company is transitioning to _______ where materials are continually reused and recycled, significantly minimizing reliance on virgin resources.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>closed-loop systems ✓</li><li><span class="opt-key">B.</span>circular production lines</li><li><span class="opt-key">C.</span>recyclable frameworks</li><li><span class="opt-key">D.</span>continuous resource models</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q11"><div class="exam-item-header"><span class="qnum">11. q11</span><span class="exam-meta">comprehension · class 3</span></div><div class="exam-prompt">During a strategy meeting, the team discussed ways to minimize waste and conserve resources in manufacturing. Which approach would be most effective for reducing material consumption and increasing product lifespan?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Implementing a just-in-time inventory system to reduce excess materials.</li><li class="correct"><span class="opt-key">B.</span>Redesigning products for durability and ease of repair, alongside establishing material take-back programs. ✓</li><li><span class="opt-key">C.</span>Outsourcing production to regions with lower environmental regulations.</li><li><span class="opt-key">D.</span>Focusing solely on increasing production speed to meet demand.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q12"><div class="exam-item-header"><span class="qnum">12. q12</span><span class="exam-meta">lexis · class 3</span></div><div class="exam-prompt">Our R&amp;D department is exploring _______ technologies to transform industrial by-products into valuable new materials, rather than sending them to landfill.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>waste valorization ✓</li><li><span class="opt-key">B.</span>waste conversion</li><li><span class="opt-key">C.</span>refuse reclamation</li><li><span class="opt-key">D.</span>discard utilization</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q13"><div class="exam-item-header"><span class="qnum">13. q13</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">To enhance our eco-hospitality efforts, a primary focus is _______ through careful menu planning, portion control, and composting initiatives.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>food waste reduction ✓</li><li><span class="opt-key">B.</span>culinary refuse minimization</li><li><span class="opt-key">C.</span>edible excess decrease</li><li><span class="opt-key">D.</span>meal discard management</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q14"><div class="exam-item-header"><span class="qnum">14. q14</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">Our hotel is committed to _______, prioritizing suppliers from within a 50-mile radius to support local economies and reduce transportation emissions.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>local procurement ✓</li><li><span class="opt-key">B.</span>regional purchasing</li><li><span class="opt-key">C.</span>community sourcing</li><li><span class="opt-key">D.</span>proximal acquisition</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q15"><div class="exam-item-header"><span class="qnum">15. q15</span><span class="exam-meta">comprehension · class 4</span></div><div class="exam-prompt">A hotel chain is developing new practices to significantly reduce its ecological impact in food service. Which strategy aligns best with this objective?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Introducing single-use plastic amenities across all rooms.</li><li class="correct"><span class="opt-key">B.</span>Implementing comprehensive recycling programs for all kitchen and guest waste, coupled with sourcing seasonal ingredients from nearby farms. ✓</li><li><span class="opt-key">C.</span>Increasing energy consumption by maintaining higher indoor temperatures.</li><li><span class="opt-key">D.</span>Eliminating all cleaning services to save water.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q16"><div class="exam-item-header"><span class="qnum">16. q16</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">Effective _______ is critical for our resort, involving advanced water recycling systems and educating guests on mindful water use to conserve this vital resource.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>water stewardship ✓</li><li><span class="opt-key">B.</span>water conservation</li><li><span class="opt-key">C.</span>hydrological management</li><li><span class="opt-key">D.</span>aqua governance</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q17"><div class="exam-item-header"><span class="qnum">17. q17</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">The statement &#x27;The waste segregation is a bit sloppy&#x27; needs to be rephrased for a formal internal report. Which option maintains accuracy while adopting a professional tone?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Waste segregation practices require immediate attention. ✓</li><li><span class="opt-key">B.</span>The waste sorting is not up to par.</li><li><span class="opt-key">C.</span>We need to tidy up the waste separation.</li><li><span class="opt-key">D.</span>The waste division shows some imperfections.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q18"><div class="exam-item-header"><span class="qnum">18. q18</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">How should the phrase &#x27;cutting down carbon emissions&#x27; be professionally presented in a corporate sustainability document?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Reducing carbon emissions ✓</li><li><span class="opt-key">B.</span>Decreasing carbon output</li><li><span class="opt-key">C.</span>Lowering carbon expulsion</li><li><span class="opt-key">D.</span>Trimming carbon footprint</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q19"><div class="exam-item-header"><span class="qnum">19. q19</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">Choose the most appropriate professional rephrasing for &#x27;making sure we follow all environmental rules&#x27; in a presentation to stakeholders.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Ensuring adherence to environmental regulations ✓</li><li><span class="opt-key">B.</span>Confirming compliance with ecological statutes</li><li><span class="opt-key">C.</span>Upholding environmental guidelines</li><li><span class="opt-key">D.</span>Following all green policies</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q20"><div class="exam-item-header"><span class="qnum">20. q20</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">In a formal business proposal, how would you best rephrase &#x27;thinking about the environmental cost&#x27;?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Considering the environmental impact ✓</li><li><span class="opt-key">B.</span>Reflecting on ecological expenditure</li><li><span class="opt-key">C.</span>Pondering the green price</li><li><span class="opt-key">D.</span>Weighing the environmental burden</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q21"><div class="exam-item-header"><span class="qnum">21. q21</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">The city council approved a new initiative to integrate _______ into urban planning, focusing on natural systems to manage stormwater and improve air quality.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Green Infrastructure ✓</li><li><span class="opt-key">B.</span>Eco-Friendly Frameworks</li><li><span class="opt-key">C.</span>Sustainable Urban Systems</li><li><span class="opt-key">D.</span>Natural Development Projects</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q22"><div class="exam-item-header"><span class="qnum">22. q22</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">Our latest park renovation project will feature _______ to allow rainwater to infiltrate the ground, reducing runoff and replenishing groundwater.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>permeable paving ✓</li><li><span class="opt-key">B.</span>porous surfaces</li><li><span class="opt-key">C.</span>infiltrative pathways</li><li><span class="opt-key">D.</span>water-absorbent walkways</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q23"><div class="exam-item-header"><span class="qnum">23. q23</span><span class="exam-meta">comprehension · class 6</span></div><div class="exam-prompt">Which of the following activities best demonstrates a municipal service contributing to urban greening and public resource management?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Allocating funds for new road construction projects.</li><li class="correct"><span class="opt-key">B.</span>Developing and maintaining public parks with native plant species and establishing city-wide composting programs. ✓</li><li><span class="opt-key">C.</span>Privatizing all public utilities to increase efficiency.</li><li><span class="opt-key">D.</span>Focusing solely on expanding public transport routes.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q24"><div class="exam-item-header"><span class="qnum">24. q24</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">The conservation project aims to enhance _______ by creating wildlife corridors and restoring natural habitats within the city limits.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>urban biodiversity ✓</li><li><span class="opt-key">B.</span>city wildlife variety</li><li><span class="opt-key">C.</span>metropolitan ecological richness</li><li><span class="opt-key">D.</span>civic biological diversity</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q25"><div class="exam-item-header"><span class="qnum">25. q25</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">The company regularly &#x27;reports on its impact on planetary boundaries&#x27;. Which option correctly uses nominalization for a policy document?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Planetary boundary impact reporting by the company ✓</li><li><span class="opt-key">B.</span>The company&#x27;s reports about planetary boundary impacts</li><li><span class="opt-key">C.</span>Reporting the company&#x27;s planetary boundary impact</li><li><span class="opt-key">D.</span>How the company impacts planetary boundaries is reported</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q26"><div class="exam-item-header"><span class="qnum">26. q26</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">A policy document needs to state that &#x27;the organization strictly adheres to all environmental regulations&#x27;. Select the most formal and concise nominalized form.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Adherence to environmental regulations ✓</li><li><span class="opt-key">B.</span>The organization&#x27;s strict following of environmental rules</li><li><span class="opt-key">C.</span>Compliance with environmental rules by the organization</li><li><span class="opt-key">D.</span>Environmental regulation conformity</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q27"><div class="exam-item-header"><span class="qnum">27. q27</span><span class="exam-meta">comprehension · class 7</span></div><div class="exam-prompt">When crafting an effective workplace sustainability policy, what is the most crucial element to ensure its successful implementation and long-term impact?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Ensuring the policy includes a comprehensive list of all potential environmental risks.</li><li class="correct"><span class="opt-key">B.</span>Clearly defining measurable goals, assigning responsibilities, and establishing mechanisms for regular review and feedback. ✓</li><li><span class="opt-key">C.</span>Minimizing employee involvement to streamline decision-making.</li><li><span class="opt-key">D.</span>Focusing solely on immediate cost-saving measures without considering broader environmental benefits.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q28"><div class="exam-item-header"><span class="qnum">28. q28</span><span class="exam-meta">lexis · class 7</span></div><div class="exam-prompt">Our IT department is investigating measures for _______ by optimizing data storage, reducing server energy consumption, and encouraging digital minimalism.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>mitigating digital environmental impact ✓</li><li><span class="opt-key">B.</span>lessening cyber footprint</li><li><span class="opt-key">C.</span>decreasing online waste</li><li><span class="opt-key">D.</span>curtailing electronic burden</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q29"><div class="exam-item-header"><span class="qnum">29. q29</span><span class="exam-meta">synthesis · class 7</span></div><div class="exam-prompt">A company seeks to holistically improve its environmental performance. Which comprehensive strategy best integrates sustainable supply chain management, resource efficiency, and professional communication of initiatives?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Focusing solely on reducing internal energy consumption and then announcing it publicly.</li><li class="correct"><span class="opt-key">B.</span>Conducting a carbon audit and implementing ethical sourcing, optimizing manufacturing through closed-loop systems, and communicating these efforts using formal nominalization in reports. ✓</li><li><span class="opt-key">C.</span>Prioritizing only local procurement for hospitality operations and disregarding other environmental aspects.</li><li><span class="opt-key">D.</span>Minimizing waste streams but failing to document the processes for future improvements.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q30"><div class="exam-item-header"><span class="qnum">30. q30</span><span class="exam-meta">synthesis · class 7</span></div><div class="exam-prompt">An organization is launching a major Green Infrastructure project. To ensure its success and public acceptance, what approach effectively combines policy adherence, professional language, and community engagement?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Draft proposals using informal language for wider appeal, bypassing environmental regulations for faster implementation.</li><li class="correct"><span class="opt-key">B.</span>Develop detailed proposals with clear adherence to environmental regulations, utilize professional lexicon, and establish robust public recycling programs with active community involvement. ✓</li><li><span class="opt-key">C.</span>Implement permeable paving without prior public consultation, and use technical jargon exclusively in all communications.</li><li><span class="opt-key">D.</span>Focus only on stormwater management solutions, neglecting wider urban biodiversity impacts.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article>
+
+</body>
+</html>

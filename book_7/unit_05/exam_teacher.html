@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit exam — Ethical Responsibilities for Workplace Well-being</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<nav class="breadcrumbs"><a href="index.html">← Unit index</a></nav>
+<header>
+  <p class="view-banner">Teacher · Unit exam key</p>
+  <h1>Unit exam — Ethical Responsibilities for Workplace Well-being</h1>
+  <p class="meta">T05_HEALTH · C2 · 30 items</p>
+</header>
+<article class="exam-item" id="q01"><div class="exam-item-header"><span class="qnum">1. q01</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">It is critical that all employees strictly adhere to the established ________ to prevent accidents and ensure a secure working environment.</div><ul class="exam-options"><li><span class="opt-key">A.</span>duty of care</li><li><span class="opt-key">B.</span>whistleblowing</li><li class="correct"><span class="opt-key">C.</span>safety protocols ✓</li><li><span class="opt-key">D.</span>liability</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q02"><div class="exam-item-header"><span class="qnum">2. q02</span><span class="exam-meta">grammar · class 1</span></div><div class="exam-prompt">The committee agreed that it was ________ for employees to have a secure channel for reporting potential safety violations.</div><ul class="exam-options"><li><span class="opt-key">A.</span>essential be</li><li><span class="opt-key">B.</span>essential being</li><li class="correct"><span class="opt-key">C.</span>essential that there be ✓</li><li><span class="opt-key">D.</span>essential there is</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q03"><div class="exam-item-header"><span class="qnum">3. q03</span><span class="exam-meta">comprehension · class 1</span></div><div class="exam-prompt">An employee discovers a critical fault in a machine that poses an immediate risk but reporting it could halt production and incur significant losses. What is the most ethically sound first step?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Report directly to the supervisor, documenting the issue and potential impact. ✓</li><li><span class="opt-key">B.</span>Discuss with colleagues to gauge collective opinion before acting.</li><li><span class="opt-key">C.</span>Ignore the fault, assuming others will eventually notice.</li><li><span class="opt-key">D.</span>Report anonymously to an external regulatory body immediately.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q04"><div class="exam-item-header"><span class="qnum">4. q04</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">As an employer, the organization has a fundamental ________ to ensure the well-being and safety of its staff.</div><ul class="exam-options"><li><span class="opt-key">A.</span>legal obligation</li><li><span class="opt-key">B.</span>moral responsibility</li><li class="correct"><span class="opt-key">C.</span>duty of care ✓</li><li><span class="opt-key">D.</span>ethical imperative</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q05"><div class="exam-item-header"><span class="qnum">5. q05</span><span class="exam-meta">lexis · class 2</span></div><div class="exam-prompt">With the increasing use of biometric data in the workplace, concerns around ________ are paramount for employee trust.</div><ul class="exam-options"><li><span class="opt-key">A.</span>data security</li><li class="correct"><span class="opt-key">B.</span>data privacy ✓</li><li><span class="opt-key">C.</span>information control</li><li><span class="opt-key">D.</span>data protection</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q06"><div class="exam-item-header"><span class="qnum">6. q06</span><span class="exam-meta">grammar · class 2</span></div><div class="exam-prompt">The new policy stipulates that it is imperative that all personal health data ________ strictly confidential and not be disclosed without explicit consent.</div><ul class="exam-options"><li><span class="opt-key">A.</span>remains</li><li class="correct"><span class="opt-key">B.</span>remain ✓</li><li><span class="opt-key">C.</span>remained</li><li><span class="opt-key">D.</span>is remaining</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q07"><div class="exam-item-header"><span class="qnum">7. q07</span><span class="exam-meta">comprehension · class 2</span></div><div class="exam-prompt">A company offers a wellness incentive program that requires employees to sync fitness tracker data. What is the main ethical concern?</div><ul class="exam-options"><li><span class="opt-key">A.</span>The program might not be inclusive of all fitness levels.</li><li class="correct"><span class="opt-key">B.</span>The company could use health data to discriminate against employees. ✓</li><li><span class="opt-key">C.</span>Participation might lead to increased competition among colleagues.</li><li><span class="opt-key">D.</span>The data might not accurately reflect overall well-being.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q08"><div class="exam-item-header"><span class="qnum">8. q08</span><span class="exam-meta">lexis · class 2</span></div><div class="exam-prompt">Management is committed to ________ by implementing flexible work arrangements and promoting mental health resources.</div><ul class="exam-options"><li><span class="opt-key">A.</span>establishing a healthy atmosphere</li><li><span class="opt-key">B.</span>creating a wellness environment</li><li class="correct"><span class="opt-key">C.</span>fostering a culture of well-being ✓</li><li><span class="opt-key">D.</span>cultivating positive morale</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q09"><div class="exam-item-header"><span class="qnum">9. q09</span><span class="exam-meta">grammar · class 3</span></div><div class="exam-prompt">If a company&#x27;s supplier in a developing country fails to meet safety standards, the multinational corporation ________ ethically responsible.</div><ul class="exam-options"><li><span class="opt-key">A.</span>considers</li><li class="correct"><span class="opt-key">B.</span>would be considered ✓</li><li><span class="opt-key">C.</span>should be considering</li><li><span class="opt-key">D.</span>is to consider</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q10"><div class="exam-item-header"><span class="qnum">10. q10</span><span class="exam-meta">comprehension · class 3</span></div><div class="exam-prompt">A clothing brand discovers unsafe labor practices in an overseas factory producing their goods. Which action best reflects a strong commitment to ethical responsibility?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Terminate the contract immediately and find a new supplier.</li><li><span class="opt-key">B.</span>Publicly denounce the factory and shift production to another region.</li><li class="correct"><span class="opt-key">C.</span>Work with the factory to implement corrective measures and monitor progress. ✓</li><li><span class="opt-key">D.</span>Demand a discount for future orders due to the factory&#x27;s ethical lapses.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q11"><div class="exam-item-header"><span class="qnum">11. q11</span><span class="exam-meta">register · class 3</span></div><div class="exam-prompt">In a discussion about the ethical implications of using child labor in a supply chain, which phrase is most appropriate for expressing strong disapproval in a formal setting?</div><ul class="exam-options"><li><span class="opt-key">A.</span>That&#x27;s just not on, honestly.</li><li class="correct"><span class="opt-key">B.</span>I find that practice utterly reprehensible. ✓</li><li><span class="opt-key">C.</span>I&#x27;m really not okay with that.</li><li><span class="opt-key">D.</span>It&#x27;s highly problematic, to say the least.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q12"><div class="exam-item-header"><span class="qnum">12. q12</span><span class="exam-meta">lexis · class 3</span></div><div class="exam-prompt">Companies are increasingly expected to demonstrate full ________ for the environmental and social impact of their entire operations, not just their direct actions.</div><ul class="exam-options"><li><span class="opt-key">A.</span>compliance</li><li class="correct"><span class="opt-key">B.</span>accountability ✓</li><li><span class="opt-key">C.</span>transparency</li><li><span class="opt-key">D.</span>adherence</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q13"><div class="exam-item-header"><span class="qnum">13. q13</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">The government&#x27;s decision to implement ________ for certain public sector roles has sparked considerable debate regarding individual autonomy.</div><ul class="exam-options"><li><span class="opt-key">A.</span>immunization requirements</li><li class="correct"><span class="opt-key">B.</span>vaccine mandates ✓</li><li><span class="opt-key">C.</span>inoculation orders</li><li><span class="opt-key">D.</span>health decrees</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q14"><div class="exam-item-header"><span class="qnum">14. q14</span><span class="exam-meta">grammar · class 4</span></div><div class="exam-prompt">When discussing the ethical dimensions of health surveillance, it is crucial that the debate ________ both individual freedoms and collective welfare.</div><ul class="exam-options"><li><span class="opt-key">A.</span>encompasses</li><li><span class="opt-key">B.</span>should encompass</li><li class="correct"><span class="opt-key">C.</span>encompass ✓</li><li><span class="opt-key">D.</span>had encompassed</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q15"><div class="exam-item-header"><span class="qnum">15. q15</span><span class="exam-meta">comprehension · class 4</span></div><div class="exam-prompt">During a pandemic, a company considers implementing daily temperature checks for all employees entering the office. What is a key ethical consideration?</div><ul class="exam-options"><li><span class="opt-key">A.</span>The accuracy of the temperature measurement devices.</li><li class="correct"><span class="opt-key">B.</span>The potential for the data to be misused or mishandled. ✓</li><li><span class="opt-key">C.</span>The cost of implementing such a measure.</li><li><span class="opt-key">D.</span>The disruption caused by queuing for checks.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q16"><div class="exam-item-header"><span class="qnum">16. q16</span><span class="exam-meta">register · class 4</span></div><div class="exam-prompt">When moderating a panel discussion on health policies, how should the moderator introduce a nuanced viewpoint regarding individual autonomy versus public health?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Let&#x27;s hear from Dr. Sharma, who thinks personal choice trumps all.</li><li class="correct"><span class="opt-key">B.</span>Dr. Sharma, could you elaborate on the tension between individual autonomy and public health imperatives? ✓</li><li><span class="opt-key">C.</span>Dr. Sharma, tell us why people resist these policies.</li><li><span class="opt-key">D.</span>Dr. Sharma will now present the opposing side&#x27;s arguments.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q17"><div class="exam-item-header"><span class="qnum">17. q17</span><span class="exam-meta">lexis · class 5</span></div><div class="exam-prompt">If a colleague appears to be struggling with personal issues affecting their work, discreetly suggesting they contact the company&#x27;s ________ can be a supportive step.</div><ul class="exam-options"><li><span class="opt-key">A.</span>Human Resources Department</li><li class="correct"><span class="opt-key">B.</span>Employee Assistance Program (EAP) ✓</li><li><span class="opt-key">C.</span>internal counseling service</li><li><span class="opt-key">D.</span>Peer Support Network</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q18"><div class="exam-item-header"><span class="qnum">18. q18</span><span class="exam-meta">grammar · class 5</span></div><div class="exam-prompt">You want to respectfully inquire about a colleague&#x27;s well-being without being intrusive. Which phrasing is most appropriate?</div><ul class="exam-options"><li><span class="opt-key">A.</span>What&#x27;s wrong with you?</li><li><span class="opt-key">B.</span>Is everything alright, you seem a bit down?</li><li class="correct"><span class="opt-key">C.</span>I&#x27;ve noticed you seem a bit quiet lately; is there anything I can do to help? ✓</li><li><span class="opt-key">D.</span>You look tired, are you sick?</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q19"><div class="exam-item-header"><span class="qnum">19. q19</span><span class="exam-meta">comprehension · class 5</span></div><div class="exam-prompt">A manager observes a normally diligent team member frequently missing deadlines and appearing withdrawn. What is the most ethical and professional response?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Immediately assume they are disengaged and issue a warning.</li><li><span class="opt-key">B.</span>Offer to cover their workload without discussing the issue.</li><li class="correct"><span class="opt-key">C.</span>Schedule a private meeting to express concern and offer support resources. ✓</li><li><span class="opt-key">D.</span>Suggest they take a long vacation to &#x27;recharge.&#x27;</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q20"><div class="exam-item-header"><span class="qnum">20. q20</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">A colleague confides they are experiencing significant stress. Which statement demonstrates professional empathy and offers appropriate support?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Don&#x27;t worry, everyone gets stressed. Just power through it.</li><li class="correct"><span class="opt-key">B.</span>I&#x27;m so sorry to hear that. Have you considered exploring the resources available through our EAP? ✓</li><li><span class="opt-key">C.</span>You really need to prioritize your mental health, you know.</li><li><span class="opt-key">D.</span>That sounds tough. Maybe you should just take some time off.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q21"><div class="exam-item-header"><span class="qnum">21. q21</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">The new HR policy includes provisions for extended ________ for employees needing to care for gravely ill family members.</div><ul class="exam-options"><li><span class="opt-key">A.</span>vacation time</li><li><span class="opt-key">B.</span>personal days</li><li class="correct"><span class="opt-key">C.</span>compassionate leave ✓</li><li><span class="opt-key">D.</span>sick leave</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q22"><div class="exam-item-header"><span class="qnum">22. q22</span><span class="exam-meta">grammar · class 6</span></div><div class="exam-prompt">It is imperative that the company&#x27;s bereavement policy ________ sensitivity and flexibility towards employees experiencing loss.</div><ul class="exam-options"><li><span class="opt-key">A.</span>reflects</li><li><span class="opt-key">B.</span>should reflect</li><li class="correct"><span class="opt-key">C.</span>reflect ✓</li><li><span class="opt-key">D.</span>is reflecting</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q23"><div class="exam-item-header"><span class="qnum">23. q23</span><span class="exam-meta">comprehension · class 6</span></div><div class="exam-prompt">An employee requests extended leave to provide end-of-life care for a parent. What is the ethical priority for HR in responding to this request?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Ensuring business continuity is not severely impacted.</li><li><span class="opt-key">B.</span>Minimizing financial costs associated with the leave.</li><li class="correct"><span class="opt-key">C.</span>Providing maximum support and flexibility while respecting company policy. ✓</li><li><span class="opt-key">D.</span>Verifying the medical necessity of the employee&#x27;s presence.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q24"><div class="exam-item-header"><span class="qnum">24. q24</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">Upon an employee&#x27;s return from a long-term medical leave, robust ________ is crucial to help them transition back into their role smoothly.</div><ul class="exam-options"><li><span class="opt-key">A.</span>Return-to-work assistance</li><li><span class="opt-key">B.</span>Employee onboarding</li><li class="correct"><span class="opt-key">C.</span>Reintegration Support ✓</li><li><span class="opt-key">D.</span>Professional adaptation</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q25"><div class="exam-item-header"><span class="qnum">25. q25</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">The board recommended that it be paramount that all new AI monitoring systems ________ rigorous ethical review before deployment.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>undergo ✓</li><li><span class="opt-key">B.</span>undergoes</li><li><span class="opt-key">C.</span>should undergo</li><li><span class="opt-key">D.</span>are undergoing</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q26"><div class="exam-item-header"><span class="qnum">26. q26</span><span class="exam-meta">comprehension · class 7</span></div><div class="exam-prompt">A company plans to use AI-powered cameras to monitor factory floor safety and productivity. What is the primary ethical concern for worker well-being?</div><ul class="exam-options"><li><span class="opt-key">A.</span>The high cost of implementing and maintaining the technology.</li><li class="correct"><span class="opt-key">B.</span>The potential for constant surveillance to create a stressful work environment. ✓</li><li><span class="opt-key">C.</span>The risk of technical malfunctions affecting productivity data.</li><li><span class="opt-key">D.</span>The difficulty in analyzing large datasets collected by AI.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q27"><div class="exam-item-header"><span class="qnum">27. q27</span><span class="exam-meta">register · class 7</span></div><div class="exam-prompt">In a formal report evaluating the ethical implications of new technology, which phrase most effectively signals a critical concern?</div><ul class="exam-options"><li><span class="opt-key">A.</span>We&#x27;ve got some issues with this.</li><li><span class="opt-key">B.</span>It appears there are a few drawbacks.</li><li class="correct"><span class="opt-key">C.</span>This raises significant ethical quandaries. ✓</li><li><span class="opt-key">D.</span>There are some things we need to think about.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q28"><div class="exam-item-header"><span class="qnum">28. q28</span><span class="exam-meta">lexis · class 7</span></div><div class="exam-prompt">The implementation of wearable devices for health and productivity data collection requires careful consideration of employee consent and data ________.</div><ul class="exam-options"><li><span class="opt-key">A.</span>scrutiny</li><li class="correct"><span class="opt-key">B.</span>oversight ✓</li><li><span class="opt-key">C.</span>observation</li><li><span class="opt-key">D.</span>analysis</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q29"><div class="exam-item-header"><span class="qnum">29. q29</span><span class="exam-meta">synthesis · class 7</span></div><div class="exam-prompt">A company is launching a new wellness program but faces skepticism from employees regarding data privacy and the voluntary nature of participation. What is the most effective overarching strategy to address these concerns and build trust across the organization?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Offer significant financial incentives to boost participation numbers quickly.</li><li><span class="opt-key">B.</span>Implement the program with a strict opt-out policy, making participation default.</li><li class="correct"><span class="opt-key">C.</span>Conduct transparent communication, establish clear data protection policies, and ensure robust independent oversight. ✓</li><li><span class="opt-key">D.</span>Highlight the benefits to management and rely on top-down directives for employee compliance.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q30"><div class="exam-item-header"><span class="qnum">30. q30</span><span class="exam-meta">synthesis · class 7</span></div><div class="exam-prompt">You are drafting an internal memo to all employees about the company&#x27;s renewed commitment to workplace well-being, encompassing mental health support, flexible work, and ethical data practices. Which opening statement best captures the tone and comprehensive message?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Hey team, big news on wellness coming your way!</li><li><span class="opt-key">B.</span>It has come to our attention that some employees are struggling; we are implementing a new wellness scheme.</li><li class="correct"><span class="opt-key">C.</span>The company is excited to announce a holistic approach to enhancing employee well-being, integrating support initiatives with our core ethical principles. ✓</li><li><span class="opt-key">D.</span>We&#x27;re launching a wellness program, so expect some changes.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article>
+
+</body>
+</html>
