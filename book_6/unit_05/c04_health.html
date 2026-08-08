@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Workplace Health Policy Briefing</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Workplace Health Policy Briefing</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>5</dd>
+      <dt>Class</dt><dd>4</dd>
+      <dt>Theme</dt><dd>T05_HEALTH</dd>
+      <dt>Framework</dt><dd>SK-REC</dd>
+      <dt>Role</dt><dd>SK_REC_LISTENING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Understanding New Health Guidelines</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the topic: a new company-wide health policy is being rolled out tomorrow.<br>
+2. Pose the lead-in question from the lead_in_brief to the class for discussion.<br>
+3. Encourage students to share personal experiences or ideas about communicating important workplace updates.<br>
+4. Focus on the challenges of ensuring understanding and addressing concerns in diverse teams.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Team Talk: New Health Policies</h4>
+<p>Good morning, everyone. Imagine a significant new company-wide health policy is being rolled out tomorrow. How would you ensure your team not only understands its implications but also feels their concerns and questions are adequately addressed? Think about:<br>
+1. What are the biggest challenges in communicating new directives?<br>
+2. How can you make sure everyone truly understands complex information?<br>
+3. What steps would you take to address questions and gather feedback from your team?</p>
+</section>
+</article>
+<article class="stage" id="stage-PTV">
+<header class="stage-header"><span class="stage-code">PTV</span><h2>Pre-Teaching Vocabulary for Health Directives</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the new vocabulary related to workplace communication and policy implementation.<br>
+2. Elicit meanings from students or provide clear, concise definitions relevant to the workplace context.<br>
+3. Have students complete the matching task to consolidate understanding.<br>
+4. Check answers as a class, ensuring correct pronunciation.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Key Terms for Communication</h4>
+<p>Before we listen, let&#x27;s look at some important words you&#x27;ll hear. These terms are often used when we talk about sharing new rules or information at work.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>directive dissemination</li><li>internal communication</li><li>clarity</li><li>compliance</li><li>feedback mechanism</li><li>protocol</li><li>adhere</li><li>safeguard</li><li>operational continuity</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match each term to its definition.</p>
+<ul><li><strong>directive dissemination</strong> — The process of sharing official instructions or orders widely.</li><li><strong>internal communication</strong> — Sharing information among people within the same organization.</li><li><strong>clarity</strong> — The quality of being clear, easy to understand.</li><li><strong>compliance</strong> — Following rules, standards, or laws.</li><li><strong>feedback mechanism</strong> — A system for receiving reactions or suggestions about a product or activity.</li><li><strong>protocol</strong> — A set of detailed rules for a particular situation or procedure.</li><li><strong>adhere</strong> — To stick firmly to a rule, belief, or plan.</li><li><strong>safeguard</strong> — To protect someone or something from harm or damage.</li><li><strong>operational continuity</strong> — The ability of an organization to continue essential functions during and after a disruption.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-GIST">
+<header class="stage-header"><span class="stage-code">GIST</span><h2>Gist Listening: Overview of the New Health Policy</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will listen to an HR manager discussing a new health policy.<br>
+2. Tell students to listen for the main purpose of the announcement, not specific details.<br>
+3. Play the audio (or read the script).<br>
+4. Have students answer the multiple-choice question to check their general understanding.<br>
+5. Discuss the answer as a class.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">First Listen: What&#x27;s the Policy About?</h4>
+<p>Listen to an HR Manager explaining a new company health policy. Don&#x27;t worry about every detail, just focus on the main point of her announcement.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Briefing on New Company Health Guidelines</h5>
+<p>Good morning everyone. Thank you for making time for this important briefing. As you know, ensuring a safe and healthy workplace is our top priority, and with the changing landscape of public health, we&#x27;re rolling out a new set of <strong class="lexis">health guidelines</strong> effective immediately. This policy is crucial for maintaining a healthy environment for all our staff across diverse teams.</p>
+<p>Firstly, let&#x27;s talk about <strong class="lexis">directive dissemination</strong>. We need to ensure every colleague understands these updates. The full document will be shared via email and posted on the staff portal. However, I’ll summarize the key points now.</p>
+<p>The main change involves our protocol for reporting illness and returning to work. We&#x27;re moving to a symptom-based assessment, rather than a test-based one, for common seasonal illnesses. If you experience certain symptoms, you&#x27;re required to stay home and notify your line manager immediately. Your manager will then follow the <strong class="lexis">internal communication</strong> protocol to report your absence to HR. This is about protecting everyone.</p>
+<p>Secondly, <strong class="lexis">compliance</strong> is paramount. These aren&#x27;t suggestions; they are mandatory protocols designed for collective well-being. Managers, you play a vital role in ensuring your teams <strong class="lexis">adhere</strong> to these guidelines. We understand that this might require some adjustments, especially for those working shifts or in roles where presence is perceived as essential. We&#x27;ve introduced clearer pathways for temporary role adjustments where feasible.</p>
+<p>Thirdly, for <strong class="lexis">clarity</strong>, we&#x27;ve updated the sick leave request form and simplified the return-to-work checklist. Please review these documents carefully. If anything is unclear, don&#x27;t hesitate to ask questions. We&#x27;re also providing a dedicated helpline for specific health-related queries, accessible during business hours.</p>
+<p>Finally, and perhaps most importantly, we want to establish a robust <strong class="lexis">feedback mechanism</strong>. We recognize that new policies can raise concerns or bring up unforeseen practical challenges. There will be an anonymous suggestion box, both physical and digital, and we’re scheduling follow-up Q&amp;A sessions next week with department leads. Your input is invaluable in refining our approach and addressing any issues that may arise. We want to hear from you.</p>
+<p>This new policy is a collective effort to <strong class="lexis">safeguard</strong> our health and maintain <strong class="lexis">operational continuity</strong>. Your cooperation in understanding and implementing these guidelines is greatly appreciated. Remember, effective <strong class="lexis">internal communication</strong> and strict <strong class="lexis">compliance</strong> will be key to its success. Thank you.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Listen to the HR Manager. What is the main purpose of her announcement?</p>
+<p>The main purpose of the HR Manager&#x27;s announcement is to:</p>
+<ul><li>Introduce new company products and services.</li><li>Inform staff about a new company-wide health policy and how it will be implemented.</li><li>Discuss employee vacation schedules for the coming year.</li><li>Recruit new staff for the HR department.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-DET">
+<header class="stage-header"><span class="stage-code">DET</span><h2>Detailed Listening: Key Actions and Responsibilities</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will listen again, this time for specific details about the policy&#x27;s implementation and individual responsibilities.<br>
+2. Play the audio again.<br>
+3. Have students answer the short-text and multiple-choice questions.<br>
+4. For the open inference question, discuss student answers and provide the model answer below.<br>
+5. Check answers as a class.</p>
+<p>Model answer for open inference: The company ensures understanding by summarizing key points, sharing documents via email and staff portal, simplifying forms, and offering a dedicated helpline for clarity. They ensure active participation and address concerns through a robust feedback mechanism, including an anonymous suggestion box, and scheduling follow-up Q&amp;A sessions with department leads.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Second Listen: Who Does What?</h4>
+<p>Listen again carefully. This time, focus on the details of the new health policy, specific actions required, and who is responsible for what.</p>
+<p>After listening, consider this: How does the company try to ensure both understanding and active participation from its employees regarding the new policy? Think about the different strategies mentioned.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Briefing on New Company Health Guidelines</h5>
+<p>Good morning everyone. Thank you for making time for this important briefing. As you know, ensuring a safe and healthy workplace is our top priority, and with the changing landscape of public health, we&#x27;re rolling out a new set of <strong class="lexis">health guidelines</strong> effective immediately. This policy is crucial for maintaining a healthy environment for all our staff across diverse teams.</p>
+<p>Firstly, let&#x27;s talk about <strong class="lexis">directive dissemination</strong>. We need to ensure every colleague understands these updates. The full document will be shared via email and posted on the staff portal. However, I’ll summarize the key points now.</p>
+<p>The main change involves our protocol for reporting illness and returning to work. We&#x27;re moving to a symptom-based assessment, rather than a test-based one, for common seasonal illnesses. If you experience certain symptoms, you&#x27;re required to stay home and notify your line manager immediately. Your manager will then follow the <strong class="lexis">internal communication</strong> protocol to report your absence to HR. This is about protecting everyone.</p>
+<p>Secondly, <strong class="lexis">compliance</strong> is paramount. These aren&#x27;t suggestions; they are mandatory protocols designed for collective well-being. Managers, you play a vital role in ensuring your teams <strong class="lexis">adhere</strong> to these guidelines. We understand that this might require some adjustments, especially for those working shifts or in roles where presence is perceived as essential. We&#x27;ve introduced clearer pathways for temporary role adjustments where feasible.</p>
+<p>Thirdly, for <strong class="lexis">clarity</strong>, we&#x27;ve updated the sick leave request form and simplified the return-to-work checklist. Please review these documents carefully. If anything is unclear, don&#x27;t hesitate to ask questions. We&#x27;re also providing a dedicated helpline for specific health-related queries, accessible during business hours.</p>
+<p>Finally, and perhaps most importantly, we want to establish a robust <strong class="lexis">feedback mechanism</strong>. We recognize that new policies can raise concerns or bring up unforeseen practical challenges. There will be an anonymous suggestion box, both physical and digital, and we’re scheduling follow-up Q&amp;A sessions next week with department leads. Your input is invaluable in refining our approach and addressing any issues that may arise. We want to hear from you.</p>
+<p>This new policy is a collective effort to <strong class="lexis">safeguard</strong> our health and maintain <strong class="lexis">operational continuity</strong>. Your cooperation in understanding and implementing these guidelines is greatly appreciated. Remember, effective <strong class="lexis">internal communication</strong> and strict <strong class="lexis">compliance</strong> will be key to its success. Thank you.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">According to the HR Manager, what is the main change in the protocol for reporting illness?</p>
+<p>The main change involves moving to a _______-based assessment for common seasonal illnesses.</p>
+</div>
+<div class="task"><p class="task-instruction">What two methods will be used to share the full policy document?</p>
+<p>The full document will be shared via email and posted on the _______ _______.</p>
+</div>
+<div class="task"><p class="task-instruction">What is available for staff to provide input and raise concerns about the new policy?</p>
+<p>To gather feedback and address concerns, the company will use:</p>
+<ul><li>Only direct emails to HR.</li><li>Only individual meetings with the HR manager.</li><li>An anonymous suggestion box and follow-up Q&amp;A sessions.</li><li>A company-wide social media poll.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Follow-Up Discussion and Language Feedback</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Open a discussion about the content of the listening and the effectiveness of the communication strategies.<br>
+2. Ask students if they think the HR manager&#x27;s approach would be effective in their own workplace. Why/why not?<br>
+3. Provide feedback on any emergent language issues related to the lesson&#x27;s lexical set or listening comprehension strategies.<br>
+4. Recap key vocabulary used in the lesson, focusing on terms like internal communication, directive dissemination, compliance, feedback mechanism.<br>
+5. Discuss how the company tried to ensure clarity.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reflecting on Workplace Communication</h4>
+<p>Now that you&#x27;ve listened twice and answered questions, let&#x27;s discuss:<br>
+1. Do you think the HR manager&#x27;s communication strategy for rolling out new guidelines would be effective in your workplace? Why or why not?<br>
+2. What are the key elements she used to ensure <strong class="lexis">clarity</strong> and <strong class="lexis">compliance</strong>?<br>
+3. How important is a good <strong class="lexis">feedback mechanism</strong> when introducing new policies? Have you seen good or bad examples of this in your experience?</p>
+</section>
+</article>
+</body>
+</html>

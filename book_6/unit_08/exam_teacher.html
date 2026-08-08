@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit exam — Enhancing Workplace Communication and Professional Development</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<nav class="breadcrumbs"><a href="index.html">← Unit index</a></nav>
+<header>
+  <p class="view-banner">Teacher · Unit exam key</p>
+  <h1>Unit exam — Enhancing Workplace Communication and Professional Development</h1>
+  <p class="meta">T08_EDUCATION · C1 · 30 items</p>
+</header>
+<article class="exam-item" id="q01"><div class="exam-item-header"><span class="qnum">1. q01</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">The new safety guideline outlines strict measures to ensure full _______ with industry standards.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>compliance ✓</li><li><span class="opt-key">B.</span>agreement</li><li><span class="opt-key">C.</span>conformance</li><li><span class="opt-key">D.</span>observance</li></ul><div class="exam-explanation"><strong>Explanation</strong>Compliance specifically refers to adhering to rules or standards. While &#x27;conformance&#x27; and &#x27;observance&#x27; are close, &#x27;compliance&#x27; is the most idiomatic and precise term in a regulatory context, as extracted from the brief.</div></article><article class="exam-item" id="q02"><div class="exam-item-header"><span class="qnum">2. q02</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">Before starting the new project phase, all team members must thoroughly review the established _______ to avoid any procedural errors.</div><ul class="exam-options"><li><span class="opt-key">A.</span>guidelines</li><li><span class="opt-key">B.</span>directives</li><li class="correct"><span class="opt-key">C.</span>protocols ✓</li><li><span class="opt-key">D.</span>bylaws</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Protocols&#x27; refers to the formal system of rules or procedures that govern specific activities, as extracted from the brief. &#x27;Guidelines&#x27; and &#x27;directives&#x27; are broader, and &#x27;bylaws&#x27; relate to organizational rules.</div></article><article class="exam-item" id="q03"><div class="exam-item-header"><span class="qnum">3. q03</span><span class="exam-meta">comprehension · class 1</span></div><div class="exam-prompt">A recent internal memo detailed the rationale behind implementing stricter data privacy regulations. Which of the following best reflects the primary goal of understanding this rationale?</div><ul class="exam-options"><li><span class="opt-key">A.</span>To identify potential loopholes for bypassing the regulations.</li><li><span class="opt-key">B.</span>To challenge the legality of the new rules.</li><li class="correct"><span class="opt-key">C.</span>To ensure effective implementation and adherence by grasping the underlying purpose. ✓</li><li><span class="opt-key">D.</span>To merely memorize the regulations for audit purposes.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Deconstructing the rationale (as per Class 1 situational focus) aims at understanding why regulations exist, which facilitates effective implementation and compliance, moving beyond superficial memorization.</div></article><article class="exam-item" id="q04"><div class="exam-item-header"><span class="qnum">4. q04</span><span class="exam-meta">comprehension · class 1</span></div><div class="exam-prompt">The legal department&#x27;s summary emphasized the critical need for strict adherence to the new intellectual property guidelines. This focus primarily aims to mitigate risks related to:</div><ul class="exam-options"><li><span class="opt-key">A.</span>budget overruns and resource allocation.</li><li class="correct"><span class="opt-key">B.</span>potential litigation and reputational damage. ✓</li><li><span class="opt-key">C.</span>employee morale and team cohesion.</li><li><span class="opt-key">D.</span>marketing strategy and brand recognition.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Strict adherence to legal guidelines like IP is primarily about avoiding legal penalties and protecting the company&#x27;s image. This question tests the implication of &#x27;adherence&#x27; and &#x27;regulations&#x27; in context.</div></article><article class="exam-item" id="q05"><div class="exam-item-header"><span class="qnum">5. q05</span><span class="exam-meta">grammar · class 2</span></div><div class="exam-prompt">The committee strongly recommends that every department _______ a thorough cost-benefit analysis before purchasing new software.</div><ul class="exam-options"><li><span class="opt-key">A.</span>undertakes</li><li><span class="opt-key">B.</span>will undertake</li><li class="correct"><span class="opt-key">C.</span>undertake ✓</li><li><span class="opt-key">D.</span>is undertaking</li></ul><div class="exam-explanation"><strong>Explanation</strong>This sentence requires the mandative subjunctive, which uses the base form of the verb (&#x27;undertake&#x27;) after expressions of recommendation, demand, or suggestion, regardless of the subject&#x27;s number, as specified in Class 2 grammar.</div></article><article class="exam-item" id="q06"><div class="exam-item-header"><span class="qnum">6. q06</span><span class="exam-meta">lexis · class 2</span></div><div class="exam-prompt">To determine the true value of the proposed IT upgrade, management insisted on a detailed _______, weighing all potential expenses against projected gains.</div><ul class="exam-options"><li><span class="opt-key">A.</span>financial projection</li><li><span class="opt-key">B.</span>resource assessment</li><li class="correct"><span class="opt-key">C.</span>cost-benefit analysis ✓</li><li><span class="opt-key">D.</span>market appraisal</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Cost-benefit analysis&#x27; is the precise term, extracted from the brief, for evaluating initiatives by comparing financial and other costs with benefits.</div></article><article class="exam-item" id="q07"><div class="exam-item-header"><span class="qnum">7. q07</span><span class="exam-meta">comprehension · class 2</span></div><div class="exam-prompt">Our team&#x27;s objective is to critically examine a vendor&#x27;s claims for new collaborative software. Which approach is most effective in determining its actual benefit and fit for our operational needs?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Accepting all claims at face value, trusting the vendor&#x27;s expertise.</li><li><span class="opt-key">B.</span>Focusing solely on the software&#x27;s price point, regardless of features.</li><li class="correct"><span class="opt-key">C.</span>Conducting pilot tests with key user groups and comparing performance against existing tools. ✓</li><li><span class="opt-key">D.</span>Relying on competitor reviews without internal evaluation.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The situational focus of Class 2 involves &#x27;critically examining vendor claims.&#x27; Conducting pilot tests is the most effective way to verify claims and assess suitability for specific operational needs.</div></article><article class="exam-item" id="q08"><div class="exam-item-header"><span class="qnum">8. q08</span><span class="exam-meta">register · class 2</span></div><div class="exam-prompt">Which of the following phrases is most appropriate for a formal recommendation to senior management regarding a new training program?</div><ul class="exam-options"><li><span class="opt-key">A.</span>I think we should do this new training thingy.</li><li><span class="opt-key">B.</span>It&#x27;d be good if everyone got some extra learning.</li><li class="correct"><span class="opt-key">C.</span>It is imperative that staff receive mandatory training in cybersecurity protocols. ✓</li><li><span class="opt-key">D.</span>The team feels like more training might help.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option C uses formal language (&#x27;imperative that,&#x27; &#x27;mandatory training,&#x27; &#x27;receive training,&#x27; &#x27;protocols&#x27;) suitable for a recommendation to senior management, reflecting the professional development terminology and formal tone of the unit.</div></article><article class="exam-item" id="q09"><div class="exam-item-header"><span class="qnum">9. q09</span><span class="exam-meta">comprehension · class 3</span></div><div class="exam-prompt">When developing a persuasive argument to modify an existing workplace process, which element is most crucial for gaining approval?</div><ul class="exam-options"><li><span class="opt-key">A.</span>A passionate personal appeal without factual data.</li><li><span class="opt-key">B.</span>Detailed anecdotal evidence from a single colleague.</li><li class="correct"><span class="opt-key">C.</span>A clear problem statement supported by measurable data and proposed solutions. ✓</li><li><span class="opt-key">D.</span>An exhaustive list of all possible problems, regardless of relevance.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Class 3 focuses on &#x27;Developing a persuasive argument with supporting evidence.&#x27; Measurable data and clear solutions are essential for a convincing argument in a professional setting.</div></article><article class="exam-item" id="q10"><div class="exam-item-header"><span class="qnum">10. q10</span><span class="exam-meta">register · class 3</span></div><div class="exam-prompt">To formally propose a change in the quarterly reporting system, which opening statement is most suitable for an email to department heads?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Hey team, gotta chat about those reports.</li><li><span class="opt-key">B.</span>I was thinking, maybe we could change how we do reports?</li><li class="correct"><span class="opt-key">C.</span>Subject: Proposal for Enhancing Quarterly Reporting Efficiency ✓</li><li><span class="opt-key">D.</span>Urgent: Fix Reporting System Now!</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option C demonstrates appropriate formal register and professionalism for proposing an improvement, directly referencing &#x27;efficiency&#x27; which is a common outcome of workplace improvements discussed in Class 3.</div></article><article class="exam-item" id="q11"><div class="exam-item-header"><span class="qnum">11. q11</span><span class="exam-meta">lexis · class 3</span></div><div class="exam-prompt">Implementing the new automated workflow is expected to significantly improve operational _______, reducing the time spent on repetitive tasks.</div><ul class="exam-options"><li><span class="opt-key">A.</span>cohesion</li><li class="correct"><span class="opt-key">B.</span>efficiency ✓</li><li><span class="opt-key">C.</span>morale</li><li><span class="opt-key">D.</span>volume</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Efficiency&#x27; refers to achieving maximum productivity with minimum wasted effort or expense, directly aligning with the goal of improving processes mentioned in Class 3.</div></article><article class="exam-item" id="q12"><div class="exam-item-header"><span class="qnum">12. q12</span><span class="exam-meta">grammar · class 3</span></div><div class="exam-prompt">Our analysis revealed a bottleneck in the current approval process; _______, we propose adopting a decentralized review system to expedite decisions.</div><ul class="exam-options"><li><span class="opt-key">A.</span>however</li><li><span class="opt-key">B.</span>in contrast</li><li class="correct"><span class="opt-key">C.</span>consequently ✓</li><li><span class="opt-key">D.</span>meanwhile</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Consequently&#x27; is the most appropriate transitional word here, indicating a result or outcome from the preceding statement, which is key for structuring a persuasive argument with supporting evidence as per Class 3&#x27;s grammar focus.</div></article><article class="exam-item" id="q13"><div class="exam-item-header"><span class="qnum">13. q13</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">Understanding the highly specialized _______ used in the engineering manual is crucial for accurate equipment maintenance.</div><ul class="exam-options"><li><span class="opt-key">A.</span>slang</li><li class="correct"><span class="opt-key">B.</span>jargon ✓</li><li><span class="opt-key">C.</span>dialogue</li><li><span class="opt-key">D.</span>vernacular</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Jargon comprehension&#x27; is explicitly listed in Class 4 lexis. &#x27;Jargon&#x27; refers to specialized words or expressions used by a particular profession or group and are difficult for others to understand.</div></article><article class="exam-item" id="q14"><div class="exam-item-header"><span class="qnum">14. q14</span><span class="exam-meta">comprehension · class 4</span></div><div class="exam-prompt">A technical manual states: &#x27;In the event of a power surge, disconnect the auxiliary unit immediately, then await system recalibration for five minutes before restarting.&#x27; What is the correct sequence of actions?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Disconnect, restart, then recalibrate.</li><li class="correct"><span class="opt-key">B.</span>Disconnect, await recalibration, then restart. ✓</li><li><span class="opt-key">C.</span>Recalibrate, disconnect, then restart.</li><li><span class="opt-key">D.</span>Restart, disconnect, then await recalibration.</li></ul><div class="exam-explanation"><strong>Explanation</strong>This tests &#x27;Extracting key information and underlying principles from complex technical manuals&#x27; (Class 4 situational focus) by requiring careful reading of sequential instructions.</div></article><article class="exam-item" id="q15"><div class="exam-item-header"><span class="qnum">15. q15</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">Our legal team specializes in _______, ensuring all company operations align with current government guidelines.</div><ul class="exam-options"><li><span class="opt-key">A.</span>legal consulting</li><li><span class="opt-key">B.</span>policy drafting</li><li class="correct"><span class="opt-key">C.</span>regulatory interpretation ✓</li><li><span class="opt-key">D.</span>judicial review</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Regulatory interpretation&#x27; is directly from the Class 4 lexis, referring to the process of understanding and explaining laws or rules.</div></article><article class="exam-item" id="q16"><div class="exam-item-header"><span class="qnum">16. q16</span><span class="exam-meta">grammar · class 4</span></div><div class="exam-prompt">The procedural guidance states, &#x27;If the sensor indicates a critical error, you must notify a supervisor immediately.&#x27; This sentence implies:</div><ul class="exam-options"><li><span class="opt-key">A.</span>Notifying a supervisor is an optional step.</li><li><span class="opt-key">B.</span>A supervisor should be notified only after resolving the error.</li><li class="correct"><span class="opt-key">C.</span>Immediate notification of a supervisor is mandatory upon critical error detection. ✓</li><li><span class="opt-key">D.</span>The sensor will automatically notify a supervisor.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The use of &#x27;If... you must&#x27; denotes a conditional obligation, making notification mandatory. This tests understanding of grammar in procedural guidance, as described in Class 4&#x27;s grammar focus.</div></article><article class="exam-item" id="q17"><div class="exam-item-header"><span class="qnum">17. q17</span><span class="exam-meta">lexis · class 5</span></div><div class="exam-prompt">Given the rapid technological advancements, employees are encouraged to _______ in areas like artificial intelligence and data analytics.</div><ul class="exam-options"><li><span class="opt-key">A.</span>specialize</li><li><span class="opt-key">B.</span>improve skills</li><li class="correct"><span class="opt-key">C.</span>upskill in a specific area ✓</li><li><span class="opt-key">D.</span>master new crafts</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Upskill in a specific area&#x27; is a key lexical item from Class 5, accurately reflecting the need to develop advanced skills in particular fields.</div></article><article class="exam-item" id="q18"><div class="exam-item-header"><span class="qnum">18. q18</span><span class="exam-meta">lexis · class 5</span></div><div class="exam-prompt">Our company actively supports _______ through tuition reimbursement programs and workshops.</div><ul class="exam-options"><li><span class="opt-key">A.</span>career advancement</li><li><span class="opt-key">B.</span>employee retention</li><li class="correct"><span class="opt-key">C.</span>professional development ✓</li><li><span class="opt-key">D.</span>skill acquisition</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Professional development&#x27; is a core term from Class 5 lexis, encompassing various activities that help individuals grow in their careers.</div></article><article class="exam-item" id="q19"><div class="exam-item-header"><span class="qnum">19. q19</span><span class="exam-meta">comprehension · class 5</span></div><div class="exam-prompt">When a team is tasked with uncovering the fundamental causes of a persistent workplace problem, what is the most effective initial step?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Immediately implementing the first suggested solution.</li><li><span class="opt-key">B.</span>Blaming specific individuals for the problem.</li><li class="correct"><span class="opt-key">C.</span>Gathering diverse perspectives and data to identify root causes, not just symptoms. ✓</li><li><span class="opt-key">D.</span>Dismissing the problem as a minor inconvenience.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Class 5&#x27;s situational focus is &#x27;Guiding a team through a systematic inquiry to uncover the fundamental causes... moving beyond superficial symptoms.&#x27; Gathering data and diverse perspectives is crucial for root cause analysis.</div></article><article class="exam-item" id="q20"><div class="exam-item-header"><span class="qnum">20. q20</span><span class="exam-meta">grammar · class 5</span></div><div class="exam-prompt">Which sentence correctly uses professional learning and development terminology?</div><ul class="exam-options"><li><span class="opt-key">A.</span>The company mandates that all new hires receive a certification.</li><li class="correct"><span class="opt-key">B.</span>Employees can enhance their skill set by undertaking professional development courses. ✓</li><li><span class="opt-key">C.</span>It&#x27;s important that employees get some mandatory training in a specific area.</li><li><span class="opt-key">D.</span>We demand that staff always upskill in any area they like.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B correctly uses &#x27;enhance their skill set&#x27; and &#x27;undertaking professional development courses,&#x27; both terms explicitly mentioned or implied in Class 5 lexis/grammar for Professional Learning &amp; Development Terminology. Option A misuses &#x27;receive a certification&#x27; instead of &#x27;gain a new certification.&#x27; Options C and D are less formal/precise or use &#x27;mandates&#x27; incorrectly without a subjunctive.</div></article><article class="exam-item" id="q21"><div class="exam-item-header"><span class="qnum">21. q21</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">Tracing the _______ of software engineering from simple coding to complex AI systems reveals significant advancements.</div><ul class="exam-options"><li><span class="opt-key">A.</span>career path</li><li class="correct"><span class="opt-key">B.</span>professional evolution ✓</li><li><span class="opt-key">C.</span>job description</li><li><span class="opt-key">D.</span>skill set</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Professional evolution&#x27; is a specific term from Class 6 lexis, referring to the development and changes in a profession or an individual&#x27;s professional capabilities over time.</div></article><article class="exam-item" id="q22"><div class="exam-item-header"><span class="qnum">22. q22</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">The rapid _______ in communication technology have transformed how businesses interact with clients and internally.</div><ul class="exam-options"><li><span class="opt-key">A.</span>market trends</li><li class="correct"><span class="opt-key">B.</span>technological shifts ✓</li><li><span class="opt-key">C.</span>industry fluctuations</li><li><span class="opt-key">D.</span>economic factors</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Technological shifts&#x27; is a direct lexical item from Class 6, referring to significant changes or advancements in technology.</div></article><article class="exam-item" id="q23"><div class="exam-item-header"><span class="qnum">23. q23</span><span class="exam-meta">comprehension · class 6</span></div><div class="exam-prompt">When documenting the historical development of a specific trade skill, what aspect is most important to highlight?</div><ul class="exam-options"><li><span class="opt-key">A.</span>The personal anecdotes of current practitioners only.</li><li class="correct"><span class="opt-key">B.</span>How the skill has adapted to new tools, materials, and societal demands over time. ✓</li><li><span class="opt-key">C.</span>A list of all individuals who have ever practiced the skill.</li><li><span class="opt-key">D.</span>The potential future obsolescence of the skill.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Class 6&#x27;s situational focus is &#x27;Discussing the historical development and adaptation of specific skills... over time.&#x27; Highlighting adaptation shows understanding of evolution.</div></article><article class="exam-item" id="q24"><div class="exam-item-header"><span class="qnum">24. q24</span><span class="exam-meta">grammar · class 6</span></div><div class="exam-prompt">Before the advent of CAD software, engineers _______ blueprints by hand; _______, digital tools now streamline the entire design process.</div><ul class="exam-options"><li><span class="opt-key">A.</span>were drawing / yet</li><li><span class="opt-key">B.</span>drew / however</li><li><span class="opt-key">C.</span>had drawn / consequently</li><li class="correct"><span class="opt-key">D.</span>drew / subsequently ✓</li></ul><div class="exam-explanation"><strong>Explanation</strong>The simple past &#x27;drew&#x27; correctly describes a past habitual action before a specific historical point. &#x27;Subsequently&#x27; (meaning &#x27;afterward&#x27; or &#x27;as a result&#x27;) is the most fitting transition to introduce the current state following technological changes, aligning with documenting historical development as per Class 6 grammar focus.</div></article><article class="exam-item" id="q25"><div class="exam-item-header"><span class="qnum">25. q25</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">Management insisted that the new cybersecurity measures _______ implemented by the end of the quarter.</div><ul class="exam-options"><li><span class="opt-key">A.</span>are</li><li class="correct"><span class="opt-key">B.</span>be ✓</li><li><span class="opt-key">C.</span>were</li><li><span class="opt-key">D.</span>will be</li></ul><div class="exam-explanation"><strong>Explanation</strong>This sentence requires the mandative subjunctive. After verbs like &#x27;insisted&#x27; that express a demand or suggestion, the base form of the verb (&#x27;be&#x27;) is used regardless of the tense of the main verb or the subject&#x27;s number, as taught in Class 7 grammar.</div></article><article class="exam-item" id="q26"><div class="exam-item-header"><span class="qnum">26. q26</span><span class="exam-meta">register · class 7</span></div><div class="exam-prompt">When respectfully challenging a long-standing &#x27;best practice&#x27; in a formal meeting, which statement is most appropriate?</div><ul class="exam-options"><li><span class="opt-key">A.</span>This old way of doing things just doesn&#x27;t work anymore.</li><li class="correct"><span class="opt-key">B.</span>I&#x27;d like to suggest an alternative approach, supported by recent data, for your consideration. ✓</li><li><span class="opt-key">C.</span>Everyone knows this practice is outdated, so let&#x27;s change it.</li><li><span class="opt-key">D.</span>I&#x27;m telling you, we need to stop this immediately.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B uses polite, evidence-based language (&#x27;suggest an alternative approach,&#x27; &#x27;supported by recent data,&#x27; &#x27;for your consideration&#x27;) suitable for &#x27;Articulating respectful challenges&#x27; as per Class 7 situational focus.</div></article><article class="exam-item" id="q27"><div class="exam-item-header"><span class="qnum">27. q27</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">The board&#x27;s resolution stipulated that each department head _______ a quarterly report on risk assessment.</div><ul class="exam-options"><li><span class="opt-key">A.</span>submits</li><li class="correct"><span class="opt-key">B.</span>submit ✓</li><li><span class="opt-key">C.</span>submitted</li><li><span class="opt-key">D.</span>should submit</li></ul><div class="exam-explanation"><strong>Explanation</strong>Similar to q25, this uses the mandative subjunctive. &#x27;Stipulated that&#x27; is an expression demanding or requiring an action, so the base form of the verb (&#x27;submit&#x27;) is correct. &#x27;Should submit&#x27; is also grammatically correct but not the specific &#x27;mandative subjunctive&#x27; form.</div></article><article class="exam-item" id="q28"><div class="exam-item-header"><span class="qnum">28. q28</span><span class="exam-meta">comprehension · class 7</span></div><div class="exam-prompt">A manager proposes a new workflow, stating, &#x27;While the current process is a well-established norm, recent efficiency metrics suggest a revised approach could yield a 15% reduction in lead time.&#x27; What is the manager&#x27;s primary objective?</div><ul class="exam-options"><li><span class="opt-key">A.</span>To discredit the team responsible for the old process.</li><li class="correct"><span class="opt-key">B.</span>To challenge an entrenched norm using new evidence to improve outcomes. ✓</li><li><span class="opt-key">C.</span>To introduce changes purely for the sake of novelty.</li><li><span class="opt-key">D.</span>To avoid implementing any significant changes to the workflow.</li></ul><div class="exam-explanation"><strong>Explanation</strong>This directly reflects Class 7&#x27;s situational focus: &#x27;Articulating respectful challenges to entrenched workplace norms... when new evidence or insights suggest alternative, more effective approaches.&#x27; The manager uses data to support the challenge.</div></article><article class="exam-item" id="q29"><div class="exam-item-header"><span class="qnum">29. q29</span><span class="exam-meta">synthesis · class 7</span></div><div class="exam-prompt">The organization&#x27;s goal is to ensure full regulatory compliance while also fostering continuous professional development for its staff. Which integrated strategy best achieves this?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Implementing separate, unrelated initiatives for compliance and training.</li><li class="correct"><span class="opt-key">B.</span>Prioritizing compliance training that directly contributes to understanding and adhering to new regulations. ✓</li><li><span class="opt-key">C.</span>Focusing solely on advanced skill acquisition, neglecting basic compliance mandates.</li><li><span class="opt-key">D.</span>Outsourcing all compliance training to third-party providers without internal oversight.</li></ul><div class="exam-explanation"><strong>Explanation</strong>This question synthesizes concepts from Class 1 (compliance, regulations) and Class 5 (professional development). Integrating compliance training into professional development ensures both goals are met efficiently and effectively.</div></article><article class="exam-item" id="q30"><div class="exam-item-header"><span class="qnum">30. q30</span><span class="exam-meta">synthesis · class 7</span></div><div class="exam-prompt">A team has identified a recurring operational bottleneck. To effectively propose an improvement, obtain stakeholder buy-in, and ensure long-term adherence, which combination of actions is most critical?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Presenting an emotional appeal, demanding immediate change, and avoiding documentation.</li><li class="correct"><span class="opt-key">B.</span>Developing a data-driven persuasive argument, formalizing recommendations using mandative subjunctives, and establishing clear protocols. ✓</li><li><span class="opt-key">C.</span>Implementing a trial solution without prior consultation, then assessing feedback.</li><li><span class="opt-key">D.</span>Relying on informal communication, making vague suggestions, and skipping performance metrics.</li></ul><div class="exam-explanation"><strong>Explanation</strong>This question integrates concepts from Class 3 (persuasive argument), Class 7 (mandative subjunctive in recommendations), Class 1/4 (protocols, adherence, documentation). A robust, data-driven proposal, formally presented, with clear implementation guidance is key for success.</div></article>
+
+</body>
+</html>

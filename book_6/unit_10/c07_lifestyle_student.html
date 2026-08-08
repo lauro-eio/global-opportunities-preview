@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mastering Concise Workplace English</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Mastering Concise Workplace English</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>10</dd>
+      <dt>Class</dt><dd>7</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-work-amp-home-finding-the-line">
+<header class="stage-header"><h2>Work &amp; Home: Finding the Line</h2></header>
+<section class="handout">
+<p>In our always-connected world, the line between work and home can get blurry. Your phone is always on, emails arrive at all hours, and workplace messages pop up even when you&#x27;re off the clock.</p>
+<p>How do you manage your professional commitments to ensure they don&#x27;t take over your personal space and family time? Discuss the practical strategies you use or have seen others use to create a healthy separation.</p>
+<p>Consider:<br>
+*   What are the main challenges in your job or industry?<br>
+*   How do you politely decline non-urgent work contact outside of hours?<br>
+*   What are the benefits of maintaining strong personal-professional boundaries?</p>
+</section>
+</article>
+<article class="stage" id="stage-concise-communication-check-up">
+<header class="stage-header"><h2>Concise Communication Check-Up</h2></header>
+<section class="handout">
+<p>Read each sentence below. Your task is to rewrite the sentence, replacing the underlined phrase with a more concise structure using ellipsis or substitution (e.g., &#x27;do so&#x27;, &#x27;not&#x27;, &#x27;too&#x27;). The goal is to make the communication more efficient without losing meaning.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Rewrite the sentence, making it more concise by replacing the underlined phrase with a substitution or ellipsis structure.</p>
+<p>Many companies are implementing stricter &#x27;digital detox&#x27; policies, but not all employees are implementing stricter &#x27;digital detox&#x27; policies.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence, making it more concise by replacing the underlined phrase with a substitution or ellipsis structure.</p>
+<p>Our department agreed to limit after-hours emails, and the logistics team also agreed to limit after-hours emails.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence, making it more concise by replacing the underlined phrase with a substitution or ellipsis structure.</p>
+<p>If the new communication protocol is not adopted, then workplace stress will increase if the new communication protocol is not adopted.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence, making it more concise by replacing the underlined phrase with a substitution or ellipsis structure.</p>
+<p>The manager hoped that the team would respect personal boundaries, and most of them hoped that the team would respect personal boundaries.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-mastering-concise-expression">
+<header class="stage-header"><h2>Mastering Concise Expression</h2></header>
+<section class="handout">
+<p>To make our professional communication more efficient and sophisticated, we often use <strong class="lexis">substitution</strong> and <strong class="lexis">ellipsis</strong> to avoid repeating information. This helps streamline our messages and arguments.</p>
+<p><strong class="lexis">Substitution with &#x27;do so&#x27;, &#x27;not&#x27;, &#x27;too&#x27;:</strong><br>
+We use &#x27;do so&#x27; (or &#x27;did so&#x27;, &#x27;will do so&#x27;, etc.) to replace an entire verb phrase that has just been used.<br>
+<strong class="lexis">   </strong>Original:* &#x27;Many employees struggle with disconnecting, and management also <strong class="lexis">struggles with disconnecting</strong>.&#x27;<br>
+<strong class="lexis">   </strong>Improved:* &#x27;Many employees struggle with disconnecting, and management <strong class="lexis">does so too</strong>.&#x27;</p>
+<p>We can also use &#x27;not&#x27; or &#x27;too&#x27; with an auxiliary verb to avoid repeating a negative or affirmative statement.<br>
+<strong class="lexis">   </strong>Original:* &#x27;I hope that the new policy won&#x27;t be ignored. If <strong class="lexis">the new policy isn&#x27;t ignored</strong>, we will see positive changes.&#x27;<br>
+<strong class="lexis">   </strong>Improved:* &#x27;I hope that the new policy won&#x27;t be ignored. If <strong class="lexis">not</strong>, we will see positive changes.&#x27;</p>
+<p><strong class="lexis">Your Turn: Practice Conciseness</strong><br>
+Complete the following sentences using &#x27;do so&#x27;, &#x27;not&#x27;, or an appropriate ellipsis, making sure your sentences are concise and grammatically correct.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Complete the sentence using a concise substitution or ellipsis structure.</p>
+<p>The company planned to update its data privacy policies, and many employees hope they will __________ soon.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence using a concise substitution or ellipsis structure.</p>
+<p>Our team aims to respond to urgent queries quickly, and most departments __________ as well.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence using a concise substitution or ellipsis structure.</p>
+<p>I don&#x27;t think the new app will improve communication. I hope __________.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence using a concise substitution or ellipsis structure.</p>
+<p>The union advocated for clearer digital well-being guidelines, and management __________ eventually.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-responding-to-workplace-policies">
+<header class="stage-header"><h2>Responding to Workplace Policies</h2></header>
+<section class="handout">
+<p>Your company has just circulated a new internal memo regarding <strong class="lexis">digital well-being</strong> and <strong class="lexis">communication protocols</strong>. Read the excerpt below, then imagine you need to draft a short, professional response to a colleague or a superior, expressing agreement, disagreement, or a nuanced perspective.</p>
+<p><strong class="lexis">*Internal Memo: Enhancing Digital Well-being and Communication</strong>*</p>
+<p>*To ensure a healthier work-life balance and clearer communication channels, we are implementing new guidelines. Effective next month, employees are encouraged to avoid sending non-urgent emails outside of core business hours (9 AM - 5 PM). We believe this will foster a culture of respect for personal time. Furthermore, all departmental communication should prioritize official company platforms over personal messaging apps. If a team requires urgent out-of-hours contact, they must gain prior approval from their line manager to <strong class="lexis">do so</strong>.*</p>
+<p><br>
+Draft a short email (3-5 sentences) responding to this memo. In your response, ensure you:<br>
+*   Express a clear opinion (agree, disagree, or partially agree).<br>
+*   Use at least <strong class="lexis">two</strong> examples of substitution or ellipsis (e.g., &#x27;do so&#x27;, &#x27;if not&#x27;, &#x27;I hope not&#x27;) to make your points concise and professional.</p>
+</section>
+</article>
+</body>
+</html>

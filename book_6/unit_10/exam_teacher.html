@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit exam — Workplace and Community Impact: Communicating Professionally</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<nav class="breadcrumbs"><a href="index.html">← Unit index</a></nav>
+<header>
+  <p class="view-banner">Teacher · Unit exam key</p>
+  <h1>Unit exam — Workplace and Community Impact: Communicating Professionally</h1>
+  <p class="meta">T10_LIFESTYLE · C1 · 30 items</p>
+</header>
+<article class="exam-item" id="q01"><div class="exam-item-header"><span class="qnum">1. q01</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">The company&#x27;s new initiative aims to improve staff satisfaction by offering substantial ______ to help employees afford living closer to the office.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>housing subsidies ✓</li><li><span class="opt-key">B.</span>travel stipends</li><li><span class="opt-key">C.</span>relocation bonuses</li><li><span class="opt-key">D.</span>rental assistance funds</li></ul><div class="exam-explanation"><strong>Explanation</strong>Housing subsidies are specific payments or financial aid designed to help individuals cover housing costs, aligning with the goal of living closer to the office. Travel stipends are for commuting, relocation bonuses are typically one-off payments for moving, and rental assistance funds are a broader category which &#x27;housing subsidies&#x27; is a more precise, workplace-contextual term.</div></article><article class="exam-item" id="q02"><div class="exam-item-header"><span class="qnum">2. q02</span><span class="exam-meta">grammar · class 1</span></div><div class="exam-prompt">Which sentence best discusses the potential positive impact of flexible remote work policies on employee well-being?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Flexible remote work policies significantly enhance employee well-being by reducing commute stress and improving work-life integration. ✓</li><li><span class="opt-key">B.</span>Flexible remote work policies are being considered for their potential to benefit employees.</li><li><span class="opt-key">C.</span>The implementation of flexible remote work policies has been observed.</li><li><span class="opt-key">D.</span>Employees generally prefer flexible remote work policies.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A directly discusses the &#x27;impact&#x27; (enhance, reducing, improving) on &#x27;employee well-being&#x27; and &#x27;work-life integration,&#x27; precisely addressing the grammar label. The other options are either too general or merely state facts without discussing impact.</div></article><article class="exam-item" id="q03"><div class="exam-item-header"><span class="qnum">3. q03</span><span class="exam-meta">comprehension · class 1</span></div><div class="exam-prompt">The latest internal survey indicates a significant improvement in employee morale following the implementation of our revised remote work policies. What is the most likely reason for this improvement in the context of employee well-being?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Employees now have greater autonomy over their work schedules, leading to better work-life balance and reduced stress. ✓</li><li><span class="opt-key">B.</span>The company saved money on office space, which was then reinvested into employee bonuses.</li><li><span class="opt-key">C.</span>The revised policies allowed more employees to avoid their colleagues.</li><li><span class="opt-key">D.</span>The company introduced new software for remote collaboration, streamlining tasks.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The primary benefit of remote work policies for &#x27;employee well-being&#x27; is often increased autonomy and a better work-life balance, directly impacting morale and stress levels. While other options might have some indirect benefits, they are not the &#x27;most likely reason&#x27; related to well-being as implied by &#x27;remote work policies&#x27;.</div></article><article class="exam-item" id="q04"><div class="exam-item-header"><span class="qnum">4. q04</span><span class="exam-meta">register · class 1</span></div><div class="exam-prompt">When formally addressing concerns about &#x27;employee well-being&#x27; in a company-wide memo, which phrase is most appropriate for a professional tone?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>We are actively assessing current workplace conditions to ensure optimal employee well-being. ✓</li><li><span class="opt-key">B.</span>We&#x27;re looking into staff happiness issues, no worries.</li><li><span class="opt-key">C.</span>It&#x27;s come to our attention that some folks aren&#x27;t doing great.</li><li><span class="opt-key">D.</span>We&#x27;ll try to sort out whatever&#x27;s bothering our workers.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A uses formal language (&#x27;actively assessing,&#x27; &#x27;optimal employee well-being&#x27;) suitable for a company-wide memo, maintaining a professional and serious tone. The other options use informal language unsuitable for official communication.</div></article><article class="exam-item" id="q05"><div class="exam-item-header"><span class="qnum">5. q05</span><span class="exam-meta">lexis · class 2</span></div><div class="exam-prompt">Our firm&#x27;s commitment to ______ is demonstrated by its numerous environmental protection projects and community outreach programs.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>corporate social responsibility ✓</li><li><span class="opt-key">B.</span>profit maximization</li><li><span class="opt-key">C.</span>market dominance</li><li><span class="opt-key">D.</span>public relations stunts</li></ul><div class="exam-explanation"><strong>Explanation</strong>Corporate social responsibility (CSR) refers to a company&#x27;s initiatives to assess and take responsibility for the company&#x27;s effects on environmental and social well-being. This perfectly aligns with environmental protection and community outreach. The other options refer to different business objectives or characterizations.</div></article><article class="exam-item" id="q06"><div class="exam-item-header"><span class="qnum">6. q06</span><span class="exam-meta">grammar · class 2</span></div><div class="exam-prompt">Our team plans to join the local cleanup drive, and we encourage other departments to ______ if they are able.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>do so ✓</li><li><span class="opt-key">B.</span>do it</li><li><span class="opt-key">C.</span>perform this</li><li><span class="opt-key">D.</span>make a move</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Do so&#x27; is a common and professional substitution for a preceding verb phrase (&#x27;join the local cleanup drive&#x27;), maintaining formality and conciseness. &#x27;Do it&#x27; is less formal, and &#x27;perform this&#x27; or &#x27;make a move&#x27; are less natural or appropriate in this context.</div></article><article class="exam-item" id="q07"><div class="exam-item-header"><span class="qnum">7. q07</span><span class="exam-meta">comprehension · class 2</span></div><div class="exam-prompt">A key aspect of our community engagement strategy involves identifying local needs and working with various groups to address them. What term best describes this approach?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Stakeholder collaboration ✓</li><li><span class="opt-key">B.</span>Internal auditing</li><li><span class="opt-key">C.</span>Competitive analysis</li><li><span class="opt-key">D.</span>Top-down management</li></ul><div class="exam-explanation"><strong>Explanation</strong>Stakeholder collaboration involves engaging with various parties (stakeholders) who have an interest in a project or initiative, which aligns with &#x27;working with various groups to address local needs&#x27; in community engagement. The other options describe different internal or external business processes.</div></article><article class="exam-item" id="q08"><div class="exam-item-header"><span class="qnum">8. q08</span><span class="exam-meta">register · class 2</span></div><div class="exam-prompt">During a team meeting, a colleague starts discussing a personal issue that is unrelated to work. What is the most professional way to gently redirect the conversation to maintain focus?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>I appreciate you sharing, but perhaps we should focus on the agenda items for now and discuss this privately later. ✓</li><li><span class="opt-key">B.</span>That&#x27;s not relevant to our meeting. Let&#x27;s move on.</li><li><span class="opt-key">C.</span>Could we please stick to work-related topics? Some of us have deadlines.</li><li><span class="opt-key">D.</span>I&#x27;m not sure this is the right forum for personal discussions.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A is polite, acknowledges the colleague, sets a professional boundary, and offers a private channel for discussion, aligning with &#x27;Professional Demeanor in Lifestyle Discussions&#x27; and &#x27;respect personal boundaries&#x27;. The other options are too blunt or confrontational for a professional setting.</div></article><article class="exam-item" id="q09"><div class="exam-item-header"><span class="qnum">9. q09</span><span class="exam-meta">grammar · class 3</span></div><div class="exam-prompt">Which sentence most effectively evaluates the positive influence of a new public transport network on employee lifestyles?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>The new public transport network substantially enhances employee lifestyles by significantly reducing commute times and fostering greater engagement with urban amenities. ✓</li><li><span class="opt-key">B.</span>A new public transport network has been built.</li><li><span class="opt-key">C.</span>Employees might use the new public transport network.</li><li><span class="opt-key">D.</span>The public transport network affects everyone.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A uses evaluative language (&#x27;substantially enhances,&#x27; &#x27;significantly reducing,&#x27; &#x27;fostering greater engagement&#x27;) to discuss the &#x27;positive influence&#x27; on &#x27;employee lifestyles&#x27; and &#x27;access to essential lifestyle amenities,&#x27; directly addressing the grammar label. The other options are merely descriptive or too vague.</div></article><article class="exam-item" id="q10"><div class="exam-item-header"><span class="qnum">10. q10</span><span class="exam-meta">comprehension · class 3</span></div><div class="exam-prompt">The city council is holding a public consultation regarding plans for a new park in the downtown area. From an employee well-being perspective, what would be the most valuable input to provide?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Suggesting features like shaded walking paths and exercise zones to encourage physical activity and mental breaks during work hours. ✓</li><li><span class="opt-key">B.</span>Advocating for more parking spaces near the park for visitors.</li><li><span class="opt-key">C.</span>Proposing a commercial area within the park for new businesses.</li><li><span class="opt-key">D.</span>Highlighting the need for improved street lighting around the park for evening events.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Input focused on &#x27;shaded walking paths and exercise zones&#x27; directly relates to encouraging physical activity and mental well-being for employees, aligning with &#x27;influencing employees&#x27; work-life balance and access to essential lifestyle amenities.&#x27; The other options address other aspects like commerce, parking, or general safety, which are less directly tied to employee well-being in this context.</div></article><article class="exam-item" id="q11"><div class="exam-item-header"><span class="qnum">11. q11</span><span class="exam-meta">register · class 3</span></div><div class="exam-prompt">When presenting feedback on urban development plans to a municipal committee, which tone is most appropriate?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Formal and constructive, focusing on data-backed arguments and potential solutions. ✓</li><li><span class="opt-key">B.</span>Informal and conversational, sharing personal anecdotes.</li><li><span class="opt-key">C.</span>Aggressive and demanding, emphasizing immediate changes.</li><li><span class="opt-key">D.</span>Neutral and disengaged, merely summarizing without opinion.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Feedback to a municipal committee requires a formal and constructive tone, backed by evidence, to be taken seriously and to influence decision-making effectively. Informal, aggressive, or disengaged tones are counterproductive in such a professional setting.</div></article><article class="exam-item" id="q12"><div class="exam-item-header"><span class="qnum">12. q12</span><span class="exam-meta">lexis · class 3</span></div><div class="exam-prompt">The new community center is expected to provide various essential lifestyle ______ for residents, including a gym and a library.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>amenities ✓</li><li><span class="opt-key">B.</span>features</li><li><span class="opt-key">C.</span>provisions</li><li><span class="opt-key">D.</span>offerings</li></ul><div class="exam-explanation"><strong>Explanation</strong>Amenities are defined as a desirable or useful feature or facility of a building or place, often referring to things that contribute to comfort and convenience, perfectly matching the context of a gym and library for residents. &#x27;Provisions&#x27; implies something supplied or provided, often for necessity, while &#x27;features&#x27; and &#x27;offerings&#x27; are more general.</div></article><article class="exam-item" id="q13"><div class="exam-item-header"><span class="qnum">13. q13</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">The company is exploring options for on-site ______ to assist working parents, significantly reducing their daily logistical challenges.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>childcare provisions ✓</li><li><span class="opt-key">B.</span>parental leave</li><li><span class="opt-key">C.</span>educational grants</li><li><span class="opt-key">D.</span>family workshops</li></ul><div class="exam-explanation"><strong>Explanation</strong>Childcare provisions specifically refer to arrangements for looking after children, which directly addresses the need to &#x27;assist working parents&#x27; and &#x27;reduce daily logistical challenges&#x27;. Parental leave is time off, educational grants are for learning, and family workshops are events, not direct care.</div></article><article class="exam-item" id="q14"><div class="exam-item-header"><span class="qnum">14. q14</span><span class="exam-meta">grammar · class 4</span></div><div class="exam-prompt">Which statement best advocates for improving access to local healthcare services for employees?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>We must advocate for improved local healthcare accessibility, as it is crucial for bolstering employee well-being and reducing absenteeism. ✓</li><li><span class="opt-key">B.</span>Some employees would like better healthcare services.</li><li><span class="opt-key">C.</span>Healthcare services in the area could be better.</li><li><span class="opt-key">D.</span>Let&#x27;s consider healthcare next quarter.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A uses strong advocacy language (&#x27;We must advocate for,&#x27; &#x27;crucial for bolstering&#x27;) and clearly links improved access to positive outcomes (&#x27;employee well-being,&#x27; &#x27;reducing absenteeism&#x27;), fulfilling the grammar label&#x27;s requirement to advocate for enhanced access to crucial services to improve lifestyles. The other options are either too weak, merely observational, or defer the issue.</div></article><article class="exam-item" id="q15"><div class="exam-item-header"><span class="qnum">15. q15</span><span class="exam-meta">comprehension · class 4</span></div><div class="exam-prompt">During a meeting, an employee suggests partnering with local businesses to offer discounts to staff. What is the primary benefit of such &#x27;local retail partnerships&#x27; for employee lifestyles?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>It can enhance employees&#x27; purchasing power and foster a stronger sense of community integration. ✓</li><li><span class="opt-key">B.</span>It guarantees a significant increase in company profits.</li><li><span class="opt-key">C.</span>It allows the company to dictate prices to local businesses.</li><li><span class="opt-key">D.</span>It replaces the need for direct employee benefits entirely.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Local retail partnerships offering discounts directly benefit employees&#x27; &#x27;purchasing power,&#x27; making daily life more affordable, and also fosters &#x27;community integration&#x27; by connecting employees with local services. This aligns with improving employee lifestyles through local services. The other options are incorrect or exaggerated.</div></article><article class="exam-item" id="q16"><div class="exam-item-header"><span class="qnum">16. q16</span><span class="exam-meta">register · class 4</span></div><div class="exam-prompt">When proposing a new &#x27;employee support program&#x27; to senior management, which opening phrase is most professional and persuasive?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>I am pleased to present a proposal for a new employee support program designed to enhance staff well-being and productivity. ✓</li><li><span class="opt-key">B.</span>I&#x27;ve got an idea for helping our employees out more.</li><li><span class="opt-key">C.</span>Here&#x27;s what I think we should do for the workers.</li><li><span class="opt-key">D.</span>This is a new program that might be good for staff.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A uses formal and professional language (&#x27;pleased to present a proposal,&#x27; &#x27;designed to enhance staff well-being and productivity&#x27;) which is appropriate for senior management and focuses on strategic benefits. The other options are too informal, vague, or lack the persuasive tone required.</div></article><article class="exam-item" id="q17"><div class="exam-item-header"><span class="qnum">17. q17</span><span class="exam-meta">lexis · class 5</span></div><div class="exam-prompt">Our company provides a comprehensive ______ to new hires moving from abroad, covering housing, flights, and initial settling-in support.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>relocation package ✓</li><li><span class="opt-key">B.</span>travel reimbursement</li><li><span class="opt-key">C.</span>onboarding bonus</li><li><span class="opt-key">D.</span>moving allowance</li></ul><div class="exam-explanation"><strong>Explanation</strong>A &#x27;relocation package&#x27; is a specific and comprehensive set of benefits offered by an employer to assist an employee moving for work, often including housing, travel, and settling-in support. &#x27;Travel reimbursement&#x27; is narrower, &#x27;onboarding bonus&#x27; is a payment for starting, and &#x27;moving allowance&#x27; is typically a fixed sum, less comprehensive than a &#x27;package&#x27;.</div></article><article class="exam-item" id="q18"><div class="exam-item-header"><span class="qnum">18. q18</span><span class="exam-meta">grammar · class 5</span></div><div class="exam-prompt">An employee is concerned about adapting to a new country&#x27;s customs. Which response demonstrates appropriate &#x27;Professional Demeanor in Lifestyle Discussions&#x27;?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>We understand that cultural integration can be challenging, and our team is here to connect you with local resources and support networks. ✓</li><li><span class="opt-key">B.</span>Don&#x27;t worry, you&#x27;ll get used to it eventually.</li><li><span class="opt-key">C.</span>Everyone struggles with that; it&#x27;s part of moving.</li><li><span class="opt-key">D.</span>Perhaps you should have researched the culture more before moving.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A acknowledges the challenge (&#x27;cultural integration can be challenging&#x27;), expresses understanding, and offers practical, professional support (&#x27;connect you with local resources and support networks&#x27;), which is the essence of &#x27;Professional Demeanor in Lifestyle Discussions&#x27;. The other options are dismissive, overly generalized, or critical.</div></article><article class="exam-item" id="q19"><div class="exam-item-header"><span class="qnum">19. q19</span><span class="exam-meta">comprehension · class 5</span></div><div class="exam-prompt">An employee has just relocated to a new city for work. What is the most crucial aspect of support the company can offer to help them adjust socially?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Facilitating introductions to local employee groups and social events to encourage local networking and the development of social support systems. ✓</li><li><span class="opt-key">B.</span>Providing a detailed map of the city&#x27;s public transportation system.</li><li><span class="opt-key">C.</span>Offering a bonus for completing their first project successfully.</li><li><span class="opt-key">D.</span>Arranging for a personal assistant to handle their daily errands.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Social adjustment relies heavily on connecting with others and building a new community. Facilitating &#x27;local networking&#x27; and &#x27;social support systems&#x27; directly addresses this crucial need for &#x27;cultural integration&#x27; and &#x27;lifestyle adjustments&#x27;. The other options relate to logistics, work performance, or personal luxury, not direct social integration.</div></article><article class="exam-item" id="q20"><div class="exam-item-header"><span class="qnum">20. q20</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">During a conversation about an employee&#x27;s potential relocation, which phrasing is most sensitive and professional when discussing personal adjustments and &#x27;cultural integration&#x27;?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>We recognize that adapting to a new cultural environment involves a significant adjustment, and we&#x27;re committed to supporting your integration. ✓</li><li><span class="opt-key">B.</span>You&#x27;ll have to get used to how things are done there.</li><li><span class="opt-key">C.</span>It&#x27;s tough, but everyone does it. Just blend in.</li><li><span class="opt-key">D.</span>The local culture is quite different, so try not to stand out.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A is sensitive, empathetic (&#x27;recognize that adapting... involves a significant adjustment&#x27;), and offers support, which is critical when discussing personal and cultural changes during relocation. The other options are dismissive, overly simplistic, or potentially prescriptive and unhelpful.</div></article><article class="exam-item" id="q21"><div class="exam-item-header"><span class="qnum">21. q21</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">The new factory is expected to create hundreds of ______ in the region, significantly boosting the local economy.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>local employment opportunities ✓</li><li><span class="opt-key">B.</span>international trade agreements</li><li><span class="opt-key">C.</span>corporate tax reductions</li><li><span class="opt-key">D.</span>manufacturing quotas</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Local employment opportunities&#x27; directly refers to jobs created for people in the region, which is a primary way a new factory &#x27;boosts the local economy&#x27;. The other options relate to trade, taxation, or production targets, not direct job creation within the local community.</div></article><article class="exam-item" id="q22"><div class="exam-item-header"><span class="qnum">22. q22</span><span class="exam-meta">grammar · class 6</span></div><div class="exam-prompt">Which sentence effectively analyzes the company&#x27;s indirect influence on the local housing market?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>The company&#x27;s expansion, while creating jobs, indirectly contributes to rising housing market dynamics by increasing demand for local residences, potentially impacting affordability for long-term residents. ✓</li><li><span class="opt-key">B.</span>Our company builds homes for employees.</li><li><span class="opt-key">C.</span>The local housing market is growing.</li><li><span class="opt-key">D.</span>We are aware of the housing market situation.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A explicitly uses analytical language (&#x27;indirectly contributes to,&#x27; &#x27;increasing demand,&#x27; &#x27;potentially impacting affordability&#x27;) to link the company&#x27;s actions to &#x27;rising housing market dynamics&#x27; and its broader social implications, fulfilling the grammar label of &#x27;Analyzing a company&#x27;s direct and indirect influence&#x27;. The other options are too direct, observational, or lack analytical depth.</div></article><article class="exam-item" id="q23"><div class="exam-item-header"><span class="qnum">23. q23</span><span class="exam-meta">comprehension · class 6</span></div><div class="exam-prompt">A community impact report should typically cover how a company affects various aspects of the local area. Which of the following is NOT usually a direct focus of such a report?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>The personal financial portfolios of individual company shareholders. ✓</li><li><span class="opt-key">B.</span>Local employment opportunities created or sustained.</li><li><span class="opt-key">C.</span>The company&#x27;s contribution to local infrastructure development.</li><li><span class="opt-key">D.</span>Changes in local housing market dynamics due to company presence.</li></ul><div class="exam-explanation"><strong>Explanation</strong>A community impact report focuses on the company&#x27;s influence on the broader community, including &#x27;local employment opportunities,&#x27; &#x27;infrastructure development,&#x27; and &#x27;housing market dynamics&#x27;. The personal financial portfolios of shareholders are an internal, private financial matter for individuals and not a &#x27;direct focus&#x27; of the company&#x27;s impact on the &#x27;social fabric of its operating community&#x27;.</div></article><article class="exam-item" id="q24"><div class="exam-item-header"><span class="qnum">24. q24</span><span class="exam-meta">register · class 6</span></div><div class="exam-prompt">When drafting a formal report on a company&#x27;s impact on &#x27;social cohesion&#x27;, which phrase maintains the most objective and professional tone?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Our initiatives aim to foster greater social cohesion within the community by promoting inclusive engagement. ✓</li><li><span class="opt-key">B.</span>We&#x27;re trying to make sure everyone gets along in town.</li><li><span class="opt-key">C.</span>The town feels more united because of what we do.</li><li><span class="opt-key">D.</span>Our projects are totally fixing the community&#x27;s divisions.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A uses formal and objective language (&#x27;aim to foster,&#x27; &#x27;greater social cohesion,&#x27; &#x27;promoting inclusive engagement&#x27;) appropriate for a formal report, reflecting a professional and measurable approach. The other options are too informal, subjective, or use overly strong, unprovable claims.</div></article><article class="exam-item" id="q25"><div class="exam-item-header"><span class="qnum">25. q25</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">The company&#x27;s new policy on digital connectivity suggests employees should avoid checking emails after hours, and many welcome this directive as it helps them maintain personal boundaries; others, however, find it hard to ______.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>do so ✓</li><li><span class="opt-key">B.</span>do that</li><li><span class="opt-key">C.</span>perform this action</li><li><span class="opt-key">D.</span>follow it</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Do so&#x27; is the most concise and professional way to substitute for the verb phrase &#x27;avoid checking emails after hours&#x27;, reflecting natural spoken and written professional English. &#x27;Do that&#x27; is slightly less formal, while &#x27;perform this action&#x27; is overly formal and clunky. &#x27;Follow it&#x27; is grammatically possible but doesn&#x27;t substitute the verb phrase as cleanly as &#x27;do so&#x27;.</div></article><article class="exam-item" id="q26"><div class="exam-item-header"><span class="qnum">26. q26</span><span class="exam-meta">comprehension · class 7</span></div><div class="exam-prompt">The increasing use of instant messaging platforms blurs the line between professional and private life. What is a key strategy for managing this challenge effectively?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Establishing clear personal boundaries, such as setting &#x27;do not disturb&#x27; times on devices for non-urgent work communications outside of working hours. ✓</li><li><span class="opt-key">B.</span>Responding to all messages immediately, regardless of urgency or time.</li><li><span class="opt-key">C.</span>Using only one device for both work and personal communications to simplify things.</li><li><span class="opt-key">D.</span>Sharing all personal updates with colleagues on professional platforms to foster camaraderie.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Establishing clear &#x27;personal boundaries&#x27; and &#x27;do not disturb&#x27; times is a direct and effective strategy to manage the blurring of professional and private life caused by digital connectivity, aligning with the situational focus. The other options would exacerbate the problem or are inappropriate.</div></article><article class="exam-item" id="q27"><div class="exam-item-header"><span class="qnum">27. q27</span><span class="exam-meta">register · class 7</span></div><div class="exam-prompt">In a professional setting, if a colleague frequently contacts you on your personal mobile number outside work hours for non-urgent matters, which professional approach is most suitable to address this?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Politely explain that you prefer work-related communications to be directed to your work channels during business hours. ✓</li><li><span class="opt-key">B.</span>Ignore the messages and block their number.</li><li><span class="opt-key">C.</span>Complain to your manager immediately without speaking to the colleague first.</li><li><span class="opt-key">D.</span>Respond to every message to avoid conflict.</li></ul><div class="exam-explanation"><strong>Explanation</strong>A polite but firm direct conversation is the most professional first step. It respects personal boundaries while maintaining a respectful working relationship. Ignoring, complaining immediately, or constantly responding are either unprofessional or detrimental to work-life balance.</div></article><article class="exam-item" id="q28"><div class="exam-item-header"><span class="qnum">28. q28</span><span class="exam-meta">lexis · class 7</span></div><div class="exam-prompt">The constant availability required by digital tools can lead to the ______ of professional and private spheres, making it difficult to switch off.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>blurring ✓</li><li><span class="opt-key">B.</span>separation</li><li><span class="opt-key">C.</span>demarcation</li><li><span class="opt-key">D.</span>distinction</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Blurring&#x27; accurately describes the phenomenon where boundaries become less clear and distinct, making it hard to differentiate between work and personal life. The other options (&#x27;separation,&#x27; &#x27;demarcation,&#x27; &#x27;distinction&#x27;) imply clarity or division, which is the opposite of the situation described.</div></article><article class="exam-item" id="q29"><div class="exam-item-header"><span class="qnum">29. q29</span><span class="exam-meta">synthesis · class 7</span></div><div class="exam-prompt">Considering the overall unit theme of workplace and community impact, which of the following best represents a comprehensive approach to fostering employee well-being while promoting community engagement?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Implementing flexible work arrangements, providing access to local childcare and healthcare, and establishing volunteer initiatives that benefit local infrastructure. ✓</li><li><span class="opt-key">B.</span>Focusing solely on increasing profit margins to ensure job security for existing employees.</li><li><span class="opt-key">C.</span>Offering extensive relocation packages to attract top talent from other regions.</li><li><span class="opt-key">D.</span>Mandating strict office hours and discouraging participation in external community projects.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A synthesizes elements from multiple classes within the unit: &#x27;flexible work arrangements&#x27; (Class 1, 7), &#x27;local childcare and healthcare&#x27; (Class 4), and &#x27;volunteer initiatives that benefit local infrastructure&#x27; (Class 2, 6). This comprehensive approach reflects both employee well-being and community impact. The other options are either too narrow, contradictory to the theme, or prioritize only one aspect.</div></article><article class="exam-item" id="q30"><div class="exam-item-header"><span class="qnum">30. q30</span><span class="exam-meta">synthesis · class 7</span></div><div class="exam-prompt">When discussing a company&#x27;s overall strategy to positively influence both its employees&#x27; lifestyles and the local community, which statement effectively combines analysis of impact with professional advocacy?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Our strategic CSR framework analyzes how our operations enhance local employment and social cohesion, and we actively advocate for enhanced employee support through partnerships with local amenities. ✓</li><li><span class="opt-key">B.</span>We do good things for people and the town, that&#x27;s it.</li><li><span class="opt-key">C.</span>The company tries to be a good neighbor, and we hope our staff are happy.</li><li><span class="opt-key">D.</span>We&#x27;ve noticed some changes in the community and our employees are talking about their lifestyles.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A effectively combines &#x27;analysis of impact&#x27; (&#x27;analyzes how our operations enhance local employment and social cohesion&#x27; from Class 6 grammar/lexis) with &#x27;professional advocacy&#x27; (&#x27;actively advocate for enhanced employee support through partnerships with local amenities&#x27; from Class 4 grammar/lexis). This integrates knowledge and skills across the unit. The other options are too informal, vague, or lack both the analytical and advocacy components.</div></article>
+
+</body>
+</html>

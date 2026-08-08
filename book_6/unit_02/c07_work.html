@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conditional Inversion: Formal Proposals &amp; Feedback</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Conditional Inversion: Formal Proposals &amp; Feedback</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>2</dd>
+      <dt>Class</dt><dd>7</dd>
+      <dt>Theme</dt><dd>T02_WORK</dd>
+      <dt>Framework</dt><dd>TTT</dd>
+      <dt>Role</dt><dd>TTT_ADVANCED_REVIEW_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Setting the Feedback Stage</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by asking students to consider the lead-in brief questions.<br>
+2. Encourage discussion about their personal or professional experiences with new company policies or projects.<br>
+3. Focus on eliciting vocabulary related to &#x27;implementation_feedback&#x27;, &#x27;ground_level_perspective&#x27;, &#x27;stakeholder_engagement&#x27;, and &#x27;course_correction&#x27;.<br>
+4. Guide the conversation towards the importance of formal, constructive feedback in a professional setting.<br>
+5. Highlight that feedback often involves discussing hypothetical scenarios or conditional outcomes.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Your View: Initiatives &amp; Feedback</h4>
+<p>Think about a time your company introduced a new policy or major project, or perhaps one was discussed.</p>
+<p>1. Were you asked for your opinion or <strong class="lexis">ground-level perspective</strong>? How did you provide it?<br>
+2. What makes feedback truly <strong class="lexis">effective and constructive</strong>, especially when it&#x27;s about a significant <strong class="lexis">corporate initiative</strong>?<br>
+3. Have you ever had to discuss what <strong class="lexis">might happen</strong> or what <strong class="lexis">could have happened</strong> regarding these initiatives? Share your thoughts on how such discussions influence <strong class="lexis">course correction</strong>.</p>
+</section>
+</article>
+<article class="stage" id="stage-T1">
+<header class="stage-header"><span class="stage-code">T1</span><h2>Diagnostic: Assessing Strategic Feedback Language</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that this is a quick check of advanced structures used in formal business communication.<br>
+2. Students should choose the most appropriate and grammatically correct option for each sentence.<br>
+3. Do not provide answers or hints at this stage. Observe learner errors carefully, especially focusing on verb forms after &#x27;Should&#x27; and &#x27;Had&#x27;.<br>
+4. This task aims to diagnose understanding of Inverted Conditionals without re-teaching.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Formal Proposals: Your Accuracy Check</h4>
+<p>Read the following statements, which are typical of formal feedback or strategic proposals in a corporate setting. Choose the option that correctly completes each sentence, ensuring it uses advanced conditional structures appropriately.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Choose the grammatically correct and most formal option to complete the sentence, focusing on advanced conditional structures.</p>
+<p>Management recommends that _______ the proposed changes cause significant disruption, alternative plans must be ready.</p>
+<ul><li>should the proposed changes causes</li><li>should the proposed changes cause</li><li>if the proposed changes will cause</li><li>had the proposed changes caused</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Choose the grammatically correct and most formal option to complete the sentence.</p>
+<p>The internal report concluded that _______ leadership fully grasped the ground-level perspective, a more effective implementation strategy would have emerged.</p>
+<ul><li>had leadership fully grasped</li><li>had leadership fully grasp</li><li>if leadership would have fully grasped</li><li>should leadership fully grasp</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Choose the grammatically correct and most formal option to complete the sentence.</p>
+<p>_______ the new policy been properly communicated, the initial confusion amongst staff could have been avoided.</p>
+<ul><li>Had not</li><li>If not</li><li>Should not</li><li>Were not</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-TCH">
+<header class="stage-header"><span class="stage-code">TCH</span><h2>Clarification: Mastering Inverted Conditionals</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Review answers to T1, specifically addressing any errors identified (e.g., incorrect verb form after &#x27;Should&#x27; or &#x27;Had&#x27;).<br>
+2. Clarify the &#x27;meaning&#x27; of inverted conditionals: &#x27;Is this a formal way to replace an &#x27;if&#x27; clause? (Yes)&#x27;, &#x27;Did the corporate efficiency target change already happen, or are we looking at a hypothesis? (Hypothesis)&#x27;.<br>
+3. Present the &#x27;form&#x27; clearly on the board: &#x27;Should + Subject + infinitive, main clause&#x27; (for hypothetical future/present) and &#x27;Had + Subject + past participle, main clause&#x27; (for hypothetical past).<br>
+4. Emphasize the formality and specific usage in strategic and business contexts, particularly for implementation_feedback.<br>
+5. Provide controlled practice through the tasks, reinforcing correct usage.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Precision in Proposals: Understanding Inversion</h4>
+<p>The structures below are crucial for formal proposals and constructive feedback, especially when discussing strategic alternatives or past hypothetical situations. We often invert the subject and auxiliary verb to achieve a more formal tone, replacing &#x27;If&#x27; and sounding more direct and authoritative.</p>
+<p><strong class="lexis">Form Review:</strong><br>
+*   <strong class="lexis">Should + Subject + Base Verb..., Main Clause</strong> (for hypothetical future/present possibilities, often for suggestions or warnings)<br>
+*   <strong class="lexis">Had + Subject + Past Participle..., Main Clause</strong> (for hypothetical past situations, often to discuss missed opportunities or different outcomes)</p>
+<p>Now, let&#x27;s practice using these with precision.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Rewrite the following sentence using a formal inverted conditional with &#x27;Should&#x27;. Keep the meaning the same.</p>
+<p>If the project encounters unexpected delays, we will deploy additional resources.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the following sentence using a formal inverted conditional with &#x27;Had&#x27;. Keep the meaning the same.</p>
+<p>If we had recognized the market shift sooner, we would have adjusted our production targets.</p>
+</div>
+<div class="task"><p class="task-instruction">Choose the most appropriate inverted conditional form to complete the following statement.</p>
+<p>_______ the new policy been fully embraced by all stakeholders, the implementation feedback would have been overwhelmingly positive.</p>
+<ul><li>Had</li><li>Should</li><li>Were</li><li>If</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-T2">
+<header class="stage-header"><span class="stage-code">T2</span><h2>Integrative Task: Drafting Constructive Strategic Feedback</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain the task: Students will read a scenario and then formulate feedback incorporating the target language.<br>
+2. Emphasize using both &#x27;Should&#x27; and &#x27;Had&#x27; inverted conditionals where appropriate to demonstrate mastery.<br>
+3. Circulate, monitor, and provide support. Note down examples of correct usage and any remaining errors.<br>
+4. Encourage pair work for peer feedback on the drafted responses.<br>
+5. For the short_text tasks, accept grammatically correct sentences that reflect the scenario and use the target structure.</p>
+<p>Sample &#x27;Should&#x27; answer: &#x27;Should further <strong class="lexis">stakeholder engagement</strong> be prioritized, resistance to future initiatives could be significantly reduced.&#x27;<br>
+Sample &#x27;Had&#x27; answer: &#x27;Had the <strong class="lexis">implementation feedback</strong> been collected earlier, we might have initiated <strong class="lexis">course correction</strong> sooner.&#x27;</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Your Feedback: Shaping Future Strategy</h4>
+<p>Your company recently launched a new &#x27;Digital Transformation Initiative&#x27; aiming to streamline operations and enhance client engagement. You&#x27;ve been asked to provide <strong class="lexis">ground-level perspective</strong> and constructive feedback. Read the summary of initial observations below, then complete the tasks that follow.</p>
+<p><strong class="lexis">Initial Observations:</strong><br>
+*   Initial staff training on new software modules was rushed, leading to low confidence.<br>
+*   Some new software modules show incompatibility with existing crucial legacy tools.<br>
+*   Early client feedback indicates confusion rather than improved engagement.<br>
+*   There was no clear contingency plan for early technical glitches or unforeseen issues.</p>
+<p>In your responses, ensure you:<br>
+*   Refer to the current situation and suggest hypothetical future actions using <strong class="lexis">Should</strong> + Subject + infinitive.<br>
+*   Comment on past hypothetical situations, explaining what could have been different using <strong class="lexis">Had</strong> + Subject + past participle.<br>
+*   Maintain a professional and constructive tone.<br>
+*   Use vocabulary related to <strong class="lexis">implementation_feedback</strong>, <strong class="lexis">ground-level_perspective</strong>, <strong class="lexis">stakeholder_engagement</strong>, and <strong class="lexis">course_correction</strong>.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Based on the scenario, write one sentence using an inverted conditional with &#x27;Should&#x27; to propose a future action or warning.</p>
+<p>Propose a future action or warning using &#x27;Should...&#x27;</p>
+</div>
+<div class="task"><p class="task-instruction">Based on the scenario, write one sentence using an inverted conditional with &#x27;Had&#x27; to comment on a past missed opportunity or different outcome.</p>
+<p>Comment on a past missed opportunity using &#x27;Had...&#x27;</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+</body>
+</html>

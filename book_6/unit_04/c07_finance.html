@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Emphasizing Financial Impact: Cleft Sentences for Trade Reporting</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Emphasizing Financial Impact: Cleft Sentences for Trade Reporting</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>4</dd>
+      <dt>Class</dt><dd>7</dd>
+      <dt>Theme</dt><dd>T04_FINANCE</dd>
+      <dt>Framework</dt><dd>TTT</dd>
+      <dt>Role</dt><dd>TTT_ADVANCED_REVIEW_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Global Trade Impact on Business</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Greet students and introduce the class theme, focusing on international trade regulations and their practical impact. <br>
+2. Begin by asking students to identify products they use daily that originate from other countries. <br>
+3. Facilitate a discussion on how changes in international trade policies (tariffs, agreements) could affect these items and, crucially, their companies&#x27; operations, supply chains, and competitiveness. <br>
+4. Encourage the use of advanced vocabulary related to finance and trade, such as <strong class="lexis">supply chain disruption</strong>, <strong class="lexis">import duties</strong>, or <strong class="lexis">free trade agreement</strong>. <br>
+5. Note down any advanced structures or common errors observed during the discussion for potential reference in the TCH stage.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Our World, Our Products, Our Company</h4>
+<p>Think about the items you use every day, at home or at work. Many of them originate from other countries.</p>
+<p>1. What are some specific products you use that you know are imported? How about raw materials for products your company makes?<br>
+2. Imagine new <strong class="lexis">import duties</strong> are placed on a key component your company uses. How might this affect production costs or the final price of your product?<br>
+3. If a <strong class="lexis">free trade agreement</strong> with a major trading partner is suddenly cancelled, what kind of effects could this have on your company&#x27;s <strong class="lexis">supply chain</strong> or its ability to compete in the <strong class="lexis">global market</strong>? Discuss the potential positive and negative impacts.</p>
+</section>
+</article>
+<article class="stage" id="stage-T1">
+<header class="stage-header"><span class="stage-code">T1</span><h2>Test 1: Advanced Structural Review</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that this is a diagnostic task to assess students&#x27; current understanding and application of advanced emphasizing structures. <br>
+2. Students should complete the tasks individually, focusing on accuracy in complex sentence structures, especially when highlighting specific information. <br>
+3. Instruct students not to consult notes or each other. <br>
+4. Do not provide answers or immediate correction. The goal is to identify common errors, particularly concerning cleft sentences or other advanced structures from previous lessons, to inform the subsequent TCH stage. <br>
+5. Collect students&#x27; responses for review.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Emphasizing Financial Impact</h4>
+<p>Your company&#x27;s financial department has identified some key issues related to international trade. The following sentences attempt to emphasize a particular problem or cause. Your task is to correct common errors in how these emphases are formed, or choose the best option to ensure the message is clear, professional, and grammatically precise.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Choose the most grammatically correct way to emphasize the unexpected impact.</p>
+<p>What surprised the logistics team (1) the sudden supply chain disruption.</p>
+<ul><li>it was</li><li>was</li><li>that was</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence to correctly emphasize &#x27;the rising import duties&#x27;.</p>
+<p>Original: It was the rising import duties what severely impacted our profit margins.
+
+Rewrite:</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the following sentence using a &#x27;What...&#x27; cleft structure to emphasize &#x27;the increased customs clearance delays&#x27;.</p>
+<p>Original: The increased customs clearance delays caused significant shipping backlogs.
+
+Rewrite:</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-TCH">
+<header class="stage-header"><span class="stage-code">TCH</span><h2>Teach: Clarifying Cleft Sentences for Financial Emphasis</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Review the answers from T1, specifically pointing out the errors related to cleft sentences. <br>
+2. Introduce or re-introduce &#x27;Cleft Sentences&#x27; as a powerful tool for emphasis in professional contexts. <br>
+3. Clearly explain the meaning: &#x27;Isolating and emphasizing critical strategic data points or financial liabilities within performance reviews.&#x27; <br>
+4. Present the two main forms: &#x27;What + clause + is/was + emphasized element&#x27; and &#x27;It is/was + emphasized element + that + clause&#x27;. <br>
+5. Use the concept_check_questions to ensure understanding: &#x27;Are we emphasizing a single part of the sentence? (Yes)&#x27;, &#x27;Does this structure make the financial cause clearer to stakeholders? (Yes)&#x27;. Ask these explicitly during the explanation. <br>
+6. Provide clear examples for each form, referencing the T1 errors. <br>
+7. Engage students in controlled practice tasks to apply the correct forms.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Mastering Emphasis in Financial Reporting</h4>
+<p>In advanced communication, especially in finance and business, we often need to make one piece of information stand out. This is crucial when presenting critical data or findings to stakeholders. We use &#x27;cleft sentences&#x27; to achieve this specific emphasis.</p>
+<p><strong class="lexis">Meaning:</strong> Cleft sentences allow us to isolate and highlight a particular part of a sentence – be it a cause, an effect, or a key factor – making it clearer and more impactful. This is highly valuable in performance reviews or strategic discussions to draw attention to specific financial data points or liabilities.</p>
+<p><strong class="lexis">Form 1: Emphasizing the Subject or Object (&#x27;What... is/was...&#x27;)</strong><br>
+Use &#x27;What + clause + is/was + emphasized element&#x27; to focus on a particular action or thing. This form emphasizes a single part of the sentence.<br>
+*   <strong class="lexis">Example:</strong> What shocked the board <strong class="lexis">was</strong> the scale of the <strong class="lexis">liability scaling</strong>.<br>
+*   <strong class="lexis">Concept Check:</strong> Are we emphasizing a single part of the sentence with &#x27;What... was...&#x27;? (Yes)</p>
+<p><strong class="lexis">Form 2: Emphasizing a Clause or Fact (&#x27;It is/was... that...&#x27;)</strong><br>
+Use &#x27;It is/was + emphasized element + that + clause&#x27; to highlight a specific fact, cause, or consequence. This also helps make the financial cause clearer to stakeholders.<br>
+*   <strong class="lexis">Example:</strong> <strong class="lexis">It was</strong> the <strong class="lexis">expenditure inflation that</strong> triggered the audit.<br>
+*   <strong class="lexis">Concept Check:</strong> Does this structure make the financial cause clearer to stakeholders? (Yes)</p>
+<p>Let&#x27;s practice using these forms to create clearer, more impactful financial statements.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Transform the following sentence into a &#x27;What...&#x27; cleft sentence, emphasizing the stated element.</p>
+<p>Original: The sudden implementation of export quotas severely limited our market reach.
+Emphasize: &#x27;the sudden implementation of export quotas&#x27;.
+
+Rewrite:</p>
+</div>
+<div class="task"><p class="task-instruction">Transform the following sentence into an &#x27;It was...&#x27; cleft sentence, emphasizing the stated element.</p>
+<p>Original: The ongoing global market volatility disrupted our investment strategy.
+Emphasize: &#x27;The ongoing global market volatility&#x27;.
+
+Rewrite:</p>
+</div>
+<div class="task"><p class="task-instruction">Choose the most appropriate cleft sentence to emphasize &#x27;the urgent need for a new free trade agreement&#x27; in a formal report.</p>
+<p>Which sentence best emphasizes the urgent need for a new free trade agreement?</p>
+<ul><li>What is clear to us it is the urgent need for a new free trade agreement.</li><li>It is the urgent need for a new free trade agreement that is clear to us.</li><li>The urgent need for a new free trade agreement what is clear to us.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-T2">
+<header class="stage-header"><span class="stage-code">T2</span><h2>Test 2: Reporting on Trade Policy Impacts</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will apply their knowledge of cleft sentences to analyze a realistic business scenario and communicate its impact effectively. <br>
+2. Provide the scenario about new trade policies and their effects on a company. <br>
+3. Instruct students to identify key impacts and formulate sentences using cleft structures (both &#x27;What...&#x27; and &#x27;It was...&#x27;) to highlight the cause or specific impact on their company&#x27;s supply chain or financial outlook. <br>
+4. Encourage students to draft their responses, focusing on clear, concise, and professionally emphasized language. <br>
+5. Monitor students&#x27; production, providing support where necessary and noting accuracy in applying cleft sentences and relevant vocabulary. <br>
+6. Allow students to share their drafted summaries in pairs or with the class, fostering peer review. <br>
+7. Sample expected output (for teacher reference): &#x27;What significantly raised our production costs was the new 15% <strong class="lexis">import duty</strong> on semiconductors.&#x27; or &#x27;It was the prolonged <strong class="lexis">customs clearance</strong> process that led to our shipping delays last quarter.&#x27;</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Your Company&#x27;s Trade Outlook</h4>
+<p>You are a financial analyst preparing a crucial update for your company&#x27;s executive board. A new international trade policy has just been implemented, directly affecting the import and export of several vital components and finished products for your business.</p>
+<p><strong class="lexis">Scenario Update:</strong><br>
+*   <strong class="lexis">Import duties</strong> on raw materials from Country X have increased by 15%, affecting the cost of production.<br>
+*   New <strong class="lexis">export quotas</strong> for finished goods to Country Y have been imposed, potentially limiting sales volume.<br>
+*   The prolonged negotiation for a <strong class="lexis">free trade agreement</strong> with Country Z has led to uncertainty, delaying planned market expansion.<br>
+*   Unexpected delays at <strong class="lexis">customs clearance</strong> points are causing <strong class="lexis">supply chain disruption</strong> for key components.</p>
+<p><strong class="lexis">Task:</strong><br>
+Write a short summary (2-3 sentences per point) outlining these impacts for the board. For each significant development, use a cleft sentence (e.g., &#x27;What was affected...&#x27;, &#x27;It was the...&#x27;) to emphasize either the <strong class="lexis">cause</strong> of the impact or the <strong class="lexis">specific consequence</strong> on your company&#x27;s <strong class="lexis">global market</strong> position, production, or financial outlook. Aim for clarity and professional emphasis.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Which of the following sentences correctly uses a cleft structure to emphasize the cause of a financial challenge?</p>
+<p>Select the sentence that correctly emphasizes the cause.</p>
+<ul><li>What caused the delay in our expansion plans it was the stalled free trade agreement.</li><li>It was the unforeseen import duties that increased our operational expenses.</li><li>The decreased export quotas what impacted our profitability last quarter.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit exam — Strategic Financial Communication and Reporting</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<nav class="breadcrumbs"><a href="index.html">← Unit index</a></nav>
+<header>
+  <p class="view-banner">Teacher · Unit exam key</p>
+  <h1>Unit exam — Strategic Financial Communication and Reporting</h1>
+  <p class="meta">T04_FINANCE · C1 · 30 items</p>
+</header>
+<article class="exam-item" id="q01"><div class="exam-item-header"><span class="qnum">1. q01</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">Last quarter, the company&#x27;s total _______ saw a slight dip due to decreased sales in the European market.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>revenue ✓</li><li><span class="opt-key">B.</span>expenditure</li><li><span class="opt-key">C.</span>profit margin</li><li><span class="opt-key">D.</span>cash flow</li></ul><div class="exam-explanation"><strong>Explanation</strong>Revenue refers to the total income generated by a business from its sales of goods or services before any expenses are deducted.</div></article><article class="exam-item" id="q02"><div class="exam-item-header"><span class="qnum">2. q02</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">To maintain financial health, we must closely monitor our _______ on operational costs and look for areas to optimize.</div><ul class="exam-options"><li><span class="opt-key">A.</span>revenue</li><li class="correct"><span class="opt-key">B.</span>expenditure ✓</li><li><span class="opt-key">C.</span>income</li><li><span class="opt-key">D.</span>assets</li></ul><div class="exam-explanation"><strong>Explanation</strong>Expenditure refers to the act of spending money, especially by a government or organization.</div></article><article class="exam-item" id="q03"><div class="exam-item-header"><span class="qnum">3. q03</span><span class="exam-meta">comprehension · class 1</span></div><div class="exam-prompt">Our latest financial report indicates a healthy _______, meaning the company retains a good percentage of revenue after costs.</div><ul class="exam-options"><li><span class="opt-key">A.</span>balance sheet</li><li><span class="opt-key">B.</span>income statement</li><li class="correct"><span class="opt-key">C.</span>profit margin ✓</li><li><span class="opt-key">D.</span>cash flow</li></ul><div class="exam-explanation"><strong>Explanation</strong>Profit margin is the ratio of profitability, calculated as net income divided by revenue, indicating how much profit a company makes for every dollar of sales.</div></article><article class="exam-item" id="q04"><div class="exam-item-header"><span class="qnum">4. q04</span><span class="exam-meta">comprehension · class 1</span></div><div class="exam-prompt">Which financial statement provides a snapshot of a company&#x27;s assets, liabilities, and equity at a specific point in time?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Income statement</li><li><span class="opt-key">B.</span>Cash flow statement</li><li class="correct"><span class="opt-key">C.</span>Balance sheet ✓</li><li><span class="opt-key">D.</span>Statement of retained earnings</li></ul><div class="exam-explanation"><strong>Explanation</strong>The balance sheet is a financial statement that reports a company&#x27;s assets, liabilities, and shareholder equity at a specific point in time.</div></article><article class="exam-item" id="q05"><div class="exam-item-header"><span class="qnum">5. q05</span><span class="exam-meta">lexis · class 2</span></div><div class="exam-prompt">The finance department will review the budget for the upcoming _______ and propose any necessary adjustments.</div><ul class="exam-options"><li><span class="opt-key">A.</span>calendar year</li><li><span class="opt-key">B.</span>financial period</li><li class="correct"><span class="opt-key">C.</span>fiscal quarter ✓</li><li><span class="opt-key">D.</span>budget cycle</li></ul><div class="exam-explanation"><strong>Explanation</strong>A fiscal quarter is a three-month period used for financial reporting.</div></article><article class="exam-item" id="q06"><div class="exam-item-header"><span class="qnum">6. q06</span><span class="exam-meta">lexis · class 2</span></div><div class="exam-prompt">We noted a significant _______ between the projected and actual spending for the marketing campaign, requiring further investigation.</div><ul class="exam-options"><li><span class="opt-key">A.</span>congruence</li><li><span class="opt-key">B.</span>alignment</li><li class="correct"><span class="opt-key">C.</span>variance ✓</li><li><span class="opt-key">D.</span>correlation</li></ul><div class="exam-explanation"><strong>Explanation</strong>Variance refers to the difference between actual and planned performance in financial terms.</div></article><article class="exam-item" id="q07"><div class="exam-item-header"><span class="qnum">7. q07</span><span class="exam-meta">grammar · class 2</span></div><div class="exam-prompt">Choose the sentence that uses a cleft structure to emphasize the <strong class="lexis">reason</strong> for the budget shortfall.</div><ul class="exam-options"><li><span class="opt-key">A.</span>The budget shortfall was due to unforeseen operational costs.</li><li><span class="opt-key">B.</span>Unforeseen operational costs led to the budget shortfall.</li><li class="correct"><span class="opt-key">C.</span>It was unforeseen operational costs that led to the budget shortfall. ✓</li><li><span class="opt-key">D.</span>What caused the budget shortfall were unforeseen operational costs.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Cleft sentences (e.g., &#x27;It was X that...&#x27;) are used to put emphasis on a particular part of a sentence, here emphasizing &#x27;unforeseen operational costs&#x27;.</div></article><article class="exam-item" id="q08"><div class="exam-item-header"><span class="qnum">8. q08</span><span class="exam-meta">register · class 2</span></div><div class="exam-prompt">During a budget meeting, you need to suggest a new policy to cut unnecessary spending. Which phrase is most appropriate and formal?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Let&#x27;s tighten our belts.</li><li><span class="opt-key">B.</span>We should look into some cost-saving initiatives.</li><li class="correct"><span class="opt-key">C.</span>We need to implement rigorous cost-cutting measures. ✓</li><li><span class="opt-key">D.</span>Time to stop splashing the cash.</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Implement rigorous cost-cutting measures&#x27; is the most formal and appropriate phrasing for a corporate budget meeting.</div></article><article class="exam-item" id="q09"><div class="exam-item-header"><span class="qnum">9. q09</span><span class="exam-meta">lexis · class 3</span></div><div class="exam-prompt">With rising inflation, employees are concerned about their _______ and whether their salaries can keep pace with increasing prices.</div><ul class="exam-options"><li><span class="opt-key">A.</span>earning potential</li><li><span class="opt-key">B.</span>disposable income</li><li class="correct"><span class="opt-key">C.</span>purchasing power ✓</li><li><span class="opt-key">D.</span>financial liquidity</li></ul><div class="exam-explanation"><strong>Explanation</strong>Purchasing power is the value of a currency expressed in terms of the amount of goods or services that one unit of money can buy.</div></article><article class="exam-item" id="q10"><div class="exam-item-header"><span class="qnum">10. q10</span><span class="exam-meta">lexis · class 3</span></div><div class="exam-prompt">The annual review factored in the increasing _______ in major cities when adjusting salary bands.</div><ul class="exam-options"><li><span class="opt-key">A.</span>economic outlook</li><li><span class="opt-key">B.</span>market rates</li><li class="correct"><span class="opt-key">C.</span>cost of living ✓</li><li><span class="opt-key">D.</span>consumer price index</li></ul><div class="exam-explanation"><strong>Explanation</strong>Cost of living refers to the amount of money needed to sustain a certain standard of living.</div></article><article class="exam-item" id="q11"><div class="exam-item-header"><span class="qnum">11. q11</span><span class="exam-meta">comprehension · class 3</span></div><div class="exam-prompt">A significant increase in the Consumer Price Index (CPI) typically indicates:</div><ul class="exam-options"><li><span class="opt-key">A.</span>Economic growth is slowing down significantly.</li><li class="correct"><span class="opt-key">B.</span>Inflation is accelerating, reducing purchasing power. ✓</li><li><span class="opt-key">C.</span>Consumer spending is decreasing across all sectors.</li><li><span class="opt-key">D.</span>The national unemployment rate is likely to fall.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The Consumer Price Index (CPI) measures the average change over time in the prices paid by urban consumers for a market basket of consumer goods and services, so a significant increase indicates inflation.</div></article><article class="exam-item" id="q12"><div class="exam-item-header"><span class="qnum">12. q12</span><span class="exam-meta">register · class 3</span></div><div class="exam-prompt">During a discussion on employee compensation amidst high inflation, which phrase is most suitable for initiating a discussion about salary adjustments?</div><ul class="exam-options"><li><span class="opt-key">A.</span>We should haggle about raises.</li><li><span class="opt-key">B.</span>Let&#x27;s talk about getting more money for staff.</li><li class="correct"><span class="opt-key">C.</span>We need to initiate wage negotiation discussions to address the erosion of employee purchasing power. ✓</li><li><span class="opt-key">D.</span>How about bumping up salaries a bit?</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Initiate wage negotiation discussions&#x27; is the most formal and appropriate term for salary adjustments in a professional context.</div></article><article class="exam-item" id="q13"><div class="exam-item-header"><span class="qnum">13. q13</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">The board decided to increase the _______ this year, pleasing many long-term investors.</div><ul class="exam-options"><li><span class="opt-key">A.</span>stock option</li><li><span class="opt-key">B.</span>share price</li><li class="correct"><span class="opt-key">C.</span>dividend payout ✓</li><li><span class="opt-key">D.</span>capital gain</li></ul><div class="exam-explanation"><strong>Explanation</strong>A dividend payout is a distribution of a portion of a company&#x27;s earnings to its shareholders.</div></article><article class="exam-item" id="q14"><div class="exam-item-header"><span class="qnum">14. q14</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">A strong financial position is often reflected in substantial _______, indicating the residual value of assets after liabilities are settled.</div><ul class="exam-options"><li><span class="opt-key">A.</span>corporate debt</li><li class="correct"><span class="opt-key">B.</span>shareholder equity ✓</li><li><span class="opt-key">C.</span>market capitalization</li><li><span class="opt-key">D.</span>retained earnings</li></ul><div class="exam-explanation"><strong>Explanation</strong>Shareholder equity represents the amount of money that would be returned to a company&#x27;s shareholders if all of the assets were liquidated and all of the company&#x27;s debts were paid off.</div></article><article class="exam-item" id="q15"><div class="exam-item-header"><span class="qnum">15. q15</span><span class="exam-meta">comprehension · class 4</span></div><div class="exam-prompt">Which statement best describes the primary goal of maximizing &#x27;return on investment (ROI)&#x27; for a company?</div><ul class="exam-options"><li><span class="opt-key">A.</span>To ensure rapid growth of market share regardless of profitability.</li><li><span class="opt-key">B.</span>To minimize all forms of risk in financial dealings.</li><li class="correct"><span class="opt-key">C.</span>To achieve the highest possible financial gain relative to the capital invested in a project or asset. ✓</li><li><span class="opt-key">D.</span>To distribute all profits directly to shareholders annually.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Return on investment (ROI) is a performance measure used to evaluate the efficiency or profitability of an investment or compare the efficiency of several different investments.</div></article><article class="exam-item" id="q16"><div class="exam-item-header"><span class="qnum">16. q16</span><span class="exam-meta">comprehension · class 4</span></div><div class="exam-prompt">How does a company&#x27;s consistent dividend payout strategy generally influence investor perception?</div><ul class="exam-options"><li><span class="opt-key">A.</span>It suggests the company lacks growth opportunities.</li><li class="correct"><span class="opt-key">B.</span>It often signals financial stability and confidence, attracting income-focused investors. ✓</li><li><span class="opt-key">C.</span>It typically leads to a decrease in stock market volatility.</li><li><span class="opt-key">D.</span>It is irrelevant to how investors view the company.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Consistent dividend payouts often signal financial health and a mature business, making the company attractive to investors seeking regular income.</div></article><article class="exam-item" id="q17"><div class="exam-item-header"><span class="qnum">17. q17</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">In a formal financial report, which word would be most appropriate to replace &#x27;difficulties&#x27; when referring to financial challenges?</div><ul class="exam-options"><li><span class="opt-key">A.</span>troubles</li><li><span class="opt-key">B.</span>issues</li><li class="correct"><span class="opt-key">C.</span>hardships ✓</li><li><span class="opt-key">D.</span>snags</li></ul><div class="exam-explanation"><strong>Explanation</strong>Hardships is a more formal and professional term than &#x27;troubles,&#x27; &#x27;issues,&#x27; or &#x27;snags&#x27; in a financial context.</div></article><article class="exam-item" id="q18"><div class="exam-item-header"><span class="qnum">18. q18</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">You are reporting on the company&#x27;s overall financial health. Which sentence uses the most appropriate formal register?</div><ul class="exam-options"><li><span class="opt-key">A.</span>The company&#x27;s doing pretty well, even with the shaky market.</li><li><span class="opt-key">B.</span>The firm&#x27;s finances are solid, considering the market&#x27;s ups and downs.</li><li class="correct"><span class="opt-key">C.</span>The corporation maintains a robust financial position despite market volatility. ✓</li><li><span class="opt-key">D.</span>We&#x27;re holding our own financially in a tough market.</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Robust financial position&#x27; and &#x27;market volatility&#x27; are formal, appropriate terms for financial reporting.</div></article><article class="exam-item" id="q19"><div class="exam-item-header"><span class="qnum">19. q19</span><span class="exam-meta">lexis · class 5</span></div><div class="exam-prompt">Due to unexpected market shifts, the company revised its earnings forecast for the third _______.</div><ul class="exam-options"><li><span class="opt-key">A.</span>financial period</li><li class="correct"><span class="opt-key">B.</span>fiscal quarter ✓</li><li><span class="opt-key">C.</span>business cycle</li><li><span class="opt-key">D.</span>accounting span</li></ul><div class="exam-explanation"><strong>Explanation</strong>Fiscal quarter is the standard formal term for a three-month financial reporting period.</div></article><article class="exam-item" id="q20"><div class="exam-item-header"><span class="qnum">20. q20</span><span class="exam-meta">comprehension · class 5</span></div><div class="exam-prompt">When a company discusses its &#x27;liabilities,&#x27; it is primarily referring to:</div><ul class="exam-options"><li><span class="opt-key">A.</span>Its total assets, including cash and property.</li><li><span class="opt-key">B.</span>Its potential for future growth and expansion.</li><li class="correct"><span class="opt-key">C.</span>Its financial obligations or debts owed to other entities. ✓</li><li><span class="opt-key">D.</span>Its current market value of equity.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Liabilities are defined as a company&#x27;s financial obligations or debts owed to other entities.</div></article><article class="exam-item" id="q21"><div class="exam-item-header"><span class="qnum">21. q21</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">Understanding current _______ is crucial for developing an effective long-term investment strategy.</div><ul class="exam-options"><li><span class="opt-key">A.</span>industry fads</li><li class="correct"><span class="opt-key">B.</span>market trends ✓</li><li><span class="opt-key">C.</span>economic fashions</li><li><span class="opt-key">D.</span>consumer whims</li></ul><div class="exam-explanation"><strong>Explanation</strong>Market trends refers to the general direction in which a market is developing or changing.</div></article><article class="exam-item" id="q22"><div class="exam-item-header"><span class="qnum">22. q22</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">The board approved a significant _______ for upgrading manufacturing facilities, expecting increased efficiency and output.</div><ul class="exam-options"><li><span class="opt-key">A.</span>operational budget</li><li class="correct"><span class="opt-key">B.</span>capital expenditure ✓</li><li><span class="opt-key">C.</span>routine spending</li><li><span class="opt-key">D.</span>recurring cost</li></ul><div class="exam-explanation"><strong>Explanation</strong>Capital expenditure refers to funds used by a company to acquire, upgrade, and maintain physical assets such as property, plants, buildings, technology, or equipment.</div></article><article class="exam-item" id="q23"><div class="exam-item-header"><span class="qnum">23. q23</span><span class="exam-meta">comprehension · class 6</span></div><div class="exam-prompt">A market analysis report indicates high &#x27;growth potential&#x27; in a particular sector. This means:</div><ul class="exam-options"><li><span class="opt-key">A.</span>The sector is currently experiencing a downturn.</li><li class="correct"><span class="opt-key">B.</span>The sector is expected to expand significantly, offering opportunities for investment and development. ✓</li><li><span class="opt-key">C.</span>The sector is saturated and highly competitive.</li><li><span class="opt-key">D.</span>The sector is highly volatile and risky for investors.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Growth potential implies the capacity for future expansion and development, suggesting opportunities.</div></article><article class="exam-item" id="q24"><div class="exam-item-header"><span class="qnum">24. q24</span><span class="exam-meta">register · class 6</span></div><div class="exam-prompt">Which sentence is most appropriate for a formal investment report discussing a company&#x27;s future plans?</div><ul class="exam-options"><li><span class="opt-key">A.</span>The company&#x27;s gonna throw a lot of money at R&amp;D.</li><li class="correct"><span class="opt-key">B.</span>The firm intends to allocate substantial resources to strategic research and development initiatives. ✓</li><li><span class="opt-key">C.</span>We&#x27;re planning to spend big on new ideas.</li><li><span class="opt-key">D.</span>Our future strategy involves pouring funds into innovation.</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Allocate substantial resources&#x27; and &#x27;strategic research and development initiatives&#x27; are formal and professional terms suitable for an investment report.</div></article><article class="exam-item" id="q25"><div class="exam-item-header"><span class="qnum">25. q25</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">Choose the sentence that uses a cleft structure to emphasize <strong class="lexis">who</strong> is responsible for the new trade agreement.</div><ul class="exam-options"><li><span class="opt-key">A.</span>The negotiating team finalized the new trade agreement.</li><li class="correct"><span class="opt-key">B.</span>It was the negotiating team that finalized the new trade agreement. ✓</li><li><span class="opt-key">C.</span>Who finalized the new trade agreement was the negotiating team.</li><li><span class="opt-key">D.</span>The new trade agreement was finalized by the negotiating team.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The structure &#x27;It was X that...&#x27; is a common form of cleft sentence used to emphasize X.</div></article><article class="exam-item" id="q26"><div class="exam-item-header"><span class="qnum">26. q26</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">Select the sentence that uses a cleft structure to emphasize <strong class="lexis">what</strong> has significantly impacted the supply chain.</div><ul class="exam-options"><li><span class="opt-key">A.</span>The recent tariff increase has significantly impacted the supply chain.</li><li><span class="opt-key">B.</span>It is the recent tariff increase that has significantly impacted the supply chain.</li><li class="correct"><span class="opt-key">C.</span>What has significantly impacted the supply chain is the recent tariff increase. ✓</li><li><span class="opt-key">D.</span>A significant impact on the supply chain has been caused by the recent tariff increase.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The structure &#x27;What X is Y&#x27; or &#x27;What X has is Y&#x27; is another form of cleft sentence used to emphasize Y.</div></article><article class="exam-item" id="q27"><div class="exam-item-header"><span class="qnum">27. q27</span><span class="exam-meta">comprehension · class 7</span></div><div class="exam-prompt">How do global trade policies and tariffs primarily affect a company&#x27;s supply chain?</div><ul class="exam-options"><li><span class="opt-key">A.</span>They automatically lead to increased domestic production.</li><li class="correct"><span class="opt-key">B.</span>They can increase the cost of imported raw materials and finished goods, or restrict access to certain markets. ✓</li><li><span class="opt-key">C.</span>They primarily enhance a company&#x27;s competitiveness globally.</li><li><span class="opt-key">D.</span>They simplify logistics and transportation processes.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Tariffs are taxes on imports, directly increasing costs and potentially disrupting supply chains or restricting market access.</div></article><article class="exam-item" id="q28"><div class="exam-item-header"><span class="qnum">28. q28</span><span class="exam-meta">comprehension · class 7</span></div><div class="exam-prompt">A new trade agreement eliminates tariffs on certain imported components. What is the most likely positive effect on a company using those components?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Increased administrative burden due to new regulations.</li><li class="correct"><span class="opt-key">B.</span>Reduced production costs, potentially leading to higher profit margins or more competitive pricing. ✓</li><li><span class="opt-key">C.</span>A decline in the quality of imported goods.</li><li><span class="opt-key">D.</span>A significant decrease in consumer demand for the final product.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Eliminating tariffs on imported components would reduce the cost of those components, thus reducing production costs for the company.</div></article><article class="exam-item" id="q29"><div class="exam-item-header"><span class="qnum">29. q29</span><span class="exam-meta">comprehension · class 7</span></div><div class="exam-prompt">Considering a scenario where a company faces both rising operational expenditures due to inflation and increased tariffs on its key imported materials, what combined financial strategy would be most prudent?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Immediately increasing dividend payouts to reassure shareholders.</li><li class="correct"><span class="opt-key">B.</span>Implementing stringent cost-saving initiatives and exploring alternative domestic suppliers or negotiating new trade agreements. ✓</li><li><span class="opt-key">C.</span>Focusing solely on expanding market share through aggressive pricing.</li><li><span class="opt-key">D.</span>Drastically reducing all marketing and research budgets.</li></ul><div class="exam-explanation"><strong>Explanation</strong>This strategy integrates understanding of inflation, expenditures/cost-cutting, and tariffs/trade policies to suggest a holistic financial strategy.</div></article><article class="exam-item" id="q30"><div class="exam-item-header"><span class="qnum">30. q30</span><span class="exam-meta">register · class 7</span></div><div class="exam-prompt">You are presenting a complex financial report to both internal stakeholders and potential investors. Which approach to emphasizing key findings would be most effective for both audiences?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Using highly technical jargon to impress investors, while simplifying for internal staff.</li><li><span class="opt-key">B.</span>Relying on informal language and anecdotes to maintain engagement.</li><li class="correct"><span class="opt-key">C.</span>Using clear, formal language, supported by visual aids, and strategically employing cleft sentences to highlight critical data points. ✓</li><li><span class="opt-key">D.</span>Presenting all data without specific emphasis, allowing the audience to draw their own conclusions.</li></ul><div class="exam-explanation"><strong>Explanation</strong>This integrates the need for formal register, clarity for diverse audiences, and the use of cleft sentences for emphasis, ensuring key messages are conveyed effectively.</div></article>
+
+</body>
+</html>

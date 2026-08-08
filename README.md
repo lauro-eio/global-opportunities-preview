@@ -8,4 +8,4 @@ Static HTML lesson previews from the [GO2_celta](https://github.com/egregor-io/G
 
 This is the **only** HTML publish target for factory QA. Set `PREVIEW_REPO_PATH` to this clone in the factory `.env`.
 
-Current contents: **Book 7** (units 1–12).
+Current contents: **Book 6** (C1, units 1–12), **Book 7** (C2, units 1–12), plus sample units for books 1, 3, and 4.

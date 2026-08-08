@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Asking and Stating Service Prices</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Asking and Stating Service Prices</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_1</dd>
+      <dt>CEFR</dt><dd>A0</dd>
+      <dt>Unit</dt><dd>4</dd>
+      <dt>Class</dt><dd>6</dd>
+      <dt>Theme</dt><dd>T04_FINANCE</dd>
+      <dt>Framework</dt><dd>PPP</dd>
+      <dt>Role</dt><dd>PPP_SITUATIONAL_EXPONENTS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Everyday Repairs</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>- Begin by asking students about everyday items they use that might need <strong class="lexis">repair</strong> or a <strong class="lexis">service</strong>.<br>
+- Guide the discussion to specific examples like a worn shoe or a broken key.<br>
+- Prompt students to think about how they would ask for the price of such a <strong class="lexis">service</strong>.<br>
+- Focus on activating prior knowledge and setting the context for inquiring about <strong class="lexis">cost</strong>.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Things That Need a Fix</h4>
+<p>Think about common things that sometimes break or need attention. For example, a shoe with a broken heel, or a key that needs a copy. What do you do in these situations? Where do you go? What do you say to find out how much it will <strong class="lexis">cost</strong>?</p>
+</section>
+</article>
+<article class="stage" id="stage-MFP">
+<header class="stage-header"><span class="stage-code">MFP</span><h2>Presentation: Asking and Stating Prices</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>- Present the target exponents using the model dialogue. Ensure students understand the <strong class="lexis">meaning</strong> for asking and stating prices politely in a workplace interaction.<br>
+- Highlight the <strong class="lexis">fixed form</strong> of the phrases (questions and statements).<br>
+- Practice <strong class="lexis">pronunciation</strong>: Model rising intonation for questions (stressing &#x27;much&#x27;, &#x27;price&#x27;) and falling intonation for statements (stressing the amount). Drill these phrases.<br>
+- Use the provided column_banks to display the phrases clearly.<br>
+- Check understanding of form and meaning with the match_pairs task.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">The Price Question</h4>
+<p>Here are polite ways to ask and state prices for a <strong class="lexis">service</strong>. Listen and repeat. Pay attention to the stressed words. </p>
+<p><strong class="lexis">Customer</strong>: Excuse me, I need a key copied. <strong class="lexis">How much is it</strong>?<br>
+<strong class="lexis">Shopkeeper</strong>: For a standard key, <strong class="lexis">it&#x27;s 5 euros</strong>.<br>
+<strong class="lexis">Customer</strong>: And <strong class="lexis">what&#x27;s the price</strong> for two copies?<br>
+<strong class="lexis">Shopkeeper</strong>: <strong class="lexis">That&#x27;s 10 euros total</strong>.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Asking the Price</th><th>Stating the Price</th></tr><tr><td>How much is it?</td><td>It&#x27;s [number] [currency].</td></tr><tr><td>What&#x27;s the price?</td><td>That&#x27;s [number] total.</td></tr></table></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match the question to the correct type of answer.</p>
+<p>Match each phrase.</p>
+<ul><li><strong>How much is it?</strong> — Asking for cost</li><li><strong>It&#x27;s 12 dollars.</strong> — Stating the cost</li><li><strong>What&#x27;s the price?</strong> — Asking for cost</li><li><strong>That&#x27;s 25 euros total.</strong> — Stating the cost</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-CP">
+<header class="stage-header"><span class="stage-code">CP</span><h2>Controlled Practice: Completing Price Dialogues</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>- Distribute the worksheet. Instruct students to complete the dialogues using the target exponents.<br>
+- Remind them to consider if the blank needs a question or a statement phrase for <strong class="lexis">cost</strong>.<br>
+- Circulate and monitor, providing immediate error correction on form and pronunciation.<br>
+- Review answers as a class, reinforcing correct usage and intonation.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Finishing the Conversation</h4>
+<p>Complete the dialogues using the correct phrases to ask or state the <strong class="lexis">price</strong>. Use phrases like <strong class="lexis">How much is it?</strong>, <strong class="lexis">What&#x27;s the price?</strong>, <strong class="lexis">It&#x27;s</strong>, or <strong class="lexis">That&#x27;s total</strong>.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Complete the dialogue.</p>
+<p>Customer: I need a new key. ____________?</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the dialogue.</p>
+<p>Shopkeeper: ____________ 7 dollars.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the dialogue.</p>
+<p>Customer: What&#x27;s the price for two? Shopkeeper: ____________ 14 dollars total.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the dialogue.</p>
+<p>Customer: I need my shoe fixed. ____________?</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Freer Practice: Roleplay at the Service Counter</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>- Explain the roleplay scenario: one student is a customer needing a <strong class="lexis">service</strong> (shoe repair, key cutting), the other is the shop employee.<br>
+- Instruct students to use the phrases for asking and stating prices learned in the previous stages.<br>
+- Encourage them to create short dialogues. Emphasize polite and clear communication relevant to a professional context.<br>
+- Circulate and observe, noting down errors for delayed correction. Focus on fluency and appropriate use of exponents.<br>
+- After some practice, ask a few pairs to perform for the class.<br>
+- Provide general feedback and correct persistent errors.</p>
+<p><strong class="lexis">Model Response (for teacher reference):</strong><br>
+Customer: Excuse me, I need my shoe <strong class="lexis">fixed</strong>. <strong class="lexis">How much is it</strong>?<br>
+Employee: For a simple <strong class="lexis">repair</strong>, <strong class="lexis">it&#x27;s 15 dollars</strong>.<br>
+Customer: Okay. And for two pairs?<br>
+Employee: <strong class="lexis">That&#x27;s 30 dollars total</strong>.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">At the Shop Counter</h4>
+<p>Work in pairs. You are at a <strong class="lexis">repair</strong> shop. One person is the customer, the other is the shop employee. The customer needs a <strong class="lexis">service</strong> (e.g., shoe <strong class="lexis">fix</strong>, key copy). Ask about the <strong class="lexis">cost</strong>. The employee states the <strong class="lexis">price</strong>. Switch roles. Act out different scenarios.</p>
+</section>
+</article>
+</body>
+</html>

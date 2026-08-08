@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Talking About Your Move at Work</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Talking About Your Move at Work</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>10</dd>
+      <dt>Class</dt><dd>5</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-getting-settled-initial-thoughts">
+<header class="stage-header"><h2>Getting Settled: Initial Thoughts</h2></header>
+<section class="handout">
+<p>Imagine a colleague is about to move to a new city for a fantastic work opportunity. They&#x27;re excited about the job, but a bit nervous about settling into a completely new place and building a home life there.</p>
+<p>What practical advice would you offer them to help them <strong class="lexis">adapt socially</strong> and establish a <strong class="lexis">comfortable home environment</strong>?</p>
+<p>Consider:<br>
+1.  How can they meet new people and build a social network in a new city?<br>
+2.  What steps can they take to make their new house or apartment feel like home quickly?<br>
+3.  How can they ensure they <strong class="lexis">maintain a healthy work-life balance</strong> during this busy transition, especially with a new job and new environment?</p>
+</section>
+</article>
+<article class="stage" id="stage-drafting-professional-responses">
+<header class="stage-header"><h2>Drafting Professional Responses</h2></header>
+<section class="handout">
+<p>Read the email from your manager regarding your upcoming relocation. Then, choose the most appropriate and professional response for each situation.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Email from HR: Your Relocation to the City Office</h5>
+<p>Subject: Your Relocation to the City Office – Settling In</p>
+<p>Dear [Colleague&#x27;s Name],</p>
+<p>Hope you&#x27;re having a productive week. As your relocation to the City Office approaches, we want to ensure your transition is as smooth as possible, both professionally and personally.</p>
+<p>HR has prepared a comprehensive <strong class="lexis">relocation package</strong> for you, which covers housing assistance, moving expenses, and initial <strong class="lexis">cultural integration</strong> resources. We&#x27;re keen to support you not just at work, but also in making your new city feel like home.</p>
+<p>I was wondering if you’ve started thinking about your preferred <strong class="lexis">social support systems</strong> in the new city? Perhaps some suggestions for <strong class="lexis">local networking</strong> events, or even details about your family&#x27;s specific needs for schools or local amenities? We want to make sure you&#x27;re fully comfortable.</p>
+<p>Please feel free to reach out with any questions. We&#x27;re here to help.</p>
+<p>Best regards,</p>
+<p>[Manager&#x27;s Name]<br>
+Relocation Support Team</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Your manager is asking about your family&#x27;s specific needs in the new city. Which of the following is the most professional way to set a boundary regarding this personal topic without being rude?</p>
+<p>When asked about personal family details, you respond:</p>
+<ul><li>That&#x27;s a bit personal for work, isn&#x27;t it?</li><li>I hope you understand that it&#x27;s a private matter.</li><li>I&#x27;m not going to discuss my family with you.</li><li>My family life is none of your business.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Your manager suggests you attend a work social event that clashes with important personal plans. Which phrase allows you to politely decline while asserting your need for personal time management?</p>
+<p>To politely decline a conflicting work social event, you say:</p>
+<ul><li>I&#x27;m afraid I have other things to do.</li><li>I need to prioritize personal commitments that evening.</li><li>My personal life is just too busy.</li><li>I can&#x27;t make it.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Your manager mentions wanting to help you &#x27;make your new city feel like home,&#x27; implying they might get involved in your personal setup. How can you respond to gently indicate you manage your non-work life?</p>
+<p>To gently suggest you manage your own non-work time and home setup, you say:</p>
+<ul><li>My personal arrangements are my responsibility.</li><li>I always strive to maintain a healthy work-life balance.</li><li>I don&#x27;t need help with my home life.</li><li>Thank you, but I prefer to handle things myself.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-understanding-polite-professionalism">
+<header class="stage-header"><h2>Understanding Polite Professionalism</h2></header>
+<section class="handout">
+<p>Now let&#x27;s look closer at ways to communicate professionally when discussing personal life at work. We will explore the meaning, appropriacy, and pronunciation of these key phrases.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Professional Boundary-Setting Phrases</th><th>Function / Meaning</th><th>Professional Register</th></tr><tr><td>**maintain a healthy work-life balance**</td><td>To ensure sufficient time is allocated for non-work activities.</td><td>Formal / Professional</td></tr><tr><td>**respect personal boundaries**</td><td>To acknowledge and ask for space regarding personal topics or limits.</td><td>Formal / Professional</td></tr><tr><td>**prioritize personal commitments**</td><td>To put personal responsibilities ahead of work obligations when necessary.</td><td>Formal / Professional</td></tr><tr><td>**it&#x27;s a private matter**</td><td>To politely state that a topic is not for discussion at work.</td><td>Polite / Formal</td></tr><tr><td>**I appreciate your understanding**</td><td>To thank someone for acknowledging your need for privacy or personal time.</td><td>Polite / Formal</td></tr></table></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Which of the following phrases is the most polite and professional way to signal the end of a discussion about a personal topic that your manager has brought up?</p>
+<p>To gracefully close a personal topic, you say:</p>
+<ul><li>That&#x27;s enough about my private life.</li><li>I&#x27;d rather not talk about it.</li><li>I appreciate your understanding regarding this.</li><li>Let&#x27;s change the subject.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Consider the phrase &#x27;respect personal boundaries&#x27;. In what specific kind of professional interaction would it be appropriate to use this phrase, and what does it imply?</p>
+<p>When and why would you use &#x27;respect personal boundaries&#x27; at work?</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-my-relocation-my-choices">
+<header class="stage-header"><h2>My Relocation, My Choices</h2></header>
+<section class="handout">
+<p>You are a colleague relocating to a new city for work. Your manager (or HR representative) is very keen to help you settle in, but sometimes their questions or suggestions might feel a little too personal, or they might make assumptions about your non-work life.</p>
+<p><strong class="lexis">Task:</strong> In pairs, role-play the following scenario:</p>
+<p><strong class="lexis">Student A (Relocating Employee):</strong> You need to discuss your relocation plan with your manager/HR. Your goal is to thank them for their professional support while politely, but firmly, setting boundaries regarding your personal life and home arrangements. Ensure you use the phrases we discussed today (e.g., <strong class="lexis">maintain a healthy work-life balance</strong>, <strong class="lexis">respect personal boundaries</strong>, <strong class="lexis">prioritize personal commitments</strong>, <strong class="lexis">it&#x27;s a private matter</strong>, <strong class="lexis">I appreciate your understanding</strong>) to clearly communicate your needs without causing offense. Remember to use a gentle, falling intonation for politeness and clear stress on keywords.</p>
+<p><strong class="lexis">Student B (Manager/HR):</strong> You are genuinely trying to be supportive, but you might occasionally ask questions that are a bit too personal, or suggest activities that might interfere with your colleague&#x27;s personal time. For example, you might ask about their family&#x27;s adaptation, offer to help set up their home, or suggest a work-related social event that clashes with personal time. Your goal is to be helpful, but also to listen and respond appropriately when your colleague sets a boundary.</p>
+</section>
+</article>
+</body>
+</html>

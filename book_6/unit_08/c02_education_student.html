@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Making Your Case for New Ideas</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Making Your Case for New Ideas</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>8</dd>
+      <dt>Class</dt><dd>2</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-thinking-about-new-tools">
+<header class="stage-header"><h2>Thinking About New Tools</h2></header>
+<section class="handout">
+<p>Think about the last time your workplace considered investing in a new piece of equipment or software. Discuss with a partner:</p>
+<p>1. What were the most important questions you or your team had about it?<br>
+2. How did you determine if it would genuinely benefit your operations and fit your current needs?<br>
+3. Have you ever felt that vendor claims were overly optimistic or didn&#x27;t quite match reality?</p>
+</section>
+</article>
+<article class="stage" id="stage-first-look-new-software-claims">
+<header class="stage-header"><h2>First Look: New Software Claims</h2></header>
+<section class="handout">
+<p>Read the internal memo below quickly. Don&#x27;t worry about understanding every detail. Focus on identifying the main purpose of the memo.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Internal Memo: Initial Assessment of the &#x27;OptiFlow&#x27; Logistics Software</h5>
+<p>To: Operations Management Team <br>
+From: Process Improvement Committee <br>
+Date: October 26, 2023 <br>
+Subject: Initial Assessment of the &#x27;OptiFlow&#x27; Logistics Software</p>
+<p>Following the recent demonstration and preliminary review of the &#x27;OptiFlow&#x27; Logistics Software, this memo outlines our initial findings and concerns. While the vendor&#x27;s presentation emphasized significant <strong class="lexis">operational impact</strong> and promised an immediate uplift in efficiency, our committee&#x27;s <strong class="lexis">equipment evaluation</strong> suggests a more cautious approach is warranted.</p>
+<p>The vendor <strong class="lexis">claims</strong> that &#x27;OptiFlow&#x27; will streamline our inventory management by 30% and reduce dispatch errors by 25%. They also highlighted an integrated module designed to help staff <strong class="lexis">upskill in a specific area</strong> of data analysis, asserting that it would significantly <strong class="lexis">enhance one&#x27;s skill set</strong> across the team. However, our initial <strong class="lexis">cost-benefit analysis</strong> indicates that the projected savings may be offset by substantial implementation costs and potential disruption during the transition period.</p>
+<p>Specifically, we question the ease of integration with our legacy systems. The vendor <strong class="lexis">suggests that</strong> our existing databases <strong class="lexis">be</strong> migrated over a two-week period. Our IT department, however, <strong class="lexis">demands that</strong> this <strong class="lexis">be</strong> a phased approach to minimize system downtime. Furthermore, the mandatory training program for &#x27;OptiFlow&#x27; users appears extensive. Staff will need to <strong class="lexis">undertake professional development</strong> that goes beyond a simple orientation; indeed, some may need to <strong class="lexis">receive mandatory training</strong> for a new <strong class="lexis">certification</strong> in &#x27;OptiFlow&#x27; operation. This represents a considerable commitment of time and resources.</p>
+<p>We acknowledge the potential for process improvement, but we believe it is crucial <strong class="lexis">that</strong> we <strong class="lexis">do not</strong> rush into a decision based solely on optimistic projections. The committee <strong class="lexis">recommends that</strong> a pilot program <strong class="lexis">be</strong> initiated in a smaller department before a full-scale rollout. It is also imperative <strong class="lexis">that</strong> we <strong class="lexis">demand that</strong> the vendor <strong class="lexis">provide</strong> a detailed integration plan that addresses our specific infrastructure. The overall objective is to ensure that any new investment genuinely supports our long-term goals and contributes positively to our team&#x27;s capabilities, rather than creating unforeseen bottlenecks or requiring substantial, unbudgeted <strong class="lexis">professional development</strong> initiatives.</p>
+<p>We will reconvene next week to discuss these points further.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main purpose of this memo?</p>
+<ul><li>To endorse the immediate adoption of the OptiFlow software.</li><li>To express concerns and recommend further evaluation of the OptiFlow software.</li><li>To schedule a mandatory training session for the OptiFlow software.</li><li>To request a new budget for operational improvements.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-understanding-the-details">
+<header class="stage-header"><h2>Understanding the Details</h2></header>
+<section class="handout">
+<p>Read the memo again more carefully. Then, answer the questions below to check your detailed understanding.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Internal Memo: Initial Assessment of the &#x27;OptiFlow&#x27; Logistics Software</h5>
+<p>To: Operations Management Team <br>
+From: Process Improvement Committee <br>
+Date: October 26, 2023 <br>
+Subject: Initial Assessment of the &#x27;OptiFlow&#x27; Logistics Software</p>
+<p>Following the recent demonstration and preliminary review of the &#x27;OptiFlow&#x27; Logistics Software, this memo outlines our initial findings and concerns. While the vendor&#x27;s presentation emphasized significant <strong class="lexis">operational impact</strong> and promised an immediate uplift in efficiency, our committee&#x27;s <strong class="lexis">equipment evaluation</strong> suggests a more cautious approach is warranted.</p>
+<p>The vendor <strong class="lexis">claims</strong> that &#x27;OptiFlow&#x27; will streamline our inventory management by 30% and reduce dispatch errors by 25%. They also highlighted an integrated module designed to help staff <strong class="lexis">upskill in a specific area</strong> of data analysis, asserting that it would significantly <strong class="lexis">enhance one&#x27;s skill set</strong> across the team. However, our initial <strong class="lexis">cost-benefit analysis</strong> indicates that the projected savings may be offset by substantial implementation costs and potential disruption during the transition period.</p>
+<p>Specifically, we question the ease of integration with our legacy systems. The vendor <strong class="lexis">suggests that</strong> our existing databases <strong class="lexis">be</strong> migrated over a two-week period. Our IT department, however, <strong class="lexis">demands that</strong> this <strong class="lexis">be</strong> a phased approach to minimize system downtime. Furthermore, the mandatory training program for &#x27;OptiFlow&#x27; users appears extensive. Staff will need to <strong class="lexis">undertake professional development</strong> that goes beyond a simple orientation; indeed, some may need to <strong class="lexis">receive mandatory training</strong> for a new <strong class="lexis">certification</strong> in &#x27;OptiFlow&#x27; operation. This represents a considerable commitment of time and resources.</p>
+<p>We acknowledge the potential for process improvement, but we believe it is crucial <strong class="lexis">that</strong> we <strong class="lexis">do not</strong> rush into a decision based solely on optimistic projections. The committee <strong class="lexis">recommends that</strong> a pilot program <strong class="lexis">be</strong> initiated in a smaller department before a full-scale rollout. It is also imperative <strong class="lexis">that</strong> we <strong class="lexis">demand that</strong> the vendor <strong class="lexis">provide</strong> a detailed integration plan that addresses our specific infrastructure. The overall objective is to ensure that any new investment genuinely supports our long-term goals and contributes positively to our team&#x27;s capabilities, rather than creating unforeseen bottlenecks or requiring substantial, unbudgeted <strong class="lexis">professional development</strong> initiatives.</p>
+<p>We will reconvene next week to discuss these points further.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What specific benefits did the vendor claim &#x27;OptiFlow&#x27; would provide?</p>
+</div>
+<div class="task"><p class="task-instruction">What are the committee&#x27;s two main concerns about implementing &#x27;OptiFlow&#x27;?</p>
+</div>
+<div class="task"><p class="task-instruction">What is the IT department&#x27;s stance regarding the migration process?</p>
+</div>
+<div class="task"><p class="task-instruction">What specific recommendation does the committee make before a full rollout?</p>
+</div>
+<div class="task"><p class="task-instruction">What is the underlying reason the committee is advocating for caution, beyond the specific concerns mentioned? (Infer from the text)</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-unpacking-formal-language-and-skills">
+<header class="stage-header"><h2>Unpacking Formal Language and Skills</h2></header>
+<section class="handout">
+<p>The memo uses specific language to make recommendations and demands, and to discuss staff training. Let&#x27;s analyze how this language is used.</p>
+<p><strong class="lexis">Part 1: Analyzing Formal Recommendations and Demands</strong><br>
+Look at the sentences from the memo below. Pay close attention to the verbs highlighted. What do you notice about their form, especially in the &#x27;that-clause&#x27;? What kind of meaning (a strong suggestion, a requirement, or something else) do they convey in a formal workplace context?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Internal Memo: Initial Assessment of the &#x27;OptiFlow&#x27; Logistics Software</h5>
+<p>To: Operations Management Team <br>
+From: Process Improvement Committee <br>
+Date: October 26, 2023 <br>
+Subject: Initial Assessment of the &#x27;OptiFlow&#x27; Logistics Software</p>
+<p>Following the recent demonstration and preliminary review of the &#x27;OptiFlow&#x27; Logistics Software, this memo outlines our initial findings and concerns. While the vendor&#x27;s presentation emphasized significant <strong class="lexis">operational impact</strong> and promised an immediate uplift in efficiency, our committee&#x27;s <strong class="lexis">equipment evaluation</strong> suggests a more cautious approach is warranted.</p>
+<p>The vendor <strong class="lexis">claims</strong> that &#x27;OptiFlow&#x27; will streamline our inventory management by 30% and reduce dispatch errors by 25%. They also highlighted an integrated module designed to help staff <strong class="lexis">upskill in a specific area</strong> of data analysis, asserting that it would significantly <strong class="lexis">enhance one&#x27;s skill set</strong> across the team. However, our initial <strong class="lexis">cost-benefit analysis</strong> indicates that the projected savings may be offset by substantial implementation costs and potential disruption during the transition period.</p>
+<p>Specifically, we question the ease of integration with our legacy systems. The vendor <strong class="lexis">suggests that</strong> our existing databases <strong class="lexis">be</strong> migrated over a two-week period. Our IT department, however, <strong class="lexis">demands that</strong> this <strong class="lexis">be</strong> a phased approach to minimize system downtime. Furthermore, the mandatory training program for &#x27;OptiFlow&#x27; users appears extensive. Staff will need to <strong class="lexis">undertake professional development</strong> that goes beyond a simple orientation; indeed, some may need to <strong class="lexis">receive mandatory training</strong> for a new <strong class="lexis">certification</strong> in &#x27;OptiFlow&#x27; operation. This represents a considerable commitment of time and resources.</p>
+<p>We acknowledge the potential for process improvement, but we believe it is crucial <strong class="lexis">that</strong> we <strong class="lexis">do not</strong> rush into a decision based solely on optimistic projections. The committee <strong class="lexis">recommends that</strong> a pilot program <strong class="lexis">be</strong> initiated in a smaller department before a full-scale rollout. It is also imperative <strong class="lexis">that</strong> we <strong class="lexis">demand that</strong> the vendor <strong class="lexis">provide</strong> a detailed integration plan that addresses our specific infrastructure. The overall objective is to ensure that any new investment genuinely supports our long-term goals and contributes positively to our team&#x27;s capabilities, rather than creating unforeseen bottlenecks or requiring substantial, unbudgeted <strong class="lexis">professional development</strong> initiatives.</p>
+<p>We will reconvene next week to discuss these points further.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Identify the verbs in the &#x27;that&#x27;-clauses in the following sentences from the memo. How do they express a strong recommendation or requirement?</p>
+<p>1. The vendor suggests that our existing databases be migrated over a two-week period.
+2. Our IT department, however, demands that this be a phased approach.
+3. We believe it is crucial that we do not rush into a decision.
+4. The committee recommends that a pilot program be initiated.
+5. It is also imperative that we demand that the vendor provide a detailed integration plan.
+
+In your own words, describe the pattern you see and its purpose.</p>
+</div>
+<div class="task"><p class="task-instruction">Match the professional development terms from the memo with their definitions or examples.</p>
+<ul><li><strong>upskill in a specific area</strong> — To learn new skills or improve existing ones in a particular field, often with a clear focus.</li><li><strong>undertake professional development</strong> — To engage in activities designed to improve one&#x27;s professional knowledge or skills, showing initiative.</li><li><strong>receive mandatory training</strong> — To be required by the organization to complete specific instruction or courses, often for compliance or safety.</li><li><strong>gain a new certification</strong> — To officially obtain a document or qualification proving competence in a specific skill or field.</li><li><strong>enhance one&#x27;s skill set</strong> — To improve, broaden, or add to the range of abilities and competencies one possesses.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-applying-formal-workplace-language">
+<header class="stage-header"><h2>Applying Formal Workplace Language</h2></header>
+<section class="handout">
+<p>Now, let&#x27;s practice using the mandative subjunctive to make formal recommendations and requirements, and using specific vocabulary for professional development.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Rewrite the following sentences using the mandative subjunctive structure (verb + that + bare infinitive) to make them more formal and emphasize the strong recommendation or requirement.</p>
+<p>1. The safety committee insists that all employees must complete the online safety module.
+   -&gt; The safety committee insists that all employees ______________ the online safety module.
+2. It is important that the project manager considers all stakeholder feedback.
+   -&gt; It is important that the project manager ______________ all stakeholder feedback.
+3. The management recommends that we should review the quarterly budget regularly.
+   -&gt; The management recommends that we ______________ the quarterly budget regularly.
+4. My boss demanded that I analyze the market data immediately. (No change needed for &#x27;analyze&#x27;)
+   -&gt; My boss demanded that I ______________ the market data immediately.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentences below with the most appropriate professional learning and development term from the box. Use each term once.
+
+[upskill in a specific area, undertake professional development, receive mandatory training, gain a new certification, enhance one&#x27;s skill set]</p>
+<p>1. To stay competitive, employees must often ______________ to master new software tools.
+2. Many companies encourage their staff to ______________ by offering courses and workshops.
+3. Before operating heavy machinery, all new hires must ______________.
+4. Completing the advanced course allowed her to ______________ in project management.
+5. Continuous learning is vital for any professional to ______________ and adapt to industry changes.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-making-your-case-new-initiatives">
+<header class="stage-header"><h2>Making Your Case: New Initiatives</h2></header>
+<section class="handout">
+<p>Imagine your workplace is considering a significant new initiative or investment – perhaps new machinery, software, or a major change in operational procedures. Think about what your team or department would need to ensure its success.</p>
+<p>In pairs, discuss and formulate formal recommendations and demands. Use the mandative subjunctive (e.g., &#x27;I suggest that...&#x27;) and vocabulary for professional development (e.g., &#x27;receive mandatory training&#x27;, &#x27;upskill in a specific area&#x27;) in your discussion.</p>
+<p>Consider:<br>
+1. What formal recommendations or demands would you make to ensure the success and smooth implementation of this investment?<br>
+2. What kind of training or <strong class="lexis">professional development</strong> would be essential for your team, and how would you formally articulate these needs?</p>
+</section>
+</article>
+</body>
+</html>

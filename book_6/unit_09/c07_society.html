@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Whistleblowing and Double Comparatives</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Whistleblowing and Double Comparatives</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>9</dd>
+      <dt>Class</dt><dd>7</dd>
+      <dt>Theme</dt><dd>T09_SOCIETY</dd>
+      <dt>Framework</dt><dd>TTT</dd>
+      <dt>Role</dt><dd>TTT_ADVANCED_REVIEW_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Ethical Reporting in the Workplace</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by asking students to think about the lead-in brief scenario, perhaps sharing a personal (hypothetical) experience or general observation related to workplace ethics.<br>
+2. Prompt a short group or pair discussion (3-5 minutes) about initial thoughts on discovering serious misconduct.<br>
+3. Elicit key vocabulary related to the theme, such as <strong class="lexis">whistleblower protection</strong>, <strong class="lexis">ethical reporting</strong>, <strong class="lexis">internal investigation</strong>, <strong class="lexis">code of conduct</strong>, and <strong class="lexis">retaliation prevention</strong>, writing them on the board.<br>
+4. Guide students to consider the complexity of legal considerations and protections, and any advanced language they might use to discuss these complexities.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Considering Your Options</h4>
+<p>Imagine you discover serious unethical or illegal behavior in your workplace. This could be anything from financial fraud to safety violations. It&#x27;s a difficult situation that requires careful consideration.</p>
+<p>Discuss with a partner or in a small group:<br>
+1. What are your immediate thoughts or concerns if you found yourself in this situation, weighing personal risk against professional ethics?<br>
+2. What legal considerations should guide your decision to report it, particularly regarding your rights and potential liabilities?<br>
+3. What kind of <strong class="lexis">whistleblower protection</strong> or legal safeguards do you believe should exist for someone who reports such activities?<br>
+4. What complex language or structures would you use to describe the interconnectedness of ethical standards and legal consequences in such a scenario?</p>
+</section>
+</article>
+<article class="stage" id="stage-T1">
+<header class="stage-header"><span class="stage-code">T1</span><h2>Test 1: Diagnosing Complex Causal Structures</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will complete sentences to diagnose their understanding of advanced comparative structures in a legal context.<br>
+2. Emphasize using precise language for the professional and legal register.<br>
+3. Monitor for common errors related to double comparatives, such as incorrect comparative forms (&#x27;most&#x27; instead of &#x27;more&#x27;), omission of &#x27;the&#x27;, or incorrect word order.<br>
+4. Collect responses to identify specific areas that require targeted clarification in the next stage.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Analyzing Legal Dynamics</h4>
+<p>Complete the following sentences to reflect how different factors influence each other in legal and ethical reporting scenarios. Pay close attention to the structure that shows parallel increases or decreases between two variables.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Complete the sentence using a suitable comparative form to express a parallel relationship.</p>
+<p>The more robust the whistleblower protection laws are, ___________________ employees are to report misconduct.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence using a suitable comparative form to express a parallel relationship.</p>
+<p>The less transparency in internal investigation processes, ___________________ public trust in corporate governance.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence using a suitable comparative form to express a parallel relationship.</p>
+<p>The more stringent a company&#x27;s code of conduct enforcement, ___________________ for ethical breaches.</p>
+</div>
+<div class="task"><p class="task-instruction">Choose the most appropriate phrase to complete the statement, ensuring correct use of the double comparative.</p>
+<p>When retaliation prevention measures are weak, _______________ the willingness of staff to engage in ethical reporting.</p>
+<ul><li>the more it undermines</li><li>the most undermining is</li><li>the lesser undermining is</li><li>the more undermines</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-TCH">
+<header class="stage-header"><span class="stage-code">TCH</span><h2>Teach: Clarifying Double Comparatives for Causal Analysis</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Review the answers from T1, explicitly highlighting common errors from the diagnostic exercises.<br>
+2. Re-explain the meaning of the double comparative: &#x27;Demonstrating parallel increases or decreases between structural factors, jurisprudence parameters, bureaucratic hurdles, and ethical standards within state bodies.&#x27; Emphasize that a change in the first factor directly triggers a corresponding change in the second.<br>
+3. Clearly present the form: &#x27;The + comparative adjective/adverb + clause, the + comparative adjective/adverb + clause&#x27;. Provide a negative example if necessary: &#x27;The less transparency, the more distrust&#x27;.<br>
+4. Use the concept_check_questions:<br>
+   - &#x27;Does a change in the first legal system variable directly trigger a corresponding change in the second variable?&#x27; (Yes)<br>
+   - &#x27;Do we use standard base adjectives or comparative forms in this dual structure?&#x27; (Comparative forms)<br>
+5. Provide further practice with the match_pairs task to solidify the correct form and meaning, ensuring students can construct these complex sentences accurately.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Mastering Interdependencies</h4>
+<p>We&#x27;ve seen how complex legal and ethical factors influence each other in the workplace. To express these parallel changes clearly and professionally, we use the &#x27;double comparative&#x27; structure:</p>
+<p><strong class="lexis">The + comparative adjective/adverb + clause, the + comparative adjective/adverb + clause</strong></p>
+<p>For example:<br>
+*   _The more bureaucracy scales, the more complex the legal system becomes._<br>
+*   _The less public opinion shifts, the more politicians respect the social contract._</p>
+<p>This structure shows a direct, parallel relationship where one change causes a corresponding change in the other. Remember to always use comparative forms and include &#x27;the&#x27; before each comparative clause.</p>
+<p>Now, let&#x27;s practice matching sentence halves to correctly use this structure, focusing on the meaning of direct consequence.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match the first half of each statement with its correct second half to form a complete double comparative sentence, reflecting legal or ethical dynamics.</p>
+<ul><li><strong>The more stringent the oversight of internal investigation,</strong> — the greater the accountability for misconduct.</li><li><strong>The less effective retaliation prevention policies are,</strong> — the lower the willingness of employees to report.</li><li><strong>The more quickly a company responds to ethical reporting,</strong> — the less damage it causes to its reputation.</li><li><strong>The more complex the legal framework for whistleblower protection,</strong> — the more crucial clear guidance becomes.</li><li><strong>The less a code of conduct is communicated,</strong> — the more likely breaches are to occur.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-T2">
+<header class="stage-header"><span class="stage-code">T2</span><h2>Test 2: Applying Double Comparatives in a Case Study</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the brief case study on a hypothetical whistleblower situation, ensuring students understand the professional context.<br>
+2. Instruct students to read the scenario and then answer the questions, explicitly using the double comparative structure (e.g., &#x27;The more... the more...&#x27;).<br>
+3. Emphasize linking different elements of the case study using the target structure to show causal relationships.<br>
+4. Monitor for accurate use of form and meaning of the double comparative, as well as the logical connection between ideas presented in their answers.<br>
+5. Model answers can vary, but should correctly apply the double comparative structure and reflect appropriate professional language. Example for Q1: &#x27;The more comprehensive her documentation, the stronger her legal position, and the harder it is for management to implement retaliation prevention measures effectively.&#x27;</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Analyzing a Whistleblower Scenario</h4>
+<p>Read the following scenario about an employee considering reporting misconduct. Then, answer the questions, using the <strong class="lexis">double comparative</strong> structure (&#x27;The + comparative... the + comparative...&#x27;) to explain the potential outcomes and relationships between factors. Aim for concise, professional analysis.</p>
+<p><strong class="lexis">Scenario: Maria&#x27;s Dilemma</strong><br>
+Maria works for a logistics company. She&#x27;s discovered compelling evidence of systematic overbilling to clients, potentially involving senior management. She is contemplating reporting this but is deeply concerned about her job security and potential repercussions. She has been quietly gathering documents and emails for weeks. The company has a <strong class="lexis">code of conduct</strong> that vaguely mentions <strong class="lexis">ethical reporting</strong>, but the <strong class="lexis">whistleblower protection</strong> policy is unclear, and past <strong class="lexis">internal investigation</strong> outcomes have not always been transparent or fair. Maria needs to weigh the risks and benefits carefully, considering both company policy and external legal avenues.</p>
+<p>Answer the following questions using double comparatives:<br>
+1. How do you think the quality of Maria&#x27;s evidence relates to her potential legal standing and the effectiveness of <strong class="lexis">retaliation prevention</strong>?<br>
+2. What is the relationship between the clarity of the company&#x27;s <strong class="lexis">whistleblower protection</strong> policy and Maria&#x27;s willingness to report the misconduct?<br>
+3. How might the company&#x27;s prior record of <strong class="lexis">internal investigation</strong> transparency affect the public&#x27;s perception if Maria&#x27;s story becomes public?<br>
+4. In what way does the severity of the illegal activity relate to the potential for a larger, more impactful external investigation?</p>
+</section>
+</article>
+</body>
+</html>

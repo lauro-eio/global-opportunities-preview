@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Expressing Workplace Conditions &amp; Agreements</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Expressing Workplace Conditions &amp; Agreements</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_4</dd>
+      <dt>CEFR</dt><dd>B1</dd>
+      <dt>Unit</dt><dd>4</dd>
+      <dt>Class</dt><dd>5</dd>
+      <dt>Theme</dt><dd>T04_FINANCE</dd>
+      <dt>Framework</dt><dd>TBLF</dd>
+      <dt>Role</dt><dd>TBLF_PRAGMATICS_LEXIS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Talking About Money at Work</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Greet learners and introduce the topic: talking about money in different situations.<br>
+2. Ask learners to discuss the first two questions in pairs, then open up for a brief whole-class share.<br>
+3. Transition to the third question about work contexts. Emphasize the difference in tone and privacy.<br>
+4. Do not pre-teach the target language, focus purely on the pragmatic context.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Money Talk: Office vs. Home</h4>
+<p>Imagine you need to talk about money. How do you do it?</p>
+<p>1.  Who do you talk about money with at home (family, friends)? What kind of language do you use? (e.g., casual, serious, joking)<br>
+2.  Is it a private topic or an open one?<br>
+3.  Now, think about work. How is talking about money different in these situations?<br>
+    *   Joking with colleagues in the break room about being &#x27;broke&#x27;.<br>
+    *   Asking your supervisor about overtime pay or a pay rise.<br>
+    *   Discussing company expenses with a client.</p>
+<p>Think about the <strong class="lexis">tone</strong> you use and the <strong class="lexis">level of privacy</strong>.</p>
+</section>
+</article>
+<article class="stage" id="stage-GIST">
+<header class="stage-header"><span class="stage-code">GIST</span><h2>Gist Reading: Overtime Policy Update</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Tell learners they will read a memo about a new company policy.<br>
+2. Ask them to read the memo quickly to get the main idea.<br>
+3. Set a time limit for reading (e.g., 2 minutes).<br>
+4. Have them answer the multiple-choice question to check their overall understanding. Emphasize that they do not need to understand every word at this stage.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">New Company Guidelines</h4>
+<p>Read the memo quickly to understand the main purpose. Choose the best answer.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Memo: Update on Overtime Approval Process</h5>
+<p>Subject: Update: Overtime Approval Process<br>
+To: All Staff<br>
+From: HR Department<br>
+Date: [Current Date]</p>
+<p>Dear Team,</p>
+<p>This memo provides an update on our company&#x27;s <strong class="lexis">overtime approval process</strong>, effective next month. Our goal is to ensure fair compensation and efficient project management.</p>
+<p>You can claim overtime <strong class="lexis">as long as</strong> it has been pre-approved by your direct supervisor. Please submit your overtime request form at least 24 hours before the intended extra work. Approval is necessary to comply with budget guidelines.</p>
+<p>Payment for overtime hours will be processed with your regular monthly salary. <strong class="lexis">Unless</strong> your request is submitted with all required details, there may be a delay in processing. Incorrect forms will be returned for completion.</p>
+<p><strong class="lexis">Provided that</strong> all departmental project targets are met, supervisors have the discretion to approve reasonable overtime requests for urgent tasks. We understand that sometimes extra effort is needed.</p>
+<p>For any questions, please consult your supervisor or the HR department.</p>
+<p>Thank you for your cooperation.<br>
+HR Department.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main purpose of this memo?</p>
+<ul><li>To announce new overtime pay rates.</li><li>To inform staff about changes to how overtime is approved.</li><li>To ask staff to work more overtime hours.</li><li>To explain how to fill out expense forms.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-DET">
+<header class="stage-header"><span class="stage-code">DET</span><h2>Detailed Comprehension: Overtime Policy</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Instruct learners to read the memo again, this time more carefully.<br>
+2. Ask them to complete the short_text tasks about the conditions mentioned in the memo.<br>
+3. After they complete the tasks, put them in pairs to discuss their answers.<br>
+4. Conduct a quick whole-class check for answers. Clarify any misunderstandings related to the conditions.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Understanding the Conditions</h4>
+<p>Read the memo again carefully. Answer the questions about the conditions for overtime.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Memo: Update on Overtime Approval Process</h5>
+<p>Subject: Update: Overtime Approval Process<br>
+To: All Staff<br>
+From: HR Department<br>
+Date: [Current Date]</p>
+<p>Dear Team,</p>
+<p>This memo provides an update on our company&#x27;s <strong class="lexis">overtime approval process</strong>, effective next month. Our goal is to ensure fair compensation and efficient project management.</p>
+<p>You can claim overtime <strong class="lexis">as long as</strong> it has been pre-approved by your direct supervisor. Please submit your overtime request form at least 24 hours before the intended extra work. Approval is necessary to comply with budget guidelines.</p>
+<p>Payment for overtime hours will be processed with your regular monthly salary. <strong class="lexis">Unless</strong> your request is submitted with all required details, there may be a delay in processing. Incorrect forms will be returned for completion.</p>
+<p><strong class="lexis">Provided that</strong> all departmental project targets are met, supervisors have the discretion to approve reasonable overtime requests for urgent tasks. We understand that sometimes extra effort is needed.</p>
+<p>For any questions, please consult your supervisor or the HR department.</p>
+<p>Thank you for your cooperation.<br>
+HR Department.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main condition for claiming overtime?</p>
+</div>
+<div class="task"><p class="task-instruction">What might happen if your overtime request is not submitted with all required details?</p>
+</div>
+<div class="task"><p class="task-instruction">Under what condition can supervisors approve reasonable overtime requests for urgent tasks?</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-GD">
+<header class="stage-header"><span class="stage-code">GD</span><h2>Guided Discovery: Conditional Conjunctions</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Draw learners&#x27; attention to the bold phrases in the memo: <strong class="lexis">as long as</strong>, <strong class="lexis">unless</strong>, <strong class="lexis">provided that</strong>.<br>
+2. Ask learners to match each phrase to its meaning using the match_pairs task. Discuss answers to ensure correct understanding.<br>
+3. Discuss the function: These words link conditions. Elicit from learners how these words set a condition for an approval, payment, or action.<br>
+4. Focus on pronunciation: Write &#x27;You can claim overtime&#x27; and &#x27;as long as it has been pre-approved&#x27;. Highlight the connected speech in <strong class="lexis">as long as</strong> (weak forms, /əz lɒŋ əz/) and the contraction of &#x27;will&#x27; in other sentences (e.g., &#x27;there&#x27;ll be&#x27;, &#x27;we&#x27;ll approve&#x27;). Model and drill these. Explain that these words are common in formal/workplace communication about rules and agreements.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Conditions for Agreement</h4>
+<p>Look at the memo again. Pay attention to the bold phrases:</p>
+<p>*   <strong class="lexis">as long as</strong><br>
+*   <strong class="lexis">unless</strong><br>
+*   <strong class="lexis">provided that</strong></p>
+<p>These phrases are used to talk about conditions or agreements. They tell you what must happen for something else to be true or possible.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Memo: Update on Overtime Approval Process</h5>
+<p>Subject: Update: Overtime Approval Process<br>
+To: All Staff<br>
+From: HR Department<br>
+Date: [Current Date]</p>
+<p>Dear Team,</p>
+<p>This memo provides an update on our company&#x27;s <strong class="lexis">overtime approval process</strong>, effective next month. Our goal is to ensure fair compensation and efficient project management.</p>
+<p>You can claim overtime <strong class="lexis">as long as</strong> it has been pre-approved by your direct supervisor. Please submit your overtime request form at least 24 hours before the intended extra work. Approval is necessary to comply with budget guidelines.</p>
+<p>Payment for overtime hours will be processed with your regular monthly salary. <strong class="lexis">Unless</strong> your request is submitted with all required details, there may be a delay in processing. Incorrect forms will be returned for completion.</p>
+<p><strong class="lexis">Provided that</strong> all departmental project targets are met, supervisors have the discretion to approve reasonable overtime requests for urgent tasks. We understand that sometimes extra effort is needed.</p>
+<p>For any questions, please consult your supervisor or the HR department.</p>
+<p>Thank you for your cooperation.<br>
+HR Department.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match each phrase from the memo to its meaning.</p>
+<ul><li><strong>as long as</strong> — only if; provided that</li><li><strong>unless</strong> — if not</li><li><strong>provided that</strong> — only if; as long as</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-CP">
+<header class="stage-header"><span class="stage-code">CP</span><h2>Controlled Practice: Budgeting Conditions</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that learners will now practice using the target phrases.<br>
+2. Instruct learners to complete the sentences using &#x27;as long as&#x27;, &#x27;unless&#x27;, or &#x27;provided that&#x27;.<br>
+3. Encourage them to think about the meaning of each phrase to choose the correct one.<br>
+4. Have learners check their answers in pairs, then conduct a whole-class check. Pay attention to correct usage and form.<br>
+5. Briefly review the pronunciation of <strong class="lexis">as long as</strong> and contractions of &#x27;will&#x27; if opportunities arise during feedback.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Completing Company Rules</h4>
+<p>Complete the following sentences using <strong class="lexis">as long as</strong>, <strong class="lexis">unless</strong>, or <strong class="lexis">provided that</strong>. Choose the best phrase to fit the meaning of the condition.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Complete the sentence.</p>
+<p>You can get a refund for your business travel expenses __________ you keep all your original receipts.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence.</p>
+<p>The company will not pay for personal calls made on work phones __________ it&#x27;s an emergency.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence.</p>
+<p>Your annual bonus will be paid in December __________ the company meets its financial targets.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence.</p>
+<p>We can approve your leave request __________ you find someone to cover your shifts.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence.</p>
+<p>Do not submit your timesheet late __________ you want your pay to be delayed.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Freer Practice: Workplace Scenarios</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that learners will now use the new phrases in a more realistic work context.<br>
+2. Divide learners into small groups (3-4 people).<br>
+3. Assign each group one or two scenarios from the student_content or have them choose.<br>
+4. Instruct them to discuss the scenario, using <strong class="lexis">as long as</strong>, <strong class="lexis">unless</strong>, and <strong class="lexis">provided that</strong> to negotiate or set conditions.<br>
+5. Circulate and monitor, noting good usage and errors related to the target language. Do not interrupt for corrections unless communication breaks down.<br>
+6. After 5-7 minutes, bring the class back together for a brief feedback session. Ask groups to share one key condition they discussed for their scenario.<br>
+7. Provide delayed error correction on target language, focusing on clarity and appropriacy.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Discussing Work Agreements</h4>
+<p>Work in small groups. Discuss the following workplace scenarios. Use <strong class="lexis">as long as</strong>, <strong class="lexis">unless</strong>, and <strong class="lexis">provided that</strong> to talk about conditions and agreements.</p>
+<p><strong class="lexis">Scenario 1: New Project Deadline</strong><br>
+Your team has a new, urgent project. Your supervisor says you can work extra hours from home to finish it, but there are conditions.<br>
+*   What conditions would you expect for working from home on a tight deadline?<br>
+*   What conditions might your supervisor set for your team to work from home?</p>
+<p><strong class="lexis">Scenario 2: Company Training Course</strong><br>
+Your company offers a free online training course to improve skills. It&#x27;s a great opportunity, but it&#x27;s outside work hours.<br>
+*   What conditions would make you decide to do the course?<br>
+*   What conditions might the company have for you to join this course?</p>
+<p><strong class="lexis">Scenario 3: Office Supplies Budget</strong><br>
+Your department needs new office chairs. The manager says they can be bought, but there are budget rules.<br>
+*   What conditions might the manager give for approving new chairs?<br>
+*   What might happen if those conditions aren&#x27;t met?</p>
+<p><strong class="lexis">Example sentences:</strong><br>
+*   &#x27;We can work from home <strong class="lexis">as long as</strong> we complete our tasks on time.&#x27;<br>
+*   &#x27;The company won&#x27;t pay for the course <strong class="lexis">unless</strong> you finish all modules.&#x27;<br>
+*   &#x27;<strong class="lexis">Provided that</strong> we find a cheaper supplier, we can buy new chairs.&#x27;</p>
+</section>
+</article>
+</body>
+</html>

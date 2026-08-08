@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Making Effective Workplace Recommendations</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Making Effective Workplace Recommendations</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>8</dd>
+      <dt>Class</dt><dd>7</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-rethinking-x27-how-we-x27-ve-always-done">
+<header class="stage-header"><h2>Rethinking &#x27;How We&#x27;ve Always Done It&#x27;</h2></header>
+<section class="handout">
+<p>At work, we often follow routines simply because &#x27;that&#x27;s how it&#x27;s always been done.&#x27; Sometimes, new evidence or insights suggest a better way. Think about your own workplace or a previous job.</p>
+<p>1. Can you think of a particular practice, procedure, or policy you&#x27;ve encountered that you believe could be done differently and more effectively?<br>
+2. How would you respectfully present a challenge to this established norm, especially if it&#x27;s something senior colleagues strongly support? What kind of language would you use to make a strong, evidence-based recommendation without causing offense?</p>
+</section>
+</article>
+<article class="stage" id="stage-reviewing-recommendations">
+<header class="stage-header"><h2>Reviewing Recommendations</h2></header>
+<section class="handout">
+<p>Read the following sentences, which are taken from internal company reports and proposals. Each sentence contains one grammatical error. Identify and correct the error in each one.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Correct the error in the following sentence:</p>
+<p>The departmental policy demands that every team member analyzes the quarterly safety report before the review meeting.</p>
+</div>
+<div class="task"><p class="task-instruction">Correct the error in the following sentence:</p>
+<p>The safety committee suggests that the new protocol not alters the existing emergency procedures without a full risk assessment.</p>
+</div>
+<div class="task"><p class="task-instruction">Correct the error in the following sentence:</p>
+<p>Our new quality control manual requires that staff attends the mandatory training session.</p>
+</div>
+<div class="task"><p class="task-instruction">Correct the error in the following sentence:</p>
+<p>An external audit advises that management revises the shift scheduling system to improve fairness.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-crafting-clear-directives">
+<header class="stage-header"><h2>Crafting Clear Directives</h2></header>
+<section class="handout">
+<p>Let&#x27;s review the structure we use for formal recommendations and requirements, often found in professional reports, policies, or proposals. This structure is called the <strong class="lexis">mandative subjunctive</strong>.</p>
+<p>We use specific verbs (like <strong class="lexis">suggest</strong>, <strong class="lexis">recommend</strong>, <strong class="lexis">demand</strong>, <strong class="lexis">insist</strong>, <strong class="lexis">require</strong>, <strong class="lexis">propose</strong>, <strong class="lexis">advise</strong>) followed by &#x27;that&#x27;, then a subject, and then the <strong class="lexis">bare infinitive</strong> form of the verb. This means the verb doesn&#x27;t change, even for &#x27;he&#x27;, &#x27;she&#x27;, or &#x27;it&#x27;.</p>
+<p><strong class="lexis">Example (Affirmative):</strong> The safety committee <strong class="lexis">recommends that</strong> *everyone <strong class="lexis">wear</strong>* protective gloves in the assembly area.<br>
+<strong class="lexis">Example (Negative):</strong> The new guideline <strong class="lexis">insists that</strong> *staff <strong class="lexis">not bypass</strong>* the security checks.</p>
+<p>This structure is used for high-stakes professional suggestions, critical evaluations, and formal directives in a respectful but firm manner.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Choose the correct verb form to complete the formal recommendation:</p>
+<p>The new company guideline insists that every employee ______ the updated privacy policy.</p>
+<ul><li>reads</li><li>read</li><li>to read</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Choose the correct verb form for the negative recommendation:</p>
+<p>The management recommends that project leads ______ any changes to the original scope without prior approval.</p>
+<ul><li>not makes</li><li>not make</li><li>don&#x27;t make</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the following informal suggestion as a formal policy statement using a mandative subjunctive verb (e.g., &#x27;require that...&#x27;).</p>
+<p>Informal: &#x27;It&#x27;s crucial that she manages the client accounts more actively.&#x27;
+Formal: The firm ______ she ______ the client accounts more actively.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-proposing-new-workplace-standards">
+<header class="stage-header"><h2>Proposing New Workplace Standards</h2></header>
+<section class="handout">
+<p>Imagine you are part of a committee tasked with improving efficiency or safety in your workplace. Read the following situation and then write a formal recommendation or policy statement using the <strong class="lexis">mandative subjunctive</strong> (e.g., &#x27;We recommend that...&#x27;, &#x27;The policy stipulates that...&#x27;). Ensure your language is professional and clear, aiming to propose a change respectfully yet firmly.</p>
+<p><strong class="lexis">Scenario:</strong> Many employees are frequently late to team meetings, disrupting discussions and wasting time. This has been identified as a significant barrier to productivity and effective communication.</p>
+<p><strong class="lexis">Your Task:</strong> Draft a formal recommendation to address this issue. Your recommendation should include at least one sentence using the mandative subjunctive structure.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Based on the scenario above (late attendance), complete the following formal recommendation using the mandative subjunctive, starting with &#x27;We propose that...&#x27;</p>
+<p>We propose that every team member ______ five minutes early for meetings.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+</body>
+</html>

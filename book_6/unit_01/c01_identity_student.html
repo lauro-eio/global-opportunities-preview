@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Working Effectively in Diverse Teams</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Working Effectively in Diverse Teams</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>1</dd>
+      <dt>Class</dt><dd>1</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-navigating-different-work-styles">
+<header class="stage-header"><h2>Navigating Different Work Styles</h2></header>
+<section class="handout">
+<p>Think about a time you worked with someone whose style was confusing or unexpected. It could be how they communicated, made decisions, or gave feedback.</p>
+<p>1. What happened, and how did you feel at the time?<br>
+2. What did you eventually learn about their background or culture that explained their approach?<br>
+3. How did you adapt your own communication or work style, if at all?<br>
+4. What makes communication challenging when people have very different professional backgrounds?</p>
+</section>
+</article>
+<article class="stage" id="stage-new-words-for-global-teams">
+<header class="stage-header"><h2>New Words for Global Teams</h2></header>
+<section class="handout">
+<p>Before we read, let&#x27;s learn some key terms that will help us understand the text about working in international teams. Match the terms below to their definitions.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>misinterpreted</li><li>subtle</li><li>rapport</li><li>indirectness</li><li>hierarchy</li><li>workplace etiquette</li><li>cultural sensitivity</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match each term to its definition.</p>
+<ul><li><strong>misinterpreted</strong> — Understood incorrectly or wrongly.</li><li><strong>subtle</strong> — Not obvious, difficult to notice or understand.</li><li><strong>rapport</strong> — A close and harmonious relationship; mutual understanding.</li><li><strong>indirectness</strong> — The quality of not being direct or straightforward in communication.</li><li><strong>hierarchy</strong> — A system where people are ranked one above the other according to status or authority.</li><li><strong>workplace etiquette</strong> — The customary code of polite behavior in a professional setting.</li><li><strong>cultural sensitivity</strong> — Awareness and understanding of the differences between cultures and values.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-global-team-communication-first-impressi">
+<header class="stage-header"><h2>Global Team Communication: First Impressions</h2></header>
+<section class="handout">
+<p>Read the article below quickly to understand its general topic and main purpose. Don&#x27;t worry about understanding every single word. Then, choose the best main idea.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Navigating Global Collaboration: A Practical Guide</h5>
+<p>Working effectively in today&#x27;s diverse workplaces often means collaborating with colleagues from different cultural backgrounds. What might seem like a straightforward interaction in one culture can be easily <strong class="lexis">misinterpreted</strong> in another. Understanding these <strong class="lexis">subtle</strong> differences is key to building strong professional relationships and achieving team goals.</p>
+<p>For instance, consider <strong class="lexis">feedback styles</strong>. In some cultures, direct, explicit criticism is valued for its clarity and efficiency. You might hear, &quot;Your report needs significant revision on points 3 and 4.&quot; This directness is seen as professional and helpful. However, in other cultures, such directness could be perceived as rude or confrontational, potentially damaging <strong class="lexis">rapport</strong>. Here, feedback might be delivered more <strong class="lexis">indirectly</strong>, perhaps starting with positives, using softening language, or even implying areas for improvement rather than stating them outright. &quot;The overall structure is good, and perhaps with a bit more focus on the data analysis in sections 3 and 4, it could be even stronger.&quot; Recognising this <strong class="lexis">cultural sensitivity</strong> helps team leaders adapt their approach.</p>
+<p>Another area is <strong class="lexis">hierarchy</strong> and decision-making. In highly hierarchical cultures, decisions often flow from the top down, and challenging a superior in a public meeting would be considered inappropriate or disrespectful of <strong class="lexis">workplace etiquette</strong>. Meetings in such settings might involve junior staff listening and then executing tasks. Conversely, in more egalitarian cultures, open debate and challenging ideas from anyone, regardless of position, are encouraged to foster innovation. A junior team member might be expected to voice concerns directly.</p>
+<p>Even something as simple as email <strong class="lexis">protocol</strong> varies. Some cultures prefer concise, point-form emails, while others expect more formal salutations and extensive explanations, even for routine matters. A rapid-fire series of brief emails might feel efficient to one person but abrupt to another who expects more context and politeness.</p>
+<p>Developing strong <strong class="lexis">cross-cultural communication</strong> skills isn&#x27;t just about avoiding offence; it&#x27;s about maximizing collaboration and understanding. It involves active listening, asking clarifying questions, and being open to different perspectives. It means stepping back and considering, &quot;What cultural lens might be at play here?&quot; rather than immediately judging a colleague&#x27;s actions as ineffective or rude. By doing so, we foster environments where everyone feels respected and understood, leading to more productive and harmonious global teams.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main idea of the article?</p>
+<ul><li>The challenges of managing email etiquette in large international companies.</li><li>How different cultures approach feedback and hierarchy in the workplace.</li><li>The importance of understanding cultural differences for effective professional collaboration.</li><li>Why direct communication is always the most efficient way to work in global teams.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-deep-dive-into-workplace-cultures">
+<header class="stage-header"><h2>Deep Dive into Workplace Cultures</h2></header>
+<section class="handout">
+<p>Read the article again, this time more carefully. Answer the questions below, using your own words where possible.</p>
+<p><strong class="lexis">Part 1: Factual Detail</strong></p>
+<p>1. What are two different ways feedback can be perceived, depending on the culture?<br>
+2. What is one key difference in decision-making or challenging superiors between hierarchical and egalitarian cultures?<br>
+3. Besides avoiding offence, what is the broader goal of developing strong cross-cultural communication skills?</p>
+<p><strong class="lexis">Part 2: Reflect and Discuss</strong></p>
+<p>1. Can you think of a situation where you might have accidentally given feedback in a way that was too direct or too indirect for the recipient&#x27;s cultural background?<br>
+2. The article mentions &#x27;stepping back and considering, &quot;What cultural lens might be at play here?&quot;&#x27; Why is this advice crucial for global teams?<br>
+3. What specific strategies could a team leader implement to ensure all team members feel comfortable contributing, regardless of their cultural communication style?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Navigating Global Collaboration: A Practical Guide</h5>
+<p>Working effectively in today&#x27;s diverse workplaces often means collaborating with colleagues from different cultural backgrounds. What might seem like a straightforward interaction in one culture can be easily <strong class="lexis">misinterpreted</strong> in another. Understanding these <strong class="lexis">subtle</strong> differences is key to building strong professional relationships and achieving team goals.</p>
+<p>For instance, consider <strong class="lexis">feedback styles</strong>. In some cultures, direct, explicit criticism is valued for its clarity and efficiency. You might hear, &quot;Your report needs significant revision on points 3 and 4.&quot; This directness is seen as professional and helpful. However, in other cultures, such directness could be perceived as rude or confrontational, potentially damaging <strong class="lexis">rapport</strong>. Here, feedback might be delivered more <strong class="lexis">indirectly</strong>, perhaps starting with positives, using softening language, or even implying areas for improvement rather than stating them outright. &quot;The overall structure is good, and perhaps with a bit more focus on the data analysis in sections 3 and 4, it could be even stronger.&quot; Recognising this <strong class="lexis">cultural sensitivity</strong> helps team leaders adapt their approach.</p>
+<p>Another area is <strong class="lexis">hierarchy</strong> and decision-making. In highly hierarchical cultures, decisions often flow from the top down, and challenging a superior in a public meeting would be considered inappropriate or disrespectful of <strong class="lexis">workplace etiquette</strong>. Meetings in such settings might involve junior staff listening and then executing tasks. Conversely, in more egalitarian cultures, open debate and challenging ideas from anyone, regardless of position, are encouraged to foster innovation. A junior team member might be expected to voice concerns directly.</p>
+<p>Even something as simple as email <strong class="lexis">protocol</strong> varies. Some cultures prefer concise, point-form emails, while others expect more formal salutations and extensive explanations, even for routine matters. A rapid-fire series of brief emails might feel efficient to one person but abrupt to another who expects more context and politeness.</p>
+<p>Developing strong <strong class="lexis">cross-cultural communication</strong> skills isn&#x27;t just about avoiding offence; it&#x27;s about maximizing collaboration and understanding. It involves active listening, asking clarifying questions, and being open to different perspectives. It means stepping back and considering, &quot;What cultural lens might be at play here?&quot; rather than immediately judging a colleague&#x27;s actions as ineffective or rude. By doing so, we foster environments where everyone feels respected and understood, leading to more productive and harmonious global teams.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What are two different ways feedback can be perceived, depending on the culture?</p>
+</div>
+<div class="task"><p class="task-instruction">What is one key difference in decision-making or challenging superiors between hierarchical and egalitarian cultures?</p>
+</div>
+<div class="task"><p class="task-instruction">Besides avoiding offence, what is the broader goal of developing strong cross-cultural communication skills?</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-applying-cultural-understanding">
+<header class="stage-header"><h2>Applying Cultural Understanding</h2></header>
+<section class="handout">
+<p>Let&#x27;s discuss the deeper insights from the article and how they apply to your own professional lives.</p>
+<p>1. Based on today&#x27;s discussion and reading, what is one practical step you can take to improve your <strong class="lexis">cross-cultural communication</strong> at work?<br>
+2. How can understanding different approaches to <strong class="lexis">hierarchy</strong> and <strong class="lexis">workplace etiquette</strong> help prevent <strong class="lexis">misinterpretations</strong> and build better <strong class="lexis">rapport</strong>?<br>
+3. What responsibility do companies have in fostering <strong class="lexis">cultural sensitivity</strong> among their employees, especially in global teams?</p>
+</section>
+</article>
+</body>
+</html>

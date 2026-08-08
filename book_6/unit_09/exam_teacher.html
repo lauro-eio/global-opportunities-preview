@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit exam — Workplace Legalities, Ethics, and Procedures</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<nav class="breadcrumbs"><a href="index.html">← Unit index</a></nav>
+<header>
+  <p class="view-banner">Teacher · Unit exam key</p>
+  <h1>Unit exam — Workplace Legalities, Ethics, and Procedures</h1>
+  <p class="meta">T09_SOCIETY · C1 · 30 items</p>
+</header>
+<article class="exam-item" id="q01"><div class="exam-item-header"><span class="qnum">1. q01</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">An employee who feels unfairly treated can initiate a formal _________ by submitting a written complaint to HR.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>grievance procedure ✓</li><li><span class="opt-key">B.</span>disciplinary action</li><li><span class="opt-key">C.</span>mediation session</li><li><span class="opt-key">D.</span>complaint form</li></ul><div class="exam-explanation"><strong>Explanation</strong>A &#x27;grievance procedure&#x27; is the formal process for an employee to raise a workplace concern or complaint. While a &#x27;complaint form&#x27; might be part of it, the &#x27;procedure&#x27; encompasses the entire process.</div></article><article class="exam-item" id="q02"><div class="exam-item-header"><span class="qnum">2. q02</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">Repeated breaches of company policy will inevitably lead to some form of _________, ranging from a warning to termination.</div><ul class="exam-options"><li><span class="opt-key">A.</span>mediation</li><li><span class="opt-key">B.</span>HR policy</li><li class="correct"><span class="opt-key">C.</span>disciplinary action ✓</li><li><span class="opt-key">D.</span>grievance procedure</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Disciplinary action&#x27; refers to the steps taken by an employer to address an employee&#x27;s misconduct or poor performance. &#x27;Grievance procedure&#x27; is for employee complaints, not employer enforcement.</div></article><article class="exam-item" id="q03"><div class="exam-item-header"><span class="qnum">3. q03</span><span class="exam-meta">comprehension · class 1</span></div><div class="exam-prompt">Which of the following best describes the initial step an employee should take when facing an unresolved conflict with a colleague, according to typical HR guidance?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Immediately seek external legal counsel.</li><li><span class="opt-key">B.</span>Formally file a grievance without prior discussion.</li><li class="correct"><span class="opt-key">C.</span>Attempt informal resolution before escalating to HR. ✓</li><li><span class="opt-key">D.</span>Inform all team members about the conflict to gather support.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Most HR policies advocate for attempting informal resolution (e.g., direct communication) before escalating a conflict to formal HR channels, to foster a positive workplace culture and resolve minor issues efficiently.</div></article><article class="exam-item" id="q04"><div class="exam-item-header"><span class="qnum">4. q04</span><span class="exam-meta">register · class 1</span></div><div class="exam-prompt">When addressing a new HR initiative, which phrase maintains the most professional register for a company-wide announcement?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Here&#x27;s the new HR stuff.</li><li><span class="opt-key">B.</span>Check out our updated HR policy.</li><li class="correct"><span class="opt-key">C.</span>Please review the revised HR policy document. ✓</li><li><span class="opt-key">D.</span>We&#x27;ve got some new rules from HR.</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Please review the revised HR policy document&#x27; is the most formal and professional option, providing a clear directive and using appropriate terminology for a company-wide communication. The other options are too informal.</div></article><article class="exam-item" id="q05"><div class="exam-item-header"><span class="qnum">5. q05</span><span class="exam-meta">lexis · class 2</span></div><div class="exam-prompt">Before investing in the startup, the board decided to _________ by thoroughly investigating its financial records and market potential.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>conduct due diligence ✓</li><li><span class="opt-key">B.</span>initiate a probationary period</li><li><span class="opt-key">C.</span>uphold the law</li><li><span class="opt-key">D.</span>breach of contract</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;To conduct due diligence&#x27; means to research and investigate an issue or opportunity thoroughly, especially before making a business decision or entering into an agreement.</div></article><article class="exam-item" id="q06"><div class="exam-item-header"><span class="qnum">6. q06</span><span class="exam-meta">lexis · class 2</span></div><div class="exam-prompt">All new employees are required to sign _________ to protect sensitive company information from being disclosed externally.</div><ul class="exam-options"><li><span class="opt-key">A.</span>job descriptions</li><li><span class="opt-key">B.</span>termination clauses</li><li class="correct"><span class="opt-key">C.</span>confidentiality agreements ✓</li><li><span class="opt-key">D.</span>service agreements</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Confidentiality agreements&#x27; are legal contracts that bind parties to non-disclosure of sensitive information, directly matching the purpose described in the prompt.</div></article><article class="exam-item" id="q07"><div class="exam-item-header"><span class="qnum">7. q07</span><span class="exam-meta">grammar · class 2</span></div><div class="exam-prompt">Choose the sentence that correctly uses a double comparative structure to describe the relationship between clarity and performance.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>The clearer the expectations, the more effectively you can perform. ✓</li><li><span class="opt-key">B.</span>Clearer expectations, more effective performance.</li><li><span class="opt-key">C.</span>The expectations are clearer, so you can perform more effectively.</li><li><span class="opt-key">D.</span>As expectations get clearer, your performance is more effective.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The double comparative structure is formed with &#x27;The + comparative adjective/adverb, the + comparative adjective/adverb&#x27;, showing a direct relationship where one change influences another.</div></article><article class="exam-item" id="q08"><div class="exam-item-header"><span class="qnum">8. q08</span><span class="exam-meta">comprehension · class 2</span></div><div class="exam-prompt">An employment contract states a &#x27;severance package&#x27; will be offered &#x27;in cases of redundancy, but not for gross misconduct.&#x27; What is the primary implication for an employee?</div><ul class="exam-options"><li><span class="opt-key">A.</span>They are guaranteed a severance package regardless of how they leave.</li><li class="correct"><span class="opt-key">B.</span>Gross misconduct will not result in a severance package. ✓</li><li><span class="opt-key">C.</span>Redundancy payments are only for gross misconduct.</li><li><span class="opt-key">D.</span>The company can terminate them at any time without cause.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The clause explicitly states &#x27;but not for gross misconduct&#x27;, directly implying that if termination is due to gross misconduct, no severance package will be offered. Other options misinterpret the conditional nature of the clause.</div></article><article class="exam-item" id="q09"><div class="exam-item-header"><span class="qnum">9. q09</span><span class="exam-meta">register · class 3</span></div><div class="exam-prompt">Which sentence correctly and formally reports a potential safety hazard?</div><ul class="exam-options"><li><span class="opt-key">A.</span>We&#x27;ve got a bit of a safety issue down by the loading dock.</li><li class="correct"><span class="opt-key">B.</span>I observed a potential safety hazard involving a faulty forklift near the loading dock. ✓</li><li><span class="opt-key">C.</span>Someone should really look at that forklift; it&#x27;s dodgy.</li><li><span class="opt-key">D.</span>The forklift situation is not good, just letting you know.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B uses formal language, clearly identifies the observer (&#x27;I observed&#x27;), describes the nature of the hazard (&#x27;potential safety hazard&#x27;), and specifies the item and location, making it the most appropriate for a formal report.</div></article><article class="exam-item" id="q10"><div class="exam-item-header"><span class="qnum">10. q10</span><span class="exam-meta">comprehension · class 3</span></div><div class="exam-prompt">In a company where safety protocols state &#x27;all incidents, no matter how minor, must be reported immediately,&#x27; what is the expected action for a small spill that was quickly cleaned up?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Since it was cleaned up, no report is necessary.</li><li><span class="opt-key">B.</span>Only report it if someone was injured.</li><li><span class="opt-key">C.</span>Report it to a colleague, not management.</li><li class="correct"><span class="opt-key">D.</span>Report the incident immediately to the appropriate authority. ✓</li></ul><div class="exam-explanation"><strong>Explanation</strong>The policy explicitly states &#x27;all incidents, no matter how minor, must be reported immediately.&#x27; This means even a small, cleaned-up spill requires a report to ensure documentation and prevent future occurrences.</div></article><article class="exam-item" id="q11"><div class="exam-item-header"><span class="qnum">11. q11</span><span class="exam-meta">register · class 3</span></div><div class="exam-prompt">When composing an email to management about an ongoing safety concern, which opening statement is most appropriate?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Just wanted to flag something.</li><li class="correct"><span class="opt-key">B.</span>I&#x27;m writing to draw your attention to a recurring safety issue. ✓</li><li><span class="opt-key">C.</span>Heads up about a safety problem.</li><li><span class="opt-key">D.</span>We have a safety problem that needs fixing.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B is formal, direct, and clearly states the purpose of the email, making it suitable for professional communication to management regarding a serious issue.</div></article><article class="exam-item" id="q12"><div class="exam-item-header"><span class="qnum">12. q12</span><span class="exam-meta">grammar · class 3</span></div><div class="exam-prompt">The company policy clearly states that all personnel _________ adhere to the safety regulations outlined in the manual.</div><ul class="exam-options"><li><span class="opt-key">A.</span>might</li><li><span class="opt-key">B.</span>should</li><li class="correct"><span class="opt-key">C.</span>must ✓</li><li><span class="opt-key">D.</span>could</li></ul><div class="exam-explanation"><strong>Explanation</strong>The word &#x27;must&#x27; indicates a strong, absolute obligation or requirement, which is appropriate for adhering to company policies and safety regulations. &#x27;Should&#x27; suggests advice, while &#x27;might&#x27; and &#x27;could&#x27; suggest possibility.</div></article><article class="exam-item" id="q13"><div class="exam-item-header"><span class="qnum">13. q13</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">After discovering a manufacturing defect, the customer promptly submitted a _________ to request a repair or replacement.</div><ul class="exam-options"><li><span class="opt-key">A.</span>refund policy</li><li><span class="opt-key">B.</span>service agreement</li><li class="correct"><span class="opt-key">C.</span>warranty claim ✓</li><li><span class="opt-key">D.</span>consumer protection act</li></ul><div class="exam-explanation"><strong>Explanation</strong>A &#x27;warranty claim&#x27; is a formal request made by a consumer to a manufacturer or seller, seeking repair or replacement for a defective product under the terms of a warranty.</div></article><article class="exam-item" id="q14"><div class="exam-item-header"><span class="qnum">14. q14</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">To avoid costly litigation, many companies offer an internal _________ process to address customer complaints.</div><ul class="exam-options"><li><span class="opt-key">A.</span>consumer protection act</li><li class="correct"><span class="opt-key">B.</span>dispute resolution ✓</li><li><span class="opt-key">C.</span>warranty claim</li><li><span class="opt-key">D.</span>refund policy</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Dispute resolution&#x27; refers to a process for resolving conflicts or disputes between parties, often structured to avoid formal legal action like litigation. This aligns with addressing customer complaints internally.</div></article><article class="exam-item" id="q15"><div class="exam-item-header"><span class="qnum">15. q15</span><span class="exam-meta">comprehension · class 4</span></div><div class="exam-prompt">A customer purchased a defective product that is still under warranty. The vendor is refusing to repair it. What is the most effective next step for the customer to advocate for their rights?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Post negative reviews on social media.</li><li><span class="opt-key">B.</span>Demand a new product immediately without further documentation.</li><li class="correct"><span class="opt-key">C.</span>Refer to the terms of the warranty and cite the consumer protection act if applicable. ✓</li><li><span class="opt-key">D.</span>Give up and buy a new product elsewhere.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The most effective step is to formally assert their rights by referencing the specific terms of the warranty and any relevant consumer protection laws, providing a strong legal basis for their claim.</div></article><article class="exam-item" id="q16"><div class="exam-item-header"><span class="qnum">16. q16</span><span class="exam-meta">register · class 4</span></div><div class="exam-prompt">In a formal letter to a supplier regarding a faulty product, which closing statement is most appropriate?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Hope you fix this soon.</li><li class="correct"><span class="opt-key">B.</span>Looking forward to your swift resolution of this matter. ✓</li><li><span class="opt-key">C.</span>Thanks for nothing.</li><li><span class="opt-key">D.</span>Please get back to me ASAP.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B is formal, polite, and clearly expresses an expectation for prompt action, which is suitable for a professional letter of complaint. Other options are too informal or accusatory.</div></article><article class="exam-item" id="q17"><div class="exam-item-header"><span class="qnum">17. q17</span><span class="exam-meta">lexis · class 5</span></div><div class="exam-prompt">Ensuring _________ is critical for our operations, requiring strict protocols for _________ of all personal information.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>GDPR compliance / secure data handling ✓</li><li><span class="opt-key">B.</span>privacy policy / breach of contract</li><li><span class="opt-key">C.</span>confidential information / adhere to regulations</li><li><span class="opt-key">D.</span>data breach / regulatory audit</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;GDPR compliance&#x27; refers to adherence to the General Data Protection Regulation, which necessitates &#x27;secure data handling&#x27; for personal information. This pair best fits the context of critical operations and strict protocols.</div></article><article class="exam-item" id="q18"><div class="exam-item-header"><span class="qnum">18. q18</span><span class="exam-meta">lexis · class 5</span></div><div class="exam-prompt">The company&#x27;s _________ clearly states how it collects, uses, and protects customer data, classifying much of it as _________.</div><ul class="exam-options"><li><span class="opt-key">A.</span>GDPR compliance / secure data handling</li><li class="correct"><span class="opt-key">B.</span>privacy policy / confidential information ✓</li><li><span class="opt-key">C.</span>breach of contract / adhere to regulations</li><li><span class="opt-key">D.</span>regulatory audit / data security</li></ul><div class="exam-explanation"><strong>Explanation</strong>A &#x27;privacy policy&#x27; is a document that outlines how an organization handles customer data, much of which is considered &#x27;confidential information&#x27;. This pair provides the most accurate and logical fit.</div></article><article class="exam-item" id="q19"><div class="exam-item-header"><span class="qnum">19. q19</span><span class="exam-meta">grammar · class 5</span></div><div class="exam-prompt">Which sentence best conveys the mandatory nature of adhering to data privacy regulations?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Employees are expected to adhere to data privacy regulations.</li><li><span class="opt-key">B.</span>Employees should adhere to data privacy regulations.</li><li class="correct"><span class="opt-key">C.</span>Employees must adhere to data privacy regulations. ✓</li><li><span class="opt-key">D.</span>Employees might want to adhere to data privacy regulations.</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Must&#x27; expresses a strong, legal, and absolute obligation, which is appropriate for compliance with regulations like data privacy. &#x27;Expected&#x27; and &#x27;should&#x27; imply a softer recommendation or general understanding, while &#x27;might want to&#x27; is too weak.</div></article><article class="exam-item" id="q20"><div class="exam-item-header"><span class="qnum">20. q20</span><span class="exam-meta">comprehension · class 5</span></div><div class="exam-prompt">A colleague asks you to share a client&#x27;s email address with a third-party vendor for a marketing campaign, but the client only consented to direct communication from your company. What is the correct action to maintain data privacy?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Share the email, assuming it will benefit the client.</li><li class="correct"><span class="opt-key">B.</span>Decline the request, citing the client&#x27;s consent limitations and the privacy policy. ✓</li><li><span class="opt-key">C.</span>Share the email but ask the vendor to only use it once.</li><li><span class="opt-key">D.</span>Consult a different colleague for their opinion.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Adhering to data privacy regulations and consent agreements means only using data for the specific purposes for which consent was given. Sharing it with a third party without explicit consent for that purpose would be a breach.</div></article><article class="exam-item" id="q21"><div class="exam-item-header"><span class="qnum">21. q21</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">To maintain their professional license, employees must periodically meet specific _________ set by the regulatory body.</div><ul class="exam-options"><li><span class="opt-key">A.</span>application forms</li><li><span class="opt-key">B.</span>compliance audits</li><li class="correct"><span class="opt-key">C.</span>certification requirements ✓</li><li><span class="opt-key">D.</span>permit renewals</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Certification requirements&#x27; are the specific criteria or standards that individuals must satisfy to obtain or maintain a professional certification or license.</div></article><article class="exam-item" id="q22"><div class="exam-item-header"><span class="qnum">22. q22</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">The local _________ is responsible for overseeing the annual _________ process for all construction licenses.</div><ul class="exam-options"><li><span class="opt-key">A.</span>application form / compliance audit</li><li><span class="opt-key">B.</span>permit renewal / certification requirements</li><li class="correct"><span class="opt-key">C.</span>regulatory body / permit renewal ✓</li><li><span class="opt-key">D.</span>compliance audit / regulatory body</li></ul><div class="exam-explanation"><strong>Explanation</strong>A &#x27;regulatory body&#x27; is an organization responsible for overseeing and enforcing regulations, and &#x27;permit renewal&#x27; is the process of extending the validity of a permit or license. This pair fits the context of official oversight of licenses.</div></article><article class="exam-item" id="q23"><div class="exam-item-header"><span class="qnum">23. q23</span><span class="exam-meta">comprehension · class 6</span></div><div class="exam-prompt">An employee needs to renew their professional certification. The first recommended step is usually to:</div><ul class="exam-options"><li><span class="opt-key">A.</span>Pay the renewal fee immediately.</li><li><span class="opt-key">B.</span>Wait for a reminder from the regulatory body.</li><li class="correct"><span class="opt-key">C.</span>Review the updated certification requirements and application process on the regulatory body&#x27;s website. ✓</li><li><span class="opt-key">D.</span>Assume the requirements haven&#x27;t changed since the last renewal.</li></ul><div class="exam-explanation"><strong>Explanation</strong>It&#x27;s crucial to first review the current requirements as they can change. Assuming no changes or simply paying the fee without checking could lead to an invalid renewal.</div></article><article class="exam-item" id="q24"><div class="exam-item-header"><span class="qnum">24. q24</span><span class="exam-meta">register · class 6</span></div><div class="exam-prompt">When writing an email to a regulatory body inquiring about certification renewal, which subject line is most appropriate?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Question about my certification.</li><li class="correct"><span class="opt-key">B.</span>Inquiry Regarding Professional Certification Renewal - [Your Name] ✓</li><li><span class="opt-key">C.</span>Renewal help needed!</li><li><span class="opt-key">D.</span>Certification update.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B is the most professional and informative subject line. It clearly states the purpose (&#x27;Inquiry Regarding&#x27;), specifies the topic (&#x27;Professional Certification Renewal&#x27;), and includes essential identification (&#x27;[Your Name]&#x27;).</div></article><article class="exam-item" id="q25"><div class="exam-item-header"><span class="qnum">25. q25</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">Complete the sentence using the correct double comparative structure: &quot;_________ the evidence of misconduct, _________ the need for immediate investigation.&quot;</div><ul class="exam-options"><li><span class="opt-key">A.</span>More / stronger</li><li class="correct"><span class="opt-key">B.</span>The more / the stronger ✓</li><li><span class="opt-key">C.</span>As more / as stronger</li><li><span class="opt-key">D.</span>So much / so strong</li></ul><div class="exam-explanation"><strong>Explanation</strong>The correct double comparative structure is &#x27;The + comparative adjective/adverb, the + comparative adjective/adverb&#x27;, indicating a proportional relationship between two increasing or decreasing quantities or qualities.</div></article><article class="exam-item" id="q26"><div class="exam-item-header"><span class="qnum">26. q26</span><span class="exam-meta">comprehension · class 7</span></div><div class="exam-prompt">A company&#x27;s whistleblowing policy encourages employees to report illegal activities internally first. What is the primary benefit of this approach?</div><ul class="exam-options"><li><span class="opt-key">A.</span>It prevents employees from ever reporting externally.</li><li class="correct"><span class="opt-key">B.</span>It allows the company to address issues internally, potentially protecting its reputation and resolving problems efficiently. ✓</li><li><span class="opt-key">C.</span>It ensures the employee will receive a large financial reward.</li><li><span class="opt-key">D.</span>It guarantees the reported issue will be ignored.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Internal reporting gives the company an opportunity to investigate and rectify problems before they become public or require external regulatory intervention, thus managing risk and maintaining reputation. It does not prevent external reporting if internal channels fail.</div></article><article class="exam-item" id="q27"><div class="exam-item-header"><span class="qnum">27. q27</span><span class="exam-meta">register · class 7</span></div><div class="exam-prompt">If an employee suspects a serious ethical breach, which phrase should they use in a formal report to ensure seriousness and objectivity?</div><ul class="exam-options"><li><span class="opt-key">A.</span>I think something shady is going on.</li><li class="correct"><span class="opt-key">B.</span>There appears to be a potential violation of the company&#x27;s code of conduct. ✓</li><li><span class="opt-key">C.</span>Someone is probably doing something wrong.</li><li><span class="opt-key">D.</span>I&#x27;m pretty sure there&#x27;s an issue.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B uses formal, objective language appropriate for a serious report. Phrases like &#x27;appears to be&#x27; and &#x27;potential violation&#x27; convey seriousness without making definitive, unsubstantiated claims, while &#x27;code of conduct&#x27; specifies the ethical framework.</div></article><article class="exam-item" id="q28"><div class="exam-item-header"><span class="qnum">28. q28</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">Employees _________ report any instances of suspected illegal activity to the designated authority within the company, as outlined by the legal framework.</div><ul class="exam-options"><li><span class="opt-key">A.</span>might consider to</li><li><span class="opt-key">B.</span>are advised to</li><li class="correct"><span class="opt-key">C.</span>are obligated to ✓</li><li><span class="opt-key">D.</span>could possibly</li></ul><div class="exam-explanation"><strong>Explanation</strong>When something is &#x27;outlined by the legal framework&#x27;, it implies a mandatory requirement. &#x27;Are obligated to&#x27; clearly conveys this legal or formal duty, stronger than &#x27;are advised to&#x27; or speculative options.</div></article><article class="exam-item" id="q29"><div class="exam-item-header"><span class="qnum">29. q29</span><span class="exam-meta">synthesis · class 1</span></div><div class="exam-prompt">Consider the overall theme of Workplace Legalities, Ethics, and Procedures. Which of the following best represents a proactive approach an employee can take to ensure compliance and ethical conduct?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Only act when explicitly told to by management.</li><li><span class="opt-key">B.</span>Avoid reading legal documents unless absolutely necessary.</li><li class="correct"><span class="opt-key">C.</span>Regularly review company policies, understand their rights and responsibilities, and seek clarification when unsure. ✓</li><li><span class="opt-key">D.</span>Focus solely on personal performance, disregarding broader company procedures.</li></ul><div class="exam-explanation"><strong>Explanation</strong>A proactive approach involves continuous learning and engagement with company policies and ethical guidelines, taking personal responsibility for understanding and adhering to them, and seeking guidance when needed. This encompasses elements from various unit classes.</div></article><article class="exam-item" id="q30"><div class="exam-item-header"><span class="qnum">30. q30</span><span class="exam-meta">synthesis · class 5</span></div><div class="exam-prompt">An employee observes a colleague sharing sensitive client data via an unsecured personal messaging app, violating both company policy and data privacy regulations. This situation touches upon which two primary aspects covered in this unit?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Certification renewal and employment contracts.</li><li><span class="opt-key">B.</span>Workplace safety and consumer rights.</li><li class="correct"><span class="opt-key">C.</span>Data privacy and ethical conduct. ✓</li><li><span class="opt-key">D.</span>Grievance procedures and permit renewals.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Sharing sensitive data unsecured is a direct breach of &#x27;data privacy&#x27; regulations (e.g., GDPR discussed in Class 5) and constitutes an &#x27;ethical conduct&#x27; issue, as it involves trust, responsibility, and adherence to company values. This synthesizes key concepts.</div></article>
+
+</body>
+</html>

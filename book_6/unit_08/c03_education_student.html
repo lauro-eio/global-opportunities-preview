@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Making a Case for Change</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Making a Case for Change</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>8</dd>
+      <dt>Class</dt><dd>3</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-making-things-better-at-work">
+<header class="stage-header"><h2>Making Things Better at Work</h2></header>
+<section class="handout">
+<p>We all encounter inefficiencies at work. Have you ever thought, &#x27;There&#x27;s a better way to do this&#x27;?</p>
+<p>Discuss with a partner:<br>
+1. What is one specific task or process at your workplace (or a past one) that you believe could be more efficient or has recurring issues?<br>
+2. Briefly describe the problem and its impact.<br>
+3. Why do you think this inefficiency exists?<br>
+4. If you had the chance to propose a change, what might it be?</p>
+</section>
+</article>
+<article class="stage" id="stage-a-proposal-for-change">
+<header class="stage-header"><h2>A Proposal for Change</h2></header>
+<section class="handout">
+<p>Maria works in a logistics company. She has noticed a recurring problem with how packages are prepared for dispatch. Listen to her conversation with her manager, Mr. Davies, and answer the questions.</p>
+<p><strong class="lexis">Maria:</strong> Good morning, Mr. Davies. Do you have a moment?<br>
+<strong class="lexis">Mr. Davies:</strong> Good morning, Maria. Yes, come in.<br>
+<strong class="lexis">Maria:</strong> Thank you. I wanted to discuss an observation regarding our package preparation process for the evening shift. I&#x27;ve noticed a significant amount of time is consistently lost due to the current manual labeling and sorting method.<br>
+<strong class="lexis">Mr. Davies:</strong> Oh? Could you elaborate?<br>
+<strong class="lexis">Maria:</strong> Certainly. Based on my observations over the past month, our team spends an average of 45 minutes each evening manually sorting packages that arrive unsorted from the morning delivery. This often leads to delays in loading, especially when there are unexpected high volumes.<br>
+<strong class="lexis">Mr. Davies:</strong> I see. That&#x27;s a considerable amount of time.<br>
+<strong class="lexis">Maria:</strong> It is. I believe we could implement a small but effective change. My <strong class="lexis">proposal</strong> is to introduce a pre-sorting station closer to the morning delivery intake point. This would involve the morning team doing a preliminary sort into designated bins as packages arrive, rather than them all being dumped in one area for the evening shift to handle.<br>
+<strong class="lexis">Mr. Davies:</strong> That sounds like it could reduce the evening team&#x27;s workload. What would the impact be on the morning team, though?<br>
+<strong class="lexis">Maria:</strong> A valid point. I anticipate an additional 10-15 minutes of work for the morning shift. However, the overall <strong class="lexis">efficiency gain</strong> for the entire day would be substantial. It would free up the evening team to focus on loading without the sorting backlog, potentially cutting evening prep time by 30-35 minutes. This would also improve our <strong class="lexis">on-time dispatch rate</strong>, which has been a minor issue lately. I&#x27;ve put together some basic <strong class="lexis">data</strong> from last month&#x27;s logs to support this.<br>
+<strong class="lexis">Mr. Davies:</strong> Interesting. So, a minor adjustment for morning staff to achieve a significant <strong class="lexis">process optimization</strong> for the evening. And you have data to back this up?<br>
+<strong class="lexis">Maria:</strong> Yes, I can show you the figures. I believe this change could lead to smoother operations and fewer overtime hours for the evening crew.<br>
+<strong class="lexis">Mr. Davies:</strong> Thank you, Maria. This is a well-thought-out <strong class="lexis">argument</strong>. Let&#x27;s review your data. I appreciate you bringing this forward.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main problem Maria identifies?</p>
+<ul><li>Packages are lost too often.</li><li>The morning shift finishes too early.</li><li>Too much time is lost manually sorting packages in the evening.</li><li>There are not enough delivery trucks.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">What is Maria&#x27;s specific proposal for improving efficiency?</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-building-your-argument">
+<header class="stage-header"><h2>Building Your Argument</h2></header>
+<section class="handout">
+<p>Now it&#x27;s your turn to prepare a proposal. Think back to the inefficiency you discussed earlier. How would you present your idea to convince your manager or colleagues?</p>
+<p>Use the phrases below to help you structure your proposal. Make notes on these points:</p>
+<p>1.  <strong class="lexis">State the problem clearly:</strong> What is the issue? What impact does it have?<br>
+2.  <strong class="lexis">Propose a solution:</strong> What is your specific idea for change?<br>
+3.  <strong class="lexis">Support with evidence:</strong> Why is your solution good? What data, observations, or feedback can you use?<br>
+4.  <strong class="lexis">Address potential concerns:</strong> What questions or objections might your manager have? How will you respond?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Stating the Problem</th><th>Proposing a Solution</th><th>Supporting with Evidence</th><th>Addressing Concerns</th></tr><tr><td>I&#x27;ve observed a recurring issue with...</td><td>My **proposal** is to implement...</td><td>Based on my observations over the past...</td><td>I anticipate an additional X minutes for...</td></tr><tr><td>We&#x27;re consistently facing delays due to...</td><td>I suggest we introduce...</td><td>From last month&#x27;s **data**, we can see...</td><td>A valid point. However, the overall **gain** would be...</td></tr><tr><td>There&#x27;s a significant amount of time lost on...</td><td>I believe we could optimize the **process** by...</td><td>Feedback from colleagues indicates that...</td><td>I&#x27;ve considered that, and...</td></tr><tr><td>The current method is leading to...</td><td>A possible solution would be to...</td><td>This could lead to **efficiency gains** of...</td><td>The initial investment would be minimal, and the **ROI** (Return on Investment) high.</td></tr><tr><td>This is impacting our **efficiency** / **productivity** / **customer satisfaction**.</td><td>This would involve...</td><td>It would improve our **on-time dispatch rate**.</td><td>This would free up the team to focus on...</td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-your-proposal-your-presentation">
+<header class="stage-header"><h2>Your Proposal, Your Presentation</h2></header>
+<section class="handout">
+<p>Now it&#x27;s time to put your planning into action! You will work in pairs.</p>
+<p><strong class="lexis">Role A: The Presenter</strong><br>
+You will present your proposal for a workplace improvement to your manager. Use your notes and the phrases from the previous activity to make a clear, persuasive argument. Remember to:<br>
+1.  State the problem and its impact.<br>
+2.  Propose your solution.<br>
+3.  Support your solution with &#x27;evidence&#x27; (observations, data, feedback).<br>
+4.  Be ready to address any questions or concerns.</p>
+<p><strong class="lexis">Role B: The Manager</strong><br>
+You are the manager. Listen carefully to your colleague&#x27;s proposal. Ask questions and raise concerns to understand the proposal fully and challenge it constructively. You might ask about:<br>
+*   Cost or resources required.<br>
+*   Impact on other teams or schedules.<br>
+*   Potential risks or downsides.<br>
+*   How the change would be implemented.</p>
+<p>After Presenter A finishes, switch roles.</p>
+</section>
+</article>
+<article class="stage" id="stage-reviewing-your-communication">
+<header class="stage-header"><h2>Reviewing Your Communication</h2></header>
+<section class="handout">
+<p>Let&#x27;s reflect on your proposals and presentations.</p>
+<p>1.  <strong class="lexis">Thinking about the content:</strong><br>
+    *   What were the strengths of the proposals you heard or presented?<br>
+    *   What might make a proposal even more convincing?</p>
+<p>2.  <strong class="lexis">Thinking about the language:</strong><br>
+    *   Did you find it easy to use phrases for stating problems, proposing solutions, and supporting your points?<br>
+    *   Were there any parts where you struggled with vocabulary or expressing your ideas clearly?</p>
+<p>Your teacher will now give you some feedback on the language used during your presentations.</p>
+</section>
+</article>
+</body>
+</html>

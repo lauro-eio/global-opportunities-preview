@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Discussing Industry Adaptation to Climate Change</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Discussing Industry Adaptation to Climate Change</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>7</dd>
+      <dt>Class</dt><dd>3</dd>
+      <dt>Theme</dt><dd>T07_ENVIRONMENT</dd>
+      <dt>Framework</dt><dd>SK-PROD</dd>
+      <dt>Role</dt><dd>SK_PROD_SPEAKING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Climate and Your Job</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Divide students into pairs or small groups.<br>
+2. Introduce the topic by asking them to consider the lead-in question.<br>
+3. Encourage them to share personal experiences or observations related to recent extreme weather events.<br>
+4. Prompt them to think about how these events might already be affecting their current or past job roles, or how they anticipate impacts on their industry.<br>
+5. Facilitate a brief whole-class share-out of initial thoughts.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Workplace Weather Watch</h4>
+<p>Considering recent shifts in global weather patterns and the increase in extreme events like floods, heatwaves, or storms, how might these events directly affect your daily work or the long-term stability of your profession?</p>
+<p>Discuss in pairs or small groups:<br>
+1. Have you observed any immediate impacts of climate events on your workplace or industry?<br>
+2. What are some potential future challenges your job or industry might face due to climate change?<br>
+3. How might these changes impact your job security or required skills?</p>
+</section>
+</article>
+<article class="stage" id="stage-MOD">
+<header class="stage-header"><span class="stage-code">MOD</span><h2>Model Dialogue: Adapting to Climate Shifts</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Instruct students to read the dialogue between Maria and Ben.<br>
+2. Tell them to identify the main challenges and solutions discussed.<br>
+3. After they read, use the provided short text tasks to check their gist understanding of the dialogue.<br>
+4. Do not pre-teach vocabulary. Encourage students to infer meaning from context.<br>
+5. Highlight the phrases used to discuss impacts and adaptations.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Talking About Climate at Work</h4>
+<p>Read the conversation between Maria, a logistics manager, and Ben, a factory floor supervisor, discussing how climate change is affecting their work and what their companies are doing.</p>
+<p><strong class="lexis">Maria</strong>: Morning, Ben. Rough week, huh? Another <strong class="lexis">supply chain disruption</strong> thanks to those floods up north. My deliveries are all over the place.</p>
+<p><strong class="lexis">Ben</strong>: Tell me about it, Maria. We had a power outage at the plant yesterday – extreme heat put too much strain on the grid. Production was down for hours. It really hits our targets, and the team worries about <strong class="lexis">job security</strong> if this keeps happening.</p>
+<p><strong class="lexis">Maria</strong>: Exactly! Our company&#x27;s trying to improve our <strong class="lexis">climate resilience</strong>. We’re investing in more diverse routes and storage facilities away from flood plains. It’s expensive, but essential for <strong class="lexis">disaster preparedness</strong>.</p>
+<p><strong class="lexis">Ben</strong>: Sounds like a smart move. We&#x27;re looking at <strong class="lexis">workforce adaptation</strong> programs. Training staff on new, more energy-efficient machinery and cross-training them for different roles so we can be more flexible during disruptions. It&#x27;s a big shift, but vital.</p>
+<p><strong class="lexis">Maria</strong>: Absolutely. It&#x27;s not just about infrastructure; it&#x27;s about the people too. We&#x27;ve even started discussions on local sourcing to shorten our supply chains, making us less vulnerable to global weather events.</p>
+<p><strong class="lexis">Ben</strong>: That&#x27;s a good approach. We&#x27;re exploring better insulation and backup power solutions. The challenge is getting everyone on board, from management to the shop floor, to truly embrace these changes. It&#x27;s about securing our future, though.</p>
+<p><strong class="lexis">Maria</strong>: Couldn&#x27;t agree more. It’s a collective effort to build that <strong class="lexis">climate resilience</strong>.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main problem Maria&#x27;s company is facing due to climate change?</p>
+<p>Maria&#x27;s company is struggling with:</p>
+</div>
+<div class="task"><p class="task-instruction">What is one specific action Ben&#x27;s company is taking to adapt?</p>
+<p>Ben&#x27;s company is implementing:</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-PREP">
+<header class="stage-header"><span class="stage-code">PREP</span><h2>Preparation: Planning Your Discussion</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will prepare for a discussion on climate impact and adaptation in their own industries or a chosen industry.<br>
+2. Instruct them to brainstorm ideas related to the questions in the &#x27;Your Industry&#x27; column.<br>
+3. Encourage them to use phrases from the &#x27;Useful Phrases&#x27; and &#x27;Adaptation Strategies&#x27; columns to help them structure their thoughts and articulate their points.<br>
+4. Allocate 5-7 minutes for individual preparation. Circulate and assist with vocabulary or idea generation.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">My Industry&#x27;s Climate Plan</h4>
+<p>Before discussing, take a few minutes to think about your own industry or a specific job role you know well. Consider how climate change might affect it and what could be done. Use the phrases below to help you prepare your points.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Your Industry: Impacts &amp; Adaptation</th><th>Discussing Impacts</th><th>Discussing Adaptation Strategies</th></tr><tr><td>Specific climate risks (e.g., extreme heat, heavy rainfall, droughts, sea-level rise)</td><td>It&#x27;s clear that X is causing...</td><td>Our industry is focusing on **climate resilience** by...</td></tr><tr><td>How these risks affect daily operations, production, or service delivery</td><td>We&#x27;re seeing more and more of X, which leads to...</td><td>We need better **disaster preparedness** through...</td></tr><tr><td>Impact on employees (e.g., safety, working conditions, job roles)</td><td>The most significant impact has been...</td><td>One key strategy is **workforce adaptation**, for example...</td></tr><tr><td>Strategies the industry is already using or could use to adapt</td><td>This directly affects our **supply chain** / **production** / **workforce**.</td><td>Investing in X is crucial for long-term stability.</td></tr><tr><td>Challenges in implementing these adaptations (e.g., cost, resistance to change)</td><td>It&#x27;s a major challenge for **job security** in this sector.</td><td>We&#x27;re exploring new methods for X.</td></tr><tr><td>Potential benefits of adaptation (e.g., new opportunities, **job security**)</td><td></td><td>It&#x27;s about making our operations more sustainable.</td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Free Practice: Industry Adaptation Discussion</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Group students into threes or fours.<br>
+2. Assign them the roleplay scenario: an industry meeting to discuss climate change impacts and adaptation.<br>
+3. Instruct them to share their prepared points, listen to others, and collaboratively propose solutions.<br>
+4. Remind them to use the phrases from the PREP stage and to aim for fluent, natural communication.<br>
+5. Circulate and monitor, noting down errors for delayed correction later, but do not interrupt fluency.<br>
+6. Encourage natural interaction and turn-taking.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Our Climate Challenge Meeting</h4>
+<p>Imagine you are colleagues from different departments or companies within the same industry (e.g., logistics, manufacturing, construction, hospitality). You are meeting to discuss the growing challenges posed by climate change and to brainstorm practical adaptation strategies for your sector.</p>
+<p><strong class="lexis">Your Task:</strong><br>
+1. Share specific examples of how climate change is currently affecting, or could affect, your area of work.<br>
+2. Discuss the impact on daily operations, employee roles, and overall business stability.<br>
+3. Propose and discuss potential solutions and <strong class="lexis">adaptation strategies</strong> for your industry.<br>
+4. Aim to use the vocabulary and phrases from the preparation stage.</p>
+<p><strong class="lexis">Discussion Points to Cover:</strong><br>
+*   Immediate challenges from extreme weather.<br>
+*   Long-term threats to <strong class="lexis">job security</strong> and operations.<br>
+*   Ideas for improving <strong class="lexis">climate resilience</strong>.<br>
+*   How to implement <strong class="lexis">disaster preparedness</strong> plans.<br>
+*   Training for <strong class="lexis">workforce adaptation</strong>.</p>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback &amp; Delayed Correction</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Start with content feedback: Ask groups to share their key discussion points, main challenges identified, and proposed solutions. Did they achieve the task?<br>
+2. Ask students to self-assess and peer-assess their communication (e.g., &#x27;Did you use the new vocabulary?&#x27;, &#x27;Was your group able to discuss the topic clearly?&#x27;).<br>
+3. Provide general positive feedback on successful communication and engagement.<br>
+4. Move to delayed language correction: Write down 5-7 common errors observed during the FP (e.g., pronunciation, misuse of target lexis, common grammatical inaccuracies related to expressing opinions or discussing future events).<br>
+5. Work through the errors as a whole class or in groups. Encourage students to self-correct first.<br>
+6. Highlight useful phrases that were well-used or could have been used more.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reflecting on Our Discussion</h4>
+<p>Take a moment to reflect on your discussion:</p>
+<p>1.  What was the most significant challenge your group identified for your industry regarding climate change?<br>
+2.  What was the most innovative or practical adaptation strategy suggested?<br>
+3.  Did you feel confident discussing these complex issues in English? What was easy or difficult?<br>
+4.  What new vocabulary or phrases did you try to use?</p>
+<p>Listen as your teacher gives feedback on the content of your discussions and helps you review some language points.</p>
+</section>
+</article>
+</body>
+</html>

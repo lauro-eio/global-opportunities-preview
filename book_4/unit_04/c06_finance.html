@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Writing an Expense Reimbursement Request</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Writing an Expense Reimbursement Request</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_4</dd>
+      <dt>CEFR</dt><dd>B1</dd>
+      <dt>Unit</dt><dd>4</dd>
+      <dt>Class</dt><dd>6</dd>
+      <dt>Theme</dt><dd>T04_FINANCE</dd>
+      <dt>Framework</dt><dd>SK-PROD</dd>
+      <dt>Role</dt><dd>SK_PROD_WRITING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Discussing Work Expenses</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Greet students and introduce the topic: work-related expenses.<br>
+2. Ask students to think about their current or past jobs.<br>
+3. Facilitate a brief discussion using the prompts in student_content.<br>
+4. Encourage students to share one type of cost they might need to claim back (e.g., a specific tool, travel for work, uniform repair).<br>
+5. Discuss who would need to approve such a claim in their workplace.<br>
+6. Emphasize that the focus is on practical, work-related costs and the process of getting reimbursed, not personal budgeting tips.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Work Costs &amp; Your Job</h4>
+<p>In your job, have you ever paid for something you needed for work and expected to get the money back from your company?</p>
+<p>Think about:<br>
+1. What kind of items or services might you need to pay for yourself, but are for your job?<br>
+2. Who would you need to ask for approval before or after buying it?<br>
+3. Why is it important to claim these costs back?</p>
+<p>Share one work cost you might claim back and who approves it.</p>
+</section>
+</article>
+<article class="stage" id="stage-MOD">
+<header class="stage-header"><span class="stage-code">MOD</span><h2>Model Analysis: Expense Claim Note</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the model text as an example of an expense claim note.<br>
+2. Ask students to read the note silently or aloud in pairs.<br>
+3. Instruct students to complete the tasks individually.<br>
+4. Monitor students as they work, providing help with vocabulary if needed.<br>
+5. Conduct a whole-class feedback session to check answers for each task.<br>
+6. Discuss key features of the note: clarity, conciseness, necessary information, and professional tone.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Understanding a Claim Note</h4>
+<p>Read the expense claim note below. This is an example of how an employee asks their manager for money back for a work expense. After reading, answer the questions that follow.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Expense Reimbursement Request</h5>
+<p>Subject: <strong class="lexis">Expense Reimbursement Request</strong> - Safety Boots Purchase<br>
+Date: 22nd October 2023<br>
+To: Sarah Davies, Operations Manager<br>
+From: Marco Rossi, Warehouse Operative</p>
+<p>Dear Sarah Davies,</p>
+<p>I am writing to request <strong class="lexis">reimbursement</strong> for a pair of safety boots purchased on 18th October 2023. These boots are <strong class="lexis">essential personal protective equipment</strong> for my role in the warehouse, ensuring my safety while handling heavy items and operating machinery.</p>
+<p>The total <strong class="lexis">cost</strong> of the safety boots was £65.00. I have attached the original <strong class="lexis">receipt</strong> (Receipt ID: SB-2023-XYZ) for your review.</p>
+<p>Please let me know if any further information or documentation is required to <strong class="lexis">process this claim</strong>.</p>
+<p>Thank you for your time and assistance.</p>
+<p>Sincerely,</p>
+<p>Marco Rossi<br>
+Employee ID: 78901</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main purpose of Marco&#x27;s note?</p>
+<ul><li>To complain about safety conditions.</li><li>To ask for money back for an item he bought for work.</li><li>To request a new job role.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Who is the audience for this note?</p>
+<p>Who is Marco writing to?</p>
+</div>
+<div class="task"><p class="task-instruction">Which of these pieces of information is NOT included in Marco&#x27;s note?</p>
+<p>Which of these is NOT in the note?</p>
+<ul><li>The date of purchase.</li><li>The total cost of the item.</li><li>The name of the shop where he bought the boots.</li><li>Why he needed the item.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">What phrase does Marco use to offer more information?</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-PREP">
+<header class="stage-header"><span class="stage-code">PREP</span><h2>Preparation: Useful Phrases for Your Claim</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will now prepare to write their own expense claim notes.<br>
+2. Ask students to recall the work cost they discussed in the Lead-In or think of a new one (e.g., travel expenses, tools, uniform repair).<br>
+3. Direct students to the &#x27;Useful Phrases for an Expense Claim&#x27; table.<br>
+4. Go through each column, explaining the purpose of the phrases and checking understanding.<br>
+5. In pairs or small groups, ask students to discuss which phrases they would use for their chosen expense and why.<br>
+6. Encourage students to brainstorm any other relevant vocabulary related to their specific claim.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Building Your Expense Vocabulary</h4>
+<p>Now, let&#x27;s prepare to write your own expense claim. Think about a work cost you would like to claim back. It could be for:</p>
+<p>*   Travel expenses (e.g., bus, train tickets for a work trip)<br>
+*   Tools or small equipment<br>
+*   Uniform repair or cleaning<br>
+*   A work-related course fee</p>
+<p>Look at the table below with useful phrases you can use in your note. Discuss with a partner which phrases would be good for your expense claim.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Opening Phrases</th><th>Stating the Cost &amp; Reason</th><th>Attaching Proof</th><th>Closing Phrases</th></tr><tr><td>I am writing to request reimbursement for...</td><td>The total cost was...</td><td>I have attached the original receipt.</td><td>Please let me know if you need more information.</td></tr><tr><td>This note is to claim back the cost of...</td><td>These were essential for my role...</td><td>Please find the receipt attached.</td><td>Thank you for your time and assistance.</td></tr><tr><td></td><td>Required for the project/task...</td><td>The receipt is included for your review.</td><td>Sincerely,</td></tr><tr><td></td><td>To ensure safety/efficiency...</td><td></td><td></td></tr><tr><td></td><td>To attend the training course...</td><td></td><td></td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Freer Practice: Writing Your Expense Claim</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Clearly explain the writing task to students.<br>
+2. Remind them to choose one work cost they want to claim back, identify the manager as the audience, and aim for a clear, concise note (approx. 50-100 words).<br>
+3. Advise students to use the model text and the useful phrases from the PREP stage.<br>
+4. Students should write their claim individually.<br>
+5. Monitor students&#x27; writing, offering support with vocabulary and sentence structure but allowing them to produce their own text.<br>
+6. Do not correct every error at this stage; focus on clarity of message and inclusion of key information.<br>
+7. Prepare a sample answer for teacher reference (e.g., for claiming bus tickets for a client meeting).</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">My Expense Reimbursement</h4>
+<p>Now it&#x27;s time to write your own expense claim or reimbursement note.</p>
+<p>Choose ONE work cost you would claim back from your employer. It could be the one you thought about earlier, or a new one.</p>
+<p><strong class="lexis">Your task:</strong> Write a short email or note to your manager requesting reimbursement for this expense.</p>
+<p><strong class="lexis">Audience:</strong> Your manager or supervisor.<br>
+<strong class="lexis">Purpose:</strong> To get money back for a work expense.<br>
+<strong class="lexis">Length:</strong> Approximately 50-100 words.</p>
+<p>Remember to:<br>
+*   State clearly what you are claiming for.<br>
+*   Explain why it was necessary for your job.<br>
+*   State the cost.<br>
+*   Mention that you have attached (or will attach) the receipt.<br>
+*   Be polite and professional.</p>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback &amp; Correction</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain the feedback process: first, content and clarity (peer feedback), then language (teacher feedback).<br>
+2. Pair students up and ask them to exchange their notes.<br>
+3. Instruct students to use the questions in student_content to guide their feedback. Emphasize constructive criticism focusing on the message and necessary information.<br>
+4. Circulate and monitor peer feedback, listening for common errors or strengths.<br>
+5. Collect the notes for teacher correction. Focus on recurring language errors relevant to the target language (e.g., prepositions, verb tense related to claims, clarity of phrasing).<br>
+6. Provide written feedback on individual notes or conduct a short whole-class feedback session addressing common errors without identifying individual writers.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reviewing Your Claim</h4>
+<p>Now, exchange your expense claim note with a partner. Read your partner&#x27;s note carefully and answer these questions. Give them helpful feedback.</p>
+<p><strong class="lexis">Content Feedback:</strong><br>
+1. Is it clear what expense your partner is claiming for?<br>
+2. Is the reason for the expense clear and professional?<br>
+3. Does the note mention the cost and the receipt?<br>
+4. Is the tone polite and appropriate for a manager?</p>
+<p><strong class="lexis">Language Feedback:</strong><br>
+1. Can you understand everything easily?<br>
+2. Are there any small mistakes that make it less clear?</p>
+<p>After feedback, you can make improvements to your note.</p>
+</section>
+</article>
+</body>
+</html>

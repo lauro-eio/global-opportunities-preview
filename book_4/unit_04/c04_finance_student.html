@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News About Your Pay Delay</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>News About Your Pay Delay</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>B1</dd>
+      <dt>Unit</dt><dd>4</dd>
+      <dt>Class</dt><dd>4</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-when-your-pay-changes">
+<header class="stage-header"><h2>When Your Pay Changes</h2></header>
+<section class="handout">
+<p>Imagine you are expecting your salary on a specific day, but something changes. How do you usually find out if your <strong class="lexis">pay</strong> is late, early, or different from what you expected?</p>
+<p>1. Who usually tells you (HR, your supervisor, the bank)?<br>
+2. How do they tell you (email, app notification, phone call)?<br>
+3. How quickly do you need to know about these changes?</p>
+</section>
+</article>
+<article class="stage" id="stage-key-words-for-your-pay">
+<header class="stage-header"><h2>Key Words for Your Pay</h2></header>
+<section class="handout">
+<p>Here are some words you will hear in today&#x27;s listening. Match them with their correct meaning.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>payroll</li><li>pay day</li><li>bank transfer</li><li>delay</li><li>update</li><li>processing</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match each term to its definition.</p>
+<ul><li><strong>payroll</strong> — The list of employees and their salaries.</li><li><strong>pay day</strong> — The specific day when salaries are usually paid.</li><li><strong>bank transfer</strong> — Moving money electronically from one bank account to another.</li><li><strong>delay</strong> — A period of time when something is held up or happens later than planned.</li><li><strong>update</strong> — New information about a situation.</li><li><strong>processing</strong> — The action of dealing with information or a request.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-first-listen-what-x27-s-the-main-message">
+<header class="stage-header"><h2>First Listen: What&#x27;s the Main Message?</h2></header>
+<section class="handout">
+<p>Listen to the message. What is the main reason for this announcement?</p>
+<p>Choose the best option.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Important Payroll Update</h5>
+<p>Good morning, team. This is Maria from HR with an important <strong class="lexis">payroll</strong> <strong class="lexis">update</strong>. I&#x27;m calling to inform you about a slight <strong class="lexis">delay</strong> with this month&#x27;s <strong class="lexis">pay day</strong>. Due to an unexpected technical issue with our <strong class="lexis">bank transfer</strong> system, some salaries are taking a little longer to process than usual. We understand this might cause inconvenience, and we sincerely apologize. The team is actively working with the <strong class="lexis">bank</strong> to resolve this. We expect all <strong class="lexis">payments</strong> to be fully <strong class="lexis">processed</strong> and visible in your accounts by tomorrow morning at the latest. Please do not contact HR or your supervisors directly about this today, as we will send another <strong class="lexis">update</strong> via email once the issue is completely resolved. Thank you for your patience and understanding.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main reason for Maria&#x27;s announcement?</p>
+<p>Maria is calling to inform the team about...</p>
+<ul><li>a change in the annual salary review schedule.</li><li>a delay in this month&#x27;s pay day.</li><li>new benefits available for employees.</li><li>a new system for submitting expenses.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-second-listen-getting-the-details">
+<header class="stage-header"><h2>Second Listen: Getting the Details</h2></header>
+<section class="handout">
+<p>Listen again to the announcement. Answer the questions with specific details.</p>
+<p>1. What is the reason for the <strong class="lexis">delay</strong>?<br>
+2. When can employees expect to see their <strong class="lexis">pay</strong> in their accounts?<br>
+3. What should employees NOT do today, according to the announcement?<br>
+4. How will the next <strong class="lexis">update</strong> be sent?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Important Payroll Update</h5>
+<p>Good morning, team. This is Maria from HR with an important <strong class="lexis">payroll</strong> <strong class="lexis">update</strong>. I&#x27;m calling to inform you about a slight <strong class="lexis">delay</strong> with this month&#x27;s <strong class="lexis">pay day</strong>. Due to an unexpected technical issue with our <strong class="lexis">bank transfer</strong> system, some salaries are taking a little longer to process than usual. We understand this might cause inconvenience, and we sincerely apologize. The team is actively working with the <strong class="lexis">bank</strong> to resolve this. We expect all <strong class="lexis">payments</strong> to be fully <strong class="lexis">processed</strong> and visible in your accounts by tomorrow morning at the latest. Please do not contact HR or your supervisors directly about this today, as we will send another <strong class="lexis">update</strong> via email once the issue is completely resolved. Thank you for your patience and understanding.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the reason for the delay?</p>
+<p>The delay is due to...</p>
+</div>
+<div class="task"><p class="task-instruction">When can employees expect to see their pay?</p>
+<p>Employees can expect their pay by...</p>
+</div>
+<div class="task"><p class="task-instruction">What should employees NOT do today?</p>
+<p>Employees should not...</p>
+</div>
+<div class="task"><p class="task-instruction">How will the next update be sent?</p>
+<p>The next update will be sent via...</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-talking-about-urgent-information">
+<header class="stage-header"><h2>Talking About Urgent Information</h2></header>
+<section class="handout">
+<p>Discuss these questions with your partner or the class:</p>
+<p>1. How would you feel if you received this <strong class="lexis">update</strong> about your <strong class="lexis">pay day</strong>?<br>
+2. Why is it important for employers to give clear information about <strong class="lexis">payroll delays</strong>?<br>
+3. Have you ever experienced a <strong class="lexis">delay</strong> with your <strong class="lexis">bank transfer</strong> or <strong class="lexis">pay</strong>? What happened?<br>
+4. What kind of <strong class="lexis">update</strong> (e.g., email, app notification, phone call) would you prefer for urgent news about your <strong class="lexis">pay</strong>?</p>
+</section>
+</article>
+</body>
+</html>

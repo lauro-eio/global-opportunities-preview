@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Workplace Communication &amp; Lexical Register</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Workplace Communication &amp; Lexical Register</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>1</dd>
+      <dt>Class</dt><dd>5</dd>
+      <dt>Theme</dt><dd>T01_IDENTITY</dd>
+      <dt>Framework</dt><dd>TTT</dd>
+      <dt>Role</dt><dd>TTT_LEXICAL_REGISTER_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Adapting Communication for Diverse Audiences</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by eliciting students&#x27; experiences with communication challenges. <br>
+2. Guide the discussion to focus on workplace scenarios, emphasizing situations where clear, respectful, and appropriate communication was essential. <br>
+3. Encourage students to share concrete examples and the strategies they used.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Bridging Communication Gaps at Work</h4>
+<p>Think about a time in your professional life when you had to explain a complex task, a new procedure, or an important company policy to someone from a very different background or perhaps with limited language proficiency.</p>
+<p>1. What was the situation? Who was the person you were communicating with?<br>
+2. What specific adjustments did you make to your communication style or choice of words?<br>
+3. How did these adjustments help ensure the message was understood and respected?<br>
+4. Why is it important to adapt our communication in a diverse workplace?</p>
+</section>
+</article>
+<article class="stage" id="stage-T1">
+<header class="stage-header"><span class="stage-code">T1</span><h2>Diagnostic Test: Articulating Professional Value</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Distribute the memo and tasks to students. <br>
+2. Instruct students to read the memo about the new &#x27;Efficiency Drive&#x27; initiative. <br>
+3. Explain that they need to choose the most appropriate and professional way to respond to the points raised in the memo, imagining they are a team leader or key contributor. <br>
+4. Emphasize that there is no prior teaching for this stage; it&#x27;s to see their current understanding of professional register. <br>
+5. Monitor for areas of difficulty, noting common errors or hesitation related to the target exponents and register.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Choosing Your Professional Voice</h4>
+<p>Read the internal memo below about a new company-wide &#x27;Efficiency Drive&#x27;. Imagine you are a key team member or a department head drafting an email response to this initiative. For each point, choose the phrase that best reflects a professional and committed approach in your reply.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Internal Memo: Launching Our &#x27;Efficiency Drive&#x27; Initiative</h5>
+<p>To: All Department Heads and Team Leads<br>
+From: Operations Management<br>
+Subject: Launching Our &#x27;Efficiency Drive&#x27; Initiative<br>
+Date: 25th October</p>
+<p>Dear Team,</p>
+<p>We are excited to announce the launch of our new <strong class="lexis">&#x27;Efficiency Drive&#x27;</strong> initiative, aimed at optimizing our internal processes and enhancing overall productivity across all departments. This is a critical step to ensure our continued success and competitive edge in the market.</p>
+<p>Over the next quarter, we will be implementing several strategic changes, including a review of current workflows, the introduction of new digital tools, and a renewed focus on cross-departmental collaboration. We understand that change can bring challenges, but we are confident that with your active participation and insights, this initiative will yield significant positive results.</p>
+<p>We believe that every team member has a vital role to play in this transformation. Your feedback, commitment, and <strong class="lexis">expertise</strong> are invaluable as we move forward. We will be holding a series of briefing sessions next week to provide more details and answer any questions you may have. Please review your departmental processes and come prepared to discuss how your team can contribute.</p>
+<p>Thank you for your dedication and support.</p>
+<p>Best regards,<br>
+Operations Management</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">When discussing your department&#x27;s past successes related to efficiency:</p>
+<p>I always do my best, and I think we&#x27;ve done well.</p>
+<ul><li>I&#x27;ve always tried my hardest, and my team helps out.</li><li>I take pride in my contribution to our department&#x27;s ongoing success.</li><li>Yeah, we worked pretty hard on that.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">When outlining your current objective for the &#x27;Efficiency Drive&#x27;:</p>
+<p>I&#x27;m looking mainly at how we can get things done faster.</p>
+<ul><li>My main goal is to make things quicker.</li><li>My primary focus is to ensure a smooth transition to the new system.</li><li>I&#x27;m just trying to speed things up here.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">When expressing how your team approaches overall company goals:</p>
+<p>We all try to do a good job for the company.</p>
+<ul><li>We all chip in to meet targets.</li><li>We collectively strive for excellence in all our departmental operations.</li><li>Everyone here works hard for the company.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">When showing dedication to company principles:</p>
+<p>I really believe in what we stand for.</p>
+<ul><li>I&#x27;m committed to upholding our values and the company&#x27;s mission.</li><li>I stick with our rules.</li><li>I&#x27;m a big fan of our company&#x27;s beliefs.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">When stating your particular strength relevant to the initiative:</p>
+<p>I&#x27;m good at the technical stuff.</p>
+<ul><li>I&#x27;m pretty handy with the technology.</li><li>My expertise lies in optimising technical workflows.</li><li>I know a lot about the machines.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-TCH">
+<header class="stage-header"><span class="stage-code">TCH</span><h2>Language Focus: Professional Register and Nuance</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Review the answers from T1, highlighting the target exponents. <br>
+2. Present the target phrases (from compiled_linguistic_targets.exponents). <br>
+3. Clarify meaning: Use CCQs (e.g., &#x27;If you &#x27;take pride in your contribution&#x27;, does it mean you brag about it, or you value it deeply and want to do good work?&#x27; &#x27;Does &#x27;primary focus&#x27; mean the only thing, or the main thing?&#x27;) <br>
+4. Focus on register: Contrast the chosen professional phrases with less formal alternatives (some from T1 options). Discuss <strong class="lexis">why</strong> the professional phrasing is more appropriate in a workplace, emphasizing &#x27;workplace dignity&#x27; and &#x27;professional register&#x27;. <br>
+5. Phonological Focus: Drill stress and intonation. Demonstrate stress on key content words like <strong class="lexis">pride</strong>, <strong class="lexis">contribution</strong>, <strong class="lexis">focus</strong>, <strong class="lexis">ensure</strong>, <strong class="lexis">collectively</strong>, <strong class="lexis">excellence</strong>, <strong class="lexis">committed</strong>, <strong class="lexis">upholding</strong>, <strong class="lexis">values</strong>, and <strong class="lexis">expertise</strong>. Model a falling or level intonation to convey sincerity and conviction. Have students repeat chorally and individually. <br>
+6. Guide students through the matching and rephrasing tasks to reinforce understanding.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Mastering Professional Language</h4>
+<p>In professional settings, the language we use significantly impacts how we are perceived. Choosing the right words helps convey confidence, commitment, and respect. Here are some key phrases for <strong class="lexis">articulating your professional role and team contribution</strong>.</p>
+<p>*   <strong class="lexis">I take pride in my contribution</strong> (meaning: I value my work and strive for quality)<br>
+*   <strong class="lexis">My primary focus is to ensure...</strong> (meaning: This is my main objective/priority)<br>
+*   <strong class="lexis">We collectively strive for excellence</strong> (meaning: As a team, we work hard to achieve high standards)<br>
+*   <strong class="lexis">I&#x27;m committed to upholding our values</strong> (meaning: I am dedicated to maintaining our principles)<br>
+*   <strong class="lexis">My expertise lies in [area]</strong> (meaning: This is where my specialized knowledge and skills are)</p>
+<p>Consider the nuance and appropriateness of these expressions compared to more casual alternatives.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match the informal expression on the left with its more professional equivalent on the right.</p>
+<p>Match the informal expression with its professional equivalent.</p>
+<ul><li><strong>I&#x27;m pretty good at...</strong> — My expertise lies in...</li><li><strong>I just try my best.</strong> — I take pride in my contribution.</li><li><strong>My main job is to...</strong> — My primary focus is to ensure...</li><li><strong>We all work hard together.</strong> — We collectively strive for excellence.</li><li><strong>I believe in our company&#x27;s principles.</strong> — I&#x27;m committed to upholding our values.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Rephrase the following casual statements using one of the professional exponents discussed.</p>
+<p>Rephrase: &#x27;My main thing is making sure the computers don&#x27;t crash.&#x27;</p>
+</div>
+<div class="task"><p class="task-instruction">Rephrase the following casual statements using one of the professional exponents discussed.</p>
+<p>Rephrase: &#x27;I&#x27;m really good at fixing things fast.&#x27;</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-T2">
+<header class="stage-header"><span class="stage-code">T2</span><h2>Production Task: Advocating for a New Initiative</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Divide students into pairs or small groups (3-4). <br>
+2. Explain the scenario: Each group represents a team tasked with proposing a new initiative to improve an aspect of their workplace (e.g., a new training program, a safety improvement, a process optimization). <br>
+3. Instruct them to brainstorm a simple idea and prepare a short pitch (2-3 minutes per group). <br>
+4. Emphasize the mandatory use of the target exponents from the lesson (&#x27;I take pride in my contribution&#x27;, &#x27;My primary focus is to ensure...&#x27;, etc.) to articulate their team&#x27;s role, commitment, and expertise. <br>
+5. Circulate and monitor, noting how effectively students integrate the target language, focusing on both appropriacy of register and phonological accuracy (stress, intonation). <br>
+6. After the presentations, provide feedback, highlighting good usage and gently correcting any misapplications or pronunciation issues. <br>
+7. Model Response Example (for teacher reference): &#x27;Good morning, everyone. Our team has been actively involved in analysing recent operational bottlenecks. I take pride in my contribution to finding innovative solutions. My primary focus is to ensure that our proposal, which leverages my expertise in logistics, significantly reduces delivery times. We collectively strive for excellence in customer satisfaction, and we are committed to upholding our company&#x27;s reputation for efficiency. Thank you.&#x27;</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Presenting Your Project Proposal</h4>
+<p>You are part of a team that has identified a critical area for improvement in your workplace, and you&#x27;ve developed a new initiative or project to address it. Now, you need to present your proposal to a senior manager or a panel of stakeholders.</p>
+<p>Working in pairs or small groups, prepare a short pitch (2-3 minutes) that:</p>
+<p>1.  Briefly describes your proposed initiative (e.g., a new safety protocol, an improved inventory system, a team training program).<br>
+2.  Explains <strong class="lexis">why</strong> it&#x27;s important for the company.<br>
+3.  Clearly articulates your team&#x27;s role, commitment, and expertise in making this initiative a success.</p>
+<p><strong class="lexis">Make sure to use the professional expressions we practiced in the lesson:</strong></p>
+<p>*   <strong class="lexis">I take pride in my contribution...</strong><br>
+*   <strong class="lexis">My primary focus is to ensure...</strong><br>
+*   <strong class="lexis">We collectively strive for excellence...</strong><br>
+*   <strong class="lexis">I&#x27;m committed to upholding our values...</strong><br>
+*   <strong class="lexis">My expertise lies in [area]...</strong></p>
+<p>Be ready to present your proposal to the class!</p>
+</section>
+</article>
+</body>
+</html>

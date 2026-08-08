@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lexical Register: Formal Financial Language</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Lexical Register: Formal Financial Language</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>4</dd>
+      <dt>Class</dt><dd>5</dd>
+      <dt>Theme</dt><dd>T04_FINANCE</dd>
+      <dt>Framework</dt><dd>TTT</dd>
+      <dt>Role</dt><dd>TTT_LEXICAL_REGISTER_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Corporate Financial Responsibilities</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by asking students about their personal financial obligations (rent, bills, loans).<br>
+2. Transition to businesses: &#x27;How do businesses owe money or have financial obligations?&#x27; Elicit examples like suppliers, banks, employees, government.<br>
+3. Discuss the implications: &#x27;What happens if a company struggles to meet these debts? What are the potential consequences?&#x27;<br>
+4. Guide the discussion towards the importance of formal language when discussing serious financial matters in a professional setting.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Understanding Business Obligations</h4>
+<p>Think about businesses you know or have worked with. How do companies typically incur financial obligations or &#x27;owe money&#x27;?</p>
+<p>Discuss with a partner:<br>
+1. What are the different ways a company might have financial obligations, both short-term and long-term?<br>
+2. What are the potential consequences if a company cannot meet its debts or financial commitments?<br>
+3. Why is it important for business professionals to discuss these topics clearly and formally?</p>
+</section>
+</article>
+<article class="stage" id="stage-T1">
+<header class="stage-header"><span class="stage-code">T1</span><h2>Test 1: Analyzing Financial Communication</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Hand out the memo and instruct students to read it, focusing on the blanks.<br>
+2. Explain that they need to choose the most appropriate and formal phrase for each blank to maintain a professional tone.<br>
+3. Monitor students as they complete the task, noting down any common errors or confusion regarding formality.<br>
+4. Do not provide answers or feedback at this stage. This is a diagnostic test to gauge their current understanding of appropriate register.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Company Update: Language Check</h4>
+<p>Read the following internal memo regarding &#x27;Apex Logistics&#x27; financial performance. Choose the best option for each numbered blank to ensure the language is professional and suitable for a formal business context.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Internal Memo: Q4 Performance Review</h5>
+<p>To: All Department Heads<br>
+From: Finance Department<br>
+Date: October 26, 2023<br>
+Subject: Preliminary Q4 Performance Review</p>
+<p>Dear Team,</p>
+<p>We are issuing this preliminary report on our performance during the past <strong class="lexis">fiscal quarter</strong>. Overall, the company is expected to (1) __________ as we approach the end of the year, driven by strong seasonal demand.</p>
+<p>However, we must note that (2) __________ show a slight deceleration in the broader market, which could impact our future. While our internal metrics are robust, (3) __________ remains cautious across the industry, particularly in logistics.</p>
+<p>Our preliminary review indicates that the (4) __________ for the next two quarters are still positive, but we are advising vigilance. We anticipate a respectable (5) __________ for shareholders, despite the external factors.</p>
+<p>We will schedule a follow-up meeting to discuss these details and formulate strategies to adapt to potential market shifts. Your input will be vital.</p>
+<p>Sincerely,<br>
+The Finance Team</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">For blank (1), choose the most appropriate phrase.</p>
+<p>The company is expected to (1) __________ as we approach the end of the year.</p>
+<ul><li>make some good money</li><li>do quite well financially</li><li>post a significant profit</li><li>earn a lot of cash</li></ul>
+</div>
+<div class="task"><p class="task-instruction">For blank (2), choose the most appropriate phrase.</p>
+<p>However, we must note that (2) __________ show a slight deceleration in the broader market.</p>
+<ul><li>analyst forecasts</li><li>some smart people think</li><li>the financial predictions</li><li>the experts&#x27; guesses</li></ul>
+</div>
+<div class="task"><p class="task-instruction">For blank (3), choose the most appropriate phrase.</p>
+<p>While our internal metrics are robust, (3) __________ remains cautious across the industry.</p>
+<ul><li>what the public feels</li><li>market sentiment</li><li>how people are feeling</li><li>the mood of the market</li></ul>
+</div>
+<div class="task"><p class="task-instruction">For blank (4), choose the most appropriate phrase.</p>
+<p>Our preliminary review indicates that the (4) __________ for the next two quarters are still positive.</p>
+<ul><li>expected rise numbers</li><li>growth estimations</li><li>projected growth figures</li><li>future increase predictions</li></ul>
+</div>
+<div class="task"><p class="task-instruction">For blank (5), choose the most appropriate phrase.</p>
+<p>We anticipate a respectable (5) __________ for shareholders.</p>
+<ul><li>money earned back</li><li>profit on investment</li><li>return on investment (ROI)</li><li>financial gain</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-TCH">
+<header class="stage-header"><span class="stage-code">TCH</span><h2>Teach: Register and Nuance in Corporate Finance</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Review the answers from T1, explaining why certain options were more appropriate.<br>
+2. Introduce the target exponents one by one.<br>
+3. For each exponent, clarify meaning using CCQs. E.g., for &#x27;post a significant profit&#x27;, &#x27;Does &#x27;post&#x27; mean send a letter? (No) What does it mean a company did?&#x27;<br>
+4. Discuss the register: &#x27;Is this formal or informal? When would you use it?&#x27;<br>
+5. Focus on phonological_focus: Model and drill pronunciation, emphasizing stress patterns for &#x27;market SENtiment&#x27;, &#x27;fiscal QUARter&#x27;, &#x27;PROjected GROWTH figures&#x27;, &#x27;Return On INvestment&#x27;. Pay attention to linking sounds and intonation for clarity and professionalism.<br>
+6. Use the &#x27;Formal vs. Informal&#x27; table to contrast the target language with less formal alternatives.<br>
+7. Conduct short, controlled practice tasks (CCQs) to check immediate comprehension of meaning and appropriacy.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Mastering Formal Financial Terms</h4>
+<p>Let&#x27;s look at the correct and most professional ways to discuss financial performance. Understanding these terms will help you communicate clearly and with appropriate gravitas in the workplace.</p>
+<p><strong class="lexis">Key Vocabulary &amp; Phrases for Financial Discussions:</strong></p>
+<p>1.  <strong class="lexis">post a significant profit/loss</strong>: To officially record a large profit or loss.<br>
+    <strong class="lexis">   </strong>Example:* &#x27;The company managed to <strong class="lexis">post a significant profit</strong> despite challenging market conditions.&#x27;<br>
+2.  <strong class="lexis">analyst forecasts</strong>: Predictions made by financial experts about future market trends or company performance.<br>
+    <strong class="lexis">   </strong>Example:* &#x27;<strong class="lexis">Analyst forecasts</strong> suggest strong growth in the tech sector next year.&#x27;<br>
+3.  <strong class="lexis">market sentiment remains cautious</strong>: The general mood or attitude of investors and the market is one of uncertainty or prudence.<br>
+    <strong class="lexis">   </strong>Example:* &#x27;Despite positive earnings reports, <strong class="lexis">market sentiment remains cautious</strong> due to global economic concerns.&#x27;<br>
+4.  <strong class="lexis">projected growth figures</strong>: The estimated numbers or percentages indicating future expansion or increase.<br>
+    <strong class="lexis">   </strong>Example:* &#x27;Our <strong class="lexis">projected growth figures</strong> for the next fiscal year are optimistic, assuming stable supply chains.&#x27;<br>
+5.  <strong class="lexis">fiscal quarter</strong>: A three-month period that a company uses for financial reporting.<br>
+    <strong class="lexis">   </strong>Example:* &#x27;The results for the third <strong class="lexis">fiscal quarter</strong> will be published next week.&#x27;<br>
+6.  <strong class="lexis">return on investment (ROI)</strong>: A performance measure used to evaluate the efficiency or profitability of an investment, or to compare the efficiency of several different investments. (Pronounced R.O.I.)<br>
+    <strong class="lexis">   </strong>Example:* &#x27;We are constantly evaluating strategies to maximize our <strong class="lexis">return on investment (ROI)</strong>.&#x27;</p>
+<p><strong class="lexis">Pronunciation Focus:</strong><br>
+Pay attention to word stress and clear articulation for these phrases. For example, in &#x27;market SENtiment&#x27;, stress &#x27;SEN&#x27;; in &#x27;fiscal QUARter&#x27;, stress &#x27;QUAR&#x27;. Ensure multi-word phrases are spoken clearly to convey professionalism.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Formal Business Term</th><th>Less Formal Alternative</th></tr><tr><td>post a significant profit/loss</td><td>make/lose a lot of money</td></tr><tr><td>analyst forecasts</td><td>what experts think will happen</td></tr><tr><td>market sentiment remains cautious</td><td>people are feeling careful about the market</td></tr><tr><td>projected growth figures</td><td>expected numbers for growth</td></tr><tr><td>fiscal quarter</td><td>three-month period</td></tr><tr><td>return on investment (ROI)</td><td>money back from what we put in</td></tr></table></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Which of the following phrases indicates that the general feeling in the market is one of uncertainty?</p>
+<p>Which phrase means investors are being careful?</p>
+</div>
+<div class="task"><p class="task-instruction">Match the formal financial term to its correct definition.</p>
+<p>Match the term to its meaning.</p>
+<ul><li><strong>fiscal quarter</strong> — A three-month period for financial reporting.</li><li><strong>return on investment (ROI)</strong> — A measure of profitability for an investment.</li><li><strong>projected growth figures</strong> — Estimated numbers for future expansion.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-T2">
+<header class="stage-header"><span class="stage-code">T2</span><h2>Test 2: Corporate Briefing Role Play</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Divide students into pairs or small groups (3-4).<br>
+2. Assign roles: one &#x27;Finance Manager&#x27; and the rest &#x27;Department Heads&#x27;.<br>
+3. Instruct the &#x27;Finance Manager&#x27; to prepare a brief (2-3 minute) update on their company&#x27;s recent performance and future outlook, incorporating at least 3-4 of the target exponents from the lesson.<br>
+4. The &#x27;Department Heads&#x27; should listen and be prepared to ask clarifying questions, also trying to use professional language.<br>
+5. Circulate and monitor, noting effective use of target language, appropriate register, and areas for improvement. Do not interrupt during the role play.<br>
+6. After the activity, provide general feedback to the class, highlighting good examples of usage and gently correcting persistent errors in register or pronunciation. Emphasize the importance of clear and professional communication in their work environments.<br>
+7. A model opening for the Finance Manager could be: &#x27;Good morning team. I&#x27;m here to provide a brief update on our performance this past fiscal quarter. While we managed to <strong class="lexis">post a significant profit</strong>, <strong class="lexis">market sentiment remains cautious</strong>, and recent <strong class="lexis">analyst forecasts</strong> suggest...&#x27;</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Delivering a Financial Update</h4>
+<p>You will now practice using the formal financial language you&#x27;ve learned in a realistic business scenario.</p>
+<p><strong class="lexis">Scenario:</strong> Your company has recently reviewed its financial performance. As a Finance Manager, you need to deliver a brief update to your department heads, explaining the current situation and the outlook for the next few months. Your department heads need to listen carefully and ask appropriate questions.</p>
+<p><strong class="lexis">Roles:</strong><br>
+*   <strong class="lexis">Finance Manager:</strong> Prepare a short (2-3 minute) update. You <strong class="lexis">must</strong> use at least <strong class="lexis">three to four</strong> of the target phrases we just discussed (e.g., &#x27;post a significant profit/loss&#x27;, &#x27;analyst forecasts&#x27;, &#x27;market sentiment remains cautious&#x27;, &#x27;projected growth figures&#x27;, &#x27;fiscal quarter&#x27;, &#x27;return on investment (ROI)&#x27;). Maintain a professional and formal tone.<br>
+*   <strong class="lexis">Department Heads:</strong> Listen to the update. You can ask 1-2 clarifying questions at the end, using professional language.</p>
+<p><strong class="lexis">Task:</strong> Work in pairs or small groups to role-play this meeting. Focus on clear pronunciation and appropriate register.</p>
+</section>
+</article>
+</body>
+</html>

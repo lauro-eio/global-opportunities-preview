@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Workplace Concerns: Understanding HR Procedures</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Workplace Concerns: Understanding HR Procedures</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>9</dd>
+      <dt>Class</dt><dd>1</dd>
+      <dt>Theme</dt><dd>T09_SOCIETY</dd>
+      <dt>Framework</dt><dd>SK-REC</dd>
+      <dt>Role</dt><dd>SK_REC_READING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Discussing Workplace Grievances</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Greet students and briefly review the purpose of the lesson (reading about workplace procedures).<br>
+2. Introduce the lead-in scenario: a colleague being treated unfairly.<br>
+3. Put students in small groups or pairs to discuss the prompts.<br>
+4. Monitor discussions, noting any emerging vocabulary or common challenges.<br>
+5. Facilitate a brief whole-class feedback session, drawing out key points from their discussions.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Understanding Workplace Concerns</h4>
+<p>Imagine a colleague has been treated unfairly at work. How would you advise them to address the situation within company rules and internal processes?</p>
+<p>Discuss the following questions with a partner:<br>
+1. What steps should your colleague take first to address the unfair treatment?<br>
+2. Who are the key people or departments within a company that can help resolve such issues?<br>
+3. What are the potential consequences of not following established company procedures?<br>
+4. Why is it important to use formal channels for serious workplace disputes?</p>
+</section>
+</article>
+<article class="stage" id="stage-PTV">
+<header class="stage-header"><span class="stage-code">PTV</span><h2>Pre-Teach Vocabulary: Key Terms for HR Procedures</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the vocabulary section. Explain that these words are crucial for understanding the upcoming reading.<br>
+2. Go through the vocabulary items, checking understanding. Provide simple explanations or examples.<br>
+3. Ask students to complete the matching task individually.<br>
+4. Check answers as a class, clarifying any misconceptions.<br>
+5. Ensure students can pronounce the words correctly.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Essential Words for Workplace Disputes</h4>
+<p>Before reading, let&#x27;s look at some important words you will find in the text. These terms relate to how companies handle disagreements or problems between employees.</p>
+<p>Read the vocabulary items and their definitions. Then, complete the matching task to test your understanding.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>grievance procedure</li><li>mediation</li><li>HR policy</li><li>disciplinary action</li><li>complaint form</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match each term to its correct definition.</p>
+<ul><li><strong>grievance procedure</strong> — A formal, step-by-step process for employees to raise and resolve workplace complaints.</li><li><strong>mediation</strong> — A process involving a neutral third party who helps resolve a dispute by facilitating communication and agreement.</li><li><strong>HR policy</strong> — The official rules and guidelines set by the Human Resources department that govern employee conduct and company operations.</li><li><strong>disciplinary action</strong> — Formal steps or punishment taken by an employer against an employee for misconduct or rule violations.</li><li><strong>complaint form</strong> — A standardized written document used to formally submit a grievance or report a workplace issue to HR.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-GIST">
+<header class="stage-header"><span class="stage-code">GIST</span><h2>Gist Reading: Understanding the Main Purpose of HR Guidelines</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will now read a passage about workplace dispute resolution.<br>
+2. Tell them to read quickly to get the main idea, not focusing on every word.<br>
+3. Set a time limit for skimming (e.g., 2-3 minutes).<br>
+4. Students should answer the multiple-choice question to check their overall understanding.<br>
+5. Collect answers and discuss why the correct option is the best summary.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">First Read: Why Do We Need HR Procedures?</h4>
+<p>Read the HR memo quickly to understand its main purpose. Don&#x27;t worry about every detail for now. Once you&#x27;ve finished, answer the multiple-choice question below.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>HR Guide: Resolving Workplace Concerns</h5>
+<p>To All Employees,</p>
+<p>At [Company Name], we are committed to fostering a fair and respectful workplace. We understand that issues can arise, and we have clear procedures in place to ensure they are addressed effectively and professionally.</p>
+<p>Should you encounter a workplace concern, we encourage you to first attempt an informal resolution directly with the colleague or manager involved, if appropriate and safe to do so. This often resolves minor issues quickly.</p>
+<p>If an informal approach isn&#x27;t suitable or has been unsuccessful, our formal <strong class="lexis">grievance procedure</strong> is available. This process is designed to handle serious complaints fairly and confidentially. To initiate this, you will need to submit a formal <strong class="lexis">complaint form</strong> to the Human Resources department. This form helps us gather all necessary details and ensures your concern is officially recorded.</p>
+<p>Upon receipt, HR will review your submission. Depending on the nature of the issue, we may facilitate <strong class="lexis">mediation</strong> between the involved parties. A neutral third-party mediator will help guide a constructive conversation aimed at reaching a mutually agreeable solution. This step is often very effective in resolving misunderstandings and finding common ground.</p>
+<p>It’s crucial to remember that all actions taken will adhere strictly to our established <strong class="lexis">HR policy</strong>. This policy outlines employee rights, responsibilities, and the framework for addressing various workplace situations. Failure to follow company guidelines or engaging in misconduct, after due investigation, may result in <strong class="lexis">disciplinary action</strong>. This can range from verbal warnings to, in severe cases, termination of employment.</p>
+<p>Our goal is always to resolve disputes amicably and maintain a positive working environment for everyone. Please consult the HR portal for full details on any of these procedures or contact your HR representative for confidential guidance.</p>
+<p>Sincerely,<br>
+The HR Department</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Choose the best option that describes the main purpose of this HR memo.</p>
+<p>The primary aim of this HR memo is to:</p>
+<ul><li>Announce new company rules for employee behavior.</li><li>Inform employees about the steps for resolving workplace disputes.</li><li>Outline the specific details of disciplinary actions for misconduct.</li><li>Encourage employees to use informal communication only.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-DET">
+<header class="stage-header"><span class="stage-code">DET</span><h2>Detailed Reading: Understanding Specific HR Procedures</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will now read the memo again, this time for specific details.<br>
+2. Have students answer the &#x27;short text&#x27; questions, encouraging them to find the exact information in the passage.<br>
+3. Check answers for the short text task as a whole class.<br>
+4. Divide students into pairs or small groups for the discussion questions.<br>
+5. Facilitate a whole-class feedback session for the discussion questions, noting different perspectives.<br>
+6. Model answers for discussion questions:<br>
+   1. The first step is to attempt an informal resolution directly with the colleague or manager.<br>
+   2. The memo suggests submitting a formal complaint form to the Human Resources department.<br>
+   3. Mediation involves a neutral third party guiding a constructive conversation to find a mutually agreeable solution.<br>
+   4. Failure to follow company guidelines or engaging in misconduct may result in disciplinary action, ranging from verbal warnings to termination.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Second Read: How to Address Workplace Concerns</h4>
+<p>Read the HR memo again more carefully. This time, focus on understanding the specific procedures and details about resolving workplace concerns.</p>
+<p>First, answer the questions below by finding the information in the text.</p>
+<p>Then, discuss the deeper implications of these procedures with a partner.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>HR Guide: Resolving Workplace Concerns</h5>
+<p>To All Employees,</p>
+<p>At [Company Name], we are committed to fostering a fair and respectful workplace. We understand that issues can arise, and we have clear procedures in place to ensure they are addressed effectively and professionally.</p>
+<p>Should you encounter a workplace concern, we encourage you to first attempt an informal resolution directly with the colleague or manager involved, if appropriate and safe to do so. This often resolves minor issues quickly.</p>
+<p>If an informal approach isn&#x27;t suitable or has been unsuccessful, our formal <strong class="lexis">grievance procedure</strong> is available. This process is designed to handle serious complaints fairly and confidentially. To initiate this, you will need to submit a formal <strong class="lexis">complaint form</strong> to the Human Resources department. This form helps us gather all necessary details and ensures your concern is officially recorded.</p>
+<p>Upon receipt, HR will review your submission. Depending on the nature of the issue, we may facilitate <strong class="lexis">mediation</strong> between the involved parties. A neutral third-party mediator will help guide a constructive conversation aimed at reaching a mutually agreeable solution. This step is often very effective in resolving misunderstandings and finding common ground.</p>
+<p>It’s crucial to remember that all actions taken will adhere strictly to our established <strong class="lexis">HR policy</strong>. This policy outlines employee rights, responsibilities, and the framework for addressing various workplace situations. Failure to follow company guidelines or engaging in misconduct, after due investigation, may result in <strong class="lexis">disciplinary action</strong>. This can range from verbal warnings to, in severe cases, termination of employment.</p>
+<p>Our goal is always to resolve disputes amicably and maintain a positive working environment for everyone. Please consult the HR portal for full details on any of these procedures or contact your HR representative for confidential guidance.</p>
+<p>Sincerely,<br>
+The HR Department</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">According to the memo, what is the first step an employee should take if they encounter a workplace concern?</p>
+<p>What is the first recommended step for addressing a workplace concern?</p>
+</div>
+<div class="task"><p class="task-instruction">Which specific document must be submitted to HR to initiate a formal grievance procedure?</p>
+<p>What document is needed to start a formal grievance procedure?</p>
+</div>
+<div class="task"><p class="task-instruction">What is the role of a neutral third party in the mediation process?</p>
+<p>What does a neutral third party do during mediation?</p>
+</div>
+<div class="task"><p class="task-instruction">What can happen if an employee fails to follow company guidelines or engages in misconduct?</p>
+<p>What are the potential consequences of not following company rules?</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback and Discussion: Applying HR Procedures</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Review the main points of the reading passage about HR procedures.<br>
+2. Open a class discussion based on the student content prompts.<br>
+3. Encourage students to share their opinions and connect the reading to their own experiences or observations.<br>
+4. Provide feedback on content and ideas, ensuring clarity and coherence.<br>
+5. Make brief language notes as needed, focusing on accurate use of the target vocabulary from the lesson.<br>
+6. Avoid explicit grammar correction unless it significantly impedes meaning.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Your Role in Workplace Fairness</h4>
+<p>Now that you have read about the company&#x27;s HR procedures for resolving workplace concerns, discuss the following questions in small groups:</p>
+<p>1. In your experience, how effective are formal <strong class="lexis">grievance procedures</strong> in resolving workplace disputes?<br>
+2. When do you think <strong class="lexis">mediation</strong> is most effective, and when might it not be suitable?<br>
+3. Why is it important for a company to have a clear <strong class="lexis">HR policy</strong> for disputes?<br>
+4. What responsibilities do employees have to understand and follow these procedures?<br>
+5. If you were in charge of HR, what else might you include in a memo like this to ensure employees feel supported and understand the process?</p>
+</section>
+</article>
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Workplace Well-being and Local Community Support</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Workplace Well-being and Local Community Support</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>10</dd>
+      <dt>Class</dt><dd>4</dd>
+      <dt>Theme</dt><dd>T10_LIFESTYLE</dd>
+      <dt>Framework</dt><dd>SK-REC</dd>
+      <dt>Role</dt><dd>SK_REC_LISTENING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Workplace Support for Local Services</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Greet students and briefly introduce the topic of workplace support.<br>
+2. Ask students to read the lead-in questions individually.<br>
+3. Facilitate a short whole-class or pair discussion based on the questions, encouraging them to share their experiences or ideas regarding workplace integration with local services.<br>
+4. Ensure discussion focuses on practical, real-world scenarios relevant to adult working-class learners.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Supporting Our Staff: A Community Focus</h4>
+<p>Access to essential services like <strong class="lexis">childcare</strong> or <strong class="lexis">healthcare</strong> can significantly impact employee well-being. Thinking about your current or past workplace:</p>
+<p>1. What essential local services (e.g., childcare, healthcare, transport) are most crucial for employees in your sector?<br>
+2. How well does your workplace currently support or integrate with access to these vital local services for its staff?<br>
+3. What challenges might employees face in accessing these services, and how could the workplace help overcome them?</p>
+</section>
+</article>
+<article class="stage" id="stage-PTV">
+<header class="stage-header"><span class="stage-code">PTV</span><h2>Pre-Teach Vocabulary: Local Service Access</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the vocabulary items that will appear in the listening text.<br>
+2. Ask students to attempt to match the terms to their definitions in pairs or small groups.<br>
+3. Go through the answers as a class, clarifying any misunderstandings and providing example sentences relevant to their working lives.<br>
+4. Emphasize the professional register of the terms.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Understanding Key Terms</h4>
+<p>Before we listen, let&#x27;s look at some important words and phrases you will hear.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>childcare provisions</li><li>healthcare accessibility</li><li>local retail partnerships</li><li>employee support programs</li><li>community resources</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match each term to its correct definition.</p>
+<ul><li><strong>childcare provisions</strong> — Arrangements or services provided to care for children, especially while parents are at work.</li><li><strong>healthcare accessibility</strong> — The ease with which employees can obtain medical services, doctors, or hospitals.</li><li><strong>local retail partnerships</strong> — Agreements or collaborations between the workplace and nearby shops or businesses, often for discounts or services.</li><li><strong>employee support programs</strong> — Initiatives or services offered by an employer to help staff with personal or professional challenges, e.g., counselling, financial advice.</li><li><strong>community resources</strong> — Services or facilities available within the local area, such as libraries, welfare groups, or public health clinics.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-GIST">
+<header class="stage-header"><span class="stage-code">GIST</span><h2>Gist Listening: Identifying Main Ideas</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will listen to a discussion about workplace support for local services.<br>
+2. Ask students to listen for the main ideas and overall purpose of the conversation.<br>
+3. Play the audio once.<br>
+4. Students complete the multiple-choice question individually.<br>
+5. Check the answer as a class, asking students to justify their choice based on what they heard.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">First Listen: What&#x27;s the Main Point?</h4>
+<p>Listen to the conversation between Sarah, a Team Leader, and Mark, an Employee Representative. What is the main purpose of their discussion?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Meeting: Enhancing Staff Well-being</h5>
+<p>Sarah: Thanks for coming in, Mark. I wanted to follow up on the recent staff survey regarding well-being and local services.</p>
+<p>Mark: No problem, Sarah. The feedback was quite clear, actually. A lot of colleagues are really struggling, especially with <strong class="lexis">childcare provisions</strong> and finding affordable, accessible <strong class="lexis">healthcare</strong>. Many mentioned the difficulty of getting appointments during work hours or finding reliable care for their children outside of school.</p>
+<p>Sarah: Yes, I saw those points. It&#x27;s a significant concern for our team. We want to ensure our staff feel supported, both professionally and personally. What kind of solutions are employees suggesting?</p>
+<p>Mark: Well, regarding childcare, some suggested that the company could explore partnerships with local nurseries or after-school clubs. Maybe even negotiate some discounted rates for our employees. It would be a huge help.</p>
+<p>Sarah: That’s a good idea. We could definitely look into <strong class="lexis">local retail partnerships</strong> beyond just childcare too, perhaps for essential services or even just daily necessities. It fosters a sense of being valued.</p>
+<p>Mark: Exactly. And for healthcare, the main issue is <strong class="lexis">healthcare accessibility</strong>. People need flexible options. Could we, for instance, facilitate access to online doctor consultations or provide information on <strong class="lexis">community resources</strong> like local health clinics that offer evening hours?</p>
+<p>Sarah: That&#x27;s certainly feasible. We already have <strong class="lexis">employee support programs</strong> in place, but we could definitely expand their scope to include better signposting for these services. Perhaps a dedicated section on the intranet with vetted local providers and practical advice. We could also consider workshops on navigating the local healthcare system.</p>
+<p>Mark: That would be incredibly beneficial. It&#x27;s not just about financial support; it&#x27;s about making information and options readily available. When employees feel their employer is actively trying to improve their work-life balance, it boosts morale and retention.</p>
+<p>Sarah: Absolutely. And it aligns with our broader goal of creating a supportive and sustainable working environment. Let&#x27;s draft a proposal outlining these potential initiatives, focusing on both immediate actions and longer-term partnerships. We need to demonstrate that we&#x27;re listening and taking action.</p>
+<p>Mark: Sounds like a solid plan. I’ll gather some more specific feedback on preferred services to help shape the proposal.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Choose the best option to complete the statement about the main purpose of their discussion.</p>
+<p>The primary goal of Sarah and Mark&#x27;s discussion is to:</p>
+<ul><li>Review the company&#x27;s annual budget for employee benefits.</li><li>Propose ways the company can improve employee access to crucial local services.</li><li>Discuss individual employee complaints about work-life balance.</li><li>Plan a new social event for the company&#x27;s staff.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-DET">
+<header class="stage-header"><span class="stage-code">DET</span><h2>Detailed Listening: Specific Information</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will listen to the same conversation again, this time focusing on specific details.<br>
+2. Ask students to read the questions before listening.<br>
+3. Play the audio a second time.<br>
+4. Students complete the short-text questions individually or in pairs.<br>
+5. Check answers as a class, prompting students to pinpoint where in the conversation they found the information.</p>
+<p>Answer Key:<br>
+1. Childcare provisions and affordable, accessible healthcare.<br>
+2. Partnerships with local nurseries or after-school clubs.<br>
+3. Facilitate access to online doctor consultations or provide information on community resources like local health clinics with evening hours.<br>
+4. Expand employee support programs to include better signposting for services and a dedicated intranet section.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Second Listen: Uncovering the Details</h4>
+<p>Listen to the conversation again. This time, focus on the specific details. Answer the questions in your own words.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Meeting: Enhancing Staff Well-being</h5>
+<p>Sarah: Thanks for coming in, Mark. I wanted to follow up on the recent staff survey regarding well-being and local services.</p>
+<p>Mark: No problem, Sarah. The feedback was quite clear, actually. A lot of colleagues are really struggling, especially with <strong class="lexis">childcare provisions</strong> and finding affordable, accessible <strong class="lexis">healthcare</strong>. Many mentioned the difficulty of getting appointments during work hours or finding reliable care for their children outside of school.</p>
+<p>Sarah: Yes, I saw those points. It&#x27;s a significant concern for our team. We want to ensure our staff feel supported, both professionally and personally. What kind of solutions are employees suggesting?</p>
+<p>Mark: Well, regarding childcare, some suggested that the company could explore partnerships with local nurseries or after-school clubs. Maybe even negotiate some discounted rates for our employees. It would be a huge help.</p>
+<p>Sarah: That’s a good idea. We could definitely look into <strong class="lexis">local retail partnerships</strong> beyond just childcare too, perhaps for essential services or even just daily necessities. It fosters a sense of being valued.</p>
+<p>Mark: Exactly. And for healthcare, the main issue is <strong class="lexis">healthcare accessibility</strong>. People need flexible options. Could we, for instance, facilitate access to online doctor consultations or provide information on <strong class="lexis">community resources</strong> like local health clinics that offer evening hours?</p>
+<p>Sarah: That&#x27;s certainly feasible. We already have <strong class="lexis">employee support programs</strong> in place, but we could definitely expand their scope to include better signposting for these services. Perhaps a dedicated section on the intranet with vetted local providers and practical advice. We could also consider workshops on navigating the local healthcare system.</p>
+<p>Mark: That would be incredibly beneficial. It&#x27;s not just about financial support; it&#x27;s about making information and options readily available. When employees feel their employer is actively trying to improve their work-life balance, it boosts morale and retention.</p>
+<p>Sarah: Absolutely. And it aligns with our broader goal of creating a supportive and sustainable working environment. Let&#x27;s draft a proposal outlining these potential initiatives, focusing on both immediate actions and longer-term partnerships. We need to demonstrate that we&#x27;re listening and taking action.</p>
+<p>Mark: Sounds like a solid plan. I’ll gather some more specific feedback on preferred services to help shape the proposal.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">According to Mark, what two main issues are many colleagues struggling with regarding local services?</p>
+<p>What two main issues are many colleagues struggling with?</p>
+</div>
+<div class="task"><p class="task-instruction">What specific solution do employees suggest for childcare?</p>
+<p>What specific solution is suggested for childcare?</p>
+</div>
+<div class="task"><p class="task-instruction">What two examples does Mark give for improving healthcare accessibility?</p>
+</div>
+<div class="task"><p class="task-instruction">How does Sarah suggest expanding existing employee support programs?</p>
+<p>How does Sarah suggest expanding employee support programs?</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Follow-up Discussion: Reflecting on Solutions</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Open a discussion about the solutions proposed in the listening, connecting them to the students&#x27; initial ideas.<br>
+2. Ask students to share which proposed solutions they think would be most effective and why.<br>
+3. Encourage students to suggest any other practical ideas for their own workplaces to advocate for local services.<br>
+4. Provide brief language feedback on any common errors or useful phrases that emerged during the discussion.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Moving Forward: Your Ideas for Workplace Support</h4>
+<p>Sarah and Mark discussed several ways the company could enhance employee access to crucial local services.</p>
+<p>1. Which of the proposed solutions (e.g., local retail partnerships, expanded employee support programs, partnerships for childcare) do you think would be most effective in a workplace you know?<br>
+2. What other practical steps could a workplace take to improve employee lifestyles by better connecting with or supporting access to vital local services?<br>
+3. How might advocating for these changes impact employee morale and productivity?</p>
+</section>
+</article>
+</body>
+</html>

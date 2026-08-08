@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Discussing Data Privacy in the Workplace</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Discussing Data Privacy in the Workplace</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>9</dd>
+      <dt>Class</dt><dd>5</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-handling-information-at-work">
+<header class="stage-header"><h2>Handling Information at Work</h2></header>
+<section class="handout">
+<p>Think about the sensitive information you handle at work, whether it&#x27;s about clients, customers, or colleagues. </p>
+<p>1. What kind of sensitive data do you come across most often?<br>
+2. What are the main rules or practices in your workplace to protect this information?<br>
+3. What do you think could be the consequences if this data was misused or accidentally shared?</p>
+</section>
+</article>
+<article class="stage" id="stage-understanding-data-privacy-guidelines">
+<header class="stage-header"><h2>Understanding Data Privacy Guidelines</h2></header>
+<section class="handout">
+<p>Read the internal memo below regarding new data handling protocols. For each gap, choose the option that best completes the sentence, keeping the formal and professional tone of the memo in mind.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Internal Memo: Updated Data Handling Protocol</h5>
+<p>To: All Staff<br>
+From: Compliance Department<br>
+Date: October 26, 2024<br>
+Subject: Important Update: Data Handling and Privacy Regulations</p>
+<p>Dear Team,</p>
+<p>This memo outlines critical updates to our internal policies regarding data privacy and the handling of <strong class="lexis">confidential information</strong>. It is imperative that all employees understand and <strong class="lexis">adhere to regulations</strong> set forth by the company and national legal frameworks.</p>
+<p>Following recent external audits, we have identified areas where our current practices require stronger <strong class="lexis">GDPR_compliance</strong>. Therefore, new protocols have been established to ensure <strong class="lexis">secure data handling</strong> across all departments. Failure to comply could lead to severe penalties, including a <strong class="lexis">breach of contract</strong> for employees and significant legal consequences for the company.</p>
+<p>We urge all staff to familiarize themselves with the revised <strong class="lexis">privacy policy</strong>, available on the company intranet. If you have questions or require further clarification, please do not hesitate to (1) __________ from the Legal Department. It is everyone’s responsibility to (2) __________ and maintain the highest standards of data protection. Employees must (3) __________ in all dealings involving customer and employee information. We strongly recommend that all relevant personnel (4) __________ before engaging in any new data-related projects to ensure full understanding and compliance.</p>
+<p>Your cooperation in (5) __________ these standards is crucial for protecting our customers, our colleagues, and our company&#x27;s reputation.</p>
+<p>Sincerely,</p>
+<p>Maria Rodriguez<br>
+Head of Compliance</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Choose the most appropriate phrase for gap (1).</p>
+<p>If you have questions or require further clarification, please do not hesitate to (1) __________ from the Legal Department.</p>
+<ul><li>ask for legal advice</li><li>get some lawyer help</li><li>seek legal counsel</li><li>find a legal opinion</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Choose the most appropriate phrase for gap (2).</p>
+<p>It is everyone’s responsibility to (2) __________ and maintain the highest standards of data protection.</p>
+<ul><li>keep the rules</li><li>uphold the law</li><li>stand by the law</li><li>respect the regulations</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Choose the most appropriate phrase for gap (3).</p>
+<p>Employees must (3) __________ in all dealings involving customer and employee information.</p>
+<ul><li>do their research</li><li>be very careful</li><li>conduct due diligence</li><li>check everything carefully</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Choose the most appropriate phrase for gap (4).</p>
+<p>We strongly recommend that all relevant personnel (4) __________ before engaging in any new data-related projects to ensure full understanding and compliance.</p>
+<ul><li>get legal advice</li><li>seek legal counsel</li><li>request lawyer guidance</li><li>ask for a legal opinion</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Choose the most appropriate phrase for gap (5).</p>
+<p>Your cooperation in (5) __________ these standards is crucial for protecting our customers, our colleagues, and our company&#x27;s reputation.</p>
+<ul><li>sticking to</li><li>following</li><li>upholding</li><li>maintaining</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-legal-language-in-the-workplace">
+<header class="stage-header"><h2>Legal Language in the Workplace</h2></header>
+<section class="handout">
+<p>In professional environments, especially when discussing legal matters or company policies, it&#x27;s important to use precise and formal language. Let&#x27;s look at some key phrases that help ensure clarity and professionalism.</p>
+<p>Match the formal legal phrase with its more common explanation.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Formal Legal Phrase</th><th>Meaning/Context</th></tr><tr><td>seek legal counsel</td><td>Consult a lawyer or legal expert for advice.</td></tr><tr><td>adhere to regulations</td><td>Follow rules or laws strictly.</td></tr><tr><td>breach of contract</td><td>Failure to fulfill the terms of an agreement.</td></tr><tr><td>uphold the law</td><td>Support and maintain existing laws or principles.</td></tr><tr><td>conduct due diligence</td><td>Perform necessary research and care before an action.</td></tr></table></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match the formal legal phrase to its definition. (Refer to the table above for phrases and their meanings).</p>
+<p>Match the formal legal phrase to its definition.</p>
+<ul><li><strong>seek legal counsel</strong> — To get advice from a lawyer.</li><li><strong>adhere to regulations</strong> — To strictly follow rules or laws.</li><li><strong>breach of contract</strong> — Failure to follow terms of an agreement.</li><li><strong>uphold the law</strong> — To support and ensure respect for the law.</li><li><strong>conduct due diligence</strong> — To thoroughly research and investigate before making a decision.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-discussing-workplace-data-scenarios">
+<header class="stage-header"><h2>Discussing Workplace Data Scenarios</h2></header>
+<section class="handout">
+<p>Imagine you are discussing important data privacy issues with colleagues or management. Use the formal legal phrases you have learned to discuss the following scenarios:</p>
+<p><strong class="lexis">Scenario 1: New Vendor Partnership</strong><br>
+Your company is considering partnering with a new software vendor who will handle a large amount of customer data. You need to discuss the steps to ensure this partnership is secure and legally compliant.</p>
+<p>*   What steps should your team <strong class="lexis">conduct due diligence</strong> on before signing any agreements?<br>
+*   What specific <strong class="lexis">regulations</strong> do you need to ensure the vendor will <strong class="lexis">adhere to</strong>?<br>
+*   What would be the consequences of a <strong class="lexis">breach of contract</strong> if the vendor fails to protect data?</p>
+<p><strong class="lexis">Scenario 2: Employee Data Misuse</strong><br>
+An employee accidentally shared a confidential client list with an external, unauthorized party. This is a serious incident.</p>
+<p>*   What immediate action should the company take to <strong class="lexis">uphold the law</strong> regarding data privacy?<br>
+*   Who should the employee or management <strong class="lexis">seek legal counsel</strong> from?<br>
+*   How should this incident be communicated internally and externally (if necessary), using professional language?</p>
+</section>
+</article>
+</body>
+</html>

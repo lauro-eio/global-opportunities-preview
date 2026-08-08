@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit exam — Mastering Professional Nuance and Persuasion</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<nav class="breadcrumbs"><a href="index.html">← Unit index</a></nav>
+<header>
+  <p class="view-banner">Teacher · Unit exam key</p>
+  <h1>Unit exam — Mastering Professional Nuance and Persuasion</h1>
+  <p class="meta">T12_ABSTRACT · C1 · 30 items</p>
+</header>
+<article class="exam-item" id="q01"><div class="exam-item-header"><span class="qnum">1. q01</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">The new incident reporting ______ requires all near-misses to be documented within 24 hours.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>protocol ✓</li><li><span class="opt-key">B.</span>agreement</li><li><span class="opt-key">C.</span>procedure</li><li><span class="opt-key">D.</span>regulation</li></ul><div class="exam-explanation"><strong>Explanation</strong>The term &#x27;protocol&#x27; refers to the official system of rules governing specific procedures, directly matching the context of new reporting requirements mentioned in the brief.</div></article><article class="exam-item" id="q02"><div class="exam-item-header"><span class="qnum">2. q02</span><span class="exam-meta">grammar · class 1</span></div><div class="exam-prompt">When discussing the challenges, which phrasing most effectively emphasizes the difficulty of implementing the new safety measures, rather than just stating it?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Implementing the new safety measures presents a challenge.</li><li><span class="opt-key">B.</span>The implementation of the new safety measures is quite difficult.</li><li class="correct"><span class="opt-key">C.</span>What is truly difficult is the implementation of these new safety measures. ✓</li><li><span class="opt-key">D.</span>These new safety measures, their implementation poses significant difficulty.</li></ul><div class="exam-explanation"><strong>Explanation</strong>A cleft sentence (&#x27;What is X is Y&#x27;) is a fronted syntactic alteration used for rhetorical persuasion, specifically to emphasize the part of the sentence that comes after &#x27;is&#x27;.</div></article><article class="exam-item" id="q03"><div class="exam-item-header"><span class="qnum">3. q03</span><span class="exam-meta">comprehension · class 1</span></div><div class="exam-prompt">A team member is hesitant about the new reporting protocol, citing concerns about its complexity. How should the manager respond to acknowledge their point while still advocating for the protocol?</div><ul class="exam-options"><li><span class="opt-key">A.</span>I understand your concerns about the new protocol&#x27;s complexity, but its implementation is crucial for improving our safety culture.</li><li><span class="opt-key">B.</span>Your concerns are noted, but the protocol is non-negotiable, and we must proceed with its implementation.</li><li><span class="opt-key">C.</span>The protocol isn&#x27;t complex; you just need to understand the steps better. It&#x27;s for risk mitigation.</li><li class="correct"><span class="opt-key">D.</span>While it may seem complex initially, focusing on the core principle of risk mitigation should clarify its benefits. ✓</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option D acknowledges the perceived complexity (&#x27;While it may seem complex initially&#x27;) but immediately redirects to the purpose and benefits (&#x27;risk mitigation&#x27;), offering a constructive perspective without dismissing the team member&#x27;s concern outright. This aligns with fostering a positive safety culture.</div></article><article class="exam-item" id="q04"><div class="exam-item-header"><span class="qnum">4. q04</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">Our efforts for improved workplace safety aim for effective ______, minimizing potential harm to employees.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>risk mitigation ✓</li><li><span class="opt-key">B.</span>hazard reduction</li><li><span class="opt-key">C.</span>danger prevention</li><li><span class="opt-key">D.</span>threat management</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Risk mitigation&#x27; is the specific and professional term used in the brief to describe actions taken to reduce the likelihood or severity of potential harm.</div></article><article class="exam-item" id="q05"><div class="exam-item-header"><span class="qnum">5. q05</span><span class="exam-meta">lexis · class 2</span></div><div class="exam-prompt">The primary task now is to identify the exact ______ of the system failure, not just its symptoms.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>root cause ✓</li><li><span class="opt-key">B.</span>primary issue</li><li><span class="opt-key">C.</span>central problem</li><li><span class="opt-key">D.</span>main defect</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Root cause&#x27; is a specific technical term extracted from the brief, referring to the fundamental reason for a problem, distinct from its observable symptoms.</div></article><article class="exam-item" id="q06"><div class="exam-item-header"><span class="qnum">6. q06</span><span class="exam-meta">grammar · class 2</span></div><div class="exam-prompt">To emphasize the fundamental nature of the software&#x27;s error, which phrase is most appropriate?</div><ul class="exam-options"><li><span class="opt-key">A.</span>The software fundamentally misinterprets the data.</li><li class="correct"><span class="opt-key">B.</span>What it fundamentally does is misinterpret the data. ✓</li><li><span class="opt-key">C.</span>It misinterprets the data fundamentally.</li><li><span class="opt-key">D.</span>Fundamentally, the software misinterprets the data.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B uses the exact &#x27;What it fundamentally does is X&#x27; structure provided in the brief for rhetorical persuasion, specifically to emphasize the action or nature of the problem.</div></article><article class="exam-item" id="q07"><div class="exam-item-header"><span class="qnum">7. q07</span><span class="exam-meta">register · class 2</span></div><div class="exam-prompt">When explaining a complex technical problem to a non-specialist manager, which statement best qualifies the diagnosis without undermining confidence?</div><ul class="exam-options"><li><span class="opt-key">A.</span>The issue is a critical flaw, but it&#x27;s difficult to say why it happened.</li><li class="correct"><span class="opt-key">B.</span>What we&#x27;ve discovered is a critical flaw, which, to a certain extent, stems from an inherent complexity in the system&#x27;s architecture. ✓</li><li><span class="opt-key">C.</span>It&#x27;s a huge problem, and we&#x27;re not entirely sure of all the nuances.</li><li><span class="opt-key">D.</span>There&#x27;s a flaw, but it might be some underlying principle we haven&#x27;t identified.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B uses phrases directly from the brief (&#x27;What we&#x27;ve discovered is a critical flaw&#x27;, &#x27;to a certain extent&#x27;, &#x27;inherent complexities&#x27;) to qualify the diagnosis professionally, demonstrating nuance without uncertainty, while maintaining a clear and authoritative tone.</div></article><article class="exam-item" id="q08"><div class="exam-item-header"><span class="qnum">8. q08</span><span class="exam-meta">lexis · class 2</span></div><div class="exam-prompt">Understanding the ______ of interpretation is crucial when analyzing the data from multiple international teams.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>nuances of interpretation ✓</li><li><span class="opt-key">B.</span>details of understanding</li><li><span class="opt-key">C.</span>specificities of perception</li><li><span class="opt-key">D.</span>subtleties of comprehension</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Nuances of interpretation&#x27; is the exact phrase extracted from the brief, referring to the subtle differences in meaning or understanding, which is highly relevant in complex data analysis across diverse teams.</div></article><article class="exam-item" id="q09"><div class="exam-item-header"><span class="qnum">9. q09</span><span class="exam-meta">synthesis · class 2</span></div><div class="exam-prompt">A software team needs to explain that a newly identified bug has severe consequences for the company&#x27;s continuous operations. Which sentence structure from the given options best conveys this impact with professional emphasis?</div><ul class="exam-options"><li><span class="opt-key">A.</span>A severe risk for our operational continuity is implied by this.</li><li><span class="opt-key">B.</span>This implies a severe risk for our operational continuity.</li><li class="correct"><span class="opt-key">C.</span>What this implies for our operational continuity is a severe risk. ✓</li><li><span class="opt-key">D.</span>The implication for operational continuity is a severe risk due to this.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option C directly uses the &#x27;What this implies for our operational continuity is a severe risk&#x27; structure from the brief, exemplifying a fronted syntactic alteration for rhetorical persuasion to emphasize the implication and its severity.</div></article><article class="exam-item" id="q10"><div class="exam-item-header"><span class="qnum">10. q10</span><span class="exam-meta">grammar · class 3</span></div><div class="exam-prompt">Which sentence effectively presents a new proposal for improving inventory management using formal and persuasive language?</div><ul class="exam-options"><li><span class="opt-key">A.</span>My idea is to change how we do inventory; it will be better.</li><li><span class="opt-key">B.</span>We should consider adopting a revised inventory management system to enhance efficiency.</li><li><span class="opt-key">C.</span>I propose we adopt a new system for inventory, which is more efficient.</li><li class="correct"><span class="opt-key">D.</span>This presentation will outline a proposal aimed at optimizing our inventory management processes for greater efficiency. ✓</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option D uses formal language (&#x27;outline a proposal,&#x27; &#x27;aimed at optimizing,&#x27; &#x27;greater efficiency&#x27;) and a structured approach, appropriate for presenting a professional proposal as outlined in the grammar label for Class 3.</div></article><article class="exam-item" id="q11"><div class="exam-item-header"><span class="qnum">11. q11</span><span class="exam-meta">register · class 3</span></div><div class="exam-prompt">When presenting a new proposal, which opening statement is most appropriate for a professional audience?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Hey everyone, I&#x27;ve got a cool new plan to show you today.</li><li><span class="opt-key">B.</span>I&#x27;m excited to share some thoughts on how we might improve things.</li><li class="correct"><span class="opt-key">C.</span>The purpose of this presentation is to delineate a strategic initiative for enhancing operational workflows. ✓</li><li><span class="opt-key">D.</span>Let&#x27;s talk about making things better around here.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option C uses highly formal, precise, and abstract language (&#x27;delineate,&#x27; &#x27;strategic initiative,&#x27; &#x27;enhancing operational workflows&#x27;) which is characteristic of C1 professional discourse for presenting proposals to senior audiences.</div></article><article class="exam-item" id="q12"><div class="exam-item-header"><span class="qnum">12. q12</span><span class="exam-meta">comprehension · class 3</span></div><div class="exam-prompt">During a proposal presentation, a stakeholder raises a valid concern about implementation costs. What is the most effective way to acknowledge and address this while maintaining confidence in the proposal?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>That&#x27;s a fair point, and we&#x27;ve already factored potential cost implications into our long-term ROI projections. ✓</li><li><span class="opt-key">B.</span>Costs are always a concern, but we believe the benefits will outweigh them eventually.</li><li><span class="opt-key">C.</span>We hadn&#x27;t fully considered the costs, but we&#x27;ll look into it.</li><li><span class="opt-key">D.</span>Don&#x27;t worry about the costs; the efficiency gains will be huge.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A directly acknowledges the concern (&#x27;fair point&#x27;) and provides a confident, data-driven response (&#x27;factored potential cost implications into our long-term ROI projections&#x27;), which is crucial for maintaining credibility during a proposal presentation.</div></article><article class="exam-item" id="q13"><div class="exam-item-header"><span class="qnum">13. q13</span><span class="exam-meta">synthesis · class 3</span></div><div class="exam-prompt">When proposing a significant change, it&#x27;s vital to anticipate and mitigate potential ______ to ensure smooth adoption.</div><ul class="exam-options"><li><span class="opt-key">A.</span>resistance</li><li><span class="opt-key">B.</span>obstacles</li><li class="correct"><span class="opt-key">C.</span>pitfalls ✓</li><li><span class="opt-key">D.</span>challenges</li></ul><div class="exam-explanation"><strong>Explanation</strong>The term &#x27;pitfalls&#x27; (from Class 2 lexis) specifically refers to unforeseen difficulties or dangers that might arise, making it a strong choice in the context of mitigating risks associated with a new proposal, requiring a synthesis of concepts from different classes.</div></article><article class="exam-item" id="q14"><div class="exam-item-header"><span class="qnum">14. q14</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">The primary challenge in this inter-departmental meeting is achieving ______ on resource distribution, given the competing demands.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>consensus ✓</li><li><span class="opt-key">B.</span>agreement</li><li><span class="opt-key">C.</span>harmony</li><li><span class="opt-key">D.</span>unity</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Consensus&#x27; is the specific term from the brief, referring to a general agreement among a group, which is the objective of mediation in resource allocation conflicts.</div></article><article class="exam-item" id="q15"><div class="exam-item-header"><span class="qnum">15. q15</span><span class="exam-meta">grammar · class 4</span></div><div class="exam-prompt">In a mediation, which phrase best frames a necessary concession as a strategic move rather than a defeat?</div><ul class="exam-options"><li><span class="opt-key">A.</span>We are forced to make a compromise here.</li><li class="correct"><span class="opt-key">B.</span>To achieve a viable solution, a strategic trade-off may be required. ✓</li><li><span class="opt-key">C.</span>This is a situation where one department will simply have to give in.</li><li><span class="opt-key">D.</span>Accepting this will unfortunately mean a loss for your team.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B uses &#x27;strategic trade-off&#x27; directly from the brief&#x27;s lexis and frames the concession as a necessary step towards a &#x27;viable solution,&#x27; presenting it as a positive and proactive choice for conflict resolution.</div></article><article class="exam-item" id="q16"><div class="exam-item-header"><span class="qnum">16. q16</span><span class="exam-meta">comprehension · class 4</span></div><div class="exam-prompt">During a mediation over equipment allocation, Department A argues they need new tools for innovative projects, while Department B claims their aging equipment is impacting core operations. What is the mediator&#x27;s most effective initial step?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Immediately suggest splitting the new equipment budget evenly.</li><li class="correct"><span class="opt-key">B.</span>Ask both departments to justify their stated priorities with specific data and operational impact. ✓</li><li><span class="opt-key">C.</span>Side with Department B, as core operations seem more critical.</li><li><span class="opt-key">D.</span>Postpone the decision until more funds become available.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The most effective initial step in mediation is to gather objective information and understand the basis of each department&#x27;s claims, aligning with the concepts of &#x27;priority&#x27; and &#x27;fairness&#x27; from the brief. This leads to an informed &#x27;allocation&#x27; decision.</div></article><article class="exam-item" id="q17"><div class="exam-item-header"><span class="qnum">17. q17</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">To find a resolution in the budget dispute, both teams will need to identify areas where they can make ______.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>trade-offs ✓</li><li><span class="opt-key">B.</span>concessions</li><li><span class="opt-key">C.</span>adjustments</li><li><span class="opt-key">D.</span>sacrifices</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Trade-offs&#x27; is the specific term from the brief&#x27;s lexis describing the give-and-take necessary in mediation to reach &#x27;consensus&#x27; and &#x27;allocation&#x27; decisions.</div></article><article class="exam-item" id="q18"><div class="exam-item-header"><span class="qnum">18. q18</span><span class="exam-meta">lexis · class 5</span></div><div class="exam-prompt">When giving feedback, instead of saying &#x27;you are always too direct,&#x27; a more professional approach would be to say:</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Your communication style can sometimes be perceived as overly direct. ✓</li><li><span class="opt-key">B.</span>You need to be less direct in your communication.</li><li><span class="opt-key">C.</span>Your directness is often problematic for the team.</li><li><span class="opt-key">D.</span>Perhaps you could try being less direct sometimes.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A reframes the feedback using hedging (&#x27;sometimes,&#x27; &#x27;can be perceived as&#x27;) and focuses on the impact rather than a direct accusation, aligning with the brief&#x27;s guidance on &#x27;Refining Professional Feedback Language&#x27; and qualifying concepts.</div></article><article class="exam-item" id="q19"><div class="exam-item-header"><span class="qnum">19. q19</span><span class="exam-meta">grammar · class 5</span></div><div class="exam-prompt">Which statement best exemplifies professional qualification when discussing a complex issue with a team member?</div><ul class="exam-options"><li><span class="opt-key">A.</span>This project is really complex, so we&#x27;re all struggling.</li><li class="correct"><span class="opt-key">B.</span>While it might seem straightforward, some aspects of this project are inherently complex, requiring careful consideration. ✓</li><li><span class="opt-key">C.</span>It&#x27;s just complex, that&#x27;s why we can&#x27;t get it done.</li><li><span class="opt-key">D.</span>This complexity is something you just need to deal with.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B uses qualifying language (&#x27;While it might seem straightforward,&#x27; &#x27;inherently complex&#x27;) and suggests appropriate action (&#x27;requiring careful consideration&#x27;), demonstrating professional discourse when discussing abstract, complex concepts, as per the grammar label.</div></article><article class="exam-item" id="q20"><div class="exam-item-header"><span class="qnum">20. q20</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">A manager needs to provide feedback on a team member&#x27;s presentation skills. Which phrasing maintains a constructive and supportive tone while suggesting improvement?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Your presentation lacked structure and clarity.</li><li><span class="opt-key">B.</span>I suggest you focus on improving your presentation structure; it was quite confusing.</li><li class="correct"><span class="opt-key">C.</span>To enhance the clarity and impact of your future presentations, consider refining the overall structure. ✓</li><li><span class="opt-key">D.</span>You really need to work on making your presentations clearer.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option C uses positive framing (&#x27;To enhance the clarity and impact&#x27;) and indirect suggestions (&#x27;consider refining&#x27;), making the feedback constructive and supportive rather than critical, reflecting refined professional feedback language.</div></article><article class="exam-item" id="q21"><div class="exam-item-header"><span class="qnum">21. q21</span><span class="exam-meta">synthesis · class 5</span></div><div class="exam-prompt">During a performance review, a supervisor wants to convey that a colleague&#x27;s communication style, though effective in some contexts, needs to be adapted for broader team collaboration. Which approach is most aligned with professional nuance?</div><ul class="exam-options"><li><span class="opt-key">A.</span>You&#x27;re a strong communicator, but your directness can alienate colleagues in team settings.</li><li class="correct"><span class="opt-key">B.</span>Your ability to articulate clearly is a strength; however, for team-wide initiatives, a more collaborative and less assertive tone might foster greater engagement. ✓</li><li><span class="opt-key">C.</span>You need to be more collaborative; your current style isn&#x27;t working for the team.</li><li><span class="opt-key">D.</span>While your communication is efficient, some things are just complex, so be less direct.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B provides balanced feedback, acknowledging a strength while suggesting areas for adaptation with specific, nuanced language (&#x27;more collaborative and less assertive tone,&#x27; &#x27;foster greater engagement&#x27;), embodying professional feedback and qualifying abstract concepts.</div></article><article class="exam-item" id="q22"><div class="exam-item-header"><span class="qnum">22. q22</span><span class="exam-meta">lexis · class 5</span></div><div class="exam-prompt">When summarizing key takeaways, it is important to clearly articulate the ______ so everyone understands the core message.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>main idea we need to remember ✓</li><li><span class="opt-key">B.</span>essential point we must grasp</li><li><span class="opt-key">C.</span>primary concept for recall</li><li><span class="opt-key">D.</span>central notion to retain</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A uses the exact phrase &#x27;main idea we need to remember&#x27; from the brief&#x27;s lexis, fitting the context of summarizing and reinforcing key information professionally.</div></article><article class="exam-item" id="q23"><div class="exam-item-header"><span class="qnum">23. q23</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">I am eager to discuss my long-term career ______ and how my current role can contribute to it.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>trajectory ✓</li><li><span class="opt-key">B.</span>path</li><li><span class="opt-key">C.</span>course</li><li><span class="opt-key">D.</span>journey</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Trajectory&#x27; is the specific term from the brief, conveying a sense of projected development and direction in a professional career context.</div></article><article class="exam-item" id="q24"><div class="exam-item-header"><span class="qnum">24. q24</span><span class="exam-meta">grammar · class 6</span></div><div class="exam-prompt">Which sentence best articulates a long-term career aspiration in a formal email to a supervisor?</div><ul class="exam-options"><li><span class="opt-key">A.</span>I want to move up in the company someday.</li><li class="correct"><span class="opt-key">B.</span>My long-term goal is to pursue opportunities that allow for significant professional growth and leadership development. ✓</li><li><span class="opt-key">C.</span>I&#x27;m hoping to get promoted in a few years.</li><li><span class="opt-key">D.</span>I envision a future where I contribute at a higher strategic level.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B uses formal, clear language, specific aspirations (&#x27;significant professional growth and leadership development&#x27;), and reflects the professional tone required for articulating career goals to a supervisor, aligning with the grammar label.</div></article><article class="exam-item" id="q25"><div class="exam-item-header"><span class="qnum">25. q25</span><span class="exam-meta">register · class 6</span></div><div class="exam-prompt">When requesting mentorship from a senior colleague, which opening statement is most appropriate and professional?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Could you maybe mentor me? I need some help.</li><li class="correct"><span class="opt-key">B.</span>I&#x27;d like to formally request your guidance as a mentor to further develop my skillset. ✓</li><li><span class="opt-key">C.</span>I was wondering if you could spare some time to be my mentor.</li><li><span class="opt-key">D.</span>I&#x27;m looking for a mentor, and I thought of you.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B uses formal phrasing (&#x27;formally request your guidance&#x27;), clearly states the purpose, and incorporates a relevant term (&#x27;skillset&#x27; from brief&#x27;s lexis), making it highly professional and appropriate for a mentorship request.</div></article><article class="exam-item" id="q26"><div class="exam-item-header"><span class="qnum">26. q26</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">My objective is to enhance my project management ______ through advanced training and practical experience.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>skillset ✓</li><li><span class="opt-key">B.</span>abilities</li><li><span class="opt-key">C.</span>capacities</li><li><span class="opt-key">D.</span>competencies</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Skillset&#x27; is the specific term from the brief, referring to a collection of skills and abilities, making it the most accurate fit for professional development goals.</div></article><article class="exam-item" id="q27"><div class="exam-item-header"><span class="qnum">27. q27</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">To strongly defend a strategic vendor choice to senior management, which sentence emphasizes the <strong class="lexis">reason</strong> for the choice?</div><ul class="exam-options"><li><span class="opt-key">A.</span>We chose Vendor X because their security protocols are unmatched.</li><li><span class="opt-key">B.</span>Their unmatched security protocols are the reason we chose Vendor X.</li><li class="correct"><span class="opt-key">C.</span>It is their unmatched security protocols that led us to select Vendor X. ✓</li><li><span class="opt-key">D.</span>Vendor X&#x27;s security protocols are unmatched, which is why we chose them.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option C uses a cleft sentence (&#x27;It is X that Y&#x27;), which is a form of fronted syntactic alteration, specifically for rhetorical persuasion to place strong emphasis on the reason or factor being highlighted.</div></article><article class="exam-item" id="q28"><div class="exam-item-header"><span class="qnum">28. q28</span><span class="exam-meta">register · class 7</span></div><div class="exam-prompt">How should a project lead respond to a senior manager questioning the cost-effectiveness of a chosen vendor in a high-stakes meeting?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>We believe this vendor offers the best value proposition, considering long-term ROI and service reliability. ✓</li><li><span class="opt-key">B.</span>The vendor was chosen for reasons we&#x27;ve already explained; their costs are justified.</li><li><span class="opt-key">C.</span>I understand your concern, but the decision was made, and we stand by it.</li><li><span class="opt-key">D.</span>Honestly, we got the best deal we could at the time.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A provides a professional, strategic response that focuses on long-term value (&#x27;value proposition,&#x27; &#x27;long-term ROI,&#x27; &#x27;service reliability&#x27;) rather than merely defending the immediate cost, crucial for advanced persuasion to senior management.</div></article><article class="exam-item" id="q29"><div class="exam-item-header"><span class="qnum">29. q29</span><span class="exam-meta">synthesis · class 7</span></div><div class="exam-prompt">A company has decided to shift its marketing strategy towards a new, unproven digital platform. When justifying this decision to the board, which argument best demonstrates advanced persuasion techniques by balancing risk and innovation?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>While there are inherent risks, the potential for market disruption and long-term competitive advantage makes this a calculated strategic imperative. ✓</li><li><span class="opt-key">B.</span>This is a new platform, and it&#x27;s exciting, so we think it will work out well for us.</li><li><span class="opt-key">C.</span>We have to embrace new technologies, or we&#x27;ll fall behind, even if it&#x27;s risky.</li><li><span class="opt-key">D.</span>The market is changing, and this platform is our best bet for future success, despite some unknowns.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A uses sophisticated vocabulary (&#x27;inherent risks,&#x27; &#x27;market disruption,&#x27; &#x27;calculated strategic imperative&#x27;) to acknowledge challenges while strongly justifying the decision as a strategic necessity, demonstrating C1-level persuasion and balancing complex factors.</div></article><article class="exam-item" id="q30"><div class="exam-item-header"><span class="qnum">30. q30</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">When defending a strategic decision, it is imperative to ensure that the board ______ accept a flawed analysis.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>under no circumstances will ✓</li><li><span class="opt-key">B.</span>will not at any point</li><li><span class="opt-key">C.</span>absolutely will not</li><li><span class="opt-key">D.</span>by no means can</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A uses the fronted negative structure &#x27;under no circumstances will&#x27; which is an example of &#x27;Fronted Syntactic Alterations for Rhetorical Persuasion&#x27; as mentioned in the brief, adding strong emphasis and formality to the statement.</div></article>
+
+</body>
+</html>

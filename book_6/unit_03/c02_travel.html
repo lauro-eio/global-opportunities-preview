@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Business Communication: Logistics Reports &amp; Participle Clauses</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Business Communication: Logistics Reports &amp; Participle Clauses</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>3</dd>
+      <dt>Class</dt><dd>2</dd>
+      <dt>Theme</dt><dd>T03_TRAVEL</dd>
+      <dt>Framework</dt><dd>TBLF</dd>
+      <dt>Role</dt><dd>TBLF_DISCOURSE_ANALYSIS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Global Trade &amp; Logistics</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Greet students and briefly introduce the topic of international trade and logistics.<br>
+2. Pose the lead-in question from the brief: &#x27;Think about the last time you ordered something from another country. What are some potential hidden costs or delays that businesses face when shipping goods across borders?&#x27;<br>
+3. Facilitate a short whole-class or small-group discussion. Encourage students to share personal experiences or insights related to international shipments, customs, and unexpected challenges. <br>
+4. Elicit examples of hidden costs (tariffs, warehousing, re-routing fees) and delays (customs hold, paperwork issues, inspections). Connect these to the broader concept of strategic planning in logistics.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Thinking About Cross-Border Shipping</h4>
+<p>Think about the last time you ordered something from another country. What are some potential hidden costs or delays that businesses face when shipping goods across borders? </p>
+<p>Discuss with a partner or the class:<br>
+1. What unexpected problems can arise when moving goods internationally?<br>
+2. How might these issues impact a company&#x27;s budget and timeline?</p>
+</section>
+</article>
+<article class="stage" id="stage-GIST">
+<header class="stage-header"><span class="stage-code">GIST</span><h2>Gist Reading: Navigating Customs Complexity</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the reading task. Tell students they will read an internal company memo/report about recent challenges in international shipping.<br>
+2. Instruct students to read the passage quickly for general understanding, focusing on the main purpose of the report and the core issues discussed.<br>
+3. Explain the MCQ task and ensure they understand they need to choose the best option that summarizes the report&#x27;s main point.<br>
+4. Set a time limit for reading and completing the task (e.g., 3-4 minutes). <br>
+5. Collect answers and briefly discuss the correct gist, clarifying any immediate misunderstandings without going into detail.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">First Read: Understanding the Logistics Report</h4>
+<p>Read the report below quickly to understand its main purpose. Don&#x27;t worry about every detail for now. Then, answer the multiple-choice question.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Internal Memo: Strategic Logistical Review - Q3</h5>
+<p>To: Regional Operations Leads<br>
+From: Eleanor Vance, Head of Global Logistics<br>
+Date: October 26, 2023<br>
+Subject: Navigating Recent Shifts in International Freight &amp; Customs Policies</p>
+<p><strong class="lexis">Having evaluated</strong> the recent bilateral <strong class="lexis">trade agreements</strong> and updated <strong class="lexis">customs declaration</strong> protocols, this memo outlines the significant operational challenges we’ve encountered during Q3. The primary concern remains the unprecedented delays affecting our crucial transit routes, particularly those impacting the East Asian corridor. </p>
+<p><strong class="lexis">Not wanting to breach geopolitical sovereignty</strong>, several <strong class="lexis">bonded warehouse</strong> facilities along key border hubs have initiated stricter inspection regimes, leading to considerable backlogs. This has directly impacted our ability to <strong class="lexis">optimize logistical movements</strong> and meet delivery deadlines. Freight <strong class="lexis">cargo manifests</strong> are undergoing more granular scrutiny, increasing processing times by an average of 48 hours per consignment.</p>
+<p>Furthermore, revised <strong class="lexis">import tariffs</strong> in several emerging markets have escalated landed costs, significantly eroding our profit margins. Our initial projections, <strong class="lexis">having considered</strong> the standard <strong class="lexis">customs clearance</strong> procedures, did not fully account for these rapid policy shifts. This necessitates a proactive adjustment to our supply chain strategy.</p>
+<p>To counter these pressures, we must urgently <strong class="lexis">secure a strategic presence</strong> in alternative regional hubs. We are currently exploring partnerships that would allow us to <strong class="lexis">expand our operational reach</strong> without incurring prohibitive re-routing expenses. <strong class="lexis">Having identified</strong> potential bottlenecks early, our task force has begun drafting contingency plans to circumvent these challenges, focusing on diversification of carriers and port entries. Our goal is to <strong class="lexis">deploy resources effectively</strong> to <strong class="lexis">gain a foothold in new markets</strong> while maintaining service integrity and compliance with new regulations regarding <strong class="lexis">prohibited items</strong>. We aim to finalize these adjustments by the end of Q4.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main purpose of this memo?</p>
+<p>The memo primarily serves to:</p>
+<ul><li>Announce the successful opening of new bonded warehouse facilities.</li><li>Propose an increase in global shipping tariffs for next quarter.</li><li>Detail challenges caused by new trade and customs policies and suggest strategic responses.</li><li>Commend regional operations leads for meeting Q3 delivery deadlines.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-DET">
+<header class="stage-header"><span class="stage-code">DET</span><h2>Detailed Reading: Policy Impacts &amp; Strategic Responses</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Remind students they will reread the same memo, this time focusing on specific details.<br>
+2. Explain that the tasks require them to identify particular problems and proposed solutions mentioned in the text.<br>
+3. Instruct students to work individually or in pairs to complete the short-text questions. Encourage them to highlight or underline relevant parts of the text.<br>
+4. Monitor students as they work, providing support with vocabulary or comprehension as needed without giving direct answers.<br>
+5. After students have completed the tasks, check answers as a class. Facilitate discussion on why certain answers are correct and where the information can be found in the text.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Digging Deeper: Identifying Specific Issues</h4>
+<p>Read the memo again carefully. This time, focus on the specific challenges and the actions the company plans to take. Answer the questions in your own words based on the text.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Internal Memo: Strategic Logistical Review - Q3</h5>
+<p>To: Regional Operations Leads<br>
+From: Eleanor Vance, Head of Global Logistics<br>
+Date: October 26, 2023<br>
+Subject: Navigating Recent Shifts in International Freight &amp; Customs Policies</p>
+<p><strong class="lexis">Having evaluated</strong> the recent bilateral <strong class="lexis">trade agreements</strong> and updated <strong class="lexis">customs declaration</strong> protocols, this memo outlines the significant operational challenges we’ve encountered during Q3. The primary concern remains the unprecedented delays affecting our crucial transit routes, particularly those impacting the East Asian corridor. </p>
+<p><strong class="lexis">Not wanting to breach geopolitical sovereignty</strong>, several <strong class="lexis">bonded warehouse</strong> facilities along key border hubs have initiated stricter inspection regimes, leading to considerable backlogs. This has directly impacted our ability to <strong class="lexis">optimize logistical movements</strong> and meet delivery deadlines. Freight <strong class="lexis">cargo manifests</strong> are undergoing more granular scrutiny, increasing processing times by an average of 48 hours per consignment.</p>
+<p>Furthermore, revised <strong class="lexis">import tariffs</strong> in several emerging markets have escalated landed costs, significantly eroding our profit margins. Our initial projections, <strong class="lexis">having considered</strong> the standard <strong class="lexis">customs clearance</strong> procedures, did not fully account for these rapid policy shifts. This necessitates a proactive adjustment to our supply chain strategy.</p>
+<p>To counter these pressures, we must urgently <strong class="lexis">secure a strategic presence</strong> in alternative regional hubs. We are currently exploring partnerships that would allow us to <strong class="lexis">expand our operational reach</strong> without incurring prohibitive re-routing expenses. <strong class="lexis">Having identified</strong> potential bottlenecks early, our task force has begun drafting contingency plans to circumvent these challenges, focusing on diversification of carriers and port entries. Our goal is to <strong class="lexis">deploy resources effectively</strong> to <strong class="lexis">gain a foothold in new markets</strong> while maintaining service integrity and compliance with new regulations regarding <strong class="lexis">prohibited items</strong>. We aim to finalize these adjustments by the end of Q4.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">According to the memo, what specific issue is causing unprecedented delays on transit routes?</p>
+<p>What is causing the delays?</p>
+</div>
+<div class="task"><p class="task-instruction">What additional financial challenge has emerged due to policy changes?</p>
+<p>What financial challenge is mentioned?</p>
+</div>
+<div class="task"><p class="task-instruction">What is one key action the company plans to take to address these pressures?</p>
+<p>Name one key action the company plans.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-GD">
+<header class="stage-header"><span class="stage-code">GD</span><h2>Guided Discovery: Advanced Participle Clauses &amp; Strategic Mobility</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the language analysis stage. Inform students that they will look closely at how certain phrases in the memo make the communication more efficient and professional.<br>
+2. <strong class="lexis">Participle Clauses:</strong> Draw students&#x27; attention to the phrases: &#x27;Having evaluated...&#x27;, &#x27;Not wanting to breach...&#x27;, &#x27;Having considered...&#x27;, &#x27;Having identified...&#x27;.<br>
+   a. Ask students to identify these phrases in the text. (Concept Check: Does this structure reduce an adverbial clause to make written briefs more efficient? (Yes) Does the participle clause share the exact same subject as the main clause? (Yes))<br>
+   b. Ask them what meaning these clauses convey (reason, sequence, cause, condition). For example, &#x27;Having evaluated...&#x27; means &#x27;Because we evaluated&#x27; or &#x27;After we evaluated&#x27;. &#x27;Not wanting to breach...&#x27; means &#x27;Because we did not want to breach&#x27;.<br>
+   c. Discuss how these structures make the writing more concise and formal, suitable for professional reports.<br>
+3. <strong class="lexis">Strategic Mobility Lexis:</strong> Guide students to re-examine the words highlighted with double asterisks.<br>
+   a. Ask students to identify phrases related to strategic movement or resource allocation (e.g., &#x27;optimize logistical movements&#x27;, &#x27;secure a strategic presence&#x27;, &#x27;expand our operational reach&#x27;, &#x27;deploy resources effectively&#x27;, &#x27;gain a foothold in new markets&#x27;).<br>
+   b. Discuss the nuance of &#x27;strategic&#x27; in these phrases – it&#x27;s not just moving, but moving with a purpose, influence, and planning.<br>
+   c. For phonology, model the phrases, emphasizing content words and using a falling intonation to convey conviction and clarity. Have students repeat. (e.g., &#x27;OPTIMIZE logistical MOVEMENTS&#x27;, &#x27;secure a STRATEGIC PRESENCE&#x27;).<br>
+4. Use the matching task to consolidate understanding of the functions of participle clauses.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Analyzing Language: Efficiency &amp; Influence</h4>
+<p>The memo uses advanced structures and specific vocabulary to convey information efficiently and professionally. Let&#x27;s look at two key areas.</p>
+<p><strong class="lexis">Part 1: Advanced Participle Clauses</strong><br>
+Locate the following phrases in the memo. They often appear at the beginning of a sentence:<br>
+1. &quot;Having evaluated...&quot;<br>
+2. &quot;Not wanting to breach...&quot;<br>
+3. &quot;Having considered...&quot;<br>
+4. &quot;Having identified...&quot;</p>
+<p>Discuss:<br>
+<strong class="lexis">   What does each of these phrases tell you about the main action in the sentence? (e.g., &#x27;Having evaluated...&#x27; tells you </strong>why<strong class="lexis"> the memo outlines challenges, or </strong>after* evaluation.)<br>
+*   How do these structures make the report sound more concise and formal compared to using &#x27;Because we evaluated&#x27; or &#x27;After we evaluated&#x27;?<br>
+*   Does the action in the participle clause (e.g., &#x27;evaluating&#x27;) happen at the same time or before the main clause&#x27;s action? (Before or simultaneously, usually before for &#x27;having&#x27; clauses).</p>
+<p>Match the participle clause examples to their function in the memo.</p>
+<p><strong class="lexis">Part 2: Strategic Mobility in Professional Contexts</strong><br>
+Find these phrases in the memo. They are often marked with <strong class="lexis">double asterisks</strong>:<br>
+*   <strong class="lexis">optimize logistical movements</strong><br>
+*   <strong class="lexis">secure a strategic presence</strong><br>
+*   <strong class="lexis">expand our operational reach</strong><br>
+*   <strong class="lexis">deploy resources effectively</strong><br>
+*   <strong class="lexis">gain a foothold in new markets</strong></p>
+<p>Discuss:<br>
+*   What do these phrases mean in the context of international shipping and business strategy? How do they differ from simply saying &#x27;move goods&#x27; or &#x27;be present&#x27;?<br>
+*   Listen to your teacher and repeat these phrases, paying attention to which words are stressed and how your voice falls at the end of the phrase. This conveys conviction and clear planning.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Internal Memo: Strategic Logistical Review - Q3</h5>
+<p>To: Regional Operations Leads<br>
+From: Eleanor Vance, Head of Global Logistics<br>
+Date: October 26, 2023<br>
+Subject: Navigating Recent Shifts in International Freight &amp; Customs Policies</p>
+<p><strong class="lexis">Having evaluated</strong> the recent bilateral <strong class="lexis">trade agreements</strong> and updated <strong class="lexis">customs declaration</strong> protocols, this memo outlines the significant operational challenges we’ve encountered during Q3. The primary concern remains the unprecedented delays affecting our crucial transit routes, particularly those impacting the East Asian corridor. </p>
+<p><strong class="lexis">Not wanting to breach geopolitical sovereignty</strong>, several <strong class="lexis">bonded warehouse</strong> facilities along key border hubs have initiated stricter inspection regimes, leading to considerable backlogs. This has directly impacted our ability to <strong class="lexis">optimize logistical movements</strong> and meet delivery deadlines. Freight <strong class="lexis">cargo manifests</strong> are undergoing more granular scrutiny, increasing processing times by an average of 48 hours per consignment.</p>
+<p>Furthermore, revised <strong class="lexis">import tariffs</strong> in several emerging markets have escalated landed costs, significantly eroding our profit margins. Our initial projections, <strong class="lexis">having considered</strong> the standard <strong class="lexis">customs clearance</strong> procedures, did not fully account for these rapid policy shifts. This necessitates a proactive adjustment to our supply chain strategy.</p>
+<p>To counter these pressures, we must urgently <strong class="lexis">secure a strategic presence</strong> in alternative regional hubs. We are currently exploring partnerships that would allow us to <strong class="lexis">expand our operational reach</strong> without incurring prohibitive re-routing expenses. <strong class="lexis">Having identified</strong> potential bottlenecks early, our task force has begun drafting contingency plans to circumvent these challenges, focusing on diversification of carriers and port entries. Our goal is to <strong class="lexis">deploy resources effectively</strong> to <strong class="lexis">gain a foothold in new markets</strong> while maintaining service integrity and compliance with new regulations regarding <strong class="lexis">prohibited items</strong>. We aim to finalize these adjustments by the end of Q4.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match the participle clause to its implied meaning or function.</p>
+<ul><li><strong>Having evaluated the agreements...</strong> — Indicates a preceding action or reason for the main statement.</li><li><strong>Not wanting to breach sovereignty...</strong> — Explains the motivation or reason for an action (or inaction).</li><li><strong>Having considered the procedures...</strong> — Refers to a prior mental process that led to a conclusion.</li><li><strong>Having identified bottlenecks early...</strong> — Highlights a completed analysis that informs subsequent planning.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-CP">
+<header class="stage-header"><span class="stage-code">CP</span><h2>Controlled Practice: Crafting Concise Policy Statements</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will now practice using advanced participle clauses to make sentences more formal and concise, mirroring the style of the memo.<br>
+2. Go through the first example together to ensure students understand the transformation from an adverbial clause to a participle clause.<br>
+3. Instruct students to rewrite the given sentences using either a present or past participle clause. Remind them to ensure the participle clause shares the same subject as the main clause to avoid dangling modifiers.<br>
+4. Monitor carefully, paying attention to potential errors like dangling modifiers or incorrect participle forms (&#x27;Arrived at the border hub...&#x27; vs. &#x27;Having arrived...&#x27;). Provide immediate feedback and correction.<br>
+5. Check answers as a class, writing correct versions on the board if necessary and discussing why each change improves the sentence&#x27;s professionalism and efficiency.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Rewriting for Impact: Using Participle Clauses</h4>
+<p>Rewrite the following sentences using a participle clause (e.g., &#x27;Having + past participle&#x27; or &#x27;present participle&#x27;). The goal is to make the sentences more concise and formal, suitable for a professional report.</p>
+<p>*Example: Because we did not want to cause further delays, we rerouted the shipment. -&gt; <strong class="lexis">Not wanting to cause further delays, we rerouted the shipment.</strong></p>
+<p>1. Because the team had thoroughly analyzed the market trends, they proposed a new entry strategy.<br>
+2. Since they did not fully understand the new customs regulations, the company faced unexpected fines.<br>
+3. After securing the necessary permits, the logistics team deployed resources to the new region.<br>
+4. Although we considered the geopolitical risks, we proceeded with the new cross-border infrastructure project.<br>
+5. When faced with stricter border controls, the company had to adjust its cargo manifest procedures.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Rewrite the sentence using a participle clause.</p>
+<p>Because the team had thoroughly analyzed the market trends, they proposed a new entry strategy.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence using a participle clause.</p>
+<p>Since they did not fully understand the new customs regulations, the company faced unexpected fines.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence using a participle clause.</p>
+<p>After securing the necessary permits, the logistics team deployed resources to the new region.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence using a participle clause.</p>
+<p>Although we considered the geopolitical risks, we proceeded with the new cross-border infrastructure project.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence using a participle clause.</p>
+<p>When faced with stricter border controls, the company had to adjust its cargo manifest procedures.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Freer Practice: Discussing Future Logistics Strategy</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the freer practice activity. Tell students they will now apply the language they&#x27;ve learned to a hypothetical business scenario.<br>
+2. Divide students into small groups (3-4). Explain that they are a logistics advisory team tasked with proposing solutions for future international shipping challenges.<br>
+3. Present the discussion prompts. Encourage them to use participle clauses to justify decisions and the strategic mobility vocabulary to articulate their plans.<br>
+4. Remind them to pay attention to intonation and stress when using the strategic mobility phrases.<br>
+5. Monitor group discussions, noting effective use of target language and providing prompts or corrections as needed. Avoid interrupting fluency unless absolutely necessary.<br>
+6. After 8-10 minutes, bring the class back together and ask each group to share one or two key proposals or observations. Facilitate a brief whole-class discussion, encouraging peer feedback.</p>
+<p><strong class="lexis">Sample Answer Considerations:</strong><br>
+*   <strong class="lexis">Participle Clauses:</strong> &#x27;Having analyzed the recent geopolitical shifts, we recommend...&#x27; &#x27;Not wanting to risk further delays, we are diversifying our port entry points.&#x27;<br>
+*   <strong class="lexis">Strategic Mobility:</strong> &#x27;Our goal is to <strong class="lexis">gain a foothold in new markets</strong> in Southeast Asia.&#x27; &#x27;We must <strong class="lexis">deploy resources effectively</strong> to <strong class="lexis">optimize logistical movements</strong> across the continent.&#x27; &#x27;We are looking to <strong class="lexis">secure a strategic presence</strong> in key trade corridors.&#x27; &#x27;This will help us <strong class="lexis">expand our operational reach</strong> and mitigate risk.&#x27;</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Planning for Tomorrow: Your Company&#x27;s Next Move</h4>
+<p>Imagine you are a logistics advisory team for a company that imports and exports goods globally. You&#x27;ve just read a report similar to the memo we discussed, highlighting new challenges in international shipping and customs.</p>
+<p>Work in small groups to discuss and propose solutions for the next quarter. Try to use:</p>
+<p>*   <strong class="lexis">Participle clauses</strong> (e.g., &#x27;Having evaluated...&#x27;, &#x27;Not wanting to...&#x27;) to explain your analysis and decisions.<br>
+*   Vocabulary for <strong class="lexis">strategic mobility</strong> (e.g., &#x27;gain a foothold&#x27;, &#x27;expand our operational reach&#x27;, &#x27;optimize logistical movements&#x27;, &#x27;deploy resources effectively&#x27;).</p>
+<p>Consider these questions:<br>
+1.  What are the biggest risks your company faces in international shipping next year?<br>
+2.  What strategic moves can you make to mitigate these risks?<br>
+3.  Where should you prioritize deploying resources?<br>
+4.  How will you expand your operational reach or secure a new presence in a challenging market?</p>
+</section>
+</article>
+</body>
+</html>

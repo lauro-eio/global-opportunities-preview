@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Past Regret Structures and Work-Life Lessons</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Past Regret Structures and Work-Life Lessons</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>11</dd>
+      <dt>Class</dt><dd>7</dd>
+      <dt>Theme</dt><dd>T11_EXPERIENCE</dd>
+      <dt>Framework</dt><dd>TTT</dd>
+      <dt>Role</dt><dd>TTT_ADVANCED_REVIEW_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Reflecting on Work-Life Integration</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Greet students and briefly review the unit theme of &#x27;Experience&#x27; focusing on personal well-being.<br>
+2. Introduce the concept of &#x27;switching off&#x27; from work.<br>
+3. Ask students to discuss the lead-in questions in pairs or small groups.<br>
+4. Elicit initial ideas and common challenges, focusing on their experiences with work-life balance and personal boundaries.<br>
+5. Encourage the use of advanced language related to regret or hypothetical past situations, if it naturally arises, but do not pre-teach.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Before and After Hours</h4>
+<p>In today’s demanding work environments, many professionals find it challenging to truly <strong class="lexis">&#x27;switch off&#x27;</strong> from work once they leave the office or finish their shift. The lines between professional and personal life can blur, impacting <strong class="lexis">mental well-being</strong> and <strong class="lexis">work-life balance</strong>.</p>
+<p>Discuss in small groups:<br>
+1. What specific challenges do you face when trying to create separation between your work and personal life?<br>
+2. What strategies do you currently use, or wish you could use, to establish stronger <strong class="lexis">personal boundaries</strong> and protect your off-work hours?<br>
+3. Have you ever felt regret about a past decision that negatively impacted your <strong class="lexis">self-care strategies</strong> or led to increased <strong class="lexis">stress reduction</strong> needs?</p>
+</section>
+</article>
+<article class="stage" id="stage-T1">
+<header class="stage-header"><span class="stage-code">T1</span><h2>Test 1: Diagnosing Regret Structures</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will complete a short diagnostic task related to expressing regret or hypothetical past situations.<br>
+2. Emphasize that this is to identify areas for review, not a formal assessment.<br>
+3. Instruct students to choose the best option to complete each sentence, focusing on grammatical accuracy and natural expression.<br>
+4. Circulate and monitor, noting common errors without correcting immediately. Pay close attention to the use of verb tenses after &#x27;wish&#x27;, &#x27;if only&#x27;, and &#x27;would rather&#x27;.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Past Regrets &amp; Better Choices</h4>
+<p>Read each sentence carefully. Choose the option that best completes the sentence, expressing regret or a wish for a past situation to have been different. This helps us see what we need to review.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Complete the sentence:</p>
+<p>If only the project manager ______ the potential overtime burden before assigning the task.</p>
+<ul><li>would have foreseen</li><li>had foreseen</li><li>has foreseen</li><li>foresees</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence:</p>
+<p>I wish I ______ clearer personal boundaries with that client last year; the constant evening calls were draining.</p>
+<ul><li>would have set</li><li>had set</li><li>set</li><li>have set</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence:</p>
+<p>Our team leader would rather the management ______ in better stress reduction programs earlier, considering the recent burnout cases.</p>
+<ul><li>would have invested</li><li>had invested</li><li>invested</li><li>has invested</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence:</p>
+<p>She only wished she ______ to delegate more when the workload became overwhelming, avoiding total exhaustion.</p>
+<ul><li>had learned</li><li>would have learned</li><li>has learned</li><li>learned</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-TCH">
+<header class="stage-header"><span class="stage-code">TCH</span><h2>Teach: Clarifying Hypothetical Regrets</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Based on errors observed in T1, clarify the use of &#x27;wish/if only&#x27; and &#x27;would rather&#x27; followed by the past perfect.<br>
+2. Present the form clearly using the provided column banks.<br>
+3. Elicit or explain the meaning: expressing regret about a past situation that cannot be changed. Use the Concept Check Questions (CCQs) from the linguistic target: &#x27;Did the specific strategic challenge or structural failure happen in a past timeframe? (Yes)&#x27;, &#x27;Can we physically alter the historical outcome of this professional choice now? (No)&#x27;.<br>
+4. Highlight common errors (e.g., using &#x27;would have&#x27; instead of &#x27;had&#x27;).<br>
+5. Guide students through the controlled practice task, encouraging them to think about past work-related decisions.<br>
+6. Check answers and provide further examples as needed.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Understanding What Could Have Been</h4>
+<p>When we want to express regret about something that happened or didn&#x27;t happen in the past, and which we cannot change now, we use specific grammatical structures. These are powerful ways to reflect on <strong class="lexis">strategic challenges</strong> and <strong class="lexis">operational setbacks</strong>.</p>
+<p>Look at the structures below. Notice how the <strong class="lexis">past perfect</strong> tense is used after &#x27;wish&#x27;, &#x27;if only&#x27;, and &#x27;would rather&#x27; to talk about a past that is now fixed. Remember, the challenge or failure <strong class="lexis">did</strong> happen in the past, and we <strong class="lexis">cannot</strong> change its historical outcome.</p>
+<p>Complete the sentences below to express a regret or a wish for a past situation related to work-life balance. Focus on using the correct form.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Affirmative Regret (Past)</th><th>Negative Regret (Past)</th><th>Wishing for a Different Past (Someone Else/Circumstance)</th></tr><tr><td>I wish I had managed my time better.</td><td>I wish I hadn&#x27;t agreed to weekend work.</td><td>I&#x27;d rather my manager had consulted me.</td></tr><tr><td>If only I had declined that extra project.</td><td>If only I hadn&#x27;t missed the training.</td><td>If only the company had offered more support.</td></tr></table></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Complete the sentence with a phrase of regret or a wish for a different past, using the target structure. You can invent the situation.</p>
+<p>I wish I ______ to take more breaks during intense periods.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence with a phrase of regret or a wish for a different past, using the target structure. You can invent the situation.</p>
+<p>If only our department ______ more attention to the signs of burnout among staff.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence with a phrase of regret or a wish for a different past, using the target structure. You can invent the situation.</p>
+<p>I&#x27;d rather the company ______ a clear policy on responding to emails after hours.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-T2">
+<header class="stage-header"><span class="stage-code">T2</span><h2>Test 2: Integrating Regrets and Boundary Setting</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the reading passage as a scenario relevant to work-life balance.<br>
+2. Ask students to read the passage and identify the core issue.<br>
+3. Instruct students to complete the comprehension check task. Check answers quickly.<br>
+4. Explain the second task: students should reflect on Maria&#x27;s situation and write sentences expressing advice or regret from her perspective, or from the perspective of someone observing her.<br>
+5. Circulate and monitor, looking for accurate use of &#x27;wish/if only&#x27; and &#x27;would rather + past perfect&#x27;.<br>
+6. Provide feedback on structure and meaning. Acknowledge different valid responses for the open question, but ensure grammatical accuracy. Sample answer for Task 2-2: &#x27;Maria wishes she had communicated her limits more clearly from the start.&#x27; or &#x27;If only Maria had realized the impact on her <strong class="lexis">mental well-being</strong> sooner.&#x27;</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Learning from Past Work Experiences</h4>
+<p>Read the following scenario about Maria. Think about her situation and how it relates to <strong class="lexis">work-life balance</strong> and <strong class="lexis">personal boundaries</strong>.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Maria&#x27;s Overload</h5>
+<p>Maria is a dedicated logistics coordinator. Six months ago, her company undertook a major <strong class="lexis">digital transformation</strong> project. Eager to prove herself, Maria voluntarily took on significant extra responsibilities, often working late into the evenings and checking emails on weekends. She felt immense pressure to maintain high performance. Recently, Maria started experiencing constant fatigue and found it difficult to concentrate even on simple tasks. Her friends noticed she had become withdrawn and her usual vibrant personality was fading. She realizes now that she failed to establish crucial <strong class="lexis">personal boundaries</strong> and didn&#x27;t implement proper <strong class="lexis">self-care strategies</strong> when the project intensified.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What was the primary cause of Maria&#x27;s current struggles?</p>
+<p>Maria&#x27;s struggles primarily stem from her:</p>
+<ul><li>lack of technical skills for the digital transformation</li><li>inability to work well with her team members</li><li>failure to set personal boundaries and prioritize self-care strategies</li><li>disinterest in the company&#x27;s digital transformation project</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Based on Maria&#x27;s situation, write one sentence expressing a regret she might have, or a wish for a past action to have been different. Use &#x27;I wish...&#x27;, &#x27;If only...&#x27;, or &#x27;I&#x27;d rather...&#x27;.</p>
+<p>Complete the sentence:</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+</body>
+</html>

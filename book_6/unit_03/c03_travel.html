@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Discussing Cross-Border Work Policies</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Discussing Cross-Border Work Policies</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>3</dd>
+      <dt>Class</dt><dd>3</dd>
+      <dt>Theme</dt><dd>T03_TRAVEL</dd>
+      <dt>Framework</dt><dd>SK-PROD</dd>
+      <dt>Role</dt><dd>SK_PROD_SPEAKING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Cross-Border Commuting Challenges</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the scenario using the lead-in brief.<br>
+2. Divide students into pairs or small groups.<br>
+3. Ask them to discuss the questions provided.<br>
+4. Monitor discussions, noting any emerging language points or common challenges mentioned.<br>
+5. Facilitate a brief whole-class share-out of key points.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Working Across the Line</h4>
+<p>Imagine an employee who lives in one country but works daily in an office just across the border in another country. Or consider someone working remotely from their home country for a company based abroad.</p>
+<p>Discuss in pairs:</p>
+<p>1. What specific logistical challenges might arise from this setup for the employee (e.g., travel, daily routine)?<br>
+2. What potential legal or policy challenges might the <strong class="lexis">company</strong> face regarding this employee?<br>
+3. What about the employee themselves? What personal legal or administrative issues could they encounter (e.g., related to their income or where they live)?<br>
+4. Have you or anyone you know experienced something similar? What was the biggest challenge?</p>
+</section>
+</article>
+<article class="stage" id="stage-MOD">
+<header class="stage-header"><span class="stage-code">MOD</span><h2>Model Dialogue: Navigating International Remote Work Policy</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Tell students they will read a conversation between two colleagues discussing a company&#x27;s approach to cross-border work.<br>
+2. Have students read the dialogue individually or in pairs.<br>
+3. Ask them to answer the comprehension question that follows to check their understanding of the main topic.<br>
+4. Briefly discuss their answers as a class.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Policy Talk</h4>
+<p>Read the conversation between Clara and David, two colleagues, about their company&#x27;s new remote work guidelines.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>The New International Remote Work Policy</h5>
+<p>Clara: Hey David, did you get a chance to look at the new <strong class="lexis">international remote work policy</strong>?<br>
+David: Just skimmed it. It&#x27;s quite detailed, especially the section on <strong class="lexis">cross-border jurisdiction</strong>. I&#x27;m a bit worried about how it impacts Jane, who works for us from Portugal.<br>
+Clara: Exactly. It mentions specific <strong class="lexis">visa requirements</strong> and <strong class="lexis">work permit</strong> rules if an employee works from a country where we don&#x27;t have a registered office. It seems more complex than just having a good internet connection.<br>
+David: Absolutely. And the <strong class="lexis">tax implications</strong> for both the company and the employee are significant. Our HR team will have their hands full explaining how this affects everyone&#x27;s <strong class="lexis">residency status</strong> if they&#x27;re not careful.<br>
+Clara: I think the biggest takeaway is that while remote work offers flexibility, doing it across borders requires a lot of clear policy and communication. It&#x27;s not just a matter of personal choice; there are serious legal and financial considerations.<br>
+David: Agreed. We need to make sure everyone understands the boundaries and what support the company can offer. It&#x27;s a tricky balance.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main challenge Clara and David are discussing regarding the new policy?</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-PREP">
+<header class="stage-header"><span class="stage-code">PREP</span><h2>Preparation: Discussing Cross-Border Policy Issues</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will prepare for a discussion or roleplay.<br>
+2. Direct students to the &#x27;Key Policy Terms&#x27; and &#x27;Useful Phrases&#x27; tables.<br>
+3. Advise them to think about how they might use these terms and phrases in a conversation about cross-border work.<br>
+4. Provide a minute or two for students to make brief notes based on the scenario, focusing on challenges and possible solutions.<br>
+5. Encourage them to prepare what they might say or ask.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Getting Ready to Talk Policies</h4>
+<p>Prepare to discuss the challenges and solutions related to employees working across national borders. Review the key terms and useful phrases below. Make some quick notes about potential issues and how you would express them.</p>
+<p>Scenario: Your company is considering allowing more employees to work remotely from different countries. What specific areas need to be addressed in a new company policy, and what questions might employees have?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Key Policy Terms</th><th>Expressing Concerns / Advice</th><th>Asking for Clarification</th></tr><tr><td>work permit</td><td>I&#x27;m concerned about...</td><td>Could you elaborate on...?</td></tr><tr><td>visa requirements</td><td>We need to consider...</td><td>What exactly does that mean for...?</td></tr><tr><td>tax implications</td><td>It&#x27;s crucial to address...</td><td>How would that impact...?</td></tr><tr><td>residency status</td><td>My advice would be to...</td><td>Can you explain the implications of...?</td></tr><tr><td>international remote work policy</td><td>We should clarify...</td><td>What&#x27;s the process for...?</td></tr><tr><td>cross-border jurisdiction</td><td>It&#x27;s a complex issue.</td><td></td></tr><tr><td>social security contributions</td><td></td><td></td></tr><tr><td>data protection laws</td><td></td><td></td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Fluency Practice: Policy Discussion Roleplay</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Set up the roleplay: Divide students into groups of three. Assign roles: Manager (or HR), Employee A (commutes daily), Employee B (works remotely from another country).<br>
+2. Explain the task clearly: The &#x27;manager&#x27; must explain potential policy changes or gather feedback, while &#x27;employees&#x27; raise concerns.<br>
+3. Emphasize that the goal is fluency and communicative success, not perfection.<br>
+4. Instruct students to use the key terms and phrases they prepared.<br>
+5. Monitor groups, listening for effective communication and the use of target language. Avoid interrupting unless communication breaks down.<br>
+6. Time the activity (e.g., 8-10 minutes per group).</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">The Policy Meeting</h4>
+<p>You will now take part in a policy discussion. Work in groups of three. Assign roles:</p>
+<p><strong class="lexis">Role A: Manager / HR Representative</strong><br>
+You are leading a meeting to discuss a new or updated company policy on cross-border work. Your aim is to explain the company&#x27;s position, clarify important details, and address employee concerns. You should be prepared to discuss <strong class="lexis">work permits</strong>, <strong class="lexis">visa requirements</strong>, <strong class="lexis">tax implications</strong>, and <strong class="lexis">residency status</strong>.</p>
+<p><strong class="lexis">Role B: Employee (Cross-border commuter)</strong><br>
+You live in one country but commute daily to work in a company office in another country. You have concerns about how the new policy might affect your daily routine, legal standing, and benefits.</p>
+<p><strong class="lexis">Role C: Employee (International remote worker)</strong><br>
+You work remotely from your home in a different country than the company&#x27;s main office. You are worried about the <strong class="lexis">cross-border jurisdiction</strong> aspects, your <strong class="lexis">tax implications</strong>, and how the company will handle <strong class="lexis">international remote work policy</strong> going forward.</p>
+<p><strong class="lexis">Task:</strong> Have a meeting where the manager explains the policy considerations, and the employees raise their specific concerns and ask questions. Try to use the terms and phrases from the preparation stage.</p>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback and Delayed Correction</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. <strong class="lexis">Content Feedback (5-7 minutes):</strong><br>
+   - Bring the class back together.<br>
+   - Ask students to reflect on their discussions: What were the main challenges identified?<br>
+   - How effectively did they manage to communicate their roles&#x27; perspectives?<br>
+   - What were some interesting solutions or questions raised?<br>
+   - Praise effective communication and successful negotiation of complex ideas.<br>
+2. <strong class="lexis">Language Feedback (5-7 minutes):</strong><br>
+   - Refer to notes taken during the FP stage.<br>
+   - Write common errors (not individual errors unless requested) on the board.<br>
+   - Focus on errors related to clarity, fluency, and appropriate register, especially concerning the target vocabulary (e.g., incorrect usage of &#x27;tax implications&#x27; or &#x27;residency status&#x27;).<br>
+   - Elicit corrections from students or provide them as necessary. Do not spend too long on individual points; keep it focused on general improvement.<br>
+   - Briefly highlight any examples of excellent language use observed during the task.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reflecting on Our Discussion</h4>
+<p>Think about your discussion:</p>
+<p>1. Did you manage to clearly explain your concerns or the policy details?<br>
+2. What was the most challenging aspect of the discussion?<br>
+3. What new insights did you gain about cross-border work policies?</p>
+</section>
+</article>
+</body>
+</html>

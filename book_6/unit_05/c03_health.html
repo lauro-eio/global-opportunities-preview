@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Business Decisions: Health Provider Selection</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Business Decisions: Health Provider Selection</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>5</dd>
+      <dt>Class</dt><dd>3</dd>
+      <dt>Theme</dt><dd>T05_HEALTH</dd>
+      <dt>Framework</dt><dd>SK-PROD</dd>
+      <dt>Role</dt><dd>SK_PROD_SPEAKING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Strategic Health Procurement</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Divide students into small groups (2-3).<br>
+2. Present the scenario and discussion questions.<br>
+3. Ask groups to discuss the critical criteria for selecting an occupational health provider.<br>
+4. Encourage them to think about different aspects: cost, quality, service delivery, and long-term sustainability.<br>
+5. Facilitate a brief whole-class share-out of key criteria identified by each group.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Choosing Our Health Partner</h4>
+<p>Your company needs to select a new occupational health provider for all its sites. This is a significant decision affecting employee well-being and operational efficiency.</p>
+<p>Discuss in your groups:<br>
+1. What are the most critical criteria your company would consider when evaluating potential providers?<br>
+2. How would you balance factors like cost, quality of care, range of services, and provider reputation?<br>
+3. What are the potential risks of making a poor decision, and how can these be mitigated?</p>
+</section>
+</article>
+<article class="stage" id="stage-MOD">
+<header class="stage-header"><span class="stage-code">MOD</span><h2>Model Dialogue: Evaluating Health Tenders</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Tell students they will read a dialogue between a Procurement Manager and an HR Manager discussing tenders for an occupational health provider.<br>
+2. Ask students to read the dialogue and identify the key points each manager is making about the different providers.<br>
+3. After reading, use the discussion questions in the student content to check their understanding of the issues raised and the language used.<br>
+4. Encourage students to highlight any new or useful phrases related to procurement and evaluation.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">A Procurement Meeting</h4>
+<p>Read the following dialogue between Anna, a Procurement Manager, and Mark, an HR Manager, as they discuss the <strong class="lexis">tenders</strong> for a new occupational health provider.</p>
+<p>---</p>
+<p><strong class="lexis">Anna (Procurement Manager):</strong> &quot;Right, Mark, thanks for joining. We&#x27;ve got three strong <strong class="lexis">tenders</strong> for the new occupational health provider, and we need to make a solid decision. First up, &#x27;Healthy Horizons&#x27;. Their proposal highlights extensive on-site services, which is a definite plus for our multiple sites.&quot;</p>
+<p><strong class="lexis">Mark (HR Manager):</strong> &quot;Agreed, Anna. On-site access is key for employee uptake and minimizing lost work time. However, I&#x27;m slightly concerned about their <strong class="lexis">cost-effectiveness</strong>. Their initial quoted price is higher than the others, and I&#x27;m not seeing enough flexibility in their <strong class="lexis">contract negotiation</strong> terms for a long-term agreement.&quot;</p>
+<p><strong class="lexis">Anna:</strong> &quot;You&#x27;ve hit on a critical point. While their service quality seems high – excellent references and accreditations – we need to scrutinize that pricing. We can&#x27;t compromise on quality, but our <strong class="lexis">procurement strategy</strong> demands we get the best value.&quot;</p>
+<p><strong class="lexis">Mark:</strong> &quot;Exactly. Then there&#x27;s &#x27;WorkWell Solutions&#x27;. Their pricing is very competitive, almost too good to be true. I&#x27;ve been looking into their <strong class="lexis">quality assurance</strong> protocols, and they seem a bit less robust, especially regarding response times for urgent cases. We need to ensure swift and expert care for our workforce.&quot;</p>
+<p><strong class="lexis">Anna:</strong> &quot;My thoughts too. Competitive pricing is attractive, but if it means a drop in service, it&#x27;s a false economy. We need assurances on <strong class="lexis">vendor selection</strong> – who are their doctors and specialists, what are their qualifications? A good <strong class="lexis">procurement strategy</strong> isn&#x27;t just about the initial price, but the total cost and benefit over the contract lifecycle. And finally, &#x27;VitalCare Services&#x27;. They seem to strike a good balance. Their proposal includes a clear breakdown of services, a reasonable pricing structure, and they&#x27;ve shown more willingness to discuss bespoke terms during preliminary talks.&quot;</p>
+<p><strong class="lexis">Mark:</strong> &quot;Yes, VitalCare looks promising. Their emphasis on preventative care aligns well with our long-term wellness goals. I think we need to deep dive into VitalCare&#x27;s <strong class="lexis">quality assurance</strong> and get firmer commitments on response times and specialist availability. We also need to understand their onboarding process for our current employees.&quot;</p>
+<p><strong class="lexis">Anna:</strong> &quot;Good point. Let&#x27;s list the top three critical areas we need to clarify with VitalCare before we proceed to <strong class="lexis">contract negotiation</strong>. Our goal is a high-quality, sustainable service that supports our entire workforce effectively.&quot;</p>
+<p>---</p>
+<p><strong class="lexis">Discussion Questions:</strong><br>
+1. What are the main concerns Anna and Mark have about &#x27;Healthy Horizons&#x27; and &#x27;WorkWell Solutions&#x27;?<br>
+2. Why do they find &#x27;VitalCare Services&#x27; more promising?<br>
+3. What specific areas do they want to clarify with &#x27;VitalCare Services&#x27; before moving forward?<br>
+4. What phrases did Anna and Mark use to discuss:<br>
+   a. Evaluating proposals?<br>
+   b. Expressing concerns?<br>
+   c. Suggesting next steps?</p>
+</section>
+</article>
+<article class="stage" id="stage-PREP">
+<header class="stage-header"><span class="stage-code">PREP</span><h2>Preparation: Language for Procurement Decisions</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will prepare for a decision-making meeting.<br>
+2. Direct students to the phrase banks and encourage them to familiarize themselves with the language.<br>
+3. Give students time to make notes, thinking about which phrases they might use and what specific points they want to make. They should consider the different perspectives of various departments.<br>
+4. Circulate and assist with vocabulary or sentence structure as needed. Remind them to think about both the criteria and the language to express them.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Planning Your Proposal</h4>
+<p>You are preparing for a meeting to discuss and decide on an occupational health provider. Use the phrases below to help you structure your arguments and questions. Make notes on the key points you want to raise regarding <strong class="lexis">vendor selection</strong>, <strong class="lexis">cost-effectiveness</strong>, and <strong class="lexis">quality assurance</strong>.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Evaluating Tenders</th><th>Expressing Concerns/Priorities</th><th>Making Decisions/Next Steps</th></tr><tr><td>Their proposal highlights...</td><td>On-site access is key for...</td><td>We need to make a solid decision.</td></tr><tr><td>I&#x27;m concerned about their cost-effectiveness...</td><td>We can&#x27;t compromise on quality.</td><td>Let&#x27;s list the top critical areas...</td></tr><tr><td>We need to scrutinize that pricing.</td><td>If it means a drop in service, it&#x27;s a false economy.</td><td>We need to deep dive into...</td></tr><tr><td>Their quality assurance protocols seem...</td><td>Our procurement strategy demands...</td><td>Get firmer commitments on...</td></tr><tr><td>We need assurances on vendor selection...</td><td>We need to ensure swift and expert care.</td><td>Before we proceed to contract negotiation...</td></tr><tr><td>They seem to strike a good balance.</td><td>This aligns well with our long-term goals.</td><td>Our goal is a high-quality, sustainable service.</td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Fluency Practice: Strategic Procurement Meeting</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Divide students into groups of 3-4.<br>
+2. Assign roles: e.g., Procurement Manager, HR Manager, Finance Manager, Operations Manager. Each role should have slightly different priorities.<br>
+3. Present the scenario: The committee has reviewed three tenders and must now discuss and agree on which provider to select, justifying their choice.<br>
+4. Give students 15-20 minutes for the discussion and decision-making.<br>
+5. Observe students, making notes on effective communication, use of target language (but without interrupting).<br>
+6. Remind students to aim for a consensus decision.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">The Boardroom Decision</h4>
+<p>It’s time for the final decision-making meeting. You are part of your company’s Procurement Committee, tasked with selecting the new occupational health provider. You have reviewed the <strong class="lexis">tenders</strong> and discussed initial findings.</p>
+<p><strong class="lexis">Your Task:</strong><br>
+As a group, discuss the strengths and weaknesses of the potential providers. Consider their proposals in terms of <strong class="lexis">cost-effectiveness</strong>, <strong class="lexis">quality assurance</strong>, and overall suitability for your company’s needs. Your goal is to reach a consensus on which provider to recommend, clearly stating your reasons.</p>
+<p><strong class="lexis">Roleplay:</strong><br>
+*   <strong class="lexis">Procurement Manager:</strong> Focus on <strong class="lexis">procurement strategy</strong> and contract terms. Look for value for money and favorable <strong class="lexis">contract negotiation</strong> possibilities.<br>
+*   <strong class="lexis">HR Manager:</strong> Prioritize employee well-being, range of services, and ease of access for staff across all sites. Emphasize <strong class="lexis">vendor selection</strong> and provider reputation.<br>
+*   <strong class="lexis">Finance Manager:</strong> Focus on budget adherence, long-term costs, and overall financial viability of the chosen provider. Challenge any proposals that seem too expensive or risky.<br>
+*   <strong class="lexis">Operations Manager:</strong> Emphasize service reliability, response times, and minimal disruption to operations. Consider how the provider integrates with existing company processes.</p>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback and Delayed Correction</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. <strong class="lexis">Content Feedback (5-7 mins):</strong><br>
+   a. Ask each group to report their final decision and the main reasons for it.<br>
+   b. Prompt them to reflect on the challenges they faced in reaching a consensus.<br>
+   c. Did they feel they successfully balanced competing priorities?<br>
+2. <strong class="lexis">Language Feedback (5-7 mins):</strong><br>
+   a. Refer to notes taken during the FP stage.<br>
+   b. Write up a selection of common errors (e.g., pronunciation, sentence structure, lexis misuse) on the board.<br>
+   c. Encourage students to self-correct or peer-correct before providing the answers.<br>
+   d. Highlight examples of good use of target language from the PREP stage (e.g., &#x27;We need to scrutinize that pricing&#x27;, &#x27;Our procurement strategy demands...&#x27;).<br>
+   e. Emphasize that the goal is fluency and effective communication, and errors are a natural part of that process.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reflecting on Our Choices</h4>
+<p>Now that you&#x27;ve completed your meeting and made a decision:</p>
+<p>1.  Which occupational health provider did your group select, and what were the primary reasons for your choice?<br>
+2.  What were the most challenging aspects of reaching a consensus? Did different roles have conflicting priorities?<br>
+3.  Reflect on your use of the language from the preparation stage. Were you able to effectively use phrases for evaluating, expressing concerns, and making decisions?</p>
+</section>
+</article>
+</body>
+</html>

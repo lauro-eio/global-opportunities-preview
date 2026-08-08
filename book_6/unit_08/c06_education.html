@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Documenting the Evolution of Professional Skills</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Documenting the Evolution of Professional Skills</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>8</dd>
+      <dt>Class</dt><dd>6</dd>
+      <dt>Theme</dt><dd>T08_EDUCATION</dd>
+      <dt>Framework</dt><dd>SK-PROD</dd>
+      <dt>Role</dt><dd>SK_PROD_WRITING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: The Evolution of Professional Skills</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Introduce the concept of skill evolution in various trades. Prompt students to reflect on their own experiences or knowledge of specific professions. Encourage discussion about reasons for change (e.g., technology, efficiency, safety) and their impact. Ensure the discussion focuses on practical, real-world examples from their working lives.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Our Changing Trades</h4>
+<p>Many of our trades and professions have long histories. The way we work today might be very different from how things were done years ago. Let&#x27;s discuss:</p>
+<p>1.  Think about your own job or a trade you know well. What are the core skills involved?<br>
+2.  How have these core skills or the methods used to perform them changed since you started, or even over several generations? Consider any <strong class="lexis">technological shifts</strong> or new aspects of <strong class="lexis">professional evolution</strong>.<br>
+3.  Why do you think these changes happened? What impact did they have on the job and the people doing it?</p>
+</section>
+</article>
+<article class="stage" id="stage-MOD">
+<header class="stage-header"><span class="stage-code">MOD</span><h2>Model Analysis: Tracing Skill Adaptation</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Distribute the memo for students to read. Set a time limit for reading. Guide students through the comprehension tasks, encouraging them to identify key phrases related to skill development and change. Discuss the context, audience, and purpose of the memo. Highlight how the language formally discusses historical development.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Understanding Skill Journeys</h4>
+<p>Read the internal memo below from Apex Fabrication. It discusses how welding techniques have evolved over time. After reading, answer the questions to check your understanding of the text and how it presents the information.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Internal Memo: Evolution of Welding Techniques at Apex Fabrication</h5>
+<p>Apex Fabrication has a proud history, and the skill of welding is at its core. Over the decades, our approach to <strong class="lexis">craftsmanship history</strong> in welding has seen significant <strong class="lexis">professional evolution</strong>. When Apex started in the 1960s, manual arc welding was the dominant technique. It required immense <strong class="lexis">skill mastery</strong> in electrode manipulation and keen eye-hand coordination. Training involved long apprenticeships focused on traditional methods.</p>
+<p>The 1980s brought the first major <strong class="lexis">technological shifts</strong> with the introduction of MIG (Metal Inert Gas) welding. This allowed for faster, more consistent welds, especially on thinner materials. Welders had to adapt; while the fundamental understanding of metallurgy remained, the physical execution changed. They learned to operate new equipment, manage gas flow, and adjust wire feed speed.</p>
+<p>Today, we&#x27;re seeing another wave of change with automated and robotic welding systems. These systems handle repetitive tasks with incredible precision, but they don&#x27;t eliminate the need for skilled human operators. Our welders now require advanced programming knowledge, diagnostic skills for machinery, and the ability to supervise complex processes. They are still performing highly skilled work, but the nature of that <strong class="lexis">skill mastery</strong> has evolved from purely manual dexterity to a blend of manual and technical expertise.</p>
+<p>This continuous adaptation highlights the importance of lifelong learning and embracing new tools. It ensures our team maintains its leadership in quality and efficiency, honoring the past while building the future of our craft.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main purpose of this memo?</p>
+<ul><li>To announce new welding equipment.</li><li>To describe the changing skills required for welders.</li><li>To criticize old welding methods.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">According to the memo, what was the dominant welding technique in the 1960s?</p>
+</div>
+<div class="task"><p class="task-instruction">What key change in skills did the introduction of MIG welding require from welders?</p>
+</div>
+<div class="task"><p class="task-instruction">Name two skills that modern welders need for automated systems.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-PREP">
+<header class="stage-header"><span class="stage-code">PREP</span><h2>Planning Your Report: Skill Evolution</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Guide students to choose a specific skill or technique from their own industry or a trade they are familiar with. Facilitate brainstorming for ideas related to its historical development. Explain how the column_banks can help structure their writing. Encourage them to think about specific examples for each section and to use vocabulary related to the theme.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Mapping Your Trade&#x27;s Path</h4>
+<p>Before you write your own report, let&#x27;s organize your ideas about how a skill in your industry has changed. Think about a specific skill or technique you discussed earlier. Use the phrases below to help you structure your thoughts and prepare your report.</p>
+<p>First, make some notes for each section. Then, you can choose useful phrases to start your sentences.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Introducing the Skill</th><th>Past Practices</th><th>Key Changes/Innovations</th><th>Current &amp; Future Skills</th></tr><tr><td>For decades, X has been central to...</td><td>Originally, the focus was on...</td><td>The introduction of Y marked a significant **technological shift**.</td><td>Today, **skill mastery** involves...</td></tr><tr><td>The foundation of our work is...</td><td>Early methods required...</td><td>This led to a period of **professional evolution**.</td><td>Modern approaches emphasize...</td></tr><tr><td>A core aspect of our trade, X, has always been...</td><td>Techniques relied heavily on...</td><td>Adaptation became necessary due to...</td><td>Looking ahead, we&#x27;ll need to develop...</td></tr><tr><td>Our industry relies heavily on...</td><td>Traditionally, this involved...</td><td>A major innovation was...</td><td>The current demands for X are...</td></tr><tr><td></td><td>The initial approach to X was...</td><td>We saw a transition with the advent of...</td><td>Moving forward, proficiency in Y will be crucial.</td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Free Practice: Writing Your Skill Evolution Report</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Explain the task clearly, reiterating the audience, purpose, and approximate length. Remind students to use the planning notes and phrases from the previous stage. Emphasize incorporating vocabulary related to skill evolution. Monitor students as they write, offering support and guidance. A sample answer is provided below for teacher reference and possible sharing after the task.</p>
+<p><strong class="lexis">Sample Report: Evolution of Precision Machining at &#x27;GearUp Engineering&#x27;</strong></p>
+<p>For decades, precision machining has been the cornerstone of quality at GearUp Engineering. Originally, the focus was heavily on manual lathe and milling operations. Machinists relied on intricate <strong class="lexis">skill mastery</strong> in interpreting blueprints, manual calibration, and a highly developed sense of touch and sight to achieve precise tolerances. This <strong class="lexis">craftsmanship history</strong> built our reputation.</p>
+<p>The introduction of Computer Numerical Control (CNC) machines in the 1990s marked a significant <strong class="lexis">technological shift</strong>. This <strong class="lexis">professional evolution</strong> meant operators needed to learn programming languages and machine setup rather than purely manual manipulation. While manual dexterity remained crucial for finishing, the core skill set began to include digital literacy.</p>
+<p>Today, our machinists leverage advanced CAD/CAM software and multi-axis CNC machines. Modern <strong class="lexis">skill mastery</strong> involves complex digital modeling, sophisticated machine diagnostics, and quality control through advanced metrology. This continuous adaptation ensures GearUp remains at the forefront of manufacturing, combining traditional precision with cutting-edge technology.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">My Trade&#x27;s Evolution Report</h4>
+<p>You are going to write a short internal report (approx. 150-200 words) for your company&#x27;s newsletter or intranet. The purpose is to inform colleagues about the <strong class="lexis">historical development and adaptation of a specific skill or technique</strong> within your trade or industry over time. Imagine your audience is your colleagues who might be new to the company or interested in the history of their craft.</p>
+<p>Your report should:<br>
+1.  Introduce the skill and its importance.<br>
+2.  Describe how it was traditionally performed.<br>
+3.  Explain the key changes or <strong class="lexis">technological shifts</strong> that have occurred.<br>
+4.  Discuss how the requirements for <strong class="lexis">skill mastery</strong> have evolved.<br>
+5.  Use vocabulary related to <strong class="lexis">professional evolution</strong> and <strong class="lexis">craftsmanship history</strong>.</p>
+<p><strong class="lexis">Audience</strong>: Colleagues (internal company newsletter/intranet)<br>
+<strong class="lexis">Purpose</strong>: Inform and reflect on skill evolution<br>
+<strong class="lexis">Length</strong>: 150-200 words</p>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback &amp; Correction: Reviewing Skill Evolution Reports</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Organize students into pairs for peer feedback, or collect reports for teacher feedback. Emphasize starting with content before moving to language. For peer feedback, instruct students to provide constructive criticism based on the provided questions. For teacher feedback, focus on common errors related to the target language and task requirements. Highlight examples of good practice and areas for improvement on the board or with anonymized examples.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Improving Our Trade Stories</h4>
+<p>Now you will review your report, or a colleague&#x27;s report, focusing on content and language.</p>
+<p><strong class="lexis">Part 1: Content Feedback (5 minutes)</strong><br>
+Read your partner&#x27;s report (or your own). Discuss these questions:<br>
+1.  Is the chosen skill or technique clearly introduced?<br>
+2.  Does the report clearly describe the historical development and changes?<br>
+3.  Are the reasons for change (e.g., technology, market demands) clear?<br>
+4.  Does it discuss how <strong class="lexis">skill mastery</strong> has evolved over time?<br>
+5.  Is the report informative and engaging for colleagues?</p>
+<p><strong class="lexis">Part 2: Language Feedback (5 minutes)</strong><br>
+Now, read the report again, focusing on language.<br>
+1.  Are there any confusing sentences or unclear ideas?<br>
+2.  Are there opportunities to use more precise vocabulary related to <strong class="lexis">professional evolution</strong>, <strong class="lexis">technological shifts</strong>, or <strong class="lexis">craftsmanship history</strong>?<br>
+3.  Check for any errors in grammar, spelling, or punctuation.</p>
+</section>
+</article>
+</body>
+</html>

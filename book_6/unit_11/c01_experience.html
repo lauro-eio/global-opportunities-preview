@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reading: Strategies for Managing Workplace Stress</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Reading: Strategies for Managing Workplace Stress</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>11</dd>
+      <dt>Class</dt><dd>1</dd>
+      <dt>Theme</dt><dd>T11_EXPERIENCE</dd>
+      <dt>Framework</dt><dd>SK-REC</dd>
+      <dt>Role</dt><dd>SK_REC_READING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Workplace Stress Triggers</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by asking students to think about their own work experiences.<br>
+2. Prompt them to describe specific times they felt extremely stressed or overwhelmed at work.<br>
+3. Encourage them to identify what triggered these feelings (e.g., tight deadlines, difficult colleagues, unexpected problems).<br>
+4. Ask about the physical signs they noticed in themselves during these stressful periods (e.g., headaches, tiredness, muscle tension).<br>
+5. Facilitate a brief class discussion, ensuring all students have a chance to share.<br>
+6. Introduce the day&#x27;s topic: managing workplace pressures and preventing burnout.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Understanding Job Pressures</h4>
+<p>Think about a time at work when you felt extremely <strong class="lexis">overwhelmed</strong> or highly stressed.</p>
+<p>1. What specific situations or tasks triggered these feelings?<br>
+2. What physical signs did you notice in yourself when you were feeling stressed (e.g., headache, tension, tiredness)?<br>
+3. How did these experiences affect your work or your mood?</p>
+</section>
+</article>
+<article class="stage" id="stage-PTV">
+<header class="stage-header"><span class="stage-code">PTV</span><h2>Pre-teach Vocabulary: Key Terms for Well-being</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the new vocabulary words one by one.<br>
+2. Elicit or provide clear, concise definitions relevant to a working adult context.<br>
+3. Check understanding by asking students to use the words in simple sentences related to their work.<br>
+4. Explain that these words are important for understanding the upcoming reading passage.<br>
+5. Instruct students to complete the matching task individually.<br>
+6. Check answers as a class.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Words for Managing Stress</h4>
+<p>Match the following key terms related to managing workplace stress and <strong class="lexis">well-being</strong> with their correct definitions.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>stress management</li><li>coping mechanisms</li><li>burnout prevention</li><li>resilience building</li><li>emotional regulation</li><li>overwhelmed</li><li>well-being</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match each term to its definition.</p>
+<ul><li><strong>stress management</strong> — The techniques and strategies used to deal with or control stress.</li><li><strong>coping mechanisms</strong> — Strategies people use to deal with stressful situations and emotions.</li><li><strong>burnout prevention</strong> — Actions taken to avoid a state of chronic physical and emotional exhaustion from prolonged stress.</li><li><strong>resilience building</strong> — The process of developing the ability to recover quickly from difficulties or challenges.</li><li><strong>emotional regulation</strong> — The ability to manage and respond to an emotional experience appropriately.</li><li><strong>overwhelmed</strong> — Feeling as though too much is happening or too many things are expected of you.</li><li><strong>well-being</strong> — The state of being healthy, happy, and comfortable.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-GIST">
+<header class="stage-header"><span class="stage-code">GIST</span><h2>Gist Reading: Understanding the Main Idea</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the reading passage and its title. Explain that it provides practical advice on managing workplace stress.<br>
+2. Instruct students to read the passage quickly, focusing only on understanding the main message or purpose of the text.<br>
+3. Set a strict time limit (e.g., 2-3 minutes) to encourage skimming, not detailed reading.<br>
+4. After reading, ask students to choose the best option that summarises the main idea.<br>
+5. Check the answer as a class, asking students to justify their choice briefly.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Quick Read: Strategies for a Healthier Work Life</h4>
+<p>Read the article quickly to understand its main purpose. Don&#x27;t worry about every detail. Then, choose the best option that describes the article&#x27;s main idea.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Your Guide to Managing Workplace Stress</h5>
+<p>Working in fast-paced environments often means facing <strong class="lexis">pressures</strong> and tight deadlines. It’s natural to feel <strong class="lexis">overwhelmed</strong> sometimes, but prolonged stress can affect your <strong class="lexis">well-being</strong> and lead to <strong class="lexis">burnout</strong>. This guide offers practical <strong class="lexis">strategies</strong> for <strong class="lexis">stress management</strong> and building <strong class="lexis">resilience</strong> in your daily work.</p>
+<p>Firstly, understanding your triggers is key. What situations or tasks make you feel most stressed? Is it a sudden rush of orders, a difficult interaction, or a tight turnaround? By identifying these, you can start to develop effective <strong class="lexis">coping mechanisms</strong>. For example, if a sudden demand feels overwhelming, take a moment. A short break or a deep breathing exercise can make a significant difference.</p>
+<p>One crucial strategy is <strong class="lexis">emotional regulation</strong>. This doesn&#x27;t mean ignoring your feelings, but rather learning to respond to them in a constructive way. Instead of reacting impulsively to frustration, pause. Ask yourself: &quot;What&#x27;s the most productive way to handle this?&quot; Practicing <strong class="lexis">mindfulness</strong> for even a few minutes each day can help you observe your emotions without being consumed by them. This can be as simple as focusing on your breath during a commute or concentrating fully on a simple task like making a cup of tea.</p>
+<p>Next, prioritize <strong class="lexis">burnout prevention</strong>. This involves setting boundaries between work and personal life. When your shift ends, try to switch off from work concerns. Engage in activities you enjoy. Regular physical activity, a balanced diet, and sufficient sleep are fundamental to maintaining your energy levels and mental clarity. These acts of <strong class="lexis">self-care</strong> are not luxuries; they are essential for long-term health and job performance.</p>
+<p>Finally, remember <strong class="lexis">resilience building</strong> is an ongoing process. It&#x27;s about how quickly you can bounce back from challenges. This involves problem-solving skills and seeking support when needed. Talk to a trusted colleague, supervisor, or friend about what you&#x27;re experiencing. Sharing your concerns can provide new perspectives and lighten your load. Your company may also offer resources for <strong class="lexis">stress management</strong> and employee assistance. Utilizing these resources is a sign of strength, not weakness.</p>
+<p>By integrating these strategies into your routine, you can better manage workplace <strong class="lexis">pressures</strong>, enhance your <strong class="lexis">well-being</strong>, and prevent <strong class="lexis">burnout</strong>, ensuring a healthier and more productive work experience.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main purpose of this article?</p>
+<ul><li>To describe common causes of workplace stress.</li><li>To provide practical psychological strategies for managing job-related stress and preventing burnout.</li><li>To discuss the history of stress management in the workplace.</li><li>To inform employers about their responsibilities regarding employee well-being.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-DET">
+<header class="stage-header"><span class="stage-code">DET</span><h2>Detailed Reading: Understanding Strategies</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Instruct students to read the passage again, this time more carefully, to find specific details for the following tasks.<br>
+2. For Task 1 (short-text questions), give students time to write down their answers based on the text.<br>
+3. Check answers for Task 1 as a class, ensuring they refer back to the text for accuracy.<br>
+4. For Task 2 (discussion prompts), put students into small groups or pairs.<br>
+5. Encourage them to discuss the questions, connecting the advice in the article to their own experiences or ideas.<br>
+6. Monitor discussions, providing support with vocabulary if needed.<br>
+7. Bring the class back together for a brief whole-class feedback session on their discussions.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Exploring Practical Advice</h4>
+<p>Read the article again carefully. Answer the following questions using information from the text.</p>
+<p><strong class="lexis">Task 1: Factual Details</strong></p>
+<p>1. What is the first key step mentioned for <strong class="lexis">stress management</strong>?<br>
+2. What is <strong class="lexis">emotional regulation</strong> described as, and what does it involve?<br>
+3. Besides work, what three activities are mentioned as fundamental for <strong class="lexis">burnout prevention</strong>?</p>
+<p><strong class="lexis">Task 2: Discussion</strong></p>
+<p>4. The article mentions practicing <strong class="lexis">mindfulness</strong>. Can you think of any other simple ways to practice <strong class="lexis">mindfulness</strong> during your workday?<br>
+5. Why is seeking support from colleagues or supervisors described as a &#x27;sign of strength&#x27; rather than weakness?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Your Guide to Managing Workplace Stress</h5>
+<p>Working in fast-paced environments often means facing <strong class="lexis">pressures</strong> and tight deadlines. It’s natural to feel <strong class="lexis">overwhelmed</strong> sometimes, but prolonged stress can affect your <strong class="lexis">well-being</strong> and lead to <strong class="lexis">burnout</strong>. This guide offers practical <strong class="lexis">strategies</strong> for <strong class="lexis">stress management</strong> and building <strong class="lexis">resilience</strong> in your daily work.</p>
+<p>Firstly, understanding your triggers is key. What situations or tasks make you feel most stressed? Is it a sudden rush of orders, a difficult interaction, or a tight turnaround? By identifying these, you can start to develop effective <strong class="lexis">coping mechanisms</strong>. For example, if a sudden demand feels overwhelming, take a moment. A short break or a deep breathing exercise can make a significant difference.</p>
+<p>One crucial strategy is <strong class="lexis">emotional regulation</strong>. This doesn&#x27;t mean ignoring your feelings, but rather learning to respond to them in a constructive way. Instead of reacting impulsively to frustration, pause. Ask yourself: &quot;What&#x27;s the most productive way to handle this?&quot; Practicing <strong class="lexis">mindfulness</strong> for even a few minutes each day can help you observe your emotions without being consumed by them. This can be as simple as focusing on your breath during a commute or concentrating fully on a simple task like making a cup of tea.</p>
+<p>Next, prioritize <strong class="lexis">burnout prevention</strong>. This involves setting boundaries between work and personal life. When your shift ends, try to switch off from work concerns. Engage in activities you enjoy. Regular physical activity, a balanced diet, and sufficient sleep are fundamental to maintaining your energy levels and mental clarity. These acts of <strong class="lexis">self-care</strong> are not luxuries; they are essential for long-term health and job performance.</p>
+<p>Finally, remember <strong class="lexis">resilience building</strong> is an ongoing process. It&#x27;s about how quickly you can bounce back from challenges. This involves problem-solving skills and seeking support when needed. Talk to a trusted colleague, supervisor, or friend about what you&#x27;re experiencing. Sharing your concerns can provide new perspectives and lighten your load. Your company may also offer resources for <strong class="lexis">stress management</strong> and employee assistance. Utilizing these resources is a sign of strength, not weakness.</p>
+<p>By integrating these strategies into your routine, you can better manage workplace <strong class="lexis">pressures</strong>, enhance your <strong class="lexis">well-being</strong>, and prevent <strong class="lexis">burnout</strong>, ensuring a healthier and more productive work experience.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the first key step mentioned for stress management?</p>
+</div>
+<div class="task"><p class="task-instruction">What is emotional regulation described as, and what does it involve?</p>
+</div>
+<div class="task"><p class="task-instruction">Besides work, what three activities are mentioned as fundamental for burnout prevention?</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Follow-up Discussion: Applying Strategies to Your Work Life</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Recap the main strategies discussed in the article for <strong class="lexis">stress management</strong> and <strong class="lexis">burnout prevention</strong>.<br>
+2. Prompt students to consider which of the strategies from the article they find most useful or applicable to their own jobs.<br>
+3. Ask them to think about how they might incorporate one or two of these strategies into their daily or weekly routine.<br>
+4. Facilitate a final open discussion, encouraging students to share their personal takeaways and potential action plans.<br>
+5. Offer brief, supportive language feedback focusing on appropriate use of new vocabulary from the lesson.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">My Personal Action Plan</h4>
+<p>Now that you&#x27;ve explored different <strong class="lexis">strategies</strong> for <strong class="lexis">managing workplace stress</strong> and preventing <strong class="lexis">burnout</strong>, let&#x27;s discuss how you can apply these to your own work life.</p>
+<p>1. Which strategy from the article do you think would be most helpful for you personally, and why?<br>
+2. What is one specific thing you could try to do, starting this week, to better manage your <strong class="lexis">pressures</strong> or enhance your <strong class="lexis">well-being</strong> at work?<br>
+3. Who at your workplace, if anyone, do you feel comfortable talking to if you were feeling <strong class="lexis">overwhelmed</strong> and needed support?</p>
+</section>
+</article>
+</body>
+</html>

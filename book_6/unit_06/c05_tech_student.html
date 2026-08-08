@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Professionalism in Your Digital Workplace</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Professionalism in Your Digital Workplace</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>6</dd>
+      <dt>Class</dt><dd>5</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-evaluating-information-at-work">
+<header class="stage-header"><h2>Evaluating Information at Work</h2></header>
+<section class="handout">
+<p>In today&#x27;s fast-paced digital world, it&#x27;s common to encounter a lot of information related to your industry online. Before making decisions or taking action, how do you typically assess whether a news report, social media post, or online article is credible and unbiased?</p>
+<p>Consider these points in your discussion:<br>
+1. Where do you usually find industry-specific news or reports?<br>
+2. What are the first things you look for to check if a source is trustworthy?<br>
+3. How might a biased report impact your work or your company?</p>
+</section>
+</article>
+<article class="stage" id="stage-digital-workplace-guidelines">
+<header class="stage-header"><h2>Digital Workplace Guidelines</h2></header>
+<section class="handout">
+<p>Read the internal memo from the HR Department. It discusses important guidelines for digital conduct in the workplace. For each numbered section, choose the most professional and appropriate phrase from the options provided to replace the highlighted informal expression.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Internal Memo: Enhancing Our Digital Conduct</h5>
+<p>To: All Staff<br>
+From: HR Department<br>
+Date: October 26, 2023<br>
+Subject: Professionalism in the Digital Age</p>
+<p>Dear Team,</p>
+<p>As our reliance on digital platforms grows, it’s crucial to reaffirm our commitment to professional standards in all online interactions. This memo outlines key areas where we can collectively improve.</p>
+<p>Firstly, we encourage everyone to actively <strong class="lexis">consider what you put online</strong> (1). It’s vital for protecting both your personal and professional reputation. Think before you post.</p>
+<p>Secondly, for those who use social media or professional networking sites, please remember the importance of <strong class="lexis">looking professional online</strong> (2). Your actions reflect on the company, and maintaining a dignified image is essential.</p>
+<p>Thirdly, with the constant stream of emails and reports, many of us struggle to <strong class="lexis">handle all the information</strong> (3) we receive daily. We&#x27;ll be rolling out new strategies and workshops to help.</p>
+<p>Furthermore, we aim to help all employees <strong class="lexis">use our software and online platforms better</strong> (4) to boost productivity and collaboration. Training sessions will be announced soon.</p>
+<p>Finally, a core principle of our work involves <strong class="lexis">keeping sensitive client information safe</strong> (5). Always follow protocols to prevent any breaches.</p>
+<p>Your cooperation in upholding these standards is greatly appreciated.</p>
+<p>Sincerely,<br>
+The HR Department</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Read the memo above. For each numbered gap, choose the most appropriate professional phrase to complete the sentence.</p>
+<p>Firstly, we encourage everyone to actively _________.</p>
+<ul><li>be careful what you put online</li><li>manage your digital footprint</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Read the memo above. For each numbered gap, choose the most appropriate professional phrase to complete the sentence.</p>
+<p>Secondly, for those who use social media or professional networking sites, please remember the importance of _________.</p>
+<ul><li>looking professional online</li><li>maintain a professional online presence</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Read the memo above. For each numbered gap, choose the most appropriate professional phrase to complete the sentence.</p>
+<p>Thirdly, with the constant stream of emails and reports, many of us struggle to _________ we receive daily.</p>
+<ul><li>handle all the information</li><li>address information overload</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Read the memo above. For each numbered gap, choose the most appropriate professional phrase to complete the sentence.</p>
+<p>Furthermore, we aim to help all employees _________ to boost productivity and collaboration.</p>
+<ul><li>use our software and online platforms better</li><li>leverage digital tools effectively</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Read the memo above. For each numbered gap, choose the most appropriate professional phrase to complete the sentence.</p>
+<p>Finally, a core principle of our work involves _________.</p>
+<ul><li>keeping sensitive client information safe</li><li>ensure data privacy</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-building-your-digital-vocabulary">
+<header class="stage-header"><h2>Building Your Digital Vocabulary</h2></header>
+<section class="handout">
+<p>Now let&#x27;s look at the language used in professional digital communication. The phrases below are common in workplace discussions about technology and online conduct. They help to convey clarity, neutrality, and professionalism.</p>
+<p>Match the professional phrases with their detailed meanings and the specific contexts in which they are most appropriately used.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match the professional phrases with their definitions and appropriate contexts. Focus on why these phrases are preferred in formal or workplace settings.</p>
+<ul><li><strong>manage your digital footprint</strong> — To control the information about you that exists on the internet, typically referring to professional reputation.</li><li><strong>maintain a professional online presence</strong> — To actively shape how you are perceived online, especially in contexts related to your career or company.</li><li><strong>address information overload</strong> — To systematically deal with an excessive amount of data or communications, often through strategic methods.</li><li><strong>leverage digital tools effectively</strong> — To utilize digital software, platforms, or systems in a way that maximizes their benefits for specific goals.</li><li><strong>ensure data privacy</strong> — To guarantee the protection of personal or sensitive data from unauthorized access or misuse.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-strategizing-for-digital-success">
+<header class="stage-header"><h2>Strategizing for Digital Success</h2></header>
+<section class="handout">
+<p>Imagine your team is holding a brief meeting to discuss strategies for improving your department&#x27;s use of digital technologies and handling online information professionally. Your manager has asked everyone to contribute ideas, using the professional language we&#x27;ve discussed.</p>
+<p>Discuss the following:<br>
+1. How can we collectively <strong class="lexis">manage our digital footprint</strong> and <strong class="lexis">maintain a professional online presence</strong> as a team?<br>
+2. What steps can we take to <strong class="lexis">address information overload</strong> from emails, reports, and industry news?<br>
+3. What specific ways can we <strong class="lexis">leverage digital tools effectively</strong> to improve our daily tasks or team collaboration?<br>
+4. How do we reinforce procedures to <strong class="lexis">ensure data privacy</strong> for our clients and internal operations?</p>
+</section>
+</article>
+</body>
+</html>

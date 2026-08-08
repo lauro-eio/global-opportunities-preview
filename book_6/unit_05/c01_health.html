@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Analyzing Workplace Safety Protocols</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Analyzing Workplace Safety Protocols</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>5</dd>
+      <dt>Class</dt><dd>1</dd>
+      <dt>Theme</dt><dd>T05_HEALTH</dd>
+      <dt>Framework</dt><dd>SK-REC</dd>
+      <dt>Role</dt><dd>SK_REC_READING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Workplace Safety Updates</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by drawing on the students&#x27; personal experiences with workplace safety.<br>
+2. Prompt discussion using the lead-in brief, encouraging them to think about their own companies.<br>
+3. Facilitate a brief open-class discussion, noting down key ideas and vocabulary that may emerge (without explicit correction at this stage).</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Talking About Safety at Work</h4>
+<p>Imagine your company is updating its safety manual to align with new health standards. What are the key areas you&#x27;d expect to see addressed in such an update?</p>
+<p>Discuss these questions with a partner:<br>
+1. What does &#x27;employee well-being&#x27; mean to you in the context of your job?<br>
+2. What kind of &#x27;operational safety&#x27; procedures are most important in your workplace?<br>
+3. Have you ever seen your company update its safety policies? What was the reason?</p>
+</section>
+</article>
+<article class="stage" id="stage-PTV">
+<header class="stage-header"><span class="stage-code">PTV</span><h2>Pre-Teach Vocabulary: Key Safety Terms</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the vocabulary items to the students.<br>
+2. Ask students if they already know any of the words and elicit their meanings.<br>
+3. Instruct students to complete the matching task individually or in pairs.<br>
+4. Review answers as a class, clarifying any misunderstandings and modeling pronunciation.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Understanding Key Safety Words</h4>
+<p>Before we read a document about workplace safety, let&#x27;s learn some important terms you might see. Match the safety terms with their definitions.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>hazard assessment</li><li>risk mitigation</li><li>policy review</li><li>compliance</li><li>incident reporting</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match each term to its correct definition.</p>
+<ul><li><strong>hazard assessment</strong> — Identifying potential dangers or risks in the workplace.</li><li><strong>risk mitigation</strong> — Taking steps to reduce the likelihood or impact of identified dangers.</li><li><strong>policy review</strong> — Examining and updating official rules and guidelines.</li><li><strong>compliance</strong> — Following rules, standards, or laws.</li><li><strong>incident reporting</strong> — Documenting any accidents, near-misses, or safety concerns.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-GIST">
+<header class="stage-header"><span class="stage-code">GIST</span><h2>Gist Reading: Company Safety Protocol Review</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the reading passage as a memo about new safety protocols.<br>
+2. Explain the concept of &#x27;gist&#x27; reading – reading for the main idea, not every detail.<br>
+3. Set a strict time limit (e.g., 2-3 minutes) for students to read the memo quickly.<br>
+4. Instruct students to complete the multiple-choice question to check their understanding of the main purpose.<br>
+5. Review the answer as a class, ensuring students understand why the correct option is the best summary.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">First Look at the New Safety Guide</h4>
+<p>You are going to read a memo from a company about updates to their workplace safety protocols. Read it quickly to understand the main purpose of the memo. Don&#x27;t worry about understanding every single word, just get the general idea. Then, answer the question below.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>MEMORANDUM: Updated Workplace Safety Protocol Review</h5>
+<p>To: All Staff<br>
+From: [Company Name] HR Department<br>
+Date: October 26, 2023<br>
+Subject: Crucial Updates to Workplace Safety Protocols</p>
+<p>This memorandum outlines important revisions to our existing workplace safety protocols. In response to evolving health standards and our commitment to employee well-being, we are implementing new strategies designed to create a safer and healthier work environment for everyone.</p>
+<p>The core of these updates involves a thorough <strong class="lexis">policy review</strong> to ensure all guidelines are current and effective. Our safety committee has been working diligently to integrate best practices for health and safety, considering feedback from various departments.</p>
+<p>Key areas of focus include enhanced procedures for <strong class="lexis">hazard assessment</strong>. We are introducing new tools and training to help teams identify potential risks proactively, not just reactively. This includes regular walkthroughs and a new digital reporting system for concerns. Following a comprehensive <strong class="lexis">hazard assessment</strong>, we will implement targeted strategies for <strong class="lexis">risk mitigation</strong>. These measures are designed to minimize exposure to hazards and prevent accidents before they occur. This could involve new equipment, revised work procedures, or additional personal protective equipment (PPE).</p>
+<p>Crucially, <strong class="lexis">compliance</strong> with these updated protocols is mandatory for all employees. Adherence to safety regulations protects not only yourself but also your colleagues. We will be conducting a series of workshops next month to ensure everyone understands the new guidelines and their responsibilities.</p>
+<p>Finally, we are enhancing our <strong class="lexis">incident reporting</strong> system. A new, simplified online form will be available to report any accidents, near-misses, or safety concerns promptly. Timely reporting is vital for our continuous improvement efforts and allows us to address issues effectively.</p>
+<p>Your active participation in understanding and implementing these protocols is essential for our collective safety. Please attend the upcoming training sessions and review the full updated safety manual available on the company intranet by November 10th.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main purpose of this memo?</p>
+<ul><li>To announce new hires in the HR department.</li><li>To inform staff about upcoming changes to workplace safety protocols.</li><li>To request feedback on current company policies.</li><li>To remind employees about annual leave policies.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-DET">
+<header class="stage-header"><span class="stage-code">DET</span><h2>Detailed Reading: Understanding the Protocols</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Tell students to read the memo again, this time more carefully.<br>
+2. Instruct them to complete the short-text questions individually.<br>
+3. After reviewing the factual answers as a class, put students in pairs or small groups for the discussion prompts.<br>
+4. Circulate and monitor discussions, encouraging the use of the target vocabulary.<br>
+5. Bring the class back together to share key discussion points. (Do NOT provide answers for discussion, just facilitate sharing).</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Key Information from the Safety Memo</h4>
+<p>Now, read the memo again carefully. Answer the factual questions with short answers, then discuss the additional questions with a partner.</p>
+<p><strong class="lexis">Factual Questions:</strong></p>
+<p><strong class="lexis">Discussion Questions:</strong><br>
+1. What are your initial thoughts on the proposed updates? Are they clear?<br>
+2. How might these new protocols affect your daily tasks or work routine?<br>
+3. Do you think a digital system for <strong class="lexis">incident reporting</strong> is more effective than a paper-based one? Why or why not?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>MEMORANDUM: Updated Workplace Safety Protocol Review</h5>
+<p>To: All Staff<br>
+From: [Company Name] HR Department<br>
+Date: October 26, 2023<br>
+Subject: Crucial Updates to Workplace Safety Protocols</p>
+<p>This memorandum outlines important revisions to our existing workplace safety protocols. In response to evolving health standards and our commitment to employee well-being, we are implementing new strategies designed to create a safer and healthier work environment for everyone.</p>
+<p>The core of these updates involves a thorough <strong class="lexis">policy review</strong> to ensure all guidelines are current and effective. Our safety committee has been working diligently to integrate best practices for health and safety, considering feedback from various departments.</p>
+<p>Key areas of focus include enhanced procedures for <strong class="lexis">hazard assessment</strong>. We are introducing new tools and training to help teams identify potential risks proactively, not just reactively. This includes regular walkthroughs and a new digital reporting system for concerns. Following a comprehensive <strong class="lexis">hazard assessment</strong>, we will implement targeted strategies for <strong class="lexis">risk mitigation</strong>. These measures are designed to minimize exposure to hazards and prevent accidents before they occur. This could involve new equipment, revised work procedures, or additional personal protective equipment (PPE).</p>
+<p>Crucially, <strong class="lexis">compliance</strong> with these updated protocols is mandatory for all employees. Adherence to safety regulations protects not only yourself but also your colleagues. We will be conducting a series of workshops next month to ensure everyone understands the new guidelines and their responsibilities.</p>
+<p>Finally, we are enhancing our <strong class="lexis">incident reporting</strong> system. A new, simplified online form will be available to report any accidents, near-misses, or safety concerns promptly. Timely reporting is vital for our continuous improvement efforts and allows us to address issues effectively.</p>
+<p>Your active participation in understanding and implementing these protocols is essential for our collective safety. Please attend the upcoming training sessions and review the full updated safety manual available on the company intranet by November 10th.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Who issued the memo?</p>
+</div>
+<div class="task"><p class="task-instruction">What is the deadline for reviewing the full updated safety manual?</p>
+</div>
+<div class="task"><p class="task-instruction">What is the purpose of the workshops mentioned in the memo?</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Follow-Up Discussion and Language Notes</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Open the floor for general feedback and questions regarding the memo&#x27;s content.<br>
+2. Prompt students to share their personal opinions on the new protocols and their relevance.<br>
+3. Encourage the active use of vocabulary introduced earlier (e.g., &#x27;hazard assessment&#x27;, &#x27;risk mitigation&#x27;).<br>
+4. Listen carefully for good usage of target lexis and highlight these examples to the class. Avoid direct error correction of grammar; focus on content and lexical usage.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Sharing Ideas on Safety</h4>
+<p>Let&#x27;s share our thoughts on the updated safety protocols. Discuss the following questions with the class:<br>
+1. How well do you think your company addresses <strong class="lexis">hazard assessment</strong> and <strong class="lexis">risk mitigation</strong>? Give examples.<br>
+2. If you could suggest one additional item for a <strong class="lexis">policy review</strong> related to employee well-being, what would it be?<br>
+3. What are the biggest challenges to ensuring full <strong class="lexis">compliance</strong> with safety rules in a busy workplace?</p>
+</section>
+</article>
+</body>
+</html>

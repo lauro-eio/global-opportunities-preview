@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dealing with a Faulty Purchase</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Dealing with a Faulty Purchase</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>9</dd>
+      <dt>Class</dt><dd>4</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-our-faulty-purchase">
+<header class="stage-header"><h2>Our Faulty Purchase</h2></header>
+<section class="handout">
+<p>Imagine your company just bought some critical new equipment for its operations, but it&#x27;s faulty and not working as promised. This equipment is essential for your daily business.</p>
+<p>Discuss with a partner:<br>
+1. What are your immediate concerns and priorities when facing this issue?<br>
+2. What are your first steps to try and get a repair or replacement?<br>
+3. What kind of information would you need to support your claim according to commercial consumer law?</p>
+</section>
+</article>
+<article class="stage" id="stage-understanding-legal-language">
+<header class="stage-header"><h2>Understanding Legal Language</h2></header>
+<section class="handout">
+<p>Before we listen, let&#x27;s look at some important words and phrases you&#x27;ll hear in the conversation. Match the terms on the left with their definitions on the right.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>warranty claim</li><li>refund policy</li><li>service agreement</li><li>dispute resolution</li><li>consumer protection act</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match each term to its definition.</p>
+<ul><li><strong>warranty claim</strong> — A formal request made to a seller or manufacturer to repair or replace a faulty product, based on the terms of a guarantee.</li><li><strong>refund policy</strong> — The rules set by a business regarding the conditions under which a customer can return a product and receive their money back.</li><li><strong>service agreement</strong> — A contract between a service provider and a customer that outlines the terms and conditions of a service to be provided.</li><li><strong>dispute resolution</strong> — The process of settling a disagreement or argument between two or more parties, often through negotiation, mediation, or arbitration.</li><li><strong>consumer protection act</strong> — Legislation designed to protect the rights of buyers of goods and services against unfair practices by sellers or manufacturers.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-who-is-calling-and-why">
+<header class="stage-header"><h2>Who is Calling and Why?</h2></header>
+<section class="handout">
+<p>Listen to the conversation between two colleagues. What is the main purpose of their discussion?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Discussion on Faulty Office Equipment</h5>
+<p>SOUND of busy office environment, faint. </p>
+<p><strong class="lexis">Sarah</strong>: Morning, Mark. Do you have a moment? I need to discuss the new coffee machine we ordered last month.</p>
+<p><strong class="lexis">Mark</strong>: Of course, Sarah. What’s up with it? I thought it was working fine.</p>
+<p><strong class="lexis">Sarah</strong>: Well, it was at first. But for the past week, it’s been leaking water all over the counter, and yesterday it completely stopped brewing. It’s a huge problem for the team, especially with client meetings. We depend on it.</p>
+<p><strong class="lexis">Mark</strong>: That’s not good at all. We paid a premium for that machine. Did you check the <strong class="lexis">warranty claim</strong> details? I remember the supplier, &#x27;BrewMaster Pro&#x27;, offered a six-month warranty on parts and labor.</p>
+<p><strong class="lexis">Sarah</strong>: I did. I pulled up our purchase order and the <strong class="lexis">service agreement</strong>. It clearly states a full replacement or repair if it fails within the first three months. We’re only five weeks in.</p>
+<p><strong class="lexis">Mark</strong>: Excellent. So, what’s our next step? Have you tried calling them?</p>
+<p><strong class="lexis">Sarah</strong>: I called their customer service yesterday. The representative was polite but unhelpful. They said they&#x27;d send a technician out &#x27;sometime next week,&#x27; which isn&#x27;t acceptable. We need coffee for today&#x27;s pitch!</p>
+<p><strong class="lexis">Mark</strong>: &#x27;Sometime next week&#x27;? That&#x27;s not good enough. This is affecting our operations. We need to push for a faster resolution. What about their <strong class="lexis">refund policy</strong>? Is that an option if they can&#x27;t fix it promptly?</p>
+<p><strong class="lexis">Sarah</strong>: The policy is tricky. It allows for a full refund within 30 days if the item is returned in &#x27;as-new&#x27; condition, which ours isn&#x27;t, given the leaks. But it also states that if repairs can&#x27;t be completed in a reasonable timeframe, they <strong class="lexis">must</strong> offer a replacement. And a week&#x27;s wait is not reasonable for essential office equipment.</p>
+<p><strong class="lexis">Mark</strong>: Agreed. We need to escalate this. Have you looked into our rights under the <strong class="lexis">Consumer Protection Act</strong> for business-to-business transactions? Sometimes, even for commercial sales, there are provisions for timely service and fitness for purpose.</p>
+<p><strong class="lexis">Sarah</strong>: I briefly scanned it, yes. It seems to support our position regarding the &#x27;fitness for purpose&#x27; clause. The machine isn&#x27;t fit for purpose if it breaks down after a month. I think we need to formalize a complaint, perhaps an email referencing the Act and our service agreement.</p>
+<p><strong class="lexis">Mark</strong>: Good idea. If they don’t respond adequately, we might need to consider <strong class="lexis">dispute resolution</strong>. Perhaps their internal complaints procedure or even mediation. Let’s draft a strong email together, outlining the facts and our expectations. We need a replacement, not a repair, if they can&#x27;t guarantee a fix by tomorrow morning. We can&#x27;t afford any more downtime.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Listen to the conversation and choose the best option for the main purpose of their discussion.</p>
+<p>What is the main topic of Sarah and Mark&#x27;s conversation?</p>
+<ul><li>They are planning to buy new office equipment.</li><li>They are discussing a problem with a faulty coffee machine and how to get it resolved.</li><li>They are reviewing the company&#x27;s internal purchasing policies.</li><li>They are complaining about the quality of their coffee.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-key-details-of-the-issue">
+<header class="stage-header"><h2>Key Details of the Issue</h2></header>
+<section class="handout">
+<p>Listen again to the conversation. Answer the questions with short answers or specific details from the discussion.</p>
+<p>1. What specific problem is the coffee machine having?<br>
+2. How long has the company owned the coffee machine?<br>
+3. According to the <strong class="lexis">service agreement</strong>, what is the supplier obliged to do if the machine fails within the first three months?<br>
+4. What is Mark&#x27;s opinion about the customer service representative&#x27;s proposed solution?<br>
+5. Name one piece of legislation Mark and Sarah mention might support their claim.</p>
+<p>Think about it: What is the most immediate action Sarah and Mark plan to take after this call?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Discussion on Faulty Office Equipment</h5>
+<p>SOUND of busy office environment, faint. </p>
+<p><strong class="lexis">Sarah</strong>: Morning, Mark. Do you have a moment? I need to discuss the new coffee machine we ordered last month.</p>
+<p><strong class="lexis">Mark</strong>: Of course, Sarah. What’s up with it? I thought it was working fine.</p>
+<p><strong class="lexis">Sarah</strong>: Well, it was at first. But for the past week, it’s been leaking water all over the counter, and yesterday it completely stopped brewing. It’s a huge problem for the team, especially with client meetings. We depend on it.</p>
+<p><strong class="lexis">Mark</strong>: That’s not good at all. We paid a premium for that machine. Did you check the <strong class="lexis">warranty claim</strong> details? I remember the supplier, &#x27;BrewMaster Pro&#x27;, offered a six-month warranty on parts and labor.</p>
+<p><strong class="lexis">Sarah</strong>: I did. I pulled up our purchase order and the <strong class="lexis">service agreement</strong>. It clearly states a full replacement or repair if it fails within the first three months. We’re only five weeks in.</p>
+<p><strong class="lexis">Mark</strong>: Excellent. So, what’s our next step? Have you tried calling them?</p>
+<p><strong class="lexis">Sarah</strong>: I called their customer service yesterday. The representative was polite but unhelpful. They said they&#x27;d send a technician out &#x27;sometime next week,&#x27; which isn&#x27;t acceptable. We need coffee for today&#x27;s pitch!</p>
+<p><strong class="lexis">Mark</strong>: &#x27;Sometime next week&#x27;? That&#x27;s not good enough. This is affecting our operations. We need to push for a faster resolution. What about their <strong class="lexis">refund policy</strong>? Is that an option if they can&#x27;t fix it promptly?</p>
+<p><strong class="lexis">Sarah</strong>: The policy is tricky. It allows for a full refund within 30 days if the item is returned in &#x27;as-new&#x27; condition, which ours isn&#x27;t, given the leaks. But it also states that if repairs can&#x27;t be completed in a reasonable timeframe, they <strong class="lexis">must</strong> offer a replacement. And a week&#x27;s wait is not reasonable for essential office equipment.</p>
+<p><strong class="lexis">Mark</strong>: Agreed. We need to escalate this. Have you looked into our rights under the <strong class="lexis">Consumer Protection Act</strong> for business-to-business transactions? Sometimes, even for commercial sales, there are provisions for timely service and fitness for purpose.</p>
+<p><strong class="lexis">Sarah</strong>: I briefly scanned it, yes. It seems to support our position regarding the &#x27;fitness for purpose&#x27; clause. The machine isn&#x27;t fit for purpose if it breaks down after a month. I think we need to formalize a complaint, perhaps an email referencing the Act and our service agreement.</p>
+<p><strong class="lexis">Mark</strong>: Good idea. If they don’t respond adequately, we might need to consider <strong class="lexis">dispute resolution</strong>. Perhaps their internal complaints procedure or even mediation. Let’s draft a strong email together, outlining the facts and our expectations. We need a replacement, not a repair, if they can&#x27;t guarantee a fix by tomorrow morning. We can&#x27;t afford any more downtime.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What specific problem is the coffee machine having?</p>
+</div>
+<div class="task"><p class="task-instruction">How long has the company owned the coffee machine?</p>
+</div>
+<div class="task"><p class="task-instruction">According to the service agreement, what is the supplier obliged to do if the machine fails within the first three months?</p>
+</div>
+<div class="task"><p class="task-instruction">What is Mark&#x27;s opinion about the customer service representative&#x27;s proposed solution?</p>
+</div>
+<div class="task"><p class="task-instruction">Name one piece of legislation Mark and Sarah mention might support their claim.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-your-next-steps-for-resolution">
+<header class="stage-header"><h2>Your Next Steps for Resolution</h2></header>
+<section class="handout">
+<p>Sarah and Mark plan to draft a strong email to the supplier. </p>
+<p>Discuss in pairs or small groups:<br>
+1. What specific points should they include in their email to make it effective and professional?<br>
+2. If the email doesn&#x27;t work, what further steps might they need to take for <strong class="lexis">dispute resolution</strong>?<br>
+3. How important is it for businesses to understand their rights under the <strong class="lexis">Consumer Protection Act</strong> when dealing with problematic business suppliers or services? Why?</p>
+<p>Think about a time you or your company had to deal with a problematic supplier or service. What did you do?</p>
+</section>
+</article>
+</body>
+</html>

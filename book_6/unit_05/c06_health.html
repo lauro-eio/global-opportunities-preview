@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Writing a Recommendation: Ethical Health Data Management</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Writing a Recommendation: Ethical Health Data Management</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>5</dd>
+      <dt>Class</dt><dd>6</dd>
+      <dt>Theme</dt><dd>T05_HEALTH</dd>
+      <dt>Framework</dt><dd>SK-PROD</dd>
+      <dt>Role</dt><dd>SK_PROD_WRITING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Workplace Health Data &amp; Privacy</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the class angle using the lead-in brief.<br>
+2. Elicit initial reactions and opinions from students.<br>
+3. Encourage a brief discussion on personal experiences or general knowledge related to data collection at work.<br>
+4. Facilitate discussion, ensuring all students have a chance to speak and connect to the theme.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Navigating Data: Trust &amp; Responsibility</h4>
+<p>Companies are increasingly collecting health-related data to optimize operations or improve employee well-being. This can include anything from fitness tracker data for wellness programs to sick leave records. Where do you draw the line between useful insights derived from this data and a potential invasion of employee privacy?</p>
+<p>Discuss the following with a partner:<br>
+1. What kind of health-related data might your current or past employer collect, and for what purpose?<br>
+2. What are the potential benefits of collecting this data for both the company and the employees?<br>
+3. What are the main risks or concerns employees might have about their health data being collected and stored?<br>
+4. What measures do you think companies should put in place to protect employee <strong class="lexis">data privacy</strong>?</p>
+</section>
+</article>
+<article class="stage" id="stage-MOD">
+<header class="stage-header"><span class="stage-code">MOD</span><h2>Model Analysis: Ethical Data Management Memo</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Distribute the memo for students to read individually.<br>
+2. Set a gist task first: What is the main purpose of this memo?<br>
+3. Instruct students to complete the tasks, focusing on how the memo addresses ethical concerns and uses professional, cautious language.<br>
+4. Review answers as a class, discussing the justification for each choice.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Understanding a Sensitive Memo</h4>
+<p>Read the internal memo below from the HR Director regarding the management of employee health data. Pay attention to how it balances company needs with employee rights and privacy.</p>
+<p>Then, complete the tasks that follow.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Internal Memo: Employee Health Data Guidelines</h5>
+<p>To: All Department Managers<br>
+From: Eleanor Vance, HR Director<br>
+Date: October 26, 20XX<br>
+Subject: Proposed Guidelines for Employee Health Data Management</p>
+<p>Dear Managers,</p>
+<p>Following our recent discussions on optimizing employee well-being initiatives and operational efficiency, it has become apparent that a clear framework for managing employee health data is essential. This memo outlines a proposed set of guidelines aimed at ensuring <strong class="lexis">data privacy</strong> and maintaining trust within our organization.</p>
+<p>Our approach will be guided by principles of transparency, necessity, and <strong class="lexis">informed consent</strong>. We propose that any collection of health-related data will:</p>
+<p>1.  Be strictly limited to what is relevant and necessary for the stated purpose, such as administering health benefits or implementing approved wellness programs.<br>
+2.  Require explicit and <strong class="lexis">informed consent</strong> from employees, clearly detailing what data will be collected, why, how it will be used, and who will have access to it.<br>
+3.  Prioritize <strong class="lexis">anonymization</strong> wherever possible, especially when data is used for aggregated statistical analysis rather than individual identification.<br>
+4.  Adhere rigorously to <strong class="lexis">GDPR compliance</strong> standards and other relevant <strong class="lexis">data security</strong> regulations, ensuring robust protection against unauthorized access or breaches.<br>
+5.  Establish clear <strong class="lexis">ethical guidelines</strong> for data retention and deletion, preventing indefinite storage of sensitive information.</p>
+<p>We understand the importance of balancing organizational needs with individual rights. These guidelines are designed to foster a culture of respect and accountability. We invite your feedback on these proposals by November 10th, so we can finalize a comprehensive policy that supports both employee welfare and operational integrity.</p>
+<p>Best regards,<br>
+Eleanor Vance<br>
+HR Director</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the primary purpose of Eleanor Vance&#x27;s memo?</p>
+<p>The primary purpose of the memo is to:</p>
+<ul><li>Announce a new mandatory health data collection program.</li><li>Seek feedback on proposed guidelines for managing employee health data.</li><li>Inform managers about a data breach incident.</li><li>Request managers to collect more employee health data.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">According to the memo, what three guiding principles will the company&#x27;s approach to health data collection follow?</p>
+<p>List the three guiding principles mentioned in the memo.</p>
+</div>
+<div class="task"><p class="task-instruction">Which of the following phrases from the memo best demonstrates a professional and cautious tone regarding a sensitive topic?</p>
+<p>Which phrase reflects a cautious and professional tone?</p>
+<ul><li>it has become apparent that a clear framework is essential</li><li>We understand the importance of balancing organizational needs with individual rights</li><li>These guidelines are designed to foster a culture of respect and accountability</li><li>All of the above.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-PREP">
+<header class="stage-header"><span class="stage-code">PREP</span><h2>Preparation: Structuring Your Data Ethics Recommendation</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the writing task: preparing a recommendation for ethical health data management.<br>
+2. Brainstorm with students potential arguments for and against collecting certain types of data, keeping the target audience in mind.<br>
+3. Guide students through the column banks, explaining the usage of each phrase for a professional written recommendation.<br>
+4. Encourage students to select relevant phrases for their own planned writing.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Crafting Your Argument for Ethical Data Use</h4>
+<p>You will now prepare to write a short recommendation for senior management about the ethical management of employee health data. Think about the points raised in the memo and in our previous discussions.</p>
+<p>Use the tables below to help you structure your thoughts and language. Consider how you can use these phrases to express your points professionally and persuasively.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Introducing Concerns &amp; Emphasizing Importance</th><th>Proposing Solutions &amp; Recommendations</th><th>Balancing Needs &amp; Professional Language</th></tr><tr><td>It is crucial to consider...</td><td>We recommend implementing a policy for...</td><td>While acknowledging the benefits of...</td></tr><tr><td>We must address the potential impact of...</td><td>A robust **data security** protocol should be established...</td><td>To balance operational efficiency with employee rights...</td></tr><tr><td>The principle of **data privacy** is paramount...</td><td>Prioritizing **anonymization** wherever feasible...</td><td>It is imperative to maintain employee trust by...</td></tr><tr><td>It is vital to ensure **informed consent**...</td><td>Adherence to **GDPR compliance** standards is essential...</td><td>We propose a framework that...</td></tr><tr><td>Understanding the **ethical implications** is key...</td><td>Clear **ethical guidelines** must be developed for...</td><td>This approach aims to foster...</td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Free Practice: Writing a Policy Recommendation Memo</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Remind students of the audience, purpose, and approximate length for their writing task.<br>
+2. Advise them to use the ideas brainstormed and phrases from the preparation stage.<br>
+3. Circulate and monitor, offering support with vocabulary and structure as needed.<br>
+4. Collect the completed memos for later feedback.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Your Recommendation: A Balanced Approach to Health Data</h4>
+<p>Imagine you are a department manager tasked with providing feedback to HR about the proposed employee health data guidelines. Write a short internal memo or email (approximately 150-200 words) to Eleanor Vance (HR Director).</p>
+<p>Your memo should:<br>
+*   Acknowledge the importance of the proposed guidelines.<br>
+*   Suggest one or two additional considerations or recommendations regarding <strong class="lexis">data privacy</strong>, <strong class="lexis">informed consent</strong>, or <strong class="lexis">data security</strong> from an employee&#x27;s perspective.<br>
+*   Maintain a professional, constructive, and persuasive tone.</p>
+<p><strong class="lexis">Audience:</strong> HR Director<br>
+<strong class="lexis">Purpose:</strong> To provide constructive feedback and recommendations on employee health data guidelines.<br>
+<strong class="lexis">Approximate Length:</strong> 150-200 words</p>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback: Content and Language Review</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Pair students for peer feedback. Emphasize constructive criticism focusing on clarity, adherence to the brief, and use of professional language.<br>
+2. Circulate and observe feedback sessions, noting common errors or areas for improvement.<br>
+3. After peer feedback, collect the revised memos. Provide teacher feedback, focusing on: a) Task achievement (did they meet the brief?); b) Content (clarity of recommendations, persuasive arguments); c) Language (accuracy, range, appropriate register, use of target lexis from the unit).<br>
+4. Highlight strong examples of language use and offer corrections for recurring errors.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Refining Your Ethical Data Memo</h4>
+<p>Now you will review your memo and provide feedback on a partner&#x27;s work.</p>
+<p><strong class="lexis">Part 1: Peer Feedback</strong><br>
+Swap your memo with a partner. Read their memo carefully and consider the following questions. Write down your feedback in a constructive way.<br>
+1.  Is the memo&#x27;s purpose clear? Does it clearly provide recommendations to the HR Director?<br>
+2.  Does it address the topics of <strong class="lexis">data privacy</strong>, <strong class="lexis">informed consent</strong>, or <strong class="lexis">data security</strong> effectively?<br>
+3.  Is the tone professional and appropriate for an internal memo?<br>
+4.  Are there any parts that are unclear or could be expressed more persuasively?<br>
+5.  Did your partner use any of the key phrases from our &#x27;Preparation&#x27; stage effectively?</p>
+<p><strong class="lexis">Part 2: Self-Correction</strong><br>
+Based on your partner&#x27;s feedback and your own review, make any necessary revisions to your memo to improve its clarity, effectiveness, and professionalism.</p>
+</section>
+</article>
+</body>
+</html>

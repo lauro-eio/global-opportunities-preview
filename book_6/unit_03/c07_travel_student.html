@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Write Clearer Global Business Memos</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Write Clearer Global Business Memos</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>3</dd>
+      <dt>Class</dt><dd>7</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-connecting-across-continents">
+<header class="stage-header"><h2>Connecting Across Continents</h2></header>
+<section class="handout">
+<p>We&#x27;re going to discuss managing teams spread across different geographical and cultural &#x27;spaces.&#x27;</p>
+<p>Think about this:</p>
+<p>If you manage a team with members spread across different continents, what are the most common <strong class="lexis">communication challenges</strong> you encounter? How do you foster a <strong class="lexis">cohesive team environment</strong> despite geographical and cultural distances?</p>
+</section>
+</article>
+<article class="stage" id="stage-refining-project-updates">
+<header class="stage-header"><h2>Refining Project Updates</h2></header>
+<section class="handout">
+<p>Read the following sentences from internal company briefs. Each sentence has an advanced grammatical error. Identify the error and rewrite the sentence to correct it, making it more professional and accurate.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Rewrite the sentence to correct the error in the use of participle clauses.</p>
+<p>Arrived at the regional office, the quarterly performance report was immediately circulated to all department heads.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence to correct the error in the use of participle clauses.</p>
+<p>Not analyzing the local market trends sufficiently, the new product launch in Asia underperformed expectations.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence to correct the error in the use of participle clauses.</p>
+<p>Developing new communication protocols, cultural intelligence was critical for the global project team.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-mastering-concise-reports">
+<header class="stage-header"><h2>Mastering Concise Reports</h2></header>
+<section class="handout">
+<p>Participle clauses can make your written reports and briefs more concise and professional, especially when describing sequences of actions or reasons. They reduce adverbial clauses.</p>
+<p>Key points:<br>
+*   <strong class="lexis">Present Participle (V-ing)</strong>: Describes an action happening at the same time as the main clause, or the result of the main clause action.<br>
+    <strong class="lexis">   </strong>Example: Analyzing the data, the team identified key trends.* (The team was analyzing and identified trends simultaneously.)<br>
+*   <strong class="lexis">Past Participle (Having V-ed)</strong>: Describes an action that happened <strong class="lexis">before</strong> the main clause action.<br>
+    <strong class="lexis">   </strong>Example: Having evaluated the border policy, the regional board adjusted migration paths.* (The evaluation happened first, then the adjustment.)<br>
+*   <strong class="lexis">Negative Form</strong>: Use &#x27;Not&#x27; before the participle.<br>
+    <strong class="lexis">   </strong>Example: Not wanting to breach geopolitical sovereignty, the state halted the rail infrastructure line.* (The state did not want to breach, and so halted.)</p>
+<p>Remember: The subject of the participle clause <strong class="lexis">must</strong> be the same as the subject of the main clause to avoid dangling modifiers.</p>
+<p><strong class="lexis">Practice:</strong> Combine the following sentences into one, using an appropriate participle clause. Make sure the meaning is clear and the structure is grammatically correct.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Combine the sentences using a participle clause.</p>
+<p>The project manager observed the team dynamics. He then formulated new communication protocols.</p>
+</div>
+<div class="task"><p class="task-instruction">Combine the sentences using a participle clause.</p>
+<p>The team members did not want to cause cultural misunderstandings. They carefully reviewed all messages.</p>
+</div>
+<div class="task"><p class="task-instruction">Combine the sentences using a participle clause.</p>
+<p>The company had successfully managed several virtual teams. It decided to expand its global workforce.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-designing-a-global-outreach-plan">
+<header class="stage-header"><h2>Designing a Global Outreach Plan</h2></header>
+<section class="handout">
+<p>Imagine your company is developing a new strategy for managing its expanding <strong class="lexis">global workforce</strong>. You need to draft a short section for an internal memo outlining key communication strategies and challenges.</p>
+<p>Write 3-5 sentences that include at least two advanced participle clauses (e.g., <strong class="lexis">Having implemented new time zone management tools</strong>, <strong class="lexis">Not wanting to overlook cultural nuances</strong>). Focus on how these clauses make your writing more formal and concise.</p>
+<p>Consider these points:<br>
+*   Effective <strong class="lexis">cross-cultural communication</strong><br>
+*   <strong class="lexis">Time zone management</strong> challenges<br>
+*   Fostering cohesion in <strong class="lexis">virtual teams</strong></p>
+<p>After drafting your paragraph, share it with a partner and check each other&#x27;s use of participle clauses.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Read the following scenario and choose the best participle clause to complete the sentence, reflecting a professional tone.</p>
+<p>___________ the recent feedback from our Asia-Pacific team, we are now reviewing our communication protocols for regional meetings.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+</body>
+</html>

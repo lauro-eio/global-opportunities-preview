@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Analyzing a Corporate Financial Report</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Analyzing a Corporate Financial Report</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>4</dd>
+      <dt>Class</dt><dd>1</dd>
+      <dt>Theme</dt><dd>T04_FINANCE</dd>
+      <dt>Framework</dt><dd>SK-REC</dd>
+      <dt>Role</dt><dd>SK_REC_READING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Understanding Company Financials</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by asking students what they typically hear or would like to know about the financial health of their own companies.<br>
+2. Encourage them to share any personal experiences or observations related to company finances.<br>
+3. Facilitate a brief discussion on why financial transparency from management is important for employees.<br>
+4. Link the discussion to the utility of understanding key financial reports for assessing stability and prospects.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Your Company&#x27;s Financial Health</h4>
+<p>Think about your current or previous employers.</p>
+<p>1. What do you typically hear or want to know about your company&#x27;s financial health?<br>
+2. Do you think companies should be transparent about their finances with employees? Why or why not?<br>
+3. What kind of financial information (e.g., sales, costs, profits) is most important for an employee to understand about their workplace?<br>
+4. How might knowing this information affect your job security or career decisions?</p>
+</section>
+</article>
+<article class="stage" id="stage-PTV">
+<header class="stage-header"><span class="stage-code">PTV</span><h2>Pre-teach Vocabulary: Essential Financial Terms</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the new vocabulary terms, ensuring correct pronunciation and stress.<br>
+2. Elicit or explain the meaning of each word clearly, providing simple examples relevant to workplaces.<br>
+3. Have students complete the matching task to consolidate their understanding.<br>
+4. Check answers as a class, clarifying any misconceptions.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Key Financial Words</h4>
+<p>Before we read an article about company finances, let&#x27;s learn some important terms. Match each financial term on the left with its definition on the right.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>revenue</li><li>expenditure</li><li>profit margin</li><li>cash flow</li><li>balance sheet</li><li>income statement</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match each term to its definition.</p>
+<ul><li><strong>revenue</strong> — The total income a company generates from its sales before any costs are subtracted.</li><li><strong>expenditure</strong> — The money spent by a company in order to run its business.</li><li><strong>profit margin</strong> — The percentage of revenue that remains after all expenses have been deducted from sales.</li><li><strong>cash flow</strong> — The net amount of cash and cash equivalents moving into and out of a business.</li><li><strong>balance sheet</strong> — A financial statement that reports a company&#x27;s assets, liabilities, and shareholders&#x27; equity at a specific point in time.</li><li><strong>income statement</strong> — A financial statement that shows a company&#x27;s revenues and expenses over a period of time, leading to net profit or loss.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-GIST">
+<header class="stage-header"><span class="stage-code">GIST</span><h2>Gist Reading: Apex Manufacturing Solutions Overview</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain the purpose of gist reading: to get the main idea quickly without focusing on every detail.<br>
+2. Set a strict time limit (e.g., 2-3 minutes) for students to read the article.<br>
+3. Instruct students to answer the multiple-choice question based on their first reading.<br>
+4. Elicit answers and briefly check the main understanding of the article.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">First Look: Apex&#x27;s Financial Picture</h4>
+<p>Read the following article quickly to understand its main purpose and the overall situation of Apex Manufacturing Solutions. Do not worry about every specific detail at this stage. Then, choose the best option to complete the statement.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Apex Manufacturing Solutions: A Quarterly Financial Snapshot</h5>
+<p>Apex Manufacturing Solutions, a key player in industrial components, recently released its quarterly financial report, offering a mixed but generally stable outlook. The <strong class="lexis">income statement</strong> for the last quarter showed a significant increase in <strong class="lexis">revenue</strong>, driven by strong demand in the automotive sector. Total sales reached $85 million, up 12% from the previous quarter, a positive sign for market penetration.</p>
+<p>However, this growth in <strong class="lexis">revenue</strong> was accompanied by a rise in <strong class="lexis">expenditure</strong>. Operating costs, including raw materials and increased wages due to inflation, saw a 9% jump. This meant that while gross profits were higher, the overall <strong class="lexis">profit margin</strong> experienced a slight dip, settling at 18% compared to 20% in the previous quarter. This suggests that Apex is managing increased costs, but it&#x27;s impacting the efficiency of its profitability.</p>
+<p>The company’s <strong class="lexis">balance sheet</strong> indicates a healthy asset base, with strong investments in new machinery and technology designed to boost future production capacity. Liabilities remained stable, with no new significant long-term debts, reinforcing the company&#x27;s solid financial foundation. This stability on the <strong class="lexis">balance sheet</strong> offers a good foundation for long-term planning, despite short-term fluctuations.</p>
+<p>Crucially, the <strong class="lexis">cash flow</strong> statement revealed a challenge. Despite robust sales, net <strong class="lexis">cash flow</strong> from operating activities decreased slightly. This was largely due to extended payment terms offered to key clients and increased inventory levels to mitigate supply chain risks. While these are strategic decisions, they tie up immediate cash, which could limit short-term liquidity for unexpected needs or immediate investments. The company management has stated they are actively monitoring <strong class="lexis">cash flow</strong> to ensure operational smoothness.</p>
+<p>In summary, Apex Manufacturing Solutions is demonstrating resilience. The growth in <strong class="lexis">revenue</strong> signals a strong market position, and the <strong class="lexis">balance sheet</strong> provides stability. The slight pressure on <strong class="lexis">profit margin</strong> and <strong class="lexis">cash flow</strong> indicates areas for management focus, but overall, the company appears stable with positive long-term prospects, provided these operational efficiencies are addressed strategically.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main purpose of this article?</p>
+<p>The main purpose of this article is to...</p>
+<ul><li>Announce new products and services from Apex Manufacturing Solutions.</li><li>Provide an overview of Apex Manufacturing Solutions&#x27; recent financial performance and future prospects.</li><li>Criticize Apex Manufacturing Solutions&#x27; management for poor financial decisions.</li><li>Recruit new employees for Apex Manufacturing Solutions&#x27; expanding operations.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-DET">
+<header class="stage-header"><span class="stage-code">DET</span><h2>Detailed Reading: Financial Report Insights</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Instruct students to re-read the article more carefully to find specific details.<br>
+2. Have students complete the short-text questions to check their factual comprehension.<br>
+3. After checking factual answers, divide students into pairs or small groups for the discussion questions.<br>
+4. Monitor discussions, offering support and prompting deeper analysis.<br>
+5. Facilitate a brief whole-class feedback session, discussing key insights and potential implications for the company and its employees.<br>
+6. Model answers for discussion: 1. Higher expenditure and extended payment terms to clients, tied up in inventory. This might mean less immediate cash for operations or new projects. 2. A strong asset base and stable liabilities suggest long-term financial security, making the company less vulnerable to sudden shocks. 3. Possible solutions include negotiating shorter payment terms with clients, optimizing inventory management, or seeking short-term lines of credit. 4. If current trends continue without intervention, Apex might face liquidity issues or reduced flexibility to invest in growth despite good revenue, which could eventually impact job security or opportunities.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Digging Deeper: What the Numbers Mean</h4>
+<p>Read the article again carefully. First, answer the factual questions with short answers. Then, discuss the numbered questions with your partner or group.</p>
+<p><strong class="lexis">Factual Questions:</strong></p>
+<p>1. What was the total revenue for Apex Manufacturing Solutions last quarter?<br>
+2. By what percentage did operating costs increase?<br>
+3. What was the <strong class="lexis">profit margin</strong> for the last quarter?<br>
+4. What is one reason for the decrease in net <strong class="lexis">cash flow</strong> from operating activities?</p>
+<p><strong class="lexis">Discussion Questions:</strong></p>
+<p>1. Based on the article, what are the main reasons for the slight decrease in net <strong class="lexis">cash flow</strong>? What could this mean for the company in the short term?<br>
+2. The <strong class="lexis">balance sheet</strong> indicates a &#x27;healthy asset base&#x27; and &#x27;stable liabilities.&#x27; How does this contribute to the company&#x27;s overall stability and future prospects?<br>
+3. If you were a financial advisor to Apex, what immediate actions might you recommend to improve the <strong class="lexis">cash flow</strong> situation?<br>
+4. From an employee&#x27;s perspective, what potential long-term implications could these financial trends have if not addressed effectively?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Apex Manufacturing Solutions: A Quarterly Financial Snapshot</h5>
+<p>Apex Manufacturing Solutions, a key player in industrial components, recently released its quarterly financial report, offering a mixed but generally stable outlook. The <strong class="lexis">income statement</strong> for the last quarter showed a significant increase in <strong class="lexis">revenue</strong>, driven by strong demand in the automotive sector. Total sales reached $85 million, up 12% from the previous quarter, a positive sign for market penetration.</p>
+<p>However, this growth in <strong class="lexis">revenue</strong> was accompanied by a rise in <strong class="lexis">expenditure</strong>. Operating costs, including raw materials and increased wages due to inflation, saw a 9% jump. This meant that while gross profits were higher, the overall <strong class="lexis">profit margin</strong> experienced a slight dip, settling at 18% compared to 20% in the previous quarter. This suggests that Apex is managing increased costs, but it&#x27;s impacting the efficiency of its profitability.</p>
+<p>The company’s <strong class="lexis">balance sheet</strong> indicates a healthy asset base, with strong investments in new machinery and technology designed to boost future production capacity. Liabilities remained stable, with no new significant long-term debts, reinforcing the company&#x27;s solid financial foundation. This stability on the <strong class="lexis">balance sheet</strong> offers a good foundation for long-term planning, despite short-term fluctuations.</p>
+<p>Crucially, the <strong class="lexis">cash flow</strong> statement revealed a challenge. Despite robust sales, net <strong class="lexis">cash flow</strong> from operating activities decreased slightly. This was largely due to extended payment terms offered to key clients and increased inventory levels to mitigate supply chain risks. While these are strategic decisions, they tie up immediate cash, which could limit short-term liquidity for unexpected needs or immediate investments. The company management has stated they are actively monitoring <strong class="lexis">cash flow</strong> to ensure operational smoothness.</p>
+<p>In summary, Apex Manufacturing Solutions is demonstrating resilience. The growth in <strong class="lexis">revenue</strong> signals a strong market position, and the <strong class="lexis">balance sheet</strong> provides stability. The slight pressure on <strong class="lexis">profit margin</strong> and <strong class="lexis">cash flow</strong> indicates areas for management focus, but overall, the company appears stable with positive long-term prospects, provided these operational efficiencies are addressed strategically.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What was the total revenue for Apex Manufacturing Solutions last quarter?</p>
+<p>Total revenue last quarter:</p>
+</div>
+<div class="task"><p class="task-instruction">By what percentage did operating costs increase?</p>
+<p>Operating cost increase:</p>
+</div>
+<div class="task"><p class="task-instruction">What was the profit margin for the last quarter?</p>
+<p>Profit margin last quarter:</p>
+</div>
+<div class="task"><p class="task-instruction">What is one reason for the decrease in net cash flow from operating activities?</p>
+<p>One reason for decreased cash flow:</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Follow-up &amp; Feedback: Strategic Outlook</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Lead a final discussion, building on the detailed reading and previous discussions.<br>
+2. Encourage students to think critically about the implications of the financial report for Apex&#x27;s future strategy and its workforce.<br>
+3. Provide general content feedback, praising good interpretations and critical thinking.<br>
+4. Offer brief language feedback, focusing on any recurring errors in lexical choice or pronunciation from the discussion, without detailed error correction.<br>
+5. Consolidate key vocabulary learned and its relevance in the workplace.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">What&#x27;s Next for Apex?</h4>
+<p>Now that you have a deeper understanding of Apex Manufacturing Solutions&#x27; financial report, discuss the following with your group:</p>
+<p>1. If you were a senior manager at Apex, what would be your top two priorities based on this report? Why?<br>
+2. How might the current financial situation (e.g., strong revenue, stable balance sheet, but cash flow challenges) influence decisions about employee benefits, hiring, or training?<br>
+3. What positive aspects of Apex&#x27;s financial health should management emphasize to employees to maintain morale and confidence?<br>
+4. Imagine you are an employee at Apex. What would you want to hear from management about these financial results and the company&#x27;s future plans?</p>
+</section>
+</article>
+</body>
+</html>

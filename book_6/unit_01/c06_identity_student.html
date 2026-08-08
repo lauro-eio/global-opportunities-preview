@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Write Your Professional Growth Plan</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Write Your Professional Growth Plan</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>1</dd>
+      <dt>Class</dt><dd>6</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-defining-your-work-identity">
+<header class="stage-header"><h2>Defining Your Work Identity</h2></header>
+<section class="handout">
+<p>We all have an image we project at work. Think about your professional identity.</p>
+<p>1. What three words would you want colleagues or clients to associate with you (e.g., reliable, innovative, approachable)?<br>
+2. How do you currently try to project these qualities in your day-to-day work, communication, or interactions?<br>
+3. Why do you think it&#x27;s important to consciously manage your <strong class="lexis">professional brand</strong> at work?<br>
+4. Can you recall a time when someone&#x27;s <strong class="lexis">self-presentation</strong> at work significantly impacted your perception of their abilities or <strong class="lexis">professionalism</strong>?</p>
+</section>
+</article>
+<article class="stage" id="stage-understanding-a-professional-memo">
+<header class="stage-header"><h2>Understanding a Professional Memo</h2></header>
+<section class="handout">
+<p>Read the following internal memo from &#x27;Maria Sanchez, HR Director&#x27; about managing your professional identity within the company. Pay attention to how the advice is presented and the overall tone.</p>
+<p>---</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Internal Memo: Cultivating Your Professional Brand at Apex Solutions</h5>
+<p>To: All Employees<br>
+From: Maria Sanchez, HR Director<br>
+Date: October 26, 2024<br>
+Subject: Enhancing Your <strong class="lexis">Professional Brand</strong> and <strong class="lexis">Career Trajectory</strong> at Apex Solutions</p>
+<p>Dear Team,</p>
+<p>In today&#x27;s dynamic professional landscape, proactively shaping your <strong class="lexis">professional identity</strong> is more crucial than ever. At Apex Solutions, we believe that each team member&#x27;s individual <strong class="lexis">reputation management</strong> contributes significantly to our collective success. This memo outlines key areas where you can focus on strengthening your <strong class="lexis">self-presentation</strong> and aligning it with your career goals.</p>
+<p>Firstly, consider your communication style. Whether it&#x27;s written (emails, reports) or verbal (meetings, client interactions), clarity, conciseness, and a respectful tone are paramount. This reflects not only your <strong class="lexis">professionalism</strong> but also your commitment to effective teamwork. Regularly reviewing your communications for impact and tone can greatly enhance how you are perceived.</p>
+<p>Secondly, your digital footprint, particularly on professional networking sites or company-internal platforms, is an extension of your <strong class="lexis">personal brand</strong>. Ensure that your online presence consistently reflects the professional qualities you wish to project. Keep profiles updated and content relevant to your expertise and the company&#x27;s values.</p>
+<p>Finally, active participation and engagement are vital. Contributing thoughtfully in meetings, taking initiative on projects, and offering constructive feedback demonstrates leadership potential and a proactive mindset. Seek opportunities to learn new skills and collaborate across departments. Your willingness to grow and adapt will be a significant asset to your <strong class="lexis">career trajectory</strong> here.</p>
+<p>We encourage you to reflect on these points and identify areas for personal development. Cultivating a strong professional identity is an ongoing process that benefits both your individual growth and our company&#x27;s collaborative environment. Should you wish to discuss this further, please reach out to your line manager or HR.</p>
+<p>Best regards,<br>
+Maria Sanchez<br>
+HR Director<br>
+Apex Solutions</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the primary purpose of this memo?</p>
+<p>The main goal of Maria Sanchez&#x27;s memo is to:</p>
+<ul><li>Announce new company policies regarding employee conduct.</li><li>Offer guidance on how employees can develop their professional image and career.</li><li>Critique current employee performance and communication skills.</li><li>Recruit new staff members who fit the company&#x27;s professional standards.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">According to the memo, what are three specific actions an employee can take to strengthen their professional identity?</p>
+<p>List three actions mentioned in the memo that help strengthen professional identity.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-building-your-professional-message">
+<header class="stage-header"><h2>Building Your Professional Message</h2></header>
+<section class="handout">
+<p>Before you write, let&#x27;s brainstorm some ideas for shaping your professional identity and review useful phrases you can use in your message.</p>
+<p>Think about:<br>
+*   Specific qualities you want to cultivate (e.g., leadership, problem-solving, teamwork).<br>
+*   Actions you will take to project these qualities.<br>
+*   How these align with your <strong class="lexis">career trajectory</strong>.</p>
+<p>Use the phrases below to help you articulate your thoughts.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Expressing Professional Goals</th><th>Action-Oriented Language</th></tr><tr><td>My aim is to cultivate a reputation for...</td><td>I plan to actively seek opportunities to...</td></tr><tr><td>I am focused on enhancing my **professionalism** through...</td><td>I will ensure I consistently...</td></tr><tr><td>I intend to strengthen my **personal brand** as a...</td><td>My strategy involves focusing on...</td></tr><tr><td>To improve my **self-presentation**, I will...</td><td>I am making an effort to proactively...</td></tr><tr><td>My goal is to develop a strong image as a...</td><td>I commit to regularly reviewing my...</td></tr><tr><td>I&#x27;m committed to demonstrating my expertise in...</td><td>I will engage more effectively by...</td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-crafting-your-professional-development-p">
+<header class="stage-header"><h2>Crafting Your Professional Development Plan</h2></header>
+<section class="handout">
+<p>You are going to write a short internal email or memo (150-200 words) to your supervisor or team leader.</p>
+<p><strong class="lexis">Audience:</strong> Your immediate supervisor or team leader.<br>
+<strong class="lexis">Purpose:</strong> To outline your personal professional development goals for the coming quarter, specifically focusing on how you plan to cultivate and project your <strong class="lexis">professional identity</strong> and contribute more effectively to the team and company. You should also mention how this aligns with your <strong class="lexis">career trajectory</strong>.</p>
+<p><strong class="lexis">Your message should:</strong><br>
+*   Clearly state 2-3 specific goals related to your professional identity (e.g., becoming more proactive, improving communication, enhancing leadership qualities).<br>
+*   Briefly explain how you plan to achieve these goals.<br>
+*   Maintain a professional and proactive tone.<br>
+*   Use appropriate vocabulary related to professional identity and development.</p>
+<p><strong class="lexis">Approximate Length:</strong> 150-200 words.</p>
+</section>
+</article>
+<article class="stage" id="stage-refining-your-written-identity">
+<header class="stage-header"><h2>Refining Your Written Identity</h2></header>
+<section class="handout">
+<p>Now it&#x27;s time to review your message and get feedback. Work with a partner to read each other&#x27;s messages, or use these prompts for self-review:</p>
+<p><strong class="lexis">Content Feedback:</strong><br>
+1. Are the professional development goals clear and specific?<br>
+2. Does the message effectively outline how the writer plans to achieve these goals?<br>
+3. Does the message clearly link to cultivating and projecting a professional identity?<br>
+4. Is the tone appropriate for a message to a supervisor/team leader?</p>
+<p><strong class="lexis">Language Feedback:</strong><br>
+1. Is the register consistently professional?<br>
+2. Are there any instances where vocabulary related to <strong class="lexis">personal brand</strong>, <strong class="lexis">reputation management</strong>, or <strong class="lexis">career trajectory</strong> could be used more effectively?<br>
+3. Check for clarity and conciseness in sentences.<br>
+4. Identify any grammar or spelling errors that detract from the overall <strong class="lexis">professionalism</strong> of the message.</p>
+</section>
+</article>
+</body>
+</html>

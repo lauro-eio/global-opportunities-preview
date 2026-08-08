@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Is Your Work Info Reliable?</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Is Your Work Info Reliable?</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>6</dd>
+      <dt>Class</dt><dd>1</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-is-this-info-reliable">
+<header class="stage-header"><h2>Is This Info Reliable?</h2></header>
+<section class="handout">
+<p>Think about a time you received information from a work group chat or email. It could be about a new policy, a change in schedule, or an urgent update. </p>
+<p>Discuss these questions with a partner:<br>
+1. What was the information about?<br>
+2. How did you feel when you first received it?<br>
+3. What steps did you take to check if the information was true or trustworthy?<br>
+4. What could be the risks of acting on unverified information in the workplace?</p>
+</section>
+</article>
+<article class="stage" id="stage-understanding-key-words">
+<header class="stage-header"><h2>Understanding Key Words</h2></header>
+<section class="handout">
+<p>Match the following key terms related to digital communication in the workplace with their definitions.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>misinformation</li><li>credible sources</li><li>fact-checking</li><li>internal communications</li><li>digital literacy</li><li>verify</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match each term to its definition.</p>
+<ul><li><strong>misinformation</strong> — Incorrect or misleading information, often spread unintentionally.</li><li><strong>credible sources</strong> — Trusted and reliable places where information comes from, like official company channels.</li><li><strong>fact-checking</strong> — The process of confirming whether information is true and accurate.</li><li><strong>internal communications</strong> — Messages and information shared within an organization, usually to employees.</li><li><strong>digital literacy</strong> — The ability to find, evaluate, create, and communicate information using digital technologies.</li><li><strong>verify</strong> — To check or prove that something is true, accurate, or justified.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-first-look-what-x27-s-the-main-point">
+<header class="stage-header"><h2>First Look: What&#x27;s the Main Point?</h2></header>
+<section class="handout">
+<p>Read the following memo from company management quickly. Don&#x27;t worry about understanding every single word. Just try to get a general idea of what the memo is about. Then, choose the best answer to the question below.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Clarification Regarding Recent Workplace Discussions</h5>
+<p>Dear Team,</p>
+<p>It has come to our attention that some <strong class="lexis">misinformation</strong> has been circulating in unofficial work group chats regarding upcoming changes to employee shift patterns and potential adjustments to the benefits package. We understand that such discussions can cause concern and confusion.</p>
+<p>We want to emphasize the importance of relying on <strong class="lexis">credible sources</strong> for all company-related news and updates. Official announcements, policy changes, and important information will always be communicated through formal <strong class="lexis">internal communications</strong> channels. These include your official work email, the company intranet, and direct memos from management or HR.</p>
+<p>To help maintain clarity and prevent the spread of inaccurate information, we encourage everyone to practice <strong class="lexis">fact-checking</strong>. If you encounter any unconfirmed details or rumours, especially those affecting your employment terms or benefits, please <strong class="lexis">verify</strong> them directly with your line manager or the HR department. Do not solely rely on unverified messages in group chats, which are often not official.</p>
+<p>Developing strong <strong class="lexis">digital literacy</strong> skills is crucial in our fast-paced environment. This includes knowing how to distinguish between official company policy and casual, unverified discussions. Our goal is to ensure that everyone has access to accurate and timely information.</p>
+<p>Thank you for your cooperation in ensuring our workplace remains well-informed and productive.</p>
+<p>Sincerely,<br>
+[Company Name] Management</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main purpose of this memo?</p>
+<ul><li>To announce new changes to employee shift patterns and benefits.</li><li>To warn employees about using work group chats for any communication.</li><li>To clarify that rumours are circulating and to guide employees on finding accurate information.</li><li>To introduce new training on digital literacy skills for all staff.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-diving-deeper-accuracy-and-trust">
+<header class="stage-header"><h2>Diving Deeper: Accuracy and Trust</h2></header>
+<section class="handout">
+<p>Read the memo again carefully. Answer the factual questions, then discuss the further points with your classmates.</p>
+<p><strong class="lexis">Part 1: Factual Questions</strong><br>
+1. According to the memo, where has misinformation been circulating?<br>
+2. What are the formal internal communications channels mentioned in the memo?<br>
+3. Who should employees contact to verify unconfirmed details or rumours?<br>
+4. What is the company&#x27;s goal regarding information access for employees?</p>
+<p><strong class="lexis">Part 2: Discussion and Inference</strong><br>
+1. What are some potential negative consequences if employees act on the misinformation mentioned in the memo?<br>
+2. What are some clues that an internal communication is official and trustworthy, compared to something unofficial or a rumour?<br>
+3. In your opinion, how can employees contribute to being responsible communicators in the digital workplace?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Clarification Regarding Recent Workplace Discussions</h5>
+<p>Dear Team,</p>
+<p>It has come to our attention that some <strong class="lexis">misinformation</strong> has been circulating in unofficial work group chats regarding upcoming changes to employee shift patterns and potential adjustments to the benefits package. We understand that such discussions can cause concern and confusion.</p>
+<p>We want to emphasize the importance of relying on <strong class="lexis">credible sources</strong> for all company-related news and updates. Official announcements, policy changes, and important information will always be communicated through formal <strong class="lexis">internal communications</strong> channels. These include your official work email, the company intranet, and direct memos from management or HR.</p>
+<p>To help maintain clarity and prevent the spread of inaccurate information, we encourage everyone to practice <strong class="lexis">fact-checking</strong>. If you encounter any unconfirmed details or rumours, especially those affecting your employment terms or benefits, please <strong class="lexis">verify</strong> them directly with your line manager or the HR department. Do not solely rely on unverified messages in group chats, which are often not official.</p>
+<p>Developing strong <strong class="lexis">digital literacy</strong> skills is crucial in our fast-paced environment. This includes knowing how to distinguish between official company policy and casual, unverified discussions. Our goal is to ensure that everyone has access to accurate and timely information.</p>
+<p>Thank you for your cooperation in ensuring our workplace remains well-informed and productive.</p>
+<p>Sincerely,<br>
+[Company Name] Management</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Answer the following questions based on the memo.</p>
+<p>1. According to the memo, where has misinformation been circulating?</p>
+</div>
+<div class="task"><p class="task-instruction">Answer the following questions based on the memo.</p>
+<p>2. What are the formal internal communications channels mentioned in the memo?</p>
+</div>
+<div class="task"><p class="task-instruction">Answer the following questions based on the memo.</p>
+<p>3. Who should employees contact to verify unconfirmed details or rumours?</p>
+</div>
+<div class="task"><p class="task-instruction">Answer the following questions based on the memo.</p>
+<p>4. What is the company&#x27;s goal regarding information access for employees?</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-sharing-insights-and-next-steps">
+<header class="stage-header"><h2>Sharing Insights and Next Steps</h2></header>
+<section class="handout">
+<p>Let&#x27;s discuss what we&#x27;ve learned today and how it applies to your work.</p>
+<p>1. What was the most important lesson you took from today about verifying information at work?<br>
+2. How will you use the skills and vocabulary from this lesson in your daily work life, especially when using internal communications or group chats?<br>
+3. Do you think companies should provide more training on digital literacy for their employees? Why or why not?</p>
+</section>
+</article>
+</body>
+</html>

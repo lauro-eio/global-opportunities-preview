@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Writing Proposals for Sustainable Workplace Practices</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Writing Proposals for Sustainable Workplace Practices</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>7</dd>
+      <dt>Class</dt><dd>6</dd>
+      <dt>Theme</dt><dd>T07_ENVIRONMENT</dd>
+      <dt>Framework</dt><dd>SK-PROD</dd>
+      <dt>Role</dt><dd>SK_PROD_WRITING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Discussing Green Economy Transitions</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Greet students and introduce the topic of the green economy.<br>
+2. Write the lead-in question on the board or project it.<br>
+3. Put students into small groups (3-4).<br>
+4. Ask them to discuss the questions, encouraging them to connect ideas to their current industries or career paths.<br>
+5. Monitor discussions, noting any interesting points or common challenges raised.<br>
+6. Bring the class back together and elicit key points from each group. Summarize briefly on the board.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Your Career in a Greener Future</h4>
+<p>With the global push towards a <strong class="lexis">greener economy</strong>, what new skills or opportunities do you foresee emerging that could impact your career path or industry? Discuss the following questions with your group:</p>
+<p>1.  Have you noticed any <strong class="lexis">green initiatives</strong> or changes towards <strong class="lexis">sustainable practices</strong> in your current workplace or industry?<br>
+2.  What new <strong class="lexis">skills</strong> or training do you think might become important for jobs in the future, especially within the <strong class="lexis">renewable energy sector</strong> or related fields?<br>
+3.  Are there any potential <strong class="lexis">challenges</strong> or obstacles that you anticipate for workers transitioning to new roles in a <strong class="lexis">green economy</strong>?</p>
+</section>
+</article>
+<article class="stage" id="stage-MOD">
+<header class="stage-header"><span class="stage-code">MOD</span><h2>Model Analysis: Internal Report on Green Opportunities</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the model text as an internal report from a company moving towards greener practices.<br>
+2. Ask students to read the report quickly to get the main idea (gist).<br>
+3. Distribute the comprehension tasks.<br>
+4. Have students complete the tasks individually or in pairs.<br>
+5. Check answers as a whole class, discussing any vocabulary or points of interest.<br>
+6. Focus on the purpose, audience, and key information conveyed in the report.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Understanding Workplace Green Initiatives</h4>
+<p>Read the internal report below about a company&#x27;s transition to greener operations. Pay attention to the main points and how the information is presented.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Internal Update: Workforce Transition to Sustainable Practices</h5>
+<p>To: All Staff<br>
+From: Operations &amp; Sustainability Department<br>
+Date: October 26, 2023<br>
+Subject: Workforce Transition to Sustainable Practices &amp; New Opportunities</p>
+<p>Dear Team,</p>
+<p>As part of our company&#x27;s commitment to environmental responsibility and <strong class="lexis">economic diversification</strong>, we are actively transitioning towards more <strong class="lexis">sustainable employment</strong> practices across all departments. This strategic shift is in response to global trends and growing demand within the <strong class="lexis">renewable energy sector</strong> and related industries.</p>
+<p>We understand that such a transition presents both opportunities and potential challenges. To support our valued employees, we are launching comprehensive <strong class="lexis">upskilling programs</strong> designed to equip you with the necessary expertise for emerging <strong class="lexis">green jobs</strong> within our organization and the wider economy.</p>
+<p>Over the next six months, we will focus on:</p>
+<p>1.  <strong class="lexis">Skill Gap Analysis:</strong> Identifying specific areas where current skills can be adapted or enhanced for new roles.<br>
+2.  <strong class="lexis">Training Modules:</strong> Developing practical, hands-on modules covering areas like energy efficiency, waste management, and sustainable logistics.<br>
+3.  <strong class="lexis">Career Pathways:</strong> Mapping out clear progression routes for individuals interested in specialized <strong class="lexis">green jobs</strong>, such as sustainability coordinators, eco-logistics specialists, and renewable energy technicians.</p>
+<p>We encourage all staff to actively participate in upcoming information sessions to learn more about these <strong class="lexis">upskilling programs</strong> and how they can benefit your long-term career development. Your input is crucial as we navigate this exciting and essential transformation. Together, we can build a more resilient and environmentally conscious future for our company and community.</p>
+<p>Sincerely,<br>
+The Operations &amp; Sustainability Department</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main purpose of this internal report?</p>
+<ul><li>To announce new company products in the renewable energy sector.</li><li>To inform staff about upcoming training and job opportunities related to sustainable practices.</li><li>To request staff to volunteer for environmental clean-up initiatives.</li><li>To provide a financial update on the company&#x27;s environmental investments.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">According to the report, what is one type of program being launched to support employees?</p>
+</div>
+<div class="task"><p class="task-instruction">Name two examples of &#x27;green jobs&#x27; mentioned in the report.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-PREP">
+<header class="stage-header"><span class="stage-code">PREP</span><h2>Preparation: Brainstorming &amp; Useful Language</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will now prepare to write their own short report or email.<br>
+2. Present the &#x27;Useful Phrases&#x27; and &#x27;Key Green Economy Terms&#x27; column banks.<br>
+3. Go through the phrases and terms, clarifying meaning and pronunciation as needed.<br>
+4. Ask students to think about their own workplace or a hypothetical one. What specific <strong class="lexis">green job</strong> opportunities or <strong class="lexis">upskilling programs</strong> could be relevant?<br>
+5. Encourage students to brainstorm ideas related to <strong class="lexis">economic diversification</strong> or <strong class="lexis">sustainable employment</strong> in their sector.<br>
+6. Have them make a few notes using the language provided, focusing on what they want to propose or report on.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Key Terms for Green Career Planning</h4>
+<p>Before you write, let&#x27;s gather some useful language and ideas. Review the phrases and terms below. Then, brainstorm how you might apply these to your own career or workplace. Think about a specific change or opportunity you could propose.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Expressing Opportunities</th><th>Discussing Challenges</th><th>Proposing Actions/Solutions</th><th>Key Green Economy Terms</th></tr><tr><td>significant growth potential</td><td>requires initial investment</td><td>implement targeted training</td><td>**renewable energy sector**</td></tr><tr><td>new avenues for employment</td><td>potential skill gap concerns</td><td>develop a pilot program</td><td>**green jobs**</td></tr><tr><td>strengthening our market position</td><td>needs comprehensive training</td><td>foster **economic diversification**</td><td>**upskilling programs**</td></tr><tr><td>aligning with future regulations</td><td>overcoming resistance to change</td><td>establish cross-departmental teams</td><td>**economic diversification**</td></tr><tr><td>boosting efficiency and savings</td><td>complex implementation process</td><td>review current practices for sustainability</td><td>**sustainable employment**</td></tr><tr><td></td><td></td><td></td><td>carbon footprint</td></tr><tr><td></td><td></td><td></td><td>eco-friendly initiatives</td></tr><tr><td></td><td></td><td></td><td>resource efficiency</td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Free Practice: Writing a Professional Update</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Clearly explain the writing task: students will write a short internal email/memo.<br>
+2. Emphasize the audience (manager/team lead), purpose (propose/report), and approximate length.<br>
+3. Remind students to use language from the previous stage and aim for a professional register.<br>
+4. Encourage them to focus on clarity and making a convincing point.<br>
+5. Set a time limit for writing (e.g., 15-20 minutes).<br>
+6. Circulate and offer support, but avoid correcting language mistakes directly unless they impede understanding. Focus on content and organization.</p>
+<p><strong class="lexis">Model Answer (for teacher reference):</strong></p>
+<p>Subject: Proposal: Exploring Green Training for Our Logistics Team</p>
+<p>Dear [Manager&#x27;s Name],</p>
+<p>I am writing to propose an initiative to explore <strong class="lexis">upskilling programs</strong> for our logistics team, aligning with the company&#x27;s broader move towards <strong class="lexis">sustainable employment</strong> and the growth in the <strong class="lexis">renewable energy sector</strong>.</p>
+<p>I believe investing in training related to <strong class="lexis">eco-logistics</strong> and sustainable supply chain management would offer significant benefits. This would not only enhance our team&#x27;s capabilities for potential <strong class="lexis">green jobs</strong> within the company but also contribute to greater efficiency and reduced <strong class="lexis">carbon footprint</strong> in our operations. While there might be an initial investment in these <strong class="lexis">upskilling programs</strong>, the long-term benefits of improved resource efficiency and <strong class="lexis">economic diversification</strong> are substantial.</p>
+<p>I would appreciate the opportunity to discuss how we can implement a pilot training module, focusing on practical skills for <strong class="lexis">sustainable practices</strong> relevant to our daily work.</p>
+<p>Sincerely,<br>
+[Your Name]</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Drafting Your Green Economy Proposal</h4>
+<p>You work for a company that is beginning to explore <strong class="lexis">green initiatives</strong> and <strong class="lexis">sustainable employment</strong> practices. Write a short email or memo to your manager or team lead (around 150-200 words) proposing an idea or reporting on a relevant opportunity or challenge for your department.</p>
+<p>Your writing should:</p>
+<p>*   <strong class="lexis">Audience:</strong> Your manager or team lead.<br>
+*   <strong class="lexis">Purpose:</strong> To inform, propose, or suggest a course of action related to green transition/upskilling.<br>
+*   <strong class="lexis">Content:</strong> Focus on a specific <strong class="lexis">green job</strong> opportunity, an <strong class="lexis">upskilling program</strong> idea, or a challenge related to <strong class="lexis">economic diversification</strong> in your sector.<br>
+*   <strong class="lexis">Length:</strong> Approximately 150-200 words.<br>
+*   <strong class="lexis">Tone:</strong> Professional and clear.</p>
+<p>Try to include some of the key terms and phrases from the previous activity.</p>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback &amp; Correction: Refining Your Report</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain the purpose of feedback: to improve content first, then language.<br>
+2. Pair students up or put them in small groups.<br>
+3. Instruct them to exchange their written pieces.<br>
+4. Guide them through the content feedback questions first. Emphasize constructive criticism and focusing on whether the message is clear, relevant, and achieves its purpose.<br>
+5. After content feedback, instruct them to look for language points. They can highlight areas they are unsure about or suggest improvements for clarity and professional tone.<br>
+6. Monitor groups, providing guidance and facilitating feedback.<br>
+7. Conclude by collecting any common errors or excellent examples to discuss with the whole class. Encourage students to revise their writing based on the feedback.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reviewing and Improving Your Writing</h4>
+<p>Now, you will exchange your writing with a partner to give and receive feedback. Use the questions below to guide your review.</p>
+<p><strong class="lexis">Part 1: Content Feedback (Focus on the message)</strong></p>
+<p>1.  <strong class="lexis">Clarity of Purpose:</strong> Is the main point (proposal, opportunity, challenge) of the email/memo clear? What is it?<br>
+2.  <strong class="lexis">Relevance:</strong> Does the content directly relate to the <strong class="lexis">green economy</strong> and <strong class="lexis">sustainable employment</strong> as intended?<br>
+3.  <strong class="lexis">Impact:</strong> Does the writer effectively communicate the potential benefits or challenges?<br>
+4.  <strong class="lexis">Audience:</strong> Is the tone appropriate for a manager or team lead? Is it professional?</p>
+<p><strong class="lexis">Part 2: Language Feedback (Focus on accuracy and style)</strong></p>
+<p>1.  <strong class="lexis">Vocabulary:</strong> Are <strong class="lexis">key green economy terms</strong> used effectively and accurately (e.g., <strong class="lexis">upskilling programs</strong>, <strong class="lexis">green jobs</strong>, <strong class="lexis">renewable energy sector</strong>)?<br>
+2.  <strong class="lexis">Clarity &amp; Flow:</strong> Are there any sentences or phrases that are unclear or could be expressed more effectively?<br>
+3.  <strong class="lexis">Professionalism:</strong> Does the language sound professional and appropriate for a workplace context?</p>
+<p>After receiving feedback, revise your email or memo to improve it.</p>
+</section>
+</article>
+</body>
+</html>

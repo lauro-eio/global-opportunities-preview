@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Writing Powerful Environmental Incident Reports</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Writing Powerful Environmental Incident Reports</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>7</dd>
+      <dt>Class</dt><dd>7</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-unexpected-developments-amp-clear-commun">
+<header class="stage-header"><h2>Unexpected Developments &amp; Clear Communication</h2></header>
+<section class="handout">
+<p>Imagine an unexpected environmental incident has occurred at your facility. This could range from an unforeseen chemical spillage to a detected regulatory breach impacting local ecosystems. The immediate need is to prepare a <strong class="lexis">concise and professional report</strong> for senior management and relevant external authorities.</p>
+<p>Discuss with a partner:<br>
+1. What are the first three critical pieces of information you would seek to include in this report?<br>
+2. Who are the key stakeholders (internal and external) who <strong class="lexis">must</strong> be informed immediately, and what are their primary concerns regarding such an incident?<br>
+3. How would you ensure your report conveys the <strong class="lexis">gravity</strong> of the situation while maintaining a professional, objective, and transparent tone?</p>
+</section>
+</article>
+<article class="stage" id="stage-refining-crisis-statements">
+<header class="stage-header"><h2>Refining Crisis Statements</h2></header>
+<section class="handout">
+<p>In professional environmental incident reports, precise and high-impact language is crucial. Read the following statements and select the option that is most grammatically correct and suitable for a formal report to senior management or external authorities.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Which option correctly uses inversion to emphasize the rarity and severity of the situation in a formal incident report?</p>
+<p>Choose the most appropriate phrasing for an incident overview:</p>
+<ul><li>Rarely the infrastructure board has faced such a severe climate justice crisis.</li><li>The infrastructure board rarely has faced such a severe climate justice crisis.</li><li>Rarely has the infrastructure board faced such a severe climate justice crisis.</li><li>The infrastructure board has faced rarely such a severe climate justice crisis.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Which statement correctly uses inversion for a strong, formal observation in an environmental audit finding?</p>
+<p>Choose the most appropriate phrasing for an audit finding:</p>
+<ul><li>Not only the facility violated local emissions caps, but it also masked the energy data.</li><li>Not only did the facility violate local emissions caps, but it also masked the energy data.</li><li>The facility not only violated local emissions caps, but it also masked the energy data.</li><li>Not only violating the facility local emissions caps, it also masked the energy data.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">For a formal policy statement, which option correctly conveys an absolute prohibition using inversion?</p>
+<p>Choose the most appropriate phrasing for a new safety protocol:</p>
+<ul><li>Under no circumstances the site can release untreated emissions.</li><li>The site can under no circumstances release untreated emissions.</li><li>Under no circumstances can the site release untreated emissions.</li><li>Can the site under no circumstances release untreated emissions?</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-mastering-high-impact-reporting-language">
+<header class="stage-header"><h2>Mastering High-Impact Reporting Language</h2></header>
+<section class="handout">
+<p>For expressing serious environmental concerns, describing rare occurrences, or stating strict regulations in a professional context, we often use <strong class="lexis">Negative Inversion</strong> with limiting adverbials. This construction makes your report sound more formal and emphasizes the importance and impact of the statement.</p>
+<p><strong class="lexis">Form:</strong><br>
+1. <strong class="lexis">Negative Adverbial (Seldom, Rarely, Not only...) + Auxiliary Verb + Subject + Main Verb</strong><br>
+   *   Example: <strong class="lexis">Rarely has</strong> the infrastructure board encountered such resistance to environmental policy changes.<br>
+   *   Example: <strong class="lexis">Not only did</strong> the inspection reveal violations, but it also highlighted systemic failures.</p>
+<p>2. <strong class="lexis">Under no circumstances + Auxiliary Verb + Subject + Main Verb</strong><br>
+   *   Example: <strong class="lexis">Under no circumstances will</strong> the facility compromise on waste treatment protocols.</p>
+<p>This structure always uses <strong class="lexis">inverted</strong> word order and helps convey <strong class="lexis">high rhetorical gravity</strong>, adding significant weight and seriousness to your statements.</p>
+<p><strong class="lexis">Practice:</strong> Rewrite the following sentences, starting with the given negative adverbial or phrase, to create a more formal and impactful statement suitable for an environmental incident report or policy document.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Rewrite the sentence, starting with &#x27;Seldom&#x27;, to emphasize the infrequency of such an event in a formal report.</p>
+<p>The community has seldom seen such a comprehensive environmental impact assessment.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence, starting with &#x27;Not only&#x27;, to formally highlight both identified issues.</p>
+<p>The company failed to meet emissions targets, and it also ignored several critical safety recommendations.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence, starting with &#x27;Under no circumstances&#x27;, to express an absolute prohibition in a new policy.</p>
+<p>Employees are not allowed to bypass the new hazardous waste disposal procedures.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence, starting with &#x27;Never before&#x27;, to stress the unprecedented nature of the incident&#x27;s scale.</p>
+<p>We have never before encountered such a widespread ecological impact from a single operational error.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-crafting-high-impact-environmental-repor">
+<header class="stage-header"><h2>Crafting High-Impact Environmental Reports</h2></header>
+<section class="handout">
+<p>You are preparing a summary section for an environmental incident report to be submitted to both internal senior management and potentially an external regulatory body. Your goal is to use language that is professional, precise, and conveys the necessary <strong class="lexis">gravity</strong> and official stance on the situation. </p>
+<p>For each scenario below, choose the most effective statement that incorporates a negative inversion, making it suitable for a high-level formal report.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">The facility experienced an unforeseen power outage that led to a brief discharge of unfiltered wastewater. How would you phrase the unprecedented nature of this event for the report?</p>
+<p>Choose the best statement:</p>
+<ul><li>Such a widespread system failure has rarely occurred.</li><li>Rarely has such a widespread system failure been recorded in our operational history.</li><li>Has rarely such a widespread system failure been recorded?</li><li>A widespread system failure rarely has been recorded.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">An internal audit found that not only were safety logs incomplete, but hazardous materials were also stored improperly. How would you emphasize both findings formally?</p>
+<p>Choose the best statement:</p>
+<ul><li>Not only the safety logs were incomplete, but hazardous materials were also stored improperly.</li><li>Not only were the safety logs incomplete, but hazardous materials were also stored improperly.</li><li>The safety logs were not only incomplete, but hazardous materials were also stored improperly.</li><li>Not only incomplete were the safety logs, but hazardous materials were also stored improperly.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Regarding future waste management, the new policy strictly prohibits any unapproved disposal methods. How would you state this absolute prohibition formally?</p>
+<p>Choose the best statement:</p>
+<ul><li>Under no circumstances the personnel can use unapproved disposal methods.</li><li>Personnel can under no circumstances use unapproved disposal methods.</li><li>Under no circumstances can personnel use unapproved disposal methods.</li><li>Can personnel under no circumstances use unapproved disposal methods?</li></ul>
+</div>
+<div class="task"><p class="task-instruction">You need to write a concluding statement stressing that only by implementing these new measures can the company regain stakeholder trust. Rewrite this, beginning with &#x27;Only by implementing these new measures&#x27; to create a high-impact statement.</p>
+<p>Start with &#x27;Only by implementing these new measures&#x27;...</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+</body>
+</html>

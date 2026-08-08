@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>New Safety Rules at Work</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>New Safety Rules at Work</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>12</dd>
+      <dt>Class</dt><dd>1</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-talking-about-new-safety-rules">
+<header class="stage-header"><h2>Talking About New Safety Rules</h2></header>
+<section class="handout">
+<p>Think about your own workplace or a workplace you know well.</p>
+<p>Imagine a new safety guideline or <strong class="lexis">protocol</strong> is about to be introduced. What comes to mind immediately?</p>
+<p>Discuss with a partner:<br>
+1. What are the first things you would want to know about this new <strong class="lexis">protocol</strong>?<br>
+2. What immediate benefits might it bring, or what concerns might you have?<br>
+3. How would you ideally like this information to be shared and discussed with you and your colleagues?</p>
+</section>
+</article>
+<article class="stage" id="stage-understanding-safety-language">
+<header class="stage-header"><h2>Understanding Safety Language</h2></header>
+<section class="handout">
+<p>Before we read about a new safety measure, let&#x27;s learn some key terms you might encounter.</p>
+<p>Read the terms and definitions below. Then, complete the matching task.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>protocol</li><li>implementation</li><li>feasibility</li><li>risk_mitigation</li><li>safety_culture</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match each safety term to its correct definition.</p>
+<ul><li><strong>protocol</strong> — A set of official rules or procedures for doing something.</li><li><strong>implementation</strong> — The process of putting a decision or plan into effect.</li><li><strong>feasibility</strong> — The possibility that something can be made, done, or achieved, or is reasonable.</li><li><strong>risk mitigation</strong> — Actions taken to reduce the severity or likelihood of a potential danger or problem.</li><li><strong>safety culture</strong> — The shared attitudes, beliefs, and practices that shape how safety is perceived and prioritized in an organization.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-first-look-a-new-safety-policy">
+<header class="stage-header"><h2>First Look: A New Safety Policy</h2></header>
+<section class="handout">
+<p>You are going to read an internal memo about a new safety <strong class="lexis">protocol</strong>. Read the memo quickly to understand its main purpose. Don&#x27;t worry about every detail right now.</p>
+<p>Then, choose the best option to describe the main purpose of the memo.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>MEMORANDUM: Enhancing Our Safety Culture</h5>
+<p>To: All Employees<br>
+From: Operations Management<br>
+Date: 15 October 2024<br>
+Subject: Introduction of New Incident Reporting <strong class="lexis">Protocol</strong></p>
+<p>Dear Team,</p>
+<p>We are writing to inform you about an important update to our workplace safety procedures. Effective November 1st, we will be launching a new Incident Reporting <strong class="lexis">Protocol</strong> aimed at significantly enhancing our overall <strong class="lexis">safety culture</strong>.</p>
+<p>This new <strong class="lexis">protocol</strong> is the result of extensive review and feedback, including input from various departments. Its primary objective is to streamline the process for reporting near-misses and minor incidents, ensuring that all potential hazards are documented and addressed promptly. We believe that a more transparent and efficient reporting system is crucial for effective <strong class="lexis">risk mitigation</strong> across all our operations.</p>
+<p>We understand that the <strong class="lexis">implementation</strong> of any new system can present challenges, and we are committed to making this transition as smooth as possible. We have carefully considered the <strong class="lexis">feasibility</strong> of this new approach within our current operational structure and are confident it will integrate effectively. Training sessions for the new digital reporting platform will be mandatory for all staff and will be scheduled throughout October. Details on these sessions will be circulated next week.</p>
+<p>Our commitment to your safety remains paramount. This enhanced <strong class="lexis">protocol</strong> is a proactive step to ensure a safer working environment for everyone. We encourage open discussion and constructive feedback as we move forward with this vital <strong class="lexis">implementation</strong>.</p>
+<p>Thank you for your cooperation and dedication to maintaining a safe workplace.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main purpose of this memorandum?</p>
+<p>The main purpose of this memorandum is to:</p>
+<ul><li>Announce a new policy and explain its benefits for improving safety.</li><li>Apologize for recent safety failures and promise improvements.</li><li>Ask employees for their ideas on how to improve workplace safety.</li><li>Detail the full schedule for all upcoming safety training courses.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-in-detail-the-new-reporting-system">
+<header class="stage-header"><h2>In Detail: The New Reporting System</h2></header>
+<section class="handout">
+<p>Read the memorandum again, this time more carefully, to find specific information.</p>
+<p>Answer the questions below based on the text.</p>
+<p>---</p>
+<p>Now, discuss these questions with your partner or in a small group, referring to the memo:<br>
+1. What does Operations Management mean by &#x27;streamline the process&#x27;? How might this benefit employees?<br>
+2. The memo mentions &#x27;extensive review and feedback&#x27;. Why is it important for a company to highlight this when introducing a new <strong class="lexis">protocol</strong>?<br>
+3. How does the memo try to reassure employees about the &#x27;challenges&#x27; of <strong class="lexis">implementation</strong>? Do you think this approach is effective? Why or why not?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>MEMORANDUM: Enhancing Our Safety Culture</h5>
+<p>To: All Employees<br>
+From: Operations Management<br>
+Date: 15 October 2024<br>
+Subject: Introduction of New Incident Reporting <strong class="lexis">Protocol</strong></p>
+<p>Dear Team,</p>
+<p>We are writing to inform you about an important update to our workplace safety procedures. Effective November 1st, we will be launching a new Incident Reporting <strong class="lexis">Protocol</strong> aimed at significantly enhancing our overall <strong class="lexis">safety culture</strong>.</p>
+<p>This new <strong class="lexis">protocol</strong> is the result of extensive review and feedback, including input from various departments. Its primary objective is to streamline the process for reporting near-misses and minor incidents, ensuring that all potential hazards are documented and addressed promptly. We believe that a more transparent and efficient reporting system is crucial for effective <strong class="lexis">risk mitigation</strong> across all our operations.</p>
+<p>We understand that the <strong class="lexis">implementation</strong> of any new system can present challenges, and we are committed to making this transition as smooth as possible. We have carefully considered the <strong class="lexis">feasibility</strong> of this new approach within our current operational structure and are confident it will integrate effectively. Training sessions for the new digital reporting platform will be mandatory for all staff and will be scheduled throughout October. Details on these sessions will be circulated next week.</p>
+<p>Our commitment to your safety remains paramount. This enhanced <strong class="lexis">protocol</strong> is a proactive step to ensure a safer working environment for everyone. We encourage open discussion and constructive feedback as we move forward with this vital <strong class="lexis">implementation</strong>.</p>
+<p>Thank you for your cooperation and dedication to maintaining a safe workplace.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">According to the memo, when will the new Incident Reporting Protocol become effective?</p>
+<p>Effective date:</p>
+</div>
+<div class="task"><p class="task-instruction">What is the primary objective of the new protocol regarding incidents?</p>
+<p>Primary objective:</p>
+</div>
+<div class="task"><p class="task-instruction">What type of sessions will be mandatory for all staff?</p>
+<p>Mandatory sessions:</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-reflecting-on-new-workplace-policies">
+<header class="stage-header"><h2>Reflecting on New Workplace Policies</h2></header>
+<section class="handout">
+<p>Let&#x27;s reflect on the memo and the discussion.</p>
+<p>1. Based on the memo, what do you think are the strongest arguments for introducing this new <strong class="lexis">protocol</strong>?<br>
+2. What potential difficulties might the company face during its <strong class="lexis">implementation</strong>?<br>
+3. In your opinion, how can management best ensure the <strong class="lexis">feasibility</strong> of new safety measures and encourage a strong <strong class="lexis">safety culture</strong> among all employees?<br>
+4. What role do employees play in the successful <strong class="lexis">implementation</strong> and long-term effectiveness of new safety <strong class="lexis">protocols</strong>?</p>
+</section>
+</article>
+</body>
+</html>

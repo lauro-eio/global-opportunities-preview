@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Professional Register: Workplace Wellbeing</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Professional Register: Workplace Wellbeing</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>5</dd>
+      <dt>Class</dt><dd>5</dd>
+      <dt>Theme</dt><dd>T05_HEALTH</dd>
+      <dt>Framework</dt><dd>TTT</dd>
+      <dt>Role</dt><dd>TTT_LEXICAL_REGISTER_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Addressing Workplace Stress</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Introduce the topic of workplace stress and burnout.<br>
+Explain the focus of the lesson: discussing strategies for prevention and support.<br>
+Facilitate a short group discussion based on the prompt in student_content.<br>
+Encourage learners to share practical, real-world examples from their experience without dwelling on personal grievances.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Workplace Wellbeing: Initial Thoughts</h4>
+<p>Modern work environments can be very demanding, often leading to stress and even burnout. Effective strategies are crucial to support employees.</p>
+<p>Discuss with a partner or small group:<br>
+1. What specific measures do you think employers can take to prevent workplace stress from escalating into burnout among staff in practical, hands-on roles?<br>
+2. What are the most common challenges in implementing these measures in your experience?</p>
+</section>
+</article>
+<article class="stage" id="stage-T1">
+<header class="stage-header"><span class="stage-code">T1</span><h2>Diagnostic: Communicating About Workplace Health</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Distribute the memo for students to read.<br>
+Explain that the memo contains some phrases that might not be ideal for formal workplace communication regarding sensitive topics.<br>
+Instruct students to complete the task individually, choosing the most appropriate professional phrasing.<br>
+Do not pre-teach or correct language at this stage; this is a diagnostic.<br>
+Collect or note down common errors for the TCH stage.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Memo Review: Professional Language Choices</h4>
+<p>Read the internal communication memo from the HR Department regarding employee support. Some parts of the memo require a specific professional register. For each numbered blank, choose the most appropriate phrase for a formal workplace setting.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Internal Communication: Employee Support Initiatives</h5>
+<p>To: All Staff<br>
+From: HR Department<br>
+Subject: Supporting Our Workforce: Stress &amp; Wellbeing</p>
+<p>Dear Team,</p>
+<p>We understand that the demands of our roles can sometimes be challenging. Your well-being is a top priority, and we are committed to <strong class="lexis">(1) __________</strong>. Following recent feedback, we are actively looking into ways to <strong class="lexis">(2) __________</strong> that have been raised.</p>
+<p>As part of this commitment, we plan to <strong class="lexis">(3) __________</strong> designed to support both physical and mental health. These will include workshops on stress management and access to mental health resources. If you find yourself struggling, we encourage you to <strong class="lexis">(4) __________</strong> from a professional rather than ignoring symptoms.</p>
+<p>We also want to remind everyone that you can <strong class="lexis">(5) __________</strong> available through our Employee Assistance Program (EAP), which offers confidential counseling and resources. Please look out for further details on these initiatives soon.</p>
+<p>Thank you for your continued hard work and dedication.</p>
+<p>Sincerely,<br>
+The HR Department</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">For blank (1) in the memo:</p>
+<p>Which phrase best fits blank (1)?</p>
+<ul><li>make sure staff are okay</li><li>handle employee happiness</li><li>ensure employee wellbeing</li></ul>
+</div>
+<div class="task"><p class="task-instruction">For blank (2) in the memo:</p>
+<p>Which phrase best fits blank (2)?</p>
+<ul><li>sort out health and safety worries</li><li>deal with health issues</li><li>address health and safety concerns</li></ul>
+</div>
+<div class="task"><p class="task-instruction">For blank (3) in the memo:</p>
+<p>Which phrase best fits blank (3)?</p>
+<ul><li>start some wellness stuff</li><li>get wellness programs going</li><li>implement wellness programs</li></ul>
+</div>
+<div class="task"><p class="task-instruction">For blank (4) in the memo:</p>
+<p>Which phrase best fits blank (4)?</p>
+<ul><li>get a doctor&#x27;s opinion</li><li>ask for medical help</li><li>seek medical advice</li></ul>
+</div>
+<div class="task"><p class="task-instruction">For blank (5) in the memo:</p>
+<p>Which phrase best fits blank (5)?</p>
+<ul><li>use support things</li><li>get into support services</li><li>access support services</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-TCH">
+<header class="stage-header"><span class="stage-code">TCH</span><h2>Teach: Understanding Professional Register</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Review the answers from T1, highlighting the correct professional phrases.<br>
+Draw attention to the difference in register between the correct answers and the incorrect options.<br>
+Explain the meaning and nuance of each target exponent, emphasizing why they are appropriate for formal workplace communication (e.g., policy, respect, clarity).<br>
+Use CCQs (Concept Checking Questions) for each phrase: &quot;Is &#x27;ensure employee wellbeing&#x27; something you say to your friend or your boss?&quot; &quot;Does &#x27;address concerns&#x27; mean to ignore them or actively deal with them?&quot; &quot;Is &#x27;implement&#x27; more formal than &#x27;start&#x27;?&quot;<br>
+Point out the phonological features: &quot;Notice the emphasis on key words like <strong class="lexis">employee</strong>, <strong class="lexis">safety</strong>, <strong class="lexis">wellness</strong>, <strong class="lexis">support</strong>. The falling intonation helps convey seriousness and professionalism.&quot;<br>
+Guide students through the matching task to consolidate understanding of professional vs. informal.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Refining Your Workplace Vocabulary</h4>
+<p>Let&#x27;s review the phrases from the memo. In professional workplace communication, especially when discussing sensitive topics like health and wellbeing, the choice of words is very important. Using appropriate register shows respect, clarity, and adherence to professional standards.</p>
+<p>We will now look at how the professional phrases you chose are more suitable and what makes them effective in a workplace setting.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Professional Language</th><th>Less Formal Alternatives</th></tr><tr><td>ensure employee wellbeing</td><td>make sure staff are okay</td></tr><tr><td>address health and safety concerns</td><td>sort out health and safety worries</td></tr><tr><td>implement wellness programs</td><td>start some wellness stuff</td></tr><tr><td>seek medical advice</td><td>get a doctor&#x27;s opinion</td></tr><tr><td>access support services</td><td>use support things</td></tr></table></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match the professional phrase (left column) with the situation where it would be most appropriate (right column).</p>
+<p>Match the phrase to its appropriate context.</p>
+<ul><li><strong>ensure employee wellbeing</strong> — When discussing company policy on staff welfare.</li><li><strong>address health and safety concerns</strong> — When reporting a hazard or issue to management.</li><li><strong>implement wellness programs</strong> — When announcing new company initiatives for staff health.</li><li><strong>seek medical advice</strong> — When advising an individual on a health issue.</li><li><strong>access support services</strong> — When informing staff about available confidential help.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-T2">
+<header class="stage-header"><span class="stage-code">T2</span><h2>Test 2: Strategic Discussion</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Divide students into small groups or pairs.<br>
+Present the scenario and task clearly.<br>
+Emphasize the need to use the professional vocabulary learned (the target exponents) naturally within their discussion.<br>
+Monitor carefully, noting down successful uses and areas for improvement in register and appropriacy.<br>
+Provide feedback at the end, focusing on the effective use of professional language.<br>
+Model Answer Hint (for teacher reference, not for students): Students should create a plan that logically uses phrases like &#x27;We need to <strong class="lexis">ensure employee wellbeing</strong> by proactively identifying stressors.&#x27; &#x27;It&#x27;s crucial to <strong class="lexis">address health and safety concerns</strong> related to shift patterns.&#x27; &#x27;Our proposal is to <strong class="lexis">implement wellness programs</strong> focusing on resilience.&#x27; &#x27;Employees should be encouraged to <strong class="lexis">seek medical advice</strong> early.&#x27; &#x27;And importantly, make sure everyone knows how to <strong class="lexis">access support services</strong>.&#x27;</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Developing Workplace Wellbeing Strategies</h4>
+<p>Imagine you are part of a small team responsible for improving staff well-being in a demanding workplace, such as a factory, logistics hub, or service industry setting. Management has asked you to propose a few key strategies to prevent stress and burnout.</p>
+<p>Work with your partner or group to formulate a brief plan (3-4 key points). In your discussion and when presenting your ideas, make sure to use the professional phrases we have practised:</p>
+<p>*   <strong class="lexis">ensure employee wellbeing</strong><br>
+*   <strong class="lexis">address health and safety concerns</strong><br>
+*   <strong class="lexis">implement wellness programs</strong><br>
+*   <strong class="lexis">seek medical advice</strong><br>
+*   <strong class="lexis">access support services</strong></p>
+<p>Think about practical, actionable steps that respect the dignity of working-class learners and the realities of their jobs.</p>
+</section>
+</article>
+</body>
+</html>

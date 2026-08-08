@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Developing and Presenting Workplace Improvement Proposals</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Developing and Presenting Workplace Improvement Proposals</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>12</dd>
+      <dt>Class</dt><dd>3</dd>
+      <dt>Theme</dt><dd>T12_ABSTRACT</dd>
+      <dt>Framework</dt><dd>SK-PROD</dd>
+      <dt>Role</dt><dd>SK_PROD_SPEAKING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Identifying Areas for Improvement</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain the lesson focus: proposing improvements at work.<br>
+2. Put students in pairs or small groups.<br>
+3. Ask them to discuss the questions, encouraging them to think about real-world work scenarios related to processes or systems.<br>
+4. Monitor for initial ideas and language related to process improvement. Provide minimal correction at this stage, focusing on fluency.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Spotting What Works Better</h4>
+<p>In your current or past work, have you ever noticed a way something could be done better or more <strong class="lexis">efficiently</strong>? Think about any routine task or system.</p>
+<p>Discuss with your partner:<br>
+1. What was the task or system you&#x27;re thinking of?<br>
+2. What was the problem or <strong class="lexis">bottleneck</strong> you observed?<br>
+3. Briefly, what was your idea for improvement?<br>
+4. Why do you think your idea would make things better?</p>
+</section>
+</article>
+<article class="stage" id="stage-MOD">
+<header class="stage-header"><span class="stage-code">MOD</span><h2>Model Conversation: Proposing a New System</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Ask students to read the dialogue, focusing on how the proposal is structured and presented.<br>
+2. Highlight phrases used for introducing problems, proposing solutions, and outlining benefits.<br>
+3. Discuss the professional register used by the speakers. Elicit from students what makes it sound professional.<br>
+4. Ask students to notice how terms like &#x27;efficiency&#x27; and &#x27;optimization&#x27; are naturally integrated into the conversation.<br>
+5. Facilitate the discussion questions at the end of the activity.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">How to Present Your Idea</h4>
+<p>Read the conversation between two colleagues, Maria (Team Lead) and David (Logistics Coordinator), discussing a proposal for a new inventory system.</p>
+<p><strong class="lexis">Maria:</strong> Good morning, David. Thanks for coming in. I understand you have some thoughts on our current inventory process?</p>
+<p><strong class="lexis">David:</strong> Good morning, Maria. Yes, I do. I&#x27;ve been observing our <strong class="lexis">workflow</strong> in the warehouse, particularly how we manage stock intake and dispatch. I&#x27;ve identified what I believe is a significant <strong class="lexis">bottleneck</strong> affecting our overall <strong class="lexis">efficiency</strong>.</p>
+<p><strong class="lexis">Maria:</strong> Go on. What have you noticed?</p>
+<p><strong class="lexis">David:</strong> Well, our manual data entry system for incoming shipments often leads to delays. It’s a time-consuming step, and sometimes errors occur, which then ripple through the entire tracking system. This directly impacts our ability to <strong class="lexis">optimize</strong> stock levels and fulfill orders promptly.</p>
+<p><strong class="lexis">Maria:</strong> So, what’s your proposal?</p>
+<p><strong class="lexis">David:</strong> I&#x27;ve put together a brief proposal for implementing a new barcode scanning system. This would streamline the intake process significantly. Scanners would immediately update the central database, reducing manual effort and minimizing errors.</p>
+<p><strong class="lexis">Maria:</strong> That sounds interesting. What are the key benefits you foresee?</p>
+<p><strong class="lexis">David:</strong> The immediate benefit would be increased <strong class="lexis">efficiency</strong> and accuracy in inventory updates. Over time, we&#x27;d see a measurable improvement in <strong class="lexis">workflow</strong>, leading to faster stock turnaround. Critically, I anticipate a positive <strong class="lexis">ROI</strong> through reduced labor costs associated with manual entry and fewer discrepancies. It would also free up staff for more value-added tasks.</p>
+<p><strong class="lexis">Maria:</strong> So, you&#x27;re confident this would lead to substantial improvements?</p>
+<p><strong class="lexis">David:</strong> Absolutely. I believe it&#x27;s a crucial step towards modernizing our operations and ensuring we remain competitive. I&#x27;ve got some initial figures if you&#x27;d like to see them.</p>
+<p><strong class="lexis">Maria:</strong> Let&#x27;s schedule another meeting. Bring those figures.</p>
+<p><strong class="lexis">Discussion:</strong><br>
+1. What problem did David identify in the current inventory process?<br>
+2. What was his proposed solution?<br>
+3. How did David explain the benefits of his proposal?<br>
+4. What phrases did David use to sound professional and persuasive?</p>
+</section>
+</article>
+<article class="stage" id="stage-PREP">
+<header class="stage-header"><span class="stage-code">PREP</span><h2>Preparation: Planning Your Proposal</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will now plan their own proposal based on a work process improvement.<br>
+2. Guide them through the column banks, explaining the purpose of each section.<br>
+3. Encourage them to use the provided phrases and to incorporate the key terms from the &#x27;Key Terms&#x27; column.<br>
+4. Students should take notes in point form, not write full sentences, to prepare for a spoken presentation.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Getting Ready to Persuade</h4>
+<p>Now, think about your own workplace or a hypothetical one. You need to identify an area for improvement and prepare a proposal. Use the columns below to organize your ideas and choose useful phrases. Take notes – you don&#x27;t need to write full sentences.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>1. Identifying the Problem</th><th>2. Proposing a Solution</th><th>3. Explaining Benefits &amp; Impact</th><th>4. Key Terms</th></tr><tr><td>I&#x27;ve noticed a **bottleneck** in...</td><td>My proposal is to implement...</td><td>This would significantly increase **efficiency**.</td><td>efficiency</td></tr><tr><td>Our current **workflow** is often inefficient due to...</td><td>I suggest we consider a new system for...</td><td>We would see a positive **ROI** within...</td><td>optimization</td></tr><tr><td>This process is quite time-consuming...</td><td>We could **optimize** this by...</td><td>It would streamline our operations.</td><td>workflow</td></tr><tr><td>We&#x27;re experiencing delays with...</td><td>I recommend introducing...</td><td>This change would lead to better **workflow**.</td><td>ROI (Return on Investment)</td></tr><tr><td>There&#x27;s an opportunity to improve...</td><td>The solution I&#x27;ve outlined involves...</td><td>It will reduce errors and save time.</td><td>bottleneck</td></tr><tr><td></td><td></td><td>Staff could focus on more productive tasks.</td><td></td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Fluency Practice: Presenting Your Process Improvement Proposal</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Divide students into pairs.<br>
+2. Assign roles: one student is the &#x27;proposer,&#x27; the other is the &#x27;manager&#x27; (or decision-maker).<br>
+3. Instruct the &#x27;manager&#x27; to listen actively, ask clarifying questions, and consider the proposal seriously.<br>
+4. The &#x27;proposer&#x27; should use their notes and the phrases practiced to present their idea persuasively.<br>
+5. Emphasize fluency and clear communication over grammatical perfection. Encourage natural interaction.<br>
+6. After the first round, have them switch roles so everyone gets a chance to propose.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Your Turn to Propose!</h4>
+<p>Work in pairs. You will present your proposal to your partner.</p>
+<p><strong class="lexis">Student A: The Proposer</strong><br>
+You are presenting your idea for improving a work process. Your goal is to clearly explain the problem, propose your solution, and convince your &#x27;manager&#x27; of the benefits, using some of the key terms and phrases you prepared.</p>
+<p><strong class="lexis">Student B: The Manager</strong><br>
+You are listening to your colleague&#x27;s proposal. Ask questions to understand the problem and the solution better. Think about how the proposal could impact the team, budget, and overall operations. You don&#x27;t have to agree immediately, but listen openly and critically.</p>
+<p>After the first presentation, switch roles!</p>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback and Delayed Correction</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. <strong class="lexis">Content Feedback (5-7 minutes):</strong><br>
+    a. Ask students to discuss in pairs: Was their partner&#x27;s proposal clear? What were the strongest points? What questions did they still have?<br>
+    b. Open class discussion: What were some of the most interesting proposals? Did anyone successfully convince their &#x27;manager&#x27;? Focus on the clarity, persuasiveness, and practicality of the ideas.<br>
+2. <strong class="lexis">Delayed Language Correction (5-7 minutes):</strong><br>
+    a. Review notes taken during the FP stage. Write common errors (e.g., mispronounced words, awkward phrasing, incorrect word choice, issues with using target vocabulary) on the board without identifying specific students.<br>
+    b. Elicit corrections from the class. Focus primarily on issues that hindered communication or the professional register, especially those related to the target language of proposing ideas and using lexical_tags.<br>
+    c. Provide positive feedback on effective use of target language.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reflecting on Your Proposals</h4>
+<p><strong class="lexis">Peer Reflection:</strong><br>
+Discuss with your partner:<br>
+1. How clear and convincing was your partner&#x27;s proposal?<br>
+2. What was the strongest point of their argument?<br>
+3. What questions did you still have about their idea?<br>
+4. What went well when you presented your own proposal? What would you do differently next time?</p>
+<p><strong class="lexis">Class Feedback:</strong><br>
+Listen as your teacher gives feedback on the language used during the presentations. Pay attention to common areas for improvement and effective phrases that stood out.</p>
+</section>
+</article>
+</body>
+</html>

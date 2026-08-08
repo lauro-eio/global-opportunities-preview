@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mediating Resource Allocation Conflicts</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Mediating Resource Allocation Conflicts</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>12</dd>
+      <dt>Class</dt><dd>4</dd>
+      <dt>Theme</dt><dd>T12_ABSTRACT</dd>
+      <dt>Framework</dt><dd>SK-REC</dd>
+      <dt>Role</dt><dd>SK_REC_LISTENING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Resource Allocation Challenges</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the class by asking students to think about situations where different teams or departments compete for limited resources within a company.<br>
+2. Ask students what are the biggest challenges in finding a fair and agreeable solution in such situations.<br>
+3. Encourage students to share personal experiences or observations.<br>
+4. Facilitate a brief discussion, drawing out initial thoughts on mediation and compromise.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">When Teams Clash</h4>
+<p>Think about a time when different teams in a company wanted the same limited resources (like budget, staff, or equipment).</p>
+<p>1. What are the common reasons for such conflicts?<br>
+2. What usually happens when these conflicts are not managed well?<br>
+3. What do you think are the biggest challenges in finding a <strong class="lexis">fair</strong> and agreeable solution for everyone involved?</p>
+</section>
+</article>
+<article class="stage" id="stage-PTV">
+<header class="stage-header"><span class="stage-code">PTV</span><h2>Pre-Teach Vocabulary: Key Terms for Discussion</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the key vocabulary terms that will appear in the listening.<br>
+2. Ask students to work individually or in pairs to match the terms to their definitions.<br>
+3. Check answers as a class, clarifying any misunderstandings and providing example sentences for each term.<br>
+4. Ensure students understand the specific context of these words in resource management and conflict resolution.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Understanding the Terms</h4>
+<p>Before listening, let&#x27;s make sure we understand some key words.</p>
+<p>Match each word on the left with its correct definition on the right. Think about how these words relate to sharing resources and solving disagreements.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>allocation</li><li>priority</li><li>fairness</li><li>consensus</li><li>trade-off</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match each term related to resource conflict to its definition.</p>
+<p>Match the words with their meanings.</p>
+<ul><li><strong>allocation</strong> — The action or process of distributing resources or duties.</li><li><strong>priority</strong> — A thing that is regarded as more important than others.</li><li><strong>fairness</strong> — Impartial and just treatment or behavior without favoritism or discrimination.</li><li><strong>consensus</strong> — General agreement among a group of people.</li><li><strong>trade-off</strong> — A balance achieved between two desirable but incompatible features; a compromise.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-GIST">
+<header class="stage-header"><span class="stage-code">GIST</span><h2>Gist Listening: Understanding the Core Issue</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will listen to a conversation about a conflict over resources.<br>
+2. Tell students their first task is to understand the main reason for the meeting and the general conflict.<br>
+3. Play the audio once.<br>
+4. Have students answer the multiple-choice question to check their global understanding.<br>
+5. Discuss the answer as a class, encouraging students to explain why they chose their option.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">First Listen: What&#x27;s the Main Point?</h4>
+<p>You are going to listen to a conversation where a manager is mediating a conflict between two department heads. Listen once for the main idea. Don&#x27;t worry about understanding every word.</p>
+<p>What is the primary reason for this meeting?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Mediating a Resource Conflict</h5>
+<p>David, the HR Manager, sits with Sarah from Logistics and Mark from Production. The air is thick with tension.</p>
+<p>David: &quot;Thanks for coming, both of you. We&#x27;re here to discuss the Q3 budget <strong class="lexis">allocation</strong>. I understand both Logistics and Production have critical needs.&quot;</p>
+<p>Sarah: &quot;David, our department is completely overwhelmed. Without new scanners and an automated sorting system, our delivery times will suffer, impacting customer satisfaction. This is a clear <strong class="lexis">priority</strong> for continued growth.&quot;</p>
+<p>Mark: &quot;With all due respect, Sarah, Production is already struggling to meet current orders. We need three new full-time hires, not automation. If we can&#x27;t produce the goods, there&#x27;s nothing for Logistics to deliver. Our operational efficiency is paramount, it&#x27;s a <strong class="lexis">priority</strong>.&quot;</p>
+<p>Sarah: &quot;But our current scanning system is practically antique! It takes twice as long as it should. How can we talk about <strong class="lexis">fairness</strong> when Logistics has been under-resourced for two years running?&quot;</p>
+<p>Mark: &quot;And how is it fair to us if we burn out our existing staff trying to hit targets? We&#x27;ve already made significant <strong class="lexis">trade-offs</strong> in other areas to keep things afloat.&quot;</p>
+<p>David: &quot;Okay, let&#x27;s step back. We all agree customer satisfaction and staff well-being are key. The challenge is the limited budget. We need to find a <strong class="lexis">consensus</strong> here, a solution that works for both departments, even if it means some <strong class="lexis">trade-offs</strong>.&quot;</p>
+<p>Sarah: &quot;I just don&#x27;t see how we can compromise on essential equipment. Our proposals were very clear on the ROI.&quot;</p>
+<p>Mark: &quot;And ours were clear on staff retention and output capacity. We can&#x27;t keep pushing our people harder.&quot;</p>
+<p>David: &quot;Perhaps we can look at a phased <strong class="lexis">allocation</strong>? Or consider which investment has a more immediate and significant impact on the company&#x27;s overall strategic goals for the next six months. Sarah, could you elaborate on the impact of delayed automation on our key performance indicators? Mark, can you quantify the risk of understaffing on our production targets?&quot;</p>
+<p>Sarah: &quot;Well, delayed scanning directly leads to X missed deliveries per week, costing us estimated Y revenue.&quot;</p>
+<p>Mark: &quot;Understaffing leads to Z increase in overtime costs and potential quality control issues, which could cost us customer trust and future orders.&quot;</p>
+<p>David: &quot;Right. It sounds like both are significant. The goal isn&#x27;t for one department to win and another to lose. It&#x27;s about finding the best overall outcome. We need to explore options where the burden, or the benefit, feels like a reasonable <strong class="lexis">trade-off</strong> for everyone involved to reach a <strong class="lexis">consensus</strong>.&quot;</p>
+<p>Sarah: &quot;But who decides what&#x27;s &#x27;reasonable&#x27;? From my side, this feels like an attack on our ability to perform.&quot;</p>
+<p>Mark: &quot;And from mine, it feels like our staff are being ignored.&quot;</p>
+<p>David: &quot;I understand. This isn&#x27;t easy. The key is to look at the larger picture and consider how each request contributes to the company&#x27;s long-term health. We need to assess the real-world impact of both scenarios and aim for a solution where both departments can see the <strong class="lexis">fairness</strong> in the <strong class="lexis">allocation</strong>, even if it&#x27;s not ideal for everyone. Let&#x27;s think about potential compromises. Is there any part of the Logistics proposal that could be deferred? Mark, are there temporary solutions for staffing that could bridge the gap?&quot;</p>
+<p>Sarah: &quot;Perhaps we could scale back the initial automation, focusing only on the most critical bottleneck for now, if it meant Production got some immediate relief.&quot;</p>
+<p>Mark: &quot;And if we could get, say, two new hires immediately, we might be able to manage the workload better while we explore longer-term solutions.&quot;</p>
+<p>David: &quot;That&#x27;s a start. This kind of open discussion, finding areas for <strong class="lexis">trade-off</strong> and building towards <strong class="lexis">consensus</strong>, is exactly what we need for effective resource <strong class="lexis">allocation</strong>. We&#x27;re moving towards a more equitable and strategic decision. Let&#x27;s draft a proposal based on these initial ideas and present it to senior management.&quot;</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Listen to the conversation. What is the main purpose of the meeting?</p>
+<p>What is the primary reason for this meeting?</p>
+<ul><li>To announce new company policies.</li><li>To celebrate recent departmental achievements.</li><li>To resolve a conflict over budget and resource allocation.</li><li>To plan a new marketing campaign.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-DET">
+<header class="stage-header"><span class="stage-code">DET</span><h2>Detailed Listening: Specific Issues and Solutions</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Tell students they will listen again, this time focusing on specific details.<br>
+2. Instruct them to answer the detailed questions while listening or immediately after.<br>
+3. Play the audio a second time.<br>
+4. Allow students time to complete the short-text tasks.<br>
+5. Review answers as a class, allowing students to compare what they heard.<br>
+6. For the inference question, encourage students to discuss their thoughts and justify their answers using information from the text. Provide a model answer for guidance.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Second Listen: Unpacking the Details</h4>
+<p>Now listen again. This time, try to catch the specific details about what each department needs, the problems they face, and any potential solutions mentioned.</p>
+<p>1. What specific new equipment does Sarah&#x27;s (Logistics) department need?<br>
+2. How many new staff does Mark&#x27;s (Production) department want?<br>
+3. What is one specific compromise Sarah suggests to resolve the conflict?<br>
+4. What is one specific compromise Mark suggests to resolve the conflict?<br>
+5. In your own words, what strategy does David (the mediator) use to guide the discussion towards a <strong class="lexis">consensus</strong>?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Mediating a Resource Conflict</h5>
+<p>David, the HR Manager, sits with Sarah from Logistics and Mark from Production. The air is thick with tension.</p>
+<p>David: &quot;Thanks for coming, both of you. We&#x27;re here to discuss the Q3 budget <strong class="lexis">allocation</strong>. I understand both Logistics and Production have critical needs.&quot;</p>
+<p>Sarah: &quot;David, our department is completely overwhelmed. Without new scanners and an automated sorting system, our delivery times will suffer, impacting customer satisfaction. This is a clear <strong class="lexis">priority</strong> for continued growth.&quot;</p>
+<p>Mark: &quot;With all due respect, Sarah, Production is already struggling to meet current orders. We need three new full-time hires, not automation. If we can&#x27;t produce the goods, there&#x27;s nothing for Logistics to deliver. Our operational efficiency is paramount, it&#x27;s a <strong class="lexis">priority</strong>.&quot;</p>
+<p>Sarah: &quot;But our current scanning system is practically antique! It takes twice as long as it should. How can we talk about <strong class="lexis">fairness</strong> when Logistics has been under-resourced for two years running?&quot;</p>
+<p>Mark: &quot;And how is it fair to us if we burn out our existing staff trying to hit targets? We&#x27;ve already made significant <strong class="lexis">trade-offs</strong> in other areas to keep things afloat.&quot;</p>
+<p>David: &quot;Okay, let&#x27;s step back. We all agree customer satisfaction and staff well-being are key. The challenge is the limited budget. We need to find a <strong class="lexis">consensus</strong> here, a solution that works for both departments, even if it means some <strong class="lexis">trade-offs</strong>.&quot;</p>
+<p>Sarah: &quot;I just don&#x27;t see how we can compromise on essential equipment. Our proposals were very clear on the ROI.&quot;</p>
+<p>Mark: &quot;And ours were clear on staff retention and output capacity. We can&#x27;t keep pushing our people harder.&quot;</p>
+<p>David: &quot;Perhaps we can look at a phased <strong class="lexis">allocation</strong>? Or consider which investment has a more immediate and significant impact on the company&#x27;s overall strategic goals for the next six months. Sarah, could you elaborate on the impact of delayed automation on our key performance indicators? Mark, can you quantify the risk of understaffing on our production targets?&quot;</p>
+<p>Sarah: &quot;Well, delayed scanning directly leads to X missed deliveries per week, costing us estimated Y revenue.&quot;</p>
+<p>Mark: &quot;Understaffing leads to Z increase in overtime costs and potential quality control issues, which could cost us customer trust and future orders.&quot;</p>
+<p>David: &quot;Right. It sounds like both are significant. The goal isn&#x27;t for one department to win and another to lose. It&#x27;s about finding the best overall outcome. We need to explore options where the burden, or the benefit, feels like a reasonable <strong class="lexis">trade-off</strong> for everyone involved to reach a <strong class="lexis">consensus</strong>.&quot;</p>
+<p>Sarah: &quot;But who decides what&#x27;s &#x27;reasonable&#x27;? From my side, this feels like an attack on our ability to perform.&quot;</p>
+<p>Mark: &quot;And from mine, it feels like our staff are being ignored.&quot;</p>
+<p>David: &quot;I understand. This isn&#x27;t easy. The key is to look at the larger picture and consider how each request contributes to the company&#x27;s long-term health. We need to assess the real-world impact of both scenarios and aim for a solution where both departments can see the <strong class="lexis">fairness</strong> in the <strong class="lexis">allocation</strong>, even if it&#x27;s not ideal for everyone. Let&#x27;s think about potential compromises. Is there any part of the Logistics proposal that could be deferred? Mark, are there temporary solutions for staffing that could bridge the gap?&quot;</p>
+<p>Sarah: &quot;Perhaps we could scale back the initial automation, focusing only on the most critical bottleneck for now, if it meant Production got some immediate relief.&quot;</p>
+<p>Mark: &quot;And if we could get, say, two new hires immediately, we might be able to manage the workload better while we explore longer-term solutions.&quot;</p>
+<p>David: &quot;That&#x27;s a start. This kind of open discussion, finding areas for <strong class="lexis">trade-off</strong> and building towards <strong class="lexis">consensus</strong>, is exactly what we need for effective resource <strong class="lexis">allocation</strong>. We&#x27;re moving towards a more equitable and strategic decision. Let&#x27;s draft a proposal based on these initial ideas and present it to senior management.&quot;</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What specific new equipment does Sarah&#x27;s (Logistics) department need?</p>
+<p>Sarah&#x27;s department needs new scanners and an automated sorting system.</p>
+</div>
+<div class="task"><p class="task-instruction">How many new staff does Mark&#x27;s (Production) department want?</p>
+<p>Mark&#x27;s department wants how many new full-time hires?</p>
+</div>
+<div class="task"><p class="task-instruction">What is one specific compromise Sarah suggests to resolve the conflict?</p>
+<p>Sarah suggests what compromise?</p>
+</div>
+<div class="task"><p class="task-instruction">What is one specific compromise Mark suggests to resolve the conflict?</p>
+<p>Mark suggests what compromise?</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Follow-up and Feedback: Discussing the Outcome</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Initiate a class discussion about the outcome of the meeting and the mediation process.<br>
+2. Ask students to share their opinions on the proposed compromises and if they believe a <strong class="lexis">fair</strong> <strong class="lexis">allocation</strong> was reached.<br>
+3. Discuss the effectiveness of David&#x27;s mediation strategy. What did he do well? What could he have done differently?<br>
+4. Provide feedback on any common listening challenges or errors in understanding.<br>
+5. Highlight good usage of the target vocabulary from the lesson and encourage students to use it in their discussion.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reflecting on the Conflict</h4>
+<p>1. Do you think the compromises suggested by Sarah and Mark are a good <strong class="lexis">trade-off</strong>? Why or why not?<br>
+2. What do you think about David’s approach as a mediator? Was he effective in helping them reach a <strong class="lexis">consensus</strong>?<br>
+3. Have you ever been in a similar situation where resources had to be allocated? How was it handled?<br>
+4. What is the most important factor for achieving <strong class="lexis">fairness</strong> when different teams have competing <strong class="lexis">priority</strong> needs?</p>
+</section>
+</article>
+</body>
+</html>

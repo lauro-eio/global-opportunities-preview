@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Explaining Technical Issues Clearly and Persuasively</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Explaining Technical Issues Clearly and Persuasively</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>12</dd>
+      <dt>Class</dt><dd>2</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-explaining-the-unexplained">
+<header class="stage-header"><h2>Explaining the Unexplained</h2></header>
+<section class="handout">
+<p>Think about a time you had to explain a complex technical issue or a specialized problem to someone who wasn&#x27;t an expert in your field – perhaps a manager, a client, or a colleague from a different department.</p>
+<p>1. What was the technical issue, and what was its <strong class="lexis">root_cause</strong>?<br>
+2. Who was your audience (e.g., a manager, a client)?<br>
+3. What were the main challenges you faced in simplifying the information?<br>
+4. How did you break it down effectively to ensure they understood the <strong class="lexis">implication</strong> and potential <strong class="lexis">resolution</strong>?</p>
+</section>
+</article>
+<article class="stage" id="stage-identifying-the-central-problem">
+<header class="stage-header"><h2>Identifying the Central Problem</h2></header>
+<section class="handout">
+<p>Read the technical incident report below. Focus on the overall message and the primary concern the Lead Systems Technician is addressing. You don&#x27;t need to understand every technical term at this stage, just the main point.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Incident Report: Network Protocol Discrepancy (NPD-743)</h5>
+<p>To: Operations Manager<br>
+From: Lead Systems Technician<br>
+Date: 2024-05-15<br>
+Subject: Critical <strong class="lexis">Diagnosis</strong> Regarding NPD-743 Protocol Failure</p>
+<p>This report addresses the persistent network protocol discrepancy, designated NPD-743, which has impacted our regional data exchange reliability. While initial observations pointed to isolated hardware <strong class="lexis">symptoms</strong>, further deep-dive analytics have uncovered a more systemic <strong class="lexis">root_cause</strong>.</p>
+<p><strong class="lexis">What we&#x27;ve discovered is a critical flaw</strong> in the firmware update deployed last quarter. This flaw isn&#x27;t immediately apparent through standard diagnostics; <strong class="lexis">what it fundamentally does is misinterpret</strong> routing tables under peak load, leading to intermittent, unlogged packet loss. To a <strong class="lexis">certain extent</strong>, previous mitigation efforts addressed the symptoms, but failed to target the <strong class="lexis">underlying principle</strong> of the malfunction.</p>
+<p>The <strong class="lexis">inherent complexities</strong> of this particular protocol suite mean that simple rollback isn&#x27;t a viable option without significant service disruption. <strong class="lexis">What this implies for our operational continuity is a severe risk</strong> to data integrity during critical transaction windows. Furthermore, the <strong class="lexis">nuances of interpretation</strong> required to properly debug the affected firmware mean that a quick fix is improbable. <strong class="lexis">What the board under no circumstances will accept is a flawed semiotic analysis</strong> of our network&#x27;s performance, therefore a robust <strong class="lexis">resolution</strong> strategy is paramount.</p>
+<p>Our proposed <strong class="lexis">resolution</strong> involves a two-phase approach: first, deploying a temporary patch to stabilize routing tables under moderate load, which will reduce immediate <strong class="lexis">implication</strong> risks. Second, a complete rewrite of the affected firmware module, meticulously tested, will be necessary to permanently eliminate this <strong class="lexis">potential pitfall</strong>. This phased approach, though time-consuming, ensures minimal further disruption while addressing the <strong class="lexis">root_cause</strong> with precision.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Choose the best summary of the main point of the report.</p>
+<p>The primary purpose of this report is to:</p>
+<ul><li>Document a minor network bug that has been resolved.</li><li>Explain a complex network fault, its implications, and a proposed solution.</li><li>Blame the IT department for recent service disruptions.</li><li>Request more resources for a new firmware development project.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-unpacking-the-technical-details">
+<header class="stage-header"><h2>Unpacking the Technical Details</h2></header>
+<section class="handout">
+<p>Now, read the report again more closely. Pay attention to the specific information, the <strong class="lexis">root_cause</strong>, the proposed <strong class="lexis">resolution</strong>, and the wider <strong class="lexis">implications</strong>. Answer the questions below in short sentences.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Incident Report: Network Protocol Discrepancy (NPD-743)</h5>
+<p>To: Operations Manager<br>
+From: Lead Systems Technician<br>
+Date: 2024-05-15<br>
+Subject: Critical <strong class="lexis">Diagnosis</strong> Regarding NPD-743 Protocol Failure</p>
+<p>This report addresses the persistent network protocol discrepancy, designated NPD-743, which has impacted our regional data exchange reliability. While initial observations pointed to isolated hardware <strong class="lexis">symptoms</strong>, further deep-dive analytics have uncovered a more systemic <strong class="lexis">root_cause</strong>.</p>
+<p><strong class="lexis">What we&#x27;ve discovered is a critical flaw</strong> in the firmware update deployed last quarter. This flaw isn&#x27;t immediately apparent through standard diagnostics; <strong class="lexis">what it fundamentally does is misinterpret</strong> routing tables under peak load, leading to intermittent, unlogged packet loss. To a <strong class="lexis">certain extent</strong>, previous mitigation efforts addressed the symptoms, but failed to target the <strong class="lexis">underlying principle</strong> of the malfunction.</p>
+<p>The <strong class="lexis">inherent complexities</strong> of this particular protocol suite mean that simple rollback isn&#x27;t a viable option without significant service disruption. <strong class="lexis">What this implies for our operational continuity is a severe risk</strong> to data integrity during critical transaction windows. Furthermore, the <strong class="lexis">nuances of interpretation</strong> required to properly debug the affected firmware mean that a quick fix is improbable. <strong class="lexis">What the board under no circumstances will accept is a flawed semiotic analysis</strong> of our network&#x27;s performance, therefore a robust <strong class="lexis">resolution</strong> strategy is paramount.</p>
+<p>Our proposed <strong class="lexis">resolution</strong> involves a two-phase approach: first, deploying a temporary patch to stabilize routing tables under moderate load, which will reduce immediate <strong class="lexis">implication</strong> risks. Second, a complete rewrite of the affected firmware module, meticulously tested, will be necessary to permanently eliminate this <strong class="lexis">potential pitfall</strong>. This phased approach, though time-consuming, ensures minimal further disruption while addressing the <strong class="lexis">root_cause</strong> with precision.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">According to the report, what was initially thought to be the problem?</p>
+<p>Initial observations pointed to:</p>
+</div>
+<div class="task"><p class="task-instruction">What is identified as the actual systemic root_cause of the problem?</p>
+<p>The systemic root cause is:</p>
+</div>
+<div class="task"><p class="task-instruction">Why is a simple rollback of the firmware not considered a viable resolution option?</p>
+<p>A simple rollback is not an option due to:</p>
+</div>
+<div class="task"><p class="task-instruction">What is the &#x27;potential pitfall&#x27; that the proposed resolution aims to permanently eliminate?</p>
+<p>The &#x27;potential pitfall&#x27; refers to:</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-how-to-emphasize-and-qualify">
+<header class="stage-header"><h2>How to Emphasize and Qualify</h2></header>
+<section class="handout">
+<p>The Lead Systems Technician uses specific language to emphasize important points and express ideas with greater precision and diplomacy. Look at the highlighted phrases and sentences from the report and discuss their effect.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Incident Report: Network Protocol Discrepancy (NPD-743)</h5>
+<p>To: Operations Manager<br>
+From: Lead Systems Technician<br>
+Date: 2024-05-15<br>
+Subject: Critical <strong class="lexis">Diagnosis</strong> Regarding NPD-743 Protocol Failure</p>
+<p>This report addresses the persistent network protocol discrepancy, designated NPD-743, which has impacted our regional data exchange reliability. While initial observations pointed to isolated hardware <strong class="lexis">symptoms</strong>, further deep-dive analytics have uncovered a more systemic <strong class="lexis">root_cause</strong>.</p>
+<p><strong class="lexis">What we&#x27;ve discovered is a critical flaw</strong> in the firmware update deployed last quarter. This flaw isn&#x27;t immediately apparent through standard diagnostics; <strong class="lexis">what it fundamentally does is misinterpret</strong> routing tables under peak load, leading to intermittent, unlogged packet loss. To a <strong class="lexis">certain extent</strong>, previous mitigation efforts addressed the symptoms, but failed to target the <strong class="lexis">underlying principle</strong> of the malfunction.</p>
+<p>The <strong class="lexis">inherent complexities</strong> of this particular protocol suite mean that simple rollback isn&#x27;t a viable option without significant service disruption. <strong class="lexis">What this implies for our operational continuity is a severe risk</strong> to data integrity during critical transaction windows. Furthermore, the <strong class="lexis">nuances of interpretation</strong> required to properly debug the affected firmware mean that a quick fix is improbable. <strong class="lexis">What the board under no circumstances will accept is a flawed semiotic analysis</strong> of our network&#x27;s performance, therefore a robust <strong class="lexis">resolution</strong> strategy is paramount.</p>
+<p>Our proposed <strong class="lexis">resolution</strong> involves a two-phase approach: first, deploying a temporary patch to stabilize routing tables under moderate load, which will reduce immediate <strong class="lexis">implication</strong> risks. Second, a complete rewrite of the affected firmware module, meticulously tested, will be necessary to permanently eliminate this <strong class="lexis">potential pitfall</strong>. This phased approach, though time-consuming, ensures minimal further disruption while addressing the <strong class="lexis">root_cause</strong> with precision.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Look at these sentences from the report:
+
+&#x27;What we&#x27;ve discovered is a critical flaw...&#x27;
+&#x27;What it fundamentally does is misinterpret routing tables...&#x27;
+&#x27;What this implies for our operational continuity is a severe risk...&#x27;
+
+How do these structures, by starting with &#x27;What...&#x27;, change the emphasis compared to &#x27;We&#x27;ve discovered a critical flaw&#x27; or &#x27;This implies a severe risk&#x27;?</p>
+<p>These structures primarily emphasize:</p>
+</div>
+<div class="task"><p class="task-instruction">Consider the phrases: &#x27;to a certain extent&#x27;, &#x27;inherent complexities&#x27;, &#x27;the underlying principle&#x27;, &#x27;nuances of interpretation&#x27;, &#x27;a potential pitfall&#x27;.
+
+What is the pragmatic purpose of using these specific words and phrases instead of simpler, more direct terms?</p>
+<p>These phrases are used to:</p>
+</div>
+<div class="task"><p class="task-instruction">Consider the sentence: &#x27;What the board under no circumstances will accept is a flawed semiotic analysis of our network&#x27;s performance&#x27;.
+
+What does this fronted structure achieve pragmatically in the context of communicating with a manager?</p>
+<p>This sentence primarily serves to:</p>
+<ul><li>State a simple fact about the board&#x27;s preferences.</li><li>Highlight a critical and non-negotiable expectation from management.</li><li>Critique the board&#x27;s understanding of technical matters.</li><li>Apologize for previous analytical mistakes.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-applying-persuasive-structures">
+<header class="stage-header"><h2>Applying Persuasive Structures</h2></header>
+<section class="handout">
+<p>Now, practice using these structures and phrases to make your explanations more precise, diplomatic, and persuasive. Rewrite the sentences or fill in the blanks using the given prompts, focusing on professional communication.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Rewrite the following sentence, starting with &#x27;What...&#x27; to emphasize the main problem: &#x27;The core issue is a critical compatibility conflict in the new module.&#x27;</p>
+<p>What...</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the following sentence, starting with &#x27;What this implies...&#x27; to emphasize the consequence: &#x27;This means that the system will experience intermittent crashes under heavy load.&#x27;</p>
+<p>What this implies is...</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence using a suitable qualifying phrase to acknowledge complexity professionally: &#x27;The project faces _______ due to unforeseen market shifts and evolving regulatory requirements.&#x27; (Use &#x27;inherent complexities&#x27; or &#x27;potential pitfall&#x27;)</p>
+<p>The project faces...</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence using a suitable qualifying phrase to add nuance: &#x27;Our initial analysis was correct ______ regarding the primary symptoms, but it overlooked the long-term implication of the system design.&#x27; (Use &#x27;to a certain extent&#x27;)</p>
+<p>Our initial analysis was correct...</p>
+</div>
+<div class="task"><p class="task-instruction">Transform the sentence to emphasize what the client expects from the product&#x27;s performance: &#x27;The client expects flawless execution of the security protocol under all operational conditions.&#x27;</p>
+<p>What the client expects...</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-applying-your-communication-skills">
+<header class="stage-header"><h2>Applying Your Communication Skills</h2></header>
+<section class="handout">
+<p>Imagine you need to write a brief internal report or prepare for a discussion with a non-specialist manager about a complex issue in your workplace. This could be a technical problem, a process inefficiency, or a project challenge that requires careful explanation.</p>
+<p>Your goal is to explain the issue, its <strong class="lexis">root_cause</strong>, and its <strong class="lexis">implications</strong> clearly and diplomatically, while also conveying the <strong class="lexis">nuances of interpretation</strong> involved.</p>
+<p>Try to incorporate:</p>
+<p>*   At least two examples of fronted structures (e.g., &#x27;What we&#x27;ve found is...&#x27;, &#x27;What this means is...&#x27;).<br>
+*   At least two qualifying phrases (e.g., &#x27;to a certain extent&#x27;, &#x27;inherent complexities&#x27;, &#x27;potential pitfall&#x27;, &#x27;underlying principle&#x27;).</p>
+<p>Prepare your explanation (3-5 sentences) and be ready to share it with a partner or the class. Be prepared to discuss how these structures make your explanation more effective.</p>
+</section>
+</article>
+</body>
+</html>

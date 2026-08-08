@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Listening for Career Advice: Digital Footprint</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Listening for Career Advice: Digital Footprint</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>6</dd>
+      <dt>Class</dt><dd>4</dd>
+      <dt>Theme</dt><dd>T06_TECH</dd>
+      <dt>Framework</dt><dd>SK-REC</dd>
+      <dt>Role</dt><dd>SK_REC_LISTENING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Your Digital Footprint</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Greet students and briefly introduce the topic of online presence for professional purposes.<br>
+2. Ask students to discuss the lead-in question in pairs or small groups.<br>
+3. Monitor discussions for initial ideas and relevant vocabulary.<br>
+4. Facilitate a brief whole-class feedback session, noting down key points on the board.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">First Impressions Online</h4>
+<p>Imagine a prospective employer or client searches for you online. What kind of digital footprint do you think they would find, and how might it influence their perception of you?</p>
+<p>Discuss with a partner:<br>
+1. What kind of information about you is publicly available online?<br>
+2. Do you actively manage your online presence? If so, how?<br>
+3. What are the potential benefits and risks of having a strong online presence for your career?<br>
+4. How important is it to maintain a professional image online in your industry?</p>
+</section>
+</article>
+<article class="stage" id="stage-PTV">
+<header class="stage-header"><span class="stage-code">PTV</span><h2>Pre-Teaching Vocabulary</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Distribute the vocabulary matching task.<br>
+2. Instruct students to work individually or in pairs to match the terms with their definitions.<br>
+3. Go through the answers as a class, clarifying any misunderstandings and providing example sentences if necessary.<br>
+4. Encourage students to record the new vocabulary.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Understanding Key Terms</h4>
+<p>Before listening to the audio, let&#x27;s look at some important words and phrases. Match the terms on the left with their definitions on the right.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>online reputation</li><li>professional branding</li><li>social media etiquette</li><li>privacy settings</li><li>career advancement</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match each term to its definition.</p>
+<ul><li><strong>online reputation</strong> — The overall perception of an individual or company based on their internet content.</li><li><strong>professional branding</strong> — The process of consciously creating a distinctive professional image for oneself.</li><li><strong>social media etiquette</strong> — The unwritten rules of behavior and conduct on social media platforms.</li><li><strong>privacy settings</strong> — Controls that allow users to manage who can see their information on social media or other online platforms.</li><li><strong>career advancement</strong> — The progression of one&#x27;s professional life, often involving promotions or increased responsibility.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-GIST">
+<header class="stage-header"><span class="stage-code">GIST</span><h2>Gist Listening: Online Presence for Professionals</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Tell students they will listen to a conversation between a career advisor and a client.<br>
+2. Instruct them to listen for the main idea of the conversation.<br>
+3. Play the audio once.<br>
+4. Have students answer the multiple-choice question individually.<br>
+5. Check answers as a class, discussing briefly what the main point was.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Understanding the Main Message</h4>
+<p>Listen to the conversation between a career advisor and a client. What is the main purpose of their discussion?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Managing Your Digital Footprint</h5>
+<p>MARIA: Good morning, Alex. Thanks for coming in. Today, I want to talk about something crucial for your job search: your <strong class="lexis">online reputation</strong>. More and more, employers are looking at candidates&#x27; digital footprints before they even call them for an interview. It&#x27;s not just about what&#x27;s on your CV anymore.</p>
+<p>ALEX: Right, I get that. I mean, I&#x27;m careful with what I post, but I don&#x27;t really think about it in a &#x27;professional&#x27; way.</p>
+<p>MARIA: That&#x27;s a common misconception. Think of it as <strong class="lexis">professional branding</strong>. Your online presence should reflect the kind of employee you want to be. Are your social media profiles consistent with your professional goals? Are you presenting yourself as reliable, knowledgeable, and a team player?</p>
+<p>ALEX: Hmm, I hadn&#x27;t really considered it like that. My Facebook is mostly photos from holidays and family events. LinkedIn is where I keep my work stuff.</p>
+<p>MARIA: That&#x27;s a good start. LinkedIn is definitely key for <strong class="lexis">career advancement</strong>. But even on other platforms, it’s important to practice good <strong class="lexis">social media etiquette</strong>. This means avoiding controversial posts, respecting others&#x27; privacy, and thinking twice before sharing anything that could be misinterpreted. Even if your settings are private, things can get shared. And remember, <strong class="lexis">privacy settings</strong> are not always foolproof. Screenshots exist, and what’s private today might not be tomorrow.</p>
+<p>ALEX: So, you&#x27;re saying I should clean up my old posts?</p>
+<p>MARIA: It&#x27;s more about strategic management. Consider archiving old content that doesn&#x27;t align with your current professional image. Think about what message each platform sends. For instance, if you&#x27;re looking for a project management role, perhaps sharing industry articles on LinkedIn is more beneficial than just holiday snaps. Also, think about Google yourself. What comes up? Is it what you want a recruiter to see? If you have an uncommon name, it’s easier to control. If your name is common, adding a middle initial or professional title can help differentiate.</p>
+<p>ALEX: That makes sense. I definitely don&#x27;t want anything unprofessional showing up. So, beyond cleaning up, what else can I do?</p>
+<p>MARIA: Proactively build your positive <strong class="lexis">online reputation</strong>. Engage in professional communities. Share relevant content. Comment thoughtfully on industry news. Show your expertise. This isn&#x27;t about being fake; it’s about curating an authentic but professional image. It’s an ongoing process, not a one-time clean-up.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Listen to the conversation. What is the main message Maria wants to convey to Alex?</p>
+<p>What is the main message Maria wants to convey to Alex?</p>
+<ul><li>That he needs to delete all his social media accounts immediately.</li><li>That his online presence significantly impacts his job prospects and needs strategic management.</li><li>That LinkedIn is the only social media platform that matters for job searching.</li><li>That changing privacy settings will solve all his online reputation issues.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-DET">
+<header class="stage-header"><span class="stage-code">DET</span><h2>Detailed Listening: Specific Information</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Inform students they will listen to the conversation again, this time focusing on specific details.<br>
+2. Distribute the detailed comprehension tasks.<br>
+3. Play the audio for a second time.<br>
+4. Allow students time to complete the tasks individually or in pairs.<br>
+5. Go through the answers as a class, clarifying any points as needed.<br>
+6. Highlight any new vocabulary that emerged during the discussion.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Zooming In on the Details</h4>
+<p>Listen to the conversation again and answer the questions below, focusing on the specific advice Maria gives Alex.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Managing Your Digital Footprint</h5>
+<p>MARIA: Good morning, Alex. Thanks for coming in. Today, I want to talk about something crucial for your job search: your <strong class="lexis">online reputation</strong>. More and more, employers are looking at candidates&#x27; digital footprints before they even call them for an interview. It&#x27;s not just about what&#x27;s on your CV anymore.</p>
+<p>ALEX: Right, I get that. I mean, I&#x27;m careful with what I post, but I don&#x27;t really think about it in a &#x27;professional&#x27; way.</p>
+<p>MARIA: That&#x27;s a common misconception. Think of it as <strong class="lexis">professional branding</strong>. Your online presence should reflect the kind of employee you want to be. Are your social media profiles consistent with your professional goals? Are you presenting yourself as reliable, knowledgeable, and a team player?</p>
+<p>ALEX: Hmm, I hadn&#x27;t really considered it like that. My Facebook is mostly photos from holidays and family events. LinkedIn is where I keep my work stuff.</p>
+<p>MARIA: That&#x27;s a good start. LinkedIn is definitely key for <strong class="lexis">career advancement</strong>. But even on other platforms, it’s important to practice good <strong class="lexis">social media etiquette</strong>. This means avoiding controversial posts, respecting others&#x27; privacy, and thinking twice before sharing anything that could be misinterpreted. Even if your settings are private, things can get shared. And remember, <strong class="lexis">privacy settings</strong> are not always foolproof. Screenshots exist, and what’s private today might not be tomorrow.</p>
+<p>ALEX: So, you&#x27;re saying I should clean up my old posts?</p>
+<p>MARIA: It&#x27;s more about strategic management. Consider archiving old content that doesn&#x27;t align with your current professional image. Think about what message each platform sends. For instance, if you&#x27;re looking for a project management role, perhaps sharing industry articles on LinkedIn is more beneficial than just holiday snaps. Also, think about Google yourself. What comes up? Is it what you want a recruiter to see? If you have an uncommon name, it’s easier to control. If your name is common, adding a middle initial or professional title can help differentiate.</p>
+<p>ALEX: That makes sense. I definitely don&#x27;t want anything unprofessional showing up. So, beyond cleaning up, what else can I do?</p>
+<p>MARIA: Proactively build your positive <strong class="lexis">online reputation</strong>. Engage in professional communities. Share relevant content. Comment thoughtfully on industry news. Show your expertise. This isn&#x27;t about being fake; it’s about curating an authentic but professional image. It’s an ongoing process, not a one-time clean-up.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">According to Maria, what is a &#x27;common misconception&#x27; Alex has about his online presence?</p>
+<ul><li>That employers don&#x27;t check social media.</li><li>That being careful with posts is enough without thinking professionally.</li><li>That LinkedIn is irrelevant for job searching.</li><li>That he needs to post more personal content.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Maria mentions two things that good social media etiquette involves. Name one.</p>
+<p>Name one thing that good social media etiquette involves.</p>
+</div>
+<div class="task"><p class="task-instruction">What advice does Maria give Alex about old content that doesn&#x27;t align with his professional image?</p>
+<ul><li>Delete everything immediately.</li><li>Ignore it, it&#x27;s not important.</li><li>Consider archiving it.</li><li>Share it with a wider audience.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Besides cleaning up, what is one way Maria suggests Alex can proactively build a positive online reputation?</p>
+<p>Name one way Alex can proactively build a positive online reputation.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback and Discussion: Applying the Advice</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Lead a whole-class discussion, encouraging students to share their reactions to the advice given in the audio.<br>
+2. Ask students if they agree with Maria&#x27;s advice and if they have similar experiences or strategies.<br>
+3. Focus on how students can apply the advice to their own <strong class="lexis">online reputation</strong> and <strong class="lexis">professional branding</strong>.<br>
+4. Briefly review the key vocabulary from the PTV stage, asking students to use them in context.<br>
+5. Provide brief feedback on any common errors or effective language use observed during the discussion.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Your Next Steps Online</h4>
+<p>Now that you&#x27;ve listened to the conversation, let&#x27;s discuss:<br>
+1. What advice from Maria did you find most useful or surprising?<br>
+2. Do you think it&#x27;s fair for employers to check candidates&#x27; social media? Why or why not?<br>
+3. What specific actions could you take this week to improve your <strong class="lexis">online reputation</strong> or <strong class="lexis">professional branding</strong>?<br>
+4. How can you ensure your <strong class="lexis">privacy settings</strong> are effective while still benefiting from an online presence?<br>
+5. In your opinion, how important is <strong class="lexis">social media etiquette</strong> in maintaining a positive professional image?</p>
+</section>
+</article>
+</body>
+</html>

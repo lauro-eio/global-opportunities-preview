@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Asking About Your Professional License Renewal</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Asking About Your Professional License Renewal</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>9</dd>
+      <dt>Class</dt><dd>6</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-keeping-your-professional-status-current">
+<header class="stage-header"><h2>Keeping Your Professional Status Current</h2></header>
+<section class="handout">
+<p>Imagine you need to renew a vital professional license for your job to remain legally compliant. This is crucial for your career.</p>
+<p>Discuss with a partner:<br>
+1. What kind of professional licenses or permits are common in your industry or for jobs you know?<br>
+2. What potential challenges might you face during an application or renewal process for a professional license?<br>
+3. How can individuals or companies prepare to avoid these challenges and ensure a smooth <strong class="lexis">permit renewal</strong>?</p>
+</section>
+</article>
+<article class="stage" id="stage-analyzing-a-compliance-inquiry">
+<header class="stage-header"><h2>Analyzing a Compliance Inquiry</h2></header>
+<section class="handout">
+<p>Read the email below from an employee to their manager regarding a query about <strong class="lexis">certification requirements</strong>.</p>
+<p>[Email content below the tasks section]</p>
+<p>After reading, answer the following questions.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Email: Urgent Query on Certification Requirements</h5>
+<p>Subject: Urgent Query: Professional Certification Requirements</p>
+<p>Dear Mr. Davies,</p>
+<p>I am writing to you with an urgent query regarding the <strong class="lexis">certification requirements</strong> for operating specialized equipment, specifically the Class C forklift, which is integral to my role in the warehouse operations.</p>
+<p>Yesterday, during a routine safety briefing, a colleague mentioned a recent update from the <strong class="lexis">regulatory body</strong> concerning mandatory refresher training for all Class C operators. While I completed my initial certification last year, I haven&#x27;t received any notification about additional training or changes to the <strong class="lexis">permit renewal</strong> schedule.</p>
+<p>My records indicate my permit is valid for another six months, but I am concerned about potential non-compliance if there&#x27;s new legislation I&#x27;m unaware of. I want to ensure I am fully compliant to avoid any disruption to operations or personal penalties.</p>
+<p>Could you please clarify if there have been any recent changes that might affect my current certification status or the <strong class="lexis">application form</strong> for its renewal? Specifically, I&#x27;d like to know if new training is required before my next renewal date or if we are due for a <strong class="lexis">compliance audit</strong> soon.</p>
+<p>I am prepared to undertake any necessary training immediately to maintain my professional standing and ensure continuous operational efficiency.</p>
+<p>Thank you for your prompt attention to this matter.</p>
+<p>Best regards,<br>
+Sarah Jenkins<br>
+Warehouse Logistics Specialist</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main purpose of Sarah&#x27;s email?</p>
+<ul><li>To complain about new training requirements.</li><li>To request time off for an audit.</li><li>To seek clarification on updated certification requirements to ensure compliance.</li><li>To inform her manager about her expiring permit.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">What specific equipment certification is Sarah concerned about?</p>
+</div>
+<div class="task"><p class="task-instruction">Which phrase indicates Sarah&#x27;s proactive approach to the situation?</p>
+<ul><li>My records indicate my permit is valid for another six months.</li><li>I haven&#x27;t received any notification.</li><li>I am prepared to undertake any necessary training immediately.</li><li>A colleague mentioned a recent update.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-building-your-professional-vocabulary">
+<header class="stage-header"><h2>Building Your Professional Vocabulary</h2></header>
+<section class="handout">
+<p>Before writing your own email, let&#x27;s look at some useful phrases and vocabulary for discussing professional licenses and compliance.</p>
+<p>Review the phrases in the tables below. Think about which ones you might use when writing about your own license renewal situation.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Stating Your Purpose / Concern</th><th>Referring to Regulations / Status</th><th>Requesting Information / Action</th></tr><tr><td>I am writing to inquire about...</td><td>a recent update from the **regulatory body**</td><td>Could you please clarify if...?</td></tr><tr><td>I am seeking clarification regarding...</td><td>the latest **certification requirements**</td><td>I would appreciate it if you could confirm...</td></tr><tr><td>I have an urgent query concerning...</td><td>my current **permit renewal** status</td><td>Please advise on the next steps.</td></tr><tr><td>I wish to ensure my full compliance with...</td><td>due for a **compliance audit**</td><td>What is the procedure for...?</td></tr><tr><td></td><td>the **application form** process</td><td></td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-writing-your-license-renewal-inquiry">
+<header class="stage-header"><h2>Writing Your License Renewal Inquiry</h2></header>
+<section class="handout">
+<p>You work for a logistics company. Your <strong class="lexis">professional license</strong> for operating a specific type of machinery is due for renewal in three months. You recently heard informal rumors about significant changes to the <strong class="lexis">certification requirements</strong>, including new mandatory training modules, but you haven&#x27;t received official communication. You are concerned about potential delays or non-compliance if these rumors are true.</p>
+<p>Write an email to your manager, Mr./Ms. [Manager&#x27;s Last Name], to:</p>
+<p>1. State the purpose of your email clearly.<br>
+2. Express your concern about the rumored changes to <strong class="lexis">certification requirements</strong>.<br>
+3. Request clarification on any updates from the <strong class="lexis">regulatory body</strong> regarding your <strong class="lexis">permit renewal</strong>.<br>
+4. Ask about the process for any new mandatory training or an updated <strong class="lexis">application form</strong>.<br>
+5. Reassure your manager of your commitment to maintaining full compliance.</p>
+<p><strong class="lexis">Audience:</strong> Your direct manager.<br>
+<strong class="lexis">Purpose:</strong> To proactively seek information and ensure continuous compliance.<br>
+<strong class="lexis">Length:</strong> Approximately 150-200 words.</p>
+<p>Use appropriate professional language and refer to the example email and useful phrases from the previous stages.</p>
+</section>
+</article>
+<article class="stage" id="stage-improving-your-professional-corresponden">
+<header class="stage-header"><h2>Improving Your Professional Correspondence</h2></header>
+<section class="handout">
+<p>Now, exchange your email with a partner. Read your partner&#x27;s email and provide constructive feedback using the questions below. Then, take time to review your own email and make improvements.</p>
+<p><strong class="lexis">Peer Feedback Questions:</strong><br>
+1. <strong class="lexis">Clarity of Purpose:</strong> Is the main reason for the email clear from the beginning?<br>
+2. <strong class="lexis">Information Request:</strong> Are the questions or requests for information clear and specific?<br>
+3. <strong class="lexis">Professional Tone:</strong> Is the tone appropriate for an email to a manager? Is it respectful and proactive?<br>
+4. <strong class="lexis">Key Vocabulary:</strong> Has your partner used any of the <strong class="lexis">lexical tags</strong> we discussed (e.g., <strong class="lexis">regulatory body</strong>, <strong class="lexis">certification requirements</strong>, <strong class="lexis">permit renewal</strong>, <strong class="lexis">compliance audit</strong>, <strong class="lexis">application form</strong>) effectively?<br>
+5. <strong class="lexis">Completeness:</strong> Does the email address all five points from the writing brief?<br>
+6. <strong class="lexis">Overall Impression:</strong> Is the email easy to understand and does it achieve its purpose effectively?</p>
+<p>After receiving feedback, revise your email to improve clarity, tone, and accuracy.</p>
+</section>
+</article>
+</body>
+</html>

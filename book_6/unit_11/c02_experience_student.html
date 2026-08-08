@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reflecting on Your Professional Journey</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Reflecting on Your Professional Journey</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>11</dd>
+      <dt>Class</dt><dd>2</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-your-career-compass">
+<header class="stage-header"><h2>Your Career Compass</h2></header>
+<section class="handout">
+<p>Think about your professional journey. What was a memorable piece of feedback you received—positive or negative—that significantly changed how you approach your work or career path? How did it make you feel, and what did you learn from it? Prepare to share a brief story with a partner.</p>
+</section>
+</article>
+<article class="stage" id="stage-the-project-re-evaluation-memo">
+<header class="stage-header"><h2>The Project Re-Evaluation Memo</h2></header>
+<section class="handout">
+<p>Read the following memo quickly to understand its main purpose. Then, choose the best answer to the question below.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Memo: Project Horizon – Post-Implementation Review &amp; Future Outlook</h5>
+<p>To: All Project Horizon Stakeholders<br>
+From: Eleanor Vance, Director of Operations<br>
+Date: October 26, 20XX<br>
+Subject: Post-Implementation Review: <strong class="lexis">Project Horizon</strong></p>
+<p>Dear Team,</p>
+<p>As we close the chapter on <strong class="lexis">Project Horizon</strong>, it&#x27;s crucial to engage in thorough <strong class="lexis">self-reflection</strong> and extract every possible lesson. This initiative, while ultimately successful in delivering its core objectives, undeniably presented us with a <strong class="lexis">steep learning curve</strong>. The initial rollout faced unexpected logistical complications, particularly concerning supplier coordination. Many of us now wish we had allocated more time for preliminary vendor vetting. If only the procurement team had identified those specific supply chain vulnerabilities earlier, we could have mitigated several critical delays that impacted our initial timeline.</p>
+<p>Looking back, the pressure to meet the aggressive launch date led to some rushed decisions. Frankly, I’d rather we hadn&#x27;t fast-tracked the pilot phase without comprehensive testing in a live environment. This would have provided a more robust <strong class="lexis">feedback loop</strong> before full-scale deployment. However, it’s important to acknowledge how the team <strong class="lexis">overcame significant obstacles</strong> during that period. Your adaptability and problem-solving under pressure were truly commendable.</p>
+<p>We have since integrated several key learnings into our standard operating procedures. The experience certainly <strong class="lexis">gained valuable insights from</strong> the real-world challenges, particularly regarding the need for staggered deployment strategies. Moving forward, a stronger emphasis will be placed on proactive risk assessment and contingency planning. This collective effort to improve demonstrates a strong <strong class="lexis">growth mindset</strong> across the board.</p>
+<p>This difficult period, though challenging, ultimately allowed us to <strong class="lexis">develop resilience through</strong> adversity. The <strong class="lexis">constructive criticism</strong> we received, both internally and from key clients, has been instrumental in refining our processes and ensuring better <strong class="lexis">performance improvement</strong> in future projects. We must carry these lessons forward, using them as a foundation for stronger, more efficient operations.</p>
+<p>Thank you for your dedication and commitment. Let’s leverage this experience for our continued professional growth.</p>
+<p>Sincerely,<br>
+Eleanor Vance<br>
+Director of Operations</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the primary purpose of Eleanor Vance&#x27;s memo?</p>
+<ul><li>To announce a new project launch and introduce the team.</li><li>To celebrate the successful completion of Project Horizon without reservations.</li><li>To analyze the challenges and learnings from a past project for future improvement.</li><li>To inform employees about upcoming layoffs due to project failures.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-analyzing-the-horizon-review">
+<header class="stage-header"><h2>Analyzing the Horizon Review</h2></header>
+<section class="handout">
+<p>Read the memo again more carefully. Then, complete the tasks based on the text. Afterward, discuss the following: How does Eleanor Vance balance acknowledging the project&#x27;s difficulties with maintaining team morale and a positive outlook for future projects? Be ready to discuss your thoughts with a partner.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Memo: Project Horizon – Post-Implementation Review &amp; Future Outlook</h5>
+<p>To: All Project Horizon Stakeholders<br>
+From: Eleanor Vance, Director of Operations<br>
+Date: October 26, 20XX<br>
+Subject: Post-Implementation Review: <strong class="lexis">Project Horizon</strong></p>
+<p>Dear Team,</p>
+<p>As we close the chapter on <strong class="lexis">Project Horizon</strong>, it&#x27;s crucial to engage in thorough <strong class="lexis">self-reflection</strong> and extract every possible lesson. This initiative, while ultimately successful in delivering its core objectives, undeniably presented us with a <strong class="lexis">steep learning curve</strong>. The initial rollout faced unexpected logistical complications, particularly concerning supplier coordination. Many of us now wish we had allocated more time for preliminary vendor vetting. If only the procurement team had identified those specific supply chain vulnerabilities earlier, we could have mitigated several critical delays that impacted our initial timeline.</p>
+<p>Looking back, the pressure to meet the aggressive launch date led to some rushed decisions. Frankly, I’d rather we hadn&#x27;t fast-tracked the pilot phase without comprehensive testing in a live environment. This would have provided a more robust <strong class="lexis">feedback loop</strong> before full-scale deployment. However, it’s important to acknowledge how the team <strong class="lexis">overcame significant obstacles</strong> during that period. Your adaptability and problem-solving under pressure were truly commendable.</p>
+<p>We have since integrated several key learnings into our standard operating procedures. The experience certainly <strong class="lexis">gained valuable insights from</strong> the real-world challenges, particularly regarding the need for staggered deployment strategies. Moving forward, a stronger emphasis will be placed on proactive risk assessment and contingency planning. This collective effort to improve demonstrates a strong <strong class="lexis">growth mindset</strong> across the board.</p>
+<p>This difficult period, though challenging, ultimately allowed us to <strong class="lexis">develop resilience through</strong> adversity. The <strong class="lexis">constructive criticism</strong> we received, both internally and from key clients, has been instrumental in refining our processes and ensuring better <strong class="lexis">performance improvement</strong> in future projects. We must carry these lessons forward, using them as a foundation for stronger, more efficient operations.</p>
+<p>Thank you for your dedication and commitment. Let’s leverage this experience for our continued professional growth.</p>
+<p>Sincerely,<br>
+Eleanor Vance<br>
+Director of Operations</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Based on the memo, what specific logistical issue did Project Horizon face during its initial rollout?</p>
+<p>Specific logistical issue:</p>
+</div>
+<div class="task"><p class="task-instruction">According to the memo, what specific action does Eleanor Vance wish the procurement team had taken earlier?</p>
+<p>Action Eleanor Vance wished the procurement team had taken:</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-exploring-deeper-meanings">
+<header class="stage-header"><h2>Exploring Deeper Meanings</h2></header>
+<section class="handout">
+<p>Look at the memo again. Pay close attention to how Eleanor Vance talks about past events and lessons learned. Work in pairs to answer the questions below.</p>
+<p>1. Find three sentences in the memo where Eleanor Vance expresses regret about a past decision or a missed opportunity. What patterns do you notice in these sentences? (Hint: Look for phrases like &#x27;wish,&#x27; &#x27;if only,&#x27; &#x27;would rather&#x27;).</p>
+<p>2. The memo uses several professional phrases to describe overcoming difficulties and learning from them. Find the following phrases in the text and discuss what they mean in the context of professional development:<br>
+    a. &#x27;a steep learning curve&#x27;<br>
+    b. &#x27;overcame significant obstacles&#x27;<br>
+    c. &#x27;gained valuable insights from&#x27;<br>
+    d. &#x27;developed resilience through&#x27;</p>
+<p>3. What is the overall effect of using these kinds of phrases when discussing past challenges in a professional setting?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Memo: Project Horizon – Post-Implementation Review &amp; Future Outlook</h5>
+<p>To: All Project Horizon Stakeholders<br>
+From: Eleanor Vance, Director of Operations<br>
+Date: October 26, 20XX<br>
+Subject: Post-Implementation Review: <strong class="lexis">Project Horizon</strong></p>
+<p>Dear Team,</p>
+<p>As we close the chapter on <strong class="lexis">Project Horizon</strong>, it&#x27;s crucial to engage in thorough <strong class="lexis">self-reflection</strong> and extract every possible lesson. This initiative, while ultimately successful in delivering its core objectives, undeniably presented us with a <strong class="lexis">steep learning curve</strong>. The initial rollout faced unexpected logistical complications, particularly concerning supplier coordination. Many of us now wish we had allocated more time for preliminary vendor vetting. If only the procurement team had identified those specific supply chain vulnerabilities earlier, we could have mitigated several critical delays that impacted our initial timeline.</p>
+<p>Looking back, the pressure to meet the aggressive launch date led to some rushed decisions. Frankly, I’d rather we hadn&#x27;t fast-tracked the pilot phase without comprehensive testing in a live environment. This would have provided a more robust <strong class="lexis">feedback loop</strong> before full-scale deployment. However, it’s important to acknowledge how the team <strong class="lexis">overcame significant obstacles</strong> during that period. Your adaptability and problem-solving under pressure were truly commendable.</p>
+<p>We have since integrated several key learnings into our standard operating procedures. The experience certainly <strong class="lexis">gained valuable insights from</strong> the real-world challenges, particularly regarding the need for staggered deployment strategies. Moving forward, a stronger emphasis will be placed on proactive risk assessment and contingency planning. This collective effort to improve demonstrates a strong <strong class="lexis">growth mindset</strong> across the board.</p>
+<p>This difficult period, though challenging, ultimately allowed us to <strong class="lexis">develop resilience through</strong> adversity. The <strong class="lexis">constructive criticism</strong> we received, both internally and from key clients, has been instrumental in refining our processes and ensuring better <strong class="lexis">performance improvement</strong> in future projects. We must carry these lessons forward, using them as a foundation for stronger, more efficient operations.</p>
+<p>Thank you for your dedication and commitment. Let’s leverage this experience for our continued professional growth.</p>
+<p>Sincerely,<br>
+Eleanor Vance<br>
+Director of Operations</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Identify one sentence from the memo that expresses regret about a past action or missed opportunity. Focus on the structure.</p>
+<p>Sentence expressing regret (example 1):</p>
+</div>
+<div class="task"><p class="task-instruction">Identify a second sentence from the memo that expresses regret.</p>
+<p>Sentence expressing regret (example 2):</p>
+</div>
+<div class="task"><p class="task-instruction">Identify a third sentence from the memo that expresses regret.</p>
+<p>Sentence expressing regret (example 3):</p>
+</div>
+<div class="task"><p class="task-instruction">Match the professional reflection phrases with their meanings in a workplace context.</p>
+<p>Match each phrase to its meaning.</p>
+<ul><li><strong>a steep learning curve</strong> — A period where a lot of new information or skills must be learned quickly.</li><li><strong>overcame significant obstacles</strong> — Successfully dealt with major difficulties or problems.</li><li><strong>gained valuable insights from</strong> — Learned important understanding or knowledge because of.</li><li><strong>developed resilience through</strong> — Built the ability to recover quickly from difficulties because of.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-rewriting-your-professional-story">
+<header class="stage-header"><h2>Rewriting Your Professional Story</h2></header>
+<section class="handout">
+<p>Complete the following sentences using the target language structures and professional reflection phrases you have just studied. Your answers should reflect a constructive, professional tone.</p>
+<p>1.  <strong class="lexis">Regret:</strong> The team didn&#x27;t conduct a thorough market analysis, which led to poor sales.<br>
+    *   Rewrite: If only the team ______________ a thorough market analysis, we might have avoided poor sales.</p>
+<p>2.  <strong class="lexis">Regret:</strong> I regret that we signed the contract without checking all the clauses carefully.<br>
+    *   Rewrite: I&#x27;d rather we ______________ the contract without checking all the clauses carefully.</p>
+<p>3.  <strong class="lexis">Regret:</strong> We made a critical hiring decision too quickly last year, and it caused problems.<br>
+    *   Rewrite: Many of us wish we ______________ that critical hiring decision so quickly last year.</p>
+<p>4.  <strong class="lexis">Reflection:</strong> The new software was difficult to learn, but the team mastered it.<br>
+    *   Rewrite: The new software presented the team with ______________ , but they still achieved proficiency.</p>
+<p>5.  <strong class="lexis">Reflection:</strong> We faced many unexpected problems, but we succeeded in the end.<br>
+    *   Rewrite: During that period, we ______________ , which ultimately led to success.</p>
+<p>6.  <strong class="lexis">Reflection:</strong> From the project&#x27;s failures, we understood important things about customer needs.<br>
+    *   Rewrite: We ______________ the project&#x27;s failures, especially regarding customer needs.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Complete the sentence using the correct form of the verb and the regret structure.</p>
+<p>If only the team ______________ a thorough market analysis, we might have avoided poor sales.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence using the correct form of the verb and the regret structure.</p>
+<p>I&#x27;d rather we ______________ the contract without checking all the clauses carefully.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence using the correct form of the verb and the regret structure.</p>
+<p>Many of us wish we ______________ that critical hiring decision so quickly last year.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence using a professional reflection phrase from the memo.</p>
+<p>The new software presented the team with ______________ , but they still achieved proficiency.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence using a professional reflection phrase from the memo.</p>
+<p>During that period, we ______________ , which ultimately led to success.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence using a professional reflection phrase from the memo.</p>
+<p>We ______________ the project&#x27;s failures, especially regarding customer needs.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-my-constructive-story">
+<header class="stage-header"><h2>My Constructive Story</h2></header>
+<section class="handout">
+<p>Think about a significant professional experience from your past. It could be a project that went wrong, difficult feedback you received, or a challenging situation you had to navigate. Prepare to discuss with a partner:</p>
+<p>*   What happened?<br>
+*   What, if anything, do you wish had been done differently, or what do you wish you hadn&#x27;t done?<br>
+*   How did you (or your team) <strong class="lexis">overcome significant obstacles</strong> or navigate <strong class="lexis">a steep learning curve</strong>?<br>
+*   What <strong class="lexis">valuable insights</strong> did you <strong class="lexis">gain from</strong> the experience, and how did you <strong class="lexis">develop resilience through</strong> it?<br>
+*   How did this situation contribute to your professional <strong class="lexis">growth mindset</strong>?</p>
+<p>Be ready to use the language of regret and professional reflection we&#x27;ve practiced today to tell your story in a constructive and dignified way.</p>
+</section>
+</article>
+</body>
+</html>

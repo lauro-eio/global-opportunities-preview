@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reading &amp; Analyzing Payslip Details</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Reading &amp; Analyzing Payslip Details</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_4</dd>
+      <dt>CEFR</dt><dd>B1</dd>
+      <dt>Unit</dt><dd>4</dd>
+      <dt>Class</dt><dd>1</dd>
+      <dt>Theme</dt><dd>T04_FINANCE</dd>
+      <dt>Framework</dt><dd>SK-REC</dd>
+      <dt>Role</dt><dd>SK_REC_READING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Payslip Puzzles</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Welcome learners and introduce the topic of payslips.<br>
+2. Ask learners to share any confusing lines or terms they&#x27;ve seen on a payslip (real or invented).<br>
+3. Facilitate a short discussion about what numbers are typically found on a payslip and what they represent.<br>
+4. Emphasize the importance of understanding these numbers for personal finance, rather than focusing on a full household budget.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Understanding Your Payslip</h4>
+<p>Think about your own payslip or imagine one. </p>
+<p>1. Is there any part of a payslip that you find confusing? For example, a deduction, or a line like &#x27;Gross Pay&#x27;.<br>
+2. What numbers and information do you usually see on a payslip?<br>
+3. Why do you think it&#x27;s important to understand your payslip?</p>
+</section>
+</article>
+<article class="stage" id="stage-PTV">
+<header class="stage-header"><span class="stage-code">PTV</span><h2>Pre-Teach Vocabulary: Payslip Terms</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the key vocabulary terms related to payslips.<br>
+2. Ask learners if they already know any of the words and what they mean.<br>
+3. Instruct learners to complete the matching task individually or in pairs.<br>
+4. Elicit answers from the class and clarify the meaning of each term, using simple definitions and examples relevant to their work lives.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Key Words for Your Payslip</h4>
+<p>We are going to learn some important words about payslips. Read the words below. Do you know what they mean? We will match them to their definitions.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>payslip</li><li>gross pay</li><li>net pay</li><li>deductions</li><li>tax</li><li>insurance</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match each payslip term to its correct definition.</p>
+<ul><li><strong>payslip</strong> — A document showing how much you have earned and how much has been taken out of your pay.</li><li><strong>gross pay</strong> — The total amount of money you earn before any deductions are taken out.</li><li><strong>net pay</strong> — The amount of money you receive after all deductions have been taken from your gross pay.</li><li><strong>deductions</strong> — Amounts of money that are taken out of your gross pay, like tax or insurance.</li><li><strong>tax</strong> — Money that you have to pay to the government from your income.</li><li><strong>insurance</strong> — Money paid to a company for protection against loss, damage, or illness, often deducted from your pay.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-GIST">
+<header class="stage-header"><span class="stage-code">GIST</span><h2>Gist Reading: Maria&#x27;s Payslip</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the reading text about Maria and her payslip.<br>
+2. Explain the task: Learners should read the text quickly to understand the main idea, without focusing on every detail.<br>
+3. Set a short time limit (e.g., 2-3 minutes) for reading.<br>
+4. Instruct learners to answer the multiple-choice question to check their general understanding.<br>
+5. Check the answer with the class and briefly discuss why it is the correct main idea.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Understanding Maria&#x27;s Payslip</h4>
+<p>Read the text quickly. Don&#x27;t worry about understanding every single word. Just try to get the main idea of why Maria checks her payslip. Then answer the question below.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Maria&#x27;s Monthly Payslip Check</h5>
+<p>Maria works in a local bakery. Every month, she makes sure to check her <strong class="lexis">payslip</strong> carefully. This month, she noticed something that looked a little different.</p>
+<p>Her <strong class="lexis">payslip</strong> always starts with her <strong class="lexis">gross pay</strong>. This is the total money she earned before anything is taken out. For Maria, this was £1800. After that, she looks at the <strong class="lexis">deductions</strong>. These are the amounts of money that are removed from her gross pay. The biggest deduction is usually <strong class="lexis">tax</strong>. Maria&#x27;s tax deduction this month was £200.</p>
+<p>She also has <strong class="lexis">insurance</strong> deducted, which is £50, and a <strong class="lexis">pension</strong> contribution of £70. All these amounts are subtracted from her gross pay. What is left is her <strong class="lexis">net pay</strong>. This is the money that actually arrives in her bank account. This month, Maria&#x27;s net pay was £1480.</p>
+<p>Maria always checks that her <strong class="lexis">net pay</strong> is correct and that the <strong class="lexis">deductions</strong> make sense. If anything looks wrong or she doesn&#x27;t understand a line, she knows she needs to ask her manager or the HR department. It’s important to understand where your money goes.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main reason Maria checks her payslip every month?</p>
+<ul><li>To calculate her household budget for the month.</li><li>To make sure her pay is correct and all her deductions are explained.</li><li>To compare her salary with her colleagues at the bakery.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-DET">
+<header class="stage-header"><span class="stage-code">DET</span><h2>Detailed Reading: Maria&#x27;s Payslip Details</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Instruct learners to read the text again, this time focusing on specific details.<br>
+2. Have learners complete the short-text questions individually or in pairs.<br>
+3. Check answers for the factual questions with the class.<br>
+4. Divide learners into small groups or pairs for discussion based on the open prompts in student_content.<br>
+5. Monitor discussions, offering support with vocabulary if needed.<br>
+6. Elicit ideas from the groups for the discussion questions. <br>
+   *   Model Answers for discussion:<br>
+       1. She checks to make sure she has been paid the correct amount and that all money taken out (deductions) is correct and understood.<br>
+       2. If she didn&#x27;t check, she might receive the wrong amount of pay, or money might be taken out incorrectly without her knowing.<br>
+       3. She can ask her manager or the Human Resources (HR) department at her workplace.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Checking the Payslip Numbers</h4>
+<p>Read the text about Maria&#x27;s payslip again, more carefully this time. Answer the questions about the specific details.</p>
+<p>Then, discuss these questions with a partner:<br>
+1. Why does Maria check her payslip carefully every month?<br>
+2. What might happen if she didn&#x27;t check it?<br>
+3. Who can she ask if something is wrong with her payslip?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Maria&#x27;s Monthly Payslip Check</h5>
+<p>Maria works in a local bakery. Every month, she makes sure to check her <strong class="lexis">payslip</strong> carefully. This month, she noticed something that looked a little different.</p>
+<p>Her <strong class="lexis">payslip</strong> always starts with her <strong class="lexis">gross pay</strong>. This is the total money she earned before anything is taken out. For Maria, this was £1800. After that, she looks at the <strong class="lexis">deductions</strong>. These are the amounts of money that are removed from her gross pay. The biggest deduction is usually <strong class="lexis">tax</strong>. Maria&#x27;s tax deduction this month was £200.</p>
+<p>She also has <strong class="lexis">insurance</strong> deducted, which is £50, and a <strong class="lexis">pension</strong> contribution of £70. All these amounts are subtracted from her gross pay. What is left is her <strong class="lexis">net pay</strong>. This is the money that actually arrives in her bank account. This month, Maria&#x27;s net pay was £1480.</p>
+<p>Maria always checks that her <strong class="lexis">net pay</strong> is correct and that the <strong class="lexis">deductions</strong> make sense. If anything looks wrong or she doesn&#x27;t understand a line, she knows she needs to ask her manager or the HR department. It’s important to understand where your money goes.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What was Maria&#x27;s gross pay this month?</p>
+</div>
+<div class="task"><p class="task-instruction">Name one type of deduction mentioned in the text.</p>
+</div>
+<div class="task"><p class="task-instruction">How much was Maria&#x27;s tax deduction?</p>
+</div>
+<div class="task"><p class="task-instruction">What was the final amount of money Maria received in her bank account?</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Follow-up: Your Payslip, Your Rights</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Facilitate a class discussion based on the prompts in student_content.<br>
+2. Encourage learners to reflect on their own understanding of payslips after the lesson.<br>
+3. Elicit and summarize two key learnings about payslips from the class.<br>
+4. Discuss practical steps and who to contact if a mistake is found on a payslip, reinforcing the practical utility of the lesson.<br>
+5. Provide brief, encouraging feedback on language use during the discussions, focusing on communication and fluency rather than specific errors.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Talking About Your Own Payslip</h4>
+<p>Think about your own payslip again.</p>
+<p>1. Based on what you read about Maria, do you feel more confident about understanding your own payslip?<br>
+2. What are two important things you learned about payslips today?<br>
+3. Imagine you find a mistake on your payslip. What would you do? Who would you talk to first?</p>
+</section>
+</article>
+</body>
+</html>

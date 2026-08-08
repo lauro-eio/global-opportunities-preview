@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>An Urgent Meeting: Ethical Sourcing</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>An Urgent Meeting: Ethical Sourcing</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>7</dd>
+      <dt>Class</dt><dd>4</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-company-under-scrutiny">
+<header class="stage-header"><h2>Company Under Scrutiny</h2></header>
+<section class="handout">
+<p>Imagine your company is facing serious public scrutiny. Reports are emerging about your material sourcing practices in a region known for environmental exploitation and poor working conditions. You need to address internal and external stakeholders.</p>
+<p>Discuss with a partner:<br>
+1. What are the immediate concerns for the company in this situation?<br>
+2. Who are the key stakeholders (e.g., employees, customers, investors, local communities) and what might their expectations be?<br>
+3. How might such scrutiny impact the company&#x27;s reputation and financial stability?<br>
+4. What would be your initial steps to investigate and respond to these allegations?</p>
+</section>
+</article>
+<article class="stage" id="stage-understanding-key-terms">
+<header class="stage-header"><h2>Understanding Key Terms</h2></header>
+<section class="handout">
+<p>Before we listen, let&#x27;s make sure we understand some important terms related to our topic. Use the definitions provided to match each term correctly.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>ethical sourcing</li><li>supply chain transparency</li><li>fair trade principles</li><li>resource governance</li><li>corporate ethics</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match each term to its definition.</p>
+<ul><li><strong>ethical sourcing</strong> — Obtaining materials and products in a way that is morally acceptable, without harming people or the environment.</li><li><strong>supply chain transparency</strong> — The ability to track and verify the origins and journey of materials and products through every stage of production.</li><li><strong>fair trade principles</strong> — Standards designed to ensure producers in developing countries receive fair prices for their products and operate under decent working conditions.</li><li><strong>resource governance</strong> — The rules, institutions, and practices that determine how natural resources are managed, allocated, and used.</li><li><strong>corporate ethics</strong> — The moral principles and standards that guide a company&#x27;s behavior and decision-making, particularly concerning social and environmental responsibilities.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-first-listen-what-x27-s-the-main-point">
+<header class="stage-header"><h2>First Listen: What&#x27;s the Main Point?</h2></header>
+<section class="handout">
+<p>You will hear a recording of an urgent company meeting. Listen once to get a general understanding of the discussion. Focus on the overall purpose of the meeting and the main issues being addressed. Then, choose the best option below.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Urgent Meeting: Sourcing Strategy Review</h5>
+<p>Sarah: Good morning, team. As you know, we&#x27;re here to address the escalating concerns regarding our supply chain in Region X. The media reports detailing environmental damage and poor labor practices are damaging. We&#x27;ve always prided ourselves on our <strong class="lexis">corporate ethics</strong>, but these allegations are hitting hard. David, can you summarize the legal implications for us?</p>
+<p>David: Certainly, Sarah. From a legal standpoint, we&#x27;re looking at potential breaches of international labor standards and environmental regulations, even if indirectly. Our immediate priority is to demonstrate robust <strong class="lexis">supply chain transparency</strong>. We need verifiable data, not just promises. The public and our investors expect a clear, actionable response.</p>
+<p>Maria: And from a sustainability perspective, this is critical. We&#x27;ve been making strides towards <strong class="lexis">ethical sourcing</strong>, particularly with our rare earth minerals, but clearly, it&#x27;s not enough. The local communities in Region X are suffering, and we need to re-evaluate our <strong class="lexis">resource governance</strong> strategies entirely. Are we sure our local partners are adhering to the <strong class="lexis">fair trade principles</strong> we champion?</p>
+<p>Sarah: That’s precisely the point, Maria. The current audit reports aren&#x27;t sufficient. We need to go beyond basic compliance. David, what’s the legal risk if we fail to act decisively?</p>
+<p>David: Significant, Sarah. Beyond fines, there&#x27;s the long-term impact on brand value and consumer trust. We could face boycotts, investor divestment, and a major talent drain. This isn&#x27;t just a PR problem; it&#x27;s a fundamental challenge to our operational integrity.</p>
+<p>Maria: We need to send a team to Region X immediately to conduct a deep dive. Not just an audit, but a collaborative assessment with local stakeholders. We need to understand the root causes and implement corrective measures that are sustainable. This is about building trust, not just checking boxes.</p>
+<p>Sarah: I agree. We need to communicate our commitment clearly to all stakeholders. We&#x27;ll outline our strategy for enhanced <strong class="lexis">supply chain transparency</strong> and our renewed focus on genuinely <strong class="lexis">ethical sourcing</strong>. We also need to develop a clearer framework for <strong class="lexis">resource governance</strong> in all high-risk regions. The objective is not just to mitigate damage but to emerge from this stronger, with a truly resilient and responsible supply chain. This is a chance to redefine our <strong class="lexis">corporate ethics</strong> and set a new standard. We have to move quickly.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Listen to the company meeting. What is the main purpose of this discussion?</p>
+<p>The main purpose of the meeting is to:</p>
+<ul><li>Discuss new marketing strategies for products from Region X.</li><li>Address allegations of unethical sourcing practices and plan a response.</li><li>Evaluate the company&#x27;s quarterly financial performance.</li><li>Introduce new team members for the procurement department.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-second-listen-unpacking-the-details">
+<header class="stage-header"><h2>Second Listen: Unpacking the Details</h2></header>
+<section class="handout">
+<p>Listen again to the company meeting. This time, focus on the specific details, problems, and proposed actions. Answer the questions below as you listen.</p>
+<p>Then, discuss the last question with a partner.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Urgent Meeting: Sourcing Strategy Review</h5>
+<p>Sarah: Good morning, team. As you know, we&#x27;re here to address the escalating concerns regarding our supply chain in Region X. The media reports detailing environmental damage and poor labor practices are damaging. We&#x27;ve always prided ourselves on our <strong class="lexis">corporate ethics</strong>, but these allegations are hitting hard. David, can you summarize the legal implications for us?</p>
+<p>David: Certainly, Sarah. From a legal standpoint, we&#x27;re looking at potential breaches of international labor standards and environmental regulations, even if indirectly. Our immediate priority is to demonstrate robust <strong class="lexis">supply chain transparency</strong>. We need verifiable data, not just promises. The public and our investors expect a clear, actionable response.</p>
+<p>Maria: And from a sustainability perspective, this is critical. We&#x27;ve been making strides towards <strong class="lexis">ethical sourcing</strong>, particularly with our rare earth minerals, but clearly, it&#x27;s not enough. The local communities in Region X are suffering, and we need to re-evaluate our <strong class="lexis">resource governance</strong> strategies entirely. Are we sure our local partners are adhering to the <strong class="lexis">fair trade principles</strong> we champion?</p>
+<p>Sarah: That’s precisely the point, Maria. The current audit reports aren&#x27;t sufficient. We need to go beyond basic compliance. David, what’s the legal risk if we fail to act decisively?</p>
+<p>David: Significant, Sarah. Beyond fines, there&#x27;s the long-term impact on brand value and consumer trust. We could face boycotts, investor divestment, and a major talent drain. This isn&#x27;t just a PR problem; it&#x27;s a fundamental challenge to our operational integrity.</p>
+<p>Maria: We need to send a team to Region X immediately to conduct a deep dive. Not just an audit, but a collaborative assessment with local stakeholders. We need to understand the root causes and implement corrective measures that are sustainable. This is about building trust, not just checking boxes.</p>
+<p>Sarah: I agree. We need to communicate our commitment clearly to all stakeholders. We&#x27;ll outline our strategy for enhanced <strong class="lexis">supply chain transparency</strong> and our renewed focus on genuinely <strong class="lexis">ethical sourcing</strong>. We also need to develop a clearer framework for <strong class="lexis">resource governance</strong> in all high-risk regions. The objective is not just to mitigate damage but to emerge from this stronger, with a truly resilient and responsible supply chain. This is a chance to redefine our <strong class="lexis">corporate ethics</strong> and set a new standard. We have to move quickly.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">According to David, what is the immediate priority from a legal standpoint?</p>
+<p>David&#x27;s immediate legal priority:</p>
+</div>
+<div class="task"><p class="task-instruction">What specific action does Maria suggest for Region X?</p>
+<p>Maria suggests sending a team to Region X to:</p>
+</div>
+<div class="task"><p class="task-instruction">What does Sarah hope the company will achieve from this crisis, beyond just mitigation?</p>
+<p>Sarah hopes the company will emerge from this crisis by:</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-reflecting-on-responsibility">
+<header class="stage-header"><h2>Reflecting on Responsibility</h2></header>
+<section class="handout">
+<p>Now that we&#x27;ve analyzed the company&#x27;s situation, let&#x27;s discuss:<br>
+1. If you were a stakeholder, which speaker&#x27;s argument (Sarah, David, or Maria) would you find most convincing, and why?<br>
+2. What are the long-term benefits for a company that genuinely commits to strong <strong class="lexis">ethical sourcing</strong> and <strong class="lexis">supply chain transparency</strong>?<br>
+3. What challenges might a company face when trying to implement effective <strong class="lexis">resource governance</strong> in complex international supply chains?<br>
+4. How important do you think <strong class="lexis">corporate ethics</strong> are to customers, employees, and investors today?</p>
+</section>
+</article>
+</body>
+</html>

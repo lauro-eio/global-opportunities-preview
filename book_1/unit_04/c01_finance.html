@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shopping for Tools: Asking Prices</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Shopping for Tools: Asking Prices</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_1</dd>
+      <dt>CEFR</dt><dd>A0</dd>
+      <dt>Unit</dt><dd>4</dd>
+      <dt>Class</dt><dd>1</dd>
+      <dt>Theme</dt><dd>T04_FINANCE</dd>
+      <dt>Framework</dt><dd>PPP</dd>
+      <dt>Role</dt><dd>PPP_VOCABULARY_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Tools for the Job</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Display pictures of common work tools (e.g., hammer, wrench, screwdriver).<br>
+2. Ask learners if they use tools in their jobs.<br>
+3. Ask learners to imagine they need a new <strong class="lexis">tool</strong> for work. Where do they go to <strong class="lexis">buy</strong> it?<br>
+4. Elicit or introduce the situation: buying a work-related tool at a shop.<br>
+5. Ask: What do you say when you want to know the <strong class="lexis">price</strong>?</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Do You Need a New Tool?</h4>
+<p>Look at the pictures. Do you use tools in your job?<br>
+Imagine you need a new <strong class="lexis">tool</strong> for your work. Where do you go to <strong class="lexis">buy</strong> it?<br>
+What do you say when you want to know the <strong class="lexis">price</strong>?</p>
+</section>
+</article>
+<article class="stage" id="stage-MFP">
+<header class="stage-header"><span class="stage-code">MFP</span><h2>MFP: Asking and Stating Prices</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce target phrases: &#x27;How much is it?&#x27;, &#x27;What&#x27;s the price?&#x27;, &#x27;It&#x27;s [number] [currency].&#x27;, &#x27;That&#x27;s [number] total.&#x27;<br>
+2. Model meaning: Use realia or pictures of tools to demonstrate asking and stating prices (e.g., &#x27;This hammer is ten pounds&#x27;).<br>
+3. Model form: Highlight question structure vs. statement structure.<br>
+4. Model pronunciation: Emphasize &#x27;In questions, stress the key information word (e.g., &#x27;much&#x27;, &#x27;price&#x27;) and use a rising intonation, while statements should have a falling intonation, stressing the amount.&#x27; Drill whole phrases.<br>
+5. Learners complete tasks to check understanding of key words.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Shop Talk: How Much?</h4>
+<p>Listen and repeat these phrases for buying tools.<br>
+1. <strong class="lexis">How much is it?</strong> (Asking about one item)<br>
+2. <strong class="lexis">What&#x27;s the price?</strong> (Asking about the cost)<br>
+3. <strong class="lexis">It&#x27;s ten pounds.</strong> (Stating the price of one item)<br>
+4. <strong class="lexis">That&#x27;s twenty dollars total.</strong> (Stating a total price)</p>
+<p>Remember to stress the important words in questions and the number in answers.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>How much is it?</li><li>What&#x27;s the price?</li><li>It&#x27;s [number] [currency].</li><li>That&#x27;s [number] total.</li><li>tool</li><li>price</li><li>buy</li><li>cash</li><li>pay</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match the phrase to what it means.</p>
+<ul><li><strong>How much is it?</strong> — Ask about cost (one item).</li><li><strong>What&#x27;s the price?</strong> — Ask about cost (general).</li><li><strong>It&#x27;s ten dollars.</strong> — Tell the cost (one item).</li><li><strong>That&#x27;s fifty pounds total.</strong> — Tell the total cost.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Fill in the blank to complete the question.</p>
+<p>How ______ is it?</p>
+</div>
+<div class="task"><p class="task-instruction">Fill in the blank to complete the question.</p>
+<p>What&#x27;s the ______?</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-CP">
+<header class="stage-header"><span class="stage-code">CP</span><h2>Controlled Practice: Asking for Tool Prices</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Divide learners into pairs.<br>
+2. Hand out cards with pictures of different work tools and prices (e.g., &#x27;Hammer - £12&#x27;, &#x27;Wrench - £18&#x27;).<br>
+3. One student is the customer, the other is the shopkeeper.<br>
+4. Customer asks for the price, shopkeeper responds.<br>
+5. Monitor for correct use of target phrases and pronunciation, especially &#x27;How much is it?&#x27;, &#x27;What&#x27;s the price?&#x27;, &#x27;It&#x27;s [number] [currency].&#x27;, &#x27;That&#x27;s [number] total.&#x27;<br>
+6. Learners complete gap-fill tasks.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">At the Tool Shop</h4>
+<p>You are at the tool shop. Complete the conversations below.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Complete the conversation.</p>
+<p>Customer: How much is the drill? Shopkeeper: It&#x27;s thirty-five ______.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the conversation.</p>
+<p>Customer: What&#x27;s the ______ of the saw? Shopkeeper: It&#x27;s twenty-eight pounds.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the conversation.</p>
+<p>Customer: How ______ is it for the wrench? Shopkeeper: It&#x27;s twelve dollars.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the conversation.</p>
+<p>Customer: What&#x27;s the price for everything? Shopkeeper: That&#x27;s sixty ______ total.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Freer Practice: Buying Tools for Work</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Divide the class into small groups (e.g., 3-4 learners).<br>
+2. Give each group a list of 3-4 tools they might need for their work and ask them to choose one to &#x27;buy&#x27;.<br>
+3. One learner is the &#x27;shopkeeper&#x27;, others are &#x27;customers&#x27;.<br>
+4. Customers take turns asking about the price of their chosen tool. The shopkeeper responds, and they make the &#x27;purchase&#x27;.<br>
+5. Encourage natural interaction using the target language.<br>
+6. Monitor carefully, noting any errors for later delayed error correction.<br>
+7. Sample exchange: Customer: &#x27;Excuse me, how much is this <strong class="lexis">screwdriver</strong>?&#x27; Shopkeeper: &#x27;It&#x27;s seven pounds.&#x27; Customer: &#x27;Great, I&#x27;ll <strong class="lexis">buy</strong> it. Here&#x27;s the <strong class="lexis">cash</strong>.&#x27; Shopkeeper: &#x27;Thank you.&#x27;</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Your Work Tools Checklist</h4>
+<p>Work in groups. Buy tools for your job.<br>
+One person is the <strong class="lexis">shopkeeper</strong>, others are <strong class="lexis">customers</strong>.<br>
+Customers: Choose a tool. Ask for its <strong class="lexis">price</strong>. Use &#x27;<strong class="lexis">How much is it?</strong>&#x27; or &#x27;<strong class="lexis">What&#x27;s the price?</strong>&#x27;<br>
+Shopkeeper: Answer. Use &#x27;<strong class="lexis">It&#x27;s [number] [currency].</strong>&#x27; or &#x27;<strong class="lexis">That&#x27;s [number] total.</strong>&#x27;<br>
+Say &#x27;I&#x27;ll <strong class="lexis">buy</strong> it!&#x27; and &#x27;Here&#x27;s the <strong class="lexis">cash</strong>.&#x27;<br>
+Swap roles.</p>
+</section>
+</article>
+</body>
+</html>

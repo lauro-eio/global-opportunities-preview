@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Talk About Your Professional Growth</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Talk About Your Professional Growth</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>8</dd>
+      <dt>Class</dt><dd>5</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-getting-to-the-root-of-the-problem">
+<header class="stage-header"><h2>Getting to the Root of the Problem</h2></header>
+<section class="handout">
+<p>Think about a problem at your workplace that keeps coming back, even after people try to fix it. It&#x27;s like a leaky pipe that someone just puts a bucket under, instead of fixing the leak itself.</p>
+<p>1. What&#x27;s an example of such a recurring problem you&#x27;ve encountered?<br>
+2. Why do you think these problems are hard to solve permanently?<br>
+3. How would you start a discussion with your team to stop patching things up and really find out <strong class="lexis">why</strong> the problem is happening? What kind of skills would you need to lead that discussion effectively?</p>
+</section>
+</article>
+<article class="stage" id="stage-choosing-the-right-words-for-progress">
+<header class="stage-header"><h2>Choosing the Right Words for Progress</h2></header>
+<section class="handout">
+<p>Read the internal memo from the Head of Operations regarding professional development opportunities. Then, complete the matching activity to show your current understanding of how to express development goals professionally.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Memo: Enhancing Our Team&#x27;s Capabilities</h5>
+<p>Subject: Enhancing Our Team&#x27;s Capabilities: Professional Development Initiative</p>
+<p>Dear Team,</p>
+<p>We are excited to launch a new initiative aimed at fostering continuous growth and improving our collective expertise. As part of our commitment to your career progression and the company&#x27;s success, we are providing various opportunities for <strong class="lexis">professional development</strong> over the next quarter.</p>
+<p>This program encourages all team members to consider how they might <strong class="lexis">upskill in a specific area</strong> that aligns with their current role or future aspirations within the company. For certain roles, there may be a requirement to <strong class="lexis">receive mandatory training</strong> to ensure compliance with new safety regulations or updated software protocols.</p>
+<p>We also support individuals who wish to <strong class="lexis">gain a new certification</strong> that directly benefits their job function or enhances their strategic value to the team. Ultimately, the goal is for each of you to <strong class="lexis">enhance one&#x27;s skill set</strong>, contributing to both your personal growth and our operational efficiency.</p>
+<p>Please review the attached catalogue of courses and workshops. We encourage you to discuss your development plans with your immediate supervisor.</p>
+<p>Best regards,<br>
+[Manager&#x27;s Name]<br>
+Head of Operations</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match the informal expression of a training need (1-5) to its more professional counterpart (A-E) as found in the memo or expected in a formal workplace discussion.</p>
+<p>Match the expressions.</p>
+<ul><li><strong>1. Learn something new for my job</strong> — A. Upskill in a specific area</li><li><strong>2. Do some courses for work</strong> — B. Undertake professional development</li><li><strong>3. Have to do that course</strong> — C. Receive mandatory training</li><li><strong>4. Get a new paper for my skills</strong> — D. Gain a new certification</li><li><strong>5. Make my abilities better</strong> — E. Enhance one&#x27;s skill set</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-mastering-workplace-language">
+<header class="stage-header"><h2>Mastering Workplace Language</h2></header>
+<section class="handout">
+<p>Now let&#x27;s look closer at the professional phrases for talking about learning and development at work. Pay attention to how these words are stressed when we say them. Use the table below as a guide.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Professional Development Terms</th><th>Meaning / Use</th><th>Key Stress Focus</th></tr><tr><td>upskill in a specific area</td><td>To learn new or additional skills for your current job, often very focused.</td><td>UPskill in a SPEcific ARea</td></tr><tr><td>undertake professional development</td><td>To engage in formal learning activities to improve career prospects or job performance.</td><td>underTAKE proFESsional deVELOPment</td></tr><tr><td>receive mandatory training</td><td>To be required to complete specific training, usually for compliance or safety.</td><td>reCEIVE MANdatory TRAINing</td></tr><tr><td>gain a new certification</td><td>To obtain an official document proving you have a particular skill or qualification.</td><td>GAIN a NEW certifiCAYtion</td></tr><tr><td>enhance one&#x27;s skill set</td><td>To improve and broaden the range of skills one possesses.</td><td>enHANCE one&#x27;s SKILL set</td></tr></table></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Choose the most appropriate professional word or phrase to complete each sentence.</p>
+<p>Due to new security protocols, all personnel will need to ______ mandatory training by the end of the month.</p>
+<ul><li>get</li><li>do</li><li>receive</li><li>go through</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Choose the most appropriate professional word or phrase to complete each sentence.</p>
+<p>Maria is looking to ______ in data analysis to improve her reporting capabilities.</p>
+<ul><li>learn more</li><li>study better</li><li>upskill</li><li>get cleverer</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Choose the most appropriate professional word or phrase to complete each sentence.</p>
+<p>The company offers annual opportunities for employees to ______ professional development.</p>
+<ul><li>do</li><li>undertake</li><li>make</li><li>perform</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-planning-your-path-forward">
+<header class="stage-header"><h2>Planning Your Path Forward</h2></header>
+<section class="handout">
+<p>Imagine you are meeting with your supervisor to discuss your career growth. You want to request specific training or development opportunities. Using the professional language we&#x27;ve just practiced, prepare what you would say to:</p>
+<p>1. Explain a specific area where you want to improve your skills.<br>
+2. Propose a type of professional development you&#x27;d like to undertake.<br>
+3. Mention if there&#x27;s a particular certification you aim to gain.<br>
+4. Explain how this will enhance your overall skill set and benefit the team, particularly in addressing persistent workplace problems (as we discussed earlier).</p>
+<p>Work with a partner. One of you plays the employee, the other the supervisor. Then swap roles. Focus on using the target phrases naturally and professionally, paying attention to word stress for clarity.</p>
+</section>
+</article>
+</body>
+</html>

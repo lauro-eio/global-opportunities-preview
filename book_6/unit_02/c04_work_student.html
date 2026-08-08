@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Making Our Goals Connect</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Making Our Goals Connect</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>2</dd>
+      <dt>Class</dt><dd>4</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-connecting-our-work">
+<header class="stage-header"><h2>Connecting Our Work</h2></header>
+<section class="handout">
+<p>Think about your job or a previous job. Has your team ever set new goals or targets? How did those goals fit in with what the whole company was trying to achieve? Were they clearly connected?</p>
+<p>Discuss with a partner:<br>
+1. Describe a time your team set new goals. What were they?<br>
+2. How did those goals relate to the company&#x27;s bigger picture or strategy?<br>
+3. Was it easy or difficult to see the connection? Why?<br>
+4. What happened when your team&#x27;s goals were well-aligned with the company, or not?</p>
+</section>
+</article>
+<article class="stage" id="stage-key-meeting-words">
+<header class="stage-header"><h2>Key Meeting Words</h2></header>
+<section class="handout">
+<p>Before listening to the meeting, let&#x27;s look at some important words you&#x27;ll hear. Match each term to its definition.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>strategic objectives</li><li>key performance indicators</li><li>resource allocation</li><li>cross-functional collaboration</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match the key terms used in corporate strategy meetings with their definitions.</p>
+<p>Match each term to its definition.</p>
+<ul><li><strong>strategic objectives</strong> — Broad, long-term goals that define what an organization wants to achieve.</li><li><strong>key performance indicators</strong> — Measurable values that show how effectively a company is achieving its business objectives.</li><li><strong>resource allocation</strong> — The process of assigning available resources (like time, money, people) to different projects or departments.</li><li><strong>cross-functional collaboration</strong> — When different departments or teams work together to achieve a common goal.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-first-listen-the-meeting-x27-s-aim">
+<header class="stage-header"><h2>First Listen: The Meeting&#x27;s Aim</h2></header>
+<section class="handout">
+<p>You will hear a segment of a team meeting. Listen once to understand the main idea. What is the primary purpose of this meeting?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Quarterly Strategy Alignment Meeting</h5>
+<p>Sarah (Head of Marketing): Good morning, everyone. Thanks for joining. As we kick off Q2, our main goal today is to ensure our departmental efforts are fully aligned with the company&#x27;s overarching <strong class="lexis">strategic objectives</strong> for the next quarter. Specifically, we need to finalize our approach to &#x27;Market Penetration in Sector B&#x27; and &#x27;Enhancing Customer Loyalty&#x27;.</p>
+<p>David (Head of Sales): Absolutely, Sarah. From Sales, we&#x27;re seeing strong potential in Sector B, but our current lead generation isn&#x27;t quite hitting the mark for our expansion targets. We&#x27;ve been tracking our <strong class="lexis">key performance indicators</strong> (KPIs) and while conversion rates are good, the initial volume needs a boost.</p>
+<p>Maria (CEO): Exactly, David. Our company-wide target is a 15% increase in market share in Sector B by the end of Q2. Marketing and Sales must work hand-in-hand here. Sarah, what are your immediate thoughts on how Marketing can support David&#x27;s team more effectively to drive that initial volume?</p>
+<p>Sarah (Head of Marketing): We&#x27;ve identified a need for increased digital ad spend and targeted content campaigns for Sector B. However, this impacts our existing <strong class="lexis">resource allocation</strong> for other initiatives. We need to discuss how much budget and team hours we can realistically shift without compromising our customer loyalty program.</p>
+<p>David (Head of Sales): From our side, we&#x27;re prepared to dedicate additional sales reps to follow up on those new leads, but the quality of leads from Marketing will be crucial. Poor quality leads waste valuable sales time.</p>
+<p>Maria (CEO): This is precisely why <strong class="lexis">cross-functional collaboration</strong> is paramount. Sarah, David, I need a clear plan by end of day for how your teams will share data, synchronize campaigns, and adjust <strong class="lexis">resource allocation</strong> to meet that 15% market share growth. We can’t afford any disconnects between lead generation and follow-up. Our <strong class="lexis">strategic objectives</strong> depend on it.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Based on the first listen, what is the main purpose of this meeting?</p>
+<p>What is the primary goal of the meeting discussion?</p>
+<ul><li>To decide on the next company holiday schedule.</li><li>To introduce new employees to the team.</li><li>To ensure departmental objectives align with overall corporate strategy.</li><li>To review individual employee performance for the quarter.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-second-listen-digging-for-details">
+<header class="stage-header"><h2>Second Listen: Digging for Details</h2></header>
+<section class="handout">
+<p>Listen to the meeting again. This time, focus on the specific details. Answer the questions below.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Quarterly Strategy Alignment Meeting</h5>
+<p>Sarah (Head of Marketing): Good morning, everyone. Thanks for joining. As we kick off Q2, our main goal today is to ensure our departmental efforts are fully aligned with the company&#x27;s overarching <strong class="lexis">strategic objectives</strong> for the next quarter. Specifically, we need to finalize our approach to &#x27;Market Penetration in Sector B&#x27; and &#x27;Enhancing Customer Loyalty&#x27;.</p>
+<p>David (Head of Sales): Absolutely, Sarah. From Sales, we&#x27;re seeing strong potential in Sector B, but our current lead generation isn&#x27;t quite hitting the mark for our expansion targets. We&#x27;ve been tracking our <strong class="lexis">key performance indicators</strong> (KPIs) and while conversion rates are good, the initial volume needs a boost.</p>
+<p>Maria (CEO): Exactly, David. Our company-wide target is a 15% increase in market share in Sector B by the end of Q2. Marketing and Sales must work hand-in-hand here. Sarah, what are your immediate thoughts on how Marketing can support David&#x27;s team more effectively to drive that initial volume?</p>
+<p>Sarah (Head of Marketing): We&#x27;ve identified a need for increased digital ad spend and targeted content campaigns for Sector B. However, this impacts our existing <strong class="lexis">resource allocation</strong> for other initiatives. We need to discuss how much budget and team hours we can realistically shift without compromising our customer loyalty program.</p>
+<p>David (Head of Sales): From our side, we&#x27;re prepared to dedicate additional sales reps to follow up on those new leads, but the quality of leads from Marketing will be crucial. Poor quality leads waste valuable sales time.</p>
+<p>Maria (CEO): This is precisely why <strong class="lexis">cross-functional collaboration</strong> is paramount. Sarah, David, I need a clear plan by end of day for how your teams will share data, synchronize campaigns, and adjust <strong class="lexis">resource allocation</strong> to meet that 15% market share growth. We can’t afford any disconnects between lead generation and follow-up. Our <strong class="lexis">strategic objectives</strong> depend on it.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">According to Maria, what is the company&#x27;s specific target for market share increase in Sector B by the end of Q2?</p>
+<p>What is the company&#x27;s market share target for Sector B?</p>
+</div>
+<div class="task"><p class="task-instruction">What two actions does Sarah from Marketing suggest to boost initial lead volume for Sector B?</p>
+<p>What two marketing actions are suggested?</p>
+</div>
+<div class="task"><p class="task-instruction">What does Maria (CEO) emphasize is &#x27;paramount&#x27; for Sarah&#x27;s and David&#x27;s teams to achieve the market share growth?</p>
+<p>What is paramount for achieving growth?</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-reflecting-on-strategy">
+<header class="stage-header"><h2>Reflecting on Strategy</h2></header>
+<section class="handout">
+<p>Now that you&#x27;ve listened to the meeting in detail, let&#x27;s discuss:<br>
+1. Why is it important for different departments, like Marketing and Sales, to work together on <strong class="lexis">strategic objectives</strong>?<br>
+2. What challenges might arise in <strong class="lexis">resource allocation</strong> when trying to achieve a new goal, as discussed by Sarah?<br>
+3. How might a company track its progress using <strong class="lexis">key performance indicators</strong> (KPIs) for a goal like increasing market share?<br>
+4. In your experience, what makes <strong class="lexis">cross-functional collaboration</strong> successful or challenging in a workplace?</p>
+<p>Think about:<br>
+- What did you find challenging about listening to this meeting?<br>
+- What strategies did you use to understand the main idea and specific details?</p>
+</section>
+</article>
+</body>
+</html>

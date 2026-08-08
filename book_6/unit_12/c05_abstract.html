@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Refining Professional Feedback Language</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Refining Professional Feedback Language</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>12</dd>
+      <dt>Class</dt><dd>5</dd>
+      <dt>Theme</dt><dd>T12_ABSTRACT</dd>
+      <dt>Framework</dt><dd>TTT</dd>
+      <dt>Role</dt><dd>TTT_LEXICAL_REGISTER_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Reflecting on Professional Feedback</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by asking students to share their experiences with giving feedback on communication style. <br>
+2. Encourage them to think about situations where directness might be misinterpreted or cause discomfort. <br>
+3. Guide the discussion towards the importance of professionalism and nuance in such conversations to ensure a positive outcome and maintain good working relationships. <br>
+4. Elicit reasons why &#x27;how&#x27; you say something is as important as &#x27;what&#x27; you say, especially in a professional context.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Communicating with Care</h4>
+<p>Think about a time when you needed to give feedback to a colleague about their communication. Maybe they were too direct, unclear, or their style caused misunderstandings. </p>
+<p>1. What was the situation? <br>
+2. How did you approach the conversation? What was your goal? <br>
+3. What challenges did you face, and how did you try to overcome them? <br>
+4. Why is it important to deliver feedback on communication style in a professional and nuanced way?</p>
+</section>
+</article>
+<article class="stage" id="stage-T1">
+<header class="stage-header"><span class="stage-code">T1</span><h2>Test 1: Diagnosing Nuance in Feedback</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Hand out the email and task. <br>
+2. Give students 5-7 minutes to read the email and choose the best alternatives. <br>
+3. Do not pre-teach any vocabulary. The goal is to see what they already know about professional register. <br>
+4. Monitor for common errors related to overly direct or informal language. <br>
+5. Collect or briefly review answers without explicit teaching, noting common mistakes for the Teach stage.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reviewing Internal Feedback</h4>
+<p>Read the internal feedback email below from a manager to a team member. The manager has used some language that might be too blunt or could be refined for better professional impact. </p>
+<p>Then, complete the task that follows.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Internal Communication Review - Team Feedback</h5>
+<p>Subject: Follow-up on recent team discussions </p>
+<p>Hi Alex, </p>
+<p>Following our recent team meeting about project status updates, I wanted to discuss your communication style. </p>
+<p>It&#x27;s clear that <strong class="lexis">you are always too direct</strong> in your updates. This creates issues. Also, I think there are <strong class="lexis">some things that are just complex</strong> about how you present information, which makes it hard for others to understand. </p>
+<p>We need to fix this. There&#x27;s a <strong class="lexis">main idea we need to remember</strong> when giving updates. If we don&#x27;t, there will be problems. </p>
+<p>Moving forward, please consider the listener more. </p>
+<p>Thanks, <br>
+Sarah (Team Lead)</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Sarah&#x27;s email contains some phrases that are too direct or lack professional nuance. Choose the best, more professional alternative for each highlighted phrase.</p>
+<p>For &#x27;you are always too direct&#x27;:</p>
+<ul><li>your directness causes problems</li><li>to a certain extent, your directness could be perceived as challenging</li><li>your communication is always too blunt</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Choose the best, more professional alternative for the highlighted phrase.</p>
+<p>For &#x27;some things that are just complex&#x27;:</p>
+<ul><li>there are inherent complexities</li><li>it&#x27;s just too complicated</li><li>the information is always difficult</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Choose the best, more professional alternative for the highlighted phrase.</p>
+<p>For &#x27;a main idea we need to remember&#x27;:</p>
+<ul><li>the basic point to keep in mind</li><li>the underlying principle</li><li>the main rule is</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Choose the best, more professional alternative for the highlighted phrase.</p>
+<p>For &#x27;If we don&#x27;t, there will be problems&#x27;:</p>
+<ul><li>this could lead to difficulties</li><li>we will face a major issue</li><li>this could present a potential pitfall</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-TCH">
+<header class="stage-header"><span class="stage-code">TCH</span><h2>Teach: Qualifying Abstract Concepts Professionally</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Elicit or explain the meaning of each target exponent, contrasting it with the less professional alternatives from T1. <br>
+2. Use concept checking questions (CCQs) for each phrase: e.g., for &#x27;to a certain extent&#x27;: &#x27;Is it 100% true?&#x27; &#x27;Does it make your statement stronger or softer?&#x27; <br>
+3. Model the pronunciation, drawing attention to the specified stress and intonation patterns for each phrase. Drill as necessary. <br>
+4. Present the column banks to clearly show the formal/nuanced vs. less professional contrast. <br>
+5. Have students complete the clarification tasks, checking answers and reinforcing understanding.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Precision in Professional Language</h4>
+<p>The phrases you just saw are important for giving feedback professionally. They help you express complex ideas with more tact and precision, avoiding blunt or overly direct language.</p>
+<p>Let&#x27;s look at how to use these phrases effectively.</p>
+<p><strong class="lexis">To a certain extent</strong><br>
+Meaning: Partially true, not completely. It softens a statement, showing you acknowledge other possibilities.<br>
+Pronunciation focus: Stress on &#x27;certain&#x27; and &#x27;extent&#x27;. The intonation often rises slightly on &#x27;certain&#x27; and falls on &#x27;extent&#x27; in a thoughtful, measured way.</p>
+<p><strong class="lexis">Inherent complexities</strong><br>
+Meaning: Difficulties or complicated aspects that are an intrinsic part of something.<br>
+Pronunciation focus: Stress on &#x27;inherent&#x27; and &#x27;complexities&#x27;. The &#x27;x&#x27; in &#x27;complexities&#x27; is often clear and precise.</p>
+<p><strong class="lexis">The underlying principle</strong><br>
+Meaning: The fundamental or basic truth/rule that supports something.<br>
+Pronunciation focus: Stress on &#x27;underlying&#x27; and &#x27;principle&#x27;. &#x27;Underlying&#x27; often has a gentle rise and fall in intonation.</p>
+<p><strong class="lexis">Nuances of interpretation</strong><br>
+Meaning: Subtle differences in understanding or meaning.<br>
+Pronunciation focus: Stress on &#x27;nuances&#x27; and &#x27;interpretation&#x27;. The &#x27;nu&#x27; in &#x27;nuances&#x27; is often elongated slightly.</p>
+<p><strong class="lexis">A potential pitfall</strong><br>
+Meaning: A possible difficulty or danger that is not immediately obvious.<br>
+Pronunciation focus: Stress on &#x27;potential&#x27; and &#x27;pitfall&#x27;. The &#x27;t&#x27; in &#x27;pitfall&#x27; is often a clear stop.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Less Professional</th><th>More Professional &amp; Nuanced</th></tr><tr><td>always too direct</td><td>to a certain extent</td></tr><tr><td>things are just complex</td><td>inherent complexities</td></tr><tr><td>a main idea to remember</td><td>the underlying principle</td></tr><tr><td>there will be problems</td><td>a potential pitfall</td></tr><tr><td></td><td>nuances of interpretation</td></tr></table></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Complete the sentence with the most appropriate nuanced phrase from the new vocabulary.</p>
+<p>While the project plan is solid, there are ___________ that might arise during implementation. (Provide two possible answers)</p>
+</div>
+<div class="task"><p class="task-instruction">Which phrase is the best choice to soften a strong statement about a colleague&#x27;s actions?</p>
+<p>Which phrase best softens a strong statement?</p>
+<ul><li>Definitely incorrect</li><li>Without a doubt</li><li>To a certain extent</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Match the nuanced phrase to its slightly more direct, but less professional, equivalent.</p>
+<ul><li><strong>to a certain extent</strong> — partially</li><li><strong>inherent complexities</strong> — built-in difficulties</li><li><strong>the underlying principle</strong> — the main reason</li><li><strong>a potential pitfall</strong> — a possible problem</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-T2">
+<header class="stage-header"><span class="stage-code">T2</span><h2>Test 2: Delivering Nuanced Feedback Role-Play</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Set up the role-play scenario for students. Ensure they understand their roles and the objective. <br>
+2. Emphasize the need to use at least three of the target exponents from the Teach stage. <br>
+3. Monitor students closely, specifically listening for the accurate and appropriate use of: &#x27;to a certain extent&#x27;, &#x27;inherent complexities&#x27;, &#x27;the underlying principle&#x27;, &#x27;nuances of interpretation&#x27;, &#x27;a potential pitfall&#x27;. <br>
+4. Note down examples of both good usage and areas for improvement (e.g., incorrect register, pronunciation issues) for later feedback. <br>
+5. After the activity, lead a brief whole-class feedback session. Ask students what phrases they used, what worked well, and what challenges they faced. <br>
+6. Model a potential response using the target lexis if students struggled, e.g.: <br>
+   &#x27;Chris, <strong class="lexis">to a certain extent</strong>, your directness ensures clarity, and that&#x27;s valuable. However, there are <strong class="lexis">nuances of interpretation</strong> in how it&#x27;s received by newer team members. We need to consider the <strong class="lexis">underlying principle</strong> of inclusive communication. Otherwise, we face <strong class="lexis">a potential pitfall</strong> of disengagement.&#x27; <br>
+7. Give individual feedback on language use where appropriate.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Constructive Conversations</h4>
+<p>Imagine you are a team lead. A colleague, Chris, consistently uses very direct language in team meetings and emails, which sometimes makes new team members uncomfortable and can be perceived as dismissive. You need to have a conversation with Chris to help him understand the impact of his communication style and suggest improvements.</p>
+<p>Work with a partner. One of you will be the team lead, and the other will be Chris. The team lead must use at least <strong class="lexis">three</strong> of the nuanced phrases we learned today to deliver the feedback effectively and professionally. Focus on: </p>
+<p>*   Opening the conversation respectfully. <br>
+*   Explaining the issue without blaming. <br>
+*   Using nuanced language to describe the impact and suggest solutions. <br>
+*   Encouraging Chris to reflect and suggest his own solutions.</p>
+<p>Swap roles and repeat.</p>
+</section>
+</article>
+</body>
+</html>

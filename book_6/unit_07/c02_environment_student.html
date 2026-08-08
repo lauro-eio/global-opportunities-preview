@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Communicating New Environmental Requirements Formally</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Communicating New Environmental Requirements Formally</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>7</dd>
+      <dt>Class</dt><dd>2</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-understanding-new-industry-requirements">
+<header class="stage-header"><h2>Understanding New Industry Requirements</h2></header>
+<section class="handout">
+<p>A significant new environmental law has been enacted, directly affecting operations within your industry. This law introduces stricter <strong class="lexis">emissions standards</strong> and new <strong class="lexis">waste disposal protocols</strong>.</p>
+<p>Discuss with a partner:<br>
+1. What are the immediate challenges you anticipate this law could bring to your department or workplace?<br>
+2. How would you ensure all team members understand the new requirements and commit to adhering to them?<br>
+3. What kind of language would you use to communicate the gravity and non-negotiable nature of these new regulations?</p>
+</section>
+</article>
+<article class="stage" id="stage-first-look-the-new-environmental-directi">
+<header class="stage-header"><h2>First Look: The New Environmental Directive</h2></header>
+<section class="handout">
+<p>Read the following directive from &#x27;EcoLogistics Solutions&#x27; CEO. Don&#x27;t worry about every detail, just focus on the overall message and purpose.</p>
+<p>When you&#x27;re finished, answer the question below.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>EXECUTIVE COMPLIANCE DIRECTIVE: Strengthening Our Environmental Stewardship</h5>
+<p>To All Department Heads and Team Leaders,</p>
+<p>This directive outlines critical updates regarding our company&#x27;s commitment to enhanced <strong class="lexis">environmental regulatory compliance</strong>. Effective immediately, we are implementing stringent new measures in response to the recently enacted &#x27;Sustainable Operations Act&#x27;. This legislation significantly tightens <strong class="lexis">emissions standards</strong> and mandates comprehensive revisions to our existing <strong class="lexis">waste disposal protocols</strong>.</p>
+<p><strong class="lexis">Rarely has our sector faced such a comprehensive overhaul of its environmental obligations.</strong> We understand that adapting to these changes will require concerted effort and strategic planning across all divisions. Our primary objective is to not only meet but exceed these new benchmarks, reinforcing our leadership in sustainable logistics.</p>
+<p>Key areas of focus will include the immediate implementation of advanced <strong class="lexis">resource efficiency measures</strong>, particularly within our fleet management and warehouse operations. An urgent <strong class="lexis">environmental impact assessment</strong> for all current projects is underway, with results to inform our adjusted operational strategies. <strong class="lexis">Under no circumstances can operations deviate from these updated hazard reduction and disposal guidelines.</strong> Non-compliance carries severe penalties and jeopardizes our operational license, as well as our reputation.</p>
+<p>Furthermore, we are initiating a series of <strong class="lexis">carbon footprint reduction initiatives</strong>, starting with a mandatory energy audit and optimization program. <strong class="lexis">Not only must we adapt to these regulations, but we must also actively implement sustainable practices that reflect our core values.</strong> We are committed to providing the necessary training and resources to ensure a smooth transition. Your proactive engagement in these efforts is paramount to our collective success in <strong class="lexis">mitigating environmental impact</strong>.</p>
+<p>We anticipate a short period of adjustment, but the long-term benefits – both ecological and reputational – are undeniable. Let us approach this challenge with diligence and a shared commitment to environmental stewardship.</p>
+<p>Sincerely,</p>
+<p>Eleanor Vance<br>
+CEO, EcoLogistics Solutions</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main purpose of this directive?</p>
+<p>The main purpose of the directive is to:</p>
+<ul><li>Announce new marketing strategies for sustainable products.</li><li>Inform staff about upcoming company restructuring.</li><li>Communicate immediate changes in environmental regulations and compliance requirements.</li><li>Request feedback on employee satisfaction with current environmental policies.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-unpacking-the-new-rules">
+<header class="stage-header"><h2>Unpacking the New Rules</h2></header>
+<section class="handout">
+<p>Now, read the &#x27;Executive Compliance Directive&#x27; again, paying close attention to the details. Answer the following questions based on the text.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>EXECUTIVE COMPLIANCE DIRECTIVE: Strengthening Our Environmental Stewardship</h5>
+<p>To All Department Heads and Team Leaders,</p>
+<p>This directive outlines critical updates regarding our company&#x27;s commitment to enhanced <strong class="lexis">environmental regulatory compliance</strong>. Effective immediately, we are implementing stringent new measures in response to the recently enacted &#x27;Sustainable Operations Act&#x27;. This legislation significantly tightens <strong class="lexis">emissions standards</strong> and mandates comprehensive revisions to our existing <strong class="lexis">waste disposal protocols</strong>.</p>
+<p><strong class="lexis">Rarely has our sector faced such a comprehensive overhaul of its environmental obligations.</strong> We understand that adapting to these changes will require concerted effort and strategic planning across all divisions. Our primary objective is to not only meet but exceed these new benchmarks, reinforcing our leadership in sustainable logistics.</p>
+<p>Key areas of focus will include the immediate implementation of advanced <strong class="lexis">resource efficiency measures</strong>, particularly within our fleet management and warehouse operations. An urgent <strong class="lexis">environmental impact assessment</strong> for all current projects is underway, with results to inform our adjusted operational strategies. <strong class="lexis">Under no circumstances can operations deviate from these updated hazard reduction and disposal guidelines.</strong> Non-compliance carries severe penalties and jeopardizes our operational license, as well as our reputation.</p>
+<p>Furthermore, we are initiating a series of <strong class="lexis">carbon footprint reduction initiatives</strong>, starting with a mandatory energy audit and optimization program. <strong class="lexis">Not only must we adapt to these regulations, but we must also actively implement sustainable practices that reflect our core values.</strong> We are committed to providing the necessary training and resources to ensure a smooth transition. Your proactive engagement in these efforts is paramount to our collective success in <strong class="lexis">mitigating environmental impact</strong>.</p>
+<p>We anticipate a short period of adjustment, but the long-term benefits – both ecological and reputational – are undeniable. Let us approach this challenge with diligence and a shared commitment to environmental stewardship.</p>
+<p>Sincerely,</p>
+<p>Eleanor Vance<br>
+CEO, EcoLogistics Solutions</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the name of the new legislation mentioned in the directive?</p>
+<p>New legislation:</p>
+</div>
+<div class="task"><p class="task-instruction">Which specific operational areas are highlighted for immediate resource efficiency measures?</p>
+<p>Operational areas for efficiency measures:</p>
+</div>
+<div class="task"><p class="task-instruction">What are the potential consequences of non-compliance mentioned in the directive?</p>
+<p>Consequences of non-compliance include:</p>
+<ul><li>Reduced profit sharing for employees.</li><li>Severe penalties, jeopardized operational license, and damaged reputation.</li><li>Mandatory team-building exercises.</li><li>An extension on project deadlines.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-analyzing-language-for-greater-impact">
+<header class="stage-header"><h2>Analyzing Language for Greater Impact</h2></header>
+<section class="handout">
+<p>The CEO&#x27;s directive uses specific language to convey importance and authority. Look at these sentences from the text, paying attention to the highlighted phrases and structures:</p>
+<p>a) &quot;<strong class="lexis">Rarely has our sector faced such a comprehensive overhaul</strong> of its environmental obligations.&quot;<br>
+b) &quot;<strong class="lexis">Under no circumstances can operations deviate</strong> from these updated hazard reduction and disposal guidelines.&quot;<br>
+c) &quot;<strong class="lexis">Not only must we adapt to these regulations, but we must also actively implement sustainable practices</strong> that reflect our core values.&quot;<br>
+d) &quot;Our primary objective is to not only meet but exceed these new benchmarks, reinforcing our leadership in sustainable logistics.&quot;<br>
+e) &quot;Key areas of focus will include the immediate <strong class="lexis">implementation of advanced resource efficiency measures</strong>...&quot;<br>
+f) &quot;Your proactive engagement in these efforts is paramount to our collective success in <strong class="lexis">mitigating environmental impact</strong>.&quot;</p>
+<p>Work with a partner to discuss:<br>
+1. In sentences (a), (b), and (c), how is the word order different from a typical statement (e.g., &#x27;Our sector has rarely faced...&#x27;)?<br>
+2. What effect does this unusual word order have? Does it make the statement sound more formal, serious, or absolute?<br>
+3. What do the phrases in (e) and (f) like &#x27;implementation of advanced resource efficiency measures&#x27; and &#x27;mitigating environmental impact&#x27; convey about the company&#x27;s approach? How do they differ from simpler ways of saying the same thing (e.g., &#x27;using less stuff&#x27; or &#x27;reducing pollution&#x27;)?<br>
+4. How does the CEO use these language choices to emphasize the importance and non-negotiable nature of the new regulations?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>EXECUTIVE COMPLIANCE DIRECTIVE: Strengthening Our Environmental Stewardship</h5>
+<p>To All Department Heads and Team Leaders,</p>
+<p>This directive outlines critical updates regarding our company&#x27;s commitment to enhanced <strong class="lexis">environmental regulatory compliance</strong>. Effective immediately, we are implementing stringent new measures in response to the recently enacted &#x27;Sustainable Operations Act&#x27;. This legislation significantly tightens <strong class="lexis">emissions standards</strong> and mandates comprehensive revisions to our existing <strong class="lexis">waste disposal protocols</strong>.</p>
+<p><strong class="lexis">Rarely has our sector faced such a comprehensive overhaul of its environmental obligations.</strong> We understand that adapting to these changes will require concerted effort and strategic planning across all divisions. Our primary objective is to not only meet but exceed these new benchmarks, reinforcing our leadership in sustainable logistics.</p>
+<p>Key areas of focus will include the immediate implementation of advanced <strong class="lexis">resource efficiency measures</strong>, particularly within our fleet management and warehouse operations. An urgent <strong class="lexis">environmental impact assessment</strong> for all current projects is underway, with results to inform our adjusted operational strategies. <strong class="lexis">Under no circumstances can operations deviate from these updated hazard reduction and disposal guidelines.</strong> Non-compliance carries severe penalties and jeopardizes our operational license, as well as our reputation.</p>
+<p>Furthermore, we are initiating a series of <strong class="lexis">carbon footprint reduction initiatives</strong>, starting with a mandatory energy audit and optimization program. <strong class="lexis">Not only must we adapt to these regulations, but we must also actively implement sustainable practices that reflect our core values.</strong> We are committed to providing the necessary training and resources to ensure a smooth transition. Your proactive engagement in these efforts is paramount to our collective success in <strong class="lexis">mitigating environmental impact</strong>.</p>
+<p>We anticipate a short period of adjustment, but the long-term benefits – both ecological and reputational – are undeniable. Let us approach this challenge with diligence and a shared commitment to environmental stewardship.</p>
+<p>Sincerely,</p>
+<p>Eleanor Vance<br>
+CEO, EcoLogistics Solutions</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Look at sentences (a), (b), and (c). How is the word order different from a typical statement?</p>
+<p>Describe the altered word order:</p>
+</div>
+<div class="task"><p class="task-instruction">Considering sentences (a), (b), and (c), what tone or emphasis does this specific word order create?</p>
+<p>What is the effect of the inverted word order?</p>
+</div>
+<div class="task"><p class="task-instruction">In sentence (e), the phrase &#x27;implementation of advanced resource efficiency measures&#x27; is used. What is a simpler way to express the core idea?</p>
+<p>Simpler term for &#x27;implementation of advanced resource efficiency measures&#x27;:</p>
+</div>
+<div class="task"><p class="task-instruction">In sentence (f), the phrase &#x27;mitigating environmental impact&#x27; is used. What is a simpler way to express the core idea?</p>
+<p>Simpler term for &#x27;mitigating environmental impact&#x27;:</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-formulating-authoritative-statements">
+<header class="stage-header"><h2>Formulating Authoritative Statements</h2></header>
+<section class="handout">
+<p>Now, practice using the formal language and structures you&#x27;ve just analyzed. Rewrite or complete the following sentences to make them sound more authoritative and impactful, similar to the CEO&#x27;s directive. Pay attention to word order and formal vocabulary.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Rewrite the sentence, starting with &#x27;Seldom...&#x27;</p>
+<p>Our company has seldom encountered such rigorous environmental impact assessment requirements. (Start with &#x27;Seldom...&#x27;)</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence to emphasize the absolute prohibition, starting with &#x27;Under no circumstances...&#x27;</p>
+<p>You are not permitted to bypass the new hazard reduction procedures. (Start with &#x27;Under no circumstances...&#x27;)</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence using a suitable phrase for professional discourse.</p>
+<p>Our team is working to _________ the environmental impact of our supply chain. (Use a phrase like &#x27;mitigate impact&#x27;)</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence, starting with &#x27;Not only...&#x27; to highlight dual responsibilities.</p>
+<p>We must reduce our carbon footprint, and we also need to educate our stakeholders. (Start with &#x27;Not only...&#x27;)</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence using a suitable phrase from professional discourse about new procedures.</p>
+<p>The new directive requires us to _________ advanced sustainable practices across all facilities. (Use a phrase like &#x27;implement practices&#x27;)</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-your-role-in-environmental-communication">
+<header class="stage-header"><h2>Your Role in Environmental Communication</h2></header>
+<section class="handout">
+<p>Imagine you are a team leader in your company. You need to write a short internal announcement (3-4 sentences) to your team about a critical update regarding <strong class="lexis">waste disposal protocols</strong> or a new <strong class="lexis">carbon footprint reduction initiative</strong>.</p>
+<p>Your message should:<br>
+*   Be formal and authoritative.<br>
+*   Emphasize the importance and non-negotiable nature of the new protocols.<br>
+*   Include at least one sentence using a negative inversion (e.g., &#x27;Rarely have we...&#x27;, &#x27;Under no circumstances...&#x27;, &#x27;Not only must we...&#x27;).<br>
+*   Incorporate some of the professional discourse phrases we&#x27;ve studied (e.g., &#x27;implement sustainable practices&#x27;, &#x27;mitigate environmental impact&#x27;, &#x27;resource efficiency measures&#x27;).</p>
+<p>Write your announcement below, focusing on clear and impactful communication.</p>
+</section>
+</article>
+</body>
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Preparing an Achievement Memo for Review</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Preparing an Achievement Memo for Review</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>2</dd>
+      <dt>Class</dt><dd>6</dd>
+      <dt>Theme</dt><dd>T02_WORK</dd>
+      <dt>Framework</dt><dd>SK-PROD</dd>
+      <dt>Role</dt><dd>SK_PROD_WRITING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Your Annual Review Highlight</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Greet students and briefly introduce the topic of performance reviews.<br>
+2. Read the lead-in question aloud to the class.<br>
+3. Ask students to think for a minute individually about their specific accomplishment.<br>
+4. Put students in pairs or small groups to discuss their ideas. Encourage them to explain why their chosen accomplishment is valuable to the company&#x27;s mission.<br>
+5. Bring the class back together and ask a few volunteers to share their highlights and reasons.<br>
+6. Emphasize that linking individual work to company goals is key to successful reviews.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Getting Ready for Your Review</h4>
+<p>Imagine your annual performance review is next week.</p>
+<p>What&#x27;s one specific accomplishment from the past year that you would highlight to show your value to the company&#x27;s overall mission?</p>
+<p>Think about:<br>
+1. What was the accomplishment?<br>
+2. How did it help your department?<br>
+3. How did it support the company&#x27;s bigger goals?<br>
+4. What skills did you use or develop?</p>
+</section>
+</article>
+<article class="stage" id="stage-MOD">
+<header class="stage-header"><span class="stage-code">MOD</span><h2>Model Analysis: Articulating Achievements</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Distribute the model memo to students.<br>
+2. Ask students to read the memo quickly to understand its general purpose.<br>
+3. Instruct students to complete the MCQ tasks based on the memo.<br>
+4. After students have completed the tasks, check answers as a class, discussing why each option is correct or incorrect.<br>
+5. Highlight the phrases in the memo that link individual work to broader strategic objectives.<br>
+6. Discuss the tone and register of the memo (professional, confident, concise).</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reviewing an Achievement Memo</h4>
+<p>Read the memo from Alex to their manager, Ms. Davies. This memo is being used to prepare for an upcoming performance review. Then, answer the questions below.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Memo: Pre-Review Contribution Summary</h5>
+<p>To: Ms. Davies, Department Head<br>
+From: Alex Chen, Logistics Coordinator<br>
+Date: October 26, 2023<br>
+Subject: Summary of Key Contributions (Q4-Q1)</p>
+<p>Dear Ms. Davies,</p>
+<p>I hope this memo finds you well. With my annual performance review approaching, I wanted to provide a brief overview of my key contributions during the last fiscal year (Q4-Q1) that I believe align with our departmental objectives and broader corporate strategy.</p>
+<p>My primary achievement was spearheading the implementation of the new inventory management system. This initiative directly addressed our objective of enhancing operational efficiency. By redesigning the stock rotation protocol and training five team members on the new software, we successfully reduced average inventory holding costs by 12% and minimized stockouts by 8% over six months. These are significant <strong class="lexis">performance metrics</strong> that reflect a direct impact on our departmental budget and contribute to the company’s overall cost-saving initiatives.</p>
+<p>Furthermore, I took the lead on a cross-departmental project to optimize our delivery routes, collaborating with the transport team. This project, completed two weeks ahead of schedule, improved delivery times by an average of 15% in our busiest region, thereby directly supporting our strategic goal of improving customer satisfaction and service reliability. This experience has been crucial for my <strong class="lexis">development path</strong> in project management and cross-functional collaboration.</p>
+<p>Looking ahead, I am eager to explore opportunities for further <strong class="lexis">career progression</strong> within the operations team. I believe my skills in process optimization and team training can be leveraged for future initiatives focused on scalability and innovation. My <strong class="lexis">strategic contribution</strong> is rooted in identifying and implementing solutions that translate into measurable improvements for the business.</p>
+<p>I look forward to discussing these points and my future objectives during our review.</p>
+<p>Best regards,<br>
+Alex Chen</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main purpose of Alex&#x27;s memo?</p>
+<ul><li>To request a promotion and a salary increase.</li><li>To summarize accomplishments relevant to an upcoming performance review.</li><li>To complain about inventory management issues.</li><li>To update Ms. Davies on the status of ongoing projects.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Which of the following phrases indicates a direct link between Alex&#x27;s work and corporate strategy?</p>
+<ul><li>&quot;I hope this memo finds you well.&quot;</li><li>&quot;spearheading the implementation of the new inventory management system.&quot;</li><li>&quot;directly supporting our strategic goal of improving customer satisfaction and service reliability.&quot;</li><li>&quot;completed two weeks ahead of schedule.&quot;</li></ul>
+</div>
+<div class="task"><p class="task-instruction">What kind of language does Alex use to describe their contributions?</p>
+<ul><li>Informal and casual.</li><li>Vague and unspecific.</li><li>Professional and results-oriented.</li><li>Overly boastful and aggressive.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-PREP">
+<header class="stage-header"><span class="stage-code">PREP</span><h2>Preparation: Language for Contribution</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will now prepare to write their own summaries of contributions.<br>
+2. Introduce the column banks of useful phrases. Go through each section, explaining the nuance of the phrases.<br>
+3. Ask students to think about their own work and try to fit their accomplishments into these categories or use the phrases to describe them.<br>
+4. In pairs, students can briefly discuss how they might use these phrases to describe their accomplishments from the L-IN stage.<br>
+5. Encourage students to select 3-5 phrases they find most useful for their own context.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Words to Show Your Value</h4>
+<p>Before you write, let&#x27;s look at some useful phrases to describe your contributions and link them to company goals. Think about how you can use these to talk about your own work.</p>
+<p>Look at the phrases below. Try to use them to describe accomplishments from your own experience or from the memo you just read.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Stating Contributions</th><th>Linking to Strategic Goals</th><th>Quantifying Impact (Performance Metrics)</th><th>Development &amp; Progression</th></tr><tr><td>I spearheaded the implementation of...</td><td>This initiative directly addressed our objective of...</td><td>reduced X by Y%</td><td>This experience has been crucial for my development path in...</td></tr><tr><td>My primary achievement was...</td><td>This contributed to the company’s overall...</td><td>minimized Z by A%</td><td>I am eager to explore opportunities for further career progression in...</td></tr><tr><td>I took the lead on...</td><td>It aligned with our strategic goal of...</td><td>improved B by C%</td><td>My skills in X can be leveraged for...</td></tr><tr><td>I was instrumental in...</td><td>Thereby directly supporting our goal of...</td><td>increased D by E%</td><td>I developed expertise in...</td></tr><tr><td>I successfully managed...</td><td>This reflects a direct impact on...</td><td>achieved F within G time/budget</td><td>I gained valuable insight into...</td></tr><tr><td>I played a key role in...</td><td>It translates into measurable improvements for...</td><td>resulted in savings of...</td><td></td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Free Practice: Writing Your Contribution Summary</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain the task: students will now write their own contribution summary.<br>
+2. Emphasize the audience (their manager) and purpose (prepare for review, highlight value).<br>
+3. Remind students to use the language from the PREP stage and to make sure they link their accomplishments to broader company goals.<br>
+4. Set a clear word count (e.g., 150-200 words) and a time limit for writing.<br>
+5. Circulate and monitor, offering support with vocabulary or structure as needed.<br>
+6. Do not correct language errors at this stage; focus on content and successful communication of the message.</p>
+<p>---MODEL ANSWER EXAMPLE---<br>
+To: [Manager&#x27;s Name], [Department/Team Name]<br>
+From: [Your Name], [Your Position]<br>
+Date: [Current Date]<br>
+Subject: Summary of Key Contributions for Performance Review</p>
+<p>Dear [Manager&#x27;s Name],</p>
+<p>I am writing to provide a summary of my key contributions over the past year in preparation for my annual performance review. My aim is to highlight how my work has supported our team&#x27;s objectives and the company&#x27;s broader strategic goals.</p>
+<p>My main accomplishment was streamlining the new client onboarding process. This initiative directly addressed our objective of enhancing client satisfaction and efficiency. By standardizing documentation and creating a new digital checklist, we successfully reduced the average onboarding time by 20% and improved initial client feedback scores by 15%. These <strong class="lexis">performance metrics</strong> demonstrate a clear positive impact on our client relations and contribute to the company’s reputation for excellent service.</p>
+<p>Furthermore, I took the lead on coordinating our internal training workshops for new software, working closely with the IT department. This project resulted in a 90% completion rate for all staff and ensured a smooth transition for the entire team, thereby directly supporting our strategic goal of continuous skill development and operational readiness. This experience has been crucial for my <strong class="lexis">development path</strong> in training and inter-departmental collaboration.</p>
+<p>I believe my <strong class="lexis">strategic contribution</strong> lies in identifying process improvements that directly translate into both efficiency gains and enhanced staff capability. I look forward to discussing these achievements and my future aspirations during our review.</p>
+<p>Best regards,<br>
+[Your Name]</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Your Performance Review Brief</h4>
+<p>Now, it&#x27;s your turn to write a short memo or email to your manager, preparing for your annual performance review. Highlight one or two key accomplishments from the past year.</p>
+<p><strong class="lexis">Audience</strong>: Your Manager<br>
+<strong class="lexis">Purpose</strong>: To summarize your key contributions, show your value, and link your work to your department&#x27;s and the company&#x27;s strategic goals.<br>
+<strong class="lexis">Approximate Length</strong>: 150-200 words (about 10-15 lines)</p>
+<p><strong class="lexis">Include the following:</strong><br>
+*   An opening stating the purpose of the memo.<br>
+*   Clearly state your accomplishment(s).<br>
+*   Use <strong class="lexis">performance metrics</strong> (numbers, percentages) where possible to show the impact.<br>
+*   Explain how your accomplishment links to a departmental or <strong class="lexis">corporate strategic goal</strong>.<br>
+*   Mention any personal <strong class="lexis">development path</strong> or <strong class="lexis">career progression</strong> you experienced.<br>
+*   A professional closing.</p>
+<p>Use the phrases from the previous activity to help you.</p>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback: Content and Language</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Pair students up and instruct them to exchange their written memos/emails.<br>
+2. Guide students through the content feedback questions first. Emphasize constructive criticism focusing on clarity, impact, and strategic alignment.<br>
+3. After content feedback, instruct students to reread their partner&#x27;s memo, focusing on language accuracy, formality, and appropriate vocabulary (e.g., use of <strong class="lexis">lexical tags</strong>).<br>
+4. Circulate and provide individualized feedback, correcting key errors and reinforcing positive use of target language. Prioritize errors that hinder meaning or sound unprofessional.<br>
+5. Collect the memos for further teacher review if time allows, or for homework assignment of revision.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Improving Your Contribution Summary</h4>
+<p>Now, you will exchange your memo with a partner for feedback. Read your partner&#x27;s memo carefully and answer the questions below.</p>
+<p><strong class="lexis">Part 1: Content Feedback (Focus on the message)</strong><br>
+1. Is the main accomplishment clear and easy to understand?<br>
+2. Does the writer use specific details or <strong class="lexis">performance metrics</strong> to show the impact of their work?<br>
+3. Does the memo clearly explain how the accomplishment links to departmental or <strong class="lexis">corporate strategic goals</strong>?<br>
+4. Is the tone professional and confident?<br>
+5. What is one thing your partner did very well?<br>
+6. What is one suggestion you have for improving the clarity of their contribution or its link to strategy?</p>
+<p><strong class="lexis">Part 2: Language Feedback (Focus on words and phrases)</strong><br>
+1. Does the memo use appropriate vocabulary related to work, strategy, and performance (e.g., <strong class="lexis">performance metrics</strong>, <strong class="lexis">development path</strong>, <strong class="lexis">career progression</strong>, <strong class="lexis">strategic contribution</strong>)?<br>
+2. Are there any sentences that are unclear or could be phrased more professionally?<br>
+3. Check for any grammar or spelling mistakes.</p>
+<p>After getting feedback, revise your memo to make it even stronger.</p>
+</section>
+</article>
+</body>
+</html>

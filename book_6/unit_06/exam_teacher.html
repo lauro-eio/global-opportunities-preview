@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit exam — Workplace Digital Literacy and Professional Conduct</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<nav class="breadcrumbs"><a href="index.html">← Unit index</a></nav>
+<header>
+  <p class="view-banner">Teacher · Unit exam key</p>
+  <h1>Unit exam — Workplace Digital Literacy and Professional Conduct</h1>
+  <p class="meta">T06_TECH · C1 · 30 items</p>
+</header>
+<article class="exam-item" id="q01"><div class="exam-item-header"><span class="qnum">1. q01</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">The recent internal memo contained some unverified claims, which led to widespread ______ among staff regarding the company&#x27;s financial health.</div><ul class="exam-options"><li><span class="opt-key">A.</span>transparency</li><li class="correct"><span class="opt-key">B.</span>misinformation ✓</li><li><span class="opt-key">C.</span>clarification</li><li><span class="opt-key">D.</span>insight</li></ul><div class="exam-explanation"><strong>Explanation</strong>Misinformation refers to false or inaccurate information, especially that which is intended to deceive. It fits the context of unverified claims causing confusion.</div></article><article class="exam-item" id="q02"><div class="exam-item-header"><span class="qnum">2. q02</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">When researching new market trends, always prioritize reports from ______ to ensure the data is reliable and unbiased.</div><ul class="exam-options"><li><span class="opt-key">A.</span>anonymous forums</li><li><span class="opt-key">B.</span>social media influencers</li><li class="correct"><span class="opt-key">C.</span>credible sources ✓</li><li><span class="opt-key">D.</span>unaffiliated blogs</li></ul><div class="exam-explanation"><strong>Explanation</strong>Credible sources are those that are trustworthy and reliable, essential for professional research.</div></article><article class="exam-item" id="q03"><div class="exam-item-header"><span class="qnum">3. q03</span><span class="exam-meta">grammar · class 1</span></div><div class="exam-prompt">Which sentence best demonstrates the act of critically evaluating information shared in a professional group chat?</div><ul class="exam-options"><li><span class="opt-key">A.</span>I forwarded the latest rumor without checking its origin.</li><li class="correct"><span class="opt-key">B.</span>I asked for the data source of that claim before circulating it further. ✓</li><li><span class="opt-key">C.</span>I assumed the information was correct because a senior colleague posted it.</li><li><span class="opt-key">D.</span>I agreed with the message because it aligned with my existing beliefs.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Critically evaluating information involves questioning its origin and validity, as shown by asking for the data source.</div></article><article class="exam-item" id="q04"><div class="exam-item-header"><span class="qnum">4. q04</span><span class="exam-meta">comprehension · class 1</span></div><div class="exam-prompt">A colleague shares a sensational news article about a competitor in your internal communications platform. What is the most professionally appropriate first step?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Share it immediately with your team members, highlighting the competitor&#x27;s struggles.</li><li class="correct"><span class="opt-key">B.</span>Privately check the article&#x27;s publication date, author, and supporting evidence before drawing conclusions. ✓</li><li><span class="opt-key">C.</span>Dismiss it as likely fake news and ignore it completely.</li><li><span class="opt-key">D.</span>Post a comment publicly asking if anyone else believes it, inviting speculation.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Verifying information from credible sources and checking facts privately is crucial for maintaining professional conduct and preventing misinformation spread.</div></article><article class="exam-item" id="q05"><div class="exam-item-header"><span class="qnum">5. q05</span><span class="exam-meta">lexis · class 2</span></div><div class="exam-prompt">The new company policy emphasizes the importance of protecting client information to ensure ______.</div><ul class="exam-options"><li><span class="opt-key">A.</span>open access</li><li class="correct"><span class="opt-key">B.</span>data privacy ✓</li><li><span class="opt-key">C.</span>public disclosure</li><li><span class="opt-key">D.</span>information sharing</li></ul><div class="exam-explanation"><strong>Explanation</strong>Data privacy refers to the protection of personal and sensitive data from unauthorized access or use, which is critical for client information.</div></article><article class="exam-item" id="q06"><div class="exam-item-header"><span class="qnum">6. q06</span><span class="exam-meta">lexis · class 2</span></div><div class="exam-prompt">To enhance security without impeding workflow, the IT department installed ______ that only monitor network traffic for anomalies.</div><ul class="exam-options"><li><span class="opt-key">A.</span>unstructured data systems</li><li class="correct"><span class="opt-key">B.</span>strategically-implemented surveillance systems ✓</li><li><span class="opt-key">C.</span>randomized access portals</li><li><span class="opt-key">D.</span>ad-hoc monitoring tools</li></ul><div class="exam-explanation"><strong>Explanation</strong>Strategically-implemented surveillance systems describes the careful and intentional deployment of monitoring tools for specific purposes, such as security.</div></article><article class="exam-item" id="q07"><div class="exam-item-header"><span class="qnum">7. q07</span><span class="exam-meta">grammar · class 2</span></div><div class="exam-prompt">Which option correctly uses a complex modifier to describe a company&#x27;s approach to digital security?</div><ul class="exam-options"><li><span class="opt-key">A.</span>The company has a security digital framework robust.</li><li class="correct"><span class="opt-key">B.</span>The company employs a robust, digitally-integrated security framework. ✓</li><li><span class="opt-key">C.</span>The company, robustly integrated digitally, security framework employs.</li><li><span class="opt-key">D.</span>The company has an integrated security framework that is digitally robust.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The correct option uses the compound modifier &#x27;digitally-integrated&#x27; before the noun phrase &#x27;security framework&#x27; to create a concise and professional description.</div></article><article class="exam-item" id="q08"><div class="exam-item-header"><span class="qnum">8. q08</span><span class="exam-meta">comprehension · class 2</span></div><div class="exam-prompt">Your company&#x27;s HR policy states that all digital communications on company devices are subject to monitoring. How should you interpret and act upon this?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Assume it&#x27;s just a formality and continue using devices for personal matters freely.</li><li class="correct"><span class="opt-key">B.</span>Understand that all work-related and potentially personal communications may be reviewed, and adjust your usage accordingly. ✓</li><li><span class="opt-key">C.</span>Believe it only applies to email and not to messaging apps or web browsing.</li><li><span class="opt-key">D.</span>Protest the policy immediately, arguing it violates your privacy rights without exception.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Understanding that company devices are for work purposes and that all activity may be monitored is the appropriate interpretation of such a policy. Personal use should be minimized or avoided.</div></article><article class="exam-item" id="q09"><div class="exam-item-header"><span class="qnum">9. q09</span><span class="exam-meta">comprehension · class 3</span></div><div class="exam-prompt">When integrating AI tools into routine workplace tasks, a key ethical consideration is to ensure that:</div><ul class="exam-options"><li><span class="opt-key">A.</span>AI completely replaces human decision-making to boost efficiency.</li><li class="correct"><span class="opt-key">B.</span>Bias in AI algorithms is identified and mitigated to ensure fair outcomes. ✓</li><li><span class="opt-key">C.</span>AI operates with maximum transparency, revealing all its internal processes.</li><li><span class="opt-key">D.</span>Only AI-generated content is used for external communications.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Mitigating bias in AI algorithms is a crucial ethical consideration to ensure fairness and prevent discriminatory outcomes in the workplace.</div></article><article class="exam-item" id="q10"><div class="exam-item-header"><span class="qnum">10. q10</span><span class="exam-meta">register · class 3</span></div><div class="exam-prompt">Which statement best describes the practical benefits of integrating AI into a customer support workflow, using appropriate professional register?</div><ul class="exam-options"><li><span class="opt-key">A.</span>AI helps us chat with customers super fast and get more done.</li><li class="correct"><span class="opt-key">B.</span>Implementing AI can streamline query resolution, improving response times and operational efficiency. ✓</li><li><span class="opt-key">C.</span>The AI bot is like, really good at talking to people, so we don&#x27;t have to.</li><li><span class="opt-key">D.</span>AI is a cool gadget that might make our customer service better.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The statement uses formal and precise language (&#x27;streamline query resolution,&#x27; &#x27;improving response times,&#x27; &#x27;operational efficiency&#x27;) suitable for a professional workplace context when discussing practical benefits.</div></article><article class="exam-item" id="q11"><div class="exam-item-header"><span class="qnum">11. q11</span><span class="exam-meta">comprehension · class 3</span></div><div class="exam-prompt">A team considers using an AI tool for drafting initial project proposals. What is a key practical benefit they should expect?</div><ul class="exam-options"><li><span class="opt-key">A.</span>The AI will independently manage the entire project from start to finish.</li><li><span class="opt-key">B.</span>It will automate all subsequent decision-making processes, eliminating human input.</li><li class="correct"><span class="opt-key">C.</span>It can accelerate the drafting process by generating initial content, allowing the team to focus on refinement and strategy. ✓</li><li><span class="opt-key">D.</span>The AI will automatically incorporate confidential client data without requiring oversight.</li></ul><div class="exam-explanation"><strong>Explanation</strong>AI tools can significantly speed up the generation of initial drafts, freeing up human resources for higher-level tasks like strategic review and customization.</div></article><article class="exam-item" id="q12"><div class="exam-item-header"><span class="qnum">12. q12</span><span class="exam-meta">register · class 3</span></div><div class="exam-prompt">When discussing the ethical concerns of AI in HR, which phrase is most professionally appropriate?</div><ul class="exam-options"><li><span class="opt-key">A.</span>We need to watch out for the AI&#x27;s weird decisions.</li><li class="correct"><span class="opt-key">B.</span>We must address the potential for algorithmic bias in hiring and performance evaluations. ✓</li><li><span class="opt-key">C.</span>The AI might be a bit unfair sometimes, so like, be careful.</li><li><span class="opt-key">D.</span>Let&#x27;s make sure the robot doesn&#x27;t mess up our hiring.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The phrase &#x27;potential for algorithmic bias&#x27; and &#x27;hiring and performance evaluations&#x27; uses formal, precise terminology suitable for discussing ethical concerns in a professional HR context.</div></article><article class="exam-item" id="q13"><div class="exam-item-header"><span class="qnum">13. q13</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">Maintaining a positive ______ is crucial for career advancement, as potential employers often review candidates&#x27; public online profiles.</div><ul class="exam-options"><li><span class="opt-key">A.</span>personal anecdote</li><li class="correct"><span class="opt-key">B.</span>online reputation ✓</li><li><span class="opt-key">C.</span>digital anonymity</li><li><span class="opt-key">D.</span>social media addiction</li></ul><div class="exam-explanation"><strong>Explanation</strong>Online reputation refers to the perception of an individual or organization based on their online presence, which directly impacts career prospects.</div></article><article class="exam-item" id="q14"><div class="exam-item-header"><span class="qnum">14. q14</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">Adhering to proper ______ is vital when interacting on professional platforms to project a credible and respectful image.</div><ul class="exam-options"><li><span class="opt-key">A.</span>casual chat rules</li><li class="correct"><span class="opt-key">B.</span>social media etiquette ✓</li><li><span class="opt-key">C.</span>personal venting habits</li><li><span class="opt-key">D.</span>online trolling guidelines</li></ul><div class="exam-explanation"><strong>Explanation</strong>Social media etiquette refers to the unwritten rules of behavior and communication on social media platforms, which are particularly important in a professional context.</div></article><article class="exam-item" id="q15"><div class="exam-item-header"><span class="qnum">15. q15</span><span class="exam-meta">grammar · class 4</span></div><div class="exam-prompt">Which sentence best illustrates strategically managing your online presence to enhance your professional reputation?</div><ul class="exam-options"><li><span class="opt-key">A.</span>I frequently share highly controversial political opinions on all my public profiles.</li><li class="correct"><span class="opt-key">B.</span>I regularly update my LinkedIn profile with accomplishments and curate my public posts to align with industry standards. ✓</li><li><span class="opt-key">C.</span>I post personal photos on company social media pages without considering brand guidelines.</li><li><span class="opt-key">D.</span>I rarely check my privacy settings, assuming no one is interested in my content.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Regularly updating a professional profile and curating public posts demonstrates a strategic approach to enhancing one&#x27;s professional online reputation.</div></article><article class="exam-item" id="q16"><div class="exam-item-header"><span class="qnum">16. q16</span><span class="exam-meta">comprehension · class 4</span></div><div class="exam-prompt">You are advised to review your privacy settings on all social media platforms regularly. What is the primary reason for this advice in a professional context?</div><ul class="exam-options"><li><span class="opt-key">A.</span>To ensure your personal life is completely visible to potential employers.</li><li><span class="opt-key">B.</span>To allow maximum data sharing with third-party applications for convenience.</li><li class="correct"><span class="opt-key">C.</span>To mitigate potential risks to your professional image and protect sensitive personal information. ✓</li><li><span class="opt-key">D.</span>To make it easier for former colleagues to find and contact you.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Regularly reviewing privacy settings helps control who sees your online content, protecting your professional image and sensitive data from unintended exposure or misuse.</div></article><article class="exam-item" id="q17"><div class="exam-item-header"><span class="qnum">17. q17</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">Which phrase is the most appropriate professional way to remind colleagues about cautious online sharing?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Be careful what you put online, guys.</li><li class="correct"><span class="opt-key">B.</span>It&#x27;s important to consider what you put online. ✓</li><li><span class="opt-key">C.</span>Don&#x27;t just post anything you want on the internet.</li><li><span class="opt-key">D.</span>Think before you tweet or something.</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;It&#x27;s important to consider what you put online&#x27; uses a more formal, advisory tone suitable for professional communication, as opposed to casual or imperative phrasing.</div></article><article class="exam-item" id="q18"><div class="exam-item-header"><span class="qnum">18. q18</span><span class="exam-meta">lexis · class 5</span></div><div class="exam-prompt">One of our core responsibilities is ______ by strictly following data protection protocols.</div><ul class="exam-options"><li><span class="opt-key">A.</span>sharing client anecdotes freely</li><li class="correct"><span class="opt-key">B.</span>keeping sensitive client information safe ✓</li><li><span class="opt-key">C.</span>publicizing client testimonials</li><li><span class="opt-key">D.</span>uploading client data to unsecured clouds</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Keeping sensitive client information safe&#x27; directly addresses the responsibility of protecting confidential data through protocols.</div></article><article class="exam-item" id="q19"><div class="exam-item-header"><span class="qnum">19. q19</span><span class="exam-meta">comprehension · class 5</span></div><div class="exam-prompt">When evaluating an industry report published by a new, unknown digital publication, what critical media literacy skill should you apply?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Accept the report as accurate because it&#x27;s digitally published.</li><li><span class="opt-key">B.</span>Share it immediately with your network to gain reactions.</li><li class="correct"><span class="opt-key">C.</span>Verify the publication&#x27;s reputation, editorial process, and author&#x27;s credentials before trusting its content. ✓</li><li><span class="opt-key">D.</span>Assume it&#x27;s clickbait and ignore it, regardless of the content.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Applying critical media literacy involves actively verifying the source&#x27;s credibility and the content&#x27;s validity, especially for unknown publications.</div></article><article class="exam-item" id="q20"><div class="exam-item-header"><span class="qnum">20. q20</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">Which option demonstrates the most professional digital discourse when responding to a minor factual error in a company newsletter?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Ugh, this newsletter is full of mistakes. Fix it!</li><li class="correct"><span class="opt-key">B.</span>I noticed a small discrepancy on page 3. Could you please review? ✓</li><li><span class="opt-key">C.</span>Seriously, who even proofreads this stuff? It&#x27;s wrong.</li><li><span class="opt-key">D.</span>There&#x27;s a typo. Not a big deal, but you might wanna check.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The correct option uses polite, formal language and clearly identifies the issue without being accusatory or overly casual, reflecting professional digital discourse.</div></article><article class="exam-item" id="q21"><div class="exam-item-header"><span class="qnum">21. q21</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">Our company fosters a ______ where adaptability and innovation are highly valued.</div><ul class="exam-options"><li><span class="opt-key">A.</span>static operational model</li><li class="correct"><span class="opt-key">B.</span>dynamic work environment ✓</li><li><span class="opt-key">C.</span>rigid hierarchical structure</li><li><span class="opt-key">D.</span>monotonous task cycle</li></ul><div class="exam-explanation"><strong>Explanation</strong>A &#x27;dynamic work environment&#x27; implies a workplace that is constantly changing and evolving, valuing flexibility and new ideas, which aligns with &#x27;adaptability and innovation&#x27;.</div></article><article class="exam-item" id="q22"><div class="exam-item-header"><span class="qnum">22. q22</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">The new product launch has generated ______ of interest from both consumers and industry analysts.</div><ul class="exam-options"><li><span class="opt-key">A.</span>minimal visibility</li><li class="correct"><span class="opt-key">B.</span>unprecedented levels ✓</li><li><span class="opt-key">C.</span>standard engagement</li><li><span class="opt-key">D.</span>declining metrics</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Unprecedented levels&#x27; suggests an extraordinary or never-before-seen amount, which fits the context of high interest for a new product launch.</div></article><article class="exam-item" id="q23"><div class="exam-item-header"><span class="qnum">23. q23</span><span class="exam-meta">grammar · class 6</span></div><div class="exam-prompt">Which sentence contains manipulative language designed to elicit an &#x27;enthusiastic cooperation&#x27; response?</div><ul class="exam-options"><li><span class="opt-key">A.</span>We expect all team members to contribute equally to the project tasks.</li><li class="correct"><span class="opt-key">B.</span>This fantastic opportunity demands your enthusiastic cooperation to achieve unparalleled success. ✓</li><li><span class="opt-key">C.</span>Project deadlines require everyone&#x27;s adherence to the schedule.</li><li><span class="opt-key">D.</span>Your input on this initiative would be greatly appreciated.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Phrases like &#x27;fantastic opportunity&#x27; and &#x27;unparalleled success&#x27; are often used to create an illusion of exceptional benefit, subtly pressuring individuals into &#x27;enthusiastic cooperation&#x27; without directly stating a command or obligation.</div></article><article class="exam-item" id="q24"><div class="exam-item-header"><span class="qnum">24. q24</span><span class="exam-meta">comprehension · class 6</span></div><div class="exam-prompt">You receive an internal email from management describing a new initiative as a &#x27;fantastic opportunity to demonstrate your commitment and achieve optimal resource allocation for stronger team spirit.&#x27; What is the most appropriate professional response to this communication?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Immediately volunteer for all tasks, assuming it will guarantee career advancement.</li><li class="correct"><span class="opt-key">B.</span>Skeptically analyze the specific requirements, potential workload, and actual benefits before committing. ✓</li><li><span class="opt-key">C.</span>Ignore the email entirely, assuming it&#x27;s just corporate jargon.</li><li><span class="opt-key">D.</span>Forward the email to colleagues with negative comments about management&#x27;s communication style.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Recognizing potentially manipulative or overly positive language (like &#x27;fantastic opportunity,&#x27; &#x27;optimal resource allocation,&#x27; &#x27;stronger team spirit&#x27;) requires a critical and analytical response, evaluating the practicalities before full commitment.</div></article><article class="exam-item" id="q25"><div class="exam-item-header"><span class="qnum">25. q25</span><span class="exam-meta">comprehension · class 7</span></div><div class="exam-prompt">To protect sensitive company information from cyber threats, what is a robust cybersecurity practice?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Using the same password for all company applications to simplify access.</li><li><span class="opt-key">B.</span>Sharing login credentials with trusted colleagues for convenience.</li><li class="correct"><span class="opt-key">C.</span>Regularly updating software and operating systems to patch vulnerabilities. ✓</li><li><span class="opt-key">D.</span>Storing confidential documents on unencrypted personal cloud drives.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Regular software updates are a fundamental cybersecurity practice as they often include patches for newly discovered security vulnerabilities, significantly enhancing protection.</div></article><article class="exam-item" id="q26"><div class="exam-item-header"><span class="qnum">26. q26</span><span class="exam-meta">register · class 7</span></div><div class="exam-prompt">Which statement uses appropriate professional register when advising a colleague on avoiding phishing scams?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Don&#x27;t click on weird links, duh.</li><li class="correct"><span class="opt-key">B.</span>Always verify the sender&#x27;s identity and scrutinize suspicious email attachments before opening. ✓</li><li><span class="opt-key">C.</span>If it looks fishy, it probably is. Just delete it.</li><li><span class="opt-key">D.</span>Be smart about emails or your computer will get hacked.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The statement uses clear, formal, and precise language (&#x27;verify the sender&#x27;s identity,&#x27; &#x27;scrutinize suspicious email attachments&#x27;) appropriate for professional advice on cybersecurity protocols.</div></article><article class="exam-item" id="q27"><div class="exam-item-header"><span class="qnum">27. q27</span><span class="exam-meta">comprehension · class 7</span></div><div class="exam-prompt">Implementing multi-factor authentication (MFA) for accessing company networks is an effective security measure because it:</div><ul class="exam-options"><li><span class="opt-key">A.</span>Allows users to bypass password requirements completely.</li><li class="correct"><span class="opt-key">B.</span>Adds an extra layer of verification, making it significantly harder for unauthorized users to gain access even if they have a password. ✓</li><li><span class="opt-key">C.</span>Automatically encrypts all data transmitted over the network.</li><li><span class="opt-key">D.</span>Eliminates the need for antivirus software on company devices.</li></ul><div class="exam-explanation"><strong>Explanation</strong>MFA adds a second or more forms of verification beyond just a password, such as a code from a phone, dramatically increasing security against unauthorized access.</div></article><article class="exam-item" id="q28"><div class="exam-item-header"><span class="qnum">28. q28</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">Which option correctly uses a complex modifier to describe a cybersecurity initiative?</div><ul class="exam-options"><li><span class="opt-key">A.</span>The company launched an awareness program cyber-security.</li><li class="correct"><span class="opt-key">B.</span>The company launched a robust, company-wide cybersecurity awareness program. ✓</li><li><span class="opt-key">C.</span>A program for cybersecurity awareness, wide-company, was launched.</li><li><span class="opt-key">D.</span>Awareness cybersecurity program, robust and wide-company, launched.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The correct option uses the compound modifiers &#x27;robust&#x27; and &#x27;company-wide&#x27; to modify &#x27;cybersecurity awareness program&#x27; effectively, demonstrating clear and professional phrasing.</div></article><article class="exam-item" id="q29"><div class="exam-item-header"><span class="qnum">29. q29</span><span class="exam-meta">synthesis · class 1</span></div><div class="exam-prompt">Considering the various aspects of digital literacy and professional conduct, what is the most important overarching principle for employees using digital tools in the workplace?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Prioritize personal convenience over company security and policy.</li><li class="correct"><span class="opt-key">B.</span>Treat all digital interactions as public and apply critical judgment and ethical considerations to all online activities. ✓</li><li><span class="opt-key">C.</span>Assume company technology is inherently secure and requires no user vigilance.</li><li><span class="opt-key">D.</span>Delegate all digital responsibility to the IT department.</li></ul><div class="exam-explanation"><strong>Explanation</strong>This synthesizes lessons from multiple classes: digital footprint (Class 4), digital policy (Class 2), AI ethics (Class 3), and verifying information (Class 1). The principle of treating digital interactions as public and applying critical, ethical judgment is central to overall digital literacy.</div></article><article class="exam-item" id="q30"><div class="exam-item-header"><span class="qnum">30. q30</span><span class="exam-meta">synthesis · class 1</span></div><div class="exam-prompt">A new industry report contains highly optimistic projections for your sector but relies heavily on data from a single, anonymous source and uses emotionally charged language. As a digitally literate professional, what is your best course of action?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Share the report widely within your company, emphasizing its positive outlook.</li><li class="correct"><span class="opt-key">B.</span>Critically evaluate the source&#x27;s credibility and data validity, cross-referencing with established industry reports before considering its implications. ✓</li><li><span class="opt-key">C.</span>Dismiss the report immediately as entirely unreliable due to the anonymous source.</li><li><span class="opt-key">D.</span>Use the report&#x27;s optimistic data in your next presentation without further verification.</li></ul><div class="exam-explanation"><strong>Explanation</strong>This item synthesizes concepts from Class 1 (verifying information, credible sources), Class 5 (media literacy), and Class 6 (manipulative language). The best course of action is to apply critical evaluation skills before accepting or disseminating information.</div></article>
+
+</body>
+</html>

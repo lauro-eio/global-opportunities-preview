@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Communicating Professional Standards Effectively</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Communicating Professional Standards Effectively</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>1</dd>
+      <dt>Class</dt><dd>2</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-navigating-professional-grey-areas">
+<header class="stage-header"><h2>Navigating Professional Grey Areas</h2></header>
+<section class="handout">
+<p>Think about a situation at work where you observed a minor practice that felt questionable or didn&#x27;t quite align with what you believed was right. It wasn&#x27;t a major offense, but it caused you to pause.</p>
+<p>Discuss the following questions:</p>
+<p>1.  Would you address this observation? Why or why not?<br>
+2.  What specific factors would influence your decision? (e.g., company culture, relationship with colleagues, potential impact, your personal <strong class="lexis">moral compass</strong>)<br>
+3.  How might addressing it, or not addressing it, affect your own professional <strong class="lexis">identity</strong> within the team?</p>
+</section>
+</article>
+<article class="stage" id="stage-first-impressions-understanding-our-comm">
+<header class="stage-header"><h2>First Impressions: Understanding Our Commitments</h2></header>
+<section class="handout">
+<p>Read the internal memo below from &#x27;Corporate Standards&#x27;. Don&#x27;t worry about understanding every detail right now. Just focus on getting the main message about the purpose of these guidelines. Then, answer the question below.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Memo: Upholding Our Shared Values &amp; Professional Conduct</h5>
+<p>To: All Staff<br>
+From: Corporate Standards Department<br>
+Date: October 26, 2023<br>
+Subject: Reinforcing Our Commitment to <strong class="lexis">Integrity</strong> and <strong class="lexis">Professional Conduct</strong></p>
+<p>Dear Team,</p>
+<p>In recent weeks, internal discussions have highlighted the critical importance of maintaining a consistent standard of <strong class="lexis">professional conduct</strong> across all departments. While we are proud of our collaborative environment, it is imperative to periodically reinforce the foundational principles that define our workplace. This memo serves to reiterate key aspects of our Professional Conduct Policy, ensuring clarity and alignment with our corporate <strong class="lexis">values</strong>.</p>
+<p><strong class="lexis">What truly sets us apart</strong> is not just our collective achievements, but the ethical framework within which we operate. We recognize that navigating certain workplace situations can present a <strong class="lexis">dilemma</strong>, and it is our collective <strong class="lexis">accountability</strong> that ensures we uphold the highest standards. <strong class="lexis">It is through vigilant adherence to our compliance codes that we establish a pluralistic and equitable environment for everyone.</strong></p>
+<p>We trust that each of you continues to embody the spirit of these guidelines. Your active participation in fostering a respectful and productive atmosphere is invaluable. Moving forward, <strong class="lexis">my primary focus is to ensure</strong> that every team member feels empowered to contribute positively and address any observed practices that might subtly erode our shared <strong class="lexis">integrity</strong>. We collectively strive for excellence, and <strong class="lexis">I take pride in my contribution</strong> to this enduring culture.</p>
+<p>Thank you for your ongoing commitment.</p>
+<p>Sincerely,<br>
+The Corporate Standards Department</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main purpose of this memo?</p>
+<ul><li>To announce new disciplinary actions for misconduct.</li><li>To remind staff of existing professional standards and values.</li><li>To introduce a new policy on diversity and inclusion.</li><li>To report on recent ethical violations within the company.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-digging-deeper-policy-nuances">
+<header class="stage-header"><h2>Digging Deeper: Policy Nuances</h2></header>
+<section class="handout">
+<p>Read the &#x27;Upholding Our Shared Values &amp; Professional Conduct&#x27; memo again. This time, focus on the details to answer the questions below. Think about what is explicitly stated and what might be implied.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Memo: Upholding Our Shared Values &amp; Professional Conduct</h5>
+<p>To: All Staff<br>
+From: Corporate Standards Department<br>
+Date: October 26, 2023<br>
+Subject: Reinforcing Our Commitment to <strong class="lexis">Integrity</strong> and <strong class="lexis">Professional Conduct</strong></p>
+<p>Dear Team,</p>
+<p>In recent weeks, internal discussions have highlighted the critical importance of maintaining a consistent standard of <strong class="lexis">professional conduct</strong> across all departments. While we are proud of our collaborative environment, it is imperative to periodically reinforce the foundational principles that define our workplace. This memo serves to reiterate key aspects of our Professional Conduct Policy, ensuring clarity and alignment with our corporate <strong class="lexis">values</strong>.</p>
+<p><strong class="lexis">What truly sets us apart</strong> is not just our collective achievements, but the ethical framework within which we operate. We recognize that navigating certain workplace situations can present a <strong class="lexis">dilemma</strong>, and it is our collective <strong class="lexis">accountability</strong> that ensures we uphold the highest standards. <strong class="lexis">It is through vigilant adherence to our compliance codes that we establish a pluralistic and equitable environment for everyone.</strong></p>
+<p>We trust that each of you continues to embody the spirit of these guidelines. Your active participation in fostering a respectful and productive atmosphere is invaluable. Moving forward, <strong class="lexis">my primary focus is to ensure</strong> that every team member feels empowered to contribute positively and address any observed practices that might subtly erode our shared <strong class="lexis">integrity</strong>. We collectively strive for excellence, and <strong class="lexis">I take pride in my contribution</strong> to this enduring culture.</p>
+<p>Thank you for your ongoing commitment.</p>
+<p>Sincerely,<br>
+The Corporate Standards Department</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">According to the memo, what has prompted the need to reinforce the Professional Conduct Policy?</p>
+<p>What has prompted the need to reinforce the policy?</p>
+</div>
+<div class="task"><p class="task-instruction">What does the memo state is the ultimate goal of adhering to compliance codes?</p>
+<p>What is the goal of adhering to compliance codes?</p>
+</div>
+<div class="task"><p class="task-instruction">What is implied about the &#x27;observed practices&#x27; mentioned in the memo?</p>
+<p>What is implied about the &#x27;observed practices&#x27;?</p>
+<ul><li>They are major violations requiring immediate dismissal.</li><li>They are minor issues that can undermine company values over time.</li><li>They are new initiatives to improve efficiency.</li><li>They refer to the successful implementation of new policies.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-unpacking-key-phrases-what-matters-most">
+<header class="stage-header"><h2>Unpacking Key Phrases: What Matters Most?</h2></header>
+<section class="handout">
+<p>Now let&#x27;s look closely at how the memo emphasizes important ideas and how it articulates professional commitment. Read the memo again and identify the following:</p>
+<p><strong class="lexis">Part 1: Emphasizing Core Values (Cleft Sentences)</strong></p>
+<p>Find sentences in the memo that start with &#x27;What truly sets us apart is...&#x27; or &#x27;It is through vigilant adherence... that we...&#x27;. These are called <strong class="lexis">cleft sentences</strong>.</p>
+<p>1.  What specific idea or element is being emphasized in each of these sentences? Write down the emphasized part.</p>
+<p><strong class="lexis">Part 2: Articulating Your Professional Role and Contribution</strong></p>
+<p>Now, find phrases in the memo where the writer expresses their professional role, value, or commitment within the team. For example, look for phrases like &#x27;I take pride in...&#x27; or &#x27;My primary focus is...&#x27;.</p>
+<p>2.  List these phrases. How do they communicate a professional and collaborative tone?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Memo: Upholding Our Shared Values &amp; Professional Conduct</h5>
+<p>To: All Staff<br>
+From: Corporate Standards Department<br>
+Date: October 26, 2023<br>
+Subject: Reinforcing Our Commitment to <strong class="lexis">Integrity</strong> and <strong class="lexis">Professional Conduct</strong></p>
+<p>Dear Team,</p>
+<p>In recent weeks, internal discussions have highlighted the critical importance of maintaining a consistent standard of <strong class="lexis">professional conduct</strong> across all departments. While we are proud of our collaborative environment, it is imperative to periodically reinforce the foundational principles that define our workplace. This memo serves to reiterate key aspects of our Professional Conduct Policy, ensuring clarity and alignment with our corporate <strong class="lexis">values</strong>.</p>
+<p><strong class="lexis">What truly sets us apart</strong> is not just our collective achievements, but the ethical framework within which we operate. We recognize that navigating certain workplace situations can present a <strong class="lexis">dilemma</strong>, and it is our collective <strong class="lexis">accountability</strong> that ensures we uphold the highest standards. <strong class="lexis">It is through vigilant adherence to our compliance codes that we establish a pluralistic and equitable environment for everyone.</strong></p>
+<p>We trust that each of you continues to embody the spirit of these guidelines. Your active participation in fostering a respectful and productive atmosphere is invaluable. Moving forward, <strong class="lexis">my primary focus is to ensure</strong> that every team member feels empowered to contribute positively and address any observed practices that might subtly erode our shared <strong class="lexis">integrity</strong>. We collectively strive for excellence, and <strong class="lexis">I take pride in my contribution</strong> to this enduring culture.</p>
+<p>Thank you for your ongoing commitment.</p>
+<p>Sincerely,<br>
+The Corporate Standards Department</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Identify the emphasized element in the cleft sentence: &#x27;What truly sets us apart is not just our collective achievements, but the ethical framework within which we operate.&#x27;</p>
+<p>Emphasized element:</p>
+</div>
+<div class="task"><p class="task-instruction">Identify the emphasized element in the cleft sentence: &#x27;It is through vigilant adherence to our compliance codes that we establish a pluralistic and equitable environment for everyone.&#x27;</p>
+<p>Emphasized element:</p>
+</div>
+<div class="task"><p class="task-instruction">List two phrases from the memo that articulate the writer&#x27;s professional role or team contribution.</p>
+<p>Phrase 1:</p>
+</div>
+<div class="task"><p class="task-instruction">List two phrases from the memo that articulate the writer&#x27;s professional role or team contribution. (Second phrase)</p>
+<p>Phrase 2:</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-crafting-impactful-statements">
+<header class="stage-header"><h2>Crafting Impactful Statements</h2></header>
+<section class="handout">
+<p>Now, let&#x27;s practice using these structures and phrases to communicate clearly and professionally.</p>
+<p><strong class="lexis">Task 1: Emphasizing Ethical Parameters (Cleft Sentences)</strong><br>
+Rewrite the following sentences, emphasizing the <strong class="lexis">bold</strong> information using &#x27;It is/was... that/who...&#x27; or &#x27;What... is/was...&#x27;.</p>
+<p><strong class="lexis">Task 2: Articulating Your Professional Contribution</strong><br>
+Complete the following sentences using phrases for articulating professional role and team contribution. Make sure your answers are professional and convey a sense of commitment.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Rewrite the sentence emphasizing the highlighted information: Clear communication prevents misunderstandings at work.</p>
+<p>It is __________ that prevents misunderstandings at work.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence emphasizing the highlighted information: Managers need to support their team&#x27;s well-being.</p>
+<p>What managers need to support is their team&#x27;s __________.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence emphasizing the highlighted information: Our commitment to sustainability attracts innovative talent.</p>
+<p>It is __________ that attracts innovative talent.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence with a phrase of professional role: As a team leader, my __________ to ensure fair treatment for all.</p>
+<p>As a team leader, my __________ to ensure fair treatment for all.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence with a phrase of professional contribution: In project management, I __________ in delivering on time and within budget.</p>
+<p>In project management, I __________ in delivering on time and within budget.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence with a phrase of commitment: We are __________ upholding the company&#x27;s anti-discrimination policy.</p>
+<p>We are __________ upholding the company&#x27;s anti-discrimination policy.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-my-professional-stance-communicating-wit">
+<header class="stage-header"><h2>My Professional Stance: Communicating with Conviction</h2></header>
+<section class="handout">
+<p>Imagine you are in a situation at work where you need to address a minor practice that you believe could negatively impact team morale or company standards, similar to the initial scenario we discussed. You want to communicate your perspective diplomatically and professionally.</p>
+<p>Write a short paragraph (3-5 sentences) that could be part of an internal email, a team discussion point, or a suggestion for improvement. In your message:</p>
+<p>*   Use at least one <strong class="lexis">cleft sentence</strong> (e.g., &#x27;It is... that...&#x27; or &#x27;What... is...&#x27;) to emphasize a core ethical value or a critical aspect of <strong class="lexis">professional conduct</strong>.<br>
+*   Include at least one phrase that articulates your <strong class="lexis">professional role</strong> or <strong class="lexis">team contribution</strong> (e.g., &#x27;I take pride in my contribution&#x27;, &#x27;My primary focus is to ensure...&#x27;).<br>
+*   Maintain a respectful and collaborative tone.</p>
+</section>
+</article>
+</body>
+</html>

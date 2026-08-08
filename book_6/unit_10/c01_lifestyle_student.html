@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Job, Your Life: Company Policies</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Your Job, Your Life: Company Policies</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>10</dd>
+      <dt>Class</dt><dd>1</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-work-and-home-finding-the-balance">
+<header class="stage-header"><h2>Work and Home: Finding the Balance</h2></header>
+<section class="handout">
+<p>Consider how your employer&#x27;s policies on housing support or remote work might influence employees&#x27; daily routines and their ability to connect with their local areas. </p>
+<p>Discuss the following questions:<br>
+1. Does your current employer offer any support for housing or commuting? If so, what kind of support is it?<br>
+2. What are the key advantages or disadvantages of the current arrangements regarding where you live and how you get to work?<br>
+3. How might company housing policies or generous remote work options affect an employee&#x27;s ability to engage with their local community or build a social life outside of work?</p>
+</section>
+</article>
+<article class="stage" id="stage-new-words-for-work-amp-living">
+<header class="stage-header"><h2>New Words for Work &amp; Living</h2></header>
+<section class="handout">
+<p>Read the words and their definitions below. Then, complete the matching task to connect each term with its correct meaning.</p>
+<p>Match the words to their definitions:</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>housing subsidies</li><li>commute efficiency</li><li>remote work policies</li><li>employee retention</li><li>community engagement</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match each term with its correct definition.</p>
+<p>Match the terms on the left to their definitions on the right.</p>
+<ul><li><strong>housing subsidies</strong> — Financial aid provided to help employees with their accommodation costs.</li><li><strong>commute efficiency</strong> — How quick, easy, and cost-effective an employee&#x27;s daily journey to work is.</li><li><strong>remote work policies</strong> — Rules and guidelines that determine how and when employees can work from outside the main office.</li><li><strong>employee retention</strong> — The ability of an organization to keep its employees and prevent them from leaving.</li><li><strong>community engagement</strong> — The active involvement of individuals or a company with the local people and area where they live or operate.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-first-read-the-impact-of-company-support">
+<header class="stage-header"><h2>First Read: The Impact of Company Support</h2></header>
+<section class="handout">
+<p>Read the article below quickly to get a general understanding. Don&#x27;t worry about every detail. Then, choose the best title that summarizes the main idea of the article.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Beyond the Paycheck: How Company Policies Shape Employee Lives</h5>
+<p>For many workers today, a job offers more than just a salary; it often comes with a set of policies that profoundly influence their daily lives and connection to their communities. Companies are increasingly recognizing that factors beyond the immediate workspace play a crucial role in <strong class="lexis">employee retention</strong> and overall well-being. Two significant areas are <strong class="lexis">housing subsidies</strong> and <strong class="lexis">remote work policies</strong>.</p>
+<p>Take, for instance, a manufacturing company that offers <strong class="lexis">housing subsidies</strong> to its employees. This often means providing affordable accommodation close to the factory. While this can significantly reduce an employee&#x27;s living expenses and improve <strong class="lexis">commute efficiency</strong>, it can also create a &#x27;company town&#x27; dynamic. Employees might spend less time integrating into the wider local area, potentially limiting their <strong class="lexis">community engagement</strong> to company-sponsored events. On the one hand, this fosters a strong sense of internal company community; on the other, it might prevent a more diverse social network.</p>
+<p>Conversely, the rise of <strong class="lexis">remote work policies</strong> offers a different set of challenges and benefits. Allowing employees to work from home or a location of their choice can drastically reduce commuting stress and give individuals more flexibility in where they live. This freedom can boost morale and <strong class="lexis">employee well-being</strong>. However, it can also lead to feelings of isolation if not managed properly. While it enables employees to choose to live in areas they prefer, building strong local <strong class="lexis">community engagement</strong> can still be a challenge if their primary social and professional interactions remain online.</p>
+<p>Ultimately, the discussion around these policies highlights a complex balancing act. Companies aim to support their workforce while also ensuring productivity and a positive work environment. For employees, understanding the long-term impact of these company benefits on their personal lives and local connections is just as important as the immediate financial gain.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Choose the best title for the article.</p>
+<p>Which of the following best summarizes the main idea of the article?</p>
+<ul><li>The Financial Benefits of Company Housing</li><li>Why Remote Work Is Always Better for Employees</li><li>How Company Policies on Housing and Remote Work Affect Employee Life and Community Ties</li><li>The Decline of Traditional Office Work</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-second-read-getting-the-details">
+<header class="stage-header"><h2>Second Read: Getting the Details</h2></header>
+<section class="handout">
+<p>Read the article again carefully. This time, focus on the details and specific information mentioned in the text. Answer the questions below in your own words, using information from the article.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Beyond the Paycheck: How Company Policies Shape Employee Lives</h5>
+<p>For many workers today, a job offers more than just a salary; it often comes with a set of policies that profoundly influence their daily lives and connection to their communities. Companies are increasingly recognizing that factors beyond the immediate workspace play a crucial role in <strong class="lexis">employee retention</strong> and overall well-being. Two significant areas are <strong class="lexis">housing subsidies</strong> and <strong class="lexis">remote work policies</strong>.</p>
+<p>Take, for instance, a manufacturing company that offers <strong class="lexis">housing subsidies</strong> to its employees. This often means providing affordable accommodation close to the factory. While this can significantly reduce an employee&#x27;s living expenses and improve <strong class="lexis">commute efficiency</strong>, it can also create a &#x27;company town&#x27; dynamic. Employees might spend less time integrating into the wider local area, potentially limiting their <strong class="lexis">community engagement</strong> to company-sponsored events. On the one hand, this fosters a strong sense of internal company community; on the other, it might prevent a more diverse social network.</p>
+<p>Conversely, the rise of <strong class="lexis">remote work policies</strong> offers a different set of challenges and benefits. Allowing employees to work from home or a location of their choice can drastically reduce commuting stress and give individuals more flexibility in where they live. This freedom can boost morale and <strong class="lexis">employee well-being</strong>. However, it can also lead to feelings of isolation if not managed properly. While it enables employees to choose to live in areas they prefer, building strong local <strong class="lexis">community engagement</strong> can still be a challenge if their primary social and professional interactions remain online.</p>
+<p>Ultimately, the discussion around these policies highlights a complex balancing act. Companies aim to support their workforce while also ensuring productivity and a positive work environment. For employees, understanding the long-term impact of these company benefits on their personal lives and local connections is just as important as the immediate financial gain.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">According to the article, what two significant areas of company policies influence employee lives?</p>
+<p>What two significant areas of company policies influence employee lives?</p>
+</div>
+<div class="task"><p class="task-instruction">What is one potential disadvantage of company housing subsidies mentioned in the text, regarding community integration?</p>
+<p>What is one potential disadvantage of company housing subsidies regarding community integration?</p>
+</div>
+<div class="task"><p class="task-instruction">What is one benefit of remote work policies mentioned in the article?</p>
+</div>
+<div class="task"><p class="task-instruction">What is one potential challenge of remote work policies for community engagement?</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-your-perspective-workplace-support">
+<header class="stage-header"><h2>Your Perspective: Workplace Support</h2></header>
+<section class="handout">
+<p>Now that you&#x27;ve read about the impact of company policies, let&#x27;s discuss your thoughts.</p>
+<p>1. Do you think the benefits of <strong class="lexis">housing subsidies</strong> or <strong class="lexis">remote work policies</strong> outweigh their potential drawbacks, or vice-versa? Why?<br>
+2. How important is <strong class="lexis">community engagement</strong> to you personally? How much do you think an employer should be responsible for supporting this aspect of an employee&#x27;s life?<br>
+3. If you could design a policy for your company related to housing or work location, what would it be, and why? Consider the goals of <strong class="lexis">employee retention</strong> and <strong class="lexis">commute efficiency</strong>.</p>
+</section>
+</article>
+</body>
+</html>

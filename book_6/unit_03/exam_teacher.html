@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit exam — Navigating Global Systems and Professional Communication</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<nav class="breadcrumbs"><a href="index.html">← Unit index</a></nav>
+<header>
+  <p class="view-banner">Teacher · Unit exam key</p>
+  <h1>Unit exam — Navigating Global Systems and Professional Communication</h1>
+  <p class="meta">T03_TRAVEL · C1 · 30 items</p>
+</header>
+<article class="exam-item" id="q01"><div class="exam-item-header"><span class="qnum">1. q01</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">To gain entry into the highly sensitive research facility, all authorized personnel must prominently display their personal ______.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>access badge ✓</li><li><span class="opt-key">B.</span>entry pass</li><li><span class="opt-key">C.</span>identification card</li><li><span class="opt-key">D.</span>security credential</li></ul><div class="exam-explanation"><strong>Explanation</strong>An &#x27;access badge&#x27; is the specific term for a physical card allowing entry, aligning with security protocols described in Class 1.</div></article><article class="exam-item" id="q02"><div class="exam-item-header"><span class="qnum">2. q02</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">Access to the executive data center is strictly limited to individuals with the highest level of ______.</div><ul class="exam-options"><li><span class="opt-key">A.</span>security authorization</li><li class="correct"><span class="opt-key">B.</span>security clearance ✓</li><li><span class="opt-key">C.</span>confidentiality approval</li><li><span class="opt-key">D.</span>access permit</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Security clearance&#x27; refers to the formal determination that a person can be entrusted with classified information or access to sensitive areas, as discussed in Class 1.</div></article><article class="exam-item" id="q03"><div class="exam-item-header"><span class="qnum">3. q03</span><span class="exam-meta">comprehension · class 1</span></div><div class="exam-prompt">A temporary consultant visiting the office for a day-long meeting will be issued a ______ at the reception desk upon arrival.</div><ul class="exam-options"><li><span class="opt-key">A.</span>guest pass</li><li><span class="opt-key">B.</span>temporary badge</li><li class="correct"><span class="opt-key">C.</span>visitor pass ✓</li><li><span class="opt-key">D.</span>access permit</li></ul><div class="exam-explanation"><strong>Explanation</strong>A &#x27;visitor pass&#x27; is the standard terminology for temporary access granted to non-employees in a secure facility, a concept from Class 1.</div></article><article class="exam-item" id="q04"><div class="exam-item-header"><span class="qnum">4. q04</span><span class="exam-meta">comprehension · class 1</span></div><div class="exam-prompt">After an unauthorized individual bypassed the perimeter sensors, management immediately initiated procedures to address the ______.</div><ul class="exam-options"><li><span class="opt-key">A.</span>security lapse</li><li><span class="opt-key">B.</span>security failure</li><li class="correct"><span class="opt-key">C.</span>security breach ✓</li><li><span class="opt-key">D.</span>security compromise</li></ul><div class="exam-explanation"><strong>Explanation</strong>A &#x27;security breach&#x27; specifically denotes an instance of unauthorized access or violation of security rules, a key term from Class 1.</div></article><article class="exam-item" id="q05"><div class="exam-item-header"><span class="qnum">5. q05</span><span class="exam-meta">lexis · class 2</span></div><div class="exam-prompt">The supply chain department aims to ______ by redesigning transportation networks and warehousing strategies.</div><ul class="exam-options"><li><span class="opt-key">A.</span>improve delivery systems</li><li><span class="opt-key">B.</span>enhance distribution channels</li><li class="correct"><span class="opt-key">C.</span>optimize logistical movements ✓</li><li><span class="opt-key">D.</span>streamline operational flow</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Optimize logistical movements&#x27; is a precise and formal phrase from Class 2 lexis for enhancing efficiency in the movement of goods.</div></article><article class="exam-item" id="q06"><div class="exam-item-header"><span class="qnum">6. q06</span><span class="exam-meta">grammar · class 2</span></div><div class="exam-prompt">______ all regional market data, the board approved the expansion into Southeast Asia.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Having evaluated ✓</li><li><span class="opt-key">B.</span>After evaluating</li><li><span class="opt-key">C.</span>Being evaluated</li><li><span class="opt-key">D.</span>To have evaluated</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Having evaluated&#x27; is a perfect participle clause indicating an action completed before the main verb&#x27;s action, fitting the advanced participle clause grammar from Class 2.</div></article><article class="exam-item" id="q07"><div class="exam-item-header"><span class="qnum">7. q07</span><span class="exam-meta">lexis · class 2</span></div><div class="exam-prompt">When importing goods internationally, it is mandatory to submit a comprehensive ______ to the relevant government authorities.</div><ul class="exam-options"><li><span class="opt-key">A.</span>import declaration</li><li><span class="opt-key">B.</span>customs manifest</li><li class="correct"><span class="opt-key">C.</span>customs declaration ✓</li><li><span class="opt-key">D.</span>trade agreement form</li></ul><div class="exam-explanation"><strong>Explanation</strong>A &#x27;customs declaration&#x27; is the official document listing goods imported or exported, required by customs authorities, as per Class 2 lexis.</div></article><article class="exam-item" id="q08"><div class="exam-item-header"><span class="qnum">8. q08</span><span class="exam-meta">grammar · class 2</span></div><div class="exam-prompt">______ international trade laws, the company carefully revised its export strategy for dual-use items.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Not wanting to breach geopolitical sovereignty ✓</li><li><span class="opt-key">B.</span>Not wishing to breach geopolitical sovereignty</li><li><span class="opt-key">C.</span>To not breach geopolitical sovereignty</li><li><span class="opt-key">D.</span>Because they did not want to breach geopolitical sovereignty</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Not wanting to breach geopolitical sovereignty&#x27; is a correct and idiomatic negative participle clause indicating the reason for the company&#x27;s action, aligned with Class 2 grammar.</div></article><article class="exam-item" id="q09"><div class="exam-item-header"><span class="qnum">9. q09</span><span class="exam-meta">lexis · class 3</span></div><div class="exam-prompt">Our new ______ provides clear guidelines for employees who wish to work from abroad for extended periods.</div><ul class="exam-options"><li><span class="opt-key">A.</span>global remote work framework</li><li class="correct"><span class="opt-key">B.</span>international remote work policy ✓</li><li><span class="opt-key">C.</span>cross-border telecommuting rules</li><li><span class="opt-key">D.</span>overseas work arrangement guide</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;International remote work policy&#x27; is the precise term used in the brief for this specific type of company guideline, from Class 3 lexis.</div></article><article class="exam-item" id="q10"><div class="exam-item-header"><span class="qnum">10. q10</span><span class="exam-meta">lexis · class 3</span></div><div class="exam-prompt">Employees considering working in another country must consult HR to understand the complex ______ involved.</div><ul class="exam-options"><li><span class="opt-key">A.</span>fiscal responsibilities</li><li><span class="opt-key">B.</span>tax obligations</li><li><span class="opt-key">C.</span>financial implications</li><li class="correct"><span class="opt-key">D.</span>tax implications ✓</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Tax implications&#x27; refers specifically to the consequences or effects related to taxes when working in a different country, aligning with Class 3 lexis.</div></article><article class="exam-item" id="q11"><div class="exam-item-header"><span class="qnum">11. q11</span><span class="exam-meta">comprehension · class 3</span></div><div class="exam-prompt">To be legally employed in a foreign country, expatriate staff are typically required to obtain a valid ______ from the host nation&#x27;s government.</div><ul class="exam-options"><li><span class="opt-key">A.</span>employment permit</li><li><span class="opt-key">B.</span>work authorization</li><li class="correct"><span class="opt-key">C.</span>work permit ✓</li><li><span class="opt-key">D.</span>labor visa</li></ul><div class="exam-explanation"><strong>Explanation</strong>A &#x27;work permit&#x27; is the official document granting permission to work in a foreign country, as discussed in Class 3.</div></article><article class="exam-item" id="q12"><div class="exam-item-header"><span class="qnum">12. q12</span><span class="exam-meta">comprehension · class 3</span></div><div class="exam-prompt">The legal department is currently analyzing how ______ affects our ability to manage data privacy for remote employees in different countries.</div><ul class="exam-options"><li><span class="opt-key">A.</span>international legal reach</li><li><span class="opt-key">B.</span>global regulatory scope</li><li class="correct"><span class="opt-key">C.</span>cross-border jurisdiction ✓</li><li><span class="opt-key">D.</span>transnational law enforcement</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Cross-border jurisdiction&#x27; refers to the authority of different national legal systems over activities that extend beyond their borders, relevant for managing international workforces and discussed in Class 3.</div></article><article class="exam-item" id="q13"><div class="exam-item-header"><span class="qnum">13. q13</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">The municipal planning commission is reviewing existing ______ to facilitate more mixed-use developments within the city center.</div><ul class="exam-options"><li><span class="opt-key">A.</span>building codes</li><li><span class="opt-key">B.</span>urban regulations</li><li class="correct"><span class="opt-key">C.</span>zoning laws ✓</li><li><span class="opt-key">D.</span>land-use statutes</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Zoning laws&#x27; are specific regulations that divide a city or county into areas where certain land uses are permitted or prohibited, a key term from Class 4.</div></article><article class="exam-item" id="q14"><div class="exam-item-header"><span class="qnum">14. q14</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">For the construction of the new public transport hub, the local government invoked ______ to acquire private properties, offering fair market compensation.</div><ul class="exam-options"><li><span class="opt-key">A.</span>compulsory purchase</li><li><span class="opt-key">B.</span>public acquisition</li><li class="correct"><span class="opt-key">C.</span>eminent domain ✓</li><li><span class="opt-key">D.</span>government expropriation</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Eminent domain&#x27; is the right of a government or its agent to take private property for public use, with payment of compensation, a concept from Class 4.</div></article><article class="exam-item" id="q15"><div class="exam-item-header"><span class="qnum">15. q15</span><span class="exam-meta">comprehension · class 4</span></div><div class="exam-prompt">Critics argue that the rapid increase in property values due to new luxury developments could lead to significant ______ for lower-income residents.</div><ul class="exam-options"><li><span class="opt-key">A.</span>community segregation</li><li><span class="opt-key">B.</span>social displacement</li><li class="correct"><span class="opt-key">C.</span>community displacement ✓</li><li><span class="opt-key">D.</span>residential relocation</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Community displacement&#x27; refers to the forced relocation of residents, often due to urban development projects and rising costs, a topic in Class 4.</div></article><article class="exam-item" id="q16"><div class="exam-item-header"><span class="qnum">16. q16</span><span class="exam-meta">comprehension · class 4</span></div><div class="exam-prompt">The mayor&#x27;s office launched a new ______ initiative aimed at revitalizing neglected districts and attracting new businesses.</div><ul class="exam-options"><li><span class="opt-key">A.</span>city modernization</li><li><span class="opt-key">B.</span>urban redevelopment</li><li class="correct"><span class="opt-key">C.</span>urban renewal ✓</li><li><span class="opt-key">D.</span>metropolitan revitalization</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Urban renewal&#x27; is a program of land redevelopment often used to address urban decay in cities, a concept from Class 4.</div></article><article class="exam-item" id="q17"><div class="exam-item-header"><span class="qnum">17. q17</span><span class="exam-meta">lexis · class 5</span></div><div class="exam-prompt">Our HR strategy focuses on cultivating an ______ where individuals from all backgrounds feel respected and have opportunities to thrive.</div><ul class="exam-options"><li><span class="opt-key">A.</span>integrated environment</li><li><span class="opt-key">B.</span>diverse organization</li><li class="correct"><span class="opt-key">C.</span>inclusive workplace ✓</li><li><span class="opt-key">D.</span>equitable setting</li></ul><div class="exam-explanation"><strong>Explanation</strong>An &#x27;inclusive workplace&#x27; specifically means an environment where everyone feels valued and has a sense of belonging, aligning with Class 5 lexis.</div></article><article class="exam-item" id="q18"><div class="exam-item-header"><span class="qnum">18. q18</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">To ensure that our commitment to diversity is comprehensive, we need to ______ to include provisions for neurodiversity and varying abilities.</div><ul class="exam-options"><li><span class="opt-key">A.</span>expand our diversity guidelines</li><li class="correct"><span class="opt-key">B.</span>broaden the scope of our inclusion policies ✓</li><li><span class="opt-key">C.</span>widen our diversity spectrum</li><li><span class="opt-key">D.</span>increase our inclusive measures</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Broaden the scope of our inclusion policies&#x27; is a formal and precise phrase from Class 5 lexis, indicating an expansion of policy coverage.</div></article><article class="exam-item" id="q19"><div class="exam-item-header"><span class="qnum">19. q19</span><span class="exam-meta">lexis · class 5</span></div><div class="exam-prompt">The internal investigation uncovered several instances of ______ based on national origin, which will be addressed immediately.</div><ul class="exam-options"><li><span class="opt-key">A.</span>unfair treatment</li><li><span class="opt-key">B.</span>biased behavior</li><li class="correct"><span class="opt-key">C.</span>discriminatory practices ✓</li><li><span class="opt-key">D.</span>inequitable actions</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Discriminatory practices&#x27; refers to actions or policies that treat individuals unfairly based on characteristics like national origin, a term from Class 5 lexis.</div></article><article class="exam-item" id="q20"><div class="exam-item-header"><span class="qnum">20. q20</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">To enhance fairness and efficiency in handling employee complaints, the HR department committed to ______.</div><ul class="exam-options"><li><span class="opt-key">A.</span>make grievance resolution smoother</li><li><span class="opt-key">B.</span>improve the complaint process</li><li class="correct"><span class="opt-key">C.</span>streamline the grievance resolution process ✓</li><li><span class="opt-key">D.</span>simplify grievance handling procedures</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Streamline the grievance resolution process&#x27; is a formal and appropriate phrase from Class 5 lexis for making a process more efficient.</div></article><article class="exam-item" id="q21"><div class="exam-item-header"><span class="qnum">21. q21</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">The international service agreement clearly stipulates that the ______ for any disputes will be the laws of Singapore.</div><ul class="exam-options"><li><span class="opt-key">A.</span>applicable law</li><li><span class="opt-key">B.</span>controlling law</li><li class="correct"><span class="opt-key">C.</span>governing law ✓</li><li><span class="opt-key">D.</span>regulating law</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Governing law&#x27; is the specific legal term referring to the body of law that will apply to a contract in case of a dispute, a key term from Class 6.</div></article><article class="exam-item" id="q22"><div class="exam-item-header"><span class="qnum">22. q22</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">Ensuring strict ______ with all local data protection regulations is paramount for our global operations.</div><ul class="exam-options"><li><span class="opt-key">A.</span>adherence</li><li><span class="opt-key">B.</span>conformity</li><li class="correct"><span class="opt-key">C.</span>compliance ✓</li><li><span class="opt-key">D.</span>observance</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Compliance&#x27; refers to the act of conforming to rules, specifications, or laws, which is a key legal concept from Class 6.</div></article><article class="exam-item" id="q23"><div class="exam-item-header"><span class="qnum">23. q23</span><span class="exam-meta">comprehension · class 6</span></div><div class="exam-prompt">The ______ in the contract specifies that any legal action must be filed in the courts of the buyer&#x27;s home country.</div><ul class="exam-options"><li><span class="opt-key">A.</span>legal venue clause</li><li class="correct"><span class="opt-key">B.</span>jurisdiction clause ✓</li><li><span class="opt-key">C.</span>court selection clause</li><li><span class="opt-key">D.</span>litigation clause</li></ul><div class="exam-explanation"><strong>Explanation</strong>A &#x27;jurisdiction clause&#x27; determines which court system or legal authority has the power to hear and decide a legal dispute arising from a contract, as covered in Class 6.</div></article><article class="exam-item" id="q24"><div class="exam-item-header"><span class="qnum">24. q24</span><span class="exam-meta">comprehension · class 6</span></div><div class="exam-prompt">Instead of costly litigation, the parties agreed to mediation as their primary method of ______ for contractual disagreements.</div><ul class="exam-options"><li><span class="opt-key">A.</span>conflict resolution</li><li><span class="opt-key">B.</span>dispute settlement</li><li class="correct"><span class="opt-key">C.</span>dispute resolution ✓</li><li><span class="opt-key">D.</span>agreement enforcement</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Dispute resolution&#x27; is the general term for processes used to resolve conflicts or disagreements between parties, often outside of court, as discussed in Class 6.</div></article><article class="exam-item" id="q25"><div class="exam-item-header"><span class="qnum">25. q25</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">______ for new market entry, the strategic team meticulously analyzed potential logistical hurdles.</div><ul class="exam-options"><li><span class="opt-key">A.</span>Having prepared</li><li class="correct"><span class="opt-key">B.</span>Preparing ✓</li><li><span class="opt-key">C.</span>To prepare</li><li><span class="opt-key">D.</span>Prepared</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Preparing&#x27; is a present participle used to indicate a simultaneous or ongoing action that is the cause or context for the main action, fitting the advanced participle clause grammar from Class 7.</div></article><article class="exam-item" id="q26"><div class="exam-item-header"><span class="qnum">26. q26</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">______ varying time zones, the global project manager implemented asynchronous communication protocols to ensure continuous workflow.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Considering ✓</li><li><span class="opt-key">B.</span>Having considered</li><li><span class="opt-key">C.</span>To consider</li><li><span class="opt-key">D.</span>Considered</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Considering&#x27; (present participle) correctly introduces a reason or concurrent action leading to the main clause, implying that the manager implemented protocols because they were considering time zones, aligning with Class 7 grammar.</div></article><article class="exam-item" id="q27"><div class="exam-item-header"><span class="qnum">27. q27</span><span class="exam-meta">comprehension · class 7</span></div><div class="exam-prompt">To lead effectively across different geographical and cultural &#x27;spaces&#x27;, a manager must prioritize which key strategy?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Establishing rigid communication schedules for all team members.</li><li><span class="opt-key">B.</span>Centralizing all decision-making to maintain control.</li><li class="correct"><span class="opt-key">C.</span>Fostering an environment of trust and open dialogue. ✓</li><li><span class="opt-key">D.</span>Limiting team interactions to essential task-related discussions.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Fostering trust and open dialogue is crucial for effective leadership and collaboration in diverse, distributed teams, a key communication strategy from Class 7.</div></article><article class="exam-item" id="q28"><div class="exam-item-header"><span class="qnum">28. q28</span><span class="exam-meta">register · class 7</span></div><div class="exam-prompt">Which of the following phrases is most appropriate for a formal report discussing challenges in managing global teams?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Grappling with distributed workforce dynamics.</li><li class="correct"><span class="opt-key">B.</span>Navigating the complexities of cross-cultural collaboration. ✓</li><li><span class="opt-key">C.</span>Dealing with the issues of scattered teams.</li><li><span class="opt-key">D.</span>Wrestling with worldwide team problems.</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Navigating the complexities of cross-cultural collaboration&#x27; uses formal and precise language suitable for a professional report on global team management challenges, consistent with Class 7&#x27;s focus on global communication.</div></article><article class="exam-item" id="q29"><div class="exam-item-header"><span class="qnum">29. q29</span><span class="exam-meta">synthesis · class 7</span></div><div class="exam-prompt">When a company plans to expand its manufacturing operations into a new international market, requiring both new facilities and a relocated workforce, what initial step integrates considerations for legal compliance, logistics, and personnel mobility?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Hiring local talent to circumvent visa requirements.</li><li><span class="opt-key">B.</span>Immediately purchasing land for new facilities.</li><li class="correct"><span class="opt-key">C.</span>Conducting a comprehensive feasibility study on local zoning, import tariffs, and work permit regulations. ✓</li><li><span class="opt-key">D.</span>Securing preliminary cargo manifests for raw material imports.</li></ul><div class="exam-explanation"><strong>Explanation</strong>A comprehensive feasibility study that covers zoning (Class 4), import tariffs (Class 2), and work permit regulations (Class 3) is the most holistic and essential initial step, integrating multiple unit themes for a complex international expansion.</div></article><article class="exam-item" id="q30"><div class="exam-item-header"><span class="qnum">30. q30</span><span class="exam-meta">synthesis · class 7</span></div><div class="exam-prompt">To foster an inclusive workplace within a multinational corporation facing significant cross-border operational challenges, which overarching strategy would be most effective?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Standardizing all communication protocols to a single dominant language.</li><li><span class="opt-key">B.</span>Prioritizing cost reduction in international shipping over employee cultural sensitivity training.</li><li class="correct"><span class="opt-key">C.</span>Developing global HR policies that address cross-border jurisdiction while promoting cultural sensitivity and equal opportunity. ✓</li><li><span class="opt-key">D.</span>Implementing strict security clearances for all employees, regardless of role or location.</li></ul><div class="exam-explanation"><strong>Explanation</strong>This option integrates &#x27;cross-border jurisdiction&#x27; (Class 3, 6), &#x27;cultural sensitivity&#x27; (Class 5), and &#x27;equal opportunity&#x27; (Class 5) into a unified HR policy framework, reflecting a synthesized approach to global systems and professional communication.</div></article>
+
+</body>
+</html>

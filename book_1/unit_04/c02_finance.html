@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Talking About Pay: &#x27;This is...&#x27; and &#x27;Is this...?&#x27;</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Talking About Pay: &#x27;This is...&#x27; and &#x27;Is this...?&#x27;</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_1</dd>
+      <dt>CEFR</dt><dd>A0</dd>
+      <dt>Unit</dt><dd>4</dd>
+      <dt>Class</dt><dd>2</dd>
+      <dt>Theme</dt><dd>T04_FINANCE</dd>
+      <dt>Framework</dt><dd>PPP</dd>
+      <dt>Role</dt><dd>PPP_GRAMMAR_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Your Daily Work and Pay</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by asking learners about their typical workday or a short job they might do. <br>
+2. Elicit what they receive at the end of that shift or job. <br>
+3. Guide the discussion towards &#x27;pay&#x27; and &#x27;money&#x27;. <br>
+4. Ask about expressions of gratitude (e.g., &#x27;thank you&#x27;). <br>
+5. Connect this to the idea of receiving daily wages for work.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Talking About Your Day&#x27;s Work</h4>
+<p>Imagine you worked hard today. What do you receive for your <strong class="lexis">work</strong>?</p>
+<p>1. Do you get <strong class="lexis">pay</strong> every day?<br>
+2. What do you say when you receive <strong class="lexis">money</strong> for your <strong class="lexis">work today</strong>?</p>
+</section>
+</article>
+<article class="stage" id="stage-MFP">
+<header class="stage-header"><span class="stage-code">MFP</span><h2>Presentation: This is My Pay</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Present the target structure: &#x27;This is + cash/price&#x27;. <br>
+2. Use a real-life scenario: A manager gives daily wages. Point to real or pictured money. <br>
+3. Elicit the meaning: Identifying physical money and cost elements. <br>
+4. Conduct concept checking questions (CCQs): &#x27;Am I pointing to an object? (Yes)&#x27;, &#x27;Is it money? (Yes)&#x27;. <br>
+5. Model the affirmative (&#x27;This is cash.&#x27;), negative (&#x27;This is not a bill.&#x27;), and question forms (&#x27;Is this my pay?&#x27;). <br>
+6. Drill pronunciation of the target structure. <br>
+7. Highlight potential errors like &#x27;This are cash.&#x27; or &#x27;Is this price?&#x27;.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Understanding Your Pay</h4>
+<p>You finish your <strong class="lexis">work today</strong>. Your manager gives you <strong class="lexis">money</strong>.</p>
+<p>Manager: &#x27;Here is your <strong class="lexis">pay</strong>.&#x27;<br>
+Worker: &#x27;Thank you!&#x27;</p>
+<p>Look at the <strong class="lexis">money</strong>.</p>
+<p><strong class="lexis">This is cash.</strong><br>
+<strong class="lexis">This is not a bill.</strong><br>
+<strong class="lexis">Is this my pay?</strong></p>
+<p>Let&#x27;s practice saying these sentences.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Your manager shows you your pay. You want to say it is money. What is the best sentence?</p>
+<p>You point to money. What do you say?</p>
+<ul><li>This is a friend.</li><li>This is cash.</li><li>This is a car.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Your manager holds money. What is the correct question to ask about it?</p>
+<p>Manager holds money. You ask: &#x27;____ this cash?&#x27;</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-CP">
+<header class="stage-header"><span class="stage-code">CP</span><h2>Controlled Practice: Pointing to Pay</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Set up tasks that drill the affirmative, negative, and question forms of &#x27;This is...&#x27;. <br>
+2. Provide visual cues (e.g., flashcards, objects, or descriptions) for the learners to complete the sentences. <br>
+3. Anticipate common errors such as &#x27;This are cash.&#x27; or &#x27;Is this price?&#x27; and provide correction. <br>
+4. Monitor learners closely for accuracy in both form and meaning.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Practice: My Daily Pay</h4>
+<p>Complete the sentences. Imagine you are looking at different things in the workplace.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Your manager holds cash. Complete the sentence.</p>
+<p>This ____ cash.</p>
+</div>
+<div class="task"><p class="task-instruction">Your manager holds a pen. Complete the sentence.</p>
+<p>This is ____ cash.</p>
+</div>
+<div class="task"><p class="task-instruction">You see a price tag on a product. Choose the correct question.</p>
+<p>You see a price tag. You ask: &#x27;____ this the price?&#x27;</p>
+<ul><li>Are</li><li>Is</li><li>Am</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Freer Practice: Talking About Wages</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Divide learners into pairs. <br>
+2. Assign roles: Manager and Worker. <br>
+3. Explain the scenario: The Manager gives the Worker their daily wages. The Worker responds using &#x27;This is...&#x27; and &#x27;Is this...?&#x27; about the pay. <br>
+4. Encourage learners to use the target language in a more natural, communicative way. <br>
+5. Circulate and monitor for fluency and appropriate use of the target language. <br>
+6. Provide delayed feedback on errors, focusing on communication first. </p>
+<p><strong class="lexis">Sample interaction:</strong><br>
+Manager: &#x27;Here is your <strong class="lexis">pay today</strong>.&#x27;<br>
+Worker: &#x27;Oh, <strong class="lexis">thank you</strong>! <strong class="lexis">This is money</strong>. Is <strong class="lexis">this</strong> for my <strong class="lexis">work</strong>?&#x27;<br>
+Manager: &#x27;Yes, <strong class="lexis">this is</strong> your full <strong class="lexis">pay</strong>.&#x27;<br>
+Worker: &#x27;Great! <strong class="lexis">Thank you</strong> again.&#x27;</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Talking About Your Money</h4>
+<p>Work with a partner. You are at work. One person is the manager, one is the worker.</p>
+<p><strong class="lexis">Manager</strong>: Give the worker their daily <strong class="lexis">pay</strong>. Say &#x27;Here is your <strong class="lexis">money</strong>.&#x27;<br>
+<strong class="lexis">Worker</strong>: Respond. Use &#x27;This is...&#x27; and &#x27;Is this...?&#x27; about the <strong class="lexis">pay</strong>.</p>
+<p>Example:<br>
+<strong class="lexis">Manager</strong>: &#x27;Here is your <strong class="lexis">pay today</strong>.&#x27;<br>
+<strong class="lexis">Worker</strong>: &#x27;Oh, <strong class="lexis">thank you</strong>! <strong class="lexis">This is money</strong>. Is <strong class="lexis">this</strong> for my <strong class="lexis">work</strong>?&#x27;</p>
+</section>
+</article>
+</body>
+</html>

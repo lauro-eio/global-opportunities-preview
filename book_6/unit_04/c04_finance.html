@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Analyzing Corporate Dividend Strategy</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Analyzing Corporate Dividend Strategy</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>4</dd>
+      <dt>Class</dt><dd>4</dd>
+      <dt>Theme</dt><dd>T04_FINANCE</dd>
+      <dt>Framework</dt><dd>SK-REC</dd>
+      <dt>Role</dt><dd>SK_REC_LISTENING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Understanding Investment Rewards</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Greet students and briefly introduce the topic of investing in companies.<br>
+2. Put students into small groups or pairs.<br>
+3. Ask students to discuss the questions provided in &#x27;Student Content&#x27;.<br>
+4. Monitor discussions, noting any interesting points or common misconceptions.<br>
+5. Bring the class back together and facilitate a brief whole-class feedback session, drawing connections to how companies reward investors.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Why Invest?</h4>
+<p>Discuss these questions with a partner:</p>
+<p>1. Many people invest money in companies. Why do you think people choose to invest?<br>
+2. What do investors typically expect to get back from their investment?<br>
+3. How do companies usually reward their investors? What are the different ways a company can show &#x27;return&#x27; on an investment?</p>
+</section>
+</article>
+<article class="stage" id="stage-PTV">
+<header class="stage-header"><span class="stage-code">PTV</span><h2>Pre-teach Vocabulary: Key Financial Terms</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the concept of specialized vocabulary for today&#x27;s topic.<br>
+2. Distribute the vocabulary matching task.<br>
+3. Instruct students to work individually or in pairs to match the terms with their definitions.<br>
+4. After a few minutes, go through the answers as a class, clarifying any misunderstandings and providing example sentences if necessary.<br>
+5. Pay particular attention to pronunciation and stress patterns.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Words for Business</h4>
+<p>Match the key financial terms to their definitions.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>shareholder equity</li><li>dividend payout</li><li>return on investment</li><li>stock market</li><li>corporate governance</li><li>valuation</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match each term to its correct definition.</p>
+<p>Match each financial term to its definition.</p>
+<ul><li><strong>shareholder equity</strong> — The residual value of a company&#x27;s assets after all liabilities have been paid, representing the amount belonging to shareholders.</li><li><strong>dividend payout</strong> — The distribution of a portion of a company&#x27;s earnings to its shareholders, usually as a cash payment per share.</li><li><strong>return on investment</strong> — A performance measure used to evaluate the efficiency of an investment or compare the efficiency of several different investments. (ROI)</li><li><strong>stock market</strong> — A public market for the trading of company stock and derivatives at an agreed price; also known as the equity market.</li><li><strong>corporate governance</strong> — The system of rules, practices, and processes by which a company is directed and controlled, balancing the interests of stakeholders.</li><li><strong>valuation</strong> — The process of determining the current worth of an asset or a company.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-GIST">
+<header class="stage-header"><span class="stage-code">GIST</span><h2>Gist Listening: The Shareholder Update</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students are going to listen to a short audio clip from a business report.<br>
+2. Tell students their first task is to understand the main topic and the speaker&#x27;s overall message without worrying about details.<br>
+3. Play the audio once.<br>
+4. Have students complete the multiple-choice question individually.<br>
+5. Check the answer as a class, asking students why they chose their option.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Report Summary</h4>
+<p>You will hear a short report about a company&#x27;s financial decisions. Listen for the main idea. Choose the best option that summarises the report&#x27;s focus.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Quarterly Shareholder Briefing: A New Strategy</h5>
+<p>Good morning, everyone. Welcome to our quarterly update. Today, I want to discuss a strategic shift regarding our <strong class="lexis">shareholder equity</strong> and future <strong class="lexis">dividend payouts</strong>. For years, our priority has been consistent, high <strong class="lexis">dividend payouts</strong> to reward our loyal investors. This strategy has certainly helped maintain investor perception and contributed to a stable <strong class="lexis">valuation</strong> of our company in the <strong class="lexis">stock market</strong>. However, after extensive discussions with our board and a thorough review of our market position, we’ve decided to adjust our approach.</p>
+<p>Moving forward, while we remain committed to delivering a strong <strong class="lexis">return on investment</strong> for all our shareholders, we will be reducing the percentage of our earnings allocated to direct <strong class="lexis">dividend payouts</strong> for the next two fiscal years. This decision wasn&#x27;t made lightly. Our aim is to redirect these funds into aggressive research and development, particularly in renewable energy technologies, and into expanding our global logistics infrastructure. We believe this investment will significantly enhance our long-term growth prospects and, ultimately, lead to a much higher <strong class="lexis">valuation</strong> for the company, benefiting <strong class="lexis">shareholder equity</strong> in the long run. We understand this may seem like a short-term sacrifice, but our analysis, supported by our <strong class="lexis">corporate governance</strong> team, indicates that this strategy offers a superior long-term <strong class="lexis">return on investment</strong> compared to continued high dividends. We believe this bold move will secure our market leadership and build a more resilient and valuable company for all our stakeholders.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main purpose of this report?</p>
+<p>What is the primary focus of the announcement?</p>
+<ul><li>To celebrate record profits and increased shareholder dividends.</li><li>To announce a temporary reduction in dividend payouts for long-term growth.</li><li>To explain a new system for managing employee bonuses.</li><li>To describe the company&#x27;s recent expansion into new markets.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-DET">
+<header class="stage-header"><span class="stage-code">DET</span><h2>Detailed Listening: Strategy and Impact</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will listen to the same audio again, but this time they should focus on specific details.<br>
+2. Go through the &#x27;Student Content&#x27; instructions and questions.<br>
+3. Play the audio for a second time.<br>
+4. Give students time to write down their answers to the short-text questions individually.<br>
+5. Pair students to compare answers before a whole-class check.<br>
+6. For question 4 (inference), allow for discussion and guide them to consider the short-term vs. long-term impact on investors. (Keys for Q4 in teacher notes: Short-term: may be disappointed by reduced direct income. Long-term: potentially higher company valuation and greater shareholder equity/return on investment).</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Analyzing the Strategy</h4>
+<p>Listen to the report again. This time, answer the following questions with specific details from the audio.</p>
+<p>1. What was the company&#x27;s previous priority regarding shareholder rewards?<br>
+2. For how many fiscal years will direct dividend payouts be reduced?<br>
+3. What two specific areas will the redirected funds be invested in?<br>
+4. How might existing investors react to this change in the short term, and what is the company&#x27;s long-term promise?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Quarterly Shareholder Briefing: A New Strategy</h5>
+<p>Good morning, everyone. Welcome to our quarterly update. Today, I want to discuss a strategic shift regarding our <strong class="lexis">shareholder equity</strong> and future <strong class="lexis">dividend payouts</strong>. For years, our priority has been consistent, high <strong class="lexis">dividend payouts</strong> to reward our loyal investors. This strategy has certainly helped maintain investor perception and contributed to a stable <strong class="lexis">valuation</strong> of our company in the <strong class="lexis">stock market</strong>. However, after extensive discussions with our board and a thorough review of our market position, we’ve decided to adjust our approach.</p>
+<p>Moving forward, while we remain committed to delivering a strong <strong class="lexis">return on investment</strong> for all our shareholders, we will be reducing the percentage of our earnings allocated to direct <strong class="lexis">dividend payouts</strong> for the next two fiscal years. This decision wasn&#x27;t made lightly. Our aim is to redirect these funds into aggressive research and development, particularly in renewable energy technologies, and into expanding our global logistics infrastructure. We believe this investment will significantly enhance our long-term growth prospects and, ultimately, lead to a much higher <strong class="lexis">valuation</strong> for the company, benefiting <strong class="lexis">shareholder equity</strong> in the long run. We understand this may seem like a short-term sacrifice, but our analysis, supported by our <strong class="lexis">corporate governance</strong> team, indicates that this strategy offers a superior long-term <strong class="lexis">return on investment</strong> compared to continued high dividends. We believe this bold move will secure our market leadership and build a more resilient and valuable company for all our stakeholders.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What was the company&#x27;s previous main priority for rewarding investors?</p>
+<p>Previous priority:</p>
+</div>
+<div class="task"><p class="task-instruction">For how long will the direct dividend payouts be reduced?</p>
+<p>Reduction period:</p>
+</div>
+<div class="task"><p class="task-instruction">Name the two areas where the funds will be reinvested.</p>
+<p>Investment areas:</p>
+</div>
+<div class="task"><p class="task-instruction">Explain the short-term perception versus the long-term benefit for investors, according to the speaker.</p>
+<p>Short-term vs. Long-term impact on investors:</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback and Discussion: Investor Perspectives</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Open a discussion on the content of the listening task. Start with the discussion questions in &#x27;Student Content&#x27;.<br>
+2. Encourage students to express their opinions, linking back to the vocabulary and concepts from the lesson.<br>
+3. Provide feedback on overall comprehension and address any lingering questions about the listening script or vocabulary.<br>
+4. Briefly review key terms like &#x27;shareholder equity&#x27; and &#x27;dividend payout&#x27;, checking for understanding and correct usage.<br>
+5. Conclude by linking the lesson back to the practical importance of understanding financial decisions in business.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Your View: Company Strategy</h4>
+<p>Now that you&#x27;ve listened to the report, discuss these questions in small groups:</p>
+<p>1. If you were a long-term investor in this company, how would you feel about the announced change in <strong class="lexis">dividend payouts</strong>?<br>
+2. Do you think the company&#x27;s new strategy, focusing on long-term <strong class="lexis">valuation</strong> and <strong class="lexis">shareholder equity</strong> over immediate dividends, is a good idea? Why or why not?<br>
+3. Can you think of any companies you know that have made similar strategic decisions affecting their investors?</p>
+</section>
+</article>
+</body>
+</html>

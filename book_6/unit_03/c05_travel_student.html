@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Professional Communication for Inclusivity</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Professional Communication for Inclusivity</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>3</dd>
+      <dt>Class</dt><dd>5</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-speaking-up-professionally">
+<header class="stage-header"><h2>Speaking Up Professionally</h2></header>
+<section class="handout">
+<p>Imagine a scenario at your workplace: a colleague makes a comment about someone&#x27;s accent or national origin that is clearly inappropriate and makes others uncomfortable. </p>
+<p>1. How would you feel hearing such a remark?<br>
+2. What are the immediate challenges in deciding how to respond?<br>
+3. What kind of impact could such a comment have on workplace morale and productivity?<br>
+4. What steps could a professional take to address this, ensuring <strong class="lexis">workplace dignity</strong> and <strong class="lexis">inclusion</strong> are upheld, without escalating unnecessarily?</p>
+</section>
+</article>
+<article class="stage" id="stage-drafting-an-inclusive-response">
+<header class="stage-header"><h2>Drafting an Inclusive Response</h2></header>
+<section class="handout">
+<p>Read the draft internal memo from Human Resources. For each numbered blank, choose the option that best conveys a professional, strategic, and inclusive approach to addressing workplace issues.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Internal Memo: Reinforcing Workplace Standards</h5>
+<p>Subject: Reinforcing Our Commitment to an Inclusive Workplace Environment</p>
+<p>Dear Team,</p>
+<p>Following recent discussions and feedback, we wish to reiterate our steadfast commitment to fostering a truly <strong class="lexis">inclusive workplace</strong>. Ensuring a respectful environment where every individual feels valued is paramount to our collective success. </p>
+<p>It has come to our attention that certain interactions may not have always upheld these standards. To proactively address this, we propose the following strategic actions:</p>
+<p>1.  We aim to [                   ] on addressing the issue of insensitive comments and discriminatory practices. This involves not only reactive measures but also fostering a culture of proactive <strong class="lexis">cultural sensitivity</strong>.</p>
+<p>2.  We plan to [                   ] our inclusion policies, ensuring they are not only comprehensive but also effectively communicated across all departments. This is vital to preventing future incidents and promoting <strong class="lexis">equal opportunity</strong>.</p>
+<p>3.  Our leadership is committed to [                   ] to diversity within our organizational structure. This means ensuring that policies against <strong class="lexis">prejudice</strong> and <strong class="lexis">discriminatory practices</strong> are visible and actively supported.</p>
+<p>4.  To enhance efficiency in addressing concerns, we will [                   ] the process for reporting and resolving grievances. Clear, accessible pathways are essential for building trust.</p>
+<p>5.  Finally, we will [                   ] to support affected personnel and educate staff on <strong class="lexis">workplace inclusion</strong>. This includes training programs and dedicated support services.</p>
+<p>Your cooperation in upholding these standards is crucial. We value your contributions to a respectful workplace.</p>
+<p>Sincerely,</p>
+<p>The Human Resources Department</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">For blank (1), choose the most appropriate and strategic phrase.</p>
+<p>We aim to [                   ] on addressing the issue of insensitive comments and discriminatory practices.</p>
+<ul><li>start tackling</li><li>get moving</li><li>gain traction</li><li>deal with</li></ul>
+</div>
+<div class="task"><p class="task-instruction">For blank (2), choose the most appropriate and strategic phrase.</p>
+<p>We plan to [                   ] our inclusion policies, ensuring they are not only comprehensive but also effectively communicated.</p>
+<ul><li>make bigger</li><li>broaden the scope of</li><li>spread out</li><li>do more with</li></ul>
+</div>
+<div class="task"><p class="task-instruction">For blank (3), choose the most appropriate and strategic phrase.</p>
+<p>Our leadership is committed to [                   ] to diversity within our organizational structure.</p>
+<ul><li>showing we care</li><li>ensuring a visible commitment</li><li>looking like we&#x27;re serious</li><li>getting noticed for our efforts</li></ul>
+</div>
+<div class="task"><p class="task-instruction">For blank (4), choose the most appropriate and strategic phrase.</p>
+<p>To enhance efficiency in addressing concerns, we will [                   ] the process for reporting and resolving grievances.</p>
+<ul><li>make easier</li><li>speed up</li><li>streamline the grievance resolution</li><li>fix up</li></ul>
+</div>
+<div class="task"><p class="task-instruction">For blank (5), choose the most appropriate and strategic phrase.</p>
+<p>Finally, we will [                   ] to support affected personnel and educate staff on workplace inclusion.</p>
+<ul><li>get some help</li><li>use our money</li><li>allocate resources</li><li>give out funding</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-mastering-formal-responses">
+<header class="stage-header"><h2>Mastering Formal Responses</h2></header>
+<section class="handout">
+<p>These phrases are used in professional settings to discuss strategic actions, showing purposeful planning and a high level of commitment. They help to convey <strong class="lexis">conviction</strong> and <strong class="lexis">clarity</strong> in important communications.</p>
+<p>Now, let&#x27;s look at more precise and impactful ways to phrase your responses to workplace challenges.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>gain traction on addressing the issue</li><li>broaden the scope of our inclusion policies</li><li>ensure a visible commitment to diversity</li><li>streamline the grievance resolution process</li><li>allocate resources to support affected personnel</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match the informal workplace phrase with its more strategic and formal equivalent.</p>
+<p>Connect informal language with more formal, strategic phrasing.</p>
+<ul><li><strong>Get things moving on the problem.</strong> — Gain traction on addressing the issue.</li><li><strong>Make our policies bigger.</strong> — Broaden the scope of our inclusion policies.</li><li><strong>Show everyone we care about diversity.</strong> — Ensure a visible commitment to diversity.</li><li><strong>Make the complaint process quicker.</strong> — Streamline the grievance resolution process.</li><li><strong>Give money/help to people who need it.</strong> — Allocate resources to support affected personnel.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the following informal statement into a more strategic and formal sentence, using one of the target phrases.</p>
+<p>Informal: &#x27;We really need to get better at handling complaints quickly.&#x27;
+
+Formal: &#x27;It is imperative that we _______________________.&#x27;</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the following informal statement into a more strategic and formal sentence, using one of the target phrases.</p>
+<p>Informal: &#x27;Management has to be seen to be serious about diversity.&#x27;
+
+Formal: &#x27;Leadership must _______________________.&#x27;</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-proposing-solutions">
+<header class="stage-header"><h2>Proposing Solutions</h2></header>
+<section class="handout">
+<p>You are a team leader in a department where recent inappropriate comments about national origin have created tension. Your manager has asked you to prepare a brief proposal (3-5 sentences) to present to the HR department and senior leadership, outlining strategic actions to restore a positive and inclusive work environment.</p>
+<p>Working with a partner, discuss and draft your proposal. Make sure to:</p>
+<p>*   Identify the core problems clearly.<br>
+*   Propose concrete, strategic actions.<br>
+*   Use at least <strong class="lexis">two to three</strong> of the strategic phrases you learned in the previous stage.<br>
+*   Maintain a professional and solution-oriented tone.<br>
+*   Practice delivering your proposal with conviction, paying attention to stress and intonation.</p>
+</section>
+</article>
+</body>
+</html>

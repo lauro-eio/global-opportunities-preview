@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Before You Sign: Understanding Your Job Contract</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Before You Sign: Understanding Your Job Contract</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>9</dd>
+      <dt>Class</dt><dd>2</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-your-new-job-offer">
+<header class="stage-header"><h2>Your New Job Offer</h2></header>
+<section class="handout">
+<p>Congratulations on your new job offer! Before you sign on the dotted line, it&#x27;s vital to ensure you fully understand what you&#x27;re agreeing to. Let&#x27;s discuss:<br>
+1. What are the absolute must-check items in any employment contract to ensure your rights are protected?<br>
+2. Why is understanding the &#x27;small print&#x27; so important in a professional context?<br>
+3. What are the potential risks if you don&#x27;t fully comprehend all the clauses?</p>
+</section>
+</article>
+<article class="stage" id="stage-first-look-contract-essentials">
+<header class="stage-header"><h2>First Look: Contract Essentials</h2></header>
+<section class="handout">
+<p>Read the following memo from the HR Department. Don&#x27;t worry about understanding every word; just try to grasp the main message.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Essential Guide: Understanding Your Employment Contract</h5>
+<p>Subject: Essential Guide: Understanding Your Employment Contract<br>
+Dear New Colleague,</p>
+<p>Welcome to the team! We are delighted to have you on board. As you prepare to embark on your journey with us, it’s crucial to understand the terms outlined in your employment contract. This document is a cornerstone of our professional relationship, designed to protect both your rights and the company&#x27;s interests.</p>
+<p>We strongly advise all new hires to <strong class="lexis">conduct due diligence</strong> by carefully reviewing each clause. Pay particular attention to your <strong class="lexis">probationary period</strong> duration, the specific details within your <strong class="lexis">job description</strong>, and the <strong class="lexis">termination clause</strong>. Understanding these sections fully is paramount. For instance, <strong class="lexis">the more thoroughly you comprehend</strong> the conditions of your probationary period, <strong class="lexis">the smoother your transition</strong> into a permanent role will be. Similarly, <strong class="lexis">the clearer the expectations</strong> set out in your job description, <strong class="lexis">the more effectively you can perform</strong> your duties.</p>
+<p>Our contracts also include important <strong class="lexis">confidentiality agreements</strong> and sections detailing your responsibility to <strong class="lexis">adhere to regulations</strong> governing data protection and intellectual property. Any <strong class="lexis">breach of contract</strong> can lead to serious repercussions. We are committed to operating transparently and to <strong class="lexis">uphold the law</strong> in all our practices. If any clause seems unclear, or if you require further clarification, we highly recommend you <strong class="lexis">seek legal counsel</strong> before signing.</p>
+<p>Your proactive approach in understanding these <strong class="lexis">terms and conditions</strong> ensures a strong and mutually respectful professional foundation.</p>
+<p>Sincerely,<br>
+[Company Name] HR Department</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Choose the best summary of the HR memo&#x27;s primary purpose.</p>
+<p>The main purpose of this memo is to:</p>
+<ul><li>Announce new company policies regarding employee conduct.</li><li>Provide a legal disclaimer for new hires.</li><li>Inform new employees about specific contractual obligations.</li><li>Advise new employees on the importance of reviewing and understanding their employment contracts.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-deeper-dive-clause-by-clause">
+<header class="stage-header"><h2>Deeper Dive: Clause by Clause</h2></header>
+<section class="handout">
+<p>Read the memo again, this time focusing on the details. Answer the questions that follow.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Essential Guide: Understanding Your Employment Contract</h5>
+<p>Subject: Essential Guide: Understanding Your Employment Contract<br>
+Dear New Colleague,</p>
+<p>Welcome to the team! We are delighted to have you on board. As you prepare to embark on your journey with us, it’s crucial to understand the terms outlined in your employment contract. This document is a cornerstone of our professional relationship, designed to protect both your rights and the company&#x27;s interests.</p>
+<p>We strongly advise all new hires to <strong class="lexis">conduct due diligence</strong> by carefully reviewing each clause. Pay particular attention to your <strong class="lexis">probationary period</strong> duration, the specific details within your <strong class="lexis">job description</strong>, and the <strong class="lexis">termination clause</strong>. Understanding these sections fully is paramount. For instance, <strong class="lexis">the more thoroughly you comprehend</strong> the conditions of your probationary period, <strong class="lexis">the smoother your transition</strong> into a permanent role will be. Similarly, <strong class="lexis">the clearer the expectations</strong> set out in your job description, <strong class="lexis">the more effectively you can perform</strong> your duties.</p>
+<p>Our contracts also include important <strong class="lexis">confidentiality agreements</strong> and sections detailing your responsibility to <strong class="lexis">adhere to regulations</strong> governing data protection and intellectual property. Any <strong class="lexis">breach of contract</strong> can lead to serious repercussions. We are committed to operating transparently and to <strong class="lexis">uphold the law</strong> in all our practices. If any clause seems unclear, or if you require further clarification, we highly recommend you <strong class="lexis">seek legal counsel</strong> before signing.</p>
+<p>Your proactive approach in understanding these <strong class="lexis">terms and conditions</strong> ensures a strong and mutually respectful professional foundation.</p>
+<p>Sincerely,<br>
+[Company Name] HR Department</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">According to the memo, what specific types of clauses should new hires pay particular attention to?</p>
+<p>List three types of clauses mentioned for special attention.</p>
+</div>
+<div class="task"><p class="task-instruction">What is the recommended action if a new hire finds a clause unclear?</p>
+<p>If a clause seems unclear, the memo advises new hires to:</p>
+<ul><li>Sign it anyway and ask HR later.</li><li>Request a simplified version from HR.</li><li>Seek legal counsel before signing.</li><li>Discuss it with a colleague.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-unpacking-professional-language-amp-dyna">
+<header class="stage-header"><h2>Unpacking Professional Language &amp; Dynamics</h2></header>
+<section class="handout">
+<p>Now let&#x27;s look more closely at the language used in the memo. Pay attention to specific phrases that show cause and effect, and the choice of formal words.</p>
+<p><strong class="lexis">Part 1: Discovering Causal Links</strong><br>
+Look at these sentences from the memo:<br>
+*   &#x27;For instance, <strong class="lexis">the more thoroughly you comprehend</strong> the conditions of your probationary period, <strong class="lexis">the smoother your transition</strong> into a permanent role will be.&#x27;<br>
+*   &#x27;Similarly, <strong class="lexis">the clearer the expectations</strong> set out in your job description, <strong class="lexis">the more effectively you can perform</strong> your duties.&#x27;<br>
+What do you notice about the structure of these sentences? What effect do they create? Discuss with a partner.</p>
+<p><strong class="lexis">Part 2: Unpacking Professional Lexis</strong><br>
+Find other examples of formal legal or professional language in the memo. Why do you think these specific words and phrases are used in an employment contract context rather than simpler, everyday words?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Essential Guide: Understanding Your Employment Contract</h5>
+<p>Subject: Essential Guide: Understanding Your Employment Contract<br>
+Dear New Colleague,</p>
+<p>Welcome to the team! We are delighted to have you on board. As you prepare to embark on your journey with us, it’s crucial to understand the terms outlined in your employment contract. This document is a cornerstone of our professional relationship, designed to protect both your rights and the company&#x27;s interests.</p>
+<p>We strongly advise all new hires to <strong class="lexis">conduct due diligence</strong> by carefully reviewing each clause. Pay particular attention to your <strong class="lexis">probationary period</strong> duration, the specific details within your <strong class="lexis">job description</strong>, and the <strong class="lexis">termination clause</strong>. Understanding these sections fully is paramount. For instance, <strong class="lexis">the more thoroughly you comprehend</strong> the conditions of your probationary period, <strong class="lexis">the smoother your transition</strong> into a permanent role will be. Similarly, <strong class="lexis">the clearer the expectations</strong> set out in your job description, <strong class="lexis">the more effectively you can perform</strong> your duties.</p>
+<p>Our contracts also include important <strong class="lexis">confidentiality agreements</strong> and sections detailing your responsibility to <strong class="lexis">adhere to regulations</strong> governing data protection and intellectual property. Any <strong class="lexis">breach of contract</strong> can lead to serious repercussions. We are committed to operating transparently and to <strong class="lexis">uphold the law</strong> in all our practices. If any clause seems unclear, or if you require further clarification, we highly recommend you <strong class="lexis">seek legal counsel</strong> before signing.</p>
+<p>Your proactive approach in understanding these <strong class="lexis">terms and conditions</strong> ensures a strong and mutually respectful professional foundation.</p>
+<p>Sincerely,<br>
+[Company Name] HR Department</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match the beginning of the double comparative sentence with its logical ending, based on legal or professional principles.</p>
+<p>Match the phrases to form logical statements about legal processes.</p>
+<ul><li><strong>The more stringent the regulations,</strong> — the greater the need for compliance.</li><li><strong>The less transparent a clause appears,</strong> — the more crucial it is to seek clarification.</li><li><strong>The higher the stakes of a negotiation,</strong> — the more vital it is to conduct due diligence.</li><li><strong>The more frequently a contract is breached,</strong> — the greater the risk of legal action.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-crafting-clear-contract-language">
+<header class="stage-header"><h2>Crafting Clear Contract Language</h2></header>
+<section class="handout">
+<p>Now, let&#x27;s practice using the &#x27;double comparative&#x27; structure and the professional legal vocabulary we&#x27;ve discussed. Aim for precision and formality.</p>
+<p><strong class="lexis">Task 1: Complete the Double Comparatives</strong><br>
+Complete the following sentences using the correct double comparative structure, thinking about logical cause and effect in a professional or legal context. You might need to use &#x27;more&#x27; or &#x27;less&#x27; or change the adjective/adverb.</p>
+<p>1. The (complex) _________ the legal documentation, the (important) _________ it is to read carefully.<br>
+2. The (detailed) _________ the job description, the (clear) _________ the employee&#x27;s responsibilities.<br>
+3. The (early) _________ you address contractual ambiguities, the (few) _________ problems you&#x27;ll encounter later.<br>
+4. The (strict) _________ the confidentiality agreement, the (sensitive) _________ the information protected.</p>
+<p><strong class="lexis">Task 2: Choose the Correct Professional Lexis</strong><br>
+Choose the most appropriate word or phrase from the box to complete each sentence below. Each phrase will be used once.</p>
+<p>[seek legal counsel, adhere to regulations, breach of contract, uphold the law, conduct due diligence]</p>
+<p>5. Failing to deliver on agreed terms can result in a _________.<br>
+6. Before investing, always _________ by researching the company thoroughly.<br>
+7. It is every company&#x27;s responsibility to _________ and operate ethically.<br>
+8. If you&#x27;re unsure about the terms of a new agreement, it&#x27;s wise to _________.<br>
+9. All employees must _________ regarding workplace safety.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Complete the double comparative sentences.</p>
+<p>1. The (complex) _________ the legal documentation, the (important) _________ it is to read carefully.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the double comparative sentences.</p>
+<p>2. The (detailed) _________ the job description, the (clear) _________ the employee&#x27;s responsibilities.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the double comparative sentences.</p>
+<p>3. The (early) _________ you address contractual ambiguities, the (few) _________ problems you&#x27;ll encounter later.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the double comparative sentences.</p>
+<p>4. The (strict) _________ the confidentiality agreement, the (sensitive) _________ the information protected.</p>
+</div>
+<div class="task"><p class="task-instruction">Choose the correct professional lexis to complete each sentence.</p>
+<p>5. Failing to deliver on agreed terms can result in a _________.</p>
+</div>
+<div class="task"><p class="task-instruction">Choose the correct professional lexis to complete each sentence.</p>
+<p>6. Before investing, always _________ by researching the company thoroughly.</p>
+</div>
+<div class="task"><p class="task-instruction">Choose the correct professional lexis to complete each sentence.</p>
+<p>7. It is every company&#x27;s responsibility to _________ and operate ethically.</p>
+</div>
+<div class="task"><p class="task-instruction">Choose the correct professional lexis to complete each sentence.</p>
+<p>8. If you&#x27;re unsure about the terms of a new agreement, it&#x27;s wise to _________.</p>
+</div>
+<div class="task"><p class="task-instruction">Choose the correct professional lexis to complete each sentence.</p>
+<p>9. All employees must _________ regarding workplace safety.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-your-professional-judgment">
+<header class="stage-header"><h2>Your Professional Judgment</h2></header>
+<section class="handout">
+<p>Imagine a friend has just received a job offer, but the contract includes several clauses they find confusing or potentially unfair, particularly regarding hours, overtime, and annual leave. They ask for your advice. In pairs or small groups, discuss what advice you would give them. Use the double comparative structures and professional legal lexis we&#x27;ve studied today to explain the potential implications and suggest a course of action. Think about:<br>
+*   What specific advice would you give regarding <strong class="lexis">reviewing terms</strong>?<br>
+*   How would you explain the <strong class="lexis">importance of clarity</strong> in contracts?<br>
+*   What are the <strong class="lexis">consequences</strong> of not understanding or agreeing to terms?<br>
+*   When should they <strong class="lexis">seek external advice</strong>?</p>
+</section>
+</article>
+</body>
+</html>

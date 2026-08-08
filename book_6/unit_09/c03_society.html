@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reporting &amp; Discussing Workplace Safety Concerns</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Reporting &amp; Discussing Workplace Safety Concerns</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>9</dd>
+      <dt>Class</dt><dd>3</dd>
+      <dt>Theme</dt><dd>T09_SOCIETY</dd>
+      <dt>Framework</dt><dd>SK-PROD</dd>
+      <dt>Role</dt><dd>SK_PROD_SPEAKING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by asking students to think about their own workplaces. <br>
+2. Pose the lead-in question to the whole class, then put students into pairs or small groups (3-4 people) to discuss their answers. <br>
+3. Encourage them to share specific examples of rules and the reasons behind them. <br>
+4. Monitor for early examples of target vocabulary, but do not correct at this stage. Note any common issues for later.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Your Workplace, Your Safety</h4>
+<p>Think about your workplace. Discuss with a partner:<br>
+1. What are the top three safety rules you <strong class="lexis">must follow daily</strong>?<br>
+2. Why are these rules <strong class="lexis">legally important</strong> for everyone&#x27;s well-being?<br>
+3. Have you ever seen a safety rule that seemed unnecessary, or one that was extremely important but often ignored?</p>
+</section>
+</article>
+<article class="stage" id="stage-MOD">
+<header class="stage-header"><span class="stage-code">MOD</span><h2>Model Dialogue</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the dialogue as an example of a worker reporting a safety concern to their supervisor. <br>
+2. Ask students to read or listen (if read aloud by teacher) to the dialogue once to get the main idea: What is the main problem being reported? <br>
+3. Second reading/listening: Ask students to notice how the worker describes the issue and what specific actions are discussed. <br>
+4. Briefly check understanding (e.g., &#x27;Who is reporting? What is the hazard? What&#x27;s the next step?&#x27;). Avoid detailed comprehension questions, focus on noticing language for reporting.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reporting a Workplace Issue</h4>
+<p>Read the conversation between a team leader, Alex, and a worker, Ben, about a safety concern. Pay attention to how Ben reports the issue and what Alex suggests.</p>
+<p><strong class="lexis">Alex:</strong> Good morning, Ben. What&#x27;s on your mind?<br>
+<strong class="lexis">Ben:</strong> Morning, Alex. I need to bring something to your attention regarding the loading bay. I&#x27;ve noticed a few forklifts operating too close to pedestrian walkways, especially during peak hours. It feels like a significant <strong class="lexis">hazard</strong>.<br>
+<strong class="lexis">Alex:</strong> Thank you for reporting that, Ben. That&#x27;s a serious concern. Have you seen any near-misses?<br>
+<strong class="lexis">Ben:</strong> Not yet, thankfully, but it&#x27;s only a matter of time if we don&#x27;t reinforce the current <strong class="lexis">safety protocol</strong>. I&#x27;m worried about someone getting injured. We also haven&#x27;t checked the <strong class="lexis">PPE requirements</strong> for visitors in that area for a while, I think.<br>
+<strong class="lexis">Alex:</strong> You&#x27;re right to flag this. We need to conduct an immediate <strong class="lexis">hazard assessment</strong> of the area. I&#x27;ll also ensure our team re-reads the updated <strong class="lexis">safety protocol</strong> guidelines on vehicle-pedestrian separation. We may need to file an internal <strong class="lexis">incident report</strong> detailing your observations and our preventative actions, especially with the upcoming <strong class="lexis">regulatory inspection</strong> next month. For now, please remind anyone you see operating unsafely.<br>
+<strong class="lexis">Ben:</strong> Will do, Alex. Thanks for taking it seriously.<br>
+<strong class="lexis">Alex:</strong> Workplace safety is everyone&#x27;s responsibility, Ben. Your vigilance is appreciated.</p>
+</section>
+</article>
+<article class="stage" id="stage-PREP">
+<header class="stage-header"><span class="stage-code">PREP</span><h2>Preparation</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that these phrases are useful for discussing and reporting safety concerns in a professional manner. <br>
+2. Go through each column, clarifying meaning and pronunciation if needed. <br>
+3. Encourage students to think about which phrases they heard in the model dialogue and which ones they might use in a similar situation. <br>
+4. Give students a few minutes to silently review the phrases and choose some they want to try to use in the next activity.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Key Phrases for Reporting &amp; Discussion</h4>
+<p>Before our main task, let&#x27;s look at some important phrases for talking about workplace safety. Try to use some of these when you speak.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Identifying Hazards</th><th>Reporting Procedures</th><th>Emphasizing Importance</th><th>Responding to Reports</th></tr><tr><td>I&#x27;ve noticed a potential **hazard**...</td><td>We need to reinforce the **safety protocol**.</td><td>It&#x27;s crucial for everyone&#x27;s well-being.</td><td>Thank you for reporting that.</td></tr><tr><td>There&#x27;s a risk of...</td><td>Who do I inform about this?</td><td>It&#x27;s legally important for...</td><td>That&#x27;s a serious concern.</td></tr><tr><td>I need to bring something to your attention...</td><td>We should conduct a **hazard assessment**.</td><td>Workplace safety is everyone&#x27;s responsibility.</td><td>You&#x27;re right to flag this.</td></tr><tr><td>It feels like a significant risk...</td><td>We may need to file an **incident report**.</td><td>Your vigilance is appreciated.</td><td>We&#x27;ll look into it immediately.</td></tr><tr><td>I&#x27;m worried about...</td><td>Ensure compliance with **PPE requirements**.</td><td>This requires immediate attention.</td><td>We appreciate you taking the initiative.</td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Fluency Practice</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Divide students into pairs. Assign &#x27;Worker&#x27; and &#x27;Supervisor&#x27; roles. <br>
+2. Explain the scenario clearly, emphasizing that the &#x27;Worker&#x27; needs to use the language from the PREP stage to effectively report the issue, and the &#x27;Supervisor&#x27; needs to respond professionally. <br>
+3. Give students a few minutes to prepare their roles individually, perhaps making a few notes based on the scenario and the phrase bank. <br>
+4. Instruct students to begin their role-plays. Monitor closely, focusing on fluency and the effective use of target language. Do not interrupt for correction; note down language points for FBDC. <br>
+5. After 5-7 minutes, have pairs switch roles and try a different scenario if time allows, or simply reflect on their performance.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Workplace Safety Challenge</h4>
+<p>Work in pairs. You will role-play a scenario involving a workplace safety issue. Try to use phrases from the previous activity.</p>
+<p><strong class="lexis">Scenario:</strong><br>
+A new piece of equipment has been installed in your factory/warehouse/office. You (Worker) have noticed that the operating instructions are unclear, and the emergency stop button is not easily accessible. You are also concerned that the required <strong class="lexis">PPE requirements</strong> (e.g., safety glasses, gloves) are not being consistently enforced when operating it.</p>
+<p><strong class="lexis">Role A: The Worker</strong><br>
+You have a serious concern about the safety of the new equipment. You need to report this to your supervisor. Clearly explain:<br>
+*   What the <strong class="lexis">hazard</strong> is.<br>
+*   Why it&#x27;s a problem (potential consequences).<br>
+*   Suggest what actions need to be taken (e.g., reviewing <strong class="lexis">safety protocol</strong>, conducting a new <strong class="lexis">hazard assessment</strong>).</p>
+<p><strong class="lexis">Role B: The Supervisor</strong><br>
+You are the supervisor. Your worker is coming to you with a safety concern. You need to:<br>
+*   Listen carefully and professionally.<br>
+*   Acknowledge the seriousness of the issue.<br>
+*   Ask clarifying questions.<br>
+*   Explain what steps will be taken next (e.g., checking <strong class="lexis">PPE requirements</strong>, reviewing <strong class="lexis">safety protocol</strong>, considering an <strong class="lexis">incident report</strong> or a future <strong class="lexis">regulatory inspection</strong>).<br>
+*   Reassure the worker that their concerns are being taken seriously.</p>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback and Delayed Correction</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. <strong class="lexis">Content Feedback (5-7 mins):</strong> Open the floor for general feedback. Ask students: &#x27;What were some of the main safety issues reported in your role-plays?&#x27; or &#x27;How effectively did the supervisor respond to the concerns?&#x27; Focus on the clarity and effectiveness of their communication regarding the <strong class="lexis">content</strong> of the safety reports. <br>
+2. <strong class="lexis">Language Feedback (8-10 mins):</strong> Write down a selection of common errors (pronunciation, grammar, lexis) observed during the FP stage on the board. Do not attribute errors to specific students. <br>
+3. Guide students to collaboratively correct the mistakes. For example, &#x27;How can we say this more professionally?&#x27; or &#x27;Is there a more precise word for this?&#x27; <br>
+4. Highlight examples of good language use you heard, especially target vocabulary from the PREP stage. Encourage students to note down corrections or useful phrases for future use.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reviewing Our Safety Reports</h4>
+<p>Let&#x27;s reflect on our discussions and reports.</p>
+<p>1.  <strong class="lexis">Share:</strong> What were the most challenging parts of explaining the safety issues or responding to them?<br>
+2.  <strong class="lexis">Professionalism:</strong> Did you feel you used professional language effectively?<br>
+3.  <strong class="lexis">Improvements:</strong> What&#x27;s one thing you could improve in your next safety report or discussion?</p>
+</section>
+</article>
+</body>
+</html>

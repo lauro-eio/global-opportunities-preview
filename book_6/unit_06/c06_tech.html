@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Analyzing Subtle Communication and Professional Responses</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Analyzing Subtle Communication and Professional Responses</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>6</dd>
+      <dt>Class</dt><dd>6</dd>
+      <dt>Theme</dt><dd>T06_TECH</dd>
+      <dt>Framework</dt><dd>SK-PROD</dd>
+      <dt>Role</dt><dd>SK_PROD_WRITING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Digital Influence at Work</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Introduce the lesson by connecting to learners&#x27; real-world experiences. Guide discussion on how subtle language can influence decisions in professional contexts. Encourage examples from their workplaces or personal experiences with marketing or internal communications.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Spotting Hidden Messages</h4>
+<p>Think about recent communications you&#x27;ve seen, either at work (memos, emails) or outside of work (advertisements, public service announcements). <br>
+1. Did you notice any parts that seemed designed to <strong class="lexis">persuade</strong> you or influence your feelings or actions in a subtle way? <br>
+2. What specific words, phrases, or images made you feel that way? <br>
+3. How might recognizing these techniques be useful in your professional life?</p>
+</section>
+</article>
+<article class="stage" id="stage-MOD">
+<header class="stage-header"><span class="stage-code">MOD</span><h2>Model Analysis: Unpacking a Persuasive Memo</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Ask students to read the memo. The focus is not on perfect comprehension but on identifying the persuasive or manipulative techniques used. Guide them to pinpoint specific phrases and discuss the intended emotional or psychological effect on the reader. Prompt them to consider the real implications behind the &#x27;positive&#x27; language.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Anatomy of an Internal Memo</h4>
+<p>Read the memo from management below. This memo announces a new initiative. As you read, pay close attention to how the message is delivered.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Internal Communication: Upcoming Team Optimization Initiative</h5>
+<p>To all Valued Team Members,</p>
+<p>We are excited to announce a new &#x27;Team Optimization Initiative&#x27; launching next month. This strategic enhancement is designed to unlock <strong class="lexis">unprecedented levels</strong> of <strong class="lexis">operational efficiency</strong> and foster a truly <strong class="lexis">dynamic work environment</strong>. We understand that change can sometimes feel daunting, but we firmly believe this is a <strong class="lexis">fantastic opportunity</strong> for every individual to contribute to our collective success and adapt to the evolving demands of our market.</p>
+<p>This initiative will introduce a more <strong class="lexis">flexible scheduling system</strong>, allowing for <strong class="lexis">optimal resource allocation</strong> and ensuring we maintain our competitive edge. While it may require minor adjustments to individual routines, we are confident that the long-term benefits, including a <strong class="lexis">stronger team spirit</strong> and improved overall performance, will be evident to all. We encourage everyone to embrace this exciting evolution and fully participate in the upcoming informational sessions, where we can address any questions and clarify how these changes will secure our shared future. Your <strong class="lexis">enthusiastic cooperation</strong> is essential as we move forward together, building a more resilient and successful organization.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Identify two phrases in the memo that use emotional appeal or exaggeration to persuade staff. Explain what effect these phrases are intended to have on the employees.</p>
+<p>Phrase 1 &amp; Intended Effect:
+Phrase 2 &amp; Intended Effect:</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-PREP">
+<header class="stage-header"><span class="stage-code">PREP</span><h2>Preparation: Crafting Responses to Manipulative Language</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Guide students through the column banks. Discuss the purpose of each type of phrase. <br>
+1. Focus on how to professionally identify manipulative language without being accusatory. <br>
+2. Emphasize the importance of using neutral and factual language. <br>
+3. Practice using the professional objection phrases to soften the impact of concerns.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Building Your Response Toolkit</h4>
+<p>Now that we&#x27;ve analyzed manipulative language, let&#x27;s prepare to write a response. Imagine you need to address such language professionally, without being confrontational, but still making your point clear. Use the phrases below to help you structure your thoughts.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Identifying Techniques (for your notes/analysis)</th><th>Neutral, Factual Counter-Phrases</th><th>Professional Objection Phrasing</th></tr><tr><td>Uses **emotional appeal**</td><td>From a practical standpoint...</td><td>I have some concerns regarding...</td></tr><tr><td>Relies on **vague generalities**</td><td>To ensure clarity, could we specify...</td><td>Could we explore alternative approaches for...</td></tr><tr><td>Employs **exaggeration**</td><td>My understanding of the proposal is that...</td><td>It would be beneficial to consider the impact on...</td></tr><tr><td>Suggests a **bandwagon effect**</td><td>Considering the logistical implications...</td><td>While I appreciate the intention, I foresee challenges with...</td></tr><tr><td>Features **loaded language**</td><td>Let&#x27;s focus on the tangible benefits/drawbacks...</td><td>To ensure successful implementation, we might need to address...</td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Freer Practice: Responding to a Workplace Initiative</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Provide a sample answer for the writing task, demonstrating a professional, non-confrontational response to the manipulative memo. <br>
+Sample Answer:<br>
+Subject: Query Regarding &#x27;Team Optimization Initiative&#x27;<br>
+Dear [Manager&#x27;s Name],<br>
+I am writing to you regarding the recently announced &#x27;Team Optimization Initiative&#x27; and the introduction of a more flexible scheduling system. While I appreciate the intention to enhance operational efficiency, I have some concerns regarding the potential impact on staff routines and personal commitments. Could we explore in more detail how the &#x27;optimal resource allocation&#x27; will specifically affect individual shifts and stability? It would be beneficial to consider the practical implications on workforce planning to ensure a smooth transition. To ensure successful implementation and continued team morale, clearer guidelines on the new scheduling system would be helpful. Thank you for your time and consideration. <br>
+Best regards,<br>
+[Your Name]</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Drafting Your Professional Response</h4>
+<p>Write a short email or memo (100-150 words) to your department manager or a relevant stakeholder in response to the &#x27;Team Optimization Initiative&#x27; memo you analyzed. </p>
+<p><strong class="lexis">Your Goal:</strong> To express your initial thoughts or concerns professionally, using neutral and factual language, avoiding any manipulative tactics yourself. Focus on asking for clarification, proposing practical considerations, or highlighting potential challenges, rather than direct criticism. </p>
+<p><strong class="lexis">Audience:</strong> Your department manager/relevant stakeholders. <br>
+<strong class="lexis">Purpose:</strong> To engage critically and professionally with the proposed changes. <br>
+<strong class="lexis">Length:</strong> Approximately 100-150 words.</p>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback and Correction: Refining Your Professional Voice</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Guide learners through peer feedback (if appropriate) or self-assessment. <br>
+1. Focus feedback first on content: Did they address the task? Is the tone appropriate? Are the points clear and professional? <br>
+2. Then move to language: Review vocabulary choice, sentence structure, and overall clarity. <br>
+3. Highlight effective use of phrases from the PREP stage. <br>
+4. Provide constructive criticism on any remaining manipulative or overly emotional language in their responses.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reviewing Your Professional Communication</h4>
+<p>Exchange your response with a partner or review your own writing. Consider the following questions: <br>
+1. Did you clearly express your concerns or questions without being overly emotional or confrontational? <br>
+2. Did you use neutral and factual language? Identify any phrases that could be rephrased for more professionalism. <br>
+3. Is your tone appropriate for communicating with management about a new initiative? <br>
+4. What is one thing you did well, and one area where your writing could be improved?</p>
+</section>
+</article>
+</body>
+</html>

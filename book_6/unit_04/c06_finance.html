@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Market Trend Analysis for Investment Reporting</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Market Trend Analysis for Investment Reporting</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>4</dd>
+      <dt>Class</dt><dd>6</dd>
+      <dt>Theme</dt><dd>T04_FINANCE</dd>
+      <dt>Framework</dt><dd>SK-PROD</dd>
+      <dt>Role</dt><dd>SK_PROD_WRITING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Market Shifts and Investment Decisions</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by asking students about recent developments in their industries.<br>
+2. Guide the discussion to new technologies or shifts in consumer behavior.<br>
+3. Ask students to consider how these changes might impact their companies.<br>
+4. Facilitate a brief discussion on how companies generally decide where to invest next.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">New Trends, New Investments</h4>
+<p>Think about your industry. What new technologies or shifts in consumer behavior have emerged recently?</p>
+<p>1. How have these developments impacted your company or sector?<br>
+2. What are the potential opportunities or challenges that these changes present?<br>
+3. In your experience, how do companies typically decide where to invest their resources to respond to such trends? What factors do they consider?</p>
+</section>
+</article>
+<article class="stage" id="stage-MOD">
+<header class="stage-header"><span class="stage-code">MOD</span><h2>Model Analysis: Internal Report on Market Trends</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Instruct students to read the internal memo quickly to understand its overall purpose.<br>
+2. Set Task 1 (main purpose) as a gist-reading activity.<br>
+3. For Tasks 2 and 3, ask students to re-read more carefully, focusing on specific details and the identified target language.<br>
+4. Review answers as a class, discussing how the memo effectively conveys its message and uses professional language.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reading an Investment Analysis</h4>
+<p>Read the internal memo below from an analyst to a manager regarding recent <strong class="lexis">market trends</strong> and investment considerations. Pay attention to how the information is presented and the language used.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Internal Memo: Q3 Market Trends &amp; Strategic Investment Review</h5>
+<p>TO: Department Head, Strategic Initiatives<br>
+FROM: Lead Analyst, Market Research<br>
+DATE: October 26, 20XX<br>
+SUBJECT: Analysis of Q3 Market Trends &amp; Investment Implications</p>
+<p>This memo outlines key <strong class="lexis">market trends</strong> observed in Q3 and provides an initial assessment of their implications for our company&#x27;s <strong class="lexis">investment strategy</strong>. Our <strong class="lexis">market analysis</strong> reveals significant shifts in consumer behavior, particularly a growing preference for sustainable products and services, driven by increased environmental awareness and regulatory changes across the sector.</p>
+<p>Key <strong class="lexis">sector trends</strong> indicate a robust <strong class="lexis">growth potential</strong> in renewable energy and green logistics solutions. Consumer spending data suggests a steady increase in demand for suppliers demonstrating clear sustainability commitments. Conversely, traditional energy sectors face increasing pressure from evolving legislation and public sentiment, impacting their long-term viability and potential <strong class="lexis">ROI</strong> for conventional investments.</p>
+<p>Considering these developments, our preliminary recommendation is to re-evaluate existing <strong class="lexis">capital expenditure</strong> plans. A strategic pivot towards green technologies and sustainable infrastructure could significantly enhance our competitive position and secure future <strong class="lexis">growth potential</strong>. This would involve allocating a greater portion of our budget to R&amp;D in eco-friendly alternatives and investing in logistics partners with certified sustainable practices. This shift aligns with both market demand and our corporate responsibility goals.</p>
+<p>Further detailed analysis will follow, including a comprehensive financial projection for these proposed adjustments to our <strong class="lexis">investment strategy</strong>. We believe a proactive approach will be crucial for maximizing long-term <strong class="lexis">ROI</strong> and maintaining leadership in an evolving market.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main purpose of this memo?</p>
+</div>
+<div class="task"><p class="task-instruction">According to the memo, what is driving the preference for sustainable products?</p>
+<ul><li>Lower production costs</li><li>Increased environmental awareness and regulatory changes</li><li>Aggressive marketing campaigns by green companies</li><li>New technological breakthroughs</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Identify two types of investments the memo suggests could enhance competitive position and secure future growth potential.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-PREP">
+<header class="stage-header"><span class="stage-code">PREP</span><h2>Preparation: Planning Your Investment Update</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Ask students to brainstorm a market trend or consumer shift relevant to their current work or a familiar industry.<br>
+2. Guide them to consider its potential impact on a company&#x27;s investment decisions.<br>
+3. Instruct students to use the &#x27;Report Structure&#x27; column bank to outline their own short report or memo.<br>
+4. Then, have them review the &#x27;Useful Phrases for Investment Discussions&#x27; and identify phrases they might incorporate into their writing.<br>
+5. Encourage students to think about how they will use the target lexis effectively.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Structuring Your Report &amp; Key Phrases</h4>
+<p>Before you write your own memo, let&#x27;s plan the content and review some useful language.</p>
+<p>1. Think of a current <strong class="lexis">market trend</strong> or shift in consumer behavior that could impact a company&#x27;s investment decisions. (For example, the rise of AI in customer service, or changes in supply chain logistics).<br>
+2. Using the &#x27;Report Structure&#x27; below, make a brief outline for a short internal memo you could write. What points would you include in each section?<br>
+3. Review the &#x27;Useful Phrases for Investment Discussions&#x27; and consider how you can incorporate them into your memo.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Report Structure</th><th>Useful Phrases for Investment Discussions</th></tr><tr><td>Executive Summary / Purpose of Memo</td><td>Our **market analysis** indicates...</td></tr><tr><td>Analysis of Market/Sector Trends</td><td>Key **sector trends** suggest...</td></tr><tr><td>Implications for Company / Investment Strategy</td><td>There is significant **growth potential** in...</td></tr><tr><td>Recommendations / Future Direction</td><td>To maximize **ROI**, we recommend...</td></tr><tr><td>Conclusion / Next Steps</td><td>Considering these developments, our **investment strategy** should...</td></tr><tr><td></td><td>This would involve **capital expenditure** in...</td></tr><tr><td></td><td>We must re-evaluate our approach to...</td></tr><tr><td></td><td>A strategic pivot towards...</td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Freer Practice: Drafting an Investment Memo</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Clearly explain the writing task to the students, ensuring they understand the audience, purpose, and length.<br>
+2. Encourage students to refer to the model memo and the planning/phrases from the PREP stage.<br>
+3. Circulate and monitor, providing support as needed, focusing on content and the use of target lexis.<br>
+4. Collect the memos at the end of the writing time.</p>
+<p>Sample Model Answer (for teacher reference):</p>
+<p>TO: Operations Director<br>
+FROM: Logistics Analyst<br>
+DATE: December 1, 20XX<br>
+SUBJECT: Analysis of E-commerce Logistics Trends &amp; Capital Expenditure Proposal</p>
+<p>This memo details recent <strong class="lexis">sector trends</strong> in e-commerce logistics and proposes adjustments to our <strong class="lexis">investment strategy</strong>. Our <strong class="lexis">market analysis</strong> shows a clear shift towards localized fulfillment centers and autonomous delivery systems, driven by consumer demand for faster delivery and lower environmental impact.</p>
+<p>There is significant <strong class="lexis">growth potential</strong> in automating warehouse operations and establishing micro-distribution hubs. This would involve <strong class="lexis">capital expenditure</strong> in robotic sorting technology and electric delivery vehicles to maximize <strong class="lexis">ROI</strong> over the next five years. Failing to adapt could lead to reduced market share. We recommend a phased approach, starting with a pilot program in our busiest region.</p>
+<p>Implementing these changes proactively will align our <strong class="lexis">investment strategy</strong> with evolving market expectations and secure our position as a leader in efficient, sustainable logistics.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Your Company&#x27;s Next Move</h4>
+<p>Imagine you are an analyst in your company. Your manager has asked you to draft a short internal memo (approximately 150-200 words) summarizing a recent <strong class="lexis">market analysis</strong> regarding a new technology or consumer shift affecting your industry. Based on this, you need to propose an <strong class="lexis">investment strategy</strong> or discuss potential <strong class="lexis">capital expenditure</strong> to capitalize on <strong class="lexis">growth potential</strong> in specific <strong class="lexis">sector trends</strong>.</p>
+<p>Your memo should:</p>
+<p>- <strong class="lexis">Audience:</strong> Your manager or department head.<br>
+- <strong class="lexis">Purpose:</strong> To inform them about relevant market trends and recommend a strategic direction.<br>
+- <strong class="lexis">Key Points:</strong> Briefly describe the market trend, explain its implications, and propose a specific investment or strategic adjustment.<br>
+- <strong class="lexis">Language:</strong> Use professional language and incorporate relevant phrases and vocabulary, including terms like <strong class="lexis">market analysis</strong>, <strong class="lexis">investment strategy</strong>, <strong class="lexis">capital expenditure</strong>, <strong class="lexis">growth potential</strong>, <strong class="lexis">ROI</strong>, and <strong class="lexis">sector trends</strong>.</p>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback &amp; Correction: Refining Your Report</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Pair students up and instruct them to exchange their memos for peer feedback.<br>
+2. Provide specific instructions for peer review: first, focus on the content (clarity of trend description, relevance of recommendations, persuasiveness).<br>
+3. Then, ask peers to check for appropriate use of target lexis and professional register.<br>
+4. Facilitate a brief class discussion on common strengths and areas for improvement based on peer feedback.<br>
+5. Collect the memos for final teacher feedback, focusing on areas for language accuracy and further development.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reviewing Your Analysis</h4>
+<p>Now, you will have the opportunity to receive and give feedback on your memo.</p>
+<p>1. <strong class="lexis">Peer Feedback (Content Focus):</strong> Exchange your memo with a partner. Read your partner&#x27;s memo and consider the following:<br>
+    - Is the market trend clearly described?<br>
+    - Are the implications for the company logical and well-explained?<br>
+    - Are the recommendations or investment proposals clear and actionable?<br>
+    - Does the memo fulfill its purpose of informing the manager and proposing a direction?</p>
+<p>2. <strong class="lexis">Peer Feedback (Language Focus):</strong> Now, re-read your partner&#x27;s memo, specifically looking at the language:<br>
+    - Is the language professional and appropriate for an internal business memo?<br>
+    - Are the target vocabulary items (e.g., <strong class="lexis">market analysis</strong>, <strong class="lexis">investment strategy</strong>, <strong class="lexis">ROI</strong>) used accurately and effectively?<br>
+    - Are there any areas where the wording could be clearer or more concise?</p>
+<p>3. <strong class="lexis">Self-Correction:</strong> Use your partner&#x27;s feedback to revise and improve your own memo. Focus on making both the content and the language as strong as possible.</p>
+</section>
+</article>
+</body>
+</html>

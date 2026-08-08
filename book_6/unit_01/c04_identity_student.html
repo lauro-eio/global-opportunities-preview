@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unconscious Bias at Work: A Team Talk</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Unconscious Bias at Work: A Team Talk</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>1</dd>
+      <dt>Class</dt><dd>4</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-first-impressions-at-work">
+<header class="stage-header"><h2>First Impressions at Work</h2></header>
+<section class="handout">
+<p>Before we listen, let&#x27;s think about how we perceive others in a work environment.</p>
+<p>1. Have you ever heard a comment that generalized about a group of professionals or a person based on where they come from or their personal background?<br>
+2. How might these kinds of assumptions or <strong class="lexis">preconceptions</strong> make it difficult for a team to work well together?<br>
+3. What challenges could arise in a diverse workplace if people rely on stereotypes instead of getting to know their colleagues individually?</p>
+</section>
+</article>
+<article class="stage" id="stage-understanding-key-terms">
+<header class="stage-header"><h2>Understanding Key Terms</h2></header>
+<section class="handout">
+<p>We&#x27;re going to hear about <strong class="lexis">unconscious bias</strong> in the workplace. Before we listen, let&#x27;s make sure we understand some important words. Match the terms to their definitions.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>unconscious bias</li><li>microaggressions</li><li>preconceptions</li><li>diversity</li><li>equity</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match each term to its definition.</p>
+<ul><li><strong>unconscious bias</strong> — Automatic judgments or assumptions made without conscious awareness, often influencing decisions.</li><li><strong>microaggressions</strong> — Subtle, often unintentional remarks or actions that communicate negative or hostile messages to a person based on their background.</li><li><strong>preconceptions</strong> — Ideas or opinions formed before having full knowledge or experience; often a bias.</li><li><strong>diversity</strong> — The presence of a wide range of different people, backgrounds, or qualities within a group or organization.</li><li><strong>equity</strong> — Fairness and impartiality, ensuring everyone has access to the same opportunities and resources, considering individual needs.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-listening-for-main-ideas-the-team-meetin">
+<header class="stage-header"><h2>Listening for Main Ideas: The Team Meeting</h2></header>
+<section class="handout">
+<p>You will hear a conversation between three colleagues, Sarah, Mark, and Lena, during a team meeting. Listen for the main point of their discussion. Don&#x27;t worry about every detail for now.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Team Meeting: Addressing Workplace Perceptions</h5>
+<p><strong class="lexis">(Sound of a video conference connecting, gentle background hum)</strong></p>
+<p><strong class="lexis">Sarah:</strong> Alright team, let&#x27;s get started. Thanks for joining this morning. As you know, we&#x27;re focusing on improving team cohesion, especially as we bring more new people into the department. I wanted to open a discussion about <strong class="lexis">unconscious bias</strong>.</p>
+<p><strong class="lexis">Mark:</strong> Unconscious bias? What exactly does that mean in our day-to-day, Sarah? We all work well together, don&#x27;t we?</p>
+<p><strong class="lexis">Sarah:</strong> Absolutely, Mark. Our team is fantastic. But sometimes, without even realizing it, we can make quick judgments or hold <strong class="lexis">preconceptions</strong> about people. For example, assuming someone isn&#x27;t interested in a leadership role because they&#x27;re quiet in meetings, or thinking a new hire from a certain background won&#x27;t grasp our technical systems as quickly. These aren&#x27;t intentional, but they can create subtle barriers.</p>
+<p><strong class="lexis">Lena:</strong> I think I understand. So, it&#x27;s about those small, often overlooked interactions? Things that might seem harmless but actually send a message?</p>
+<p><strong class="lexis">Sarah:</strong> Exactly, Lena. Those are often called <strong class="lexis">microaggressions</strong>. They can erode trust and make colleagues feel undervalued over time. Think about how we assign tasks or choose who presents a report – are we always thinking about <strong class="lexis">equity</strong> and giving everyone a fair chance, or are we defaulting to what feels familiar?</p>
+<p><strong class="lexis">Mark:</strong> Hmm, I see your point. I might have unintentionally done that a few times, assigning a presentation to someone I know is naturally outgoing, without considering others. So, how do we actively address these <strong class="lexis">unconscious bias</strong> issues without making everyone feel like they&#x27;re being accused?</p>
+<p><strong class="lexis">Sarah:</strong> Good question, Mark. It&#x27;s not about blame, it&#x27;s about awareness and growth. We need to focus on understanding our own internal filters. One practical step is to pause before making assumptions. Ask yourself: &#x27;Am I making a decision based on facts, or on a gut feeling about this person&#x27;s background or personality type?&#x27; We also need to actively seek out different perspectives. Our <strong class="lexis">diversity</strong> is our strength, and we need to make sure everyone feels truly included and empowered to contribute.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main purpose of Sarah&#x27;s discussion with her team?</p>
+<ul><li>To introduce a new project management system.</li><li>To highlight the importance of recognizing and addressing unconscious biases for better team cohesion.</li><li>To criticize specific team members for making mistakes.</li><li>To discuss their latest sales figures and targets.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-listening-for-details-specific-instances">
+<header class="stage-header"><h2>Listening for Details: Specific Instances</h2></header>
+<section class="handout">
+<p>Now listen to the conversation again. This time, try to catch the specific examples and advice mentioned. Complete the sentences with details from the audio.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Team Meeting: Addressing Workplace Perceptions</h5>
+<p><strong class="lexis">(Sound of a video conference connecting, gentle background hum)</strong></p>
+<p><strong class="lexis">Sarah:</strong> Alright team, let&#x27;s get started. Thanks for joining this morning. As you know, we&#x27;re focusing on improving team cohesion, especially as we bring more new people into the department. I wanted to open a discussion about <strong class="lexis">unconscious bias</strong>.</p>
+<p><strong class="lexis">Mark:</strong> Unconscious bias? What exactly does that mean in our day-to-day, Sarah? We all work well together, don&#x27;t we?</p>
+<p><strong class="lexis">Sarah:</strong> Absolutely, Mark. Our team is fantastic. But sometimes, without even realizing it, we can make quick judgments or hold <strong class="lexis">preconceptions</strong> about people. For example, assuming someone isn&#x27;t interested in a leadership role because they&#x27;re quiet in meetings, or thinking a new hire from a certain background won&#x27;t grasp our technical systems as quickly. These aren&#x27;t intentional, but they can create subtle barriers.</p>
+<p><strong class="lexis">Lena:</strong> I think I understand. So, it&#x27;s about those small, often overlooked interactions? Things that might seem harmless but actually send a message?</p>
+<p><strong class="lexis">Sarah:</strong> Exactly, Lena. Those are often called <strong class="lexis">microaggressions</strong>. They can erode trust and make colleagues feel undervalued over time. Think about how we assign tasks or choose who presents a report – are we always thinking about <strong class="lexis">equity</strong> and giving everyone a fair chance, or are we defaulting to what feels familiar?</p>
+<p><strong class="lexis">Mark:</strong> Hmm, I see your point. I might have unintentionally done that a few times, assigning a presentation to someone I know is naturally outgoing, without considering others. So, how do we actively address these <strong class="lexis">unconscious bias</strong> issues without making everyone feel like they&#x27;re being accused?</p>
+<p><strong class="lexis">Sarah:</strong> Good question, Mark. It&#x27;s not about blame, it&#x27;s about awareness and growth. We need to focus on understanding our own internal filters. One practical step is to pause before making assumptions. Ask yourself: &#x27;Am I making a decision based on facts, or on a gut feeling about this person&#x27;s background or personality type?&#x27; We also need to actively seek out different perspectives. Our <strong class="lexis">diversity</strong> is our strength, and we need to make sure everyone feels truly included and empowered to contribute.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">According to Sarah, what are two examples of unconscious bias related to people&#x27;s behavior or background?</p>
+<p>Two examples of unconscious bias Sarah gives are assuming someone isn&#x27;t interested in a leadership role because they are __________ or thinking a new hire won&#x27;t grasp technical systems quickly due to their __________.</p>
+</div>
+<div class="task"><p class="task-instruction">What practical step does Sarah suggest to address unconscious bias?</p>
+<p>Sarah suggests pausing before making __________ and asking if a decision is based on facts or a gut feeling.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-reflecting-on-bias-in-the-workplace">
+<header class="stage-header"><h2>Reflecting on Bias in the Workplace</h2></header>
+<section class="handout">
+<p>Let&#x27;s discuss what we heard and how it applies to our own experiences.</p>
+<p>1. What are your immediate reactions to the conversation between Sarah, Mark, and Lena?<br>
+2. Can you think of a time when a <strong class="lexis">preconception</strong> might have influenced a decision you or someone you know made at work?<br>
+3. What are some specific actions you or your team could take to ensure <strong class="lexis">equity</strong> and promote <strong class="lexis">diversity</strong> in your workplace?<br>
+4. How can we challenge our own <strong class="lexis">unconscious bias</strong> without making colleagues feel uncomfortable?</p>
+</section>
+</article>
+</body>
+</html>

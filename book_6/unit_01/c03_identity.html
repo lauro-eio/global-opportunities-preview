@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Integrating New Team Members</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Integrating New Team Members</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>1</dd>
+      <dt>Class</dt><dd>3</dd>
+      <dt>Theme</dt><dd>T01_IDENTITY</dd>
+      <dt>Framework</dt><dd>SK-PROD</dd>
+      <dt>Role</dt><dd>SK_PROD_SPEAKING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Welcoming New Colleagues</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by asking students to think about the prompt individually.<br>
+2. Put students in pairs or small groups to discuss their experiences.<br>
+3. Encourage them to share specific examples of good or bad integration experiences.<br>
+4. Facilitate a brief open-class discussion to summarize initial ideas.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">First Day Feelings at Work</h4>
+<p>Think about the first day a new colleague joined your team.<br>
+1. What steps did you or your manager take to make them feel welcome and part of the group?<br>
+2. What was the most effective thing you remember doing or seeing?<br>
+3. What challenges did new team members face, especially if they came from a different cultural background?</p>
+</section>
+</article>
+<article class="stage" id="stage-MOD">
+<header class="stage-header"><span class="stage-code">MOD</span><h2>Model Dialogue: Strategies for Team Integration</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Tell students they will read a dialogue about integrating a new team member.<br>
+2. Ask them to read for gist: What is the main purpose of the conversation?<br>
+3. Ask them to read again and identify specific strategies mentioned for <strong class="lexis">team integration</strong>.<br>
+4. Have students complete the comprehension task.<br>
+5. Discuss answers as a class.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">A Proactive Welcome</h4>
+<p>Read the conversation between Maria, a team leader, and Tom, a supervisor, discussing the onboarding of a new colleague, Lena. Pay attention to the strategies they mention for making Lena feel included.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Integrating Lena</h5>
+<p>Maria: Hi Tom, can we quickly chat about Lena? It’s her second week, and I want to make sure she feels fully integrated.<br>
+Tom: Absolutely, Maria. How&#x27;s she settling in?<br>
+Maria: She’s doing well with the tasks, but I&#x27;m thinking about the social side. We’ve done the basic <strong class="lexis">onboarding process</strong>, like showing her the systems and introducing her to key people.<br>
+Tom: Right. Did you assign her a buddy?<br>
+Maria: Yes, Mark&#x27;s been great. He’s been taking her to lunch and explaining some of our team’s unwritten rules. We also made sure to invite her to the team&#x27;s Friday after-work gathering.<br>
+Tom: That’s good. And culturally, is there anything specific we should consider? I know she&#x27;s from a different background.<br>
+Maria: We’ve encouraged everyone to share a bit about their backgrounds during coffee breaks, which helps build a <strong class="lexis">sense of community</strong>. Also, I’ve scheduled a follow-up with her next week to check in on how she feels about our communication style and any cultural nuances she might have observed.<br>
+Tom: Excellent. It&#x27;s crucial to foster <strong class="lexis">inclusion</strong> from day one. We want her to feel like a truly valued part of the team, not just someone completing tasks. What about involving her in a small project she can lead, to give her ownership quickly?<br>
+Maria: Great idea. That would definitely help with her long-term <strong class="lexis">team integration</strong>. I’ll look for something suitable. We want her to thrive here.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Based on the dialogue, list three specific actions Maria and Tom discussed to help Lena feel integrated.</p>
+<p>List three actions discussed to help Lena feel integrated:</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-PREP">
+<header class="stage-header"><span class="stage-code">PREP</span><h2>Preparation: Planning an Inclusive Onboarding</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will now prepare to discuss how they would onboard a new colleague.<br>
+2. Go through the column banks, explaining or clarifying any unfamiliar phrases related to <strong class="lexis">inclusion</strong> and <strong class="lexis">onboarding process</strong>.<br>
+3. Give students time to make notes, using the prompts and the provided phrases to plan their strategy. Encourage them to think about a specific scenario.<br>
+4. Circulate and assist with vocabulary and ideas.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Your Integration Plan</h4>
+<p>Imagine a new colleague is joining your team next week. They are from a different country and have limited experience with your company&#x27;s specific work culture. How will you ensure they feel welcome and become a part of the team quickly?</p>
+<p>Use the phrases below to help you plan your ideas.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Initial Welcome</th><th>Building Connection &amp; Community</th><th>Addressing Cultural Differences</th><th>Key Phrases for Support</th></tr><tr><td>Introduce them to everyone personally</td><td>Invite them to team lunches/breaks</td><td>Be sensitive to different communication styles</td><td>How are you settling in?</td></tr><tr><td>Give a tour of the office/workspace</td><td>Explain team dynamics</td><td>Explain local customs or workplace etiquette</td><td>Don&#x27;t hesitate to ask if you need anything.</td></tr><tr><td>Explain daily routines</td><td>Encourage sharing personal interests</td><td>Ask about their cultural background respectfully</td><td>We&#x27;re here to help you get started.</td></tr><tr><td>Assign a temporary mentor/buddy</td><td>Organize a team social event</td><td>Offer support for adaptation</td><td>Is there anything that&#x27;s unclear?</td></tr><tr><td>Prepare their workspace</td><td>Create opportunities for casual chats</td><td>Avoid assumptions</td><td>We really value your perspective.</td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Free Practice: Onboarding Role-Play</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Divide students into pairs or small groups (e.g., A, B, C).<br>
+2. Assign roles: one student is the new colleague (A), another is the team leader (B), and optionally a third is a team member (C).<br>
+3. Remind students to use their notes and the phrases from the preparation stage.<br>
+4. Give them a clear time limit for the role-play.<br>
+5. Circulate, monitor for fluency, communication, and use of target language. Note down errors for delayed correction.<br>
+6. Have pairs switch roles if time allows.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Making Them Feel at Home</h4>
+<p>Work in pairs or small groups. Role-play the following scenario:</p>
+<p><strong class="lexis">Scenario:</strong> A new colleague from a different country has just joined your team. You (as the team leader/team member) are meeting them on their first day or early in their first week.</p>
+<p><strong class="lexis">Student A (New Colleague):</strong> You are new to the company and the country. You might feel a bit overwhelmed or unsure about how things work. Ask questions if you need to.</p>
+<p><strong class="lexis">Student B (Team Leader/Manager):</strong> Your goal is to make the new colleague feel welcome, explain the <strong class="lexis">onboarding process</strong>, foster a <strong class="lexis">sense of community</strong>, and demonstrate strategies for <strong class="lexis">team integration</strong>. Use phrases and ideas from the previous activity.</p>
+<p><strong class="lexis">Student C (Team Member - optional):</strong> Support the team leader by introducing yourself, offering help, and contributing to the welcoming atmosphere. Highlight aspects of the team&#x27;s culture that promote <strong class="lexis">inclusion</strong>.</p>
+<p>Focus on: <br>
+*   Making the new colleague feel comfortable.<br>
+*   Clearly explaining initial steps.<br>
+*   Showing how your team supports <strong class="lexis">cultural assimilation</strong> and <strong class="lexis">inclusion</strong>.<br>
+*   Practicing natural, fluent conversation.</p>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback &amp; Delayed Correction</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Start with general content feedback. Ask students: &#x27;What were some good ideas you heard for making a new colleague feel welcome?&#x27; or &#x27;What challenges did you identify?&#x27;<br>
+2. Highlight examples of successful communication strategies and strong use of target vocabulary (<strong class="lexis">inclusion, team integration, onboarding process, cultural assimilation, sense of community</strong>).<br>
+3. Transition to delayed language correction. Write errors (e.g., pronunciation, lexis, fluency issues) collected during the FP stage on the board.<br>
+4. Elicit corrections from students. If they struggle, provide the correct form.<br>
+5. Focus on productive error correction relevant to the communicative aim of the lesson.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reflecting on Our Welcomes</h4>
+<p>1.  Share with the class: What were the most effective ways you or your partners welcomed the new colleague in the role-play?<br>
+2.  What challenges did you anticipate or experience in the role-play, especially regarding cultural differences?<br>
+3.  What did you learn about fostering a strong <strong class="lexis">sense of community</strong> and <strong class="lexis">inclusion</strong> in a new team?</p>
+</section>
+</article>
+</body>
+</html>

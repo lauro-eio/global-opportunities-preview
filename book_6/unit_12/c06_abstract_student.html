@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pitching Your Career Future</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Pitching Your Career Future</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>12</dd>
+      <dt>Class</dt><dd>6</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-your-professional-future">
+<header class="stage-header"><h2>Your Professional Future</h2></header>
+<section class="handout">
+<p>Consider your career path over the next few years. How would you effectively communicate your future goals and how they align with your company&#x27;s vision?</p>
+<p>Discuss the following questions with a partner:<br>
+1. Have you ever needed to discuss your career future or <strong class="lexis">development needs</strong> with a supervisor?<br>
+2. What challenges did you face, or what went well?<br>
+3. Why is it important to clearly articulate your <strong class="lexis">ambition</strong> and how it supports your company&#x27;s goals?<br>
+4. What kind of <strong class="lexis">growth</strong> do you envision for yourself in your current role or within the company?</p>
+</section>
+</article>
+<article class="stage" id="stage-reviewing-an-effective-request">
+<header class="stage-header"><h2>Reviewing an Effective Request</h2></header>
+<section class="handout">
+<p>Read the email below from an employee to their supervisor. Pay attention to how the writer articulates their career goals and development needs.</p>
+<p>Then, answer the questions that follow.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Email to Supervisor: Discussing Future Opportunities</h5>
+<p>Subject: Discussing Future Opportunities and Development - [Your Name]</p>
+<p>Dear Mr./Ms. [Supervisor&#x27;s Last Name],</p>
+<p>I hope this email finds you well.</p>
+<p>I&#x27;m writing to you today to discuss my <strong class="lexis">trajectory</strong> within [Company Name] and explore potential avenues for my continued <strong class="lexis">growth</strong> and <strong class="lexis">skillset development</strong>. I&#x27;ve greatly valued my time here and am enthusiastic about contributing further to our team&#x27;s success.</p>
+<p>Over the next few years, my <strong class="lexis">ambition</strong> is to move towards a role with greater strategic oversight, specifically within [mention a specific area, e.g., &#x27;project management&#x27; or &#x27;operations efficiency&#x27;]. I believe my experience in [mention current role/achievements] has prepared me for taking on more responsibility in this direction, and I am keen to develop the necessary competencies.</p>
+<p>To support this <strong class="lexis">growth</strong>, I would greatly appreciate the opportunity to discuss any potential <strong class="lexis">mentorship</strong> programs or internal training courses that could enhance my strategic planning and leadership skills. I am particularly interested in [mention specific skills, e.g., &#x27;advanced data analysis&#x27; or &#x27;team leadership techniques&#x27;] that would directly contribute to [Company Name]&#x27;s objectives in [mention a specific company project or goal].</p>
+<p>I am confident that by enhancing my <strong class="lexis">skillset</strong>, I can take on more complex challenges and align my long-term career <strong class="lexis">aspirations</strong> with the company’s evolving needs. I am committed to making a sustained impact and believe that targeted development will allow me to do so more effectively.</p>
+<p>Would you be available for a brief meeting sometime next week to discuss this further? I am flexible and happy to work around your schedule.</p>
+<p>Thank you for your time and consideration.</p>
+<p>Best regards,<br>
+[Your Name]<br>
+[Your Title]</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the primary purpose of the email?</p>
+<p>The main goal of this email is to:</p>
+<ul><li>Request a salary increase.</li><li>Inform the supervisor about a resignation.</li><li>Initiate a discussion about career advancement and development.</li><li>Complain about current workload.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Which of the following best describes the tone of the email?</p>
+<p>The tone of the email can be described as:</p>
+<ul><li>Demanding and impatient.</li><li>Polite, proactive, and professional.</li><li>Hesitant and uncertain.</li><li>Informal and casual.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">What key point does the writer make to show their goals align with the company&#x27;s vision?</p>
+<p>The writer mentions that enhancing their skillset will allow them to...</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-structuring-your-pitch">
+<header class="stage-header"><h2>Structuring Your Pitch</h2></header>
+<section class="handout">
+<p>Before you write your own email, brainstorm your ideas. Think about:<br>
+1. What is your long-term career <strong class="lexis">trajectory</strong> or <strong class="lexis">ambition</strong> within your current company?<br>
+2. What specific skills or areas do you need to develop (e.g., leadership, technical skills, project management)? These are your <strong class="lexis">skillset development</strong> needs.<br>
+3. How would this <strong class="lexis">growth</strong> benefit the company? (e.g., improve efficiency, lead new initiatives, support company goals).<br>
+4. What kind of support are you looking for? (e.g., <strong class="lexis">mentorship</strong>, training, specific projects).</p>
+<p>Use the phrase banks below to help you structure your thoughts and choose appropriate language.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Stating Aspirations</th><th>Identifying Development Needs</th><th>Aligning with Company Goals</th></tr><tr><td>My ambition is to move towards...</td><td>I believe I need to enhance my skillset in...</td><td>This would directly contribute to...</td></tr><tr><td>I envision myself taking on...</td><td>I would appreciate opportunities for mentorship in...</td><td>I am confident this will support company objectives by...</td></tr><tr><td>I am keen to develop my career path in...</td><td>I&#x27;m interested in training for...</td><td>My goal is to make a sustained impact on...</td></tr><tr><td>I&#x27;m looking to expand my role into...</td><td>My growth would benefit from...</td><td>This aligns with the company’s vision for...</td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-drafting-your-career-plan-email">
+<header class="stage-header"><h2>Drafting Your Career Plan Email</h2></header>
+<section class="handout">
+<p>Now, write an email to your supervisor articulating your long-term career <strong class="lexis">aspirations</strong> and <strong class="lexis">development needs</strong>. Remember to also explain how your goals align with your company&#x27;s vision.</p>
+<p><strong class="lexis">Audience:</strong> Your supervisor<br>
+<strong class="lexis">Purpose:</strong> To express your career goals, identify development needs, and request a meeting to discuss how they align with company objectives.<br>
+<strong class="lexis">Approximate Length:</strong> 200-300 words</p>
+<p>Use the plan you made in the previous stage and incorporate some of the useful phrases.</p>
+</section>
+</article>
+<article class="stage" id="stage-improving-your-written-request">
+<header class="stage-header"><h2>Improving Your Written Request</h2></header>
+<section class="handout">
+<p>Exchange your email with a partner. Read each other&#x27;s emails and provide feedback using the questions below. Focus on content first, then language.</p>
+<p><strong class="lexis">Content Feedback:</strong><br>
+1. Is the purpose of the email clear? Does the writer clearly state their <strong class="lexis">ambition</strong> and <strong class="lexis">development needs</strong>?<br>
+2. Does the email effectively explain how the writer&#x27;s <strong class="lexis">growth</strong> aligns with the company&#x27;s goals?<br>
+3. Is the tone appropriate (professional, proactive, polite)?<br>
+4. Is there a clear call to action (e.g., requesting a meeting)?</p>
+<p><strong class="lexis">Language Feedback:</strong><br>
+1. Are there any parts that are unclear or could be expressed more precisely?<br>
+2. Did the writer use effective vocabulary, especially terms related to career <strong class="lexis">trajectory</strong> and <strong class="lexis">skillset development</strong>?<br>
+3. Check for any errors in grammar or punctuation.</p>
+</section>
+</article>
+</body>
+</html>

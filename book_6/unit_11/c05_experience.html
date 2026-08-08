@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Professional Language for Reflecting on Challenges</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Professional Language for Reflecting on Challenges</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>11</dd>
+      <dt>Class</dt><dd>5</dd>
+      <dt>Theme</dt><dd>T11_EXPERIENCE</dd>
+      <dt>Framework</dt><dd>TTT</dd>
+      <dt>Role</dt><dd>TTT_LEXICAL_REGISTER_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Adapting to Workplace Shifts</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the topic of significant workplace change and personal adaptation.<br>
+2. Put students in pairs or small groups (3-4).<br>
+3. Ask them to discuss the questions provided in the &#x27;student_content&#x27;.<br>
+4. Circulate and monitor, listening for how students articulate challenges and personal growth. Note down any informal expressions or areas where professional language could be improved.<br>
+5. Facilitate a brief whole-class feedback session, inviting volunteers to share a key takeaway from their discussion. Do not correct language extensively at this stage.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Navigating Professional Transitions</h4>
+<p>Think about a significant change that has recently happened at your workplace. This could be anything from a new organizational policy, a shift in roles, or an unexpected change in how tasks are completed.</p>
+<p>Discuss the following with a partner:<br>
+1. How did this change initially impact you and your team?<br>
+2. What were the main challenges you personally faced while adapting?<br>
+3. How did you manage to adapt, and what personal or professional growth came out of that experience?</p>
+</section>
+</article>
+<article class="stage" id="stage-T1">
+<header class="stage-header"><span class="stage-code">T1</span><h2>Test 1: Professional Language for Reflecting on Adversity</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Hand out the &#x27;Reviewing Professional Responses to Change&#x27; task and reading passage.<br>
+2. Explain that students will read an excerpt from an internal communication about a workplace change.<br>
+3. Students should read the passage first for general understanding.<br>
+4. Instruct students to complete the multiple-choice questions, choosing the most appropriate (professional) phrase to replace the highlighted informal expressions.<br>
+5. Emphasize that this is a diagnostic test; they should choose the best option based on their current knowledge of professional register.<br>
+6. Collect the answers or have students mark them for later discussion, but do not provide answers or teach at this stage.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reviewing Professional Responses to Change</h4>
+<p>Read the internal memo below from a colleague reflecting on a recent project. Pay attention to the highlighted phrases. Then, complete the tasks, choosing the most appropriate professional option for each.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Internal Memo: Reflection on Project &#x27;Synergy&#x27; Rollout</h5>
+<p>Subject: Post-Project Synergy Rollout - Initial Reflections</p>
+<p>Team,</p>
+<p>I wanted to provide a brief personal reflection on the Project Synergy rollout. It&#x27;s been quite a journey, and honestly, the initial stages presented what felt like a <strong class="lexis">huge mountain to climb</strong> for many of us. We definitely had moments where we were <strong class="lexis">hitting brick walls</strong> trying to integrate the new software. It often felt like we had to <strong class="lexis">just figure things out on our own</strong>, which was tough.</p>
+<p>However, I&#x27;m pleased to report that we&#x27;re now finding our stride. While it was tough, I feel I really <strong class="lexis">learned a lot from it</strong>, especially about problem-solving under pressure. I believe these initial difficulties will help us prevent similar issues in future projects. Overall, I&#x27;m optimistic about the long-term benefits.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">In the memo, the phrase &#x27;huge mountain to climb&#x27; describes the initial challenges. Which of the following is a more professional and appropriate way to express this in a formal context?</p>
+<p>Instead of &#x27;a huge mountain to climb&#x27;, a more professional phrase would be...</p>
+<ul><li>a bit of a bother</li><li>a steep learning curve</li><li>a real mess</li></ul>
+</div>
+<div class="task"><p class="task-instruction">The phrase &#x27;hitting brick walls&#x27; suggests encountering significant problems. Which alternative conveys this professionally?</p>
+<p>To professionally describe &#x27;hitting brick walls&#x27;, you could say...</p>
+<ul><li>facing many problems</li><li>dealing with big issues</li><li>overcame significant obstacles</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Replacing &#x27;just figure things out on our own&#x27; with a more formal expression that implies self-directed development:</p>
+<p>A more professional way to say &#x27;just figure things out on our own&#x27; is...</p>
+<ul><li>managed to sort it out</li><li>developed resilience through self-directed problem-solving</li><li>had to improvise</li></ul>
+</div>
+<div class="task"><p class="task-instruction">How can &#x27;learned a lot from it&#x27; be rephrased to emphasize deeper, more analytical learning in a professional context?</p>
+<p>Instead of &#x27;learned a lot from it&#x27;, a professional might say...</p>
+<ul><li>got smart about it</li><li>gained valuable insights from</li><li>understood the situation better</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-TCH">
+<header class="stage-header"><span class="stage-code">TCH</span><h2>Teach: Register and Nuance in Professional Reflection</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by reviewing the answers to the T1 tasks, explaining why the target exponents are correct and the other options are less appropriate in a professional context.<br>
+2. Write the informal phrases from the memo on one side of the board and the professional target exponents on the other (or use the provided column banks).<br>
+3. <strong class="lexis">Meaning &amp; Register:</strong> For each exponent:<br>
+    a. Elicit or explain its core meaning (e.g., &#x27;a steep learning curve&#x27; = a difficult period of acquiring new knowledge/skills).<br>
+    b. Discuss its register: Why is it professional? How does it convey dignity and a solution-oriented approach compared to the informal alternative? (e.g., &#x27;overcame significant obstacles&#x27; emphasizes active agency and achievement, not just passively &#x27;hitting brick walls&#x27;).<br>
+    c. Emphasize how these phrases reflect positively on the speaker&#x27;s growth and resilience, even when discussing past difficulties.<br>
+4. <strong class="lexis">Phonology:</strong> Model and drill the pronunciation of each exponent, focusing on the positive stress points (e.g., <strong class="lexis">steep</strong> learning curve, over<strong class="lexis">came</strong> significant <strong class="lexis">ob</strong>stacles, <strong class="lexis">gained</strong> <strong class="lexis">val</strong>uable <strong class="lexis">in</strong>sights, de<strong class="lexis">vel</strong>oped re<strong class="lexis">sil</strong>ience).<br>
+5. Use the provided tasks to check understanding and reinforce the distinctions in meaning and appropriacy.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Understanding Professional Tone</h4>
+<p>Now let&#x27;s look closely at the professional phrases for reflecting on challenges and growth. We will clarify their meaning, discuss when and where to use them, and practice their pronunciation.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Informal Expressions</th><th>Professional Reflections</th></tr><tr><td>a huge mountain to climb</td><td>a steep learning curve</td></tr><tr><td>hitting brick walls</td><td>overcame significant obstacles</td></tr><tr><td>just figure things out on our own</td><td>developed resilience through</td></tr><tr><td>learned a lot from it</td><td>gained valuable insights from</td></tr></table></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Consider the phrase &#x27;a steep learning curve&#x27;. In which situation would this phrase be most appropriate?</p>
+<p>Where is &#x27;a steep learning curve&#x27; most appropriate?</p>
+<ul><li>Complaining to a friend about a new video game.</li><li>Explaining to your manager the initial difficulty of a new software system.</li><li>Describing a difficult workout session to a colleague.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Explain in one or two sentences why &#x27;gained valuable insights from&#x27; is a more professional choice than &#x27;learned a lot&#x27; when describing outcomes of a challenging project.</p>
+<p>Why is &#x27;gained valuable insights from&#x27; more professional?</p>
+</div>
+<div class="task"><p class="task-instruction">When using &#x27;overcame significant obstacles&#x27;, what is the main pragmatic effect you are trying to achieve?</p>
+<p>What is the pragmatic effect of &#x27;overcame significant obstacles&#x27;?</p>
+<ul><li>To express frustration about past difficulties.</li><li>To highlight personal agency and successful resolution in a challenging situation.</li><li>To minimize the importance of previous problems.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-T2">
+<header class="stage-header"><span class="stage-code">T2</span><h2>Test 2: Articulating Professional Growth</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the T2 task. Explain that students will prepare a short spoken update or reflection for a professional scenario.<br>
+2. Emphasize the need to use the target professional expressions accurately and appropriately to describe past challenges and subsequent growth.<br>
+3. Put students in pairs or small groups. Instruct them to choose one of the scenarios or use their own experience (from the L-IN stage if applicable) and prepare their update.<br>
+4. Give students ample time to prepare their response. Encourage them to practice speaking it aloud.<br>
+5. Monitor closely, specifically listening for accurate usage of &#x27;a steep learning curve&#x27;, &#x27;overcame significant obstacles&#x27;, &#x27;gained valuable insights from&#x27;, and &#x27;developed resilience through&#x27;. Note down any errors for delayed correction.<br>
+6. Have students present their updates to their small group or to a partner. If time allows, invite a few volunteers to share with the whole class.<br>
+7. Provide general feedback on register and appropriacy after all presentations. Address common errors noted during monitoring. </p>
+<p><strong class="lexis">Model Response Example for Scenario 1:</strong><br>
+&#x27;In my recent role, integrating the new CRM system presented <strong class="lexis">a steep learning curve</strong>. We <strong class="lexis">overcame significant obstacles</strong> related to data migration and user training, but through that process, I truly <strong class="lexis">gained valuable insights from</strong> the team&#x27;s collaborative problem-solving. This experience has significantly contributed to how I&#x27;ve <strong class="lexis">developed resilience through</strong> adapting to rapidly changing technological environments.&#x27;</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Your Professional Journey</h4>
+<p>Imagine you are in one of the following professional situations. Prepare a short spoken reflection or update, focusing on how you adapted to a challenge and what you learned. Make sure to use at least two of the professional expressions we practiced today:</p>
+<p>*   <strong class="lexis">Scenario 1:</strong> Giving a quarterly performance update to your manager, discussing a challenging project you completed.<br>
+*   <strong class="lexis">Scenario 2:</strong> Mentoring a new colleague and sharing advice on how you handled a difficult transition in the workplace.<br>
+*   <strong class="lexis">Scenario 3:</strong> In a team meeting, reflecting on a past team project that faced unexpected difficulties, and discussing lessons learned for future projects.</p>
+<p>Remember to maintain a professional and constructive tone, emphasizing growth and problem-solving.</p>
+</section>
+</article>
+</body>
+</html>

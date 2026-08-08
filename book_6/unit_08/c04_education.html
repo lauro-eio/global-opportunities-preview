@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Listening for Detail in Workplace Procedures</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Listening for Detail in Workplace Procedures</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>8</dd>
+      <dt>Class</dt><dd>4</dd>
+      <dt>Theme</dt><dd>T08_EDUCATION</dd>
+      <dt>Framework</dt><dd>SK-REC</dd>
+      <dt>Role</dt><dd>SK_REC_LISTENING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Decoding Industry Standards</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by asking students about their experiences with technical documents.<br>
+2. Use the lead-in brief to frame the discussion, focusing on practical workplace scenarios.<br>
+3. Encourage students to share any strategies they currently use.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Navigating Complex Instructions</h4>
+<p>Have you ever looked at a technical manual, an industry report, or professional guidelines at work and felt overwhelmed by the specialized terms and complex language?</p>
+<p>1. What kind of documents like these do you encounter in your job or daily life?<br>
+2. What makes them challenging to understand?<br>
+3. What strategies do you currently use to try and break down or make sense of complex instructions or industry jargon?</p>
+</section>
+</article>
+<article class="stage" id="stage-PTV">
+<header class="stage-header"><span class="stage-code">PTV</span><h2>Pre-Teach Vocabulary: Essential Terms for Industry Guidelines</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the new vocabulary items.<br>
+2. Pronounce each word clearly and have students repeat.<br>
+3. Briefly explain the context of each word as it relates to industry standards and job performance.<br>
+4. Have students complete the matching task, then review answers as a class.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Understanding Key Technical Words</h4>
+<p>Before we listen, let&#x27;s look at some important words you will hear. Match each word or phrase on the left with its correct definition on the right.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>technical literacy</li><li>jargon comprehension</li><li>regulatory interpretation</li><li>procedural guidance</li><li>compliance</li><li>audit</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match each term to its definition.</p>
+<ul><li><strong>technical literacy</strong> — The ability to understand and use information related to specialized subjects or technology.</li><li><strong>jargon comprehension</strong> — Understanding the specialized words or phrases used by a particular profession or group.</li><li><strong>regulatory interpretation</strong> — Explaining the meaning of official rules or laws, especially for industries.</li><li><strong>procedural guidance</strong> — Instructions or advice on how to perform a task or follow a process correctly.</li><li><strong>compliance</strong> — Acting in accordance with a rule, standard, law, or request.</li><li><strong>audit</strong> — An official inspection of an organization&#x27;s accounts, procedures, or quality standards.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-GIST">
+<header class="stage-header"><span class="stage-code">GIST</span><h2>Gist Listening: Understanding Workplace Guidelines</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will listen to a supervisor discussing new workplace guidelines.<br>
+2. Instruct students to listen for the overall topic and main purpose of the conversation, not every detail.<br>
+3. Play the audio once.<br>
+4. Have students answer the multiple-choice question to check their global understanding.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Understanding the Main Message</h4>
+<p>Listen to a team leader explaining new workplace guidelines. Your goal is to understand the main topic and purpose of the discussion.</p>
+<p>Choose the best answer for the question below after your first listen.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Navigating New Safety Protocols</h5>
+<p>Good morning, everyone. Thanks for taking the time today. As you know, we&#x27;re constantly updating our processes to ensure both efficiency and, more importantly, safety. Today, I want to talk about the new set of <strong class="lexis">industry standards</strong> that came into effect last week for equipment operation and maintenance. These aren&#x27;t just suggestions; they are mandatory <strong class="lexis">regulatory interpretations</strong> that we must all adhere to for <strong class="lexis">compliance</strong>. </p>
+<p>I understand that looking through a detailed technical manual can feel overwhelming. It’s filled with specific terms and figures. The good news is, we&#x27;re here to break it down. Our primary goal is to ensure everyone has the necessary <strong class="lexis">technical literacy</strong> to understand and implement these new guidelines. This isn&#x27;t about memorizing every single detail, but rather understanding the core principles and where to find specific <strong class="lexis">procedural guidance</strong> when you need it.</p>
+<p>For instance, Section 3.1 covers the new pre-operation checklist. It outlines specific checks for pressure gauges and fluid levels. The manual uses terms like &#x27;calibration tolerance&#x27; and &#x27;psi deviation limits&#x27;. Don&#x27;t let the jargon intimidate you. &#x27;Calibration tolerance&#x27; simply refers to the acceptable range for our equipment&#x27;s settings, and &#x27;psi deviation limits&#x27; tells us how much the pressure can vary from the standard before it becomes a safety risk. We&#x27;ll have a workshop next week to demonstrate these in practice, but for now, I want you to focus on the overall structure and the purpose of these updates.</p>
+<p>Another key area is waste disposal. The updated <strong class="lexis">protocols</strong> for hazardous materials are stricter. You&#x27;ll find a detailed flowchart in Appendix B. This flowchart is designed to simplify the complex steps involved. Our previous methods weren&#x27;t fully aligned with the new environmental <strong class="lexis">regulations</strong>, so understanding this flow is critical for preventing spills and ensuring we pass our upcoming environmental <strong class="lexis">audit</strong>.</p>
+<p>My advice for tackling these documents is to first skim for headings and subheadings. Get a sense of the document&#x27;s layout. Then, read the introduction and conclusion to grasp the main objectives. Don&#x27;t get stuck on every word. If you encounter a term you don&#x27;t immediately recognize, make a note of it and keep reading. Often, the context will clarify its meaning, or you can look it up later. We&#x27;re aiming for practical application here, not academic mastery. The goal is safe and efficient operations, which relies on solid <strong class="lexis">jargon comprehension</strong> and the ability to follow intricate <strong class="lexis">specifications</strong>. Any questions so far?</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main purpose of Maria&#x27;s discussion?</p>
+<ul><li>To announce new hires for the safety team.</li><li>To introduce mandatory new industry standards and how to understand them.</li><li>To discuss a problem with equipment calibration.</li><li>To schedule a workshop on environmental regulations.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-DET">
+<header class="stage-header"><span class="stage-code">DET</span><h2>Detailed Listening: Specific Information from Guidelines</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will listen again, this time for specific details.<br>
+2. Instruct students to read the questions carefully before listening.<br>
+3. Play the audio again.<br>
+4. Have students complete the MCQ and short-text tasks.<br>
+5. Review answers together, clarifying any misunderstandings.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Second Listen: Key Details</h4>
+<p>Now, listen again for more specific details. Answer the questions below based on what you hear.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Navigating New Safety Protocols</h5>
+<p>Good morning, everyone. Thanks for taking the time today. As you know, we&#x27;re constantly updating our processes to ensure both efficiency and, more importantly, safety. Today, I want to talk about the new set of <strong class="lexis">industry standards</strong> that came into effect last week for equipment operation and maintenance. These aren&#x27;t just suggestions; they are mandatory <strong class="lexis">regulatory interpretations</strong> that we must all adhere to for <strong class="lexis">compliance</strong>. </p>
+<p>I understand that looking through a detailed technical manual can feel overwhelming. It’s filled with specific terms and figures. The good news is, we&#x27;re here to break it down. Our primary goal is to ensure everyone has the necessary <strong class="lexis">technical literacy</strong> to understand and implement these new guidelines. This isn&#x27;t about memorizing every single detail, but rather understanding the core principles and where to find specific <strong class="lexis">procedural guidance</strong> when you need it.</p>
+<p>For instance, Section 3.1 covers the new pre-operation checklist. It outlines specific checks for pressure gauges and fluid levels. The manual uses terms like &#x27;calibration tolerance&#x27; and &#x27;psi deviation limits&#x27;. Don&#x27;t let the jargon intimidate you. &#x27;Calibration tolerance&#x27; simply refers to the acceptable range for our equipment&#x27;s settings, and &#x27;psi deviation limits&#x27; tells us how much the pressure can vary from the standard before it becomes a safety risk. We&#x27;ll have a workshop next week to demonstrate these in practice, but for now, I want you to focus on the overall structure and the purpose of these updates.</p>
+<p>Another key area is waste disposal. The updated <strong class="lexis">protocols</strong> for hazardous materials are stricter. You&#x27;ll find a detailed flowchart in Appendix B. This flowchart is designed to simplify the complex steps involved. Our previous methods weren&#x27;t fully aligned with the new environmental <strong class="lexis">regulations</strong>, so understanding this flow is critical for preventing spills and ensuring we pass our upcoming environmental <strong class="lexis">audit</strong>.</p>
+<p>My advice for tackling these documents is to first skim for headings and subheadings. Get a sense of the document&#x27;s layout. Then, read the introduction and conclusion to grasp the main objectives. Don&#x27;t get stuck on every word. If you encounter a term you don&#x27;t immediately recognize, make a note of it and keep reading. Often, the context will clarify its meaning, or you can look it up later. We&#x27;re aiming for practical application here, not academic mastery. The goal is safe and efficient operations, which relies on solid <strong class="lexis">jargon comprehension</strong> and the ability to follow intricate <strong class="lexis">specifications</strong>. Any questions so far?</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What two primary reasons does Maria give for updating the processes?</p>
+<ul><li>Cost savings and customer satisfaction.</li><li>Efficiency and safety.</li><li>New equipment and employee requests.</li><li>Market competition and brand image.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">According to Maria, what specific section of the manual covers the new pre-operation checklist?</p>
+</div>
+<div class="task"><p class="task-instruction">What is Maria&#x27;s first piece of advice for tackling technical documents?</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Follow-Up Discussion: Applying Learning</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Lead a discussion about the content of the listening and the strategies mentioned.<br>
+2. Ask students to share which strategies they found most useful.<br>
+3. Connect the listening content back to their own workplace experiences.<br>
+4. Provide feedback on any common errors or areas for improvement in comprehension strategies.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reflecting on Strategies</h4>
+<p>Maria shared several strategies for understanding complex documents. Let&#x27;s discuss:</p>
+<p>1. What specific strategies did Maria suggest for understanding technical manuals?<br>
+2. Which of these strategies do you think are most useful for you in your job?<br>
+3. How important is it to understand <strong class="lexis">every single word</strong> in a technical manual to do your job effectively? Why or why not?<br>
+4. What are the potential consequences of not following <strong class="lexis">industry standards</strong> or <strong class="lexis">safety protocols</strong> in your line of work?<br>
+5. Apart from manuals, what other resources or people do you rely on when you encounter complex instructions or <strong class="lexis">jargon</strong> at work?</p>
+</section>
+</article>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit exam — Navigating Corporate Strategy and Business Proposals</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<nav class="breadcrumbs"><a href="index.html">← Unit index</a></nav>
+<header>
+  <p class="view-banner">Teacher · Unit exam key</p>
+  <h1>Unit exam — Navigating Corporate Strategy and Business Proposals</h1>
+  <p class="meta">T02_WORK · C1 · 30 items</p>
+</header>
+<article class="exam-item" id="q01"><div class="exam-item-header"><span class="qnum">1. q01</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">After careful consideration of market shifts, the company announced a significant ______, moving from product development to service provision.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>strategic pivot ✓</li><li><span class="opt-key">B.</span>business detour</li><li><span class="opt-key">C.</span>market swerve</li><li><span class="opt-key">D.</span>corporate diversion</li></ul><div class="exam-explanation"><strong>Explanation</strong>A &#x27;strategic pivot&#x27; is a defined term for a significant change in a company&#x27;s strategy, often in response to market conditions. The other options are near misses but lack the specific strategic connotation.</div></article><article class="exam-item" id="q02"><div class="exam-item-header"><span class="qnum">2. q02</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">The new directive from leadership establishes a clear ______ for all departments to prioritize sustainability initiatives.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>corporate mandate ✓</li><li><span class="opt-key">B.</span>executive suggestion</li><li><span class="opt-key">C.</span>company guideline</li><li><span class="opt-key">D.</span>organizational request</li></ul><div class="exam-explanation"><strong>Explanation</strong>A &#x27;corporate mandate&#x27; signifies an official and compulsory order or instruction from senior management, often carrying significant weight and requiring compliance.</div></article><article class="exam-item" id="q03"><div class="exam-item-header"><span class="qnum">3. q03</span><span class="exam-meta">comprehension · class 1</span></div><div class="exam-prompt">A recent company announcement detailed an &#x27;operational shift&#x27; towards fully remote work for non-essential personnel. What is the most immediate implication for an employee whose team falls into this category?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Their physical office space will be permanently reassigned.</li><li class="correct"><span class="opt-key">B.</span>They will need to adjust to working from home exclusively. ✓</li><li><span class="opt-key">C.</span>Their compensation structure will be reviewed.</li><li><span class="opt-key">D.</span>They are eligible for a new equipment allowance.</li></ul><div class="exam-explanation"><strong>Explanation</strong>An &#x27;operational shift&#x27; to fully remote work directly implies the need for employees to work from home exclusively. The other options are potential secondary effects or assumptions, not immediate implications specified by &#x27;fully remote work&#x27;.</div></article><article class="exam-item" id="q04"><div class="exam-item-header"><span class="qnum">4. q04</span><span class="exam-meta">register · class 1</span></div><div class="exam-prompt">You are drafting an email to your manager inquiring about the potential effects of a new strategic initiative. Which phrase best conveys a professional request for information regarding an &#x27;impact assessment&#x27;?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Could you provide details on the forecasted consequences of this change? ✓</li><li><span class="opt-key">B.</span>What might happen because of this new plan?</li><li><span class="opt-key">C.</span>Tell me what results this will have.</li><li><span class="opt-key">D.</span>How will this affect us, really?</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A uses formal language (&#x27;forecasted consequences&#x27;) and a polite, interrogative structure appropriate for a professional inquiry about an impact assessment. The other options are too informal or direct.</div></article><article class="exam-item" id="q05"><div class="exam-item-header"><span class="qnum">5. q05</span><span class="exam-meta">lexis · class 2</span></div><div class="exam-prompt">In our business proposal, we must clearly articulate the ______ of our new software solution to potential clients, highlighting how it addresses their pain points.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>value proposition ✓</li><li><span class="opt-key">B.</span>cost benefit</li><li><span class="opt-key">C.</span>product features</li><li><span class="opt-key">D.</span>market offering</li></ul><div class="exam-explanation"><strong>Explanation</strong>A &#x27;value proposition&#x27; is a formal business term for the promise of value to be delivered, explaining how a product or service solves a customer&#x27;s problem or improves their situation. While related, &#x27;cost benefit&#x27; focuses only on financial aspects, and &#x27;product features&#x27; or &#x27;market offering&#x27; are too broad.</div></article><article class="exam-item" id="q06"><div class="exam-item-header"><span class="qnum">6. q06</span><span class="exam-meta">lexis · class 2</span></div><div class="exam-prompt">Implementing the new automated reporting system is projected to deliver significant ______ by reducing manual data entry time by 30%.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>efficiency gains ✓</li><li><span class="opt-key">B.</span>productivity boosts</li><li><span class="opt-key">C.</span>operational savings</li><li><span class="opt-key">D.</span>workflow improvements</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Efficiency gains&#x27; specifically refers to improvements that result in less waste of time, effort, or resources for the same output, often quantified by percentages or time saved, as described in the prompt. The other options are related but less precise for this context.</div></article><article class="exam-item" id="q07"><div class="exam-item-header"><span class="qnum">7. q07</span><span class="exam-meta">grammar · class 2</span></div><div class="exam-prompt">Complete the sentence with the most appropriate inverted conditional for a formal business proposal: ______ any unforeseen challenges arise, our contingency plan outlines clear mitigation strategies.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Should ✓</li><li><span class="opt-key">B.</span>If</li><li><span class="opt-key">C.</span>Were</li><li><span class="opt-key">D.</span>Had</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Should&#x27; is used in inverted conditionals to express a possibility in a formal context, particularly when discussing future potential events and their planned responses. &#x27;If&#x27; is correct but not inverted, &#x27;Were&#x27; is for hypothetical situations not expected to happen, and &#x27;Had&#x27; is for past hypothetical situations.</div></article><article class="exam-item" id="q08"><div class="exam-item-header"><span class="qnum">8. q08</span><span class="exam-meta">register · class 2</span></div><div class="exam-prompt">You need to express a reservation about a proposed strategic initiative during a high-level meeting. Which phrase from the unit is most appropriate for professional discourse?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>My main concern would be how this impacts resource allocation. ✓</li><li><span class="opt-key">B.</span>I&#x27;m worried about what this will do to our budget.</li><li><span class="opt-key">C.</span>This plan could really mess things up with our spending.</li><li><span class="opt-key">D.</span>Honestly, I don&#x27;t think this is good for resources.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A, &#x27;My main concern would be how this impacts...&#x27;, is a direct quote from the unit&#x27;s lexicon for navigating strategic discussions professionally. It is a polite, formal, and constructive way to voice a concern.</div></article><article class="exam-item" id="q09"><div class="exam-item-header"><span class="qnum">9. q09</span><span class="exam-meta">comprehension · class 3</span></div><div class="exam-prompt">Following the acquisition of TechSolutions, your department is informed that &#x27;there will be a comprehensive review of all duplicate roles.&#x27; What is the most likely implication for employees in your department?</div><ul class="exam-options"><li><span class="opt-key">A.</span>All employees will receive a salary increase due to expanded company size.</li><li class="correct"><span class="opt-key">B.</span>Some employees may face redundancy if their roles overlap with acquired staff. ✓</li><li><span class="opt-key">C.</span>A new training program will be immediately launched for all staff.</li><li><span class="opt-key">D.</span>All employees will be required to relocate to the new subsidiary&#x27;s offices.</li></ul><div class="exam-explanation"><strong>Explanation</strong>A &#x27;comprehensive review of duplicate roles&#x27; post-acquisition is a standard process to eliminate redundancies, which often leads to some employees being laid off or having their roles changed. The other options are either unlikely or not directly implied.</div></article><article class="exam-item" id="q10"><div class="exam-item-header"><span class="qnum">10. q10</span><span class="exam-meta">register · class 3</span></div><div class="exam-prompt">During a team discussion about a recent merger, you want to respectfully inquire about job security without causing undue alarm. Which question is most professionally phrased?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Could you provide clarification on how the merger might influence long-term departmental stability? ✓</li><li><span class="opt-key">B.</span>Are we going to lose our jobs because of this merger?</li><li><span class="opt-key">C.</span>What does this merger mean for our future here?</li><li><span class="opt-key">D.</span>Is anyone getting cut from the team soon?</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A uses formal language (&#x27;clarification,&#x27; &#x27;influence long-term departmental stability&#x27;) and a polite, indirect structure, which is appropriate for a sensitive topic like job security in a professional setting. The other options are too direct or informal.</div></article><article class="exam-item" id="q11"><div class="exam-item-header"><span class="qnum">11. q11</span><span class="exam-meta">grammar · class 3</span></div><div class="exam-prompt">Choose the sentence that most formally and appropriately discusses the potential impacts of a merger on team structure.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>The merger could potentially lead to a restructuring of team hierarchies. ✓</li><li><span class="opt-key">B.</span>The merger might change how our teams are set up.</li><li><span class="opt-key">C.</span>It&#x27;s possible the merger will affect team organization.</li><li><span class="opt-key">D.</span>The merger is probably going to shake up our team structure.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A uses formal vocabulary (&#x27;potentially lead to,&#x27; &#x27;restructuring of team hierarchies&#x27;) and a precise, objective tone suitable for discussing business implications. The other options are less formal or less specific.</div></article><article class="exam-item" id="q12"><div class="exam-item-header"><span class="qnum">12. q12</span><span class="exam-meta">comprehension · class 3</span></div><div class="exam-prompt">A memo states that the post-merger integration strategy prioritizes &#x27;cultural alignment and synergy across all newly combined departments.&#x27; What is the primary focus of this strategy?</div><ul class="exam-options"><li><span class="opt-key">A.</span>To standardize all operational software across both original companies.</li><li class="correct"><span class="opt-key">B.</span>To ensure a smooth blending of working practices and organizational values. ✓</li><li><span class="opt-key">C.</span>To identify and eliminate all redundant positions within the merged entity.</li><li><span class="opt-key">D.</span>To centralize all decision-making processes under the acquiring company&#x27;s leadership.</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Cultural alignment and synergy&#x27; refer to harmonizing the values, beliefs, and working styles of the two merging organizations to create a unified and more productive environment. While other options might be part of an integration, they are not the primary focus described.</div></article><article class="exam-item" id="q13"><div class="exam-item-header"><span class="qnum">13. q13</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">During the quarterly review, the CEO reiterated the company&#x27;s core ______: increasing market share and enhancing customer satisfaction.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>strategic objectives ✓</li><li><span class="opt-key">B.</span>business aspirations</li><li><span class="opt-key">C.</span>corporate targets</li><li><span class="opt-key">D.</span>executive goals</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Strategic objectives&#x27; are the overarching, high-level goals that an organization plans to achieve, often long-term and impacting the entire company. While related, &#x27;business aspirations&#x27; are more conceptual, and &#x27;corporate targets&#x27; or &#x27;executive goals&#x27; can be more specific or narrow than strategic objectives.</div></article><article class="exam-item" id="q14"><div class="exam-item-header"><span class="qnum">14. q14</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">Successful implementation of the new product launch will require extensive ______ between the marketing, product development, and sales teams.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>cross-functional collaboration ✓</li><li><span class="opt-key">B.</span>inter-departmental liaison</li><li><span class="opt-key">C.</span>team coordination</li><li><span class="opt-key">D.</span>group effort</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Cross-functional collaboration&#x27; specifically refers to different departments or functional areas working together towards a common goal. This is a precise term for coordinated effort involving multiple distinct teams.</div></article><article class="exam-item" id="q15"><div class="exam-item-header"><span class="qnum">15. q15</span><span class="exam-meta">comprehension · class 4</span></div><div class="exam-prompt">In a team meeting to align departmental objectives with corporate strategy, the team leader states, &#x27;Our primary focus this quarter is to reduce operational costs by 15% to support the company&#x27;s profitability goals.&#x27; Which departmental objective best aligns with this statement?</div><ul class="exam-options"><li><span class="opt-key">A.</span>To launch three new marketing campaigns to increase brand visibility.</li><li class="correct"><span class="opt-key">B.</span>To explore new vendors for raw materials to achieve cost savings. ✓</li><li><span class="opt-key">C.</span>To improve employee satisfaction through team-building activities.</li><li><span class="opt-key">D.</span>To develop a prototype for an innovative new product.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Exploring new vendors for raw materials directly addresses the objective of reducing operational costs, which aligns with the company&#x27;s profitability goals. The other options serve different strategic objectives like growth, employee welfare, or innovation.</div></article><article class="exam-item" id="q16"><div class="exam-item-header"><span class="qnum">16. q16</span><span class="exam-meta">register · class 4</span></div><div class="exam-prompt">During a strategic alignment meeting, you wish to suggest a new approach to resource allocation. Which phrase is most appropriate for introducing your idea professionally?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Perhaps we could consider re-evaluating our resource allocation model. ✓</li><li><span class="opt-key">B.</span>I think we should change how we allocate resources.</li><li><span class="opt-key">C.</span>Let&#x27;s just change the resource allocation, shall we?</li><li><span class="opt-key">D.</span>What if we just moved resources around differently?</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A uses a polite, consultative opening (&#x27;Perhaps we could consider&#x27;) and formal language (&#x27;re-evaluating our resource allocation model&#x27;), which is suitable for introducing a suggestion in a strategic meeting. The other options are too direct, informal, or presumptive.</div></article><article class="exam-item" id="q17"><div class="exam-item-header"><span class="qnum">17. q17</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">When discussing the challenges of adopting a new enterprise resource planning (ERP) system, you need to articulate a potential difficulty respectfully. Which option is best?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>We anticipate potential complexities in integrating this system with legacy infrastructure. ✓</li><li><span class="opt-key">B.</span>This new system might be hard to connect to our old stuff.</li><li><span class="opt-key">C.</span>The ERP system could cause problems with our current setup.</li><li><span class="opt-key">D.</span>I foresee some trouble getting this system to work with what we have.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A uses formal business language (&#x27;anticipate potential complexities,&#x27; &#x27;integrating this system with legacy infrastructure&#x27;) to professionally state a potential challenge without being overly negative or informal.</div></article><article class="exam-item" id="q18"><div class="exam-item-header"><span class="qnum">18. q18</span><span class="exam-meta">comprehension · class 5</span></div><div class="exam-prompt">The IT department proposes a &#x27;phased rollout strategy&#x27; for a new software update across all global offices. What does this primarily mean for employees?</div><ul class="exam-options"><li><span class="opt-key">A.</span>All employees will receive the update simultaneously on a predetermined date.</li><li class="correct"><span class="opt-key">B.</span>Employees in different regions will receive the update at staggered times. ✓</li><li><span class="opt-key">C.</span>Only selected employees will receive the update as a pilot group.</li><li><span class="opt-key">D.</span>Employees will have the option to choose when they receive the update.</li></ul><div class="exam-explanation"><strong>Explanation</strong>A &#x27;phased rollout strategy&#x27; means that the update will be deployed in stages, typically by region, department, or user group, rather than all at once. This implies staggered times for different employees.</div></article><article class="exam-item" id="q19"><div class="exam-item-header"><span class="qnum">19. q19</span><span class="exam-meta">grammar · class 5</span></div><div class="exam-prompt">Choose the most professional and grammatically correct way to propose a solution during a strategic tech discussion.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Should we encounter further compatibility issues, we could consider a middleware solution. ✓</li><li><span class="opt-key">B.</span>If we have more compatibility problems, maybe middleware is good.</li><li><span class="opt-key">C.</span>We should use middleware if compatibility issues come up.</li><li><span class="opt-key">D.</span>Middleware could be an option if compatibility problems appear.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A uses a formal inverted conditional structure (&#x27;Should we encounter...&#x27;) which is appropriate for C1 professional discourse, followed by a polite and strategic suggestion. The other options are less formal or less grammatically sophisticated.</div></article><article class="exam-item" id="q20"><div class="exam-item-header"><span class="qnum">20. q20</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">You are leading a discussion on improving data security protocols. Which statement best conveys a strategic suggestion for enhancement?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>To ensure robust data protection, we should prioritize implementing multi-factor authentication. ✓</li><li><span class="opt-key">B.</span>We need to get better at protecting our data, like with those two-step logins.</li><li><span class="opt-key">C.</span>Multi-factor authentication is a good idea for data security.</li><li><span class="opt-key">D.</span>Let&#x27;s add more security for our data, specifically two-factor.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A uses formal, strategic language (&#x27;To ensure robust data protection,&#x27; &#x27;prioritize implementing multi-factor authentication&#x27;) which aligns with professional C1 communication in strategic discussions. The phrasing &#x27;we should prioritize actionable steps for&#x27; is from Class 2 lexicon but is generally applicable to strategic professional communication here.</div></article><article class="exam-item" id="q21"><div class="exam-item-header"><span class="qnum">21. q21</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">During my annual performance review, I presented data illustrating how I exceeded my key ______ for the last fiscal year.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>performance metrics ✓</li><li><span class="opt-key">B.</span>achievement markers</li><li><span class="opt-key">C.</span>evaluation benchmarks</li><li><span class="opt-key">D.</span>success indicators</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Performance metrics&#x27; are quantifiable measures used to assess the performance of an individual or organization against predefined targets, making it the most precise term for tracking and reporting achievement in a review context.</div></article><article class="exam-item" id="q22"><div class="exam-item-header"><span class="qnum">22. q22</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">My recent project leadership role represents a significant step forward in my long-term ______ within the organization.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>career progression ✓</li><li><span class="opt-key">B.</span>job trajectory</li><li><span class="opt-key">C.</span>employment path</li><li><span class="opt-key">D.</span>work development</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Career progression&#x27; specifically refers to the advancement of one&#x27;s professional life through promotions, increased responsibilities, or moving into more senior roles within an organization. It implies a structured and intentional path forward.</div></article><article class="exam-item" id="q23"><div class="exam-item-header"><span class="qnum">23. q23</span><span class="exam-meta">register · class 6</span></div><div class="exam-prompt">When documenting your achievements for a performance review, which statement most effectively articulates a &#x27;strategic contribution&#x27;?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>My successful negotiation of the vendor contract directly contributed to a 10% reduction in departmental overhead, aligning with our cost-efficiency goals. ✓</li><li><span class="opt-key">B.</span>I saved the department a lot of money by getting a good deal on the contract.</li><li><span class="opt-key">C.</span>The contract I handled saved us cash, which helped with budgets.</li><li><span class="opt-key">D.</span>I was good at negotiating and that helped us save some money.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A clearly states the achievement, quantifies its impact (&#x27;10% reduction&#x27;), and explicitly links it to a broader organizational &#x27;cost-efficiency goals,&#x27; thereby demonstrating a &#x27;strategic contribution&#x27; in formal language.</div></article><article class="exam-item" id="q24"><div class="exam-item-header"><span class="qnum">24. q24</span><span class="exam-meta">comprehension · class 6</span></div><div class="exam-prompt">During a performance review, your manager asks how your individual work aligns with the company&#x27;s &#x27;digital transformation&#x27; initiative. Which response best demonstrates this alignment?</div><ul class="exam-options"><li><span class="opt-key">A.</span>I completed all my assigned tasks on time this quarter.</li><li class="correct"><span class="opt-key">B.</span>I actively participated in the pilot program for the new cloud-based project management tool, providing feedback that improved its rollout. ✓</li><li><span class="opt-key">C.</span>I maintained a positive attitude and collaborated well with my team.</li><li><span class="opt-key">D.</span>I exceeded my sales targets by 15% through traditional methods.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Participating in and providing feedback for a pilot program of a new cloud-based tool directly supports and aligns with a &#x27;digital transformation&#x27; initiative, showing active engagement with the company&#x27;s strategic move towards digital processes.</div></article><article class="exam-item" id="q25"><div class="exam-item-header"><span class="qnum">25. q25</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">Complete the sentence with the most formal inverted conditional structure, providing feedback on a past initiative: ______ we foreseen the logistical complexities, we would have allocated additional resources.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Had ✓</li><li><span class="opt-key">B.</span>If</li><li><span class="opt-key">C.</span>Were</li><li><span class="opt-key">D.</span>Should</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Had&#x27; is used in inverted conditional sentences to refer to a hypothetical past condition. It is a formal way to express what would have happened if a past situation had been different. &#x27;If&#x27; is not inverted, &#x27;Were&#x27; is for hypothetical present/future, and &#x27;Should&#x27; is for less certain future events.</div></article><article class="exam-item" id="q26"><div class="exam-item-header"><span class="qnum">26. q26</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">Choose the most appropriate inverted conditional for a formal proposal addressing potential future issues with a new corporate initiative: ______ there be any further delays, we are prepared to implement a fast-track solution.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Should ✓</li><li><span class="opt-key">B.</span>Were</li><li><span class="opt-key">C.</span>Had</li><li><span class="opt-key">D.</span>If</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Should&#x27; is used in inverted conditionals to express a less probable but still possible future event in a formal context, followed by a proposed action. &#x27;Were&#x27; implies unlikelihood or counterfactual, &#x27;Had&#x27; refers to the past, and &#x27;If&#x27; is not inverted.</div></article><article class="exam-item" id="q27"><div class="exam-item-header"><span class="qnum">27. q27</span><span class="exam-meta">register · class 7</span></div><div class="exam-prompt">You need to provide constructive feedback on a recently implemented corporate initiative, specifically pointing out a weakness in its execution. Which option is the most professional?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>While the initiative has merits, it appears the initial rollout underestimated our team&#x27;s existing workload. ✓</li><li><span class="opt-key">B.</span>The rollout was bad because no one thought about how busy we already are.</li><li><span class="opt-key">C.</span>You guys didn&#x27;t consider our work when you launched this.</li><li><span class="opt-key">D.</span>This initiative failed to account for our team&#x27;s capacity.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A uses a diplomatic opening (&#x27;While the initiative has merits&#x27;), uses formal, objective language (&#x27;appears,&#x27; &#x27;underestimated,&#x27; &#x27;existing workload&#x27;), and focuses on the process rather than assigning blame, which is characteristic of constructive feedback.</div></article><article class="exam-item" id="q28"><div class="exam-item-header"><span class="qnum">28. q28</span><span class="exam-meta">comprehension · class 7</span></div><div class="exam-prompt">A new corporate initiative aims to streamline inter-departmental communication through a new digital platform. You observe frontline employees are struggling with adoption. What would be the most effective feedback to convey to management?</div><ul class="exam-options"><li><span class="opt-key">A.</span>The new platform is not user-friendly, and nobody likes it.</li><li class="correct"><span class="opt-key">B.</span>Despite its potential, the platform&#x27;s current interface presents significant usability challenges, leading to slower adoption than anticipated. ✓</li><li><span class="opt-key">C.</span>Frontline staff are too busy to learn new systems right now.</li><li><span class="opt-key">D.</span>The training provided was insufficient for complex features.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B provides constructive and specific feedback, identifying a core issue (&#x27;usability challenges&#x27;) and linking it to a measurable outcome (&#x27;slower adoption&#x27;). It maintains a professional tone and focuses on improvement, typical of effective feedback.</div></article><article class="exam-item" id="q29"><div class="exam-item-header"><span class="qnum">29. q29</span><span class="exam-meta">comprehension · class 7</span></div><div class="exam-prompt">A company is considering a &#x27;strategic pivot&#x27; into a new market. They require a comprehensive &#x27;impact assessment&#x27; and a &#x27;value proposition&#x27; for this new direction. What is the overarching purpose of these activities?</div><ul class="exam-options"><li><span class="opt-key">A.</span>To minimize immediate financial expenditure on the new venture.</li><li><span class="opt-key">B.</span>To ensure compliance with all regulatory requirements.</li><li class="correct"><span class="opt-key">C.</span>To rigorously evaluate the feasibility and potential benefits of the strategic shift before commitment. ✓</li><li><span class="opt-key">D.</span>To solely convince stakeholders of the inevitability of the pivot.</li></ul><div class="exam-explanation"><strong>Explanation</strong>A strategic pivot, impact assessment, and value proposition are all critical components of strategic planning designed to thoroughly analyze a major business change. Their combined purpose is to understand the implications, feasibility, and potential returns before full commitment, ensuring a well-informed decision.</div></article><article class="exam-item" id="q30"><div class="exam-item-header"><span class="qnum">30. q30</span><span class="exam-meta">register · class 7</span></div><div class="exam-prompt">You are preparing a formal business proposal that outlines a new &#x27;operational shift&#x27; requiring &#x27;cross-functional collaboration&#x27; and anticipating &#x27;efficiency gains.&#x27; How would you best introduce your proposal to senior leadership?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>This proposal outlines a critical operational shift designed to enhance cross-functional collaboration and realize significant efficiency gains. ✓</li><li><span class="opt-key">B.</span>Here&#x27;s my idea for changing how we work to get teams together and save money.</li><li><span class="opt-key">C.</span>I&#x27;m suggesting a new way of operating that will make us work better together and be more efficient.</li><li><span class="opt-key">D.</span>This document details a planned operational change for better team work and more efficiency.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A uses formal, precise language from the unit&#x27;s lexicon (&#x27;operational shift,&#x27; &#x27;cross-functional collaboration,&#x27; &#x27;efficiency gains&#x27;) and a clear, concise structure appropriate for introducing a formal business proposal to senior leadership. It directly addresses the key elements mentioned in the prompt.</div></article>
+
+</body>
+</html>

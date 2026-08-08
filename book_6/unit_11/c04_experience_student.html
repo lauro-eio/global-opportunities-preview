@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trust Your Gut at Work</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Trust Your Gut at Work</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>11</dd>
+      <dt>Class</dt><dd>4</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-when-your-gut-speaks">
+<header class="stage-header"><h2>When Your Gut Speaks</h2></header>
+<section class="handout">
+<p>Think about a time at work when you had a strong &#x27;gut feeling&#x27; about something. It might have been about a decision, a person, or a situation.</p>
+<p>1. Describe what happened.<br>
+2. Why did you trust your instinct, even if it went against initial information?<br>
+3. What was the outcome of following your intuition?<br>
+4. Do you think developing strong intuition is a part of <strong class="lexis">professional judgment</strong>? How?</p>
+</section>
+</article>
+<article class="stage" id="stage-key-terms-for-sharp-minds">
+<header class="stage-header"><h2>Key Terms for Sharp Minds</h2></header>
+<section class="handout">
+<p>Before listening, let&#x27;s look at some important words and phrases you will hear. Match each term on the left with its correct definition on the right.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>professional judgment</li><li>situational awareness</li><li>rapid decision-making</li><li>experiential learning</li><li>pattern recognition</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match the terms related to professional intuition with their definitions.</p>
+<p>Match the terms to their definitions.</p>
+<ul><li><strong>professional judgment</strong> — The ability to make sound decisions based on knowledge, skills, and experience in a particular field.</li><li><strong>situational awareness</strong> — Understanding the current environment and potential future developments, especially in critical situations.</li><li><strong>rapid decision-making</strong> — The skill of making quick, effective choices, often under pressure or with limited information.</li><li><strong>experiential learning</strong> — Gaining knowledge and skills through direct experience rather than abstract study.</li><li><strong>pattern recognition</strong> — The ability to identify recurring sequences or designs, often from incomplete or ambiguous information.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-sarah-x27-s-critical-call">
+<header class="stage-header"><h2>Sarah&#x27;s Critical Call</h2></header>
+<section class="handout">
+<p>You will hear Sarah, a Logistics Operations Manager, talking about a time she had to make a very important decision. Listen for the main idea of her story. What was the core message Sarah wanted to convey?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>The Value of Experience in Logistics</h5>
+<p>Alright, Mark, you&#x27;ll see a lot of data crossing your desk in this role. But sometimes, especially in a fast-paced environment like ours, you have to trust more than just the numbers. I remember a few years ago, we had a major shipment of medical supplies – really critical stuff – scheduled to go out. The weather forecast looked clear, the traffic reports were normal for that time of day, and the usual route was open. Everything on paper said &#x27;go&#x27;.</p>
+<p>But I had this strange feeling, a sort of <strong class="lexis">gut instinct</strong>. It wasn&#x27;t anything I could point to specifically. I&#x27;d been doing this for fifteen years, seen countless situations, good and bad. It was a faint whisper of a pattern I&#x27;d recognised before, something just a little &#x27;off&#x27; about the confluence of factors. My <strong class="lexis">situational awareness</strong> was telling me something wasn&#x27;t quite right.</p>
+<p>I pulled up an alternative route, longer, more expensive for fuel, but less prone to unexpected bottlenecks. My supervisor at the time questioned it – &#x27;Sarah, the data doesn&#x27;t support this detour.&#x27; And he was right, on paper it didn&#x27;t. But my <strong class="lexis">professional judgment</strong>, honed over years of <strong class="lexis">experiential learning</strong>, was screaming at me to change course. I made a <strong class="lexis">rapid decision-making</strong> call. I told the driver to take the alternate route, despite the cost.</p>
+<p>Two hours later, the news came in. A huge, unforeseen accident had completely shut down the usual highway. For hours. If we&#x27;d stuck to the original plan, that shipment would have been delayed, potentially costing lives and definitely causing huge financial penalties. It was a clear case of <strong class="lexis">pattern recognition</strong> saving the day.</p>
+<p>Sometimes, Mark, that unquantifiable &#x27;feel&#x27; for a situation, built up from experience, is your most valuable tool. The data is essential, yes, but don&#x27;t underestimate your developed intuition.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main point Sarah wants to make in her story?</p>
+<ul><li>Data analysis is the only reliable way to make critical decisions in logistics.</li><li>Experienced professionals should always follow their gut feelings over data.</li><li>Developed intuition and experience can be invaluable alongside data for making good professional judgments.</li><li>Logistics managers should never question their supervisors&#x27; decisions.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-the-details-of-intuition">
+<header class="stage-header"><h2>The Details of Intuition</h2></header>
+<section class="handout">
+<p>Listen to Sarah&#x27;s story again. This time, focus on the details of her situation and why she made her decision.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>The Value of Experience in Logistics</h5>
+<p>Alright, Mark, you&#x27;ll see a lot of data crossing your desk in this role. But sometimes, especially in a fast-paced environment like ours, you have to trust more than just the numbers. I remember a few years ago, we had a major shipment of medical supplies – really critical stuff – scheduled to go out. The weather forecast looked clear, the traffic reports were normal for that time of day, and the usual route was open. Everything on paper said &#x27;go&#x27;.</p>
+<p>But I had this strange feeling, a sort of <strong class="lexis">gut instinct</strong>. It wasn&#x27;t anything I could point to specifically. I&#x27;d been doing this for fifteen years, seen countless situations, good and bad. It was a faint whisper of a pattern I&#x27;d recognised before, something just a little &#x27;off&#x27; about the confluence of factors. My <strong class="lexis">situational awareness</strong> was telling me something wasn&#x27;t quite right.</p>
+<p>I pulled up an alternative route, longer, more expensive for fuel, but less prone to unexpected bottlenecks. My supervisor at the time questioned it – &#x27;Sarah, the data doesn&#x27;t support this detour.&#x27; And he was right, on paper it didn&#x27;t. But my <strong class="lexis">professional judgment</strong>, honed over years of <strong class="lexis">experiential learning</strong>, was screaming at me to change course. I made a <strong class="lexis">rapid decision-making</strong> call. I told the driver to take the alternate route, despite the cost.</p>
+<p>Two hours later, the news came in. A huge, unforeseen accident had completely shut down the usual highway. For hours. If we&#x27;d stuck to the original plan, that shipment would have been delayed, potentially costing lives and definitely causing huge financial penalties. It was a clear case of <strong class="lexis">pattern recognition</strong> saving the day.</p>
+<p>Sometimes, Mark, that unquantifiable &#x27;feel&#x27; for a situation, built up from experience, is your most valuable tool. The data is essential, yes, but don&#x27;t underestimate your developed intuition.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What type of important shipment was Sarah responsible for?</p>
+</div>
+<div class="task"><p class="task-instruction">What did the initial data and reports indicate about the original route?</p>
+<ul><li>There would be an accident, so it was risky.</li><li>The route was clear and normal, with no expected issues.</li><li>Traffic was unusually heavy, suggesting delays.</li><li>The weather forecast was bad, making it dangerous.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">What was the eventual outcome for the original route that Sarah avoided?</p>
+</div>
+<div class="task"><p class="task-instruction">How did Sarah&#x27;s supervisor react to her suggestion of taking an alternative route?</p>
+<ul><li>He immediately agreed, trusting her judgment.</li><li>He questioned it because the data didn&#x27;t support a detour.</li><li>He was angry and told her to follow the original plan.</li><li>He suggested a third, even longer route.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-cultivating-your-workplace-wisdom">
+<header class="stage-header"><h2>Cultivating Your Workplace Wisdom</h2></header>
+<section class="handout">
+<p>Sarah&#x27;s story shows the power of experience and intuition.</p>
+<p>1. How important do you think <strong class="lexis">experiential learning</strong> is in your own job?<br>
+2. What are some ways you can improve your <strong class="lexis">situational awareness</strong> at work?<br>
+3. Can <strong class="lexis">pattern recognition</strong> be taught, or does it only come with time?<br>
+4. What steps could you take to strengthen your <strong class="lexis">professional judgment</strong> for <strong class="lexis">rapid decision-making</strong> in your field?</p>
+</section>
+</article>
+</body>
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Writing a Community Impact Report</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Writing a Community Impact Report</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>10</dd>
+      <dt>Class</dt><dd>6</dd>
+      <dt>Theme</dt><dd>T10_LIFESTYLE</dd>
+      <dt>Framework</dt><dd>SK-PROD</dd>
+      <dt>Role</dt><dd>SK_PROD_WRITING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Corporate Influence on Local Communities</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by writing &#x27;Local Impact&#x27; on the board.<br>
+2. Ask students to think about large companies in their area.<br>
+3. Facilitate a discussion using the prompts in student_content.<br>
+4. Encourage students to share specific examples if possible.<br>
+5. Focus on the direct (jobs) and indirect (housing, small businesses) effects.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Our Town, Their Impact</h4>
+<p>We often think of large companies just as employers. But their influence goes much deeper. How does a major employer affect the area around it? Let&#x27;s discuss:</p>
+<p>1. Do you have any large companies or factories in your local area?<br>
+2. What are the obvious ways these companies impact the community (e.g., jobs)?<br>
+3. Can you think of less obvious ways? (Hint: Think about <strong class="lexis">housing market dynamics</strong>, <strong class="lexis">small business support</strong>, <strong class="lexis">infrastructure development</strong>.)<br>
+4. How might a company&#x27;s presence affect the overall <strong class="lexis">social cohesion</strong> of a town?</p>
+</section>
+</article>
+<article class="stage" id="stage-MOD">
+<header class="stage-header"><span class="stage-code">MOD</span><h2>Model Analysis: Impact Assessment Report</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Distribute the report.<br>
+2. Ask students to read the report quickly to get the gist: What is it about? What is the main conclusion?<br>
+3. Then, instruct them to read more carefully and answer the comprehension questions.<br>
+4. Review answers as a class, clarifying any vocabulary or concepts.<br>
+5. Highlight how the report uses specific language to analyze direct and indirect impacts.</p>
+<p>Answer Key:<br>
+Task 1: The overall impact is complex and multifaceted.<br>
+Task 2: Over 2,500 jobs / reduced unemployment by 15%.<br>
+Task 3: Increased competition from larger chains / pressure on existing small businesses.<br>
+Task 4: It causes significant increases in rental costs.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reading an Impact Report</h4>
+<p>Read the impact assessment report below. This report analyzes how a large manufacturing plant, &#x27;GlobalTech Solutions,&#x27; has influenced its local community, &#x27;Riverwood.&#x27; As you read, pay attention to the specific ways the company&#x27;s impact is described.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Impact Assessment: GlobalTech Solutions in Riverwood</h5>
+<p><strong class="lexis">GlobalTech Solutions</strong>, a major electronics manufacturer, established its primary plant in Riverwood ten years ago. Beyond its direct provision of over 2,500 jobs, the company&#x27;s presence has significantly shaped the town&#x27;s economic and social landscape.</p>
+<p>Directly, GlobalTech created substantial <strong class="lexis">local employment opportunities</strong>, reducing the unemployment rate by 15% in its first five years. However, this influx of workers, many relocating from other regions, has dramatically altered <strong class="lexis">housing market dynamics</strong>. Average rental costs have increased by 30%, making it difficult for long-term residents, especially those not employed by GlobalTech, to afford accommodation. This has led to concerns about <strong class="lexis">social cohesion</strong> as traditional family structures and neighborhood patterns face pressure.</p>
+<p>Indirectly, GlobalTech&#x27;s large workforce has boosted local commerce, leading to the emergence of new restaurants and service businesses. Yet, some argue this growth primarily benefits larger chains, putting pressure on existing <strong class="lexis">small business support</strong> structures. While the town council points to improvements in <strong class="lexis">infrastructure development</strong>, such as road upgrades and a new public library funded in part by GlobalTech, critics highlight increased traffic congestion and strain on public services.</p>
+<p> The report concludes that while GlobalTech has brought undeniable economic benefits, its influence extends into complex areas like affordability and community identity, requiring ongoing monitoring and dialogue.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main message about GlobalTech&#x27;s overall impact on Riverwood?</p>
+<ul><li>It has been entirely positive.</li><li>It has caused only negative consequences.</li><li>The overall impact is complex and multifaceted.</li><li>The company has had no significant impact.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">According to the report, what is one direct impact of GlobalTech on local employment?</p>
+<p>One direct impact of GlobalTech on local employment:</p>
+</div>
+<div class="task"><p class="task-instruction">How has GlobalTech indirectly affected small businesses in Riverwood?</p>
+<p>Indirect effect on small businesses:</p>
+</div>
+<div class="task"><p class="task-instruction">What challenging consequence is mentioned regarding housing market dynamics?</p>
+<ul><li>It created new housing opportunities.</li><li>It stabilized rental prices.</li><li>It caused significant increases in rental costs.</li><li>It encouraged more people to buy homes.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-PREP">
+<header class="stage-header"><span class="stage-code">PREP</span><h2>Preparation: Structuring an Impact Analysis</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Divide students into small groups.<br>
+2. Instruct them to brainstorm ideas for a company&#x27;s impact, considering both positive and negative aspects, using the provided categories.<br>
+3. Go through the column_banks together, explaining the purpose of each category of phrases.<br>
+4. Encourage students to use these phrases in their outlines.<br>
+5. Have groups create a simple outline for an analysis report, focusing on structure.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Planning Your Analysis</h4>
+<p>Before writing your own analysis, let&#x27;s plan! Think about a different large company (either real or imagined) and its impact on a community. Consider both positive and negative aspects.</p>
+<p>1. In groups, brainstorm ideas related to the categories below: <strong class="lexis">local employment trends</strong>, <strong class="lexis">housing market dynamics</strong>, <strong class="lexis">small business support</strong>, <strong class="lexis">infrastructure development</strong>, and <strong class="lexis">social cohesion</strong>.<br>
+2. Look at the useful phrases provided. These will help you present your analysis professionally.<br>
+3. Create a brief outline for an impact assessment report. Think about an introduction, paragraphs for different impacts, and a conclusion.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Introducing Impacts</th><th>Direct Impacts</th><th>Indirect Impacts</th><th>Analyzing &amp; Concluding</th></tr><tr><td>This report examines...</td><td>Directly, the company has created...</td><td>Indirectly, we observe changes in...</td><td>While bringing benefits, it also presents...</td></tr><tr><td>The company&#x27;s presence has...</td><td>A significant number of **local employment opportunities**...</td><td>Affected **housing market dynamics** by...</td><td>The impact is multifaceted...</td></tr><tr><td>It&#x27;s important to analyze...</td><td>Reduced the **unemployment rate** by...</td><td>Put pressure on **small business support**...</td><td>Requires ongoing monitoring...</td></tr><tr><td></td><td></td><td>Contributed to **infrastructure development** such as...</td><td>In conclusion, the company&#x27;s role is...</td></tr><tr><td></td><td></td><td>Influenced **social cohesion** through...</td><td></td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Freer Practice: Drafting an Impact Summary</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Remind students of the audience and purpose of the report summary.<br>
+2. Encourage them to use the outline and useful phrases from the PREP stage.<br>
+3. Advise them to focus on clarity and professional register.<br>
+4. Circulate, providing support and error correction as needed.<br>
+5. Collect drafts for initial review or prepare for peer feedback in FBDC.</p>
+<p>Model Answer:<br>
+<strong class="lexis">Subject: Preliminary Assessment – Northpoint Logistics Hub, Greenfield</strong></p>
+<p>This summary provides a preliminary assessment of Northpoint Logistics Hub’s impact on the Greenfield community, following its establishment three years ago.</p>
+<p>Directly, Northpoint has significantly boosted <strong class="lexis">local employment trends</strong>, offering over 800 new roles and diversifying skill sets within the area. However, the associated increase in population has strained <strong class="lexis">housing market dynamics</strong>, leading to a noticeable rise in property values and rental costs, impacting affordability for long-term residents.</p>
+<p>Indirectly, while there’s been a positive surge in demand for local services, some <strong class="lexis">small businesses</strong> face increased competition from new, larger entrants. Furthermore, despite some improvements in <strong class="lexis">infrastructure development</strong> to accommodate increased traffic, congestion remains a concern. The rapid demographic shift also presents challenges to established patterns of <strong class="lexis">social cohesion</strong>.</p>
+<p>In conclusion, Northpoint Logistics Hub has brought economic vitality but also introduced complex challenges related to housing, local business sustainability, and community integration. Further in-depth analysis is recommended.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Writing Your Community Impact Summary</h4>
+<p>Imagine you are an analyst for a local council. You need to write a brief report summary (150-200 words) for the council members, outlining the direct and indirect impacts of a new large company (e.g., a logistics hub, a large retail distribution center) on your community.</p>
+<p>Your summary should:</p>
+<p>*   <strong class="lexis">Audience</strong>: Local council members (professional, informed but busy).<br>
+*   <strong class="lexis">Purpose</strong>: To inform them about the multifaceted impact and highlight key areas for further discussion or action.<br>
+*   <strong class="lexis">Length</strong>: Approximately 150-200 words.<br>
+*   <strong class="lexis">Focus</strong>: Incorporate specific mentions of <strong class="lexis">local employment trends</strong>, <strong class="lexis">housing market dynamics</strong>, <strong class="lexis">small business support</strong>, <strong class="lexis">infrastructure development</strong>, and <strong class="lexis">social cohesion</strong>.<br>
+*   <strong class="lexis">Tone</strong>: Objective and professional.</p>
+<p>Use your outline and the phrases from the previous stage to help you draft your summary.</p>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback &amp; Correction: Refining Your Impact Summary</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. <strong class="lexis">Peer Feedback (Content First)</strong>:<br>
+    a. Pair students up.<br>
+    b. Instruct them to exchange their report summaries.<br>
+    c. Provide specific questions for peer review (e.g., &quot;Is the report objective?&quot;, &quot;Are both direct and indirect impacts mentioned?&quot;, &quot;Are the key areas (housing, small business, etc.) addressed?&quot;, &quot;Is the tone appropriate?&quot;).<br>
+    d. Give students 10-15 minutes to read and provide written feedback.<br>
+2. <strong class="lexis">Teacher Feedback (Language Focus)</strong>:<br>
+    a. Collect the reports.<br>
+    b. Focus on common errors observed during drafting or in peer feedback.<br>
+    c. Address issues with vocabulary usage, sentence structure, and cohesion as a whole class or in smaller groups.<br>
+    d. Provide targeted individual written feedback on language.<br>
+    e. Emphasize revision based on feedback.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reviewing and Improving Our Reports</h4>
+<p>Now it&#x27;s time to refine your report summary! You will first exchange your report with a partner to get feedback on the content.</p>
+<p><strong class="lexis">Part 1: Peer Feedback</strong></p>
+<p>1. Read your partner&#x27;s report summary carefully.<br>
+2. Consider the following questions and provide constructive feedback:<br>
+    a. Is the main purpose of the report clear (informing council members)?<br>
+    b. Does it cover both direct and indirect impacts of the company?<br>
+    c. Are <strong class="lexis">local employment trends</strong>, <strong class="lexis">housing market dynamics</strong>, <strong class="lexis">small business support</strong>, <strong class="lexis">infrastructure development</strong>, and <strong class="lexis">social cohesion</strong> addressed clearly?<br>
+    d. Is the tone professional and objective?<br>
+    e. Is it within the suggested word count (150-200 words)?<br>
+3. Discuss your feedback with your partner.</p>
+<p><strong class="lexis">Part 2: Teacher Feedback &amp; Revision</strong></p>
+<p>After receiving feedback, you will have a chance to review your report. Your teacher will also provide specific language feedback to help you improve your writing. Use all the feedback to revise your summary, aiming for a clear, concise, and professional final draft.</p>
+</section>
+</article>
+</body>
+</html>

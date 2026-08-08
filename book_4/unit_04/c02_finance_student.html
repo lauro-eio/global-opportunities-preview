@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Money: What Happens Next?</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Your Money: What Happens Next?</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>B1</dd>
+      <dt>Unit</dt><dd>4</dd>
+      <dt>Class</dt><dd>2</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-your-monthly-costs">
+<header class="stage-header"><h2>Your Monthly Costs</h2></header>
+<section class="handout">
+<p>We all have costs every month. Some are for work, some are for our personal lives, and some can be a bit of both.</p>
+<p>1. Think about the last month. List three different things you spent money on.<br>
+   a. ____________________________<br>
+   b. ____________________________<br>
+   c. ____________________________</p>
+<p>2. Now, categorize each cost:<br>
+   - Is it a <strong class="lexis">work expense</strong>?<br>
+   - Is it a <strong class="lexis">personal expense</strong>?<br>
+   - Is it a <strong class="lexis">mixed expense</strong> (both work and personal)?</p>
+<p>Discuss your answers with a partner. Be ready to share one example with the class.</p>
+</section>
+</article>
+<article class="stage" id="stage-making-financial-decisions">
+<header class="stage-header"><h2>Making Financial Decisions</h2></header>
+<section class="handout">
+<p>Read the email from your supervisor about new budget rules. Choose the best option to complete each sentence. There is only one correct answer for each.</p>
+<p><strong class="lexis">Email from Management</strong><br>
+Subject: Urgent: New Budget Guidelines</p>
+<p>Team,</p>
+<p>Following our review of recent project <strong class="lexis">expenses</strong>, we need to implement stricter budget controls. Our goal is to manage <strong class="lexis">work_costs</strong> more effectively.</p>
+<p>We anticipate some changes. For example, if we reduce our travel budget, we will need to rely more on video conferencing. Also, a new policy regarding office supplies is coming.</p>
+<p>It&#x27;s important that we all understand the consequences of our spending habits. Please review your <strong class="lexis">expense categories</strong> carefully.</p>
+<p>Thank you,<br>
+Management</p>
+<p>---</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Choose the best option to complete the sentence.</p>
+<p>If we ______ our travel budget, we will save money on transport.</p>
+<ul><li>will cut</li><li>cut</li><li>are cutting</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Choose the best option to complete the sentence.</p>
+<p>Unless we ______ our spending, we won&#x27;t meet the new targets.</p>
+<ul><li>don&#x27;t control</li><li>control</li><li>will control</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Choose the best option to complete the sentence.</p>
+<p>If you ______ your expense report by Friday, you will not receive reimbursement next week.</p>
+<ul><li>don&#x27;t submit</li><li>won&#x27;t submit</li><li>not submit</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-conditions-and-outcomes">
+<header class="stage-header"><h2>Conditions and Outcomes</h2></header>
+<section class="handout">
+<p>We use the <strong class="lexis">First Conditional</strong> to talk about a real possibility in the future and its likely result.</p>
+<p><strong class="lexis">Meaning:</strong> We&#x27;re talking about <strong class="lexis">future possibilities</strong> and <strong class="lexis">certain consequences</strong>.</p>
+<p><strong class="lexis">Form:</strong></p>
+<p><strong class="lexis">Affirmative:</strong> If + Subject + Present Simple, Subject + <strong class="lexis">will</strong> + infinitive<br>
+   <strong class="lexis">Example:</strong> If we <strong class="lexis">reduce</strong> our <strong class="lexis">work_costs</strong>, we <strong class="lexis">will</strong> improve our budget.</p>
+<p><strong class="lexis">Negative:</strong> If + Subject + do/does not + verb, Subject + <strong class="lexis">will not</strong> + infinitive<br>
+   <strong class="lexis">Example:</strong> If we <strong class="lexis">don&#x27;t track</strong> our <strong class="lexis">expenses</strong>, we <strong class="lexis">won&#x27;t</strong> know where our money goes.</p>
+<p><strong class="lexis">&#x27;Unless&#x27;</strong> means &#x27;if not&#x27;. We use it with an affirmative verb after it.<br>
+   <strong class="lexis">Incorrect:</strong> Unless we <strong class="lexis">don&#x27;t</strong> check the budget, we&#x27;ll overspend.<br>
+   <strong class="lexis">Correct:</strong> Unless we <strong class="lexis">check</strong> the budget, we&#x27;ll overspend. (Meaning: If we don&#x27;t check the budget...)</p>
+<p><strong class="lexis">Question:</strong> <strong class="lexis">Will</strong> + Subject + infinitive + if + Subject + Present Simple?<br>
+   <strong class="lexis">Example:</strong> <strong class="lexis">Will</strong> we meet our budget targets if we <strong class="lexis">cut</strong> staff overtime?</p>
+<p>---</p>
+<p><strong class="lexis">Practice:</strong> Complete the sentences using the correct form of the First Conditional.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Complete the sentence using the correct form of the verb in brackets.</p>
+<p>If we (not manage) ______ our personal expenses, we (run out) ______ of money by the end of the month.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence using the correct form of the verb in brackets.</p>
+<p>Unless he (submit) ______ his receipts, he (not get) ______ a reimbursement.</p>
+</div>
+<div class="task"><p class="task-instruction">Choose the correct question.</p>
+<p>Someone says: &#x27;We need to approve this new budget request.&#x27; You ask about the consequence:</p>
+<ul><li>If we approve it, what will happen?</li><li>What will happen if we will approve it?</li><li>What happens if we approve it?</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-planning-for-the-future">
+<header class="stage-header"><h2>Planning for the Future</h2></header>
+<section class="handout">
+<p>Imagine you are in a team meeting to discuss your department&#x27;s budget for the next three months. You need to make some decisions about <strong class="lexis">work_costs</strong> and how they might affect the team or individual <strong class="lexis">personal_costs</strong>.</p>
+<p>Use the <strong class="lexis">First Conditional</strong> to discuss the possible consequences of different decisions. Make sure to use &#x27;If...&#x27; and &#x27;Unless...&#x27; statements, and also ask questions.</p>
+<p>Discuss the following scenarios with your partner:</p>
+<p>1.  <strong class="lexis">Travel Expenses:</strong> Your department&#x27;s budget for work travel is cut by 20%. How will this affect your projects and team?<br>
+    <strong class="lexis">Example:</strong> &quot;If we cut travel, we&#x27;ll miss important client meetings.&quot;</p>
+<p>2.  <strong class="lexis">Office Supplies:</strong> The budget for office supplies (pens, paper, printing) is frozen for the next quarter. What will you do?</p>
+<p>3.  <strong class="lexis">Team Training:</strong> There&#x27;s a chance to attend a useful training course, but it costs a lot. Your manager says you can only go if you find the money from elsewhere in your budget.</p>
+<p>Be ready to share some of your decisions and conditional sentences with the class.</p>
+</section>
+</article>
+</body>
+</html>

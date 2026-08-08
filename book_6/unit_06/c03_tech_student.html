@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Tools: Pros and Cons at Work</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>AI Tools: Pros and Cons at Work</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>6</dd>
+      <dt>Class</dt><dd>3</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-smart-tools-real-world-use">
+<header class="stage-header"><h2>Smart Tools, Real-World Use</h2></header>
+<section class="handout">
+<p>Think about your professional or personal life. What <strong class="lexis">AI tools</strong> or <strong class="lexis">automated systems</strong> have you encountered?</p>
+<p>Discuss with a partner:<br>
+1. How do these tools make tasks <strong class="lexis">simpler</strong> or, perhaps, more <strong class="lexis">complicated</strong>?<br>
+2. What initial <strong class="lexis">ethical concerns</strong> or <strong class="lexis">benefits</strong> come to mind when using them?<br>
+3. Have any of these tools impacted your <strong class="lexis">job tasks</strong> or daily routine? How?</p>
+</section>
+</article>
+<article class="stage" id="stage-workplace-ai-a-conversation">
+<header class="stage-header"><h2>Workplace AI: A Conversation</h2></header>
+<section class="handout">
+<p>Read the conversation between two colleagues, Anna and Ben, discussing the potential integration of a new AI <strong class="lexis">decision-support</strong> tool in their department.</p>
+<p>---</p>
+<p><strong class="lexis">Anna:</strong> Hey Ben, did you see the memo about trialling that new <strong class="lexis">AI-powered decision-support</strong> tool for project allocation?</p>
+<p><strong class="lexis">Ben:</strong> I did. It promises to <strong class="lexis">streamline processes</strong> and improve <strong class="lexis">productivity</strong>. The demo showed it could analyze workload and skill sets to suggest optimal team assignments.</p>
+<p><strong class="lexis">Anna:</strong> On the surface, that sounds like a great <strong class="lexis">practical benefit</strong>. It could really cut down on the manual planning hours. Less paperwork, more actual work.</p>
+<p><strong class="lexis">Ben:</strong> Exactly. It&#x27;s a clear example of <strong class="lexis">AI automation</strong> making things more efficient. But I also have some reservations. What about the <strong class="lexis">ethical implications</strong>?</p>
+<p><strong class="lexis">Anna:</strong> You mean like <strong class="lexis">job impact</strong>? Are people worried it might replace their roles?</p>
+<p><strong class="lexis">Ben:</strong> That, and also the transparency. How does it make its decisions? Is it truly unbiased? We need to ensure <strong class="lexis">ethical AI</strong> principles are being followed, especially when it affects people&#x27;s daily tasks and potentially their career progression. We can&#x27;t just blindly trust the algorithm.</p>
+<p><strong class="lexis">Anna:</strong> Good point. It&#x27;s about finding that balance, isn&#x27;t it? Harnessing the <strong class="lexis">productivity tools</strong> without compromising fairness or human oversight.</p>
+<p><strong class="lexis">Ben:</strong> Absolutely. We should probably bring these points up at the next team meeting. It&#x27;s a significant change to our routine workplace tasks.</p>
+<p>---</p>
+<p><strong class="lexis">Comprehension Check:</strong><br>
+1. What is the main <strong class="lexis">practical benefit</strong> of the AI tool Anna and Ben discuss?<br>
+2. What is Ben&#x27;s primary <strong class="lexis">ethical concern</strong> regarding the AI tool?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Based on the dialogue, what is the main practical benefit of the AI tool mentioned?</p>
+<p>The AI tool is designed to:</p>
+<ul><li>Replace human employees completely.</li><li>Improve social interaction among colleagues.</li><li>Streamline project allocation and improve productivity.</li><li>Automate all forms of customer service.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">According to Ben, what is a key ethical concern about the AI tool?</p>
+<p>Ben&#x27;s main ethical concern is about the AI tool&#x27;s...</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-pros-cons-and-safe-ai-use">
+<header class="stage-header"><h2>Pros, Cons, and Safe AI Use</h2></header>
+<section class="handout">
+<p>You are going to discuss the integration of an AI tool into your workplace. Before you start, prepare your arguments. Think about the <strong class="lexis">practical benefits</strong>, <strong class="lexis">ethical concerns</strong>, and how to ensure <strong class="lexis">responsible AI implementation</strong>.</p>
+<p>Use the columns below to organize your thoughts and prepare points to discuss.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Practical Benefits of AI</th><th>Ethical Concerns &amp; Challenges</th><th>Ensuring Responsible AI</th><th>Useful Phrases for Discussion</th></tr><tr><td>Boosts **productivity** and **efficiency**</td><td>Potential for **job impact** / displacement</td><td>Implement **ethical AI** guidelines</td><td>One key benefit is...</td></tr><tr><td>**Automates** repetitive **tasks**</td><td>Lack of transparency (&#x27;black box&#x27; AI)</td><td>Maintain human oversight and control</td><td>I see a potential challenge with...</td></tr><tr><td>Offers **decision support** with data analysis</td><td>Concerns about **data privacy** and security</td><td>Provide training and upskilling for employees</td><td>We need to consider...</td></tr><tr><td>Reduces human error</td><td>Algorithmic bias and fairness issues</td><td>Ensure data privacy and security measures</td><td>From an ethical standpoint...</td></tr><tr><td>Frees up time for complex work</td><td>Over-reliance on technology, loss of human skills</td><td>Communicate changes transparently</td><td>To mitigate this, we could...</td></tr><tr><td></td><td></td><td></td><td>It&#x27;s crucial to ensure...</td></tr><tr><td></td><td></td><td></td><td>My main concern revolves around...</td></tr><tr><td></td><td></td><td></td><td>On the other hand...</td></tr><tr><td></td><td></td><td></td><td>It would certainly streamline...</td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-debating-smart-tools-at-work">
+<header class="stage-header"><h2>Debating Smart Tools at Work</h2></header>
+<section class="handout">
+<p>Imagine your department is considering integrating a new AI tool to assist with a routine workplace task (e.g., scheduling, inventory management, initial customer query handling). You are in a team meeting to discuss this proposal.</p>
+<p><strong class="lexis">Your Task:</strong><br>
+Discuss the <strong class="lexis">ethical implications</strong> and <strong class="lexis">practical benefits</strong> of integrating this AI tool. Each person should express their viewpoint, use the phrases and ideas you prepared, and try to reach a collective understanding or recommendation for your manager.</p>
+<p>Consider these points in your discussion:<br>
+*   What specific <strong class="lexis">practical benefits</strong> could this AI tool bring to your daily tasks?<br>
+*   What <strong class="lexis">ethical concerns</strong> or potential problems might arise (e.g., <strong class="lexis">job impact</strong>, fairness, <strong class="lexis">data privacy</strong>)?<br>
+*   How can you ensure the AI is implemented responsibly and follows <strong class="lexis">ethical AI</strong> principles?<br>
+*   What specific steps or guidelines should your department consider to make the most of this <strong class="lexis">productivity tool</strong> while minimizing risks?</p>
+</section>
+</article>
+<article class="stage" id="stage-reflecting-on-our-arguments">
+<header class="stage-header"><h2>Reflecting on Our Arguments</h2></header>
+<section class="handout">
+<p>Take a moment to reflect on your discussion about AI integration.</p>
+<p><strong class="lexis">Self-reflection / Peer Feedback:</strong><br>
+1. Did your group effectively discuss both the <strong class="lexis">practical benefits</strong> and <strong class="lexis">ethical implications</strong>?<br>
+2. Did you use any of the new vocabulary or phrases from the preparation stage?<br>
+3. What was the most interesting point or solution that came up in your discussion?<br>
+4. What could you or your group improve next time when discussing complex topics like this?</p>
+</section>
+</article>
+</body>
+</html>

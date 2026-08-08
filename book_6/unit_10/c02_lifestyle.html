@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Announcing CSR Initiatives: Professional Tone and Structure</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Announcing CSR Initiatives: Professional Tone and Structure</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>10</dd>
+      <dt>Class</dt><dd>2</dd>
+      <dt>Theme</dt><dd>T10_LIFESTYLE</dd>
+      <dt>Framework</dt><dd>TBLF</dd>
+      <dt>Role</dt><dd>TBLF_DISCOURSE_ANALYSIS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Community Outreach &amp; Workplace Initiatives</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by displaying the lead-in brief on the board or screen.<br>
+2. Ask learners to discuss in pairs or small groups: &#x27;Imagine your company is launching a new program to give back to the local community. What kinds of projects related to lifestyle or social support would you propose, and why are they important?&#x27;<br>
+3. Circulate and monitor, noting down any relevant vocabulary or ideas. Encourage them to think about practical, achievable projects aligned with a working-class community&#x27;s needs.<br>
+4. Bring the class back together and elicit a few ideas, writing key project types on the board (e.g., skill-sharing workshops, community garden projects, local park clean-ups, mentoring for youth).<br>
+5. Frame the upcoming reading by explaining that they will examine how a company communicates about such initiatives while balancing professional expectations with personal commitments.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Your Company, Your Community</h4>
+<p>Your company is proposing a new initiative to support the local community. This is an exciting opportunity for positive change!</p>
+<p>Discuss with a partner:<br>
+1. What kinds of projects focused on lifestyle or social support would be most beneficial for our community?<br>
+2. Why are these projects particularly important right now?<br>
+3. How can a company encourage participation while respecting employees&#x27; personal lives and commitments?</p>
+</section>
+</article>
+<article class="stage" id="stage-GIST">
+<header class="stage-header"><span class="stage-code">GIST</span><h2>Gist Reading: Understanding a Community Program</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Distribute the &#x27;Veridian Logistics Community Connect: Program Launch&#x27; memo.<br>
+2. Instruct learners to read the memo quickly to get the main idea, focusing on Task 1.<br>
+3. Set a strict time limit (e.g., 3-4 minutes) to encourage skimming.<br>
+4. After time is up, have learners compare their answers in pairs before eliciting the correct answer from the class.<br>
+5. Address any immediate questions about general meaning, but avoid going into detail on specific language points at this stage.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Veridian Logistics: Community Connect Program</h4>
+<p>Read the following memo from Veridian Logistics. Don&#x27;t worry about every detail, just try to understand the main purpose of the communication.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Veridian Logistics: Community Connect Program Launch</h5>
+<p>DATE: October 26, 2024<br>
+TO: All Employees<br>
+FROM: Maria Chen, Head of Corporate Social Responsibility<br>
+SUBJECT: Announcing Veridian Logistics’ New &#x27;Community Connect&#x27; Program</p>
+<p>Dear Team,</p>
+<p>We are thrilled to launch &#x27;Community Connect,&#x27; our new <strong class="lexis">corporate social responsibility</strong> initiative designed to deepen our engagement with the local area. This program represents Veridian Logistics’ commitment to giving back and fostering stronger community ties. We believe that by investing in our shared environment, we empower both our community members and our employees.</p>
+<p>Our initial focus areas, identified through <strong class="lexis">stakeholder collaboration</strong> with local councils and residents, include <strong class="lexis">neighborhood improvement</strong> projects and enhancements to <strong class="lexis">local infrastructure</strong>. These might range from revitalizing public green spaces to supporting vocational training workshops for community members looking to gain new skills. We invite you to be a part of these meaningful <strong class="lexis">volunteer initiatives</strong>.</p>
+<p>We understand that participation in such programs requires careful consideration of personal schedules. Veridian Logistics is committed to fostering an environment where employees can <strong class="lexis">maintain a healthy work-life balance</strong>. Therefore, all participation is entirely voluntary, and we encourage you to <strong class="lexis">respect personal boundaries</strong> within your teams when discussing involvement. We ask that managers actively support flexible arrangements where feasible, ensuring that employees can <strong class="lexis">prioritize personal commitments</strong> without undue pressure. If you are unable to participate, we appreciate your understanding; there will be future opportunities, and we anticipate many will choose to <strong class="lexis">do so</strong> then.</p>
+<p>More details on specific projects and sign-up procedures will follow next week. We look forward to building a stronger, more connected community together.</p>
+<p>Sincerely,<br>
+Maria Chen</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main purpose of this memo?</p>
+<p>The primary aim of this memo is to:</p>
+<ul><li>Announce mandatory new work hours for community projects.</li><li>Introduce a new company program for community engagement and invite voluntary participation.</li><li>Request ideas for new community projects from employees.</li><li>Inform employees about recent changes in company policy regarding personal leave.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-DET">
+<header class="stage-header"><span class="stage-code">DET</span><h2>Detailed Reading: Navigating Professional &amp; Personal Commitments</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Have learners re-read the memo more carefully.<br>
+2. Instruct them to complete the detailed comprehension tasks. For short-text answers, encourage them to find the exact wording from the text.<br>
+3. For the inference question (Task 3), allow pairs to discuss possible reasons based on the tone and content of the memo. Emphasize that there might be multiple valid inferences.<br>
+4. Review answers as a class, clarifying any misunderstandings. For Task 3, prompt learners to explain their reasoning, linking it to specific phrases in the text.<br>
+5. Do not explicitly teach the target language points yet; the aim is for learners to notice them in context.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Understanding the &#x27;Community Connect&#x27; Details</h4>
+<p>Read the memo again in detail to answer the following questions. Provide answers as concisely as possible, using information directly from the text where appropriate.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Veridian Logistics: Community Connect Program Launch</h5>
+<p>DATE: October 26, 2024<br>
+TO: All Employees<br>
+FROM: Maria Chen, Head of Corporate Social Responsibility<br>
+SUBJECT: Announcing Veridian Logistics’ New &#x27;Community Connect&#x27; Program</p>
+<p>Dear Team,</p>
+<p>We are thrilled to launch &#x27;Community Connect,&#x27; our new <strong class="lexis">corporate social responsibility</strong> initiative designed to deepen our engagement with the local area. This program represents Veridian Logistics’ commitment to giving back and fostering stronger community ties. We believe that by investing in our shared environment, we empower both our community members and our employees.</p>
+<p>Our initial focus areas, identified through <strong class="lexis">stakeholder collaboration</strong> with local councils and residents, include <strong class="lexis">neighborhood improvement</strong> projects and enhancements to <strong class="lexis">local infrastructure</strong>. These might range from revitalizing public green spaces to supporting vocational training workshops for community members looking to gain new skills. We invite you to be a part of these meaningful <strong class="lexis">volunteer initiatives</strong>.</p>
+<p>We understand that participation in such programs requires careful consideration of personal schedules. Veridian Logistics is committed to fostering an environment where employees can <strong class="lexis">maintain a healthy work-life balance</strong>. Therefore, all participation is entirely voluntary, and we encourage you to <strong class="lexis">respect personal boundaries</strong> within your teams when discussing involvement. We ask that managers actively support flexible arrangements where feasible, ensuring that employees can <strong class="lexis">prioritize personal commitments</strong> without undue pressure. If you are unable to participate, we appreciate your understanding; there will be future opportunities, and we anticipate many will choose to <strong class="lexis">do so</strong> then.</p>
+<p>More details on specific projects and sign-up procedures will follow next week. We look forward to building a stronger, more connected community together.</p>
+<p>Sincerely,<br>
+Maria Chen</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">According to the memo, what two main types of projects are the initial focus areas for Community Connect?</p>
+<p>The two main types of projects are:</p>
+</div>
+<div class="task"><p class="task-instruction">What is explicitly stated about employee participation in the program?</p>
+<p>Employee participation is:</p>
+<ul><li>Mandatory for all full-time staff.</li><li>Encouraged but entirely voluntary.</li><li>Limited to senior management.</li><li>Required only for those directly involved in CSR.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">The memo explicitly mentions &#x27;respect personal boundaries&#x27; and &#x27;prioritize personal commitments&#x27;. What potential employee concerns does the memo implicitly address by including these phrases?</p>
+<p>The memo addresses concerns such as:</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-GD">
+<header class="stage-header"><span class="stage-code">GD</span><h2>Guided Discovery: Professional Language &amp; Structural Efficiency</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Direct learners&#x27; attention back to the memo for specific language points.<br>
+2. For Pragmatics (Professional Demeanor):<br>
+   - Ask learners to find phrases in the memo that relate to respecting personal time and choices.<br>
+   - Elicit or highlight phrases like &#x27;maintain a healthy work-life balance,&#x27; &#x27;respect personal boundaries,&#x27; &#x27;prioritize personal commitments,&#x27; &#x27;If you are unable to participate, we appreciate your understanding.&#x27;<br>
+   - Discuss their function: Why are these phrases used? (To ensure politeness, set boundaries, show respect in a professional context).<br>
+   - Model the gentle, falling intonation for politeness and stress on keywords as per phonological focus.<br>
+3. For Structure (Substitution and Ellipsis):<br>
+   - Draw attention to the sentence: &#x27;...we anticipate many will choose to do so then.&#x27;<br>
+   - Ask: What does &#x27;do so&#x27; replace? (To participate in the volunteer initiatives).<br>
+   - Explain that &#x27;do so&#x27; is used to avoid repeating a long verb phrase, making the text more concise and professional, especially in formal communication or when discussing complex ideas. Provide another example if needed, e.g., &#x27;The team completed the report ahead of schedule, and management asked them to do so again next quarter.&#x27;<br>
+   - Discuss the benefits in C2 contexts: streamlining arguments, avoiding redundancy in critical analyses.<br>
+4. Use the provided tasks to consolidate understanding of both targets.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Unpacking the Memo&#x27;s Message</h4>
+<p>Let&#x27;s look closer at how Maria Chen&#x27;s memo communicates its message effectively and politely.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Veridian Logistics: Community Connect Program Launch</h5>
+<p>DATE: October 26, 2024<br>
+TO: All Employees<br>
+FROM: Maria Chen, Head of Corporate Social Responsibility<br>
+SUBJECT: Announcing Veridian Logistics’ New &#x27;Community Connect&#x27; Program</p>
+<p>Dear Team,</p>
+<p>We are thrilled to launch &#x27;Community Connect,&#x27; our new <strong class="lexis">corporate social responsibility</strong> initiative designed to deepen our engagement with the local area. This program represents Veridian Logistics’ commitment to giving back and fostering stronger community ties. We believe that by investing in our shared environment, we empower both our community members and our employees.</p>
+<p>Our initial focus areas, identified through <strong class="lexis">stakeholder collaboration</strong> with local councils and residents, include <strong class="lexis">neighborhood improvement</strong> projects and enhancements to <strong class="lexis">local infrastructure</strong>. These might range from revitalizing public green spaces to supporting vocational training workshops for community members looking to gain new skills. We invite you to be a part of these meaningful <strong class="lexis">volunteer initiatives</strong>.</p>
+<p>We understand that participation in such programs requires careful consideration of personal schedules. Veridian Logistics is committed to fostering an environment where employees can <strong class="lexis">maintain a healthy work-life balance</strong>. Therefore, all participation is entirely voluntary, and we encourage you to <strong class="lexis">respect personal boundaries</strong> within your teams when discussing involvement. We ask that managers actively support flexible arrangements where feasible, ensuring that employees can <strong class="lexis">prioritize personal commitments</strong> without undue pressure. If you are unable to participate, we appreciate your understanding; there will be future opportunities, and we anticipate many will choose to <strong class="lexis">do so</strong> then.</p>
+<p>More details on specific projects and sign-up procedures will follow next week. We look forward to building a stronger, more connected community together.</p>
+<p>Sincerely,<br>
+Maria Chen</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match the polite phrases from the memo with their function in a professional setting.</p>
+<p>Match the phrases on the left with their intended professional function on the right.</p>
+<ul><li><strong>maintain a healthy work-life balance</strong> — To emphasize the company&#x27;s support for employee well-being.</li><li><strong>respect personal boundaries</strong> — To encourage considerate interaction among colleagues about personal matters.</li><li><strong>prioritize personal commitments</strong> — To affirm that personal responsibilities take precedence over voluntary work activities.</li><li><strong>we appreciate your understanding</strong> — To politely acknowledge non-participation without creating guilt.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">In the sentence &#x27;...many will choose to do so then,&#x27; what specific action does &#x27;do so&#x27; replace?</p>
+<p>&#x27;Do so&#x27; replaces:</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-CP">
+<header class="stage-header"><span class="stage-code">CP</span><h2>Controlled Practice: Refining Professional Communication</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that learners will now practice using the professional demeanor phrases and the &#x27;do so&#x27; substitution/ellipsis structure.<br>
+2. Go through each short-text task. For the substitution tasks, encourage learners to rewrite sentences using &#x27;do so&#x27; or by omitting redundant information.<br>
+3. For the pragmatic phrases, guide them to choose the most appropriate phrase for the given professional scenario.<br>
+4. Emphasize the importance of conciseness and politeness, especially at C1/C2 level.<br>
+5. Review answers, paying attention to the accuracy of the substitution and the appropriate use of pragmatic language. Point out how these structures contribute to a more sophisticated and diplomatic style.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Applying New Structures and Phrases</h4>
+<p>Now, let&#x27;s practice using the expressions for professional demeanor and the structural technique of &#x27;do so&#x27; and omission. Complete the following tasks to make the sentences more concise and polite.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Rewrite the following sentence using &#x27;do so&#x27; to avoid repetition: &#x27;Our team successfully implemented the new recycling program, and we expect other departments to implement the new recycling program as well.&#x27;</p>
+<p>Rewrite the sentence:</p>
+</div>
+<div class="task"><p class="task-instruction">Fill in the blank with an appropriate phrase for professional boundary-setting: &#x27;While we appreciate your enthusiasm for the project, it&#x27;s important to ____ in team discussions about personal commitments.&#x27;</p>
+<p>Fill in the blank:</p>
+</div>
+<div class="task"><p class="task-instruction">Choose the best polite phrase: &#x27;Thank you for inviting me to the weekend volunteer event. Unfortunately, I have a family engagement, so I cannot attend. I ______________.&#x27;</p>
+<p>Choose the best phrase:</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite this sentence more concisely using an omitted clause: &#x27;The local council decided to fund the park renovation, and the residents were very happy with that decision.&#x27;</p>
+<p>Rewrite the sentence:</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Freer Practice: Discussing Community Initiatives and Personal Time</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that learners will now use the target language in a freer, more personalized discussion related to the unit theme.<br>
+2. Divide learners into pairs or small groups.<br>
+3. Present the discussion prompt: &#x27;Imagine you are a team leader discussing the &#x27;Community Connect&#x27; program with your colleagues. One colleague seems hesitant to join due to existing commitments, while another is overly enthusiastic and begins asking personal questions about others&#x27; weekend plans. How would you navigate this conversation, encouraging participation while using diplomatic language and respecting boundaries?&#x27;<br>
+4. Encourage them to role-play the scenario, explicitly incorporating the target structures (&#x27;do so&#x27; or omitted clauses where natural) and pragmatic phrases (e.g., &#x27;respect personal boundaries,&#x27; &#x27;prioritize personal commitments,&#x27; &#x27;I appreciate your understanding&#x27;).<br>
+5. Circulate and monitor, noting effective use of language and areas for improvement. Provide gentle correction as needed.<br>
+6. Bring the class back together for a brief feedback session, asking groups to share how they handled the situation and which phrases they found most useful. Emphasize the C2-level skill of navigating sensitive topics with diplomacy.</p>
+<p><strong class="lexis">Sample response elements (for teacher guidance, not to be given to students directly):</strong><br>
+*   &#x27;I understand some of us might have many personal commitments already, and we should all prioritize personal commitments when deciding on participation. There&#x27;s no pressure to do so if it doesn&#x27;t fit your schedule.&#x27; (Pragmatic + Structure)<br>
+*   &#x27;Regarding weekend plans, let&#x27;s remember to respect personal boundaries when discussing involvement. We want everyone to feel comfortable.&#x27; (Pragmatic)<br>
+*   &#x27;If you can&#x27;t join this time, I appreciate your understanding, and there will be other chances to do so in the future.&#x27; (Pragmatic + Structure)<br>
+*   &#x27;The goal is for everyone to maintain a healthy work-life balance, so participation is purely voluntary.&#x27; (Pragmatic)</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Your Role in Community &amp; Your Work-Life Balance</h4>
+<p>Imagine you are a team leader discussing the &#x27;Community Connect&#x27; program with your colleagues. Your goal is to encourage participation while also ensuring everyone feels comfortable and respected.</p>
+<p>Consider two colleagues:<br>
+1.  One colleague expresses hesitation due to existing personal commitments.<br>
+2.  Another colleague is very enthusiastic but starts asking personal questions about other people&#x27;s weekend plans and availability.</p>
+<p>How would you navigate this conversation? Discuss with a partner how you would:<br>
+*   Encourage participation without pressure.<br>
+*   Address the enthusiastic colleague&#x27;s over-eagerness politely.<br>
+*   Reassure the hesitant colleague.</p>
+<p>Try to use the phrases for professional demeanor and the structural techniques (like &#x27;do so&#x27; or omitted clauses) you&#x27;ve learned to make your communication diplomatic and concise.</p>
+</section>
+</article>
+</body>
+</html>

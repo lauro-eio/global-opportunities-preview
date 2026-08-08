@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crafting Formal Business Proposals</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Crafting Formal Business Proposals</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>2</dd>
+      <dt>Class</dt><dd>2</dd>
+      <dt>Theme</dt><dd>T02_WORK</dd>
+      <dt>Framework</dt><dd>TBLF</dd>
+      <dt>Role</dt><dd>TBLF_DISCOURSE_ANALYSIS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Improving Workplace Processes</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the unit&#x27;s theme: improving workplace processes and corporate strategy.<br>
+2. Prompt learners to think about repetitive tasks and potential improvements at their jobs.<br>
+3. Encourage sharing specific ideas and expected benefits for the company.<br>
+4. Facilitate a brief discussion, ensuring a professional and practical tone aligned with the target audience.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Your Ideas for Better Work</h4>
+<p>Think about a repetitive task at your job that you believe could be significantly improved. This could be anything from data entry to a physical workflow.</p>
+<p>1. What is one specific idea you have to make this task more efficient or effective?<br>
+2. How would implementing this idea directly benefit your company or team? Consider aspects like time savings, reduced errors, or cost reduction.<br>
+3. Be ready to share your idea and its benefits with a partner or the class. We&#x27;re looking for practical, actionable proposals.</p>
+</section>
+</article>
+<article class="stage" id="stage-GIST">
+<header class="stage-header"><span class="stage-code">GIST</span><h2>Gist Reading: Corporate Proposal</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Instruct learners to read the proposal quickly to understand the main idea and the purpose of the document.<br>
+2. Emphasize not to focus on every detail at this stage.<br>
+3. Ask them to complete the multiple-choice question to check their overall comprehension.<br>
+4. Do not provide answers yet; just collect initial responses.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Understanding a Proposal for Change</h4>
+<p>Read the following internal company proposal. Focus on understanding the overall purpose of the document and the main idea being presented.</p>
+<p>Don&#x27;t worry about understanding every single word or phrase at this point. Just get the <strong class="lexis">gist</strong>.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Internal Proposal: Automated Inventory Management System (AIMS)</h5>
+<p>DATE: October 26, 2024<br>
+TO: Senior Management Committee<br>
+FROM: Alex Chen, Operations Lead<br>
+SUBJECT: Proposal for Automated Inventory Management System (AIMS) to Enhance Operational Efficiency</p>
+<p>Dear Committee,</p>
+<p>I am writing to formally <strong class="lexis">propose a new approach</strong> to our current inventory management processes. Over the past year, our team has identified several key bottlenecks in manual stock tracking and reconciliation, leading to inefficiencies and occasional discrepancies that impact our delivery schedules and customer satisfaction.</p>
+<p>Our proposal centers on implementing an Automated Inventory Management System (AIMS). This system would utilize real-time scanning and data integration, significantly reducing the manual effort currently required. The primary <strong class="lexis">value proposition</strong> of AIMS is its capacity to deliver substantial <strong class="lexis">efficiency gains</strong> through faster processing, reduced human error, and improved stock visibility across all warehouse locations.</p>
+<p><strong class="lexis">Should</strong> the executive committee approve this initiative, we project a 15% increase in operational <strong class="lexis">efficiency gains</strong> within the first six months, coupled with a 10% reduction in inventory-related discrepancies. Furthermore, AIMS provides enhanced data for strategic decision-making, ensuring closer <strong class="lexis">strategic alignment</strong> with our company&#x27;s innovation goals for the upcoming fiscal year. We believe this is a critical step for <strong class="lexis">process optimization</strong>.</p>
+<p><strong class="lexis">My main concern would be how this impacts</strong> our existing staff. To address this, we propose comprehensive training modules and a phased implementation strategy to ensure a smooth transition. <strong class="lexis">Had</strong> we not identified this critical bottleneck in manual inventory, our current <strong class="lexis">process optimization</strong> efforts would yield diminishing returns. This system aims to empower staff by automating repetitive tasks, allowing them to focus on more complex, value-added activities.</p>
+<p><strong class="lexis">To ensure alignment across departments</strong>, we would form a cross-functional task force to oversee the pilot phase. <strong class="lexis">We should prioritize actionable steps for</strong> a detailed cost-benefit analysis and a feasibility study as immediate next steps. <strong class="lexis">Could you elaborate on the long-term implications</strong> for our supply chain partners during our next meeting?</p>
+<p>Thank you for considering this proposal. We look forward to discussing its potential further.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main purpose of this proposal?</p>
+<p>The main purpose of this proposal is to...</p>
+<ul><li>report on past inventory problems.</li><li>request funding for a new IT department.</li><li>suggest implementing a new system to improve efficiency.</li><li>demand immediate changes to the current stock tracking.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-DET">
+<header class="stage-header"><span class="stage-code">DET</span><h2>Detailed Reading: Understanding Specifics</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Instruct learners to re-read the proposal more carefully, focusing on specific details.<br>
+2. Explain that the tasks require them to find precise information or infer meaning from the text.<br>
+3. After tasks are completed, facilitate a brief discussion to clarify any misunderstandings.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Unpacking the Proposal Details</h4>
+<p>Now, read the proposal again more carefully. This time, focus on the details, specific benefits, and concerns raised by the author. Answer the questions below based on the text.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Internal Proposal: Automated Inventory Management System (AIMS)</h5>
+<p>DATE: October 26, 2024<br>
+TO: Senior Management Committee<br>
+FROM: Alex Chen, Operations Lead<br>
+SUBJECT: Proposal for Automated Inventory Management System (AIMS) to Enhance Operational Efficiency</p>
+<p>Dear Committee,</p>
+<p>I am writing to formally <strong class="lexis">propose a new approach</strong> to our current inventory management processes. Over the past year, our team has identified several key bottlenecks in manual stock tracking and reconciliation, leading to inefficiencies and occasional discrepancies that impact our delivery schedules and customer satisfaction.</p>
+<p>Our proposal centers on implementing an Automated Inventory Management System (AIMS). This system would utilize real-time scanning and data integration, significantly reducing the manual effort currently required. The primary <strong class="lexis">value proposition</strong> of AIMS is its capacity to deliver substantial <strong class="lexis">efficiency gains</strong> through faster processing, reduced human error, and improved stock visibility across all warehouse locations.</p>
+<p><strong class="lexis">Should</strong> the executive committee approve this initiative, we project a 15% increase in operational <strong class="lexis">efficiency gains</strong> within the first six months, coupled with a 10% reduction in inventory-related discrepancies. Furthermore, AIMS provides enhanced data for strategic decision-making, ensuring closer <strong class="lexis">strategic alignment</strong> with our company&#x27;s innovation goals for the upcoming fiscal year. We believe this is a critical step for <strong class="lexis">process optimization</strong>.</p>
+<p><strong class="lexis">My main concern would be how this impacts</strong> our existing staff. To address this, we propose comprehensive training modules and a phased implementation strategy to ensure a smooth transition. <strong class="lexis">Had</strong> we not identified this critical bottleneck in manual inventory, our current <strong class="lexis">process optimization</strong> efforts would yield diminishing returns. This system aims to empower staff by automating repetitive tasks, allowing them to focus on more complex, value-added activities.</p>
+<p><strong class="lexis">To ensure alignment across departments</strong>, we would form a cross-functional task force to oversee the pilot phase. <strong class="lexis">We should prioritize actionable steps for</strong> a detailed cost-benefit analysis and a feasibility study as immediate next steps. <strong class="lexis">Could you elaborate on the long-term implications</strong> for our supply chain partners during our next meeting?</p>
+<p>Thank you for considering this proposal. We look forward to discussing its potential further.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">According to the proposal, what are two current problems with the manual stock tracking system?</p>
+<p>Two problems with the manual stock tracking system are:</p>
+</div>
+<div class="task"><p class="task-instruction">What is the primary benefit (value proposition) of the AIMS system?</p>
+<p>The main value proposition of AIMS is to provide...</p>
+<ul><li>new job opportunities for IT staff.</li><li>substantial efficiency gains through faster processing and reduced errors.</li><li>a complete overhaul of the company&#x27;s financial system.</li><li>a simple report on past inventory failures.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">What are the two immediate next steps proposed by Alex Chen?</p>
+<p>The two immediate next steps proposed are:</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-GD">
+<header class="stage-header"><span class="stage-code">GD</span><h2>Guided Discovery: Strategic Language and Conditionals</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Instruct learners to complete the discovery tasks by identifying strategic phrases and inverted conditionals in the proposal.<br>
+2. After tasks are completed, facilitate a discussion about the meaning and function of these phrases and structures. Focus on the formality and hypothetical nature of the conditionals.<br>
+3. Use the concept check questions from the linguistic target for inverted conditionals: &#x27;Is this a formal way to replace an &#x27;if&#x27; clause? (Yes)&#x27;, &#x27;Did the corporate efficiency target change already happen, or are we looking at a hypothesis? (Hypothesis)&#x27;.<br>
+4. Clarify the meaning and typical usage contexts (formal, strategic discussions).</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Analyzing Professional Expression</h4>
+<p>Look back at the proposal. This time, we&#x27;re going to analyze some specific ways Alex Chen uses language to make the proposal professional, diplomatic, and clear about potential outcomes.</p>
+<p>After completing the tasks, we will discuss the sentences that begin with &#x27;Should...&#x27; and &#x27;Had...&#x27;. These are examples of &#x27;inverted conditionals&#x27;, a very formal way to talk about hypotheses or conditions.</p>
+<p>Discuss with a partner:<br>
+*   How could you rephrase these sentences using &#x27;If...&#x27; without changing the meaning? (e.g., &#x27;If the executive committee approves...&#x27;; &#x27;If we had not identified...&#x27;).<br>
+*   What is the difference in formality between the &#x27;Should/Had&#x27; version and the &#x27;If&#x27; version?<br>
+*   Do these sentences talk about something that has already happened, or something that is hypothetical and might happen in the future? Why is this important in a business proposal?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Internal Proposal: Automated Inventory Management System (AIMS)</h5>
+<p>DATE: October 26, 2024<br>
+TO: Senior Management Committee<br>
+FROM: Alex Chen, Operations Lead<br>
+SUBJECT: Proposal for Automated Inventory Management System (AIMS) to Enhance Operational Efficiency</p>
+<p>Dear Committee,</p>
+<p>I am writing to formally <strong class="lexis">propose a new approach</strong> to our current inventory management processes. Over the past year, our team has identified several key bottlenecks in manual stock tracking and reconciliation, leading to inefficiencies and occasional discrepancies that impact our delivery schedules and customer satisfaction.</p>
+<p>Our proposal centers on implementing an Automated Inventory Management System (AIMS). This system would utilize real-time scanning and data integration, significantly reducing the manual effort currently required. The primary <strong class="lexis">value proposition</strong> of AIMS is its capacity to deliver substantial <strong class="lexis">efficiency gains</strong> through faster processing, reduced human error, and improved stock visibility across all warehouse locations.</p>
+<p><strong class="lexis">Should</strong> the executive committee approve this initiative, we project a 15% increase in operational <strong class="lexis">efficiency gains</strong> within the first six months, coupled with a 10% reduction in inventory-related discrepancies. Furthermore, AIMS provides enhanced data for strategic decision-making, ensuring closer <strong class="lexis">strategic alignment</strong> with our company&#x27;s innovation goals for the upcoming fiscal year. We believe this is a critical step for <strong class="lexis">process optimization</strong>.</p>
+<p><strong class="lexis">My main concern would be how this impacts</strong> our existing staff. To address this, we propose comprehensive training modules and a phased implementation strategy to ensure a smooth transition. <strong class="lexis">Had</strong> we not identified this critical bottleneck in manual inventory, our current <strong class="lexis">process optimization</strong> efforts would yield diminishing returns. This system aims to empower staff by automating repetitive tasks, allowing them to focus on more complex, value-added activities.</p>
+<p><strong class="lexis">To ensure alignment across departments</strong>, we would form a cross-functional task force to oversee the pilot phase. <strong class="lexis">We should prioritize actionable steps for</strong> a detailed cost-benefit analysis and a feasibility study as immediate next steps. <strong class="lexis">Could you elaborate on the long-term implications</strong> for our supply chain partners during our next meeting?</p>
+<p>Thank you for considering this proposal. We look forward to discussing its potential further.</p>
+</section>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Strategic Discussion Phrases</th><th>Inverted Conditional Structures</th></tr><tr><td>I&#x27;d like to propose a new approach</td><td>Should + Subject + (not) + verb/infinitive, main clause</td></tr><tr><td>My main concern would be how this impacts</td><td>Had + Subject + (not) + past participle, main clause</td></tr><tr><td>To ensure alignment across departments</td><td></td></tr><tr><td>We should prioritize actionable steps for</td><td></td></tr><tr><td>Could you elaborate on the long-term implications?</td><td></td></tr></table></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match the function of the phrase with how Alex Chen expresses it in the proposal. Drag and drop the phrases on the right to match their function.</p>
+<ul><li><strong>Introducing a new idea or suggestion</strong> — propose a new approach</li><li><strong>Expressing a potential difficulty or worry</strong> — My main concern would be how this impacts</li><li><strong>Emphasizing the need for collaboration or consistency</strong> — To ensure alignment across departments</li><li><strong>Suggesting immediate actions</strong> — We should prioritize actionable steps for</li><li><strong>Asking for further explanation</strong> — Could you elaborate on the long-term implications?</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Identify the first sentence in the proposal that uses an &#x27;inverted conditional&#x27; structure beginning with &#x27;Should...&#x27;.</p>
+<p>The &#x27;Should...&#x27; inverted conditional sentence is:</p>
+</div>
+<div class="task"><p class="task-instruction">Identify the second sentence in the proposal that uses an &#x27;inverted conditional&#x27; structure beginning with &#x27;Had...&#x27;.</p>
+<p>The &#x27;Had...&#x27; inverted conditional sentence is:</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-CP">
+<header class="stage-header"><span class="stage-code">CP</span><h2>Controlled Practice: Applying Formal Language</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that learners will now practice using the professional phrases and inverted conditionals in new sentences.<br>
+2. Emphasize the need for formality and precision in their answers.<br>
+3. For inverted conditionals, remind them to think about hypothetical situations relevant to their workplace or the proposal theme.<br>
+4. Review answers as a class, focusing on correct form and appropriate context for use.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Constructing Formal Statements</h4>
+<p>Now, let&#x27;s practice using the formal language and inverted conditionals we&#x27;ve identified. Complete the following sentences, ensuring your answers maintain a professional tone suitable for a corporate discussion.</p>
+<p><strong class="lexis">Part A: Professional Strategic Phrases</strong><br>
+Complete the following sentences using phrases for strategic discussions. Use one of the phrases you identified from the reading (e.g., &#x27;I&#x27;d like to propose...&#x27;, &#x27;My main concern would be...&#x27;, &#x27;To ensure alignment...&#x27;, &#x27;We should prioritize...&#x27;, &#x27;Could you elaborate...&#x27;).</p>
+<p>1.  At our next team meeting, __________________________________________ for improving inter-departmental communication.<br>
+2.  We need to carefully consider the new policy. __________________________________________ its impact on staff morale and productivity.<br>
+3.  __________________________________________ on the exact financial projections for this project before we proceed?</p>
+<p><strong class="lexis">Part B: Inverted Conditionals</strong><br>
+Rewrite the following &#x27;if&#x27; sentences using the more formal inverted conditional structure (&#x27;Should...&#x27; or &#x27;Had...&#x27;).</p>
+<p>4.  If the project faces unexpected delays, we will need to reallocate resources immediately.<br>
+    ____________________________________________________________________________________<br>
+5.  If we had not invested in new software last year, our data processing capabilities would be severely limited now.<br>
+    ____________________________________________________________________________________<br>
+6.  If you have any further questions about the proposal, please contact the lead manager.<br>
+    ____________________________________________________________________________________</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Complete the sentence using a strategic discussion phrase.</p>
+<p>At our next team meeting, __________________________________________ for improving inter-departmental communication.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence using a strategic discussion phrase.</p>
+<p>We need to carefully consider the new policy. __________________________________________ its impact on staff morale and productivity.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence using a strategic discussion phrase.</p>
+<p>__________________________________________ on the exact financial projections for this project before we proceed?</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence using an inverted conditional (Should... or Had...).</p>
+<p>If the project faces unexpected delays, we will need to reallocate resources immediately.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence using an inverted conditional (Should... or Had...).</p>
+<p>If we had not invested in new software last year, our data processing capabilities would be severely limited now.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence using an inverted conditional (Should... or Had...).</p>
+<p>If you have any further questions about the proposal, please contact the lead manager.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Freer Practice: Proposing Innovations</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that learners will now apply all the learned language to propose an innovation relevant to their own work or a familiar workplace scenario.<br>
+2. Encourage them to integrate at least one inverted conditional and several strategic discussion phrases.<br>
+3. Emphasize the professional register and the need to articulate clear benefits.<br>
+4. Learners can work individually or in pairs to draft their short proposal.<br>
+5. Circulate and provide support. When ready, have learners present their proposals to the class or in small groups for peer feedback.</p>
+<p>Sample Answer (for teacher reference):<br>
+&#x27;I&#x27;d like to propose a new approach to managing our team&#x27;s shared tools. Currently, we face delays due to difficulties locating equipment. My main concern would be how this impacts our urgent response times. To ensure alignment across departments, we need a simple digital check-out system. Should the trial prove successful, we project a 10% increase in productivity for urgent tasks. We should prioritize actionable steps for a small-scale pilot project next month. Could you elaborate on the budget available for such a system?&#x27;</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Crafting Your Own Business Case</h4>
+<p>Now it&#x27;s your turn to be Alex Chen. Imagine you have identified an opportunity to improve a process or introduce a new tool at your workplace. Your task is to draft a short, formal proposal (3-5 sentences) to your manager or a senior committee.</p>
+<p>Your proposal should:<br>
+*   Clearly state your proposed innovation.<br>
+*   Briefly explain its key benefits (e.g., <strong class="lexis">efficiency gains</strong>, <strong class="lexis">process optimization</strong>, <strong class="lexis">value proposition</strong>).<br>
+*   Address any potential concerns or next steps.<br>
+*   Use <strong class="lexis">at least one inverted conditional</strong> (e.g., &#x27;Should...&#x27;, &#x27;Had we not...&#x27;)<br>
+*   Use <strong class="lexis">at least two of the strategic discussion phrases</strong> (e.g., &#x27;I&#x27;d like to propose a new approach...&#x27;, &#x27;My main concern would be...&#x27;, &#x27;To ensure alignment...&#x27;, &#x27;We should prioritize...&#x27;, &#x27;Could you elaborate...?&#x27;)</p>
+<p>Focus on maintaining a professional and diplomatic tone. Be ready to share your proposal.</p>
+</section>
+</article>
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Writing to Legal: International Contract Considerations</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Writing to Legal: International Contract Considerations</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>3</dd>
+      <dt>Class</dt><dd>6</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-starting-smart-global-contract-talk">
+<header class="stage-header"><h2>Starting Smart: Global Contract Talk</h2></header>
+<section class="handout">
+<p>Imagine your company is about to sign a service contract with a client based in a different country. For example, your firm in Germany is contracting with a logistics provider in Brazil.</p>
+<p>What are the most important legal considerations you need to address to ensure both parties are protected? What are the potential risks if these aren&#x27;t clear?</p>
+<p>Discuss in pairs or small groups, sharing any experiences you might have with international agreements.</p>
+</section>
+</article>
+<article class="stage" id="stage-unpacking-a-legal-review-email">
+<header class="stage-header"><h2>Unpacking a Legal Review Email</h2></header>
+<section class="handout">
+<p>Read the following internal email from a Project Lead to the Legal Department regarding an upcoming international service contract. Pay attention to how the key legal considerations are communicated.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Internal Memo: Review of &#x27;Project Nexus&#x27; International Contract</h5>
+<p>Subject: Urgent Review Required for &#x27;Project Nexus&#x27; - International Service Contract</p>
+<p>Dear Legal Team,</p>
+<p>I hope this email finds you well.</p>
+<p>We are currently in the final stages of negotiating the service contract for &#x27;Project Nexus&#x27; with our new client, Alpha Solutions, based in Dubai. Before we proceed to sign, I require your expert review and advice on several critical legal aspects.</p>
+<p>Firstly, we need absolute clarity on the <strong class="lexis">governing law</strong> of this contract. Given Alpha Solutions&#x27; location, we must decide whether to stipulate UAE law, German law (our base), or a mutually agreed-upon third-party <strong class="lexis">international law</strong> framework. This decision will significantly impact any potential <strong class="lexis">dispute resolution</strong> processes.</p>
+<p>Secondly, a robust <strong class="lexis">jurisdiction clause</strong> is paramount. Where would any legal proceedings or arbitration take place? We need to ensure that the chosen jurisdiction is practical and fair for both parties, minimizing operational disruption in the event of a disagreement.</p>
+<p>Thirdly, I need your confirmation on the full <strong class="lexis">compliance</strong> of this <strong class="lexis">contractual agreement</strong> with all relevant local and international regulations. We must ensure there are no unforeseen liabilities or conflicts with either UAE or German commercial laws, especially concerning data protection and service delivery standards.</p>
+<p>Finally, could you advise on the most effective <strong class="lexis">dispute resolution</strong> mechanism? While we hope for a smooth partnership, preparing for contingencies is essential. Should we prioritize arbitration, mediation, or direct legal action in a specific court?</p>
+<p>Your prompt attention to these points would be greatly appreciated. Please let me know if you require any further documentation or information. We aim to finalize this by the end of the month.</p>
+<p>Best regards,</p>
+<p>Markus Schmidt<br>
+Project Lead, Global Operations</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main purpose of Markus Schmidt&#x27;s email?</p>
+<p>Choose the best option.</p>
+<ul><li>To inform the legal team about a new client in Dubai.</li><li>To request advice and review of key legal aspects of an international contract.</li><li>To finalize the dispute resolution mechanism for an existing contract.</li><li>To complain about delays in signing &#x27;Project Nexus&#x27; contract.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">According to the email, what are two options for the &#x27;governing law&#x27; mentioned?</p>
+<p>List two options.</p>
+</div>
+<div class="task"><p class="task-instruction">What is the primary concern related to the &#x27;jurisdiction clause&#x27;?</p>
+<p>Choose the best option.</p>
+<ul><li>The language in which legal proceedings will be conducted.</li><li>The physical location where any legal proceedings or arbitration would occur.</li><li>The cost of legal representation in different countries.</li><li>The length of time legal processes might take.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-essential-language-for-contract-negotiat">
+<header class="stage-header"><h2>Essential Language for Contract Negotiation</h2></header>
+<section class="handout">
+<p>Before drafting your own email, let&#x27;s review some key terminology and phrases that are essential when discussing international service contracts.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Key Contract Terms</th><th>Phrases for Legal Clarity</th><th>Discussing Disputes</th></tr><tr><td>jurisdiction clause</td><td>under the jurisdiction of [country]</td><td>arbitration process</td></tr><tr><td>governing law</td><td>subject to the laws of [country]</td><td>mediation services</td></tr><tr><td>international law</td><td>in accordance with [regulations]</td><td>legal proceedings</td></tr><tr><td>compliance</td><td>adhere to all local/international regulations</td><td>resolve differences amicably</td></tr><tr><td>contractual agreement</td><td>mitigate potential risks</td><td>breach of contract</td></tr><tr><td>dispute resolution</td><td>a legally binding agreement</td><td>settlement out of court</td></tr><tr><td></td><td>ensure full compliance</td><td></td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-your-turn-writing-a-legal-review-memo">
+<header class="stage-header"><h2>Your Turn: Writing a Legal Review Memo</h2></header>
+<section class="handout">
+<p><strong class="lexis">Scenario:</strong> You are a Procurement Manager for a manufacturing company based in Mexico. Your company is preparing to sign a new supply contract with a client based in South Korea for specialized raw materials. You need to send an internal email to your Head of Legal to outline the crucial legal considerations for this contract.</p>
+<p><strong class="lexis">Your Task:</strong> Write an email (approximately 200-250 words) to your Head of Legal.</p>
+<p><strong class="lexis">Purpose:</strong> To clearly articulate the essential legal points that require careful review before signing the international supply contract.<br>
+<strong class="lexis">Audience:</strong> Your Head of Legal / Senior Legal Counsel.</p>
+<p><strong class="lexis">Key points to include:</strong><br>
+1.  The importance of establishing a clear <strong class="lexis">governing law</strong> for the contract (e.g., Mexican law, South Korean law, or a neutral option).<br>
+2.  Which country&#x27;s <strong class="lexis">jurisdiction clause</strong> would be most practical and fair for potential disputes.<br>
+3.  Consideration of appropriate <strong class="lexis">dispute resolution</strong> mechanisms (e.g., arbitration, mediation).<br>
+4.  Ensuring complete <strong class="lexis">compliance</strong> with both national (Mexican and South Korean) and <strong class="lexis">international law</strong> pertinent to supply chains.<br>
+5.  Any specific terms of the <strong class="lexis">contractual agreement</strong> (e.g., delivery terms, payment conditions) that might have legal implications and need extra attention.</p>
+</section>
+</article>
+<article class="stage" id="stage-refining-your-legal-communication">
+<header class="stage-header"><h2>Refining Your Legal Communication</h2></header>
+<section class="handout">
+<p><strong class="lexis">Part 1: Peer Feedback</strong><br>
+Swap your email with a partner. Read your partner&#x27;s email carefully and consider the following questions. Provide constructive feedback:</p>
+<p>1.  <strong class="lexis">Clarity and Purpose:</strong> Is the main purpose of the email immediately clear? Does it effectively communicate the need for a legal review?<br>
+2.  <strong class="lexis">Content Coverage:</strong> Does the email address all five key points outlined in the task brief? Are there any missing details or areas that need more explanation?<br>
+3.  <strong class="lexis">Use of Target Language:</strong> Were the specific legal terms (<strong class="lexis">jurisdiction clause, governing law, international law, compliance, contractual agreement, dispute resolution</strong>) used appropriately and accurately?<br>
+4.  <strong class="lexis">Professional Register:</strong> Is the email&#x27;s tone professional and suitable for communicating with a Head of Legal?<br>
+5.  <strong class="lexis">Overall Impact:</strong> What is the strongest aspect of the email? What is one specific area for improvement?</p>
+<p><strong class="lexis">Part 2: Revision</strong><br>
+Based on the feedback you received from your partner, take some time to review and revise your own email. Focus on making it as clear, comprehensive, and professionally written as possible.</p>
+</section>
+</article>
+</body>
+</html>

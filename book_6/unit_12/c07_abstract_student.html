@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Make Your Case: Powerful Justifications</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Make Your Case: Powerful Justifications</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>12</dd>
+      <dt>Class</dt><dd>7</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-strategic-vendor-review">
+<header class="stage-header"><h2>Strategic Vendor Review</h2></header>
+<section class="handout">
+<p>Imagine you&#x27;ve made a significant purchasing decision for your company – perhaps selecting a new software provider or a key raw materials supplier. Now, senior management is questioning your choice, demanding a clear <strong class="lexis">**justification</strong>**.</p>
+<p>1. What are the first three points you would prepare to defend your <strong class="lexis">**rationale</strong>**?<br>
+2. What kind of questions might management ask to scrutinize your <strong class="lexis">**due diligence</strong>**?<br>
+3. How would you ensure your explanation projects <strong class="lexis">**accountability</strong>** and confidence?</p>
+</section>
+</article>
+<article class="stage" id="stage-precision-in-defense">
+<header class="stage-header"><h2>Precision in Defense</h2></header>
+<section class="handout">
+<p>Read the sentences below, which are attempts to make a persuasive point. Choose the option that uses advanced structures most effectively and correctly to convey emphasis and clarity, as you would in a high-stakes corporate discussion.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">To make it clear what truly caused the delay in project approval, which sentence is best?</p>
+<p>Choose the most rhetorically effective option:</p>
+<ul><li>What caused the delay it was the unexpected supply chain disruption.</li><li>The unexpected supply chain disruption caused the delay.</li><li>What caused the delay was the unexpected supply chain disruption.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">When highlighting an important factor while still acknowledging its limits, which sentence structure is most accurate and professional?</p>
+<p>Choose the most grammatically accurate option:</p>
+<ul><li>Important though the initial analysis was, but it didn&#x27;t fully capture market shifts.</li><li>The initial analysis was important, but it didn&#x27;t fully capture market shifts.</li><li>Important though the initial analysis was, it didn&#x27;t fully capture market shifts.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-mastering-persuasive-emphasis">
+<header class="stage-header"><h2>Mastering Persuasive Emphasis</h2></header>
+<section class="handout">
+<p>In professional settings, <strong class="lexis">how</strong> we present information can be as important as <strong class="lexis">what</strong> we present. Certain structures allow us to emphasize key details, isolate critical variables, and make our arguments more persuasive and nuanced.</p>
+<p>Consider the structures below, focusing on how they shift emphasis:</p>
+<p>*   <strong class="lexis">Cleft Sentences (What-Clefts):</strong> Used to highlight specific information. Example: &#x27;What we need to achieve is a significant cost reduction.&#x27; (Emphasizes &#x27;cost reduction&#x27;).<br>
+*   <strong class="lexis">Fronting (Adverbials/Adjectives):</strong> Used to bring certain elements to the front of a sentence for emphasis or to create a more formal tone. Example: &#x27;Crucial though the data analysis was, the interpretation phase required additional expertise.&#x27; (Emphasizes &#x27;crucial&#x27; and sets up a contrast).</p>
+<p>Now, rewrite the following sentences to achieve greater rhetorical impact using these advanced structures. Aim to highlight the bolded elements by placing them in a position of emphasis.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Rewrite the sentence using a &#x27;What-cleft&#x27; to emphasize the indicated part.</p>
+<p>The most challenging aspect of the project was securing executive buy-in.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence using a fronted structure to emphasize the indicated adjective.</p>
+<p>The initial forecast was accurate, but market conditions shifted rapidly.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence using a &#x27;What-cleft&#x27; to emphasize the indicated outcome.</p>
+<p>We truly value the long-term partnership with our key suppliers.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-formulating-a-strategic-defense">
+<header class="stage-header"><h2>Formulating a Strategic Defense</h2></header>
+<section class="handout">
+<p>You are preparing a concise statement to senior management, defending your choice of a new logistics vendor. You&#x27;ve received some skeptical feedback, and you need to highlight the core reasons for your decision, acknowledge potential challenges, and reinforce your confidence.</p>
+<p>Write a short persuasive paragraph (approx. 80-100 words) to present to management. Ensure you:<br>
+1. Clearly state the primary benefit of your chosen vendor.<br>
+2. Address one key concern or challenge related to the choice.<br>
+3. Use at least two examples of either a fronted element structure or a &#x27;What-cleft&#x27; sentence to add emphasis and rhetorical power to your <strong class="lexis">**justification</strong>**.</p>
+<p><strong class="lexis">Think about how you can use these structures to isolate key variables and structure your argument effectively.</strong></p>
+</section>
+</article>
+</body>
+</html>

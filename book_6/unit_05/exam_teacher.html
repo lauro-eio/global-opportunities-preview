@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit exam — Workplace Health and Wellbeing Strategy</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<nav class="breadcrumbs"><a href="index.html">← Unit index</a></nav>
+<header>
+  <p class="view-banner">Teacher · Unit exam key</p>
+  <h1>Unit exam — Workplace Health and Wellbeing Strategy</h1>
+  <p class="meta">T05_HEALTH · C1 · 30 items</p>
+</header>
+<article class="exam-item" id="q01"><div class="exam-item-header"><span class="qnum">1. q01</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">Before implementing new machinery, a thorough __________ is mandatory to identify potential dangers.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>hazard assessment ✓</li><li><span class="opt-key">B.</span>risk management</li><li><span class="opt-key">C.</span>safety evaluation</li><li><span class="opt-key">D.</span>danger analysis</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q02"><div class="exam-item-header"><span class="qnum">2. q02</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">The team implemented new safety procedures as a form of __________ against potential workplace accidents.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>risk mitigation ✓</li><li><span class="opt-key">B.</span>damage control</li><li><span class="opt-key">C.</span>harm reduction</li><li><span class="opt-key">D.</span>peril prevention</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q03"><div class="exam-item-header"><span class="qnum">3. q03</span><span class="exam-meta">grammar · class 1</span></div><div class="exam-prompt">When considering new health strategies, __________ safety protocols is crucial for a smooth transition.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>analyzing and contributing to ✓</li><li><span class="opt-key">B.</span>to analyze and contribute to</li><li><span class="opt-key">C.</span>analyze and contribute for</li><li><span class="opt-key">D.</span>have analyzed and contributed</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q04"><div class="exam-item-header"><span class="qnum">4. q04</span><span class="exam-meta">comprehension · class 1</span></div><div class="exam-prompt">Our latest internal audit revealed that some departments are not in full __________ with the updated fire safety regulations. What action is most appropriate?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Initiating a comprehensive policy review and retraining program. ✓</li><li><span class="opt-key">B.</span>Disregarding the minor discrepancies as they pose no immediate threat.</li><li><span class="opt-key">C.</span>Issuing a general memo without specific follow-up actions.</li><li><span class="opt-key">D.</span>Punishing individual employees for non-compliance without addressing systemic issues.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q05"><div class="exam-item-header"><span class="qnum">5. q05</span><span class="exam-meta">lexis · class 2</span></div><div class="exam-prompt">The new initiative aims to __________ by offering subsidized gym memberships and stress management workshops.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>ensure employee wellbeing ✓</li><li><span class="opt-key">B.</span>maximize staff happiness</li><li><span class="opt-key">C.</span>improve worker contentment</li><li><span class="opt-key">D.</span>guarantee personnel satisfaction</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q06"><div class="exam-item-header"><span class="qnum">6. q06</span><span class="exam-meta">grammar · class 2</span></div><div class="exam-prompt">We need to __________ by an external consultant to identify areas for improvement.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>have our current preventative care offerings audited ✓</li><li><span class="opt-key">B.</span>get our current preventative care offerings to be audited</li><li><span class="opt-key">C.</span>audit our current preventative care offerings</li><li><span class="opt-key">D.</span>make our current preventative care offerings audited</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q07"><div class="exam-item-header"><span class="qnum">7. q07</span><span class="exam-meta">lexis · class 2</span></div><div class="exam-prompt">It is imperative for staff members __________ if they experience prolonged stress or anxiety related to their work.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>seeking medical advice ✓</li><li><span class="opt-key">B.</span>to seek medical guidance</li><li><span class="opt-key">C.</span>consult with a doctor</li><li><span class="opt-key">D.</span>get health opinions</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q08"><div class="exam-item-header"><span class="qnum">8. q08</span><span class="exam-meta">comprehension · class 2</span></div><div class="exam-prompt">The board is discussing __________ the company&#x27;s existing employee benefits to include more robust mental health support options.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>expanding ✓</li><li><span class="opt-key">B.</span>growing</li><li><span class="opt-key">C.</span>stretching</li><li><span class="opt-key">D.</span>enlarging</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q09"><div class="exam-item-header"><span class="qnum">9. q09</span><span class="exam-meta">grammar · class 3</span></div><div class="exam-prompt">The committee is responsible for __________ and making strategic procurement decisions.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>evaluating tenders ✓</li><li><span class="opt-key">B.</span>evaluate tenders</li><li><span class="opt-key">C.</span>tender evaluating</li><li><span class="opt-key">D.</span>to evaluate tenders</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q10"><div class="exam-item-header"><span class="qnum">10. q10</span><span class="exam-meta">comprehension · class 3</span></div><div class="exam-prompt">Our organization is in the process of selecting a new corporate health provider. What is the most critical first step?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Issuing a detailed Request for Proposal (RFP) to potential providers. ✓</li><li><span class="opt-key">B.</span>Quickly choosing the cheapest option to save costs.</li><li><span class="opt-key">C.</span>Asking employees for their preferred individual doctors.</li><li><span class="opt-key">D.</span>Signing a long-term contract with the first provider that responds.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q11"><div class="exam-item-header"><span class="qnum">11. q11</span><span class="exam-meta">register · class 3</span></div><div class="exam-prompt">During the health provider selection process, what is the most professional way to describe the formal bids received?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>tenders ✓</li><li><span class="opt-key">B.</span>proposals</li><li><span class="opt-key">C.</span>offers</li><li><span class="opt-key">D.</span>quotes</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q12"><div class="exam-item-header"><span class="qnum">12. q12</span><span class="exam-meta">comprehension · class 3</span></div><div class="exam-prompt">After receiving several bids from health service providers, what factor should receive primary consideration in the strategic procurement decision?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>The overall value proposition, including service quality, provider network, and cost-effectiveness. ✓</li><li><span class="opt-key">B.</span>The provider with the most attractive marketing materials.</li><li><span class="opt-key">C.</span>The shortest contract duration offered.</li><li><span class="opt-key">D.</span>The provider who offers the highest commission to the procurement team.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q13"><div class="exam-item-header"><span class="qnum">13. q13</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">The efficient __________ of the new health guidelines is essential for all staff members to be informed promptly.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>directive dissemination ✓</li><li><span class="opt-key">B.</span>instruction spreading</li><li><span class="opt-key">C.</span>order distribution</li><li><span class="opt-key">D.</span>guideline passing</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q14"><div class="exam-item-header"><span class="qnum">14. q14</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">Employees are expected to strictly __________ to the updated safety procedures outlined in the new policy.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>adhere ✓</li><li><span class="opt-key">B.</span>follow</li><li><span class="opt-key">C.</span>stick</li><li><span class="opt-key">D.</span>obey</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q15"><div class="exam-item-header"><span class="qnum">15. q15</span><span class="exam-meta">grammar · class 4</span></div><div class="exam-prompt">__________ complex new health guidelines to colleagues is paramount for achieving full organizational understanding.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Clearly communicating ✓</li><li><span class="opt-key">B.</span>To clearly communicate</li><li><span class="opt-key">C.</span>Clear communication of</li><li><span class="opt-key">D.</span>Communicating clearly</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q16"><div class="exam-item-header"><span class="qnum">16. q16</span><span class="exam-meta">comprehension · class 4</span></div><div class="exam-prompt">Implementing a robust __________ allows employees to raise concerns or ask questions about new health guidelines, ensuring better understanding and uptake.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>feedback mechanism ✓</li><li><span class="opt-key">B.</span>suggestion box</li><li><span class="opt-key">C.</span>complaint department</li><li><span class="opt-key">D.</span>comment section</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q17"><div class="exam-item-header"><span class="qnum">17. q17</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">Which of the following best describes the professional approach to reducing the intensity of workplace pressures?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Mitigate workplace stress. ✓</li><li><span class="opt-key">B.</span>Reduce work strain.</li><li><span class="opt-key">C.</span>Ease job tension.</li><li><span class="opt-key">D.</span>Lessen employment pressure.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q18"><div class="exam-item-header"><span class="qnum">18. q18</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">When discussing the prevention of employee exhaustion due to overwork, which term maintains a professional register?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Prevent employee burnout. ✓</li><li><span class="opt-key">B.</span>Stop worker weariness.</li><li><span class="opt-key">C.</span>Avoid staff fatigue.</li><li><span class="opt-key">D.</span>Halt personnel exhaustion.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q19"><div class="exam-item-header"><span class="qnum">19. q19</span><span class="exam-meta">comprehension · class 5</span></div><div class="exam-prompt">To effectively __________ employee morale and productivity, management is introducing new initiatives focusing on work-life balance.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>bolster ✓</li><li><span class="opt-key">B.</span>improve</li><li><span class="opt-key">C.</span>enhance</li><li><span class="opt-key">D.</span>uplift</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q20"><div class="exam-item-header"><span class="qnum">20. q20</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">What is the most appropriate professional phrasing for developing and putting into action plans to address wellbeing?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Formulating and implementing practical strategies. ✓</li><li><span class="opt-key">B.</span>Coming up with and carrying out useful plans.</li><li><span class="opt-key">C.</span>Devising and executing actionable tactics.</li><li><span class="opt-key">D.</span>Creating and deploying effective approaches.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q21"><div class="exam-item-header"><span class="qnum">21. q21</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">Ensuring __________ is paramount when handling employee medical records, as unauthorized access could lead to severe penalties.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>data security ✓</li><li><span class="opt-key">B.</span>information safety</li><li><span class="opt-key">C.</span>record protection</li><li><span class="opt-key">D.</span>digital safeguarding</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q22"><div class="exam-item-header"><span class="qnum">22. q22</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">Before collecting health information from staff, obtaining __________ is a crucial step to meet legal and ethical requirements.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>informed consent ✓</li><li><span class="opt-key">B.</span>aware agreement</li><li><span class="opt-key">C.</span>knowledgeable permission</li><li><span class="opt-key">D.</span>conscious approval</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q23"><div class="exam-item-header"><span class="qnum">23. q23</span><span class="exam-meta">grammar · class 6</span></div><div class="exam-prompt">__________ sensitive employee health data is a complex topic requiring careful consideration of legal and moral frameworks.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Debating the ethical implications and practicalities of managing ✓</li><li><span class="opt-key">B.</span>To debate the ethical implications and practicalities for managing</li><li><span class="opt-key">C.</span>Debating ethical implications and practicalities for the management of</li><li><span class="opt-key">D.</span>The debate of ethical implications and practicalities in managing</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q24"><div class="exam-item-header"><span class="qnum">24. q24</span><span class="exam-meta">comprehension · class 6</span></div><div class="exam-prompt">Our new health data management system includes robust __________ features to ensure individual identities cannot be linked to health outcomes.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>anonymization ✓</li><li><span class="opt-key">B.</span>encryption</li><li><span class="opt-key">C.</span>pseudonymization</li><li><span class="opt-key">D.</span>obfuscation</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q25"><div class="exam-item-header"><span class="qnum">25. q25</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">We need to __________ by IT specialists before the end of the quarter.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>have the new health monitoring software installed ✓</li><li><span class="opt-key">B.</span>get the new health monitoring software installing</li><li><span class="opt-key">C.</span>install the new health monitoring software</li><li><span class="opt-key">D.</span>have installed the new health monitoring software</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q26"><div class="exam-item-header"><span class="qnum">26. q26</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">The company is considering __________ employee wellness data automatically collected from wearable devices.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>having ✓</li><li><span class="opt-key">B.</span>getting</li><li><span class="opt-key">C.</span>making</li><li><span class="opt-key">D.</span>letting</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q27"><div class="exam-item-header"><span class="qnum">27. q27</span><span class="exam-meta">comprehension · class 7</span></div><div class="exam-prompt">The HR department decided __________ by external consultants to ensure impartiality and expertise.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>to have their wellness strategy reviewed ✓</li><li><span class="opt-key">B.</span>to review their wellness strategy</li><li><span class="opt-key">C.</span>reviewing their wellness strategy</li><li><span class="opt-key">D.</span>their wellness strategy to be reviewed</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q28"><div class="exam-item-header"><span class="qnum">28. q28</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">__________ new health technologies effectively requires careful planning and employee training.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Strategizing the integration of ✓</li><li><span class="opt-key">B.</span>To strategize the integration of</li><li><span class="opt-key">C.</span>Strategizing to integrate</li><li><span class="opt-key">D.</span>The strategizing integration of</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q29"><div class="exam-item-header"><span class="qnum">29. q29</span><span class="exam-meta">synthesis · class 7</span></div><div class="exam-prompt">A comprehensive workplace health and wellbeing strategy typically encompasses elements from safety protocols, wellness programs, and ethical data management. Which of the following best combines these aspects?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Implementing preventative care alongside robust incident reporting and ensuring data privacy for all employee health records. ✓</li><li><span class="opt-key">B.</span>Focusing solely on mental health support while ignoring physical safety and data concerns.</li><li><span class="opt-key">C.</span>Prioritizing cost savings on health providers over employee wellbeing and data security.</li><li><span class="opt-key">D.</span>Mandating health tracking devices for all employees without informed consent.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q30"><div class="exam-item-header"><span class="qnum">30. q30</span><span class="exam-meta">synthesis · class 7</span></div><div class="exam-prompt">When a new company-wide health directive is introduced, what is the most effective sequence of actions to ensure its successful adoption and compliance?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Disseminate the directive clearly, provide a feedback mechanism, train staff, and conduct regular compliance reviews. ✓</li><li><span class="opt-key">B.</span>Issue the directive once, assume compliance, and address issues only when they arise.</li><li><span class="opt-key">C.</span>Inform only senior management and expect them to cascade the information without formal channels.</li><li><span class="opt-key">D.</span>Make the directive optional for employees, as health is a personal choice.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article>
+
+</body>
+</html>

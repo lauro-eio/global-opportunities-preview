@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crafting Guidance for New Team Members</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Crafting Guidance for New Team Members</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>11</dd>
+      <dt>Class</dt><dd>6</dd>
+      <dt>Theme</dt><dd>T11_EXPERIENCE</dd>
+      <dt>Framework</dt><dd>SK-PROD</dd>
+      <dt>Role</dt><dd>SK_PROD_WRITING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Professional Mentorship</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Begin by asking students to reflect on their personal experiences with mentoring, either as a mentor or a mentee. Encourage them to share specific examples of guidance given or received. Guide the discussion to highlight the importance of transferring knowledge and offering practical advice in the workplace. Connect to the idea of supporting new colleagues to integrate effectively and improve their skills, emphasizing the value of their own professional experience.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Sharing Your Experience at Work</h4>
+<p>Think about your career path.<br>
+1.  Have you ever had a new colleague at work who needed guidance? What kind of help did they need?<br>
+2.  Were you ever mentored by someone more experienced? What was the most valuable advice you received?<br>
+3.  What are some positive and negative aspects of mentoring or being mentored in a professional setting?<br>
+Discuss your experiences with a partner.</p>
+</section>
+</article>
+<article class="stage" id="stage-MOD">
+<header class="stage-header"><span class="stage-code">MOD</span><h2>Model Analysis: Guiding a New Colleague</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Distribute the model email. Give students time to read it individually. Guide students through the MCQ and short text tasks, focusing on understanding the overall purpose, tone, and specific examples of supportive language. After completing the tasks, discuss how Sarah structures her advice, how she uses her own experience, and the professional yet friendly tone she adopts. Highlight phrases related to knowledge transfer, professional guidance, and skill development.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Learning from a Mentor&#x27;s Email</h4>
+<p>Read the email from Sarah Chen to a new colleague, Alex. Pay attention to how she offers advice and support.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Email: Tips for New Team Members</h5>
+<p>Subject: Some Initial Guidance for Navigating Our Workflow</p>
+<p>Hi Alex,</p>
+<p>Welcome to the team! It&#x27;s great to have you on board. I remember when I first started here, and how a few tips from experienced colleagues made a big difference. I wanted to share a few thoughts that might help you <strong class="lexis">settle in quickly</strong> and <strong class="lexis">navigate our daily processes</strong>.</p>
+<p>First, don&#x27;t hesitate to <strong class="lexis">ask questions</strong>, even if they seem minor. It&#x27;s always better to clarify something early than to spend time on a task only to find you&#x27;ve gone down the wrong path. We&#x27;ve all been there! John (from Unit 3) is particularly good with inventory systems, and Maria (from Dispatch) is your go-to for logistics queries.</p>
+<p>Second, <strong class="lexis">prioritize clear communication</strong> with both internal teams and external partners. A quick email or a brief chat can prevent misunderstandings. Always <strong class="lexis">double-check delivery schedules</strong> and client instructions, especially when you&#x27;re dealing with new accounts. <strong class="lexis">Attention to detail</strong> is crucial in our line of work.</p>
+<p>Third, regarding <strong class="lexis">problem-solving</strong>, try to identify the root cause before implementing a solution. For example, if a shipment is delayed, consider if it&#x27;s a documentation issue, a transportation problem, or something else. Our internal wiki has <strong class="lexis">troubleshooting guides</strong> that are quite helpful. Don&#x27;t feel pressured to know everything immediately; <strong class="lexis">skill development takes time</strong>.</p>
+<p>Finally, I&#x27;d suggest taking a proactive approach to <strong class="lexis">feedback</strong>. If you receive feedback, view it as an opportunity to <strong class="lexis">refine your approach</strong>. If you notice a process that could be improved, bring it up. Your fresh perspective can be valuable.</p>
+<p>Remember, we&#x27;re all here to support each other. My door is always open if you need to discuss anything.</p>
+<p>Best regards,</p>
+<p>Sarah Chen<br>
+Logistics Coordinator</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Read Sarah&#x27;s email and choose the best option.</p>
+<p>What is the main purpose of Sarah&#x27;s email to Alex?</p>
+<ul><li>To introduce new company policies to Alex.</li><li>To offer practical advice and guidance for Alex&#x27;s first weeks.</li><li>To ask Alex to take on new responsibilities immediately.</li><li>To schedule a formal training session for Alex.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Identify specific phrases Sarah uses to make her advice sound supportive and encouraging.</p>
+<p>Name two phrases from the email that show Sarah is supportive.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-PREP">
+<header class="stage-header"><span class="stage-code">PREP</span><h2>Preparation: Planning Your Mentorship Message</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Lead a brainstorming session. First, help students define their imaginary new colleague and the specific job context, ensuring it&#x27;s relevant to their own working-class experiences. Then, prompt them to think of 2-3 practical challenges or areas where their experience could provide valuable insights. Encourage them to brainstorm concrete advice for each challenge. Introduce the column banks, explaining how these phrases can be used to make their advice clear, professional, and supportive. Emphasize using their own experiences to make the advice authentic.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Getting Ready to Offer Advice</h4>
+<p>Imagine you need to write a message to a new colleague to help them settle in and understand some key aspects of their role, based on your own experience.<br>
+1.  <strong class="lexis">Audience:</strong> Who is this new colleague? What department are they joining?<br>
+2.  <strong class="lexis">Key Challenges:</strong> What are 2-3 common challenges or tricky parts of the job that you could offer advice on? (e.g., specific software, team communication, dealing with certain clients, safety procedures).<br>
+3.  <strong class="lexis">Your Advice:</strong> For each challenge, what specific, practical advice can you give based on your experience?<br>
+4.  <strong class="lexis">Tone:</strong> How will you make your message supportive and encouraging?</p>
+<p>Use the phrases below to help you structure your advice and offer support.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Opening &amp; Support</th><th>Sharing Experience &amp; Guidance</th><th>Encouragement &amp; Closing</th></tr><tr><td>Welcome to the team!</td><td>Based on my experience, I&#x27;d suggest...</td><td>Skill development takes time.</td></tr><tr><td>It&#x27;s great to have you on board.</td><td>A key thing to remember is...</td><td>View feedback as an opportunity.</td></tr><tr><td>I remember when I first started...</td><td>It&#x27;s important to prioritize...</td><td>Your fresh perspective can be valuable.</td></tr><tr><td>Don&#x27;t hesitate to ask questions.</td><td>You might find it helpful to...</td><td>Keep up the great work!</td></tr><tr><td>We&#x27;re all here to support you.</td><td>Try to always...</td><td>Best regards,</td></tr><tr><td>My door is always open for a chat.</td><td>Regarding [topic], I recommend...</td><td>Looking forward to working with you.</td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Freer Practice: Drafting Your Mentorship Email</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Instruct students to write their email or memo based on the planning they did in the PREP stage. Remind them to consider the audience, purpose, and to use the lexis and phrases discussed. Circulate and monitor, offering support with vocabulary or structure as needed. Do not correct grammar or lexical errors at this stage; focus on content and successful communication of advice. A sample answer could be an email from a warehouse supervisor to a new forklift operator, offering tips on safety, inventory checks, and shift handovers.</p>
+<p><strong class="lexis">Sample Answer (for teacher reference only, not for student):</strong><br>
+&quot;Subject: A Few Tips for Getting Started in the Warehouse</p>
+<p>Hi [New Colleague&#x27;s Name],</p>
+<p>Welcome to the team! It&#x27;s great to have another pair of hands, and I wanted to share a few things that helped me when I first started on the floor.</p>
+<p>First, always double-check the load capacity on the forklift before moving pallets. It might seem obvious, but rushing can lead to issues. <strong class="lexis">Safety is our top priority</strong>, and it saves time in the long run. There are clear labels on all our equipment and storage racks.</p>
+<p>Second, when you&#x27;re doing inventory checks, pay <strong class="lexis">close attention to detail</strong>, especially the batch numbers. It makes a huge difference for tracking and prevents delays down the line. If you&#x27;re unsure about a specific item&#x27;s location, ask John from the morning shift – he knows where everything is.</p>
+<p>Don&#x27;t hesitate to ask questions if something isn&#x27;t clear. We&#x27;ve all been there, and we&#x27;re here to support each other. You&#x27;ll pick it up quickly!</p>
+<p>Best regards,</p>
+<p>[Your Name]<br>
+Warehouse Supervisor&quot;</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Writing Your Guidance Message</h4>
+<p>Write an email or short memo to a new colleague in your workplace. In your message:<br>
+*   <strong class="lexis">Audience:</strong> A new colleague starting in your department or a related role.<br>
+*   <strong class="lexis">Purpose:</strong> To offer practical guidance and support based on your own professional experience, helping them navigate common challenges and understand key aspects of the job.<br>
+*   <strong class="lexis">Content:</strong> Include at least two specific pieces of advice, explaining why they are important. Use supportive and professional language.<br>
+*   <strong class="lexis">Length:</strong> Approximately 150-200 words.</p>
+<p>Remember to structure your email clearly and use some of the useful phrases from the previous activity.</p>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback &amp; Correction: Reviewing Your Advice</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>Organize students into pairs to exchange their written emails. Provide the feedback questions for them to consider while reading their partner&#x27;s work. Emphasize constructive and supportive feedback, focusing first on content and clarity of the advice, then on the appropriateness of the language and tone. Circulate and listen to the discussions, offering guidance and facilitating feedback where needed. After peer feedback, encourage students to revise their own messages. Provide specific language correction on common errors you observed during the writing and feedback stages, focusing on areas related to mentorship skills and professional guidance.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Improving Your Mentorship Message</h4>
+<p>Exchange your email/memo with a partner. Read your partner&#x27;s message and consider the following:<br>
+1.  <strong class="lexis">Clarity:</strong> Is the advice clear and easy to understand?<br>
+2.  <strong class="lexis">Relevance:</strong> Is the advice practical and relevant to a new colleague in that role?<br>
+3.  <strong class="lexis">Tone:</strong> Does the message sound supportive, encouraging, and professional?<br>
+4.  <strong class="lexis">Language:</strong> Did your partner use appropriate phrases for offering guidance and support (e.g., from our column banks)?<br>
+5.  <strong class="lexis">Suggestions:</strong> What is one thing your partner did well, and one suggestion you have for improvement (content or language)?</p>
+<p>Discuss your feedback with your partner, then revise your own message based on the feedback you received.</p>
+</section>
+</article>
+</body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cybersecurity Language: Precision and Protocols</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Cybersecurity Language: Precision and Protocols</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>6</dd>
+      <dt>Class</dt><dd>7</dd>
+      <dt>Theme</dt><dd>T06_TECH</dd>
+      <dt>Framework</dt><dd>TTT</dd>
+      <dt>Role</dt><dd>TTT_ADVANCED_REVIEW_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Cybersecurity Crisis Simulation</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the hypothetical scenario from the lead-in brief, ensuring it resonates with adult working-class learners.<br>
+2. Elicit initial reactions and brainstorm immediate steps for crisis management.<br>
+3. Guide discussion towards preventative measures and the broader impact on workplace operations and reputation.<br>
+4. Encourage learners to use advanced vocabulary related to cybersecurity and professional responses.<br>
+5. Do not explicitly teach new language at this stage, but note down any emergent language or areas for review.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Company Data Compromise: First Response</h4>
+<p>Imagine you arrive at work one morning to find a critical message: &#x27;URGENT - DATA BREACH DETECTED&#x27;. Your company&#x27;s digital records, including sensitive client information and employee data, have been compromised. This incident demands immediate attention and a <strong class="lexis">robust cybersecurity response</strong>.</p>
+<p>Discuss the following questions with your colleagues:<br>
+1. What are the <strong class="lexis">immediate actions</strong> your team or company would need to take to contain the breach and assess the damage?<br>
+2. What <strong class="lexis">preventative measures</strong>, focusing on <strong class="lexis">strengthening workplace cybersecurity</strong>, could have been implemented beforehand to avoid such a crisis?<br>
+3. How might this incident impact client trust, operational efficiency, and legal obligations within a professional setting?</p>
+</section>
+</article>
+<article class="stage" id="stage-T1">
+<header class="stage-header"><span class="stage-code">T1</span><h2>Diagnostic Test: Advanced Cybersecurity Language Precision</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that this task is to diagnose understanding and application of complex structures from the unit without re-teaching.<br>
+2. Learners should focus on correcting hyphenation and adverb/noun compounding in technical contexts, as per the target &#x27;Complex Modifier Compounding&#x27;.<br>
+3. Do not provide answers or re-teach at this stage. Simply observe and collect errors to inform the TCH stage.<br>
+4. Pay attention to how learners apply the &#x27;Noun/Adverb + hyphenated modifier + noun phrase&#x27; structure, specifically addressing &#x27;predicted_learner_errors&#x27;.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Assessing Our Digital Language Precision</h4>
+<p>In professional and technical communication, especially within <strong class="lexis">cybersecurity</strong> and <strong class="lexis">data breach prevention</strong>, precision is paramount. Read the sentences below, which are typical of cybersecurity reports or policy documents. Each sentence contains a complex phrase that needs careful review.</p>
+<p>Identify and correct any errors related to hyphenation or word compounding, ensuring the language is clear, concise, and professionally accurate for a workplace context.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Rewrite the underlined part of the sentence to correct any errors in hyphenation or word compounding. Type only the corrected phrase.</p>
+<p>1. The algorithmically generated content often masks phishing attempts and misinformation campaigns.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the underlined part of the sentence to correct any errors in hyphenation or word compounding. Type only the corrected phrase.</p>
+<p>2. An AI ethics framework requires heavily centralized data controls for effective personal data protection.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the underlined part of the sentence to correct any errors in hyphenation or word compounding. Type only the corrected phrase.</p>
+<p>3. Our network security relies on well implemented data breach prevention strategies and secure passwords.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-TCH">
+<header class="stage-header"><span class="stage-code">TCH</span><h2>Clarification: Precision in Complex Modifiers for Workplace Cybersecurity</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Address the specific errors identified in T1, focusing on the target structure: &#x27;Noun/Adverb + hyphenated modifier + noun phrase&#x27;.<br>
+2. Clearly present the form, meaning, and rationale for &#x27;Complex Modifier Compounding for Media Literacy Frameworks&#x27; in a practical, workplace-relevant way.<br>
+3. Emphasize why this precision is crucial in professional, technical documentation (e.g., policy documents, technical briefs, incident reports) to maintain workplace dignity and functional utility.<br>
+4. Use concept checking questions (CCQs) implicitly within explanations or by asking learners to justify their choices:<br>
+    * &#x27;Are we connecting multiple language units together to modify a single technology keyword?&#x27; (Yes, for focused clarity in technical contexts).<br>
+    * &#x27;Does this hyphenation create a single, clear concept that modifies the noun, crucial for <strong class="lexis">macro-linguistic precision</strong> in our cybersecurity communication?&#x27; (Yes, in these specific advanced technical contexts).<br>
+5. Provide targeted practice to reinforce the correct application, building on the gaps identified in T1.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Sharpening Our Cybersecurity Descriptions</h4>
+<p>In professional documents, especially those concerning <strong class="lexis">cybersecurity</strong>, <strong class="lexis">data privacy laws</strong>, and <strong class="lexis">phishing awareness</strong>, clarity and precision in language are essential. Ambiguity can lead to costly errors or misunderstandings in a high-stakes environment.</p>
+<p>Today, we&#x27;re refining our use of <strong class="lexis">Complex Modifier Compounding</strong>. This involves combining a noun or adverb with another word (often a participle) to form a single, hyphenated adjective that precisely modifies a noun phrase. This structure is vital for articulating complex concepts in <strong class="lexis">technical and informational society briefs</strong> and for <strong class="lexis">deconstructing institutional propaganda networks</strong>.</p>
+<p><strong class="lexis">Form:</strong> Noun/Adverb + hyphenated modifier + noun phrase</p>
+<p><strong class="lexis">Examples:</strong><br>
+*   <strong class="lexis">Algorithmically-driven</strong> surveillance systems (combines &#x27;algorithmically&#x27; and &#x27;driven&#x27; to describe &#x27;systems&#x27; with one clear meaning)<br>
+*   <strong class="lexis">Heavily-centralized</strong> data controls (describes &#x27;data controls&#x27; as being &#x27;heavily-centralized&#x27; for clarity and precision)<br>
+*   <strong class="lexis">Well-implemented</strong> security protocols (describes &#x27;security protocols&#x27; as being &#x27;well-implemented&#x27; to avoid misinterpretation)</p>
+<p>When you use this structure, ask yourself:<br>
+*   Am I combining multiple words to create a single, precise description for a <strong class="lexis">technology keyword</strong> or concept?<br>
+*   Does the hyphen clearly link these words into one idea, enhancing <strong class="lexis">macro-linguistic precision</strong> and avoiding any misinterpretation in a crucial <strong class="lexis">cybersecurity brief</strong>? (Often, the answer is &#x27;yes&#x27; for this level of detail and context.)</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Choose the most precise and professionally correct option to complete each sentence, focusing on complex modifier compounding.</p>
+<p>Our new system features a __________ approach to data breach prevention.</p>
+<ul><li>fully integrated</li><li>fully-integrated</li><li>integrated fully</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Choose the most precise and professionally correct option to complete each sentence, focusing on complex modifier compounding.</p>
+<p>All employees must complete the __________ phishing awareness training module.</p>
+<ul><li>mandatory annually-refreshed</li><li>mandatory, annually-refreshed</li><li>mandatory annually refreshed</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence with a complex modifier compound using the words &#x27;globally&#x27; and &#x27;recognized&#x27;. Type only the hyphenated phrase.</p>
+<p>We adhere to __________ standards for network security to ensure personal data protection.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-T2">
+<header class="stage-header"><span class="stage-code">T2</span><h2>Integrative Task: Drafting a Workplace Cybersecurity Protocol</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that learners will now apply the target language in a practical, productive task relevant to their working lives.<br>
+2. The task requires drafting a short section of a cybersecurity protocol, focusing on specific measures related to <strong class="lexis">secure passwords</strong>, <strong class="lexis">phishing awareness</strong>, or <strong class="lexis">network security</strong>.<br>
+3. Emphasize the mandatory inclusion of at least two &#x27;Noun/Adverb + hyphenated modifier + noun phrase&#x27; structures correctly and appropriately.<br>
+4. Circulate and provide support, focusing feedback primarily on the accurate and appropriate use of the target language for clarity and professionalism.<br>
+5. Learners can share their drafted sentences/sections, prompting peer feedback.<br>
+6. For the structured task, check if the extracted sentence correctly uses the compound modifier.</p>
+<p>Sample Model Answer for prompt 1: &#x27;Our <strong class="lexis">company-wide policy</strong> mandates <strong class="lexis">frequently-audited access logs</strong> for all sensitive data archives to ensure full <strong class="lexis">data breach prevention</strong>.&#x27; (For teacher reference and as an example for the accepted answers)</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Developing Our Cyber Resilience Framework</h4>
+<p>Your company is developing an updated <strong class="lexis">cybersecurity protocol</strong> to enhance <strong class="lexis">data breach prevention</strong> and ensure <strong class="lexis">secure passwords</strong> across all departments. You need to draft a short section (approximately 3-4 sentences) for this protocol, explaining a key measure or a set of guidelines.</p>
+<p>In your draft, ensure you use at least two examples of <strong class="lexis">complex modifier compounds</strong> (e.g., &#x27;firmly-established policies&#x27;, &#x27;user-friendly interfaces&#x27;, &#x27;regularly-updated software&#x27;, &#x27;critically-important data&#x27;, &#x27;organization-wide directives&#x27;) to precisely describe the measures, their attributes, or their impact. Your writing should be clear, professional, and directly applicable to enhancing <strong class="lexis">workplace cybersecurity</strong>.</p>
+<p><strong class="lexis">Example focus areas for your draft:</strong><br>
+*   <strong class="lexis">Secure Password</strong> Enforcement and <strong class="lexis">Multi-Factor Authentication</strong><br>
+*   <strong class="lexis">Phishing Awareness</strong> Training Protocols and continuous education<br>
+*   <strong class="lexis">Network Security</strong> Updates and vulnerability management<br>
+*   <strong class="lexis">Data Encryption</strong> Standards for sensitive information</p>
+<p>After drafting your section, complete the short task below.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">From your drafted protocol section, extract one sentence where you effectively used a complex modifier compound to describe a cybersecurity measure or guideline. Type your complete sentence here.</p>
+<p>Write one sentence from your protocol draft that uses a complex modifier compound (e.g., &#x27;regularly-updated software&#x27;, &#x27;critically-important data&#x27;).</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+</body>
+</html>

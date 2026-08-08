@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Discussing the Big Merger News</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Discussing the Big Merger News</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>2</dd>
+      <dt>Class</dt><dd>3</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-first-thoughts-on-the-news">
+<header class="stage-header"><h2>First Thoughts on the News</h2></header>
+<section class="handout">
+<p>Your company has just announced it&#x27;s merging with another firm. This is big news!</p>
+<p>In pairs, discuss your initial reactions. Consider both the good and the bad.</p>
+<p>1. What are your immediate <strong class="lexis">positive thoughts</strong> about this merger?<br>
+2. What are your immediate <strong class="lexis">concerns or negative thoughts</strong>?<br>
+3. How do you think this news might be affecting colleagues in other departments?</p>
+</section>
+</article>
+<article class="stage" id="stage-colleagues-talk-strategy">
+<header class="stage-header"><h2>Colleagues Talk Strategy</h2></header>
+<section class="handout">
+<p>Maria and Tom are colleagues. They’ve just heard about the merger and are discussing its potential impacts.</p>
+<p><strong class="lexis">Maria:</strong> I&#x27;m still processing the news about the merger. It&#x27;s a lot to take in.</p>
+<p><strong class="lexis">Tom:</strong> I know, right? My mind immediately jumped to our department. I&#x27;m wondering how this <strong class="lexis">corporate restructuring</strong> will affect us.</p>
+<p><strong class="lexis">Maria:</strong> Exactly! I&#x27;m particularly worried about <strong class="lexis">employee retention</strong>. Will our key people stay, or will they look for new opportunities if things feel uncertain?</p>
+<p><strong class="lexis">Tom:</strong> That’s a valid concern. Management is probably talking about <strong class="lexis">synergy expectations</strong> and streamlining operations, but on the ground, it often means job overlaps or redundancies.</p>
+<p><strong class="lexis">Maria:</strong> And what about our roles? Will there be significant changes to our responsibilities? I can see some serious <strong class="lexis">integration challenges</strong> ahead, especially with different company cultures and systems.</p>
+<p><strong class="lexis">Tom:</strong> Absolutely. I heard rumors about potential changes to the sales team&#x27;s structure. If they merge, it could impact how we collaborate, and even our reporting lines could shift.</p>
+<p><strong class="lexis">Maria:</strong> And departmental budgets? Will we have the resources to adapt to new directives? It feels like we&#x27;re heading into uncharted territory.</p>
+<p><strong class="lexis">Tom:</strong> It does. We need to stay informed and be ready to adapt. It&#x27;s probably wise to start thinking about what skills might become more valuable post-merger.</p>
+<p><strong class="lexis">Maria:</strong> Good point. I guess it&#x27;s all about navigating the uncertainty and preparing for the changes ahead.</p>
+</section>
+</article>
+<article class="stage" id="stage-planning-your-discussion">
+<header class="stage-header"><h2>Planning Your Discussion</h2></header>
+<section class="handout">
+<p>Before you have your own discussion, let&#x27;s prepare some ideas and useful phrases.</p>
+<p>Look at the phrases and questions below. Use them to help you think about how the merger might impact your department and role.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Expressing Concern</th><th>Discussing Impacts</th><th>Positive Expectations</th><th>My Thoughts &amp; Questions</th></tr><tr><td>I&#x27;m particularly worried about...</td><td>Potential **corporate restructuring**...</td><td>Hoping for **synergy expectations**...</td><td>...</td></tr><tr><td>My main concern is...</td><td>Changes to **departmental structures**...</td><td>Opportunities for growth...</td><td></td></tr><tr><td>What about...?</td><td>Impacts on **employee roles**...</td><td>Could lead to new markets...</td><td></td></tr><tr><td>I&#x27;m trying to understand how...</td><td>Risks to **employee retention**...</td><td>Might streamline operations...</td><td></td></tr><tr><td>Will this mean...?</td><td>Dealing with **integration challenges**...</td><td>Potential for increased resources...</td><td></td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-discussing-the-future">
+<header class="stage-header"><h2>Discussing the Future</h2></header>
+<section class="handout">
+<p>Imagine you are meeting with colleagues to discuss the recent merger announcement in more detail. Use your notes and the useful phrases from the previous activity.</p>
+<p>Discuss the following with your partner(s):</p>
+<p>*   What specific changes do you anticipate for <strong class="lexis">departmental structures</strong>?<br>
+*   How might your own <strong class="lexis">employee roles</strong> or responsibilities change?<br>
+*   What are the biggest <strong class="lexis">integration challenges</strong> you foresee, and how could they be managed?<br>
+*   What are your hopes for <strong class="lexis">synergy expectations</strong>? Where do you see potential benefits?<br>
+*   What strategies could the company use for <strong class="lexis">employee retention</strong> during this period of <strong class="lexis">corporate restructuring</strong>?</p>
+<p>Remember to listen to your colleagues and ask follow-up questions.</p>
+</section>
+</article>
+<article class="stage" id="stage-reflecting-on-our-discussion">
+<header class="stage-header"><h2>Reflecting on Our Discussion</h2></header>
+<section class="handout">
+<p>Well done everyone! It&#x27;s important to be able to discuss complex topics like mergers clearly and professionally.</p>
+<p>Now, let&#x27;s reflect on our discussions and some of the language we used.</p>
+</section>
+</article>
+</body>
+</html>

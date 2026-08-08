@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Make Your Environmental Voice Count</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Make Your Environmental Voice Count</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>7</dd>
+      <dt>Class</dt><dd>5</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-your-community-x27-s-voice">
+<header class="stage-header"><h2>Your Community&#x27;s Voice</h2></header>
+<section class="handout">
+<p>Imagine a new development project is planned in your local area. While it promises jobs, many residents are worried about its impact on the environment – perhaps increased traffic, air quality, or local green spaces.</p>
+<p>As a representative from your community, you need to speak to the project developers. How would you professionally articulate these community worries to ensure they are taken seriously?</p>
+<p>Discuss the following with a partner:<br>
+1. What specific environmental concerns might arise from a new development?<br>
+2. How important is it to use professional language when addressing developers or authorities? Why?<br>
+3. What is the goal of such a meeting, beyond just expressing concerns?</p>
+</section>
+</article>
+<article class="stage" id="stage-reviewing-developer-communications">
+<header class="stage-header"><h2>Reviewing Developer Communications</h2></header>
+<section class="handout">
+<p>Read the memo from a Community Liaison Officer regarding initial feedback on a new development. Some residents&#x27; concerns are quoted in informal language.</p>
+<p>For each informal quote (1-4), choose the most professional and impactful phrase from the options provided. This is a diagnostic test, so do your best!</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Memo: Initial Community Feedback – Green Valley Development</h5>
+<p>TO: Project Management Team<br>
+FROM: Maria Sanchez, Community Liaison Officer<br>
+DATE: [Current Date]<br>
+SUBJECT: Initial Community Feedback – Green Valley Development</p>
+<p>Team,</p>
+<p>This memo summarizes the preliminary feedback gathered from local residents regarding the proposed Green Valley development. Overall, there&#x27;s a recognized need for economic growth in the area, and the potential for new jobs has been noted positively.</p>
+<p>However, several residents have raised points regarding the project&#x27;s environmental considerations. There&#x27;s a general wish that we should <strong class="lexis">&#x27;do more to protect the local environment&#x27;</strong> (1) and &#x27;not cause too much pollution&#x27; (2). Some specific mentions included the future of a small wetland area and the local air quality near proposed construction sites.</p>
+<p>Residents also mentioned wanting us to &#x27;use less electricity and water&#x27; (3) during and after construction. A few individuals also spoke about the need for us to <strong class="lexis">&#x27;make sure we aren’t creating a huge carbon problem&#x27;</strong> (4) with the increased vehicle traffic during the construction phase.</p>
+<p>I believe we need to respond to these points with clear, professional language that shows we are taking their concerns seriously and have robust plans in place. Please review this feedback, and we can discuss a strategy for addressing these points in our next community outreach meeting.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Which is the most professional and impactful way to rephrase &#x27;do more to protect the local environment&#x27; (1)?</p>
+<p>Choose the best option:</p>
+<ul><li>get serious about being ecological</li><li>implement sustainable practices</li><li>think about green stuff</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Which is the most professional and impactful way to rephrase &#x27;not cause too much pollution&#x27; (2)?</p>
+<p>Choose the best option:</p>
+<ul><li>avoid messing up the environment too much</li><li>keep pollution levels down</li><li>mitigate environmental impact</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Which is the most professional and impactful way to rephrase &#x27;use less electricity and water&#x27; (3)?</p>
+<p>Choose the best option:</p>
+<ul><li>be careful with resources</li><li>resource efficiency measures</li><li>cut back on how much we use</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Which is the most professional and impactful way to rephrase &#x27;make sure we aren’t creating a huge carbon problem&#x27; (4)?</p>
+<p>Choose the best option:</p>
+<ul><li>reduce our overall carbon emissions</li><li>carbon footprint reduction initiatives</li><li>try to be carbon neutral</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-mastering-impactful-language">
+<header class="stage-header"><h2>Mastering Impactful Language</h2></header>
+<section class="handout">
+<p>In professional settings, using precise and impactful language helps you communicate effectively and ensures your message is taken seriously. Let&#x27;s look at some key phrases for discussing environmental issues professionally.</p>
+<p><strong class="lexis">Understanding the Phrases:</strong><br>
+These phrases help articulate concerns and solutions clearly and authoritatively.</p>
+<p>1.  <strong class="lexis">implement sustainable practices</strong>: To put into action methods that protect the environment and can continue for a long time without depleting resources.<br>
+2.  <strong class="lexis">mitigate environmental impact</strong>: To reduce the harmful effects a project or activity has on the natural world.<br>
+3.  <strong class="lexis">resource efficiency measures</strong>: Actions taken to use natural resources (like water, energy, materials) more effectively and with less waste.<br>
+4.  <strong class="lexis">carbon footprint reduction initiatives</strong>: Plans or actions aimed at lowering the total amount of greenhouse gases released by an organization or activity.</p>
+<p><strong class="lexis">Practice:</strong><br>
+Match the general concern on the left to the more professional and impactful statement on the right.</p>
+<p>Now, think about the stress and intonation when you say these phrases.<br>
+*   &#x27;implement <strong class="lexis">sus</strong>tainable <strong class="lexis">prac</strong>tices&#x27;<br>
+*   &#x27;<strong class="lexis">mit</strong>igate en<strong class="lexis">vi</strong>ronmental <strong class="lexis">im</strong>pact&#x27;<br>
+*   &#x27;<strong class="lexis">re</strong>source ef<strong class="lexis">fi</strong>ciency <strong class="lexis">mea</strong>sures&#x27;<br>
+*   &#x27;<strong class="lexis">car</strong>bon <strong class="lexis">foot</strong>print re<strong class="lexis">duc</strong>tion i<strong class="lexis">ni</strong>tiatives&#x27;</p>
+<p>Notice how the main stress often falls on the content words (nouns and verbs) that convey the core meaning. When making statements, use a professional falling intonation at the end to project confidence and authority.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match the informal concern to its professional counterpart.</p>
+<p>Match each informal concern to its professional equivalent.</p>
+<ul><li><strong>We need to be greener.</strong> — implement sustainable practices</li><li><strong>Don&#x27;t harm the local area.</strong> — mitigate environmental impact</li><li><strong>Use less stuff.</strong> — resource efficiency measures</li><li><strong>Stop making so much carbon.</strong> — carbon footprint reduction initiatives</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-presenting-your-solutions">
+<header class="stage-header"><h2>Presenting Your Solutions</h2></header>
+<section class="handout">
+<p>You are now a key member of a community action group. You have been invited to a meeting with the developers of the Green Valley project to present your community&#x27;s concerns and propose solutions in a professional and constructive manner.</p>
+<p>Prepare a short presentation (3-5 minutes) where you will:<br>
+1. Acknowledge the positive aspects of the project (e.g., jobs).<br>
+2. Clearly articulate 2-3 specific environmental concerns using professional language.<br>
+3. Propose specific actions or commitments the developers could make, using phrases like:<br>
+    *   &#x27;We urge you to <strong class="lexis">implement sustainable practices</strong>...&#x27;<br>
+    *   &#x27;It&#x27;s crucial to <strong class="lexis">mitigate environmental impact</strong> by...&#x27;<br>
+    *   &#x27;We recommend exploring <strong class="lexis">resource efficiency measures</strong> such as...&#x27;<br>
+    *   &#x27;Consider initiating <strong class="lexis">carbon footprint reduction initiatives</strong> through...&#x27;</p>
+<p>Work with a partner to outline your presentation points, then practice delivering your presentation. Be prepared to answer questions professionally.</p>
+</section>
+</article>
+</body>
+</html>

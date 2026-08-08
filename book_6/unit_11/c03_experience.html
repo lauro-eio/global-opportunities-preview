@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Facilitating Team Conflict Resolution</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Facilitating Team Conflict Resolution</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>11</dd>
+      <dt>Class</dt><dd>3</dd>
+      <dt>Theme</dt><dd>T11_EXPERIENCE</dd>
+      <dt>Framework</dt><dd>SK-PROD</dd>
+      <dt>Role</dt><dd>SK_PROD_SPEAKING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Understanding Team Dynamics</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Introduce the lesson theme: understanding communication styles for effective conflict resolution.<br>
+2. Present the hypothetical scenario from the lead-in brief.<br>
+3. Divide students into small groups or pairs.<br>
+4. Facilitate a group discussion based on the prompts provided, encouraging them to share initial thoughts and experiences.<br>
+5. Circulate and listen, noting any pre-existing knowledge or difficulties.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Teamwork Challenges</h4>
+<p>Imagine your team is working on a crucial project. Two members, Anna and Ben, have very different working styles. Anna prefers detailed planning and strict deadlines, while Ben thrives on flexibility and spontaneous problem-solving. This is causing tension and delays.</p>
+<p>Discuss the following with your group:</p>
+<p>1. What are the potential conflicts that could arise from these different styles?<br>
+2. How might their individual strengths be used if they could communicate effectively?<br>
+3. What strategies could you use to help them understand each other&#x27;s perspectives?</p>
+</section>
+</article>
+<article class="stage" id="stage-MOD">
+<header class="stage-header"><span class="stage-code">MOD</span><h2>Model Dialogue: Resolving Workplace Conflict</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Tell students they will read a dialogue about resolving a similar conflict.<br>
+2. Instruct students to read the dialogue, paying attention to how the team leader and members communicate.<br>
+3. After reading, have students complete the comprehension tasks.<br>
+4. Review answers as a class, discussing the effective communication strategies demonstrated in the dialogue, such as active listening and empathy.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">A Productive Conversation</h4>
+<p>Read the following dialogue between a team leader, Chris, and two team members, Anna and Ben, who are trying to resolve a conflict over their differing work styles.</p>
+<p>Chris: &#x27;Anna, Ben, thanks for meeting. I understand there&#x27;s been some friction regarding the project&#x27;s workflow. I want to help us find a solution where everyone feels heard and productive.&#x27;</p>
+<p>Anna: &#x27;From my perspective, Ben&#x27;s approach of waiting until the last minute makes me anxious and delays my parts of the project. I need to know the plan well in advance.&#x27;</p>
+<p>Ben: &#x27;I hear what you&#x27;re saying, Anna. I understand that my spontaneous style can seem unorganized. However, I often find solutions quickly under pressure, and sometimes rigid plans limit innovation.&#x27;</p>
+<p>Chris: &#x27;Ben, you&#x27;re saying that your methods, while appearing spontaneous, often lead to efficient problem-solving and can even foster creativity. Anna, you need structure and advance notice to perform your best and avoid stress. <strong class="lexis">Active listening</strong> is key here. Can you both acknowledge each other&#x27;s core needs?&#x27;</p>
+<p>Anna: &#x27;I can see how being too rigid might stifle new ideas, Ben. Perhaps I need to trust the process more.&#x27;</p>
+<p>Ben: &#x27;And I can definitely appreciate your need for a clear roadmap, Anna. It helps <strong class="lexis">team cohesion</strong> if we&#x27;re all on the same page. Maybe we can find a middle ground.&#x27;</p>
+<p>Chris: &#x27;Exactly. Finding that middle ground, through <strong class="lexis">interpersonal skills</strong> and <strong class="lexis">empathy at work</strong>, is our goal. How about we try a hybrid approach: detailed planning for the initial stages, but leave room for brainstorming and adapting during execution?&#x27;</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What was Chris&#x27;s primary goal in facilitating the discussion?</p>
+<p>Chris&#x27;s main objective was to...</p>
+<ul><li>Tell Anna and Ben to agree with each other.</li><li>Find a solution where everyone feels heard and productive.</li><li>Decide on a new workflow without their input.</li><li>Punish Ben for his spontaneous style.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">What strategy did Ben use when he said, &#x27;I hear what you&#x27;re saying, Anna. I understand that my spontaneous style can seem unorganized.&#x27;?</p>
+<p>Ben used a strategy of...</p>
+</div>
+<div class="task"><p class="task-instruction">What was the proposed solution to resolve Anna and Ben&#x27;s conflict?</p>
+<p>The proposed solution was...</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-PREP">
+<header class="stage-header"><span class="stage-code">PREP</span><h2>Preparation: Phrases for Conflict Resolution</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Direct students to the column banks of useful phrases.<br>
+2. Explain that these phrases will help them express themselves and manage discussions in the next activity.<br>
+3. Encourage students to read through the phrases and choose a few they want to try to use.<br>
+4. Allow a few minutes for students to mentally prepare or make brief notes based on these phrases.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Essential Phrases</h4>
+<p>Before you practice, review these phrases. They can help you express your needs, understand others, and find solutions effectively.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Expressing Your Perspective</th><th>Showing Understanding &amp; Empathy</th><th>Proposing Solutions &amp; Compromises</th><th>Facilitating Discussion</th></tr><tr><td>From my perspective...</td><td>I hear what you&#x27;re saying...</td><td>How about we try...</td><td>My goal is to...</td></tr><tr><td>What I need is...</td><td>I understand that...</td><td>Maybe a middle ground could be...</td><td>Let&#x27;s explore options...</td></tr><tr><td>My concern is...</td><td>It sounds like you need...</td><td>What if we...</td><td>Can we find a way to...</td></tr><tr><td>I prioritize...</td><td>I can appreciate...</td><td>Could we consider...</td><td>What are your thoughts on...?</td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Fluency Practice: Role-Playing Conflict Resolution</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Divide students into groups of three. If there&#x27;s an uneven number, one group can be a pair with one student playing both conflicting roles, or the teacher can join a group as facilitator.<br>
+2. Assign roles (Role A, Role B, Facilitator) to each student within their groups.<br>
+3. Instruct them to read their roles carefully and then begin the discussion to find a resolution for an upcoming project.<br>
+4. Remind students to use the phrases from the PREP stage and to focus on active listening and empathy.<br>
+5. Circulate and monitor, taking notes on language use (effective phrases, general fluency, errors) for delayed correction in FBDC. Do not interrupt their speaking.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Resolve the Conflict</h4>
+<p>Work in groups of three. One person will be a &#x27;Facilitator&#x27; and two will be &#x27;Team Members&#x27; with conflicting styles.</p>
+<p><strong class="lexis">Role A (Team Member):</strong> You prioritize speed and getting tasks done quickly, even if it means cutting corners on detailed documentation. You believe results speak louder than detailed plans.</p>
+<p><strong class="lexis">Role B (Team Member):</strong> You prioritize accuracy and detailed documentation. You believe thorough planning prevents mistakes and ensures quality, even if it takes more time.</p>
+<p><strong class="lexis">Role C (Facilitator):</strong> Your job is to help Role A and Role B understand each other&#x27;s needs and find a productive resolution that respects both approaches. Use the phrases from the previous activity.</p>
+<p>Discuss the situation and try to agree on a new approach for an upcoming project. Remember to listen actively and show empathy.</p>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback and Delayed Correction</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. <strong class="lexis">Content Feedback (5-7 minutes):</strong><br>
+   - Bring the class back together.<br>
+   - Ask each group to share their proposed resolution and briefly explain how they reached it.<br>
+   - Facilitate a whole-class discussion: What strategies did they find most effective? What were the challenges?<br>
+   - Praise effective use of interpersonal skills and resolution strategies.<br>
+2. <strong class="lexis">Language Feedback (8-10 minutes):</strong><br>
+   - Refer to notes taken during the FP stage.<br>
+   - Write anonymized examples of good language use (e.g., specific phrases for showing understanding or proposing solutions) on the board.<br>
+   - Then, address common errors observed in their speaking. Focus on areas that impacted clarity or fluency related to the lesson&#x27;s target (e.g., incorrect prepositions in phrases, tense issues when discussing past conflict or future plans).<br>
+   - Elicit corrections from students where possible.<br>
+   - Reinforce the correct usage of target lexical items like <strong class="lexis">active listening</strong>, <strong class="lexis">empathy at work</strong>, and <strong class="lexis">team cohesion</strong> if they were used incorrectly or could have been used more effectively.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reflect and Improve</h4>
+<p>Now that you&#x27;ve finished your role-plays, let&#x27;s discuss what happened.</p>
+<p>1. What was the solution your group agreed on?<br>
+2. What communication strategies did you find most useful in your role-play?<br>
+3. Was it challenging to understand the other person&#x27;s perspective, and how did you overcome it?</p>
+<p>We will also review some language points from your discussions to help improve your future communication.</p>
+</section>
+</article>
+</body>
+</html>

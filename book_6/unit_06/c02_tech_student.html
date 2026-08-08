@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Digital Conduct: Policy and Precision</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Your Digital Conduct: Policy and Precision</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>6</dd>
+      <dt>Class</dt><dd>2</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-digital-life-at-work-your-perspective">
+<header class="stage-header"><h2>Digital Life at Work: Your Perspective</h2></header>
+<section class="handout">
+<p>Think about your current or previous workplaces. How do companies monitor employees&#x27; digital activity?</p>
+<p>Consider these questions in small groups:<br>
+1.  Are you aware of any company policies or practices regarding how your digital activity, such as emails or internet usage, is monitored at work?<br>
+2.  What are your thoughts on these measures? Do you believe they are necessary, intrusive, or fair?<br>
+3.  How do these policies affect your approach to using digital tools for work?</p>
+</section>
+</article>
+<article class="stage" id="stage-first-read-understanding-the-policy-x27-">
+<header class="stage-header"><h2>First Read: Understanding the Policy&#x27;s Core Message</h2></header>
+<section class="handout">
+<p>Read the policy brief below. Don&#x27;t worry about every detail or unknown words yet. Focus on understanding the main purpose of the document. Then, answer the question.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>NexusCorp Digital Conduct Policy Brief</h5>
+<p>DATE: [Current Date]<br>
+TO: All NexusCorp Employees<br>
+FROM: HR Department<br>
+SUBJECT: Clarifying Our Digital Conduct &amp; Monitoring Policy</p>
+<p>At NexusCorp, we are committed to fostering a productive and secure work environment. This brief serves to reiterate and clarify our existing policies regarding digital conduct, <strong class="lexis">workplace monitoring</strong>, and <strong class="lexis">data privacy</strong>. It is crucial that all employees understand their responsibilities and rights in this <strong class="lexis">digitally-connected</strong> workplace.</p>
+<p>Our policies are designed to <strong class="lexis">ensure data privacy</strong> for company assets and client information, protect against security threats, and maintain a professional work atmosphere. To achieve these objectives, NexusCorp employs <strong class="lexis">strategically-implemented surveillance systems</strong> that monitor company-issued devices and network activity. This includes, but is not limited to, email communications, internet browsing history, and usage of internal systems. Such <strong class="lexis">algorithmically-driven insights</strong> help us identify and address potential security vulnerabilities and policy breaches.</p>
+<p>Employees are expected to <strong class="lexis">maintain a professional online presence</strong> both within and outside working hours, especially when their activities may reflect on the company&#x27;s reputation. This also involves responsibly managing your <strong class="lexis">digital footprint</strong> on company platforms. Any personally-identifiable information collected through monitoring is handled strictly in accordance with local and international <strong class="lexis">data privacy</strong> regulations and our internal <strong class="lexis">HR policy</strong>.</p>
+<p>We understand that questions may arise regarding these measures. NexusCorp is dedicated to upholding employee rights while safeguarding company interests. We encourage an open dialogue and invite employees to review the full Digital Conduct Policy document available on the intranet. Our aim is to <strong class="lexis">leverage digital tools effectively</strong> while fostering trust and transparency. Your cooperation in adhering to these guidelines is greatly appreciated as we collectively <strong class="lexis">address information overload</strong> and ensure a secure, respectful digital workplace.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the main purpose of the NexusCorp policy brief?</p>
+<p>The primary aim of the NexusCorp Digital Conduct Policy Brief is to...</p>
+<ul><li>Announce new digital surveillance technologies being introduced.</li><li>Clarify existing policies on digital conduct, monitoring, and data privacy.</li><li>Warn employees about increased penalties for policy breaches.</li><li>Gather employee feedback on current digital privacy regulations.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-deep-dive-policy-details-and-implication">
+<header class="stage-header"><h2>Deep Dive: Policy Details and Implications</h2></header>
+<section class="handout">
+<p>Read the NexusCorp Digital Conduct Policy Brief again. This time, pay close attention to specific details, the company&#x27;s stance, and any implied meanings. Answer the following questions.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>NexusCorp Digital Conduct Policy Brief</h5>
+<p>DATE: [Current Date]<br>
+TO: All NexusCorp Employees<br>
+FROM: HR Department<br>
+SUBJECT: Clarifying Our Digital Conduct &amp; Monitoring Policy</p>
+<p>At NexusCorp, we are committed to fostering a productive and secure work environment. This brief serves to reiterate and clarify our existing policies regarding digital conduct, <strong class="lexis">workplace monitoring</strong>, and <strong class="lexis">data privacy</strong>. It is crucial that all employees understand their responsibilities and rights in this <strong class="lexis">digitally-connected</strong> workplace.</p>
+<p>Our policies are designed to <strong class="lexis">ensure data privacy</strong> for company assets and client information, protect against security threats, and maintain a professional work atmosphere. To achieve these objectives, NexusCorp employs <strong class="lexis">strategically-implemented surveillance systems</strong> that monitor company-issued devices and network activity. This includes, but is not limited to, email communications, internet browsing history, and usage of internal systems. Such <strong class="lexis">algorithmically-driven insights</strong> help us identify and address potential security vulnerabilities and policy breaches.</p>
+<p>Employees are expected to <strong class="lexis">maintain a professional online presence</strong> both within and outside working hours, especially when their activities may reflect on the company&#x27;s reputation. This also involves responsibly managing your <strong class="lexis">digital footprint</strong> on company platforms. Any personally-identifiable information collected through monitoring is handled strictly in accordance with local and international <strong class="lexis">data privacy</strong> regulations and our internal <strong class="lexis">HR policy</strong>.</p>
+<p>We understand that questions may arise regarding these measures. NexusCorp is dedicated to upholding employee rights while safeguarding company interests. We encourage an open dialogue and invite employees to review the full Digital Conduct Policy document available on the intranet. Our aim is to <strong class="lexis">leverage digital tools effectively</strong> while fostering trust and transparency. Your cooperation in adhering to these guidelines is greatly appreciated as we collectively <strong class="lexis">address information overload</strong> and ensure a secure, respectful digital workplace.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">According to the brief, what are the three main objectives of NexusCorp&#x27;s digital policies?</p>
+<p>NexusCorp&#x27;s digital policies aim to ensure data privacy for company assets and client information, protect against security threats, and:</p>
+</div>
+<div class="task"><p class="task-instruction">Which of the following is NOT explicitly mentioned as a type of digital activity monitored by NexusCorp?</p>
+<p>According to the policy, NexusCorp monitors all of the following EXCEPT:</p>
+<ul><li>email communications</li><li>internet browsing history</li><li>personal mobile phone usage during breaks</li><li>usage of internal systems</li></ul>
+</div>
+<div class="task"><p class="task-instruction">How does NexusCorp ensure transparency regarding its policies?</p>
+<p>NexusCorp ensures transparency by inviting employees to:</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-analyzing-language-for-impact-and-clarit">
+<header class="stage-header"><h2>Analyzing Language for Impact and Clarity</h2></header>
+<section class="handout">
+<p>Look back at the &#x27;NexusCorp Digital Conduct Policy Brief&#x27;. We&#x27;re going to examine how specific language choices add precision and professionalism.</p>
+<p><strong class="lexis">Part 1: Complex Modifier Compounding</strong><br>
+Find these phrases in the text:<br>
+*   &#x27;<strong class="lexis">strategically-implemented surveillance systems</strong>&#x27;<br>
+*   &#x27;<strong class="lexis">algorithmically-driven insights</strong>&#x27;</p>
+<p>1.  What kind of word is &#x27;strategically&#x27; or &#x27;algorithmically&#x27;? What do &#x27;implemented&#x27; and &#x27;driven&#x27; usually refer to?<br>
+2.  What role does the hyphen play in combining these words before &#x27;systems&#x27; or &#x27;insights&#x27;? How does it make the meaning clearer and more concise than saying &#x27;surveillance systems that are implemented strategically&#x27;?</p>
+<p><strong class="lexis">Part 2: Professional Digital Discourse</strong><br>
+Match the professional digital discourse phrases from the text to their explanations below.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>NexusCorp Digital Conduct Policy Brief</h5>
+<p>DATE: [Current Date]<br>
+TO: All NexusCorp Employees<br>
+FROM: HR Department<br>
+SUBJECT: Clarifying Our Digital Conduct &amp; Monitoring Policy</p>
+<p>At NexusCorp, we are committed to fostering a productive and secure work environment. This brief serves to reiterate and clarify our existing policies regarding digital conduct, <strong class="lexis">workplace monitoring</strong>, and <strong class="lexis">data privacy</strong>. It is crucial that all employees understand their responsibilities and rights in this <strong class="lexis">digitally-connected</strong> workplace.</p>
+<p>Our policies are designed to <strong class="lexis">ensure data privacy</strong> for company assets and client information, protect against security threats, and maintain a professional work atmosphere. To achieve these objectives, NexusCorp employs <strong class="lexis">strategically-implemented surveillance systems</strong> that monitor company-issued devices and network activity. This includes, but is not limited to, email communications, internet browsing history, and usage of internal systems. Such <strong class="lexis">algorithmically-driven insights</strong> help us identify and address potential security vulnerabilities and policy breaches.</p>
+<p>Employees are expected to <strong class="lexis">maintain a professional online presence</strong> both within and outside working hours, especially when their activities may reflect on the company&#x27;s reputation. This also involves responsibly managing your <strong class="lexis">digital footprint</strong> on company platforms. Any personally-identifiable information collected through monitoring is handled strictly in accordance with local and international <strong class="lexis">data privacy</strong> regulations and our internal <strong class="lexis">HR policy</strong>.</p>
+<p>We understand that questions may arise regarding these measures. NexusCorp is dedicated to upholding employee rights while safeguarding company interests. We encourage an open dialogue and invite employees to review the full Digital Conduct Policy document available on the intranet. Our aim is to <strong class="lexis">leverage digital tools effectively</strong> while fostering trust and transparency. Your cooperation in adhering to these guidelines is greatly appreciated as we collectively <strong class="lexis">address information overload</strong> and ensure a secure, respectful digital workplace.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match the professional phrases from the policy brief to their appropriate meanings.</p>
+<p>Match the professional digital discourse phrases to their meanings.</p>
+<ul><li><strong>manage your digital footprint</strong> — Control the data you leave online.</li><li><strong>maintain a professional online presence</strong> — Ensure your online image reflects well on your work.</li><li><strong>address information overload</strong> — Deal with having too much information to process.</li><li><strong>leverage digital tools effectively</strong> — Use digital resources skillfully for best results.</li><li><strong>ensure data privacy</strong> — Guarantee personal or sensitive information is kept secure.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-building-precise-workplace-communication">
+<header class="stage-header"><h2>Building Precise Workplace Communication</h2></header>
+<section class="handout">
+<p>Now, let&#x27;s practice using the precise language you&#x27;ve learned. Complete the following tasks to build more professional and accurate statements for workplace contexts.</p>
+<p><strong class="lexis">Part 1: Rewrite using Complex Modifier Compounding</strong><br>
+Rewrite the following sentences by combining the adverb and participle/adjective into a single hyphenated modifier before the noun. Example: &#x27;Data that is centrally stored needs robust protection.&#x27; → &#x27;Centrally-stored data needs robust protection.&#x27;</p>
+<p>1.  Policies that are carefully drafted are essential for clarity.<br>
+2.  This content is generated by algorithms and requires careful review.<br>
+3.  Our systems are audited rigorously to ensure compliance.</p>
+<p><strong class="lexis">Part 2: Complete with Professional Digital Discourse</strong><br>
+Complete the sentences with the most appropriate professional digital discourse phrase from the box. You may need to change the form of the verb.</p>
+<p><strong class="lexis">Phrases:</strong> <strong class="lexis">manage your digital footprint</strong> | <strong class="lexis">maintain a professional online presence</strong> | <strong class="lexis">leverage digital tools effectively</strong> | <strong class="lexis">ensure data privacy</strong></p>
+<p>4.  It is important for all staff to ___________ when interacting on social media, even outside work hours.<br>
+5.  The new project requires us to ___________ to streamline our workflow.<br>
+6.  Employees must regularly review their online activity to responsibly ___________.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Rewrite the sentence using a hyphenated compound modifier.</p>
+<p>Policies that are carefully drafted are essential for clarity.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence using a hyphenated compound modifier.</p>
+<p>This content is generated by algorithms and requires careful review.</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the sentence using a hyphenated compound modifier.</p>
+<p>Our systems are audited rigorously to ensure compliance.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence with the most appropriate professional digital discourse phrase.</p>
+<p>It is important for all staff to ___________ when interacting on social media, even outside work hours.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence with the most appropriate professional digital discourse phrase.</p>
+<p>The new project requires us to ___________ to streamline our workflow.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence with the most appropriate professional digital discourse phrase.</p>
+<p>Employees must regularly review their online activity to responsibly ___________.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-your-input-shaping-digital-policy">
+<header class="stage-header"><h2>Your Input: Shaping Digital Policy</h2></header>
+<section class="handout">
+<p>Imagine NexusCorp is asking for employee feedback to refine its Digital Conduct Policy. In groups, discuss which aspects of the policy you would propose to modify or clarify to better <strong class="lexis">uphold employee rights</strong> while still <strong class="lexis">safeguarding company interests</strong>. Use the precise language and professional phrases we&#x27;ve practiced today.</p>
+<p>Consider:<br>
+*   How could the policy be more <strong class="lexis">transparently-communicated</strong>?<br>
+*   What specific areas need <strong class="lexis">more clearly-defined guidelines</strong>?<br>
+*   How can employees <strong class="lexis">proactively-manage their digital identities</strong> within the policy&#x27;s framework?</p>
+<p>Prepare to share your group&#x27;s main suggestions with the class.</p>
+</section>
+</article>
+</body>
+</html>

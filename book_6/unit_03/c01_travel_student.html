@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Solving Access Problems</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Solving Access Problems</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>3</dd>
+      <dt>Class</dt><dd>1</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-first-impressions-gaining-access">
+<header class="stage-header"><h2>First Impressions: Gaining Access</h2></header>
+<section class="handout">
+<p>Imagine you arrive at a new client&#x27;s high-security facility for an important meeting, only to realize you don&#x27;t have the correct <strong class="lexis">security clearance</strong> or the right <strong class="lexis">access badge</strong>. You can&#x27;t get into the building or the <strong class="lexis">restricted zone</strong> where your meeting is taking place.</p>
+<p>Discuss with a partner:<br>
+1. How would you feel in this situation? What are your immediate concerns?<br>
+2. What would be your first steps to try and resolve the issue?<br>
+3. Who would you contact, and what information would you provide?<br>
+4. What is important to remember about professional conduct when dealing with security personnel?</p>
+</section>
+</article>
+<article class="stage" id="stage-understanding-key-security-language">
+<header class="stage-header"><h2>Understanding Key Security Language</h2></header>
+<section class="handout">
+<p>Before we read about a situation involving security protocols, let&#x27;s learn some important vocabulary. Match the words related to security access and control with their correct definitions.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Vocabulary</h5><ul><li>access badge</li><li>security clearance</li><li>restricted zone</li><li>visitor pass</li><li>biometrics</li><li>security breach</li></ul></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Match each term to its definition.</p>
+<ul><li><strong>access badge</strong> — A card or token used to gain entry to a building or specific area.</li><li><strong>security clearance</strong> — Official permission or authorization to access sensitive information or secure areas.</li><li><strong>restricted zone</strong> — An area within a facility where entry is limited to authorized personnel only.</li><li><strong>visitor pass</strong> — A temporary identification document allowing non-employees to enter a facility.</li><li><strong>biometrics</strong> — Security authentication methods based on unique physical characteristics, like fingerprints or facial recognition.</li><li><strong>security breach</strong> — An unauthorized entry into a secure system, area, or facility.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-understanding-the-main-situation">
+<header class="stage-header"><h2>Understanding the Main Situation</h2></header>
+<section class="handout">
+<p>Read the following passage quickly to understand the main idea. Don&#x27;t worry about every detail yet. After reading, choose the best option that describes what the passage is mainly about.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Navigating GlobalTech Security</h5>
+<p>Maria arrived at GlobalTech&#x27;s regional headquarters feeling prepared, but a last-minute email had complicated her morning. Her <strong class="lexis">access badge</strong>, pre-arranged with HR, was showing an &#x27;Expired&#x27; status. She needed to attend a crucial negotiation in the <strong class="lexis">restricted zone</strong> on the 8th floor. The guard at the main desk, Mr. Henderson, informed her that her <strong class="lexis">security clearance</strong> was no longer valid.</p>
+<p>&#x27;It seems there&#x27;s been an issue with the system update,&#x27; he explained patiently. &#x27;For a <strong class="lexis">restricted zone</strong> like the 8th floor, you&#x27;ll need a temporary <strong class="lexis">visitor pass</strong> and a direct escort. Your <strong class="lexis">biometrics</strong> won&#x27;t grant access until your clearance is re-validated, which can take up to 24 hours.&#x27;</p>
+<p>Maria knew stalling wasn&#x27;t an option. She pulled out her phone, confirming her appointment with the client, Mr. Davies, and quickly composed a message to her company liaison, Ms. Chen. &#x27;Could you please alert Mr. Davies that I&#x27;ll be slightly delayed due to a temporary access issue? Also, could you ask him to meet me at reception or send an escort with valid <strong class="lexis">security clearance</strong>?&#x27;</p>
+<p>Mr. Henderson suggested she wait in the main lobby, a non-restricted area, while he contacted Ms. Chen&#x27;s department. Within fifteen minutes, Ms. Chen arrived, smiling apologetically. &#x27;System glitch, Maria. It happens. We’ve issued a temporary <strong class="lexis">visitor pass</strong> for you and I&#x27;ll escort you myself.&#x27;</p>
+<p>As they walked towards the security turnstiles, Maria felt relief. Her quick thinking and respectful communication had prevented a potential <strong class="lexis">security breach</strong> and ensured her attendance at the meeting. Navigating these protocols efficiently was key in such a high-stakes environment.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Choose the best option that summarizes the main idea of the passage.</p>
+<p>What is the main topic of the passage?</p>
+<ul><li>The importance of technology in modern security systems.</li><li>A visitor&#x27;s experience with a faulty security system causing delays.</li><li>How a professional efficiently resolves an unexpected security access problem at a client&#x27;s facility.</li><li>The process of getting a permanent security clearance for a multi-national company.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-protocol-and-specifics">
+<header class="stage-header"><h2>Protocol and Specifics</h2></header>
+<section class="handout">
+<p>Read the passage again carefully to find specific details and answer the following questions. Then, discuss the further points with a partner.</p>
+<p><strong class="lexis">Discussion Points:</strong><br>
+1. What specific actions did Maria take to resolve her access issue?<br>
+2. How did Mr. Henderson, the security guard, assist Maria?<br>
+3. What was the underlying reason for Maria&#x27;s access problem?<br>
+4. What aspects of Maria&#x27;s approach helped resolve the situation efficiently?</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Navigating GlobalTech Security</h5>
+<p>Maria arrived at GlobalTech&#x27;s regional headquarters feeling prepared, but a last-minute email had complicated her morning. Her <strong class="lexis">access badge</strong>, pre-arranged with HR, was showing an &#x27;Expired&#x27; status. She needed to attend a crucial negotiation in the <strong class="lexis">restricted zone</strong> on the 8th floor. The guard at the main desk, Mr. Henderson, informed her that her <strong class="lexis">security clearance</strong> was no longer valid.</p>
+<p>&#x27;It seems there&#x27;s been an issue with the system update,&#x27; he explained patiently. &#x27;For a <strong class="lexis">restricted zone</strong> like the 8th floor, you&#x27;ll need a temporary <strong class="lexis">visitor pass</strong> and a direct escort. Your <strong class="lexis">biometrics</strong> won&#x27;t grant access until your clearance is re-validated, which can take up to 24 hours.&#x27;</p>
+<p>Maria knew stalling wasn&#x27;t an option. She pulled out her phone, confirming her appointment with the client, Mr. Davies, and quickly composed a message to her company liaison, Ms. Chen. &#x27;Could you please alert Mr. Davies that I&#x27;ll be slightly delayed due to a temporary access issue? Also, could you ask him to meet me at reception or send an escort with valid <strong class="lexis">security clearance</strong>?&#x27;</p>
+<p>Mr. Henderson suggested she wait in the main lobby, a non-restricted area, while he contacted Ms. Chen&#x27;s department. Within fifteen minutes, Ms. Chen arrived, smiling apologetically. &#x27;System glitch, Maria. It happens. We’ve issued a temporary <strong class="lexis">visitor pass</strong> for you and I&#x27;ll escort you myself.&#x27;</p>
+<p>As they walked towards the security turnstiles, Maria felt relief. Her quick thinking and respectful communication had prevented a potential <strong class="lexis">security breach</strong> and ensured her attendance at the meeting. Navigating these protocols efficiently was key in such a high-stakes environment.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What was the initial problem with Maria&#x27;s access?</p>
+</div>
+<div class="task"><p class="task-instruction">What two things did Mr. Henderson say Maria would need to enter the restricted zone?</p>
+</div>
+<div class="task"><p class="task-instruction">Who eventually came to escort Maria into the building?</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-applying-what-we-x27-ve-learned">
+<header class="stage-header"><h2>Applying What We&#x27;ve Learned</h2></header>
+<section class="handout">
+<p>Now that you&#x27;ve analyzed the situation, let&#x27;s discuss how this applies to your own experiences and professional life.</p>
+<p>1. Have you ever faced an unexpected access issue at work or a client site? How did you handle it?<br>
+2. What are some key phrases you would use to politely explain a security issue or ask for assistance?<br>
+3. What responsibilities do visitors have when entering a secure facility?<br>
+4. Why is maintaining a professional and respectful attitude crucial when dealing with security protocols, even if you are frustrated?</p>
+</section>
+</article>
+</body>
+</html>

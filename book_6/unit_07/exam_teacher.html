@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit exam — Corporate Environmental Stewardship and Accountability</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<nav class="breadcrumbs"><a href="index.html">← Unit index</a></nav>
+<header>
+  <p class="view-banner">Teacher · Unit exam key</p>
+  <h1>Unit exam — Corporate Environmental Stewardship and Accountability</h1>
+  <p class="meta">T07_ENVIRONMENT · C1 · 30 items</p>
+</header>
+<article class="exam-item" id="q01"><div class="exam-item-header"><span class="qnum">1. q01</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">Our new initiative aims to significantly reduce the volume of waste generated across all operational departments. This is a core component of our organizational commitment to responsible environmental practices. Which of the following terms best describes this goal?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>waste reduction ✓</li><li><span class="opt-key">B.</span>waste management</li><li><span class="opt-key">C.</span>waste reclamation</li><li><span class="opt-key">D.</span>waste containment</li></ul><div class="exam-explanation"><strong>Explanation</strong>The prompt describes actively reducing the amount of waste created, which is precisely &#x27;waste reduction&#x27;.</div></article><article class="exam-item" id="q02"><div class="exam-item-header"><span class="qnum">2. q02</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">The company&#x27;s strategic plan includes measures to minimize its overall environmental impact, particularly concerning greenhouse gas emissions from its operations. What specific term refers to this measurement of environmental impact?</div><ul class="exam-options"><li><span class="opt-key">A.</span>ecological footprint</li><li class="correct"><span class="opt-key">B.</span>carbon footprint ✓</li><li><span class="opt-key">C.</span>resource consumption</li><li><span class="opt-key">D.</span>emission standard</li></ul><div class="exam-explanation"><strong>Explanation</strong>The &#x27;carbon footprint&#x27; specifically refers to the total greenhouse gas emissions caused by an organization, event, product or individual.</div></article><article class="exam-item" id="q03"><div class="exam-item-header"><span class="qnum">3. q03</span><span class="exam-meta">grammar · class 1</span></div><div class="exam-prompt">Following the energy audit, we need to implement several key changes. Which option correctly proposes a green initiative for improved energy usage?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>We should consider upgrading all lighting to LED systems to enhance energy efficiency. ✓</li><li><span class="opt-key">B.</span>Upgrading lighting to LED systems should be considered to enhance energy efficiency.</li><li><span class="opt-key">C.</span>To enhance energy efficiency, upgrading lighting to LED systems is considered.</li><li><span class="opt-key">D.</span>The energy efficiency will be enhanced by the consideration of upgrading lighting to LED systems.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A uses the most direct and common phrasing for &#x27;proposing green initiatives&#x27; within a professional context. Options B, C, and D are grammatically correct but less direct or natural for a proposal.</div></article><article class="exam-item" id="q04"><div class="exam-item-header"><span class="qnum">4. q04</span><span class="exam-meta">comprehension · class 1</span></div><div class="exam-prompt">A team proposes a new &#x27;paperless office&#x27; initiative. They highlight reduced material costs, lower waste disposal fees, and improved digital workflow. Which aspect of &#x27;sustainable practices&#x27; does this initiative primarily address?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Focus on renewable energy sources.</li><li><span class="opt-key">B.</span>Enhancement of employee wellness programs.</li><li class="correct"><span class="opt-key">C.</span>Optimization of resource use and waste reduction. ✓</li><li><span class="opt-key">D.</span>Investment in community outreach programs.</li></ul><div class="exam-explanation"><strong>Explanation</strong>A &#x27;paperless office&#x27; directly reduces material consumption (resource use) and waste, aligning with the optimization of resource use and waste reduction aspects of sustainable practices.</div></article><article class="exam-item" id="q05"><div class="exam-item-header"><span class="qnum">5. q05</span><span class="exam-meta">lexis · class 2</span></div><div class="exam-prompt">Our operations must strictly adhere to all relevant environmental laws and regulations to avoid penalties and maintain our license to operate. This adherence is critical for ensuring our ongoing business integrity. What is this adherence commonly known as?</div><ul class="exam-options"><li><span class="opt-key">A.</span>environmental best practice</li><li class="correct"><span class="opt-key">B.</span>environmental regulatory compliance ✓</li><li><span class="opt-key">C.</span>environmental stewardship</li><li><span class="opt-key">D.</span>environmental certification</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Environmental regulatory compliance&#x27; specifically refers to meeting the requirements of environmental laws and regulations.</div></article><article class="exam-item" id="q06"><div class="exam-item-header"><span class="qnum">6. q06</span><span class="exam-meta">lexis · class 2</span></div><div class="exam-prompt">The new project&#x27;s design incorporates advanced technologies specifically aimed at reducing any adverse effects it might have on local ecosystems and natural resources. This proactive approach is essential for responsible development. What is the primary objective of these technologies?</div><ul class="exam-options"><li><span class="opt-key">A.</span>optimizing resource efficiency</li><li><span class="opt-key">B.</span>enhancing environmental resilience</li><li class="correct"><span class="opt-key">C.</span>mitigating environmental impact ✓</li><li><span class="opt-key">D.</span>assessing environmental risk</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Mitigating environmental impact&#x27; means reducing the severity or seriousness of negative effects on the environment.</div></article><article class="exam-item" id="q07"><div class="exam-item-header"><span class="qnum">7. q07</span><span class="exam-meta">grammar · class 2</span></div><div class="exam-prompt">Which sentence correctly uses negative inversion to emphasize the importance of adhering to new environmental guidelines?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Under no circumstances operations can deviate from these updated hazard reduction and disposal guidelines.</li><li class="correct"><span class="opt-key">B.</span>Under no circumstances can operations deviate from these updated hazard reduction and disposal guidelines. ✓</li><li><span class="opt-key">C.</span>Operations can deviate under no circumstances from these updated hazard reduction and disposal guidelines.</li><li><span class="opt-key">D.</span>Can operations deviate under no circumstances from these updated hazard reduction and disposal guidelines?</li></ul><div class="exam-explanation"><strong>Explanation</strong>Negative inversion requires the auxiliary verb to precede the subject after a limiting adverbial phrase like &#x27;Under no circumstances&#x27;.</div></article><article class="exam-item" id="q08"><div class="exam-item-header"><span class="qnum">8. q08</span><span class="exam-meta">grammar · class 2</span></div><div class="exam-prompt">Choose the most impactful way to state that the sector has rarely faced such a comprehensive change in its environmental obligations, using negative inversion.</div><ul class="exam-options"><li><span class="opt-key">A.</span>Our sector has rarely faced such a comprehensive overhaul of its environmental obligations.</li><li class="correct"><span class="opt-key">B.</span>Rarely has our sector faced such a comprehensive overhaul of its environmental obligations. ✓</li><li><span class="opt-key">C.</span>Rarely our sector has faced such a comprehensive overhaul of its environmental obligations.</li><li><span class="opt-key">D.</span>Has our sector rarely faced such a comprehensive overhaul of its environmental obligations.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The correct use of negative inversion places the auxiliary verb &#x27;has&#x27; before the subject &#x27;our sector&#x27; after the limiting adverb &#x27;Rarely&#x27;.</div></article><article class="exam-item" id="q09"><div class="exam-item-header"><span class="qnum">9. q09</span><span class="exam-meta">comprehension · class 3</span></div><div class="exam-prompt">During a discussion about climate change, a CEO states, &#x27;Our manufacturing facilities in coastal regions are increasingly vulnerable to supply chain disruptions due to extreme weather events. We must diversify our production locations.&#x27; What is the CEO primarily addressing?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Regulatory non-compliance risks.</li><li><span class="opt-key">B.</span>The need for enhanced corporate ethics.</li><li class="correct"><span class="opt-key">C.</span>Specific climate change impacts on operational resilience. ✓</li><li><span class="opt-key">D.</span>Opportunities for green job creation.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The CEO&#x27;s statement directly links extreme weather (climate change impact) to supply chain disruptions and vulnerability of facilities, which are issues of operational resilience.</div></article><article class="exam-item" id="q10"><div class="exam-item-header"><span class="qnum">10. q10</span><span class="exam-meta">lexis · class 3</span></div><div class="exam-prompt">Many companies are exploring innovative strategies to adjust their business models and operations in response to the changing climate conditions and associated risks. This process is crucial for long-term viability. Which term best describes this activity?</div><ul class="exam-options"><li><span class="opt-key">A.</span>environmental remediation</li><li><span class="opt-key">B.</span>climate mitigation</li><li class="correct"><span class="opt-key">C.</span>industry adaptation ✓</li><li><span class="opt-key">D.</span>carbon sequestration</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Industry adaptation&#x27; refers to the process of adjusting strategies and operations to cope with the actual or expected effects of climate change.</div></article><article class="exam-item" id="q11"><div class="exam-item-header"><span class="qnum">11. q11</span><span class="exam-meta">grammar · class 3</span></div><div class="exam-prompt">Which sentence most effectively discusses the potential impact of climate change on a specific job role and suggests an adaptation strategy?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>As temperatures rise, agricultural workers may need to adjust cultivation schedules, so implementing new irrigation technologies is advisable. ✓</li><li><span class="opt-key">B.</span>Agricultural workers adjustment of cultivation schedules might be needed if temperatures rise, also new irrigation technologies are advisable.</li><li><span class="opt-key">C.</span>Rising temperatures, agricultural workers, cultivation schedules adjusting, new irrigation technologies advisable.</li><li><span class="opt-key">D.</span>It is advised that agricultural workers&#x27; cultivation schedules are adjusted, which is because of rising temperatures, and also new irrigation technologies.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option A clearly links the impact (&#x27;temperatures rise&#x27;, &#x27;need to adjust cultivation schedules&#x27;) with a proposed adaptation strategy (&#x27;implementing new irrigation technologies is advisable&#x27;) using appropriate connectors for a C1 level discussion.</div></article><article class="exam-item" id="q12"><div class="exam-item-header"><span class="qnum">12. q12</span><span class="exam-meta">register · class 3</span></div><div class="exam-prompt">When discussing the potential impact of climate change on the seafood industry with stakeholders, which statement maintains the most professional and objective tone?</div><ul class="exam-options"><li><span class="opt-key">A.</span>It&#x27;s pretty clear that fish populations are going to crash, which is a major problem for everyone.</li><li class="correct"><span class="opt-key">B.</span>The seafood industry faces considerable challenges as ocean warming trends are projected to significantly alter marine ecosystems. ✓</li><li><span class="opt-key">C.</span>We need to fix this fish problem soon or there&#x27;ll be no jobs left in fishing.</li><li><span class="opt-key">D.</span>Honestly, the changes in the ocean are going to make it really tough for fishermen, no doubt.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B uses formal vocabulary (&#x27;considerable challenges&#x27;, &#x27;projected to significantly alter&#x27;) and an objective tone, appropriate for professional discourse with stakeholders.</div></article><article class="exam-item" id="q13"><div class="exam-item-header"><span class="qnum">13. q13</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">Our company is committed to procuring raw materials from suppliers who uphold fair labor practices and minimize environmental damage throughout their operations. What is this practice called?</div><ul class="exam-options"><li><span class="opt-key">A.</span>strategic procurement</li><li class="correct"><span class="opt-key">B.</span>ethical sourcing ✓</li><li><span class="opt-key">C.</span>cost-effective purchasing</li><li><span class="opt-key">D.</span>global supply management</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Ethical sourcing&#x27; refers to the practice of procuring goods and services in a responsible and sustainable way, ensuring fair labor and environmental standards.</div></article><article class="exam-item" id="q14"><div class="exam-item-header"><span class="qnum">14. q14</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">In light of recent controversies, our board has decided to implement a system that allows full visibility into every stage of our product&#x27;s journey, from raw material extraction to final delivery. This is crucial for rebuilding consumer trust. What is the goal of this system?</div><ul class="exam-options"><li><span class="opt-key">A.</span>market differentiation</li><li><span class="opt-key">B.</span>supply chain optimization</li><li class="correct"><span class="opt-key">C.</span>supply chain transparency ✓</li><li><span class="opt-key">D.</span>logistics streamlining</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Supply chain transparency&#x27; refers to the ability to track and verify the origins and journey of products, providing full visibility.</div></article><article class="exam-item" id="q15"><div class="exam-item-header"><span class="qnum">15. q15</span><span class="exam-meta">comprehension · class 4</span></div><div class="exam-prompt">During a debate on a supply chain ethics crisis, one participant argued, &#x27;While cutting costs is vital, we cannot compromise on the humanitarian conditions of our overseas manufacturing partners. The long-term reputational damage far outweighs short-term savings.&#x27; What ethical dilemma is being highlighted?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Balancing profit margins with market share.</li><li><span class="opt-key">B.</span>Prioritizing speed of delivery over product quality.</li><li class="correct"><span class="opt-key">C.</span>Reconciling economic efficiency with social responsibility. ✓</li><li><span class="opt-key">D.</span>Choosing between local and international suppliers.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The speaker is weighing the financial benefits of cost-cutting (&#x27;economic efficiency&#x27;) against the moral imperative of ensuring fair treatment of workers (&#x27;social responsibility&#x27;).</div></article><article class="exam-item" id="q16"><div class="exam-item-header"><span class="qnum">16. q16</span><span class="exam-meta">grammar · class 4</span></div><div class="exam-prompt">When debating the ethical considerations of sourcing, which phrase is most suitable for introducing a counter-argument to a claim about cost savings?</div><ul class="exam-options"><li><span class="opt-key">A.</span>I totally disagree, that&#x27;s wrong.</li><li class="correct"><span class="opt-key">B.</span>However, it is imperative to also consider the long-term ethical implications. ✓</li><li><span class="opt-key">C.</span>But what about the ethics part, don&#x27;t you think?</li><li><span class="opt-key">D.</span>Alternatively, let&#x27;s just ignore the costs.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B uses formal, professional language (&#x27;However, it is imperative to also consider&#x27;) to introduce a counter-argument, which is appropriate for debating ethical dilemmas in a C1 workplace context.</div></article><article class="exam-item" id="q17"><div class="exam-item-header"><span class="qnum">17. q17</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">A local environmental group wants to express the urgent need for local businesses to &#x27;do more to protect the local environment&#x27;. Which statement uses more impactful and formal language for an official appeal?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Businesses need to buck up and help the environment around here.</li><li class="correct"><span class="opt-key">B.</span>We urge local businesses to intensify their commitment to environmental preservation in the immediate vicinity. ✓</li><li><span class="opt-key">C.</span>Could businesses perhaps try to protect the local environment a bit more?</li><li><span class="opt-key">D.</span>It&#x27;d be great if businesses did something more for the environment.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B uses formal verbs (&#x27;urge&#x27;, &#x27;intensify&#x27;) and precise nouns (&#x27;commitment&#x27;, &#x27;environmental preservation&#x27;, &#x27;immediate vicinity&#x27;) to convey urgency and professionalism, aligning with &#x27;impactful language for environmental advocacy&#x27;.</div></article><article class="exam-item" id="q18"><div class="exam-item-header"><span class="qnum">18. q18</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">Instead of saying &#x27;make sure we aren’t creating a huge carbon problem&#x27;, how can a company leader phrase this concern more formally and impactfully in a corporate sustainability report?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Ensure we avoid generating a significant carbon issue.</li><li class="correct"><span class="opt-key">B.</span>Guarantee that our operations do not contribute to excessive carbon emissions. ✓</li><li><span class="opt-key">C.</span>Try to not make too much carbon pollution.</li><li><span class="opt-key">D.</span>Preventing a big carbon mess is important.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B transforms the informal language into a precise and professional statement using terms like &#x27;guarantee&#x27;, &#x27;contribute to excessive&#x27;, and &#x27;carbon emissions&#x27;, which are appropriate for a corporate report.</div></article><article class="exam-item" id="q19"><div class="exam-item-header"><span class="qnum">19. q19</span><span class="exam-meta">lexis · class 5</span></div><div class="exam-prompt">Local residents are organizing to address concerns about a proposed industrial development impacting a nearby nature reserve. They aim to influence policymakers and developers. What type of action are they engaging in?</div><ul class="exam-options"><li><span class="opt-key">A.</span>private negotiation</li><li class="correct"><span class="opt-key">B.</span>community advocacy ✓</li><li><span class="opt-key">C.</span>corporate lobbying</li><li><span class="opt-key">D.</span>environmental litigation</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Community advocacy&#x27; refers to organized efforts by local groups to influence decisions and protect their interests, often related to local environmental issues.</div></article><article class="exam-item" id="q20"><div class="exam-item-header"><span class="qnum">20. q20</span><span class="exam-meta">grammar · class 5</span></div><div class="exam-prompt">When engaging in professional discourse on sustainable initiatives, which sentence provides the most effective and formal recommendation for reducing energy consumption?</div><ul class="exam-options"><li><span class="opt-key">A.</span>It is suggested that we could probably look into turning off lights more often.</li><li class="correct"><span class="opt-key">B.</span>Implementing a scheduled power-down protocol for all non-essential equipment after hours is highly recommended. ✓</li><li><span class="opt-key">C.</span>We should, like, really make sure lights are off and stuff.</li><li><span class="opt-key">D.</span>If lights are off, that helps with energy.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B uses formal language and a direct, professional tone appropriate for a recommendation in a business context, including a clear action (&#x27;implementing a scheduled power-down protocol&#x27;) and a strong endorsement (&#x27;highly recommended&#x27;).</div></article><article class="exam-item" id="q21"><div class="exam-item-header"><span class="qnum">21. q21</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">The government is investing in new sectors like renewable energy and sustainable agriculture, creating employment opportunities that directly contribute to environmental protection and sustainability. What are these types of jobs known as?</div><ul class="exam-options"><li><span class="opt-key">A.</span>future jobs</li><li><span class="opt-key">B.</span>ethical jobs</li><li class="correct"><span class="opt-key">C.</span>green jobs ✓</li><li><span class="opt-key">D.</span>circular economy roles</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Green jobs&#x27; are defined as jobs that contribute to preserving or restoring the environment.</div></article><article class="exam-item" id="q22"><div class="exam-item-header"><span class="qnum">22. q22</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">Our company plans to retrain its existing workforce to equip them with the necessary competencies for roles in the emerging renewable energy sector. This ensures our employees remain competitive in the evolving job market. What is this training strategy called?</div><ul class="exam-options"><li><span class="opt-key">A.</span>career development programs</li><li><span class="opt-key">B.</span>talent acquisition initiatives</li><li class="correct"><span class="opt-key">C.</span>upskilling programs ✓</li><li><span class="opt-key">D.</span>reskilling mandates</li></ul><div class="exam-explanation"><strong>Explanation</strong>&#x27;Upskilling programs&#x27; are designed to teach employees new skills to advance in their current roles or transition to new roles, often in response to industry changes.</div></article><article class="exam-item" id="q23"><div class="exam-item-header"><span class="qnum">23. q23</span><span class="exam-meta">comprehension · class 6</span></div><div class="exam-prompt">A proposal suggests transitioning parts of a manufacturing facility to produce components for wind turbines. It highlights job security for current staff through retraining and attracting new talent with specialized skills. What challenge in the green economy is this proposal addressing?</div><ul class="exam-options"><li><span class="opt-key">A.</span>The difficulty of securing investment for sustainable projects.</li><li class="correct"><span class="opt-key">B.</span>The need for workforce adaptation and skill development. ✓</li><li><span class="opt-key">C.</span>Ensuring compliance with international environmental standards.</li><li><span class="opt-key">D.</span>Managing the logistics of new sustainable supply chains.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The proposal directly addresses retraining current staff and attracting new talent, which points to the &#x27;need for workforce adaptation and skill development&#x27; in the transitioning green economy.</div></article><article class="exam-item" id="q24"><div class="exam-item-header"><span class="qnum">24. q24</span><span class="exam-meta">grammar · class 6</span></div><div class="exam-prompt">Which sentence is the most appropriate opening for a proposal outlining sustainable workplace practices, demonstrating a clear and professional tone?</div><ul class="exam-options"><li><span class="opt-key">A.</span>This document is about making our office more green and stuff.</li><li><span class="opt-key">B.</span>Here&#x27;s how we can do some better things for the environment at work.</li><li class="correct"><span class="opt-key">C.</span>This proposal outlines comprehensive strategies for integrating sustainable practices into our daily operations, aiming to enhance environmental performance and resource efficiency. ✓</li><li><span class="opt-key">D.</span>We wanna make our workplace sustainable, so we wrote this.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option C uses formal, precise language appropriate for a professional proposal (&#x27;outlines comprehensive strategies&#x27;, &#x27;integrating sustainable practices&#x27;, &#x27;enhance environmental performance&#x27;, &#x27;resource efficiency&#x27;).</div></article><article class="exam-item" id="q25"><div class="exam-item-header"><span class="qnum">25. q25</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">To emphasize the gravity of a recent environmental incident, which sentence correctly uses negative inversion?</div><ul class="exam-options"><li><span class="opt-key">A.</span>At no time the safety protocols were entirely disregarded.</li><li class="correct"><span class="opt-key">B.</span>At no time were the safety protocols entirely disregarded. ✓</li><li><span class="opt-key">C.</span>The safety protocols were at no time entirely disregarded.</li><li><span class="opt-key">D.</span>Were the safety protocols at no time entirely disregarded.</li></ul><div class="exam-explanation"><strong>Explanation</strong>After the negative adverbial phrase &#x27;At no time&#x27;, the auxiliary verb &#x27;were&#x27; correctly precedes the subject &#x27;the safety protocols&#x27; to form negative inversion.</div></article><article class="exam-item" id="q26"><div class="exam-item-header"><span class="qnum">26. q26</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">Which of the following sentences effectively uses negative inversion to highlight the limited progress made in addressing a particular environmental issue?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Little progress has been achieved on this issue despite significant investment.</li><li class="correct"><span class="opt-key">B.</span>Little has been achieved on this issue despite significant investment. ✓</li><li><span class="opt-key">C.</span>Has little progress been achieved on this issue despite significant investment?</li><li><span class="opt-key">D.</span>Progress has been little achieved on this issue despite significant investment.</li></ul><div class="exam-explanation"><strong>Explanation</strong>When &#x27;Little&#x27; acts as a negative adverbial at the start of a sentence to mean &#x27;not much&#x27;, negative inversion is required, placing &#x27;has&#x27; before &#x27;been achieved&#x27; in this context. Option B correctly inverts the subject and auxiliary verb after the limiting adverbial &#x27;Little&#x27;.</div></article><article class="exam-item" id="q27"><div class="exam-item-header"><span class="qnum">27. q27</span><span class="exam-meta">comprehension · class 7</span></div><div class="exam-prompt">An environmental report concludes, &#x27;Only through a concerted effort across all departments can we hope to meet our new emissions targets.&#x27; What is the primary message the report intends to convey?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Individual departmental efforts are sufficient for compliance.</li><li><span class="opt-key">B.</span>Meeting targets is unlikely regardless of effort.</li><li class="correct"><span class="opt-key">C.</span>Collaboration is absolutely essential for achieving environmental goals. ✓</li><li><span class="opt-key">D.</span>New emissions targets are overly ambitious and unrealistic.</li></ul><div class="exam-explanation"><strong>Explanation</strong>The phrase &#x27;Only through a concerted effort&#x27; strongly emphasizes that cross-departmental collaboration is the sole means to achieve the goal, making it &#x27;absolutely essential&#x27;.</div></article><article class="exam-item" id="q28"><div class="exam-item-header"><span class="qnum">28. q28</span><span class="exam-meta">register · class 7</span></div><div class="exam-prompt">When writing a high-impact environmental report detailing a compliance failure, which phrasing most effectively conveys the seriousness without being overly emotional or informal?</div><ul class="exam-options"><li><span class="opt-key">A.</span>We totally messed up big time on that compliance thing.</li><li><span class="opt-key">B.</span>The company experienced an unfortunate lapse in its compliance protocols.</li><li class="correct"><span class="opt-key">C.</span>A significant breach of established environmental compliance protocols has been identified. ✓</li><li><span class="opt-key">D.</span>It&#x27;s a huge problem that we didn&#x27;t follow the rules.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option C uses formal and precise language (&#x27;significant breach&#x27;, &#x27;established environmental compliance protocols&#x27;, &#x27;identified&#x27;) to convey the seriousness of the failure in a professional and impactful manner, suitable for an environmental report.</div></article><article class="exam-item" id="q29"><div class="exam-item-header"><span class="qnum">29. q29</span><span class="exam-meta">synthesis · class 7</span></div><div class="exam-prompt">A company is drafting a communication to its stakeholders about its new commitment to &#x27;ethical sourcing&#x27; while also aiming for a &#x27;zero carbon footprint&#x27;. Which statement best synthesizes these two objectives in a professional and impactful way?</div><ul class="exam-options"><li><span class="opt-key">A.</span>We&#x27;re going to buy stuff responsibly and try to not make much carbon.</li><li class="correct"><span class="opt-key">B.</span>Our corporate responsibility extends to both securing ethically sourced materials and aggressively pursuing a zero carbon footprint. ✓</li><li><span class="opt-key">C.</span>Not only are we getting our supplies better, but we&#x27;re also really working on our carbon problem.</li><li><span class="opt-key">D.</span>We are committed to ethical procurement; additionally, reducing our carbon output is a priority.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B integrates both concepts (&#x27;ethical sourcing&#x27; and &#x27;zero carbon footprint&#x27;) under the umbrella of &#x27;corporate responsibility&#x27; using formal and impactful language, demonstrating a synthesized understanding of the unit&#x27;s themes.</div></article><article class="exam-item" id="q30"><div class="exam-item-header"><span class="qnum">30. q30</span><span class="exam-meta">synthesis · class 7</span></div><div class="exam-prompt">Considering the overarching theme of Corporate Environmental Stewardship and Accountability, which action represents the most comprehensive approach for an organization to demonstrate genuine commitment?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Issuing a press release annually detailing minor environmental improvements.</li><li class="correct"><span class="opt-key">B.</span>Implementing stringent environmental impact assessments, transparent reporting, and investing in continuous sustainable innovation across all operations. ✓</li><li><span class="opt-key">C.</span>Donating a portion of profits to a non-profit environmental organization.</li><li><span class="opt-key">D.</span>Developing an internal memo encouraging employees to recycle office waste.</li></ul><div class="exam-explanation"><strong>Explanation</strong>Option B encompasses several key aspects of stewardship and accountability: &#x27;stringent environmental impact assessments&#x27; (proactive measure), &#x27;transparent reporting&#x27; (accountability), and &#x27;investing in continuous sustainable innovation across all operations&#x27; (long-term commitment and green initiatives), making it the most comprehensive approach.</div></article>
+
+</body>
+</html>

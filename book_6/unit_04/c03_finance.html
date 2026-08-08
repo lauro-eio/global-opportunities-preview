@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Discussing Workplace Inflation Challenges</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Discussing Workplace Inflation Challenges</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>4</dd>
+      <dt>Class</dt><dd>3</dd>
+      <dt>Theme</dt><dd>T04_FINANCE</dd>
+      <dt>Framework</dt><dd>SK-PROD</dd>
+      <dt>Role</dt><dd>SK_PROD_SPEAKING_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Inflation&#x27;s Personal Impact</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by eliciting personal experiences with recent price increases. <br>
+2. Encourage students to share specific examples from their household budgets. <br>
+3. Facilitate a brief group discussion on common coping strategies. <br>
+4. Link the discussion to the broader concept of <strong class="lexis">cost of living</strong> and <strong class="lexis">purchasing power</strong>.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">How Rising Prices Affect Us</h4>
+<p>Think about your household budget in the last year. <br>
+1. How have recent price increases affected your daily expenses and your ability to save? Give specific examples. <br>
+2. What are some common reactions or strategies people adopt when the <strong class="lexis">cost of living</strong> rises? <br>
+3. Have you or anyone you know had to adjust their spending habits significantly? How?</p>
+</section>
+</article>
+<article class="stage" id="stage-MOD">
+<header class="stage-header"><span class="stage-code">MOD</span><h2>Model Dialogue: Discussing Inflation&#x27;s Effects</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Have students read the dialogue. <br>
+2. Check general comprehension by asking who Maria and Ben are and what they are discussing. <br>
+3. Have students complete the comprehension tasks individually. <br>
+4. Review answers as a class, ensuring understanding of the key issues. <br>
+5. Briefly highlight the emphasized vocabulary from the dialogue.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Workplace Talk: Inflation Challenges</h4>
+<p>Read the conversation between two colleagues, Maria (HR Manager) and Ben (Operations Supervisor). They are discussing the impact of current <strong class="lexis">inflation rates</strong> on their company and employees.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Inflation&#x27;s Ripple Effect</h5>
+<p>Maria: Good morning, Ben. I wanted to catch up on the latest <strong class="lexis">economic outlook</strong> and its impact on our team. The latest <strong class="lexis">consumer price index</strong> figures are quite concerning.<br>
+Ben: Good morning, Maria. Absolutely. Morale is certainly a topic of discussion among the staff. They&#x27;re feeling the pinch, no doubt. Their <strong class="lexis">purchasing power</strong> has definitely been eroded.<br>
+Maria: Exactly. We&#x27;re seeing a clear effect on their household budgets. From an HR perspective, it’s leading to increased pressure for <strong class="lexis">wage negotiation</strong> during reviews. Employees are struggling to keep up with the <strong class="lexis">cost of living</strong>.<br>
+Ben: And from Operations, we&#x27;re seeing our own set of challenges. Our raw material costs have skyrocketed, and shipping expenses are up too. We&#x27;re having to justify price increases to clients, which isn&#x27;t easy.<br>
+Maria: So, it&#x27;s a double-edged sword. Employees need more to maintain their living standards, and the company&#x27;s operational costs are also rising. How are your team leaders addressing these concerns?<br>
+Ben: We&#x27;re encouraging open communication, assuring them we understand their situation. But without a significant increase in our revenue, it&#x27;s a tough balancing act. We need to find ways to maintain productivity without overburdening the staff further, while also managing our expenses.<br>
+Maria: Indeed. We&#x27;re exploring options, maybe some non-monetary benefits or support programs. It&#x27;s crucial that we articulate these challenges transparently to the wider management team and find sustainable solutions.</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Based on the dialogue, what are the main concerns Maria has regarding employees?</p>
+<p>Maria&#x27;s main concerns:</p>
+</div>
+<div class="task"><p class="task-instruction">According to Ben, what challenges is the Operations department facing due to inflation?</p>
+<p>Ben&#x27;s department challenges:</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-PREP">
+<header class="stage-header"><span class="stage-code">PREP</span><h2>Preparation: Gathering Your Thoughts</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Explain that students will prepare for a discussion on inflation&#x27;s impact. <br>
+2. Direct students to the column banks and encourage them to familiarize themselves with the phrases. <br>
+3. Give students a few minutes to silently brainstorm their own ideas and how they might use these phrases. <br>
+4. Encourage them to think about both employee and business perspectives, similar to the model dialogue.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Planning Your Discussion on Inflation</h4>
+<p>You are going to discuss the impact of inflation within a workplace context. Use the phrases below to help you structure your points.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Describing Impact</th><th>Expressing Concerns</th><th>Suggesting Solutions</th></tr><tr><td>The **inflation rate** is really affecting...</td><td>From an employee perspective...</td><td>We need to explore options like...</td></tr><tr><td>We&#x27;re seeing a significant rise in the **cost of living**...</td><td>On the business side, we&#x27;re facing...</td><td>It&#x27;s crucial to maintain open communication.</td></tr><tr><td>Employee **purchasing power** has been eroded.</td><td>Morale is certainly a topic of discussion.</td><td>We should look into non-monetary benefits.</td></tr><tr><td>Operational costs have skyrocketed.</td><td>It&#x27;s a tough balancing act.</td><td>Finding sustainable solutions is key.</td></tr><tr><td>It puts pressure on **wage negotiations**.</td><td>The latest **consumer price index** is concerning.</td><td>Considering the **economic outlook**, we must...</td></tr></table></section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-FP">
+<header class="stage-header"><span class="stage-code">FP</span><h2>Freer Practice: Inflation Impact Discussion</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Divide students into small groups (3-4). <br>
+2. Assign roles if desired (e.g., HR rep, Operations Manager, Employee rep, Finance rep) or allow open discussion. <br>
+3. Remind students to use the language from the preparation stage. <br>
+4. Monitor groups, noting down examples of good language use and areas for delayed correction. <br>
+5. Circulate and provide minimal error correction, focusing on encouraging fluency.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Discussing Solutions to Inflation</h4>
+<p>Imagine you are members of a management team or employee representatives in a company. Your task is to discuss the current <strong class="lexis">inflation rates</strong> and their specific effects on both employee well-being and the company&#x27;s operational costs. </p>
+<p><strong class="lexis">Discuss the following points:</strong><br>
+1. What are the most pressing concerns for employees right now due to the <strong class="lexis">cost of living</strong> increases?<br>
+2. How is the current economic situation impacting the company&#x27;s budget, material costs, and pricing strategies?<br>
+3. Propose and discuss potential solutions or strategies the company could implement to mitigate these impacts, considering both employee support and business sustainability.</p>
+<p>Aim for a professional and constructive discussion.</p>
+</section>
+</article>
+<article class="stage" id="stage-FBDC">
+<header class="stage-header"><span class="stage-code">FBDC</span><h2>Feedback and Delayed Correction</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin with content feedback: Ask each group to briefly summarize their proposed solutions or key discussion points. <br>
+2. Facilitate a short class discussion using the student reflection questions. <br>
+3. Transition to delayed language correction: <br>
+    a. Write target language errors (anonymously) observed during the FP stage on the board. <br>
+    b. Elicit corrections from students. <br>
+    c. Highlight any particularly good examples of language use or accurate use of target vocabulary. <br>
+4. Reinforce correct usage of vocabulary related to finance and inflation.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Reflecting on Our Discussion</h4>
+<p>Think about the discussion you just had.<br>
+1. What were the most challenging aspects of discussing inflation&#x27;s impact on your hypothetical company?<br>
+2. What new insights did you gain from your group members&#x27; perspectives?<br>
+3. Which of the phrases from the preparation stage did you find most useful, or which new phrases did you learn from your peers?<br>
+4. What specific solutions did your group propose, and do you think they are realistic for a company in the current <strong class="lexis">economic outlook</strong>?</p>
+</section>
+</article>
+</body>
+</html>

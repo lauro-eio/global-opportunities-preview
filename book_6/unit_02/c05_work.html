@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Professional Language for Strategic Tech Discussions</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<p><a href="index.html">← Unit index</a></p>
+
+<p class="view-banner">Teacher view</p>
+<header>
+  <h1>Professional Language for Strategic Tech Discussions</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>Book</dt><dd>book_6</dd>
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>2</dd>
+      <dt>Class</dt><dd>5</dd>
+      <dt>Theme</dt><dd>T02_WORK</dd>
+      <dt>Framework</dt><dd>TTT</dd>
+      <dt>Role</dt><dd>TTT_LEXICAL_REGISTER_FOCUS</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-L-IN">
+<header class="stage-header"><span class="stage-code">L-IN</span><h2>Lead-In: Workplace Technology Adoption</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Begin by asking students to think about recent technology changes at their workplace.<br>
+2. Prompt them to share specific examples of new software, systems, or equipment.<br>
+3. Encourage discussion on the initial reactions and experiences of colleagues, focusing on ease or difficulty of adoption.<br>
+4. Facilitate a brief whole-class share-out.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Navigating New Tech at Work</h4>
+<p>Think about your current or a past workplace. </p>
+<p>1. What&#x27;s the most recent piece of new technology or software introduced?<br>
+2. How easy or difficult was it for you and your colleagues to get used to?<br>
+3. What were some common challenges people faced when adapting to these changes?</p>
+</section>
+</article>
+<article class="stage" id="stage-T1">
+<header class="stage-header"><span class="stage-code">T1</span><h2>Test 1: Formal Communication in Strategy Meetings</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Hand out the memo and tasks. Give students 5-7 minutes to read the memo and complete the multiple-choice questions.<br>
+2. Explain that the memo sets the scene for an internal meeting about a new system rollout.<br>
+3. Instruct students to choose the option that sounds most appropriate and professional for a high-level discussion in a corporate setting.<br>
+4. Monitor for common errors in register and appropriacy, noting areas for later clarification.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Professional Language in Review</h4>
+<p>Read the internal memo below regarding the &#x27;Digital Harmony&#x27; project. Then, choose the most appropriate phrase to complete each sentence, maintaining a professional and strategic tone.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Internal Memo: &#x27;Digital Harmony&#x27; Project Phase 2 Review</h5>
+<p>To: Department Managers<br>
+From: Operations Directorate<br>
+Date: October 26, 2024<br>
+Subject: Digital Harmony Project - Phase 2 Review Meeting</p>
+<p>Dear Managers,</p>
+<p>Following the successful completion of Phase 1 of our Digital Harmony project, we are now preparing for the Phase 2 rollout, introducing the new &#x27;SynergyNet&#x27; inventory and logistics management system. We recognize that digital transformation initiatives like this often require significant adaptation from our teams.</p>
+<p>Your feedback and insights are crucial as we navigate this transition. We have scheduled a review meeting to discuss the preliminary feedback from initial user groups, identify potential challenges, and strategize for a smoother, more efficient company-wide implementation. We value your input on user training, technological adoption strategies, and addressing any resistance to change.</p>
+<p>Please come prepared to contribute constructively to this vital discussion. Your departmental perspectives are invaluable.</p>
+<p>Sincerely,</p>
+<p>The Operations Directorate</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Considering the memo, how would you formally introduce a new idea?</p>
+<p>Instead of saying &#x27;I think we should try something new,&#x27; you&#x27;d formally say:</p>
+<ul><li>I&#x27;ve got a fresh idea.</li><li>How about a new plan?</li><li>I&#x27;d like to propose a new approach.</li><li>Let&#x27;s shake things up.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">When expressing a concern about the project, which phrase is most professional?</p>
+<p>Instead of &#x27;I&#x27;m worried about this part,&#x27; you&#x27;d formally say:</p>
+<ul><li>I&#x27;m not keen on how this affects...</li><li>My main concern would be how this impacts...</li><li>This bit could be a problem for...</li><li>I don&#x27;t like what this does to...</li></ul>
+</div>
+<div class="task"><p class="task-instruction">To emphasize consistent understanding across teams, which phrase is most suitable?</p>
+<p>Instead of &#x27;Everyone needs to be on the same page,&#x27; you&#x27;d formally say:</p>
+<ul><li>So everyone gets it, we need to...</li><li>To make sure no one&#x27;s confused...</li><li>To ensure alignment across departments...</li><li>For good teamwork, we must...</li></ul>
+</div>
+<div class="task"><p class="task-instruction">When suggesting concrete actions for the project, what is the best wording?</p>
+<p>Instead of &#x27;We need to do things about this soon,&#x27; you&#x27;d formally say:</p>
+<ul><li>We should hurry up with steps for...</li><li>We&#x27;ve got to sort out what we do for...</li><li>We should prioritize actionable steps for...</li><li>Let&#x27;s decide on some quick moves for...</li></ul>
+</div>
+<div class="task"><p class="task-instruction">How would you politely ask for more detail about future effects?</p>
+<p>Instead of &#x27;What&#x27;s going to happen in the long run?&#x27;, you&#x27;d formally ask:</p>
+<ul><li>Tell me about the end results.</li><li>What are the later effects?</li><li>Could you elaborate on the long-term implications?</li><li>Explain the final consequences.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-TCH">
+<header class="stage-header"><span class="stage-code">TCH</span><h2>Teach: Professional Language for Strategic Discussions</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Review the answers from T1, highlighting the correct formal phrases. Elicit why the correct options are more appropriate than the incorrect ones (register, nuance, professionalism).<br>
+2. Present the target exponents using the column banks. Discuss the exact meaning and appropriate contexts for each phrase (e.g., &#x27;propose&#x27; implies a well-thought-out suggestion, &#x27;concern&#x27; softens a direct criticism).<br>
+3. Focus on phonology: Model each phrase, emphasizing clear word stress (e.g., &#x27;proPOSE&#x27;, &#x27;conCERN&#x27;, &#x27;IMpacts&#x27;, &#x27;aLIGNment&#x27;, &#x27;PRIORitize&#x27;, &#x27;elABorate&#x27;). Drills for pronunciation, paying attention to the professional intonation pattern.<br>
+4. Use Concept Checking Questions (CCQs) for each phrase, e.g., for &#x27;My main concern would be how this impacts&#x27;: &#x27;Is this a direct accusation or a polite way to raise an issue?&#x27; (Polite way). &#x27;Does it focus on the past, present, or future effect?&#x27; (Future effect).<br>
+5. Conduct task 1 to check understanding of meaning and register.<br>
+6. For task 2, have students transform informal sentences into formal ones using the target language.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Mastering Meeting Phrases</h4>
+<p>Now let&#x27;s look closely at the phrases for strategic discussions. Pay attention to their meaning, when to use them, and how they sound.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Column banks</h5><table class="column-banks"><tr><th>Formal Strategic Phrases</th><th>Meaning &amp; Usage</th></tr><tr><td>I&#x27;d like to propose a new approach</td><td>To suggest a well-considered, often different, method or plan.</td></tr><tr><td>My main concern would be how this impacts</td><td>To politely express a significant worry about the potential effects.</td></tr><tr><td>To ensure alignment across departments</td><td>To make sure all teams are working towards the same goals and understand decisions consistently.</td></tr><tr><td>We should prioritize actionable steps for</td><td>To identify and focus on the practical, concrete actions that need to be taken first.</td></tr><tr><td>Could you elaborate on the long-term implications?</td><td>To ask for more detailed information about the future consequences or outcomes of something.</td></tr></table></section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Which situation would best use the phrase: &#x27;To ensure alignment across departments&#x27;?</p>
+<p>Choose the most suitable situation:</p>
+<ul><li>When you want everyone to like your idea.</li><li>When you need to make sure all teams understand and support a decision consistently.</li><li>When you&#x27;re trying to find something lost between departments.</li><li>When you want to praise departments for their hard work.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the following informal sentence using one of the formal phrases you&#x27;ve learned. The target phrase is given in brackets. Maintain a professional register.</p>
+<p>Informal: &#x27;I think we really need to focus on what we can actually do.&#x27;
+Formal: &#x27;____________ actionable steps for innovation.&#x27; [We should prioritize]</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the following informal sentence using one of the formal phrases you&#x27;ve learned. The target phrase is given in brackets. Maintain a professional register.</p>
+<p>Informal: &#x27;What do you mean about how this will affect us in the future?&#x27;
+Formal: &#x27;____________ on the long-term implications?&#x27; [Could you elaborate]</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-T2">
+<header class="stage-header"><span class="stage-code">T2</span><h2>Test 2: Strategic Meeting Roleplay</h2></header>
+<section class="teacher">
+<h3>Teacher notes</h3>
+<p>1. Divide students into small groups (3-4 people). Assign roles (e.g., Department Head A, Department Head B, Operations Representative, HR Representative).<br>
+2. Provide the scenario and discussion points. Emphasize that students should use the target professional phrases learned in TCH naturally during their discussion.<br>
+3. Instruct students to discuss the challenges of new technology adoption and propose solutions, using the formal language.<br>
+4. Circulate and monitor, noting effective use of target language and any remaining errors in register or pronunciation. Provide discrete correction or delayed feedback as appropriate.<br>
+5. After 10-15 minutes, bring the class back together for a brief whole-class feedback session, highlighting good examples and areas for improvement.</p>
+</section>
+<section class="handout">
+<h3>Student handout</h3>
+<h4 class="handout-title">Corporate Strategy Session</h4>
+<p>Imagine you are in a follow-up meeting about the &#x27;Digital Harmony&#x27; project at your company. Your task is to discuss challenges related to the new SynergyNet system and propose solutions. Use the professional phrases we&#x27;ve practiced today.</p>
+<p>Scenario: Initial feedback from user groups indicates some resistance to change and difficulties with the new user training modules.</p>
+<p>Discussion Points:<br>
+*   What are the main issues or concerns regarding the new system?<br>
+*   What new approaches could we propose for training or integration?<br>
+*   How can we ensure alignment across departments during the rollout?<br>
+*   What actionable steps should we prioritize to address these issues?<br>
+*   What are the long-term implications if we don&#x27;t resolve these challenges?</p>
+<p>Work in small groups to simulate this meeting. Aim to contribute constructively and formally.</p>
+</section>
+</article>
+</body>
+</html>

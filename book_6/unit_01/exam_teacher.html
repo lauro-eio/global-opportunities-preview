@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit exam — Cultivating Professional Presence and Workplace Communication</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-teacher">
+
+<nav class="breadcrumbs"><a href="index.html">← Unit index</a></nav>
+<header>
+  <p class="view-banner">Teacher · Unit exam key</p>
+  <h1>Unit exam — Cultivating Professional Presence and Workplace Communication</h1>
+  <p class="meta">T01_IDENTITY · C1 · 30 items</p>
+</header>
+<article class="exam-item" id="q01"><div class="exam-item-header"><span class="qnum">1. q01</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">In some cultures, direct criticism can be easily __________ as a personal attack, making a more indirect approach preferable.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>misinterpreted ✓</li><li><span class="opt-key">B.</span>understood</li><li><span class="opt-key">C.</span>clarified</li><li><span class="opt-key">D.</span>evaluated</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q02"><div class="exam-item-header"><span class="qnum">2. q02</span><span class="exam-meta">lexis · class 1</span></div><div class="exam-prompt">Building __________ is crucial for successful cross-cultural communication, as it establishes trust and mutual understanding.</div><ul class="exam-options"><li><span class="opt-key">A.</span>hierarchy</li><li class="correct"><span class="opt-key">B.</span>rapport ✓</li><li><span class="opt-key">C.</span>protocol</li><li><span class="opt-key">D.</span>indirectness</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q03"><div class="exam-item-header"><span class="qnum">3. q03</span><span class="exam-meta">comprehension · class 1</span></div><div class="exam-prompt">During a project review with a diverse international team, Sarah provides feedback to a colleague by praising their overall contribution before gently suggesting areas for improvement. This approach demonstrates an understanding of __________.</div><ul class="exam-options"><li><span class="opt-key">A.</span>direct confrontation</li><li><span class="opt-key">B.</span>assertive negotiation</li><li class="correct"><span class="opt-key">C.</span>cultural sensitivity ✓</li><li><span class="opt-key">D.</span>personal branding</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q04"><div class="exam-item-header"><span class="qnum">4. q04</span><span class="exam-meta">grammar · class 1</span></div><div class="exam-prompt">When working with international clients, it is important to acknowledge that __________ may vary significantly and influence how messages are received.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>feedback styles ✓</li><li><span class="opt-key">B.</span>individual preferences</li><li><span class="opt-key">C.</span>technological platforms</li><li><span class="opt-key">D.</span>marketing strategies</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q05"><div class="exam-item-header"><span class="qnum">5. q05</span><span class="exam-meta">grammar · class 2</span></div><div class="exam-prompt">Complete the sentence with the most appropriate emphatic structure: __________ that we can build a truly inclusive and equitable workplace.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>It is through vigilant adherence to our compliance codes ✓</li><li><span class="opt-key">B.</span>Adherence to our compliance codes</li><li><span class="opt-key">C.</span>Our compliance codes</li><li><span class="opt-key">D.</span>Through our compliance codes</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q06"><div class="exam-item-header"><span class="qnum">6. q06</span><span class="exam-meta">lexis · class 2</span></div><div class="exam-prompt">Maintaining __________ is fundamental to professional conduct, ensuring all actions are ethical and transparent.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>integrity ✓</li><li><span class="opt-key">B.</span>ambition</li><li><span class="opt-key">C.</span>flexibility</li><li><span class="opt-key">D.</span>charisma</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q07"><div class="exam-item-header"><span class="qnum">7. q07</span><span class="exam-meta">comprehension · class 2</span></div><div class="exam-prompt">A manager discovered an error made by a junior colleague. Instead of publicly criticizing, they scheduled a private meeting to discuss the mistake and offer guidance. This demonstrates a commitment to upholding __________.</div><ul class="exam-options"><li><span class="opt-key">A.</span>a hierarchical structure</li><li class="correct"><span class="opt-key">B.</span>professional conduct ✓</li><li><span class="opt-key">C.</span>strict deadlines</li><li><span class="opt-key">D.</span>personal ambition</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q08"><div class="exam-item-header"><span class="qnum">8. q08</span><span class="exam-meta">grammar · class 2</span></div><div class="exam-prompt">When asked about your contribution to the recent project, which statement best articulates your role and impact?</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>My primary focus is to ensure all tasks are completed on time. ✓</li><li><span class="opt-key">B.</span>I was involved in some parts of the project.</li><li><span class="opt-key">C.</span>I tried my best to help out where I could.</li><li><span class="opt-key">D.</span>The team completed the project successfully.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q09"><div class="exam-item-header"><span class="qnum">9. q09</span><span class="exam-meta">lexis · class 3</span></div><div class="exam-prompt">A robust __________ is essential for helping new hires from diverse backgrounds quickly adapt to the company culture and their roles.</div><ul class="exam-options"><li><span class="opt-key">A.</span>appraisal system</li><li class="correct"><span class="opt-key">B.</span>onboarding process ✓</li><li><span class="opt-key">C.</span>disciplinary procedure</li><li><span class="opt-key">D.</span>marketing campaign</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q10"><div class="exam-item-header"><span class="qnum">10. q10</span><span class="exam-meta">comprehension · class 3</span></div><div class="exam-prompt">To foster a stronger __________, the team leader organized regular informal coffee breaks where members could share personal interests and stories, promoting deeper connections.</div><ul class="exam-options"><li><span class="opt-key">A.</span>competitive spirit</li><li class="correct"><span class="opt-key">B.</span>sense of community ✓</li><li><span class="opt-key">C.</span>individual performance</li><li><span class="opt-key">D.</span>administrative burden</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q11"><div class="exam-item-header"><span class="qnum">11. q11</span><span class="exam-meta">lexis · class 3</span></div><div class="exam-prompt">Effective __________ involves deliberately creating an environment where all team members, regardless of their background, feel valued, respected, and heard.</div><ul class="exam-options"><li><span class="opt-key">A.</span>delegation of tasks</li><li><span class="opt-key">B.</span>conflict resolution</li><li class="correct"><span class="opt-key">C.</span>team integration ✓</li><li><span class="opt-key">D.</span>performance review</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q12"><div class="exam-item-header"><span class="qnum">12. q12</span><span class="exam-meta">grammar · class 3</span></div><div class="exam-prompt">What strategy best supports fostering a sense of belonging for new team members from various cultural backgrounds?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Limiting interactions to formal work-related discussions only.</li><li><span class="opt-key">B.</span>Assigning them to work independently to avoid cultural clashes.</li><li class="correct"><span class="opt-key">C.</span>Providing mentorship opportunities and cross-cultural communication training. ✓</li><li><span class="opt-key">D.</span>Expecting them to conform quickly to existing team norms without guidance.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q13"><div class="exam-item-header"><span class="qnum">13. q13</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">Despite our best intentions, everyone may hold some __________ that can subtly influence their decisions and interactions in the workplace.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>unconscious bias ✓</li><li><span class="opt-key">B.</span>strategic plans</li><li><span class="opt-key">C.</span>personal achievements</li><li><span class="opt-key">D.</span>explicit policies</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q14"><div class="exam-item-header"><span class="qnum">14. q14</span><span class="exam-meta">comprehension · class 4</span></div><div class="exam-prompt">During a team meeting, a colleague repeatedly interrupts a female team member, rephrasing her points as his own, and dismisses her suggestions. This behavior could be classified as a form of __________.</div><ul class="exam-options"><li><span class="opt-key">A.</span>constructive feedback</li><li class="correct"><span class="opt-key">B.</span>microaggression ✓</li><li><span class="opt-key">C.</span>assertive communication</li><li><span class="opt-key">D.</span>professional disagreement</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q15"><div class="exam-item-header"><span class="qnum">15. q15</span><span class="exam-meta">lexis · class 4</span></div><div class="exam-prompt">The term __________ refers to existing ideas or opinions about a person or group, formed without sufficient evidence and often based on stereotypes.</div><ul class="exam-options"><li><span class="opt-key">A.</span>empathy</li><li class="correct"><span class="opt-key">B.</span>preconceptions ✓</li><li><span class="opt-key">C.</span>analysis</li><li><span class="opt-key">D.</span>objectivity</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q16"><div class="exam-item-header"><span class="qnum">16. q16</span><span class="exam-meta">register · class 4</span></div><div class="exam-prompt">In a team discussion about promotion criteria, a manager suggests that &#x27;cultural fit&#x27; primarily means someone who shares similar social interests with the existing leadership. What is the most appropriate way to address this potential bias?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Privately inform HR about the manager&#x27;s comment.</li><li><span class="opt-key">B.</span>Publicly challenge the manager&#x27;s statement in the meeting.</li><li class="correct"><span class="opt-key">C.</span>Ask for clarification on how &#x27;cultural fit&#x27; aligns with broader diversity and inclusion goals. ✓</li><li><span class="opt-key">D.</span>Ignore the comment and hope others recognize the issue.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q17"><div class="exam-item-header"><span class="qnum">17. q17</span><span class="exam-meta">lexis · class 5</span></div><div class="exam-prompt">To cut operational costs, the company announced an &#x27;__________&#x27; aimed at streamlining processes and reducing redundancies.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Efficiency Drive ✓</li><li><span class="opt-key">B.</span>Morale Boost</li><li><span class="opt-key">C.</span>Innovation Sprint</li><li><span class="opt-key">D.</span>Team Building Initiative</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q18"><div class="exam-item-header"><span class="qnum">18. q18</span><span class="exam-meta">register · class 5</span></div><div class="exam-prompt">You are presenting complex technical information to a group of non-technical stakeholders and culturally diverse clients. What communication strategy is most appropriate?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Use highly specialized jargon to demonstrate your expertise.</li><li class="correct"><span class="opt-key">B.</span>Focus on the practical implications and business value, using clear, simple language. ✓</li><li><span class="opt-key">C.</span>Speak rapidly to cover all details within the allotted time.</li><li><span class="opt-key">D.</span>Rely heavily on abstract theories without concrete examples.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q19"><div class="exam-item-header"><span class="qnum">19. q19</span><span class="exam-meta">lexis · class 5</span></div><div class="exam-prompt">The consultant was hired due to their proven __________ in supply chain optimization, which was critical for the project&#x27;s success.</div><ul class="exam-options"><li><span class="opt-key">A.</span>enthusiasm</li><li class="correct"><span class="opt-key">B.</span>expertise ✓</li><li><span class="opt-key">C.</span>acquaintance</li><li><span class="opt-key">D.</span>popularity</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q20"><div class="exam-item-header"><span class="qnum">20. q20</span><span class="exam-meta">grammar · class 5</span></div><div class="exam-prompt">When collaborating with a new international partner, it&#x27;s vital to clearly articulate your team&#x27;s role. Which statement is the most effective and professional?</div><ul class="exam-options"><li><span class="opt-key">A.</span>We&#x27;re sort of responsible for the initial stages of the project.</li><li class="correct"><span class="opt-key">B.</span>Our team is mainly in charge of the initial project phases, focusing on feasibility and planning. ✓</li><li><span class="opt-key">C.</span>We handle whatever comes our way at the beginning.</li><li><span class="opt-key">D.</span>I think we will probably start the project.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q21"><div class="exam-item-header"><span class="qnum">21. q21</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">Developing a strong __________ involves consistently demonstrating your skills, values, and reliability in all professional interactions.</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>Professional Brand ✓</li><li><span class="opt-key">B.</span>social circle</li><li><span class="opt-key">C.</span>personal finances</li><li><span class="opt-key">D.</span>leisure pursuit</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q22"><div class="exam-item-header"><span class="qnum">22. q22</span><span class="exam-meta">comprehension · class 6</span></div><div class="exam-prompt">Sarah regularly updates her LinkedIn profile, shares industry insights, and volunteers for leadership roles in company initiatives. She is actively engaged in __________.</div><ul class="exam-options"><li><span class="opt-key">A.</span>avoiding responsibilities</li><li class="correct"><span class="opt-key">B.</span>reputation management ✓</li><li><span class="opt-key">C.</span>neglecting her duties</li><li><span class="opt-key">D.</span>seeking personal favors</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q23"><div class="exam-item-header"><span class="qnum">23. q23</span><span class="exam-meta">lexis · class 6</span></div><div class="exam-prompt">To enhance his __________, John attended workshops on public speaking and sought opportunities to present his work to senior leadership.</div><ul class="exam-options"><li><span class="opt-key">A.</span>disinterest</li><li class="correct"><span class="opt-key">B.</span>self-presentation ✓</li><li><span class="opt-key">C.</span>reclusiveness</li><li><span class="opt-key">D.</span>procrastination</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q24"><div class="exam-item-header"><span class="qnum">24. q24</span><span class="exam-meta">grammar · class 6</span></div><div class="exam-prompt">What is the most effective way to align your professional identity with your long-term career goals while respecting organizational culture?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Strictly adhering to your personal preferences regardless of company norms.</li><li class="correct"><span class="opt-key">B.</span>Adopting a flexible approach, adapting communication styles and showcasing transferable skills. ✓</li><li><span class="opt-key">C.</span>Imitating a senior leader&#x27;s exact style without genuine consideration for your own strengths.</li><li><span class="opt-key">D.</span>Focusing solely on external networking without internal engagement.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q25"><div class="exam-item-header"><span class="qnum">25. q25</span><span class="exam-meta">grammar · class 7</span></div><div class="exam-prompt">Choose the sentence that uses a cleft structure to emphasize the importance of understanding global markets.</div><ul class="exam-options"><li><span class="opt-key">A.</span>Understanding global markets is crucial.</li><li class="correct"><span class="opt-key">B.</span>What is truly crucial is understanding global markets. ✓</li><li><span class="opt-key">C.</span>Global markets should be understood.</li><li><span class="opt-key">D.</span>We must understand global markets.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q26"><div class="exam-item-header"><span class="qnum">26. q26</span><span class="exam-meta">lexis · class 7</span></div><div class="exam-prompt">Effective international business communication requires a deep appreciation for the __________ present in different regions and societies.</div><ul class="exam-options"><li><span class="opt-key">A.</span>technological advancements</li><li class="correct"><span class="opt-key">B.</span>cultural nuances ✓</li><li><span class="opt-key">C.</span>economic indicators</li><li><span class="opt-key">D.</span>geological formations</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q27"><div class="exam-item-header"><span class="qnum">27. q27</span><span class="exam-meta">comprehension · class 7</span></div><div class="exam-prompt">A multinational corporation insists on a uniform global marketing strategy, but its local branch in a new market struggles due to different consumer preferences and traditional values. This situation highlights the tension between __________.</div><ul class="exam-options"><li><span class="opt-key">A.</span>efficient production and supply chain management</li><li class="correct"><span class="opt-key">B.</span>a global corporate identity and local cultural norms ✓</li><li><span class="opt-key">C.</span>financial profitability and stakeholder engagement</li><li><span class="opt-key">D.</span>technological innovation and outdated practices</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q28"><div class="exam-item-header"><span class="qnum">28. q28</span><span class="exam-meta">lexis · class 7</span></div><div class="exam-prompt">Successful market entry into a new country often hinges on a company&#x27;s capacity for rapid __________ to local regulations and consumer tastes.</div><ul class="exam-options"><li><span class="opt-key">A.</span>resistance</li><li><span class="opt-key">B.</span>dismissal</li><li class="correct"><span class="opt-key">C.</span>adaptation ✓</li><li><span class="opt-key">D.</span>disregard</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q29"><div class="exam-item-header"><span class="qnum">29. q29</span><span class="exam-meta">synthesis · class 7</span></div><div class="exam-prompt">A new project manager is tasked with leading a culturally diverse team that includes members from hierarchical and egalitarian cultures. To cultivate an effective and inclusive professional presence, which approach should the manager prioritize?</div><ul class="exam-options"><li><span class="opt-key">A.</span>Establish a strictly egalitarian team structure, disregarding prior cultural norms.</li><li><span class="opt-key">B.</span>Implement a formal, top-down communication style to maintain authority.</li><li class="correct"><span class="opt-key">C.</span>Facilitate an open discussion about preferred communication styles and decision-making processes, adapting as needed. ✓</li><li><span class="opt-key">D.</span>Allow team members from dominant cultures to set the tone for all interactions.</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article><article class="exam-item" id="q30"><div class="exam-item-header"><span class="qnum">30. q30</span><span class="exam-meta">synthesis · class 7</span></div><div class="exam-prompt">Complete the sentence using a cleft structure and appropriate professional vocabulary, emphasizing the key to overcoming cross-cultural communication challenges in the workplace: &#x27;__________ that truly enables effective collaboration across global teams.&#x27;</div><ul class="exam-options"><li class="correct"><span class="opt-key">A.</span>It is understanding cultural nuances and adapting communication styles ✓</li><li><span class="opt-key">B.</span>Understanding cultural nuances</li><li><span class="opt-key">C.</span>Cultural nuances are understood</li><li><span class="opt-key">D.</span>Only cultural nuances</li></ul><div class="exam-explanation"><strong>Explanation</strong></div></article>
+
+</body>
+</html>

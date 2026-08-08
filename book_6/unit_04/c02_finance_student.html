@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Budget Performance: Reviewing &amp;amp; Making Your Case</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #fafafa;
+      --teacher-bg: #f3f6f9;
+      --accent: #2c5282;
+      --student-accent: #276749;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      background: #fff;
+    }
+    body.view-teacher { border-top: 4px solid var(--accent); }
+    body.view-student { border-top: 4px solid var(--student-accent); }
+    h1 { font-size: 1.5rem; margin: 0 0 0.5rem; line-height: 1.3; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.5rem; }
+    h4, h5 { font-size: 0.85rem; margin: 0.75rem 0 0.35rem; color: var(--muted); }
+    .handout-title {
+      font-size: 1.05rem;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    strong.lexis { font-weight: 700; }
+    a { color: var(--accent); }
+    .view-banner {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+    body.view-teacher .view-banner { color: var(--accent); }
+    body.view-student .view-banner { color: var(--student-accent); }
+    .breadcrumbs {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .meta dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.2rem 1rem;
+      margin: 0;
+    }
+    .meta dt { font-weight: 600; }
+    .meta dd { margin: 0; }
+    .stage {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .stage-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    body.view-student .stage-header {
+      display: block;
+    }
+    .stage-code {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .handout, .teacher, .materials {
+      padding: 0.85rem 1rem;
+    }
+    .teacher {
+      background: var(--teacher-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .materials {
+      border-top: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+    .passage {
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid var(--border);
+      margin: 0.5rem 0;
+    }
+    .task { margin-bottom: 0.75rem; }
+    .task-instruction { font-weight: 600; }
+    ul { margin: 0.25rem 0 0.75rem; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .index-list {
+      font-family: system-ui, sans-serif;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0;
+    }
+    .index-list a { text-decoration: none; font-weight: 500; }
+    .index-list a:hover { text-decoration: underline; }
+    .index-meta { font-size: 0.85rem; color: var(--muted); }
+    .index-links { margin-top: 0.35rem; }
+    .index-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-right: 0.75rem;
+    }
+    .exam-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .exam-item-header {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .exam-item-header .qnum {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .exam-prompt {
+      padding: 0.85rem 1rem;
+      font-weight: 500;
+    }
+    .exam-options {
+      list-style: none;
+      padding: 0 1rem 0.85rem;
+      margin: 0;
+    }
+    .exam-options li {
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }
+    .exam-options li.correct {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+      font-weight: 600;
+    }
+    .exam-options .opt-key {
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+    .exam-explanation {
+      padding: 0.75rem 1rem;
+      background: var(--teacher-bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .exam-explanation strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="view-student">
+
+
+
+<header>
+  <h1>Budget Performance: Reviewing &amp; Making Your Case</h1>
+  <div class="meta">
+    <dl>
+
+      <dt>CEFR</dt><dd>C1</dd>
+      <dt>Unit</dt><dd>4</dd>
+      <dt>Class</dt><dd>2</dd>
+    </dl>
+  </div>
+</header>
+<article class="stage" id="stage-your-department-x27-s-budget">
+<header class="stage-header"><h2>Your Department&#x27;s Budget</h2></header>
+<section class="handout">
+<p>Good morning, everyone. Today, we&#x27;re going to discuss how financial decisions impact our teams and departments. </p>
+<p>Think about your current role or department: <br>
+1. How are resources, like money, staff, or equipment, usually <strong class="lexis">allocated</strong> in your team or department? <br>
+2. Do you ever find yourselves under pressure to <strong class="lexis">reduce costs</strong> or justify certain expenditures? If so, what kind of pressure is it?</p>
+<p>Discuss these questions with a partner for a few minutes.</p>
+</section>
+</article>
+<article class="stage" id="stage-first-look-q3-budget-review">
+<header class="stage-header"><h2>First Look: Q3 Budget Review</h2></header>
+<section class="handout">
+<p>Read the memo below quickly. Don&#x27;t worry about every detail, just try to understand the main reason it was sent.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Memo: Q3 Performance Review &amp; Cost-Saving Initiatives</h5>
+<p>To: All Department Heads<br>
+From: Eleanor Vance, Finance Director<br>
+Date: October 25th<br>
+Subject: Q3 Performance Review &amp; Upcoming <strong class="lexis">Cost-Saving Initiatives</strong></p>
+<p>Dear Department Heads,</p>
+<p>I am writing to provide an overview of our financial performance for the third <strong class="lexis">fiscal quarter</strong> and outline critical areas requiring immediate attention. Overall, the company continues to demonstrate resilience, yet certain departmental expenditures have shown concerning <strong class="lexis">variance</strong> against our initial <strong class="lexis">budget allocations</strong>. While we managed to <strong class="lexis">post a significant profit</strong> globally, largely due to strong international sales, we must address internal spending more rigorously.</p>
+<p>Specifically, the operational overhead in several departments has significantly impacted our overall <strong class="lexis">return on investment (ROI)</strong>. The surge in unexpected maintenance costs was particularly notable. Additionally, raw material costs have seen an upward trend, directly affecting our production budget. We must act decisively to maintain our <strong class="lexis">projected growth figures</strong> and ensure long-term stability.</p>
+<p>What is clear from our analysis is the urgent need to re-evaluate our procurement processes. What we are primarily focused on now is identifying sustainable strategies for <strong class="lexis">operational efficiency</strong>. To that end, effective immediately, all non-critical expenditures will require explicit approval from the Finance Department. We believe that a more stringent approach will help us mitigate potential risks as <strong class="lexis">market sentiment remains cautious</strong>.</p>
+<p>We will be scheduling individual meetings with each department over the next two weeks to discuss specific areas where <strong class="lexis">cost-cutting</strong> measures can be implemented without compromising service delivery or employee well-being. What we aim to achieve is a lean yet robust operational model.</p>
+<p>Your cooperation and proactive engagement in these initiatives are paramount to our collective success. Thank you for your understanding and commitment.</p>
+<p>Sincerely,<br>
+Eleanor Vance<br>
+Finance Director</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">What is the primary purpose of this memo?</p>
+<p>Choose the best summary of the memo&#x27;s main message.</p>
+<ul><li>To announce a new product launch and marketing strategy.</li><li>To negotiate salary increases for all department heads.</li><li>To review Q3 financial performance and propose new cost-saving measures.</li><li>To celebrate the company&#x27;s high profits and market success.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-key-details-amp-underlying-meanings">
+<header class="stage-header"><h2>Key Details &amp; Underlying Meanings</h2></header>
+<section class="handout">
+<p>Read the memo again more closely and answer the following questions. Some answers might require you to infer meaning.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Memo: Q3 Performance Review &amp; Cost-Saving Initiatives</h5>
+<p>To: All Department Heads<br>
+From: Eleanor Vance, Finance Director<br>
+Date: October 25th<br>
+Subject: Q3 Performance Review &amp; Upcoming <strong class="lexis">Cost-Saving Initiatives</strong></p>
+<p>Dear Department Heads,</p>
+<p>I am writing to provide an overview of our financial performance for the third <strong class="lexis">fiscal quarter</strong> and outline critical areas requiring immediate attention. Overall, the company continues to demonstrate resilience, yet certain departmental expenditures have shown concerning <strong class="lexis">variance</strong> against our initial <strong class="lexis">budget allocations</strong>. While we managed to <strong class="lexis">post a significant profit</strong> globally, largely due to strong international sales, we must address internal spending more rigorously.</p>
+<p>Specifically, the operational overhead in several departments has significantly impacted our overall <strong class="lexis">return on investment (ROI)</strong>. The surge in unexpected maintenance costs was particularly notable. Additionally, raw material costs have seen an upward trend, directly affecting our production budget. We must act decisively to maintain our <strong class="lexis">projected growth figures</strong> and ensure long-term stability.</p>
+<p>What is clear from our analysis is the urgent need to re-evaluate our procurement processes. What we are primarily focused on now is identifying sustainable strategies for <strong class="lexis">operational efficiency</strong>. To that end, effective immediately, all non-critical expenditures will require explicit approval from the Finance Department. We believe that a more stringent approach will help us mitigate potential risks as <strong class="lexis">market sentiment remains cautious</strong>.</p>
+<p>We will be scheduling individual meetings with each department over the next two weeks to discuss specific areas where <strong class="lexis">cost-cutting</strong> measures can be implemented without compromising service delivery or employee well-being. What we aim to achieve is a lean yet robust operational model.</p>
+<p>Your cooperation and proactive engagement in these initiatives are paramount to our collective success. Thank you for your understanding and commitment.</p>
+<p>Sincerely,<br>
+Eleanor Vance<br>
+Finance Director</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">According to the memo, what was the main reason the company was able to &#x27;post a significant profit&#x27; globally?</p>
+<p>Main reason for global profit:</p>
+</div>
+<div class="task"><p class="task-instruction">What does the phrase &#x27;market sentiment remains cautious&#x27; imply about the company&#x27;s future outlook?</p>
+<p>What does &#x27;market sentiment remains cautious&#x27; imply?</p>
+<ul><li>The company expects rapid growth and expansion.</li><li>Investors are very optimistic about the market.</li><li>There is uncertainty and potential risk in the market.</li><li>The company plans to acquire new competitors.</li></ul>
+</div>
+<div class="task"><p class="task-instruction">Which two types of costs are specifically mentioned as having increased, negatively impacting the budget?</p>
+<p>Two increased costs:</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-analyzing-emphasis-amp-formal-language">
+<header class="stage-header"><h2>Analyzing Emphasis &amp; Formal Language</h2></header>
+<section class="handout">
+<p>The Finance Director uses specific language to emphasize important financial information and to discuss company performance formally. Let&#x27;s look closer at some examples from the memo.</p>
+<div class="materials">
+<h4>Materials</h4>
+<section class="passage">
+<h5>Memo: Q3 Performance Review &amp; Cost-Saving Initiatives</h5>
+<p>To: All Department Heads<br>
+From: Eleanor Vance, Finance Director<br>
+Date: October 25th<br>
+Subject: Q3 Performance Review &amp; Upcoming <strong class="lexis">Cost-Saving Initiatives</strong></p>
+<p>Dear Department Heads,</p>
+<p>I am writing to provide an overview of our financial performance for the third <strong class="lexis">fiscal quarter</strong> and outline critical areas requiring immediate attention. Overall, the company continues to demonstrate resilience, yet certain departmental expenditures have shown concerning <strong class="lexis">variance</strong> against our initial <strong class="lexis">budget allocations</strong>. While we managed to <strong class="lexis">post a significant profit</strong> globally, largely due to strong international sales, we must address internal spending more rigorously.</p>
+<p>Specifically, the operational overhead in several departments has significantly impacted our overall <strong class="lexis">return on investment (ROI)</strong>. The surge in unexpected maintenance costs was particularly notable. Additionally, raw material costs have seen an upward trend, directly affecting our production budget. We must act decisively to maintain our <strong class="lexis">projected growth figures</strong> and ensure long-term stability.</p>
+<p>What is clear from our analysis is the urgent need to re-evaluate our procurement processes. What we are primarily focused on now is identifying sustainable strategies for <strong class="lexis">operational efficiency</strong>. To that end, effective immediately, all non-critical expenditures will require explicit approval from the Finance Department. We believe that a more stringent approach will help us mitigate potential risks as <strong class="lexis">market sentiment remains cautious</strong>.</p>
+<p>We will be scheduling individual meetings with each department over the next two weeks to discuss specific areas where <strong class="lexis">cost-cutting</strong> measures can be implemented without compromising service delivery or employee well-being. What we aim to achieve is a lean yet robust operational model.</p>
+<p>Your cooperation and proactive engagement in these initiatives are paramount to our collective success. Thank you for your understanding and commitment.</p>
+<p>Sincerely,<br>
+Eleanor Vance<br>
+Finance Director</p>
+</section>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Find and write down two sentences from the memo that start with &#x27;What&#x27; and are used to emphasize a particular point or highlight key information.</p>
+<p>Emphasized sentences from the memo:</p>
+</div>
+<div class="task"><p class="task-instruction">In these sentences, what is the effect of starting with &#x27;What... is/was...&#x27;? Why do you think the Finance Director uses this structure?</p>
+<p>Effect of &#x27;What... is/was...&#x27; structure:</p>
+</div>
+<div class="task"><p class="task-instruction">Match the financial phrases from the memo to their formal definitions or pragmatic functions in professional communication.</p>
+<p>Match the financial terms to their meanings.</p>
+<ul><li><strong>post a significant profit/loss</strong> — To officially report a large financial gain or deficit.</li><li><strong>market sentiment remains cautious</strong> — Indicates a general feeling of uncertainty or potential instability among investors.</li><li><strong>projected growth figures</strong> — Estimates of future increases in size, value, or sales.</li><li><strong>fiscal quarter</strong> — A three-month period used for financial reporting.</li><li><strong>return on investment (ROI)</strong> — A measure of the profitability of an investment.</li><li><strong>operational efficiency</strong> — Optimizing processes to minimize waste and maximize output.</li></ul>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-constructing-focused-financial-statement">
+<header class="stage-header"><h2>Constructing Focused Financial Statements</h2></header>
+<section class="handout">
+<p>Now, let&#x27;s practice using cleft sentences to emphasize specific information, which is a powerful tool in financial discussions. We&#x27;ll also use some of the key financial vocabulary from today.</p>
+<p>Remember: <strong class="lexis">What + clause + is/was + emphasized element</strong></p>
+<div class="materials">
+<h4>Materials</h4>
+<section><h5>Tasks</h5>
+<div class="task"><p class="task-instruction">Rewrite the following sentence to emphasize &#x27;the liability scaling&#x27;, using a cleft sentence structure: &#x27;The liability scaling shocked the board.&#x27;</p>
+<p>Rewrite to emphasize &#x27;the liability scaling&#x27;:</p>
+</div>
+<div class="task"><p class="task-instruction">Rewrite the following sentence to emphasize &#x27;the expenditure inflation&#x27;, using a cleft sentence structure: &#x27;The expenditure inflation triggered the audit.&#x27;</p>
+<p>Rewrite to emphasize &#x27;the expenditure inflation&#x27;:</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence using appropriate financial vocabulary from the lesson:</p>
+<p>Despite challenging global conditions, the company managed to __________ in the last quarter.</p>
+</div>
+<div class="task"><p class="task-instruction">Complete the sentence using appropriate financial vocabulary from the lesson:</p>
+<p>To meet our goals for the next fiscal quarter, we need to achieve greater __________ across all operations to reduce our overhead costs.</p>
+</div>
+</section>
+</div>
+</section>
+</article>
+<article class="stage" id="stage-advocating-for-your-department-x27-s-bud">
+<header class="stage-header"><h2>Advocating for Your Department&#x27;s Budget</h2></header>
+<section class="handout">
+<p>Imagine you are a Department Head. You need to prepare a brief statement (3-5 sentences) for Eleanor Vance, the Finance Director, either explaining a critical budget need or proposing a cost-saving initiative for your department. Your goal is to be clear, professional, and diplomatic, yet persuasive.</p>
+<p>In your statement:<br>
+1. Use at least <strong class="lexis">one cleft sentence</strong> to emphasize a key financial point (e.g., &#x27;What is clear is...&#x27;, &#x27;What we need is...&#x27;).<br>
+2. Incorporate at least <strong class="lexis">two pieces of professional financial vocabulary</strong> we discussed today (e.g., <strong class="lexis">fiscal quarter</strong>, <strong class="lexis">ROI</strong>, <strong class="lexis">operational efficiency</strong>, <strong class="lexis">cost-cutting</strong>, <strong class="lexis">projected growth figures</strong>).</p>
+<p>Prepare your statement and be ready to share it with the class.</p>
+</section>
+</article>
+</body>
+</html>
